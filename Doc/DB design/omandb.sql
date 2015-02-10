@@ -28,7 +28,7 @@ USE `omandb`;
 -- Tabelstructuur voor tabel `familie`
 --
 
-CREATE TABLE IF NOT EXISTS `familie` (
+CREATE TABLE IF NOT EXISTS `family` (
   `FamilyID` int(11) NOT NULL AUTO_INCREMENT,
   `FamilyName` varchar(50) NOT NULL,
   `Description` varchar(2000) DEFAULT NULL,
@@ -40,14 +40,14 @@ CREATE TABLE IF NOT EXISTS `familie` (
 -- Gegevens worden uitgevoerd voor tabel `familie`
 --
 
-INSERT INTO `familie` (`FamilyID`, `FamilyName`, `Description`) VALUES
-(1, 'mammels', 'have fur or hair\r\nneed air to breath\r\nwarm blooded\r\nfeed young with milk'),
-(2, 'birds', 'have feathers and wings\r\nwarm blooded\r\nlay eggs\r\nhave two legs\r\nhave a beak'),
-(3, 'reptiles', 'have a beak\r\nhave dry scaly skin\r\ncold blooded\r\nhave four legs'),
-(4, 'amphibians', 'have a slimy skin\r\nhave webbed feet\r\nbreath with lungs and gills\r\ncold blooded'),
-(5, 'insects', 'have six legs\r\nhave an exosceleton\r\nthree bodyparts\r\nhear,touch and tast with antennae'),
+INSERT INTO `family` (`FamilyID`, `FamilyName`, `Description`) VALUES
+(1, 'mammals', 'have fur or hair\r\nneed air to breathe\r\nwarm-blooded\r\nfeed young with their milk'),
+(2, 'birds', 'have feathers and wings\r\nwarm-blooded\r\nlay eggs\r\nhave two legs\r\nhave a beak'),
+(3, 'reptiles', 'have dry scaly skin\r\ncold-blooded\r\nhave four legs'),
+(4, 'amphibians', 'have a slimy skin\r\nhave webbed feet\r\nbreath with their lungs and gills\r\ncold-blooded'),
+(5, 'insects', 'have six legs\r\nhave an exoskeleton\r\nthree bodyparts\r\nhear, touch and taste with antennae'),
 (6, 'bacteria', NULL),
-(7, 'virusses', NULL),
+(7, 'viruses', NULL),
 (8, 'algae', NULL),
 (9, 'fungi', NULL),
 (10, 'protozoa', NULL);
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `foodfromdb` (
 CREATE TABLE IF NOT EXISTS `foodnotdb` (
   `FoodNotDB_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(50) NOT NULL,
-  `Discription` varchar(2000) NOT NULL,
+  `Description` varchar(2000) NOT NULL,
   PRIMARY KEY (`FoodNotDB_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -97,19 +97,19 @@ CREATE TABLE IF NOT EXISTS `geolocation` (
 -- Tabelstructuur voor tabel `subfamilly`
 --
 
-CREATE TABLE IF NOT EXISTS `subfamilly` (
-  `SubFamillyID` int(11) NOT NULL AUTO_INCREMENT,
-  `SubFamillyName` varchar(50) NOT NULL,
+CREATE TABLE IF NOT EXISTS `subfamily` (
+  `SubFamilyID` int(11) NOT NULL AUTO_INCREMENT,
+  `SubFamilyName` varchar(50) NOT NULL,
   `Description` varchar(2000) DEFAULT NULL,
-  PRIMARY KEY (`SubFamillyID`),
-  UNIQUE KEY `SubFamillyName` (`SubFamillyName`)
+  PRIMARY KEY (`SubFamilyID`),
+  UNIQUE KEY `SubFamilyName` (`SubFamilyName`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `subfamilly`
 --
 
-INSERT INTO `subfamilly` (`SubFamillyID`, `SubFamillyName`, `Description`) VALUES
+INSERT INTO `subfamily` (`SubFamilyID`, `SubFamilyName`, `Description`) VALUES
 (1, 'Omani Camels ', 'Camels are important to us because wuse them for so many things. \r\nWe eat the meat of young camels and melt fat from its hump and use it to make butter. \r\nYou can drink camel milk and make cheese from it. \r\nCamels also supply wool and leather for clothing and shelter. \r\nDried camel droppings provide fuel.\r\nCamels can also be used as draught animals.\r\nIn the desert, camels are an important   source of transportation, food, clothing and shelter.\r\nCamels have adapted to the different places they live by acquiring different features. \r\nFor example, camels that live in mountainous areas have developed stronger limbs than camels that live in plains and deserts. This is an adaptation \r\n\r\n');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
