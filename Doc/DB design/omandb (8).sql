@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 11 feb 2015 om 20:51
+-- Genereertijd: 11 feb 2015 om 23:11
 -- Serverversie: 5.6.13
 -- PHP-versie: 5.4.17
 
@@ -95,17 +95,17 @@ CREATE TABLE IF NOT EXISTS `food` (
 --
 
 CREATE TABLE IF NOT EXISTS `geolocation` (
-  `area_id` int(11) NOT NULL AUTO_INCREMENT,
+  `geolocation_id` int(11) NOT NULL AUTO_INCREMENT,
   `area` varchar(2000) NOT NULL,
   `latitude_height_1` varchar(50) DEFAULT NULL,
   `longitude_heigth_1` varchar(50) DEFAULT NULL,
-  `latude_width_1` varchar(50) DEFAULT NULL,
+  `latitude_width_1` varchar(50) DEFAULT NULL,
   `longitude_width_1` varchar(50) DEFAULT NULL,
-  `latude_heigth_2` varchar(50) DEFAULT NULL,
+  `latitude_heigth_2` varchar(50) DEFAULT NULL,
   `longitude_height_2` varchar(50) DEFAULT NULL,
-  `latude_width_2` varchar(50) DEFAULT NULL,
+  `latitude_width_2` varchar(50) DEFAULT NULL,
   `longitude_width_2` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`area_id`)
+  PRIMARY KEY (`geolocation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `description` varchar(2000) DEFAULT NULL,
   `photo_post` mediumblob,
   `longitude` varchar(50) DEFAULT NULL,
-  `latude` varchar(50) DEFAULT NULL,
+  `latitude` varchar(50) DEFAULT NULL,
   `news_letter` tinyint(1) NOT NULL,
   PRIMARY KEY (`post_id`),
   KEY `LivingOrganismeID` (`organisme_id`)
