@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 12 feb 2015 om 18:15
+-- Genereertijd: 12 feb 2015 om 19:30
 -- Serverversie: 5.6.13
 -- PHP-versie: 5.4.17
 
@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `organism` (
   `scientific_name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `commmon_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `local_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `subfamilly_id` int(11) DEFAULT NULL,
+  `subfamily_id` int(11) DEFAULT NULL,
   `world_id` int(11) DEFAULT NULL,
   `season_id` int(11) DEFAULT NULL,
   `description` varchar(2000) CHARACTER SET utf8 DEFAULT NULL,
@@ -182,8 +182,8 @@ CREATE TABLE IF NOT EXISTS `organism` (
   `food_description` varchar(10000) NOT NULL,
   PRIMARY KEY (`organism_id`),
   UNIQUE KEY `SCIENTIFICNAME` (`scientific_name`),
-  KEY `FAMILYID` (`subfamilly_id`),
-  KEY `subfamilly_id` (`subfamilly_id`),
+  KEY `FAMILYID` (`subfamily_id`),
+  KEY `subfamilly_id` (`subfamily_id`),
   KEY `season_id` (`season_id`),
   KEY `season_id_2` (`season_id`),
   KEY `world` (`world_id`)
@@ -300,7 +300,7 @@ ALTER TABLE `habitat_organisme`
 -- Beperkingen voor tabel `organism`
 --
 ALTER TABLE `organism`
-  ADD CONSTRAINT `organism_ibfk_1` FOREIGN KEY (`subfamilly_id`) REFERENCES `subfamilly` (`familly_id`),
+  ADD CONSTRAINT `organism_ibfk_1` FOREIGN KEY (`subfamily_id`) REFERENCES `subfamilly` (`familly_id`),
   ADD CONSTRAINT `organism_ibfk_5` FOREIGN KEY (`world_id`) REFERENCES `worlds` (`world_id`),
   ADD CONSTRAINT `organism_ibfk_7` FOREIGN KEY (`season_id`) REFERENCES `organism_season` (`season_id`);
 
@@ -322,6 +322,11 @@ ALTER TABLE `post`
 --
 ALTER TABLE `subfamilly`
   ADD CONSTRAINT `subfamilly_ibfk_1` FOREIGN KEY (`familly_id`) REFERENCES `family` (`familly_id`);
+--
+-- Databank: `test`
+--
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
