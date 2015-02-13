@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-feb-2015 0:06:48 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dal.Family" table="family" catalog="omandb" optimistic-lock="version">
+        <id name="famillyId" type="java.lang.Integer">
+            <column name="familly_id" />
+            <generator class="identity" />
+        </id>
+        <property name="famillyName" type="string">
+            <column name="familly_name" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="10000" />
+        </property>
+        <set name="subfamillies" table="subfamilly" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="familly_id" not-null="true" />
+            </key>
+            <one-to-many class="dal.Subfamilly" />
+        </set>
+    </class>
+</hibernate-mapping>

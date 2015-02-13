@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-feb-2015 0:06:48 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dal.Worlds" table="worlds" catalog="omandb" optimistic-lock="version">
+        <id name="worldId" type="java.lang.Integer">
+            <column name="world_id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="10000" />
+        </property>
+        <set name="organisms" table="organism" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="world_id" />
+            </key>
+            <one-to-many class="dal.Organism" />
+        </set>
+        <set name="downloadses" table="downloads" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="world_id" />
+            </key>
+            <one-to-many class="dal.Downloads" />
+        </set>
+    </class>
+</hibernate-mapping>

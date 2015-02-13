@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-feb-2015 0:06:48 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dal.OrganismSeason" table="organism_season" catalog="omandb" optimistic-lock="version">
+        <id name="organismSeasonId" type="java.lang.Integer">
+            <column name="organism_season_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="organism" class="dal.Organism" fetch="select">
+            <column name="living_organisme_id" />
+        </many-to-one>
+        <many-to-one name="season" class="dal.Season" fetch="select">
+            <column name="season_id" />
+        </many-to-one>
+        <set name="organisms" table="organism" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="season_id" />
+            </key>
+            <one-to-many class="dal.Organism" />
+        </set>
+    </class>
+</hibernate-mapping>
