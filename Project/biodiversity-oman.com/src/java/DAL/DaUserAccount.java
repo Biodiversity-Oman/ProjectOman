@@ -11,4 +11,5 @@ package DAL;
  */
 public class DaUserAccount {
 	
+	
 }
