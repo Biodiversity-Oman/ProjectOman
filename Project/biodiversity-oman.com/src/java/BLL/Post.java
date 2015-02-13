@@ -10,5 +10,11 @@ package BLL;
  * @author lennyasus
  */
 class Post {
-	
+	int post_id;
+	int organism_id;
+	String first_name;
+	String last_name;
+	String email;
+	String description;
+	Byte 
 }
