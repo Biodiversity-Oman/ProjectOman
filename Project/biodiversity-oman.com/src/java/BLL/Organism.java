@@ -12,12 +12,12 @@ import java.util.List;
  * @author lennyasus
  */
 public class Organism {
-	private int organism_id;
-	private String scientifi_name;
-	private String common_name;
-	private String local_name;
+	private int organismId;
+	private String scientificName;
+	private String commonName;
+	private String localName;
 	private String description;
-	private SubFamily sub_family;
+	private SubFamily subFamily;
 	private Family family;
 	private World world;
 	private List<Habitat> habitat;
@@ -33,65 +33,65 @@ public class Organism {
 	private String opportunities;
 	private Byte photo;
 	private String links;
-	private List<Organism> eaten_by_organism;
-	private List<Organism> eating_organisms;
+	private List<Organism> eatenByOrganism;
+	private List<Organism> eatingOrganisms;
 	private List<Post> post;
 	private Boolean validated;
 
 	/**
-	 * @return the organism_id
+	 * @return the organismId
 	 */
-	public int getOrganism_id() {
-		return organism_id;
+	public int getOrganismId() {
+		return organismId;
 	}
 
 	/**
-	 * @param organism_id the organism_id to set
+	 * @param organismId the organismId to set
 	 */
-	public void setOrganism_id(int organism_id) {
-		this.organism_id = organism_id;
+	public void setOrganismId(int organismId) {
+		this.organismId = organismId;
 	}
 
 	/**
-	 * @return the scientifi_name
+	 * @return the scientificName
 	 */
-	public String getScientifi_name() {
-		return scientifi_name;
+	public String getScientificName() {
+		return scientificName;
 	}
 
 	/**
-	 * @param scientifi_name the scientifi_name to set
+	 * @param scientificName the scientificName to set
 	 */
-	public void setScientifi_name(String scientifi_name) {
-		this.scientifi_name = scientifi_name;
+	public void setScientificName(String scientificName) {
+		this.scientificName = scientificName;
 	}
 
 	/**
-	 * @return the common_name
+	 * @return the commonName
 	 */
-	public String getCommon_name() {
-		return common_name;
+	public String getCommonName() {
+		return commonName;
 	}
 
 	/**
-	 * @param common_name the common_name to set
+	 * @param commonName the commonName to set
 	 */
-	public void setCommon_name(String common_name) {
-		this.common_name = common_name;
+	public void setCommonName(String commonName) {
+		this.commonName = commonName;
 	}
 
 	/**
-	 * @return the local_name
+	 * @return the localName
 	 */
-	public String getLocal_name() {
-		return local_name;
+	public String getLocalName() {
+		return localName;
 	}
 
 	/**
-	 * @param local_name the local_name to set
+	 * @param localName the localName to set
 	 */
-	public void setLocal_name(String local_name) {
-		this.local_name = local_name;
+	public void setLocalName(String localName) {
+		this.localName = localName;
 	}
 
 	/**
@@ -109,17 +109,17 @@ public class Organism {
 	}
 
 	/**
-	 * @return the sub_family
+	 * @return the subFamily
 	 */
-	public SubFamily getSub_family() {
-		return sub_family;
+	public SubFamily getSubFamily() {
+		return subFamily;
 	}
 
 	/**
-	 * @param sub_family the sub_family to set
+	 * @param subFamily the subFamily to set
 	 */
-	public void setSub_family(SubFamily sub_family) {
-		this.sub_family = sub_family;
+	public void setSubFamily(SubFamily subFamily) {
+		this.subFamily = subFamily;
 	}
 
 	/**
@@ -333,31 +333,31 @@ public class Organism {
 	}
 
 	/**
-	 * @return the eaten_by_organism
+	 * @return the eatenByOrganism
 	 */
-	public List<Organism> getEaten_by_organism() {
-		return eaten_by_organism;
+	public List<Organism> getEatenByOrganism() {
+		return eatenByOrganism;
 	}
 
 	/**
-	 * @param eaten_by_organism the eaten_by_organism to set
+	 * @param eatenByOrganism the eatenByOrganism to set
 	 */
-	public void setEaten_by_organism(List<Organism> eaten_by_organism) {
-		this.eaten_by_organism = eaten_by_organism;
+	public void setEatenByOrganism(List<Organism> eatenByOrganism) {
+		this.eatenByOrganism = eatenByOrganism;
 	}
 
 	/**
-	 * @return the eating_organisms
+	 * @return the eatingOrganisms
 	 */
-	public List<Organism> getEating_organisms() {
-		return eating_organisms;
+	public List<Organism> getEatingOrganisms() {
+		return eatingOrganisms;
 	}
 
 	/**
-	 * @param eating_organisms the eating_organisms to set
+	 * @param eatingOrganisms the eatingOrganisms to set
 	 */
-	public void setEating_organisms(List<Organism> eating_organisms) {
-		this.eating_organisms = eating_organisms;
+	public void setEatingOrganisms(List<Organism> eatingOrganisms) {
+		this.eatingOrganisms = eatingOrganisms;
 	}
 
 	/**
@@ -387,6 +387,8 @@ public class Organism {
 	public void setValidated(Boolean validated) {
 		this.validated = validated;
 	}
+
+	
 	
 	
 	
