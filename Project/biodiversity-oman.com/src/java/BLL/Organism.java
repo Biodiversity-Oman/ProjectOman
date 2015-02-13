@@ -12,6 +12,7 @@ import java.util.List;
  * @author lennyasus
  */
 public class Organism {
+
 	private int organismId;
 	private String scientificName;
 	private String commonName;
