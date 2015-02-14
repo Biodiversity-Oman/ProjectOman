@@ -14,6 +14,7 @@ public class World {
 	private int worldId;
 	private String worldName;
 	private String description;
+	Download downloads;
 
 	/**
 	 * @return the worldId
