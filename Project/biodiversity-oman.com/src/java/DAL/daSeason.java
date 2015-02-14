@@ -27,7 +27,7 @@ public class DaSeason {
 
         List<Season> season = new ArrayList<>();
         try {
-            Connection conn = DataSource.getConnection();
+            conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("select NAME, DESCRIPTION, ID FROM season WHERE SEASON_ID =" + seasonId +"");
             ResultSet rs = stmt.executeQuery();
