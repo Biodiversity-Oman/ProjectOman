@@ -9,7 +9,7 @@ package BLL;
  *
  * @author lennyasus
  */
-class Season {
+public class Season {
 	
 	private int seasonId;
 	private String name;

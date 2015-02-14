@@ -5,13 +5,10 @@
  */
 package DAL;
 
-import java.sql.Connection;
-import java.sql.Statement;
-
 /**
  *
- * @author lennyasus
+ * @author Eric
  */
-public class DaUserAccount {
-	
+public class DaFamily {
+    
 }

@@ -9,7 +9,7 @@ package BLL;
  *
  * @author lennyasus
  */
-class Post {
+public class Post {
 
 	private int postId;
 	private int OrganismId;

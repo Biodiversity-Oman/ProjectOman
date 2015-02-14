@@ -9,7 +9,7 @@ package BLL;
  *
  * @author lennyasus
  */
-class Family {
+public class Family {
 	
 	private int familyId;
 	private String familyName;
