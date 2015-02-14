@@ -22,6 +22,7 @@ public class UserAccount {
 	private String password;
 	private String userName;
 	private int phone;
+	private Boolean isadmin;
 
 	/**
 	 * @return the userAccountId
@@ -175,5 +176,19 @@ public class UserAccount {
 	 */
 	public void setPhone(int phone) {
 		this.phone = phone;
+	}
+
+	/**
+	 * @return the isadmin
+	 */
+	public Boolean getIsadmin() {
+		return isadmin;
+	}
+
+	/**
+	 * @param isadmin the isadmin to set
+	 */
+	public void setIsadmin(Boolean isadmin) {
+		this.isadmin = isadmin;
 	}
 }

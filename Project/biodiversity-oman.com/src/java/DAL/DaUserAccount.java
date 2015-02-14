@@ -28,8 +28,8 @@ public class DaUserAccount {
 			// set autocommit to false to control when the query has to be commited, this gives a huge performance boost
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("INSERT INTO admin " 
-						   + "(address, city, country, email, first_name, last_name, password, username) VALUES (?,?,?,?,?,?,?,?)");
+			stmt = conn.prepareStatement("INSERT INTO user_accounts " 
+						   + "(address, city, country, email, first_name, last_name, password, username, isadmin) VALUES (?,?,?,?,?,?,?,?,?)");
 			// set my query strings fro mmy user object(parameter)
 			stmt.setString(1, user.getAdress());
 			stmt.setString(2, user.getCity());
@@ -39,6 +39,7 @@ public class DaUserAccount {
 			stmt.setString(6, user.getLastName());
 			stmt.setString(7, password);
 			stmt.setString(8, user.getUserName());
+			stmt.setBoolean(9, user.getIsAdmin());
 			stmt.executeUpdate();
 			// do my commit
 			conn.commit();	
