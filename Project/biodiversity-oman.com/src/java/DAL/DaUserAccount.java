@@ -5,11 +5,53 @@
  */
 package DAL;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import org.mindrot.jbcrypt.BCrypt;
+
 /**
  *
  * @author lennyasus
  */
 public class DaUserAccount {
 	
+	private static Connection conn;
+	private static PreparedStatement stmt;	
+
+	public static void insertUser(BLL.UserAccount user) throws SQLException{
+
+		// bcrypt, does the password encryption
+		//String getPassword = user.getPassword();
+		String password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());	
+
+		try {
+
+			// set autocommit on false to controll when the query has to be commited, this gives a huge performance boost
+			conn = DataSource.getConnection();
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement("INSERT INTO admin " 
+						   + "(address, city, country, email, first_name, last_name, password, username) VALUES (?,?,?,?,?,?,?,?)");
+			// set my query strings fro mmy user object(parameter)
+			stmt.setString(1, user.getAdress());
+			stmt.setString(2, user.getCity());
+			stmt.setString(3, user.getCountry());
+			stmt.setString(4, user.getEmail());
+			stmt.setString(5, user.getFirstName());
+			stmt.setString(6, user.getLastName());
+			stmt.setString(7, password);
+			stmt.setString(8, user.getUserName());
+			stmt.executeUpdate();
+			// do my commit
+			conn.commit();	
+
+		} catch (SQLException ex) {
+			// if someting goes wrong with the query will the commit be rolled back
+			conn.rollback();
+		} finally {
+			// autocommit back on true, NEVER FORGET THIS!!
+			conn.setAutoCommit(true);
+		}
+	}
 	
-}
+} 
