@@ -5,7 +5,6 @@
  */
 package DAL;
 
-import BLL.Habitat;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import java.sql.PreparedStatement;
  *
  * @author Eric
  */
-public class daSeason {
+public class DaSeason {
     
     private static Connection conn;
     private static PreparedStatement stmt;
@@ -53,7 +52,7 @@ public class daSeason {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("UPDATE season "
-                    + "(NAME, DESCRIPTION) VALUES (?,?,?) WHERE SEASON_ID=" + seasonId +"");
+                    + "(NAME, DESCRIPTION) VALUES (?,?) WHERE SEASON_ID=" + seasonId +"");
             stmt.setString(1, seas.getName());
             stmt.setString(2, seas.getDescription());
             stmt.executeUpdate();
@@ -89,7 +88,7 @@ public class daSeason {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("INSERT INTO season "
-                    + "(NAME, DESCRIPTION) VALUES (?,?,?)");
+                    + "(NAME, DESCRIPTION) VALUES (?,?)");
             stmt.setString(1, seas.getName());
             stmt.setString(2, seas.getDescription());
             stmt.executeUpdate();
