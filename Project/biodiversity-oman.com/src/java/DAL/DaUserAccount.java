@@ -24,7 +24,6 @@ public class DaUserAccount {
 		String password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());	
 
 		try {
-
 			// set autocommit to false to control when the query has to be commited, this gives a huge performance boost
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
