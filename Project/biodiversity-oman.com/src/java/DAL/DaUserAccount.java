@@ -6,13 +6,10 @@
 package DAL;
 
 import java.sql.Connection;
-<<<<<<< HEAD
 import java.sql.Statement;
-=======
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import org.mindrot.jbcrypt.BCrypt;
->>>>>>> origin/master
 
 /**
  *
@@ -20,9 +17,7 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class DaUserAccount {
 	
-<<<<<<< HEAD
-}
-=======
+
 	private static Connection conn;
 	private static PreparedStatement stmt;	
 
@@ -59,4 +54,3 @@ public class DaUserAccount {
 	}
 	
 } 
->>>>>>> origin/master
