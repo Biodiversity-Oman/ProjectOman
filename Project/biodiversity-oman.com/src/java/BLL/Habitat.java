@@ -9,7 +9,7 @@ package BLL;
  *
  * @author lennyasus
  */
-public class Habitat {
+class Habitat {
 	
 	private int worldId;
 	private String name;

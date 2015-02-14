@@ -9,7 +9,7 @@ package BLL;
  *
  * @author lennyasus
  */
-public class World {
+class World {
 	
 	private int worldId;
 	private String name;
