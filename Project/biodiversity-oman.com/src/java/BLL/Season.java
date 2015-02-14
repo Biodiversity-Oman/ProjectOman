@@ -12,7 +12,7 @@ package BLL;
 public class Season {
 	
 	private int seasonId;
-	private String name;
+	private String seasonName;
 	private String description;
 
 	/**
@@ -32,15 +32,15 @@ public class Season {
 	/**
 	 * @return the name
 	 */
-	public String getName() {
-		return name;
+	public String getSeasonName() {
+		return seasonName;
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param seasonName the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setSeasonName(String seasonName) {
+		this.seasonName = seasonName;
 	}
 
 	/**

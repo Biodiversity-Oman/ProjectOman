@@ -12,7 +12,7 @@ package BLL;
 public class Habitat {
 	
 	private int worldId;
-	private String name;
+	private String habitatName;
 	private String description;
 
 	/**
@@ -32,15 +32,15 @@ public class Habitat {
 	/**
 	 * @return the name
 	 */
-	public String getName() {
-		return name;
+	public String getHabitatName() {
+		return habitatName;
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param habitatName the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setHabitatName(String habitatName) {
+		this.habitatName = habitatName;
 	}
 
 	/**

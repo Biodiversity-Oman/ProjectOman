@@ -34,7 +34,7 @@ public class DaHabitat {
             while (rs.next()) {
                 Habitat hab = new Habitat();
                 hab.setDescription(rs.getString("DESCRIPTION"));
-                hab.setName(rs.getString("NAME"));
+                hab.setHabitatName(rs.getString("NAME"));
                 hab.setWorldId(Integer.parseInt(rs.getString("WORLD_ID")));
                 habitat.add(hab);
             }
@@ -75,7 +75,7 @@ public class DaHabitat {
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("UPDATE habitat "
                     + "(NAME, DESCRIPTION, WORLD_ID) VALUES (?,?,?) WHERE HABITAT_ID=" + habitatId +"");
-            stmt.setString(1, habi.getName());
+            stmt.setString(1, habi.getHabitatName());
             stmt.setString(2, habi.getDescription());
             stmt.setInt(3, habi.getWorldId());
             stmt.executeUpdate();
@@ -96,7 +96,7 @@ public class DaHabitat {
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("INSERT INTO habitat "
                     + "(NAME, DESCRIPTION, WORLD_ID) VALUES (?,?,?)");
-            stmt.setString(1, habi.getName());
+            stmt.setString(1, habi.getHabitatName());
             stmt.setString(2, habi.getDescription());
             stmt.setInt(3, habi.getWorldId());
             stmt.executeUpdate();

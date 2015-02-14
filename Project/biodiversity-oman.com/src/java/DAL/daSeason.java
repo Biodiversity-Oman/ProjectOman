@@ -34,7 +34,7 @@ public class DaSeason {
             while (rs.next()) {
                 Season seaso = new Season();
                 seaso.setDescription(rs.getString("DESCRIPTION"));
-                seaso.setName(rs.getString("NAME"));
+                seaso.setSeasonName(rs.getString("NAME"));
                 season.add(seaso);
             }
             conn.commit();
@@ -53,7 +53,7 @@ public class DaSeason {
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("UPDATE season "
                     + "(NAME, DESCRIPTION) VALUES (?,?) WHERE SEASON_ID=" + seasonId +"");
-            stmt.setString(1, seas.getName());
+            stmt.setString(1, seas.getSeasonName());
             stmt.setString(2, seas.getDescription());
             stmt.executeUpdate();
             conn.commit();
@@ -89,7 +89,7 @@ public class DaSeason {
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("INSERT INTO season "
                     + "(NAME, DESCRIPTION) VALUES (?,?)");
-            stmt.setString(1, seas.getName());
+            stmt.setString(1, seas.getSeasonName());
             stmt.setString(2, seas.getDescription());
             stmt.executeUpdate();
             conn.commit();

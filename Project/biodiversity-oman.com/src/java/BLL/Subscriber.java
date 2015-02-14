@@ -11,21 +11,21 @@ package BLL;
  */
 public class Subscriber {
 	
-	private String name;
+	private String subscriberName;
 	private String email;
 
 	/**
 	 * @return the name
 	 */
-	public String getName() {
-		return name;
+	public String getSubscriberName() {
+		return subscriberName;
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param subscriberName the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setSubscriberName(String subscriberName) {
+		this.subscriberName = subscriberName;
 	}
 
 	/**

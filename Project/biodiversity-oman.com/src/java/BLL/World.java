@@ -12,7 +12,7 @@ package BLL;
 public class World {
 	
 	private int worldId;
-	private String name;
+	private String worldName;
 	private String description;
 
 	/**
@@ -32,15 +32,15 @@ public class World {
 	/**
 	 * @return the name
 	 */
-	public String getName() {
-		return name;
+	public String getWorldName() {
+		return worldName;
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param worldName the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setWorldName(String worldName) {
+		this.worldName = worldName;
 	}
 
 	/**
