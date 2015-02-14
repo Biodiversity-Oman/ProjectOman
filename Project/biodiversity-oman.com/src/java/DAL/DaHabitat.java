@@ -101,6 +101,7 @@ public class DaHabitat {
             stmt.setInt(3, habi.getWorldId());
             stmt.executeUpdate();
             conn.commit();
+	    
         } catch (SQLException ex) {
             System.out.println(ex);
         } finally {
