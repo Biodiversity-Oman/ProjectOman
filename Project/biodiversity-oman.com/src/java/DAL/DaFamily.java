@@ -29,12 +29,12 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("select FAMILY_NAME, DESCRIPTION, ID FROM family WHERE FAMILY_ID =" + familyId +"");
+            stmt = conn.prepareStatement("SELECT family_name, description, id FROM family WHERE family_id =" + familyId +"");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Family fam = new Family();
-                fam.setDescription(rs.getString("DESCRIPTION"));
-                fam.setFamilyName(rs.getString("FAMILY_NAME"));
+                fam.setDescription(rs.getString("description"));
+                fam.setFamilyName(rs.getString("family_name"));
                 family.add(fam);
             }
             conn.commit();
@@ -55,7 +55,7 @@ public class DaFamily {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
 
-            stmt = conn.prepareStatement("DELETE FROM family WHERE Family_ID=" + familyId + "");
+            stmt = conn.prepareStatement("DELETE FROM family WHERE family_id=" + familyId + "");
             stmt.executeUpdate();
             conn.commit();
 
@@ -73,7 +73,7 @@ public class DaFamily {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("UPDATE family "
-                    + "(FAMILY_NAME, DESCRIPTION ) VALUES (?,?) WHERE FAMILY_ID=" + familyId +"");
+                    + "(family_name, description ) VALUES (?,?) WHERE family_id=" + familyId +"");
             stmt.setString(1, fam.getFamilyName());
             stmt.setString(2, fam.getDescription());
             stmt.executeUpdate();
@@ -93,7 +93,7 @@ public class DaFamily {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("INSERT INTO family "
-                    + "(FAMILY_NAME, DESCRIPTION) VALUES (?,?)");
+                    + "(family_name, description) VALUES (?,?)");
             stmt.setString(1, fami.getFamilyName());
             stmt.setString(2, fami.getDescription());
             stmt.executeUpdate();
