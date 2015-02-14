@@ -38,6 +38,8 @@ public class Organism {
 	private List<Organism> eatingOrganisms;
 	private List<Post> post;
 	private Boolean validated;
+	private String foodName;
+	private String foodDescription;
 
 	/**
 	 * @return the organismId
@@ -387,6 +389,34 @@ public class Organism {
 	 */
 	public void setValidated(Boolean validated) {
 		this.validated = validated;
+	}
+
+	/**
+	 * @return the foodName
+	 */
+	public String getFoodName() {
+		return foodName;
+	}
+
+	/**
+	 * @param foodName the foodName to set
+	 */
+	public void setFoodName(String foodName) {
+		this.foodName = foodName;
+	}
+
+	/**
+	 * @return the foodDescription
+	 */
+	public String getFoodDescription() {
+		return foodDescription;
+	}
+
+	/**
+	 * @param foodDescription the foodDescription to set
+	 */
+	public void setFoodDescription(String foodDescription) {
+		this.foodDescription = foodDescription;
 	}
 
 	
