@@ -11,6 +11,7 @@ package BLL;
  */
 public class Habitat {
 	
+        private int habitatId;
 	private int worldId;
 	private String habitatName;
 	private String description;
@@ -56,4 +57,18 @@ public class Habitat {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+    /**
+     * @return the habitatId
+     */
+    public int getHabitatId() {
+        return habitatId;
+    }
+
+    /**
+     * @param habitatId the habitatId to set
+     */
+    public void setHabitatId(int habitatId) {
+        this.habitatId = habitatId;
+    }
 }
