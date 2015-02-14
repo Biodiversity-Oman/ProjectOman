@@ -89,7 +89,7 @@ public class DaHabitat {
     
     
     
-    public static void saveHabitat(Habitat habi) throws SQLException {
+    public static void insertHabitat(Habitat habi) throws SQLException {
 
         try {
             conn = DataSource.getConnection();

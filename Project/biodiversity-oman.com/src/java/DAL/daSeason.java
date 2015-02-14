@@ -23,7 +23,7 @@ public class DaSeason {
     private static PreparedStatement stmt;
     
     
-    public static List select(int seasonId) throws SQLException {
+    public static List selectSeason(int seasonId) throws SQLException {
 
         List<Season> season = new ArrayList<>();
         try {
@@ -82,7 +82,7 @@ public class DaSeason {
     }
     
     
-    public static void saveSeason(Season seas) throws SQLException {
+    public static void insertSeason(Season seas) throws SQLException {
 
         try {
             conn = DataSource.getConnection();

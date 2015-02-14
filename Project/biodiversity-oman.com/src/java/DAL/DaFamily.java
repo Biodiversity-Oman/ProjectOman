@@ -87,7 +87,7 @@ public class DaFamily {
     
     
     
-    public static void saveFamily(Family fami) throws SQLException {
+    public static void insertFamily(Family fami) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
