@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 12 feb 2015 om 19:30
+-- Genereertijd: 14 feb 2015 om 13:22
 -- Serverversie: 5.6.13
 -- PHP-versie: 5.4.17
 
@@ -21,25 +21,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `omandb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `omandb`;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `admin`
---
-
-CREATE TABLE IF NOT EXISTS `admin` (
-  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(50) DEFAULT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `city` varchar(50) DEFAULT NULL,
-  `country` varchar(50) DEFAULT NULL,
-  `address` varchar(200) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -180,6 +161,7 @@ CREATE TABLE IF NOT EXISTS `organism` (
   `qr` blob,
   `food_name` varchar(50) NOT NULL,
   `food_description` varchar(10000) NOT NULL,
+  `isvalidated` tinyint(1) NOT NULL,
   PRIMARY KEY (`organism_id`),
   UNIQUE KEY `SCIENTIFICNAME` (`scientific_name`),
   KEY `FAMILYID` (`subfamily_id`),
@@ -256,6 +238,26 @@ CREATE TABLE IF NOT EXISTS `subfamily` (
 -- --------------------------------------------------------
 
 --
+-- Tabelstructuur voor tabel `user_accounts`
+--
+
+CREATE TABLE IF NOT EXISTS `user_accounts` (
+  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
+  `address` varchar(200) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `isadmin` tinyint(1) NOT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Tabelstructuur voor tabel `worlds`
 --
 
@@ -293,8 +295,8 @@ ALTER TABLE `geolocation`
 -- Beperkingen voor tabel `habitat_organism`
 --
 ALTER TABLE `habitat_organism`
-  ADD CONSTRAINT `habitat_organism_ibfk_2` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `habitat_organism_ibfk_1` FOREIGN KEY (`habitat_id`) REFERENCES `habitat` (`habitat_id`);
+  ADD CONSTRAINT `habitat_organism_ibfk_1` FOREIGN KEY (`habitat_id`) REFERENCES `habitat` (`habitat_id`),
+  ADD CONSTRAINT `habitat_organism_ibfk_2` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`);
 
 --
 -- Beperkingen voor tabel `organism`
@@ -322,11 +324,6 @@ ALTER TABLE `post`
 --
 ALTER TABLE `subfamily`
   ADD CONSTRAINT `subfamily_ibfk_1` FOREIGN KEY (`family_id`) REFERENCES `family` (`family_id`);
---
--- Databank: `test`
---
-CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `test`;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
