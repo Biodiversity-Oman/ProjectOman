@@ -29,12 +29,12 @@ public class DaSeason {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("select NAME, DESCRIPTION, ID FROM season WHERE SEASON_ID =" + seasonId +"");
+            stmt = conn.prepareStatement("SELECT name, description, id FROM season WHERE season_id =" + seasonId +"");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Season seaso = new Season();
-                seaso.setDescription(rs.getString("DESCRIPTION"));
-                seaso.setSeasonName(rs.getString("NAME"));
+                seaso.setDescription(rs.getString("description"));
+                seaso.setSeasonName(rs.getString("name"));
                 season.add(seaso);
             }
             conn.commit();
@@ -52,7 +52,7 @@ public class DaSeason {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("UPDATE season "
-                    + "(NAME, DESCRIPTION) VALUES (?,?) WHERE SEASON_ID=" + seasonId +"");
+                    + "(name, description) VALUES (?,?) WHERE season_id=" + seasonId +"");
             stmt.setString(1, seas.getSeasonName());
             stmt.setString(2, seas.getDescription());
             stmt.executeUpdate();
@@ -70,7 +70,7 @@ public class DaSeason {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
 
-            stmt = conn.prepareStatement("DELETE FROM season where SEASON_ID=" + seasonId + "");
+            stmt = conn.prepareStatement("DELETE FROM season WHERE season_id=" + seasonId + "");
             stmt.executeUpdate();
             conn.commit();
 
@@ -88,7 +88,7 @@ public class DaSeason {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("INSERT INTO season "
-                    + "(NAME, DESCRIPTION) VALUES (?,?)");
+                    + "(name, description) VALUES (?,?)");
             stmt.setString(1, seas.getSeasonName());
             stmt.setString(2, seas.getDescription());
             stmt.executeUpdate();
