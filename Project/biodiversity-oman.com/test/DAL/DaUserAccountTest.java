@@ -31,21 +31,22 @@ public class DaUserAccountTest {
 	/**
 	 * Test of insertUser method, of class DaUserAccount.
 	 */
-	@Test
+	@org.junit.Test
 	public void testInsertUser() throws Exception {
 		System.out.println("insertUser");
 		UserAccount user = new UserAccount();
-		user.setAdress("qsdfsdfdsf");
-		user.setCity("sqdfsdf");
-		user.setCountry("qsdfsdfs");
-		user.setEmail("qsdfsdf");
-		user.setFirstName("sqdfsqdf");
-		user.setLastName("sqdfsd");
-		user.setPassword("sqdfsdt");
-		user.setPhone(111111);
-		user.setUserName("xsqfsdfdsftest");
+		user.setAdress("test");
+		user.setCity("test");
+		user.setCountry("test");
+		user.setEmail("fsdfsdf");
+		user.setIsAdmin(false);
+		user.setFirstName("test");
+		user.setUserName("test");
+		user.setLastName("test");
+		user.setPassword("test");
+		user.setPhone(22222);
 		DaUserAccount.insertUser(user);
-
+		
 	}
 	
 }

@@ -29,7 +29,7 @@ public class DaUserAccount {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("INSERT INTO user_accounts " 
-						   + "(address, city, country, email, first_name, last_name, password, username, isadmin) VALUES (?,?,?,?,?,?,?,?,?)");
+						   + "(first_name, last_name, email, city, country, address, password, username, isadmin, phone) VALUES (?,?,?,?,?,?,?,?,?,?)");
 			// set my query strings fro mmy user object(parameter)
 			stmt.setString(1, user.getAdress());
 			stmt.setString(2, user.getCity());
@@ -40,6 +40,7 @@ public class DaUserAccount {
 			stmt.setString(7, password);
 			stmt.setString(8, user.getUserName());
 			stmt.setBoolean(9, user.getIsAdmin());
+			stmt.setInt(10, user.getPhone());
 			stmt.executeUpdate();
 			// do my commit
 			conn.commit();	
