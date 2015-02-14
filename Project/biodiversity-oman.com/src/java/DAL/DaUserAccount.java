@@ -20,7 +20,7 @@ public class DaUserAccount {
 	private static Connection conn;
 	private static PreparedStatement stmt;	
 
-	public static void insertUser(BLL.UserAccount user) throws SQLException{
+	public static void insertUserAccount(BLL.UserAccount user) throws SQLException{
 
 		String password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());	
 

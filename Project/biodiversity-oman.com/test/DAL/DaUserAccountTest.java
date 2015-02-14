@@ -32,7 +32,7 @@ public class DaUserAccountTest {
 	 * Test of insertUser method, of class DaUserAccount.
 	 */
 	@org.junit.Test
-	public void testInsertUser() throws Exception {
+	public void testInsertUserAccount() throws Exception {
 		System.out.println("insertUser");
 		UserAccount user = new UserAccount();
 		user.setAdress("test");
@@ -45,7 +45,7 @@ public class DaUserAccountTest {
 		user.setLastName("test");
 		user.setPassword("test");
 		user.setPhone(22222);
-		DaUserAccount.insertUser(user);
+		DaUserAccount.insertUserAccount(user);
 		
 	}
 	
