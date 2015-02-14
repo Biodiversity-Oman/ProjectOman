@@ -12,7 +12,6 @@ import BLL.Post;
 import BLL.Season;
 import BLL.SubFamily;
 import BLL.World;
-import static DAL.DataSource.getConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +22,8 @@ import java.util.List;
 /**
  *
  * @author bert
+ * 
+ * 
  */
 
 public class DaOrganism {
@@ -35,27 +36,22 @@ public class DaOrganism {
         Deze methode is bedoelt om een snel overzicht te bieden van alle organisme in de databank.
         De reden waarom er ook foreign keys en names worden opgevraagd is zodat we de lijst in secties kunnen weergeven.
         je kan ook voor elk van deze entiteiten een aparte methode oproepen in de view maar dan moet je 3x een querie verzenden
-        om hetzelfde resultaat te bekomen. Met deze select heb je aall informatie om alle organismen weer te geven onderverdeeld in wereld, family en subfamily.*/
+        om hetzelfde resultaat te bekomen. Met deze select heb je aall informatie om alle organismen weer 
+        te geven onderverdeeld in wereld, family en subfamily.*/
     public static List<Organism> sellectAll ()
     {
         List<Organism> organisms = new ArrayList<>();
         try {
             
-            Connection conn = getConnection();
+            conn = DataSource.getConnection();
             
-            // Deze SQL statement geeft momenteel enkel de records weer die voldoen aan de JOIN clause.
-            // De statement zou zowel de objecten met als zonder relatie moeten selecteren.
+            // SQL werkt
             stmt = conn.prepareStatement("SELECT organism.organism_id, organism.commmon_name, organism.subfamily_id, subfamily.family_id, organism.world_id," +
                     "subfamily.subfamily_name, family.family_name, worlds.name \n" +
                     "FROM organism \n" +
                     "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"+
-                    // deze join geeft nog niet het gewenste resultaat, het retourneerd altijd de eerste record in de family tabel.
                     "LEFT JOIN family ON subfamily.family_id = family.family_id \n" +
                     "LEFT JOIN worlds ON organism.world_id = worlds.world_id");
-           
-
-            
-            
             
             ResultSet rs = stmt.executeQuery();
             
@@ -90,8 +86,9 @@ public class DaOrganism {
         return organisms;
     }
     
-    public static Organism selectById(int id)
+    public static Organism selectOneById(int id)
     {
+        
         // Dit object zal geretourneerd worden.
         Organism organism = new Organism();
         try {
@@ -103,9 +100,12 @@ public class DaOrganism {
             List<Season> seasons = new ArrayList();
             List<Post> posts = new ArrayList();
             
-            Connection conn = getConnection();
+            conn = DataSource.getConnection();
+            
             
             // Statement welke een organische object opvraagd met al zijn columns en one to many relaties.
+            
+            // SQL werkt
             stmt = conn.prepareStatement("SELECT organism.*, subfamily.subfamily_name, family.family_name, family.family_id, worlds.name\n" +
                                         "FROM organism\n" +
                                         "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id\n" +
@@ -114,6 +114,7 @@ public class DaOrganism {
                                         "LEFT JOIN worlds ON organism.world_id = worlds.world_id\n" +
                                         "WHERE organism.organism_id="+Integer.toString(id));
             ResultSet rsOrganism = stmt.executeQuery();
+            
             
             // De volgende statements worden gebruikt om de many to many relaties van organism uit te lezen 
             //en de relationele objecten uit de databank te halen.
@@ -229,5 +230,52 @@ public class DaOrganism {
         return organism;
     }
     
+    public static List<Organism> selectAllByNameLike(String name)
+    {
+        /*
+        Deze methode moet het mogelijk maken om dmv een zoekopdracht organisms op te vragen
+        die deelse gelijkenissen hebben met de ingevoerde waarde.
+        */
+        return new ArrayList<>();
+    }
     
+    public static List<Organism> selectAllBySubfamily(int id)
+    {
+        /*
+        Deze methode zoekt door de databank naar organismes die behoren tot een bepaalde subfamily.
+        */
+        return new ArrayList<>();
+    }
+    
+    public static List<Organism> selectAllByFamily(int id)
+    {
+        /*
+        Deze methode zoekt door de databank naar organismes die behoren tot een bepaalde family.
+        */
+        return new ArrayList<>();
+    }
+    
+    public static List<Organism> selectAllByWorld(int id)
+    {
+        /*
+        Deze methode zoekt door de databank naar organismes die behoren tot een bepaalde family.
+        */
+        return new ArrayList<>();
+    }
+    
+    public static List<Organism> selectAllByHabitat(int id)
+    {
+        /*
+        Deze methode zoekt door de databank naar organismes die behoren tot een bepaald habitat.
+        */
+        return new ArrayList<>();
+    }
+    
+    public static List<Organism> selectAllBySeason(int id)
+    {
+        /*
+        Deze methode zoekt door de databank naar organismes die behoren tot een bepaald seizoen.
+        */
+        return new ArrayList<>();
+    }
 }
