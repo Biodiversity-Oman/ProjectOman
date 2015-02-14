@@ -29,7 +29,7 @@ public class DaHabitat {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("select NAME, DESCRIPTION, ID FROM habitat WHERE HABITAT_ID =" + habitatId +"");
+            stmt = conn.prepareStatement("SELECT name, description, id FROM habitat WHERE habitat_id =" + habitatId +"");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Habitat hab = new Habitat();
