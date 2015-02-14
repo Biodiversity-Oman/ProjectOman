@@ -21,13 +21,11 @@ public class DaUserAccount {
 
 	public static void insertUser(BLL.UserAccount user) throws SQLException{
 
-		// bcrypt, does the password encryption
-		//String getPassword = user.getPassword();
 		String password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());	
 
 		try {
 
-			// set autocommit on false to controll when the query has to be commited, this gives a huge performance boost
+			// set autocommit to false to control when the query has to be commited, this gives a huge performance boost
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("INSERT INTO admin " 
