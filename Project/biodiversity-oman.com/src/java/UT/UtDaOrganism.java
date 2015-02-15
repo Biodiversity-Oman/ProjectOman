@@ -22,19 +22,19 @@ public class UtDaOrganism {
             System.out.println(o.getCommonName());
         }
         
-        Organism organism = DaOrganism.selectById(1);
+        Organism organism = DaOrganism.selectOneById(1);
         System.out.println("Select one organism:");
         System.out.println(organism.getScientificName());
-        organism = DaOrganism.selectById(3);
+        organism = DaOrganism.selectOneById(3);
         System.out.println("Select one organism:");
         System.out.println(organism.getScientificName());
-        organism = DaOrganism.selectById(4);
+        organism = DaOrganism.selectOneById(4);
         System.out.println("Select one organism:");
         System.out.println(organism.getScientificName());
-        organism = DaOrganism.selectById(5);
+        organism = DaOrganism.selectOneById(5);
         System.out.println("Select one organism:");
         System.out.println(organism.getScientificName());
-        organism = DaOrganism.selectById(8);
+        organism = DaOrganism.selectOneById(8);
         System.out.println("Select one organism:");
         System.out.println(organism.getScientificName());
     }

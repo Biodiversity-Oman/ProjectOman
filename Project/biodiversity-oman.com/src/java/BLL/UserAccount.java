@@ -130,10 +130,10 @@ public class UserAccount {
 	}
 
 	/**
-	 * @param adress the address to set
+	 * @param address the address to set
 	 */
-	public void setAddress(String adress) {
-		this.address = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	/**
@@ -176,19 +176,5 @@ public class UserAccount {
 	 */
 	public void setPhone(int phone) {
 		this.phone = phone;
-	}
-
-	/**
-	 * @return the isadmin
-	 */
-	public Boolean getIsadmin() {
-		return isadmin;
-	}
-
-	/**
-	 * @param isadmin the isadmin to set
-	 */
-	public void setIsadmin(Boolean isadmin) {
-		this.isadmin = isadmin;
 	}
 }
