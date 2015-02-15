@@ -109,7 +109,6 @@ public class DaOrganism {
             stmt = conn.prepareStatement("SELECT organism.*, subfamily.subfamily_name, family.family_name, family.family_id, worlds.name\n" +
                                         "FROM organism\n" +
                                         "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id\n" +
-                                        // deze join geeft nog niet het gewenste resultaat, het retourneerd altijd de eerste record in de family tabel.
                                         "LEFT JOIN family ON subfamily.family_id = family.family_id\n" +
                                         "LEFT JOIN worlds ON organism.world_id = worlds.world_id\n" +
                                         "WHERE organism.organism_id="+Integer.toString(id));
@@ -143,9 +142,6 @@ public class DaOrganism {
                                         "INNER JOIN season ON organism_season.season_id = season.season_id\n" +
                                         "WHERE organism_season.living_organism_id ="+Integer.toString(id));
             ResultSet rsSeason = stmt.executeQuery();
-            
-            // !! De SQL statement voor post moet nog toegevoegd worden. Dit heb ik niet gedaan aangezien 
-            // de DB nog aanpassingen moet ondergaan om een many to many mogenlijk te maken met post.
             
             while(rsOrganism.next()){
                 
@@ -277,5 +273,20 @@ public class DaOrganism {
         Deze methode zoekt door de databank naar organismes die behoren tot een bepaald seizoen.
         */
         return new ArrayList<>();
+    }
+    
+    public static void insertOrganism(Organism organism)
+    {
+        
+    }
+    
+    public static void deleteOrganism(int id)
+    {
+        
+    }
+    
+    public static void updateOrganism(Organism organism)
+    {
+        
     }
 }
