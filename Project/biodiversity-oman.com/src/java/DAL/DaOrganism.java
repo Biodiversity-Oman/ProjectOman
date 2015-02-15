@@ -36,7 +36,7 @@ public class DaOrganism {
         Deze methode is bedoelt om een snel overzicht te bieden van alle organisme in de databank.
         De reden waarom er ook foreign keys en names worden opgevraagd is zodat we de lijst in secties kunnen weergeven.
         je kan ook voor elk van deze entiteiten een aparte methode oproepen in de view maar dan moet je 3x een querie verzenden
-        om hetzelfde resultaat te bekomen. Met deze select heb je aall informatie om alle organismen weer 
+        om hetzelfde resultaat te bekomen. Met deze select heb je alle informatie om alle organismen weer 
         te geven onderverdeeld in wereld, family en subfamily.*/
     public static List<Organism> sellectAll ()
     {
@@ -172,6 +172,9 @@ public class DaOrganism {
                 organism.setFoodDescription(rsOrganism.getString("food_description"));
                 
                 // One to many objecten
+                // Er moet nog een One To many bijkomen namelijk voor alle posts te selecteren die behoren tot dit bepaald organisme.
+                // Hiervoor gaat er gebruik gemaakt worden van een functie binnen DAPost welke alle posts gaat terug geven voor een bepaald organisme.
+                // Deze methode moet nog geschreven worden.
                 sf.setSubFamilyId(rsOrganism.getInt("subfamily_id"));
                 sf.setSubFamilyName(rsOrganism.getString("subfamily_name"));
                 organism.setSubFamily(sf);
