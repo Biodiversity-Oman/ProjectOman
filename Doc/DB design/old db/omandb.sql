@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 15 feb 2015 om 19:53
+-- Genereertijd: 15 feb 2015 om 10:54
 -- Serverversie: 5.6.13
 -- PHP-versie: 5.4.17
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `downloads` (
 CREATE TABLE IF NOT EXISTS `family` (
   `family_id` int(11) NOT NULL AUTO_INCREMENT,
   `family_name` varchar(50) NOT NULL,
-  `family_description` varchar(10000) DEFAULT NULL,
+  `description` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`family_id`),
   UNIQUE KEY `FamilyName` (`family_name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `family` (
 -- Gegevens worden uitgevoerd voor tabel `family`
 --
 
-INSERT INTO `family` (`family_id`, `family_name`, `family_description`) VALUES
+INSERT INTO `family` (`family_id`, `family_name`, `description`) VALUES
 (1, 'mammals', 'have fur or hair\r\nneed air to breathe\r\nwarm-blooded\r\nfeed young with their milk'),
 (2, 'birds', 'have feathers and wings\r\nwarm-blooded\r\nlay eggs\r\nhave two legs\r\nhave a beak'),
 (3, 'reptiles', 'have dry scaly skin\r\ncold-blooded\r\nhave four legs'),
@@ -107,25 +107,12 @@ CREATE TABLE IF NOT EXISTS `geolocation` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `geolocation_organisme`
---
-
-CREATE TABLE IF NOT EXISTS `geolocation_organisme` (
-  `organism_id` int(11) NOT NULL,
-  `geolocation_id` int(11) NOT NULL,
-  KEY `organism_id` (`organism_id`),
-  KEY `geolocation_id` (`geolocation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Tabelstructuur voor tabel `habitat`
 --
 
 CREATE TABLE IF NOT EXISTS `habitat` (
   `habitat_id` int(11) NOT NULL AUTO_INCREMENT,
-  `habitat_name` varchar(50) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
   `description` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`habitat_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -151,13 +138,13 @@ CREATE TABLE IF NOT EXISTS `habitat_organism` (
 
 CREATE TABLE IF NOT EXISTS `organism` (
   `organism_id` int(11) NOT NULL AUTO_INCREMENT,
-  `scientific_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `common_name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `scientific_name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `commmon_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `local_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `subfamily_id` int(11) DEFAULT NULL,
   `world_id` int(11) DEFAULT NULL,
   `season_id` int(11) DEFAULT NULL,
-  `organism_description` varchar(9000) CHARACTER SET utf8 DEFAULT NULL,
+  `description` varchar(2000) CHARACTER SET utf8 DEFAULT NULL,
   `population` varchar(50) DEFAULT NULL,
   `indigenous` tinyint(1) DEFAULT NULL,
   `cultivated` tinyint(1) DEFAULT NULL,
@@ -172,7 +159,6 @@ CREATE TABLE IF NOT EXISTS `organism` (
   `food_name` varchar(50) NOT NULL,
   `food_description` varchar(10000) NOT NULL,
   `isvalidated` tinyint(1) NOT NULL,
-  `date_input` datetime NOT NULL,
   PRIMARY KEY (`organism_id`),
   UNIQUE KEY `SCIENTIFICNAME` (`scientific_name`),
   KEY `FAMILYID` (`subfamily_id`),
@@ -189,11 +175,13 @@ CREATE TABLE IF NOT EXISTS `organism` (
 --
 
 CREATE TABLE IF NOT EXISTS `organism_season` (
-  `organism_id` int(11) DEFAULT NULL,
+  `organism_season_id` int(11) NOT NULL AUTO_INCREMENT,
+  `living_organism_id` int(11) DEFAULT NULL,
   `season_id` int(11) DEFAULT NULL,
-  KEY `living_organism_id` (`organism_id`),
+  PRIMARY KEY (`organism_season_id`),
+  KEY `living_organism_id` (`living_organism_id`),
   KEY `season_id` (`season_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -207,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `post_description` varchar(10000) DEFAULT NULL,
+  `description` varchar(10000) DEFAULT NULL,
   `photo_post` mediumblob,
   `longitude` varchar(50) DEFAULT NULL,
   `latitude` varchar(50) DEFAULT NULL,
@@ -238,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `subfamily` (
   `subfamily_id` int(11) NOT NULL AUTO_INCREMENT,
   `family_id` int(11) NOT NULL,
   `subfamily_name` varchar(50) NOT NULL,
-  `subfamily_description` varchar(2000) NOT NULL,
+  `description` varchar(2000) NOT NULL,
   PRIMARY KEY (`subfamily_id`),
   KEY `family_id` (`family_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -288,13 +276,13 @@ INSERT INTO `user_accounts` (`admin_id`, `first_name`, `last_name`, `email`, `ci
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `world`
+-- Tabelstructuur voor tabel `worlds`
 --
 
-CREATE TABLE IF NOT EXISTS `world` (
+CREATE TABLE IF NOT EXISTS `worlds` (
   `world_id` int(11) NOT NULL AUTO_INCREMENT,
-  `world_name` varchar(50) NOT NULL,
-  `world_description` varchar(10000) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`world_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -306,27 +294,20 @@ CREATE TABLE IF NOT EXISTS `world` (
 -- Beperkingen voor tabel `downloads`
 --
 ALTER TABLE `downloads`
-  ADD CONSTRAINT `downloads_ibfk_1` FOREIGN KEY (`world_id`) REFERENCES `world` (`world_id`);
+  ADD CONSTRAINT `downloads_ibfk_1` FOREIGN KEY (`world_id`) REFERENCES `worlds` (`world_id`);
 
 --
 -- Beperkingen voor tabel `food`
 --
 ALTER TABLE `food`
-  ADD CONSTRAINT `Fk_LivingOrganismEatening_ID` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `Fk_LivingOrganismEaten_ID` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`);
+  ADD CONSTRAINT `Fk_LivingOrganismEaten_ID` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`),
+  ADD CONSTRAINT `Fk_LivingOrganismEatening_ID` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`);
 
 --
 -- Beperkingen voor tabel `geolocation`
 --
 ALTER TABLE `geolocation`
   ADD CONSTRAINT `geolocation_ibfk_1` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`);
-
---
--- Beperkingen voor tabel `geolocation_organisme`
---
-ALTER TABLE `geolocation_organisme`
-  ADD CONSTRAINT `geolocation_organisme_ibfk_2` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`),
-  ADD CONSTRAINT `geolocation_organisme_ibfk_1` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`);
 
 --
 -- Beperkingen voor tabel `habitat_organism`
@@ -340,14 +321,14 @@ ALTER TABLE `habitat_organism`
 --
 ALTER TABLE `organism`
   ADD CONSTRAINT `organism_ibfk_1` FOREIGN KEY (`subfamily_id`) REFERENCES `subfamily` (`family_id`),
-  ADD CONSTRAINT `organism_ibfk_5` FOREIGN KEY (`world_id`) REFERENCES `world` (`world_id`),
+  ADD CONSTRAINT `organism_ibfk_5` FOREIGN KEY (`world_id`) REFERENCES `worlds` (`world_id`),
   ADD CONSTRAINT `organism_ibfk_7` FOREIGN KEY (`season_id`) REFERENCES `organism_season` (`season_id`);
 
 --
 -- Beperkingen voor tabel `organism_season`
 --
 ALTER TABLE `organism_season`
-  ADD CONSTRAINT `organism_season_ibfk_1` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
+  ADD CONSTRAINT `organism_season_ibfk_1` FOREIGN KEY (`living_organism_id`) REFERENCES `organism` (`organism_id`),
   ADD CONSTRAINT `organism_season_ibfk_2` FOREIGN KEY (`season_id`) REFERENCES `season` (`season_id`);
 
 --
