@@ -143,7 +143,6 @@ CREATE TABLE IF NOT EXISTS `organism` (
   `local_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `subfamily_id` int(11) DEFAULT NULL,
   `world_id` int(11) DEFAULT NULL,
-  `season_id` int(11) DEFAULT NULL,
   `description` varchar(2000) CHARACTER SET utf8 DEFAULT NULL,
   `population` varchar(50) DEFAULT NULL,
   `indigenous` tinyint(1) DEFAULT NULL,
@@ -163,8 +162,6 @@ CREATE TABLE IF NOT EXISTS `organism` (
   UNIQUE KEY `SCIENTIFICNAME` (`scientific_name`),
   KEY `FAMILYID` (`subfamily_id`),
   KEY `subfamily_id` (`subfamily_id`),
-  KEY `season_id` (`season_id`),
-  KEY `season_id_2` (`season_id`),
   KEY `world` (`world_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -253,17 +250,17 @@ CREATE TABLE IF NOT EXISTS `subscribed` (
 
 CREATE TABLE IF NOT EXISTS `user_accounts` (
   `admin_id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(50) DEFAULT NULL,
+  `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(200) NOT NULL,
   `city` varchar(50) DEFAULT NULL,
   `country` varchar(50) DEFAULT NULL,
-  `address` varchar(200) NOT NULL,
-  `password` char(60) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `password` char(60) NOT NULL,
   `isadmin` tinyint(1) NOT NULL,
-  `phone` int(11) NOT NULL,
-  PRIMARY KEY (`admin_id`)
+  `phone` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`admin_id`),
+  UNIQUE KEY `EMAIL` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
@@ -321,8 +318,7 @@ ALTER TABLE `habitat_organism`
 --
 ALTER TABLE `organism`
   ADD CONSTRAINT `organism_ibfk_1` FOREIGN KEY (`subfamily_id`) REFERENCES `subfamily` (`family_id`),
-  ADD CONSTRAINT `organism_ibfk_5` FOREIGN KEY (`world_id`) REFERENCES `worlds` (`world_id`),
-  ADD CONSTRAINT `organism_ibfk_7` FOREIGN KEY (`season_id`) REFERENCES `organism_season` (`season_id`);
+  ADD CONSTRAINT `organism_ibfk_5` FOREIGN KEY (`world_id`) REFERENCES `worlds` (`world_id`);
 
 --
 -- Beperkingen voor tabel `organism_season`
