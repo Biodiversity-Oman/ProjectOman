@@ -186,8 +186,6 @@ public class DaOrganism {
                 w.setWorldId(rsOrganism.getInt("world_id"));
                 w.setWorldName(rsOrganism.getString("name"));
                 organism.setWorld(w);
-                
-
             }
             
             // Many to Many objecten
@@ -280,7 +278,8 @@ public class DaOrganism {
     
     public static void insertOrganism(Organism organism)
     {
-        
+        //String query = "INSERT INTO animals (name) VALUES ('zebra')";
+        //Integer insertedId = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
     }
     
     public static void deleteOrganism(int id)

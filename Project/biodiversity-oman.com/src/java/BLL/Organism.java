@@ -40,6 +40,8 @@ public class Organism {
 	private Boolean validated;
 	private String foodName;
 	private String foodDescription;
+        private java.util.Date insertedOn;
+        private java.util.Date updatedOn;
 
 	/**
 	 * @return the organismId
@@ -418,6 +420,34 @@ public class Organism {
 	public void setFoodDescription(String foodDescription) {
 		this.foodDescription = foodDescription;
 	}
+
+    /**
+     * @return the insertedOn
+     */
+    public java.util.Date getInsertedOn() {
+        return insertedOn;
+    }
+
+    /**
+     * @param insertedOn the insertedOn to set
+     */
+    public void setInsertedOn(java.util.Date insertedOn) {
+        this.insertedOn = insertedOn;
+    }
+
+    /**
+     * @return the updatedOn
+     */
+    public java.util.Date getUpdatedOn() {
+        return updatedOn;
+    }
+
+    /**
+     * @param updatedOn the updatedOn to set
+     */
+    public void setUpdatedOn(java.util.Date updatedOn) {
+        this.updatedOn = updatedOn;
+    }
 
 	
 	
