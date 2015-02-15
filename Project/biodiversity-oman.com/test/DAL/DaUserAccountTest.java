@@ -35,7 +35,7 @@ public class DaUserAccountTest {
 	public void testInsertUserAccount() throws Exception {
 		System.out.println("insertUser");
 		UserAccount user = new UserAccount();
-		user.setAdress("test");
+		user.setAddress("test");
 		user.setCity("test");
 		user.setCountry("test");
 		user.setEmail("fsdfsdf");

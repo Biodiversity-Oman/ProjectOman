@@ -18,7 +18,7 @@ public class UserAccount {
 	private String email;
 	private String city;
 	private String country;
-	private String adress;
+	private String address;
 	private String password;
 	private String userName;
 	private int phone;
@@ -123,17 +123,17 @@ public class UserAccount {
 	}
 
 	/**
-	 * @return the adress
+	 * @return the address
 	 */
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
 	/**
-	 * @param adress the adress to set
+	 * @param adress the address to set
 	 */
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String adress) {
+		this.address = adress;
 	}
 
 	/**
