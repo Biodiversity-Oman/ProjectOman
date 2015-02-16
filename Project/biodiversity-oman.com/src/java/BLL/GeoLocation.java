@@ -20,6 +20,7 @@ public class GeoLocation {
 	private String longitudeWidth2;
 	private String latitudeWidth;
 	private String latitudeWidth2;
+        private java.util.List<Organism> organisms;
 
 	/**
 	 * @return the geoLocationId
@@ -146,4 +147,18 @@ public class GeoLocation {
 	public void setLatitudeWidth2(String latitudeWidth2) {
 		this.latitudeWidth2 = latitudeWidth2;
 	}
+
+    /**
+     * @return the organisms
+     */
+    public java.util.List<Organism> getOrganisms() {
+        return organisms;
+    }
+
+    /**
+     * @param organisms the organisms to set
+     */
+    public void setOrganisms(java.util.List<Organism> organisms) {
+        this.organisms = organisms;
+    }
 }

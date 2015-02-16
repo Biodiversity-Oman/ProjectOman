@@ -11,7 +11,6 @@ package BLL;
  */
 public class UserAccount {
 	
-	private int userAccountId;
 	private Boolean isAdmin;
 	private String firstName;
 	private String lastName;
@@ -26,22 +25,6 @@ public class UserAccount {
 	@Override
 	public String toString() {
 		return firstName + lastName + email + city + country + userName + phone + isadmin;
-	}
-
-	
-
-	/**
-	 * @return the userAccountId
-	 */
-	public int getUserAccountId() {
-		return userAccountId;
-	}
-
-	/**
-	 * @param userAccountId the userAccountId to set
-	 */
-	public void setUserAccountId(int userAccountId) {
-		this.userAccountId = userAccountId;
 	}
 
 	/**

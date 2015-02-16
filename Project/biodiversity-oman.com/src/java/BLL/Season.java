@@ -14,6 +14,7 @@ public class Season {
 	private int seasonId;
 	private String seasonName;
 	private String description;
+        private java.util.List<Organism> organisms;
 
 	/**
 	 * @return the seasonId
@@ -56,4 +57,18 @@ public class Season {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+    /**
+     * @return the organisms
+     */
+    public java.util.List<Organism> getOrganisms() {
+        return organisms;
+    }
+
+    /**
+     * @param organisms the organisms to set
+     */
+    public void setOrganisms(java.util.List<Organism> organisms) {
+        this.organisms = organisms;
+    }
 }

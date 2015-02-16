@@ -14,7 +14,7 @@ public class World {
 	private int worldId;
 	private String worldName;
 	private String description;
-	Download downloads;
+	private java.util.List<Download> downloads;
 
 	/**
 	 * @return the worldId
@@ -57,4 +57,18 @@ public class World {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+    /**
+     * @return the downloads
+     */
+    public java.util.List<Download> getDownloads() {
+        return downloads;
+    }
+
+    /**
+     * @param downloads the downloads to set
+     */
+    public void setDownloads(java.util.List<Download> downloads) {
+        this.downloads = downloads;
+    }
 }

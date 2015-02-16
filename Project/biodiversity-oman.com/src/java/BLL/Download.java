@@ -13,6 +13,7 @@ public class Download {
 	
 	private int downloadId;
 	private String downloadFunStuff;
+        private int worldId;
 
 	/**
 	 * @return the downloadId
@@ -41,5 +42,19 @@ public class Download {
 	public void setDownloadFunStuff(String downloadFunStuff) {
 		this.downloadFunStuff = downloadFunStuff;
 	}
+
+    /**
+     * @return the worldId
+     */
+    public int getWorldId() {
+        return worldId;
+    }
+
+    /**
+     * @param worldId the worldId to set
+     */
+    public void setWorldId(int worldId) {
+        this.worldId = worldId;
+    }
 	
 }
