@@ -68,19 +68,19 @@ public class DaUserAccountTest {
 //		
 //	}
 //
-//	/**
-//	 * Test of selectByUsername method, of class DaUserAccount.
-//	 */
-//	@Test
-//	public void testSelectByUsername() throws Exception {
-//		System.out.println("selectByUsername");
-//		String username = "test";
-//		
-//		UserAccount result = DaUserAccount.selectByUsername(username);
-//		
-//		System.out.println(result.getCity());
-//		
-//	}
+	/**
+	 * Test of selectByUsername method, of class DaUserAccount.
+	 */
+	@Test
+	public void testSelectByUsername() throws Exception {
+		System.out.println("selectByUsername");
+		String username = "test";
+		
+		UserAccount result = DaUserAccount.selectByUsername(username);
+		
+		System.out.println(result.getFirstName());
+		
+	}
 //
 //	/**
 //	 * Test of deleteUserAccount method, of class DaUserAccount.
@@ -145,13 +145,14 @@ public class DaUserAccountTest {
 	/**
 	 * Test of selectAll method, of class DaUserAccount.
 	 */
-	@Test
-	public void testSelectAll() throws Exception {
-		System.out.println("selectAll");
-		
-		List<UserAccount> result = DaUserAccount.selectAll();
-		System.out.println(result);
-		
-	}
+//	@Test
+//	public void testSelectAll() throws Exception {
+//		System.out.println("selectAll");
+//		
+//		List<UserAccount> result = DaUserAccount.selectAll();
+//		System.out.println(result);
+//		
+//	}
 	
 }
+  

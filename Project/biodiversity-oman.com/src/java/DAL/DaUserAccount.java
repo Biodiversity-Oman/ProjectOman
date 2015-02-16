@@ -57,12 +57,12 @@ public class DaUserAccount {
 	}
 
 	public static UserAccount selectByUsername(String username) throws SQLException {
+		
 		UserAccount user = new UserAccount();
-
 		try {
-			conn = DataSource.getConnection();
+			conn = DataSource.getConnection();  
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, username, phone, isadmin FROM user_account WHERE username=" + username);
+			stmt = conn.prepareStatement("SELECT * FROM user_account WHERE username=" + username);
 			ResultSet rs = stmt.executeQuery();
 			user.setFirstName(rs.getString("first_name"));
 			user.setLastName(rs.getString("last_name"));
@@ -78,8 +78,8 @@ public class DaUserAccount {
 			conn.rollback();
 		} finally {
 			conn.setAutoCommit(true);
+			
 		}
-
 		return user;
 	}
 

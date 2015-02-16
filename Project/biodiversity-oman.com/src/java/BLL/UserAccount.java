@@ -11,7 +11,7 @@ package BLL;
  */
 public class UserAccount {
 	
-	private Boolean isAdmin;
+	
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -20,11 +20,11 @@ public class UserAccount {
 	private String password;
 	private String userName;
 	private String phone;
-	private Boolean isadmin;
+	private Boolean isAdmin;
 
 	@Override
 	public String toString() {
-		return firstName + lastName + email + city + country + userName + phone + isadmin;
+		return firstName + lastName + email + city + country + userName + phone + isAdmin;
 	}
 
 	/**
