@@ -22,20 +22,20 @@ public class UtDaOrganism {
             System.out.println(o.getCommonName());
         }
         
-        Organism organism = DaOrganism.selectOneById(1);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getScientificName());
-        organism = DaOrganism.selectOneById(3);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getScientificName());
-        organism = DaOrganism.selectOneById(4);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getScientificName());
-        organism = DaOrganism.selectOneById(5);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getScientificName());
-        organism = DaOrganism.selectOneById(8);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getScientificName());
+//        Organism organism = DaOrganism.selectOneById(1);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getScientificName());
+//        organism = DaOrganism.selectOneById(3);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getScientificName());
+//        organism = DaOrganism.selectOneById(4);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getScientificName());
+//        organism = DaOrganism.selectOneById(5);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getScientificName());
+//        organism = DaOrganism.selectOneById(8);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getScientificName());
     }
 }

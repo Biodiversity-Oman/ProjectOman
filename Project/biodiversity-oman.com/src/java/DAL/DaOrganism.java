@@ -46,12 +46,13 @@ public class DaOrganism {
             conn = DataSource.getConnection();
             
             // SQL werkt
-            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.commmon_name, organism.subfamily_id, subfamily.family_id, organism.world_id," +
-                    "subfamily.subfamily_name, family.family_name, worlds.name \n" +
+            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.common_name, organism.subfamily_id, subfamily.subfamily_name," +
+                    "subfamily.family_id, family.family_name," +
+                    "family.world_id, world.world_name \n" +
                     "FROM organism \n" +
                     "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"+
                     "LEFT JOIN family ON subfamily.family_id = family.family_id \n" +
-                    "LEFT JOIN worlds ON organism.world_id = worlds.world_id");
+                    "LEFT JOIN world ON family.world_id = world.world_id \n");
             
             ResultSet rs = stmt.executeQuery();
             
@@ -62,7 +63,7 @@ public class DaOrganism {
                 World w = new World();
                 
                 o.setOrganismId(rs.getInt("organism_id"));
-                o.setCommonName(rs.getString("commmon_name"));
+                o.setCommonName(rs.getString("common_name"));
                 
                 sf.setSubFamilyId(rs.getInt("subfamily_id"));
                 sf.setSubFamilyName(rs.getString("subfamily_name"));
