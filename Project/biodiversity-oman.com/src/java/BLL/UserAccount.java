@@ -18,15 +18,14 @@ public class UserAccount {
 	private String email;
 	private String city;
 	private String country;
-	private String address;
 	private String password;
 	private String userName;
-	private int phone;
+	private String phone;
 	private Boolean isadmin;
 
 	@Override
 	public String toString() {
-		return firstName + lastName + email + city + country + address + userName + phone + isadmin;
+		return firstName + lastName + email + city + country + userName + phone + isadmin;
 	}
 
 	
@@ -130,20 +129,6 @@ public class UserAccount {
 	}
 
 	/**
-	 * @return the address
-	 */
-	public String getAddress() {
-		return address;
-	}
-
-	/**
-	 * @param address the address to set
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	/**
 	 * @return the password
 	 */
 	public String getPassword() {
@@ -174,14 +159,14 @@ public class UserAccount {
 	/**
 	 * @return the phone
 	 */
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
 	/**
 	 * @param phone the phone to set
 	 */
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 }
