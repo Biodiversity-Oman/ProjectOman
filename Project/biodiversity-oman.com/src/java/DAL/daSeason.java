@@ -18,7 +18,6 @@ import java.sql.PreparedStatement;
  * @author Eric
  */
 public class DaSeason {
-    
     private static Connection conn;
     private static PreparedStatement stmt;
     
@@ -99,5 +98,4 @@ public class DaSeason {
             conn.setAutoCommit(true);
         }
     }
-    
 }
