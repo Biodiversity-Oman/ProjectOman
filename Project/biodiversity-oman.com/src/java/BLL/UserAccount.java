@@ -24,6 +24,13 @@ public class UserAccount {
 	private int phone;
 	private Boolean isadmin;
 
+	@Override
+	public String toString() {
+		return firstName + lastName + email + city + country + address + userName + phone + isadmin;
+	}
+
+	
+
 	/**
 	 * @return the userAccountId
 	 */
