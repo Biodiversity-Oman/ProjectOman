@@ -1,0 +1,177 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 16, 2015, 11:47:15 PM
+    Author     : lenny
+*/
+body, html {
+    margin: 0 auto;
+    background-color: #ffffff;
+    font-size: 100%;
+    opacity: 1;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    min-width: 100%;
+}
+.error-message {
+    color: red;
+    width: 100em;
+}
+/* -------------- adminlogin -------------- */
+.loginbox {
+    margin-left: auto;
+    margin-right: auto;
+    height: 50%;
+    width: 70%;
+    background-color:  #558EE6;
+    padding: 1em;
+    margin-top: 10%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border: 0px solid #000000;
+    color: #000053;
+}
+.loginbox form {
+    margin-top: 2.2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+}
+.loginfield {
+    width: 100%;
+    height: 2.2em;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border: 0px solid #000000;
+}
+.button {
+    min-width: 12%;
+    height: 2.6em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    border: 0px solid #000000;
+    margin-bottom: 1em;
+    text-decoration: none;
+    color: black;
+}
+/*--------------------------------------------------------*/
+/* -------------- header & navigation --------------*/
+.current {
+    display: none;
+}
+nav ul ul {
+    display: none;
+}
+nav ul li:hover > ul {
+    display: block;
+}
+nav ul {
+    background: white; 
+    box-shadow: 1px 1.2px 2px #0066FF;
+    padding: 0em;
+    margin: 0 auto;
+    opacity: 0.9;  
+    list-style: none;
+    position: fixed;
+    display: block;
+    top: 0;
+    min-width: 100%;
+    width: 100%;
+    z-index:1000;
+    font-size: 1.1em;
+}
+nav ul:after {
+    content: ""; clear: both; display: block;
+}
+nav ul li {
+    float: left;
+    color: black;
+}
+nav ul li:hover a {
+    color: #0047B2;
+}
+nav ul li a {
+    display: block; padding: 17px 27px;
+    color: #3385FF; text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+nav ul ul {
+    background: white; border-radius: 0px; padding: 0;
+    position: absolute; top: 100%;
+    width: 17em;
+    font-size: 2em;
+}
+nav ul ul li {
+    float: none; 
+    border-bottom: 1px solid #A00000;
+    position: relative;
+}
+nav ul ul li a {
+    padding: 13px 20px;
+    color: black;
+    opacity: 1;
+}   
+nav ul ul li a:hover {
+    background: #909090;
+    opacity: 1;
+}
+nav ul ul ul {
+    position: absolute; left: 100%; top:0;
+    width: 16em;
+}
+.searchmovie {
+    width: 15em;
+    min-width: 15em;
+    max-width: 15em;
+    margin-left: 1em;
+    float: left;
+}
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+.middle {
+    margin-left: auto;
+    margin-right: auto;
+}
+.search input {
+    margin-top: 1.3em;
+    height: 2em;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.8em;
+    border: 1px solid #2EB8E6;
+}
+.searchbutton {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.8em;
+    background-color: #2EB8E6;
+    color: white;
+}
+/*--------------------------------------------------------*/
+/* -------------- welcome -------------- */
+
+.wrapper {
+    height: auto;
+    background-color: black; /*#ffffff*/
+    width: 90%;
+    margin-bottom: 1em;
+    padding-top: 0.1em;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    float: left;
+}
