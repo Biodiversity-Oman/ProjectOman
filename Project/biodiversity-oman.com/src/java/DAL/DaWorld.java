@@ -30,7 +30,7 @@ public class DaWorld {
             while (rs.next()) {
                 World w = new World();
                 w.setWorldId(rs.getInt("world_id"));
-                w.setWorldName(rs.getNString("world_name"));
+                w.setWorldName(rs.getString("world_name"));
                 w.setDescription(rs.getString("world_description"));
                 world.add(w);
             }
