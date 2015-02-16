@@ -5,10 +5,19 @@
  */
 package Service;
 
+import DAL.DaUserAccount;
+import java.sql.SQLException;
+
 /**
  *
  * @author lennyasus
  */
 public class ServUserAccount {
-	
+
+	public static boolean checkPassword(String username, String password) throws SQLException {
+
+		boolean exist;
+		exist = DaUserAccount.checkPassword(username, password) == true;
+		return exist;
+	}
 }
