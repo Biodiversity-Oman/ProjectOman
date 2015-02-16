@@ -35,7 +35,6 @@ public class DaHabitat {
                 Habitat hab = new Habitat();
                 hab.setDescription(rs.getString("description"));
                 hab.setHabitatName(rs.getString("name"));
-                hab.setWorldId(Integer.parseInt(rs.getString("world_id")));
                 habitat.add(hab);
             }
             conn.commit();
@@ -77,7 +76,6 @@ public class DaHabitat {
                     + "(name, description, world_id) VALUES (?,?,?) WHERE habitat_id=" + habitatId +"");
             stmt.setString(1, habi.getHabitatName());
             stmt.setString(2, habi.getDescription());
-            stmt.setInt(3, habi.getWorldId());
             stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
@@ -98,7 +96,6 @@ public class DaHabitat {
                     + "(name, description, world_id) VALUES (?,?,?)");
             stmt.setString(1, habi.getHabitatName());
             stmt.setString(2, habi.getDescription());
-            stmt.setInt(3, habi.getWorldId());
             stmt.executeUpdate();
             conn.commit();
 	    
