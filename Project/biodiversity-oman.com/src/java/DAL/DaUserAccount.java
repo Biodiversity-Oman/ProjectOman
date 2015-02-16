@@ -57,30 +57,30 @@ public class DaUserAccount {
 	}
 
 	public static UserAccount selectByUsername(String username) throws SQLException {
-		
-		UserAccount user = new UserAccount();
+
+		UserAccount us = new UserAccount();
 		try {
-			conn = DataSource.getConnection();  
+			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT * FROM user_account WHERE username=" + username);
+			stmt = conn.prepareStatement("SELECT * FROM user_account where username = ?");
+			stmt.setString(1, username);
 			ResultSet rs = stmt.executeQuery();
-			user.setFirstName(rs.getString("first_name"));
-			user.setLastName(rs.getString("last_name"));
-			user.setEmail(rs.getString("email"));
-			user.setCity(rs.getString("city"));
-			user.setCountry(rs.getString("country"));
-			user.setUserName(rs.getString("username"));
-			user.setPhone(rs.getString("phone"));
-			user.setIsAdmin(rs.getBoolean("isadmin"));
-			
+			rs.next();
+			us.setFirstName(rs.getString("first_name"));
+			us.setLastName(rs.getString("last_name"));
+			us.setEmail(rs.getString("email"));
+			us.setCity(rs.getString("city"));
+			us.setCountry(rs.getString("country"));
+			us.setIsAdmin(rs.getBoolean("isadmin"));
+			us.setPhone(rs.getString("phone"));
 			conn.commit();
-		} catch (SQLException e) {
+
+		} catch (SQLException ex) {
 			conn.rollback();
 		} finally {
 			conn.setAutoCommit(true);
-			
 		}
-		return user;
+		return us;
 	}
 
 	public static void updateUserAccount(BLL.UserAccount user) throws SQLException {
@@ -110,7 +110,6 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-
 			stmt = conn.prepareStatement("DELETE FROM user_accounts where username=?");
 			stmt.setString(1, username);
 			stmt.executeUpdate();
@@ -190,9 +189,9 @@ public class DaUserAccount {
 			conn.setAutoCommit(true);
 		}
 	}
-	
+
 	public static List<UserAccount> selectAll() throws SQLException {
-		
+
 		List<UserAccount> users = new ArrayList();
 		try {
 			conn = DataSource.getConnection();
@@ -220,9 +219,5 @@ public class DaUserAccount {
 
 		return users;
 	}
-	
-	
-	
-	
 
 }
