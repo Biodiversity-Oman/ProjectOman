@@ -74,7 +74,7 @@ public class DaOrganism {
                 o.setFamily(f);
                 
                 w.setWorldId(rs.getInt("world_id"));
-                w.setWorldName(rs.getString("name"));
+                w.setWorldName(rs.getString("world_name"));
                 o.setWorld(w);
                 
                 organisms.add(o);
@@ -107,12 +107,22 @@ public class DaOrganism {
             // Statement welke een organische object opvraagd met al zijn columns en one to many relaties.
             
             // SQL werkt
-            stmt = conn.prepareStatement("SELECT organism.*, subfamily.subfamily_name, family.family_name, family.family_id, worlds.name\n" +
-                                        "FROM organism\n" +
-                                        "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id\n" +
-                                        "LEFT JOIN family ON subfamily.family_id = family.family_id\n" +
-                                        "LEFT JOIN worlds ON organism.world_id = worlds.world_id\n" +
+//            stmt = conn.prepareStatement("SELECT organism.*, subfamily.subfamily_name, family.family_name, family.family_id, worlds.name\n" +
+//                                        "FROM organism\n" +
+//                                        "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id\n" +
+//                                        "LEFT JOIN family ON subfamily.family_id = family.family_id\n" +
+//                                        "LEFT JOIN worlds ON organism.world_id = worlds.world_id\n" +
+//                                        "WHERE organism.organism_id="+Integer.toString(id));
+            
+            stmt = conn.prepareStatement("SELECT organism.*, subfamily.subfamily_name, " +
+                                        "subfamily.family_id, family.family_name, " +
+                                        "family.world_id, world.world_name \n" +
+                                        "FROM organism \n" +
+                                        "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"+
+                                        "LEFT JOIN family ON subfamily.family_id = family.family_id \n" +
+                                        "LEFT JOIN world ON family.world_id = world.world_id \n" +
                                         "WHERE organism.organism_id="+Integer.toString(id));
+            
             ResultSet rsOrganism = stmt.executeQuery();
             
             
@@ -120,19 +130,19 @@ public class DaOrganism {
             //en de relationele objecten uit de databank te halen.
             
             // SQL Werkt
-            stmt = conn.prepareStatement("SELECT food.eaten_by_organism_id, organism.commmon_name\n" +
+            stmt = conn.prepareStatement("SELECT food.eaten_by_organism_id, organism.common_name\n" +
                                         "FROM food\n" +
                                         "INNER JOIN organism ON food.eaten_by_organism_id = organism.organism_id\n" +
                                         "WHERE food.eating_organism_id ="+Integer.toString(id));
             ResultSet rsEatingOrganism = stmt.executeQuery();
             // SQL Werkt
-            stmt = conn.prepareStatement("SELECT food.eating_organism_id, organism.commmon_name\n" +
+            stmt = conn.prepareStatement("SELECT food.eating_organism_id, organism.common_name\n" +
                                         "FROM food\n" +
                                         "INNER JOIN organism ON food.eating_organism_id = organism.organism_id\n" +
                                         "WHERE food.eaten_by_organism_id ="+Integer.toString(id));
             ResultSet rsEatenByOrganism = stmt.executeQuery();
             // SQL Werkt
-            stmt = conn.prepareStatement("SELECT habitat_organism.habitat_id, habitat.name\n" +
+            stmt = conn.prepareStatement("SELECT habitat_organism.habitat_id, habitat.habitat_name\n" +
                                         "FROM habitat_organism\n" +
                                         "INNER JOIN habitat ON habitat_organism.habitat_id = habitat.habitat_id\n" +
                                         "WHERE habitat_organism.organism_id ="+Integer.toString(id));
@@ -141,7 +151,7 @@ public class DaOrganism {
             stmt = conn.prepareStatement("SELECT organism_season.season_id, season.name\n" +
                                         "FROM organism_season\n" +
                                         "INNER JOIN season ON organism_season.season_id = season.season_id\n" +
-                                        "WHERE organism_season.living_organism_id ="+Integer.toString(id));
+                                        "WHERE organism_season.organism_id ="+Integer.toString(id));
             ResultSet rsSeason = stmt.executeQuery();
             
             while(rsOrganism.next()){
@@ -154,9 +164,9 @@ public class DaOrganism {
                 // algemene properties
                 organism.setOrganismId(rsOrganism.getInt("organism_id"));
                 organism.setScientificName(rsOrganism.getString("scientific_name"));
-                organism.setCommonName(rsOrganism.getString("commmon_name"));
+                organism.setCommonName(rsOrganism.getString("common_name"));
                 organism.setLocalName(rsOrganism.getString("local_name"));
-                organism.setDescription(rsOrganism.getString("description"));
+                organism.setDescription(rsOrganism.getString("organism_description"));
                 organism.setPopulation(rsOrganism.getString("population"));
                 organism.setIndigenous(rsOrganism.getBoolean("indigenous"));
                 organism.setCultivated(rsOrganism.getBoolean("cultivated"));
@@ -185,7 +195,7 @@ public class DaOrganism {
                 organism.setFamily(f);
                 
                 w.setWorldId(rsOrganism.getInt("world_id"));
-                w.setWorldName(rsOrganism.getString("name"));
+                w.setWorldName(rsOrganism.getString("world_name"));
                 organism.setWorld(w);
             }
             
@@ -193,19 +203,19 @@ public class DaOrganism {
             while (rsEatingOrganism.next()){
                 Organism o = new Organism();
                 o.setOrganismId(rsEatingOrganism.getInt("eaten_by_organism_id"));
-                o.setCommonName(rsEatingOrganism.getString("commmon_name"));
+                o.setCommonName(rsEatingOrganism.getString("common_name"));
                 eatingOrganisms.add(o);
             }
             while (rsEatenByOrganism.next()){
                 Organism o = new Organism();
                 o.setOrganismId(rsEatenByOrganism.getInt("eating_organism_id"));
-                o.setCommonName(rsEatenByOrganism.getString("commmon_name"));
+                o.setCommonName(rsEatenByOrganism.getString("common_name"));
                 eatenByOrganisms.add(o);
             }
             while (rsHabitat.next()){
                 Habitat h = new Habitat();
                 h.setHabitatId(rsHabitat.getInt("habitat_id"));
-                h.setHabitatName(rsHabitat.getString("name"));
+                h.setHabitatName(rsHabitat.getString("habitat_name"));
                 habitats.add(h);
             }
             while (rsSeason.next()){
