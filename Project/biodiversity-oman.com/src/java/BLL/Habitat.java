@@ -14,6 +14,7 @@ public class Habitat {
         private int habitatId;
 	private String habitatName;
 	private String description;
+        private java.util.List<Organism> organisms;
 
 	/**
 	 * @return the name
@@ -55,5 +56,19 @@ public class Habitat {
      */
     public void setHabitatId(int habitatId) {
         this.habitatId = habitatId;
+    }
+
+    /**
+     * @return the organisms
+     */
+    public java.util.List<Organism> getOrganisms() {
+        return organisms;
+    }
+
+    /**
+     * @param organisms the organisms to set
+     */
+    public void setOrganisms(java.util.List<Organism> organisms) {
+        this.organisms = organisms;
     }
 }
