@@ -7,144 +7,92 @@ package BLL;
 
 /**
  *
- * @author lennyasus
+ * @author Tom
  */
 public class Post {
 
-	private int postId;
-	private int OrganismId;
-	private String FirstName;
-	private String LastName;
-	private String email;
-	private String description;
-	private Byte photoPost;
-	private int longitude;
-	private int latitude;
+	private Integer postId;
+     private Organism organism;
+     private String postFirstName;
+     private String postLastName;
+     private String postEmail;
+     private String postDescription;
+     private byte[] photoPost;
+     private String postLongitude;
+     private String postLatitude;
 
-	/**
-	 * @return the postId
-	 */
-	public int getPostId() {
-		return postId;
-	}
+    public Integer getPostId() {
+        return postId;
+    }
 
-	/**
-	 * @param postId the postId to set
-	 */
-	public void setPostId(int postId) {
-		this.postId = postId;
-	}
+    public void setPostId(Integer postId) {
+        this.postId = postId;
+    }
 
-	/**
-	 * @return the OrganismId
-	 */
-	public int getOrganismId() {
-		return OrganismId;
-	}
+    public Organism getOrganism() {
+        return organism;
+    }
 
-	/**
-	 * @param OrganismId the OrganismId to set
-	 */
-	public void setOrganismId(int OrganismId) {
-		this.OrganismId = OrganismId;
-	}
+    public void setOrganism(Organism organism) {
+        this.organism = organism;
+    }
 
-	/**
-	 * @return the FirstName
-	 */
-	public String getFirstName() {
-		return FirstName;
-	}
+    public String getPostFirstName() {
+        return postFirstName;
+    }
 
-	/**
-	 * @param FirstName the FirstName to set
-	 */
-	public void setFirstName(String FirstName) {
-		this.FirstName = FirstName;
-	}
+    public void setPostFirstName(String postFirstName) {
+        this.postFirstName = postFirstName;
+    }
 
-	/**
-	 * @return the LastName
-	 */
-	public String getLastName() {
-		return LastName;
-	}
+    public String getPostLastName() {
+        return postLastName;
+    }
 
-	/**
-	 * @param LastName the LastName to set
-	 */
-	public void setLastName(String LastName) {
-		this.LastName = LastName;
-	}
+    public void setPostLastName(String postLastName) {
+        this.postLastName = postLastName;
+    }
 
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
+    public String getPostEmail() {
+        return postEmail;
+    }
 
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setPostEmail(String postEmail) {
+        this.postEmail = postEmail;
+    }
 
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
+    public String getPostDescription() {
+        return postDescription;
+    }
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setPostDescription(String postDescription) {
+        this.postDescription = postDescription;
+    }
 
-	/**
-	 * @return the photoPost
-	 */
-	public Byte getPhotoPost() {
-		return photoPost;
-	}
+    public byte[] getPhotoPost() {
+        return photoPost;
+    }
 
-	/**
-	 * @param photoPost the photoPost to set
-	 */
-	public void setPhotoPost(Byte photoPost) {
-		this.photoPost = photoPost;
-	}
+    public void setPhotoPost(byte[] photoPost) {
+        this.photoPost = photoPost;
+    }
 
-	/**
-	 * @return the longitude
-	 */
-	public int getLongitude() {
-		return longitude;
-	}
+    public String getPostLongitude() {
+        return postLongitude;
+    }
 
-	/**
-	 * @param longitude the longitude to set
-	 */
-	public void setLongitude(int longitude) {
-		this.longitude = longitude;
-	}
+    public void setPostLongitude(String postLongitude) {
+        this.postLongitude = postLongitude;
+    }
 
-	/**
-	 * @return the latitude
-	 */
-	public int getLatitude() {
-		return latitude;
-	}
+    public String getPostLatitude() {
+        return postLatitude;
+    }
 
-	/**
-	 * @param latitude the latitude to set
-	 */
-	public void setLatitude(int latitude) {
-		this.latitude = latitude;
-	}
+    public void setPostLatitude(String postLatitude) {
+        this.postLatitude = postLatitude;
+    }
+
+	
 	
 }

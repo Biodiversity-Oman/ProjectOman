@@ -7,38 +7,46 @@ package BLL;
 
 /**
  *
- * @author lennyasus
+ * @author Tom
  */
 public class Subscriber {
 	
-	private String subscriberName;
-	private String email;
+        private Integer subscribedId;
+     private String subscriberFirstName;
+     private String subscriberLastName;
+     private String subscriberEmail;
 
-	/**
-	 * @return the name
-	 */
-	public String getSubscriberName() {
-		return subscriberName;
-	}
+    public Integer getSubscribedId() {
+        return subscribedId;
+    }
 
-	/**
-	 * @param subscriberName the name to set
-	 */
-	public void setSubscriberName(String subscriberName) {
-		this.subscriberName = subscriberName;
-	}
+    public void setSubscribedId(Integer subscribedId) {
+        this.subscribedId = subscribedId;
+    }
 
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
+    public String getSubscriberFirstName() {
+        return subscriberFirstName;
+    }
 
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setSubscriberFirstName(String subscriberFirstName) {
+        this.subscriberFirstName = subscriberFirstName;
+    }
+
+    public String getSubscriberLastName() {
+        return subscriberLastName;
+    }
+
+    public void setSubscriberLastName(String subscriberLastName) {
+        this.subscriberLastName = subscriberLastName;
+    }
+
+    public String getSubscriberEmail() {
+        return subscriberEmail;
+    }
+
+    public void setSubscriberEmail(String subscriberEmail) {
+        this.subscriberEmail = subscriberEmail;
+    }
+
+	
 }

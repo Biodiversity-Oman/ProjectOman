@@ -7,158 +7,118 @@ package BLL;
 
 /**
  *
- * @author lennyasus
+ * @author Tom
  */
 public class GeoLocation {
 	
-	private int geoLocationId;
-	private String latitudeHeight;
-	private String latitudeHeight2;
-	private String longitudeHeight;
-	private String longitudeHeight2;
-	private String longitudeWidth;
-	private String longitudeWidth2;
-	private String latitudeWidth;
-	private String latitudeWidth2;
-        private java.util.List<Organism> organisms;
+	private Integer geolocationId;
+     private String areaName;
+     private String areaDescription;
+     private String latitudeHeight1;
+     private String longitudeHeight1;
+     private String latitudeWidth1;
+     private String longitudeWidth1;
+     private String latitudeHeight2;
+     private String longitudeHeight2;
+     private String latitudeWidth2;
+     private String longitudeWidth2;
+    private java.util.List<Organism> organisms;
 
-	/**
-	 * @return the geoLocationId
-	 */
-	public int getGeoLocationId() {
-		return geoLocationId;
-	}
+    public Integer getGeolocationId() {
+        return geolocationId;
+    }
 
-	/**
-	 * @param geoLocationId the geoLocationId to set
-	 */
-	public void setGeoLocationId(int geoLocationId) {
-		this.geoLocationId = geoLocationId;
-	}
+    public void setGeolocationId(Integer geolocationId) {
+        this.geolocationId = geolocationId;
+    }
 
-	/**
-	 * @return the latitudeHeight
-	 */
-	public String getLatitudeHeight() {
-		return latitudeHeight;
-	}
+    public String getAreaName() {
+        return areaName;
+    }
 
-	/**
-	 * @param latitudeHeight the latitudeHeight to set
-	 */
-	public void setLatitudeHeight(String latitudeHeight) {
-		this.latitudeHeight = latitudeHeight;
-	}
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
 
-	/**
-	 * @return the latitudeHeight2
-	 */
-	public String getLatitudeHeight2() {
-		return latitudeHeight2;
-	}
+    public String getAreaDescription() {
+        return areaDescription;
+    }
 
-	/**
-	 * @param latitudeHeight2 the latitudeHeight2 to set
-	 */
-	public void setLatitudeHeight2(String latitudeHeight2) {
-		this.latitudeHeight2 = latitudeHeight2;
-	}
+    public void setAreaDescription(String areaDescription) {
+        this.areaDescription = areaDescription;
+    }
 
-	/**
-	 * @return the longitudeHeight
-	 */
-	public String getLongitudeHeight() {
-		return longitudeHeight;
-	}
+    public String getLatitudeHeight1() {
+        return latitudeHeight1;
+    }
 
-	/**
-	 * @param longitudeHeight the longitudeHeight to set
-	 */
-	public void setLongitudeHeight(String longitudeHeight) {
-		this.longitudeHeight = longitudeHeight;
-	}
+    public void setLatitudeHeight1(String latitudeHeight1) {
+        this.latitudeHeight1 = latitudeHeight1;
+    }
 
-	/**
-	 * @return the longitudeHeight2
-	 */
-	public String getLongitudeHeight2() {
-		return longitudeHeight2;
-	}
+    public String getLongitudeHeight1() {
+        return longitudeHeight1;
+    }
 
-	/**
-	 * @param longitudeHeight2 the longitudeHeight2 to set
-	 */
-	public void setLongitudeHeight2(String longitudeHeight2) {
-		this.longitudeHeight2 = longitudeHeight2;
-	}
+    public void setLongitudeHeight1(String longitudeHeight1) {
+        this.longitudeHeight1 = longitudeHeight1;
+    }
 
-	/**
-	 * @return the longitudeWidth
-	 */
-	public String getLongitudeWidth() {
-		return longitudeWidth;
-	}
+    public String getLatitudeWidth1() {
+        return latitudeWidth1;
+    }
 
-	/**
-	 * @param longitudeWidth the longitudeWidth to set
-	 */
-	public void setLongitudeWidth(String longitudeWidth) {
-		this.longitudeWidth = longitudeWidth;
-	}
+    public void setLatitudeWidth1(String latitudeWidth1) {
+        this.latitudeWidth1 = latitudeWidth1;
+    }
 
-	/**
-	 * @return the longitudeWidth2
-	 */
-	public String getLongitudeWidth2() {
-		return longitudeWidth2;
-	}
+    public String getLongitudeWidth1() {
+        return longitudeWidth1;
+    }
 
-	/**
-	 * @param longitudeWidth2 the longitudeWidth2 to set
-	 */
-	public void setLongitudeWidth2(String longitudeWidth2) {
-		this.longitudeWidth2 = longitudeWidth2;
-	}
+    public void setLongitudeWidth1(String longitudeWidth1) {
+        this.longitudeWidth1 = longitudeWidth1;
+    }
 
-	/**
-	 * @return the latitudeWidth
-	 */
-	public String getLatitudeWidth() {
-		return latitudeWidth;
-	}
+    public String getLatitudeHeight2() {
+        return latitudeHeight2;
+    }
 
-	/**
-	 * @param latitudeWidth the latitudeWidth to set
-	 */
-	public void setLatitudeWidth(String latitudeWidth) {
-		this.latitudeWidth = latitudeWidth;
-	}
+    public void setLatitudeHeight2(String latitudeHeight2) {
+        this.latitudeHeight2 = latitudeHeight2;
+    }
 
-	/**
-	 * @return the latitudeWidth2
-	 */
-	public String getLatitudeWidth2() {
-		return latitudeWidth2;
-	}
+    public String getLongitudeHeight2() {
+        return longitudeHeight2;
+    }
 
-	/**
-	 * @param latitudeWidth2 the latitudeWidth2 to set
-	 */
-	public void setLatitudeWidth2(String latitudeWidth2) {
-		this.latitudeWidth2 = latitudeWidth2;
-	}
+    public void setLongitudeHeight2(String longitudeHeight2) {
+        this.longitudeHeight2 = longitudeHeight2;
+    }
 
-    /**
-     * @return the organisms
-     */
+    public String getLatitudeWidth2() {
+        return latitudeWidth2;
+    }
+
+    public void setLatitudeWidth2(String latitudeWidth2) {
+        this.latitudeWidth2 = latitudeWidth2;
+    }
+
+    public String getLongitudeWidth2() {
+        return longitudeWidth2;
+    }
+
+    public void setLongitudeWidth2(String longitudeWidth2) {
+        this.longitudeWidth2 = longitudeWidth2;
+    }
+
     public java.util.List<Organism> getOrganisms() {
         return organisms;
     }
 
-    /**
-     * @param organisms the organisms to set
-     */
     public void setOrganisms(java.util.List<Organism> organisms) {
         this.organisms = organisms;
     }
+
+	
 }
