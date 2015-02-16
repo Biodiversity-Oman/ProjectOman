@@ -10,18 +10,18 @@ package BLL;
  * @author Tom
  */
 public class Subscriber {
-	
-        private Integer subscribedId;
-     private String subscriberFirstName;
-     private String subscriberLastName;
-     private String subscriberEmail;
 
-    public Integer getSubscribedId() {
-        return subscribedId;
+    private Integer subscriberId;
+    private String subscriberFirstName;
+    private String subscriberLastName;
+    private String subscriberEmail;
+
+    public Integer getSubscriberId() {
+        return subscriberId;
     }
 
-    public void setSubscribedId(Integer subscribedId) {
-        this.subscribedId = subscribedId;
+    public void setSubscriberId(Integer subscribedId) {
+        this.subscriberId = subscribedId;
     }
 
     public String getSubscriberFirstName() {
@@ -48,5 +48,4 @@ public class Subscriber {
         this.subscriberEmail = subscriberEmail;
     }
 
-	
 }
