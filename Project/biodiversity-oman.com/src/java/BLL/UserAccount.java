@@ -18,7 +18,6 @@ public class UserAccount {
 	private String email;
 	private String city;
 	private String country;
-	private String address;
 	private String password;
 	private String userName;
 	private int phone;
@@ -26,7 +25,7 @@ public class UserAccount {
 
 	@Override
 	public String toString() {
-		return firstName + lastName + email + city + country + address + userName + phone + isadmin;
+		return firstName + lastName + email + city + country + userName + phone + isadmin;
 	}
 
 	
@@ -127,20 +126,6 @@ public class UserAccount {
 	 */
 	public void setCountry(String country) {
 		this.country = country;
-	}
-
-	/**
-	 * @return the address
-	 */
-	public String getAddress() {
-		return address;
-	}
-
-	/**
-	 * @param address the address to set
-	 */
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	/**

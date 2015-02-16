@@ -31,19 +31,18 @@ public class DaUserAccount {
 			// set autocommit to false to control when the query has to be commited, this gives a huge performance boost
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("INSERT INTO user_accounts "
-				+ "(first_name, last_name, email, city, country, address, password, username, isadmin, phone) VALUES (?,?,?,?,?,?,?,?,?,?)");
+			stmt = conn.prepareStatement("INSERT INTO user_account "
+				+ "(first_name, last_name, email, city, country, password, username, isadmin, phone) VALUES (?,?,?,?,?,?,?,?,?)");
 			// set my query strings fro mmy user object(parameter)
-			stmt.setString(1, user.getAddress());
-			stmt.setString(2, user.getCity());
-			stmt.setString(3, user.getCountry());
-			stmt.setString(4, user.getEmail());
-			stmt.setString(5, user.getFirstName());
-			stmt.setString(6, user.getLastName());
-			stmt.setString(7, password);
-			stmt.setString(8, user.getUserName());
-			stmt.setBoolean(9, user.getIsAdmin());
-			stmt.setInt(10, user.getPhone());
+			stmt.setString(1, user.getFirstName());
+                        stmt.setString(2, user.getLastName());
+                        stmt.setString(3, user.getEmail());
+                        stmt.setString(4, user.getCity());
+			stmt.setString(5, user.getCountry());
+			stmt.setString(6, password);
+			stmt.setString(7, user.getUserName());
+			stmt.setBoolean(8, user.getIsAdmin());
+			stmt.setInt(9, user.getPhone());
 			stmt.executeUpdate();
 			// do my commit
 			conn.commit();
@@ -63,7 +62,7 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, address, username, phone, isadmin FROM user_accounts WHERE username=" + username);
+			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, username, phone, isadmin FROM user_account WHERE username=" + username);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				user.setFirstName(rs.getString("first_name"));
@@ -71,7 +70,6 @@ public class DaUserAccount {
 				user.setEmail(rs.getString("email"));
 				user.setCity(rs.getString("city"));
 				user.setCountry(rs.getString("country"));
-				user.setAddress(rs.getString("address"));
 				user.setUserName(rs.getString("username"));
 				user.setPhone(rs.getInt("phone"));
 				user.setIsAdmin(rs.getBoolean("isadmin"));
@@ -91,15 +89,14 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE user_accounts SET first_name=? ,last_name=?, email=?, city=?, country=?, address=?, phone=? WHERE username=?");
+			stmt = conn.prepareStatement("UPDATE user_account SET first_name=? ,last_name=?, email=?, city=?, country=?, phone=? WHERE username=?");
 			stmt.setString(1, user.getFirstName());
 			stmt.setString(2, user.getLastName());
 			stmt.setString(3, user.getEmail());
 			stmt.setString(4, user.getCity());
 			stmt.setString(5, user.getCountry());
-			stmt.setString(6, user.getAddress());
-			stmt.setInt(7, user.getPhone());
-			stmt.setString(8, user.getUserName());
+			stmt.setInt(6, user.getPhone());
+			stmt.setString(7, user.getUserName());
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
@@ -115,7 +112,7 @@ public class DaUserAccount {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 
-			stmt = conn.prepareStatement("DELETE FROM user_accounts where username=?");
+			stmt = conn.prepareStatement("DELETE FROM user_account where username=?");
 			stmt.setString(1, username);
 			stmt.executeUpdate();
 			conn.commit();
@@ -133,7 +130,7 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE user_accounts SET password = ? WHERE username=?");
+			stmt = conn.prepareStatement("UPDATE user_account SET password = ? WHERE username=?");
 			stmt.setString(1, newpassword);
 			stmt.setString(2, username);
 			stmt.executeUpdate();
@@ -152,7 +149,7 @@ public class DaUserAccount {
 		boolean match;
 		conn = DataSource.getConnection();
 		conn.setAutoCommit(false);
-		stmt = conn.prepareStatement("SELECT password FROM user_accounts where username = ?");
+		stmt = conn.prepareStatement("SELECT password FROM user_account where username = ?");
 		stmt.setString(1, username);
 		ResultSet rs = stmt.executeQuery();
 		conn.commit();
@@ -169,7 +166,7 @@ public class DaUserAccount {
 		boolean match;
 		conn = DataSource.getConnection();
 		conn.setAutoCommit(false);
-		stmt = conn.prepareStatement("SELECT COUNT(*) FROM user_accounts WHERE username = ?");
+		stmt = conn.prepareStatement("SELECT COUNT(*) FROM user_account WHERE username = ?");
 		stmt.setString(1, username);
 		ResultSet rs = stmt.executeQuery();
 		conn.commit();
@@ -184,7 +181,7 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE user_accounts SET isadmin = '1' WHERE username=?");
+			stmt = conn.prepareStatement("UPDATE user_account SET isadmin = '1' WHERE username=?");
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
@@ -200,7 +197,7 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, address, username, phone, isadmin FROM user_accounts");
+			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, username, phone, isadmin FROM user_account");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				UserAccount user = new UserAccount();
@@ -209,7 +206,6 @@ public class DaUserAccount {
 				user.setEmail(rs.getString("email"));
 				user.setCity(rs.getString("city"));
 				user.setCountry(rs.getString("country"));
-				user.setAddress(rs.getString("address"));
 				user.setUserName(rs.getString("username"));
 				user.setPhone(rs.getInt("phone"));
 				user.setIsAdmin(rs.getBoolean("isadmin"));
