@@ -18,18 +18,17 @@ import java.sql.PreparedStatement;
  * @author Eric
  */
 public class DaSeason {
-    
+
     private static Connection conn;
     private static PreparedStatement stmt;
-    
-    
+
     public static List selectSeason(int seasonId) throws SQLException {
 
         List<Season> season = new ArrayList<>();
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT name, description, id FROM season WHERE season_id =" + seasonId +"");
+            stmt = conn.prepareStatement("SELECT name, description, id FROM season WHERE season_id =" + seasonId + "");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Season seaso = new Season();
@@ -45,14 +44,14 @@ public class DaSeason {
         }
         return season;
     }
-    
+
     public static void updateSeason(Season seas, int seasonId) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("UPDATE season "
-                    + "(name, description) VALUES (?,?) WHERE season_id=" + seasonId +"");
+                    + "(name, description) VALUES (?,?) WHERE season_id=" + seasonId + "");
             stmt.setString(1, seas.getSeasonName());
             stmt.setString(2, seas.getDescription());
             stmt.executeUpdate();
@@ -63,7 +62,7 @@ public class DaSeason {
             conn.setAutoCommit(true);
         }
     }
-    
+
     public static void deleteSeason(int seasonId) throws SQLException {
 
         try {
@@ -80,8 +79,7 @@ public class DaSeason {
             conn.setAutoCommit(true);
         }
     }
-    
-    
+
     public static void insertSeason(Season seas) throws SQLException {
 
         try {
@@ -99,5 +97,4 @@ public class DaSeason {
             conn.setAutoCommit(true);
         }
     }
-    
 }
