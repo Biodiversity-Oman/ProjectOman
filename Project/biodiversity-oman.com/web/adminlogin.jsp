@@ -28,10 +28,10 @@
 	<body>
 		<div class="loginbox">
 			<form method="POST" action="Login">
-				<label for="naam">Gebruikersnaam</label><br>
+				<label for="naam">Username</label><br>
 				<input class="loginfield" type="text" name="username" />
 				<br>
-				<label for="passwoord">Wachtwoord</label>
+				<label for="passwoord">Password</label>
 				<br>
 				<input class="loginfield" type="password" name="password" />
 				<br>

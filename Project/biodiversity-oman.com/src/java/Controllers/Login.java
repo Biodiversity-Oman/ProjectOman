@@ -50,17 +50,17 @@ public class Login extends HttpServlet {
 				session.setAttribute("user", user);
 				response.sendRedirect("welcome.jsp");
 			} else {
-				String message = "Uw gebruikersnaam of wachtwoord is onjuist";
+				String message = "Username or password not valid";
 				session.setAttribute("error", message);
 				response.sendRedirect("adminlogin.jsp");
 			}
 		} catch (SQLException ex) {
-			String message = "Uw gebruikersnaam of watchwoord is onjuist";
+			String message = "Username or password not valid";
 			session.setAttribute("error", message);
 			response.sendRedirect("adminlogin.jsp");
 
 		} catch (NullPointerException e) {
-			String message = "Uw gebruikersnaam of wachtwoord is onjuist";
+			String message = "Username or password not valid";
 			session.setAttribute("error", message);
 			response.sendRedirect("adminlogin.jsp");
 		}
