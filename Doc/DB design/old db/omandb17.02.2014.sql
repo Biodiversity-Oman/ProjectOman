@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 17 feb 2015 om 20:26
+-- Genereertijd: 17 feb 2015 om 13:07
 -- Serverversie: 5.6.13
 -- PHP-versie: 5.4.17
 
@@ -29,8 +29,8 @@ USE `omandb`;
 --
 
 CREATE TABLE IF NOT EXISTS `download` (
-  `download_id` int(11) NOT NULL,
-  `world_id` int(11) DEFAULT NULL,
+  `download_id` int(11) NOT NULL AUTO_INCREMENT,
+  `world_id` int(11) NOT NULL,
   `download_funstuff` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`download_id`),
   KEY `world_id` (`world_id`)
@@ -257,15 +257,6 @@ CREATE TABLE IF NOT EXISTS `user_account` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Gegevens worden uitgevoerd voor tabel `user_account`
---
-
-INSERT INTO `user_account` (`username`, `password`, `first_name`, `last_name`, `email`, `city`, `country`, `isadmin`, `phone`) VALUES
-('admin', '$2a$10$RAt.PEEQXHnV/sCj2VIwNOUige9631BllsXqUITcJK3kpcp0/SAB2', 'admin', 'admin', 'admin@admin.com', 'admin', 'admin', 0, '0123456789'),
-('admin1', '$2a$10$1jvdazlPQRKLFD7qkjMGFeOkY6shhl3GVtf27DHPTX5/Hdr9rMDLK', 'admin1', 'admin1', 'admin1@admin.com', 'admin1', 'admin1', 0, '0123456789'),
-('user', '$2a$10$MK7bYaL2mun7kD4vza6BEO.n1eUypaAjs/zuxYuXkxOfOe853doDa', 'user', 'user', 'user@admin.com', 'user', 'user', 1, '0123456789');
-
 -- --------------------------------------------------------
 
 --
@@ -277,18 +268,7 @@ CREATE TABLE IF NOT EXISTS `world` (
   `world_name` varchar(50) NOT NULL,
   `world_description` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`world_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Gegevens worden uitgevoerd voor tabel `world`
---
-
-INSERT INTO `world` (`world_id`, `world_name`, `world_description`) VALUES
-(2, 'micro', 'dit is een update'),
-(3, 'micro', 'dit is een test'),
-(5, 'micro', 'dit is een test'),
-(6, 'micro', 'dit is een test'),
-(7, 'micro', 'dit is een test');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Beperkingen voor gedumpte tabellen
@@ -310,8 +290,8 @@ ALTER TABLE `family`
 -- Beperkingen voor tabel `food`
 --
 ALTER TABLE `food`
-  ADD CONSTRAINT `Fk_LivingOrganismEatening_ID` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `Fk_LivingOrganismEaten_ID` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`);
+  ADD CONSTRAINT `Fk_LivingOrganismEaten_ID` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`),
+  ADD CONSTRAINT `Fk_LivingOrganismEatening_ID` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`);
 
 --
 -- Beperkingen voor tabel `geolocation_organisme`
