@@ -7,12 +7,15 @@
 
 <%@page import="BLL.UserAccount"%>
 <%
+    // username variable wordt enkel gevuld als er een username object is. deze wordt enkel aangemaakt als een gebruiker succesvol is ingelogt (Login controller)
     String username = null;
     UserAccount us =(UserAccount) session.getAttribute("user");
     if(us != null) {
      username = us.getUserName();
      
     } else {
+     // wanneer er geen us.Object is aangemaakt redirect de server terug naar adminlogin.jsp. dit is om te voorkomen dat de gebruiker in de browser wwww.domain.com/welcome.jsp kan gebruike om 
+     // login te omzeilen.
      String message = "U bent niet ingelogd!";
      session.setAttribute("error", message);
      response.sendRedirect("adminlogin.jsp");
