@@ -16,22 +16,16 @@ public class UtDaOrganism {
     public static void main(String[] args)
     {
         SubFamily sf = new SubFamily();
-        sf.setSubFamilyId(1);
+        sf.setSubfamilyId(1);
         
         Organism newOrganism = new Organism();
         newOrganism.setBenefits("benefitinserttest");
         newOrganism.setCommonName("CommonNameTest");
         newOrganism.setCultivated(Boolean.TRUE);
         newOrganism.setValidated(Boolean.TRUE);
-        newOrganism.setSubFamily(sf);
+        newOrganism.setSubfamily(sf);
         
-        try{
         DaOrganism.insertOrganism(newOrganism);
-        }
-        catch(java.sql.SQLException ex)
-        {
-            System.out.println(ex.getMessage());
-        }
         
         List<Organism> organisms = DaOrganism.sellectAll();
         

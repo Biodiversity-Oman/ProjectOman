@@ -5,7 +5,17 @@
  */
 package DAL;
 
+<<<<<<< HEAD
 import BLL.*;
+=======
+import BLL.Family;
+import BLL.Habitat;
+import BLL.Organism;
+import BLL.Post;
+import BLL.Season;
+import BLL.SubFamily;
+import BLL.World;
+>>>>>>> origin/master
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
