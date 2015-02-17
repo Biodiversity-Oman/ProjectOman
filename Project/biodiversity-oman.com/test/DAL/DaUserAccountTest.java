@@ -82,13 +82,13 @@ public class DaUserAccountTest {
 	/**
 	 * Test of deleteUserAccount method, of class DaUserAccount.
 	 */
-	@Test
-	public void testDeleteUserAccount() throws Exception {
-		System.out.println("deleteUserAccount");
-		String username = "test1";
-		DaUserAccount.deleteUserAccount(username);
-		
-	}
+//	@Test
+//	public void testDeleteUserAccount() throws Exception {
+//		System.out.println("deleteUserAccount");
+//		String username = "test1";
+//		DaUserAccount.deleteUserAccount(username);
+//		
+//	}
 //
 //	/**
 //	 * Test of updatePassword method, of class DaUserAccount.
