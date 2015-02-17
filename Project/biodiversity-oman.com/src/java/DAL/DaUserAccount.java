@@ -220,7 +220,7 @@ public class DaUserAccount {
 		return users;
 	}
 	
-	public boolean isAdmin(String username) throws SQLException{
+	public static boolean isAdmin(String username) throws SQLException{
 		
 		boolean match;
 		conn = DataSource.getConnection();
