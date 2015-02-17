@@ -46,9 +46,9 @@
             <li class="current"><a href="#" onclick=""><span class="icon-menu"></span></a></li>
 	<!-- ------------------------------------------------------------------------------------>
 	<!-- alle menu items aan de linkerkant -->
-            <li><a href="#" >..</a></li>
-            <li><a href="#" >..</a></li>
-            <li><a href="#" >..</a></li>
+            <li><a href="#" >item</a></li>
+            <li><a href="#" >item</a></li>
+            <li><a href="#" >item</a></li>
         <!--------------------------------------------------------------------------------------->
 	<!-- alle menu items aan de rechterkant -->
             <li class="right"><a href="Logout">log out</a></li>
@@ -66,7 +66,8 @@
 	adminuser.innerHTML += '<a href="#">user management</a>';
 	adminpublish.innerHTML += '<a href="#">publish</a>';
     <%} else {%>
-
+	adminuser.innerHTML += '';
+	adminpublish.innerHTML += '';
     <%}%>
 </script>
 </html>
