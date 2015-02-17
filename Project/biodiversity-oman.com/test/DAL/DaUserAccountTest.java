@@ -132,5 +132,18 @@ public class DaUserAccountTest {
 		List<UserAccount> result = DaUserAccount.selectAll();
 		System.out.println(result);
 	}
+
+	/**
+	 * Test of isAdmin method, of class DaUserAccount.
+	 */
+	@Test
+	public void testIsAdmin() throws Exception {
+		System.out.println("isAdmin");
+		String username = "";
+		DaUserAccount instance = new DaUserAccount();
+		boolean result = instance.isAdmin(username);
+		System.out.println(result);
+		
+	}
 	
 }
