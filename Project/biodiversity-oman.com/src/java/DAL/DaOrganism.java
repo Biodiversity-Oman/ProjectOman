@@ -10,7 +10,7 @@ import BLL.Habitat;
 import BLL.Organism;
 import BLL.Post;
 import BLL.Season;
-import BLL.Subfamily;
+import BLL.SubFamily;
 import BLL.World;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -58,7 +58,7 @@ public class DaOrganism {
             
             while(rs.next()){
                 Organism o = new Organism();
-                Subfamily sf = new Subfamily();
+                SubFamily sf = new SubFamily();
                 Family f = new Family();
                 World w = new World();
                 
@@ -157,7 +157,7 @@ public class DaOrganism {
             while(rsOrganism.next()){
                 
                 // De objecten voor de One to many relaties.
-                Subfamily sf = new Subfamily();
+                SubFamily sf = new SubFamily();
                 Family f = new Family();
                 World w = new World();
                 
