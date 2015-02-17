@@ -88,14 +88,14 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE user_account SET first_name=? ,last_name=?, email=?, city=?, country=?, address=?, phone=? WHERE username=?");
+			stmt = conn.prepareStatement("UPDATE user_account SET first_name=?, last_name=?, email=?, city=?, country=?, phone=? WHERE username=?");
 			stmt.setString(1, user.getFirstName());
 			stmt.setString(2, user.getLastName());
 			stmt.setString(3, user.getEmail());
 			stmt.setString(4, user.getCity());
 			stmt.setString(5, user.getCountry());
-			stmt.setString(7, user.getPhone());
-			stmt.setString(8, user.getUserName());
+			stmt.setString(6, user.getPhone());
+			stmt.setString(7, user.getUserName());
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
@@ -110,7 +110,7 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("DELETE FROM user_accounts where username=?");
+			stmt = conn.prepareStatement("DELETE FROM user_account where username=?");
 			stmt.setString(1, username);
 			stmt.executeUpdate();
 			conn.commit();

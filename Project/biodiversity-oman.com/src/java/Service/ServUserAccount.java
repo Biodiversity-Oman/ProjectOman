@@ -5,6 +5,7 @@
  */
 package Service;
 
+import BLL.UserAccount;
 import DAL.DaUserAccount;
 import java.sql.SQLException;
 
@@ -26,5 +27,34 @@ public class ServUserAccount {
 		boolean exist;
 		exist = DaUserAccount.isAdmin(username) == true;
 		return exist;
+	}
+	
+	public static UserAccount selectUserAccountByUsername(String username) throws SQLException {
+		
+		UserAccount user = DaUserAccount.selectByUsername(username);
+		return user;
+	}
+	
+	public static void updateUserAccount(String username, String firstname, String lastname, String city, String country, String phone, String email) throws SQLException {
+		
+		UserAccount user = new UserAccount();
+		user.setUserName(username);
+		user.setFirstName(firstname);
+		user.setLastName(lastname);
+		user.setCity(city);
+		user.setCountry(country);
+		user.setPhone(phone);
+		user.setEmail(email);
+		DaUserAccount.updateUserAccount(user);
+	}
+	
+	public static void updatePassword(String password, String username) throws SQLException {
+		
+		DaUserAccount.updatePassword(password, username);
+	}
+	
+	public static void deleteUserAccount(String username) throws SQLException {
+
+		DaUserAccount.deleteUserAccount(username);
 	}
 }

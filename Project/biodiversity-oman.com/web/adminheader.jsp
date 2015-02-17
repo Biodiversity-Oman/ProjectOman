@@ -52,7 +52,7 @@
         <!--------------------------------------------------------------------------------------->
 	<!-- alle menu items aan de rechterkant -->
             <li class="right"><a href="Logout">log out</a></li>
-            <li class="right"><a href="#"><%=username%></a></li>
+            <li class="right"><a href="userinfo.jsp"><%=username%></a></li>
             <li class="right" id="adminuser"></li>
 	    <li class="right" id="adminpublish"></li>
 	<!--------------------------------------------------------------------------------------->

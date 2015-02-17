@@ -32,22 +32,22 @@ public class DaUserAccountTest {
 	/**
 	 * Test of insertUserAccount method, of class DaUserAccount.
 	 */
-	@Test
-	public void testInsertUserAccount() throws Exception {
-		System.out.println("insertUserAccount");
-		UserAccount user = new UserAccount();
-		user.setFirstName("test1");
-		user.setLastName("test1");
-		user.setCity("test1");
-		user.setEmail("test1@test");
-		user.setIsAdmin(false);
-		user.setCountry("test1");
-		user.setPassword("test");
-		user.setPhone("12211");
-		user.setUserName("test1");
-		DaUserAccount.insertUserAccount(user);
-		
-	}
+	//@Test
+//	public void testInsertUserAccount() throws Exception {
+//		System.out.println("insertUserAccount");
+//		UserAccount user = new UserAccount();
+//		user.setFirstName("test1");
+//		user.setLastName("test1");
+//		user.setCity("test1");
+//		user.setEmail("test1@test");
+//		user.setIsAdmin(false);
+//		user.setCountry("test1");
+//		user.setPassword("test");
+//		user.setPhone("12211");
+//		user.setUserName("test1");
+//		DaUserAccount.insertUserAccount(user);
+//		
+//	}
 
 //	/**
 //	 * Test of selectByUsername method, of class DaUserAccount.
@@ -60,28 +60,35 @@ public class DaUserAccountTest {
 //		System.out.println(result);
 //		
 //	}
-//
+
 //	/**
 //	 * Test of updateUserAccount method, of class DaUserAccount.
 //	 */
 //	@Test
 //	public void testUpdateUserAccount() throws Exception {
 //		System.out.println("updateUserAccount");
-//		UserAccount user = null;
+//		UserAccount user = new UserAccount();
+//		user.setFirstName("test122");
+//		user.setLastName("testzzzzz");
+//		user.setCity("test2");
+//		user.setCountry("belgie");
+//		user.setEmail("something@something");
+//		user.setPhone("51223");
+//		user.setUserName("test");
 //		DaUserAccount.updateUserAccount(user);
 //		
 //	}
 //
-//	/**
-//	 * Test of deleteUserAccount method, of class DaUserAccount.
-//	 */
-//	@Test
-//	public void testDeleteUserAccount() throws Exception {
-//		System.out.println("deleteUserAccount");
-//		String username = "";
-//		DaUserAccount.deleteUserAccount(username);
-//		
-//	}
+	/**
+	 * Test of deleteUserAccount method, of class DaUserAccount.
+	 */
+	@Test
+	public void testDeleteUserAccount() throws Exception {
+		System.out.println("deleteUserAccount");
+		String username = "test1";
+		DaUserAccount.deleteUserAccount(username);
+		
+	}
 //
 //	/**
 //	 * Test of updatePassword method, of class DaUserAccount.

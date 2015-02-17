@@ -162,7 +162,7 @@ nav ul ul ul {
     color: white;
 }
 /*--------------------------------------------------------*/
-/* -------------- welcome -------------- */
+/* -------------- Wrapper -------------- */
 
 .wrapper {
     height: auto;
@@ -174,4 +174,114 @@ nav ul ul ul {
     margin-left: 5%;
     margin-right: 5%;
     float: left;
+}
+/*--------------------------------------------------------*/
+/* -------------- userinfo -------------- */
+.bluebox {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 60%;
+    background-color:  	#558EE6;
+    padding: 1em;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border: 0px solid #000000;
+    color: #000053;
+    position: relative;
+}
+.close-button {
+    position: relative;
+    float: right;
+    color: #FF3333;
+}
+.black_overlay{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=80);
+}
+.black_overlay-boxed{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=80);
+}
+.whitebox {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 5em;
+    width: 30em;
+    height: 40%;
+    padding: 16px;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    background-color: #558EE6;
+    z-index:1002;
+    overflow: hidden;
+}
+.whitebox .content {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    position: absolute;
+}
+.whiteboxdialog {
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 30em;
+    height: 14%;
+    padding: 16px;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    background-color: white;
+    z-index:1002;
+    overflow: auto;
+}
+.whiteboxdialog .content {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-field {
+    height: 2.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border: 0px solid #000000;
+}
+.field-title {
+    color:  #2E78E6;
+    font-size: 1.7em;
+    margin-left: 20%;
+    margin-right: auto;
+}
+.button-blue {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    border: 0px solid #000000;
+    background-color: #0066FF;
+    height: 2em;
+    color: white;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
 }
