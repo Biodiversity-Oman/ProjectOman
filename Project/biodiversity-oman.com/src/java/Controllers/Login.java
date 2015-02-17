@@ -42,6 +42,11 @@ public class Login extends HttpServlet {
 			if (ServUserAccount.checkPassword(request.getParameter("username"), request.getParameter("password")) == true) {
 				UserAccount user = new UserAccount();
 				user.setUserName(request.getParameter("username"));
+				if (ServUserAccount.isAdmin(request.getParameter("username"))==true) {
+					user.setIsAdmin(true);
+				} else {
+					user.setIsAdmin(false);
+				}
 				session.setAttribute("user", user);
 				response.sendRedirect("welcome.jsp");
 			} else {

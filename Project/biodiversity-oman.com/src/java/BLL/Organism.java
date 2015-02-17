@@ -42,6 +42,7 @@ public class Organism {
 	private String foodDescription;
         private java.util.Date insertedOn;
         private java.util.Date updatedOn;
+        private List<GeoLocation> geolocations;
 
 	/**
 	 * @return the organismId
@@ -447,6 +448,20 @@ public class Organism {
      */
     public void setUpdatedOn(java.util.Date updatedOn) {
         this.updatedOn = updatedOn;
+    }
+
+    /**
+     * @return the geolocations
+     */
+    public List<GeoLocation> getGeolocations() {
+        return geolocations;
+    }
+
+    /**
+     * @param geolocations the geolocations to set
+     */
+    public void setGeolocations(List<GeoLocation> geolocations) {
+        this.geolocations = geolocations;
     }
 
 	

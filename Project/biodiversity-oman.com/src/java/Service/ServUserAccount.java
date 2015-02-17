@@ -20,4 +20,11 @@ public class ServUserAccount {
 		exist = DaUserAccount.checkPassword(username, password) == true;
 		return exist;
 	}
+	
+	public static boolean isAdmin(String username) throws SQLException {
+		
+		boolean exist;
+		exist = DaUserAccount.isAdmin(username) == true;
+		return exist;
+	}
 }

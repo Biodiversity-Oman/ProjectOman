@@ -7,11 +7,15 @@
 
 <%@page import="BLL.UserAccount"%>
 <%
+    // username variable wordt enkel gevuld als er een username object is. deze wordt enkel aangemaakt als een gebruiker succesvol is ingelogt (Login controller)
     String username = null;
     UserAccount us =(UserAccount) session.getAttribute("user");
     if(us != null) {
      username = us.getUserName();
+     
     } else {
+     // wanneer er geen us.Object is aangemaakt redirect de server terug naar adminlogin.jsp. dit is om te voorkomen dat de gebruiker in de browser wwww.domain.com/welcome.jsp kan gebruike om 
+     // login te omzeilen.
      String message = "U bent niet ingelogd!";
      session.setAttribute("error", message);
      response.sendRedirect("adminlogin.jsp");
@@ -38,14 +42,31 @@
     </head>
     <nav>
 	<ul>
+	<!-- hamburger menu icoon voor responsive design. wordt enkel getoont op mobile resoluties-->
             <li class="current"><a href="#" onclick=""><span class="icon-menu"></span></a></li>
+	<!-- ------------------------------------------------------------------------------------>
+	<!-- alle menu items aan de linkerkant -->
             <li><a href="#" >..</a></li>
             <li><a href="#" >..</a></li>
             <li><a href="#" >..</a></li>
-            
+        <!--------------------------------------------------------------------------------------->
+	<!-- alle menu items aan de rechterkant -->
             <li class="right"><a href="Logout">log out</a></li>
             <li class="right"><a href="#"><%=username%></a></li>
-            <li class="right"><a href="#">...</a></li>
+            <li class="right" id="adminuser"></li>
+	    <li class="right" id="adminpublish"></li>
+	<!--------------------------------------------------------------------------------------->
 	</ul>
 </nav>
+<!-- dit stukje javascript zorgt ervoor dat een gewone user de admin paginas niet kan zien. --->	    
+<script>
+	var adminuser = document.getElementById('adminuser');
+	var adminpublish = document.getElementById('adminpublish');
+    <%if(us.getIsAdmin() == true) {%>
+	adminuser.innerHTML += '<a href="#">user management</a>';
+	adminpublish.innerHTML += '<a href="#">publish</a>';
+    <%} else {%>
+
+    <%}%>
+</script>
 </html>

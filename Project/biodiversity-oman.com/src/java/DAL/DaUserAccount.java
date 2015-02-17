@@ -219,5 +219,20 @@ public class DaUserAccount {
 
 		return users;
 	}
+	
+	public static boolean isAdmin(String username) throws SQLException{
+		
+		boolean match;
+		conn = DataSource.getConnection();
+		conn.setAutoCommit(false);
+		stmt = conn.prepareStatement("SELECT isadmin FROM user_account WHERE username = ?");
+		stmt.setString(1, username);
+		ResultSet rs = stmt.executeQuery();
+		conn.commit();
+		rs.next();
+		match = rs.getInt(1) == 1;
+		conn.setAutoCommit(true);
+		return match;
+	}
 
 }
