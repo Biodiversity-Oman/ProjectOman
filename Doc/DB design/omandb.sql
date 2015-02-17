@@ -29,8 +29,8 @@ USE `omandb`;
 --
 
 CREATE TABLE IF NOT EXISTS `download` (
-  `download_id` int(11) NOT NULL,
-  `world_id` int(11) DEFAULT NULL,
+  `download_id` int(11) NOT NULL AUTO_INCREMENT,
+  `world_id` int(11) NOT NULL,
   `download_funstuff` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`download_id`),
   KEY `world_id` (`world_id`)
