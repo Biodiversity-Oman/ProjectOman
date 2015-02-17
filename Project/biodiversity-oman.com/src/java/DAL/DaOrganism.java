@@ -291,7 +291,7 @@ public class DaOrganism {
         stmt.setInt(4, organism.getSubfamily().getSubfamilyId());
         stmt.setString(5, organism.getDescription());
         stmt.setString(6, organism.getPopulation());
-        stmt.setBoolean(7, organism.getIndigenous());
+        stmt.setString(7, "test");//organism.getIndigenous());
         stmt.setBoolean(8, organism.getCultivated());
         stmt.setBoolean(9, organism.getEndangered());
         stmt.setBoolean(10, organism.getMedicinal());
