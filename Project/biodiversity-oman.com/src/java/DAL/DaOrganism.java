@@ -10,7 +10,7 @@ import BLL.Habitat;
 import BLL.Organism;
 import BLL.Post;
 import BLL.Season;
-import BLL.SubFamily;
+import BLL.Subfamily;
 import BLL.World;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -58,16 +58,16 @@ public class DaOrganism {
             
             while(rs.next()){
                 Organism o = new Organism();
-                SubFamily sf = new SubFamily();
+                Subfamily sf = new Subfamily();
                 Family f = new Family();
                 World w = new World();
                 
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setCommonName(rs.getString("common_name"));
                 
-                sf.setSubFamilyId(rs.getInt("subfamily_id"));
-                sf.setSubFamilyName(rs.getString("subfamily_name"));
-                o.setSubFamily(sf);
+                sf.setSubfamilyId(rs.getInt("subfamily_id"));
+                sf.setSubfamilyName(rs.getString("subfamily_name"));
+                o.setSubfamily(sf);
                 
                 f.setFamilyId(rs.getInt("family_id"));
                 f.setFamilyName(rs.getString("family_name"));
@@ -157,7 +157,7 @@ public class DaOrganism {
             while(rsOrganism.next()){
                 
                 // De objecten voor de One to many relaties.
-                SubFamily sf = new SubFamily();
+                Subfamily sf = new Subfamily();
                 Family f = new Family();
                 World w = new World();
                 
@@ -186,9 +186,9 @@ public class DaOrganism {
                 // Er moet nog een One To many bijkomen namelijk voor alle posts te selecteren die behoren tot dit bepaald organisme.
                 // Hiervoor gaat er gebruik gemaakt worden van een functie binnen DAPost welke alle posts gaat terug geven voor een bepaald organisme.
                 // Deze methode moet nog geschreven worden.
-                sf.setSubFamilyId(rsOrganism.getInt("subfamily_id"));
-                sf.setSubFamilyName(rsOrganism.getString("subfamily_name"));
-                organism.setSubFamily(sf);
+                sf.setSubfamilyId(rsOrganism.getInt("subfamily_id"));
+                sf.setSubfamilyName(rsOrganism.getString("subfamily_name"));
+                organism.setSubfamily(sf);
                 
                 f.setFamilyId(rsOrganism.getInt("family_id"));
                 f.setFamilyName(rsOrganism.getString("family_name"));

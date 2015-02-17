@@ -18,7 +18,7 @@ public class Organism {
 	private String commonName;
 	private String localName;
 	private String description;
-	private SubFamily subFamily;
+	private Subfamily subFamily;
 	private Family family;
 	private World world;
 	private List<Habitat> habitat;
@@ -116,14 +116,14 @@ public class Organism {
 	/**
 	 * @return the subFamily
 	 */
-	public SubFamily getSubFamily() {
+	public Subfamily getSubfamily() {
 		return subFamily;
 	}
 
 	/**
 	 * @param subFamily the subFamily to set
 	 */
-	public void setSubFamily(SubFamily subFamily) {
+	public void setSubfamily(Subfamily subFamily) {
 		this.subFamily = subFamily;
 	}
 

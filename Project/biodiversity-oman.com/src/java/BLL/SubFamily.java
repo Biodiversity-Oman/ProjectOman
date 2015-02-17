@@ -9,52 +9,52 @@ package BLL;
  *
  * @author lennyasus
  */
-public class SubFamily {
+public class Subfamily {
 	
 	private int subFamilyId;
-	private Family family;
+	private int familyId;
 	private String subFamilyName;
 	private String description;
 
 	/**
 	 * @return the subFamilyId
 	 */
-	public int getSubFamilyId() {
+	public int getSubfamilyId() {
 		return subFamilyId;
 	}
 
 	/**
 	 * @param subFamilyId the subFamilyId to set
 	 */
-	public void setSubFamilyId(int subFamilyId) {
+	public void setSubfamilyId(int subFamilyId) {
 		this.subFamilyId = subFamilyId;
 	}
 
 	/**
-	 * @return the family
+	 * @return the familyId
 	 */
-	public Family getFamily() {
-		return family;
+	public int getFamilyId() {
+		return familyId;
 	}
 
 	/**
-	 * @param family the family to set
+	 * @param familyId the familyId to set
 	 */
-	public void setFamily(Family family) {
-		this.family = family;
+	public void setFamilyId(int familyId) {
+		this.familyId = familyId;
 	}
 
 	/**
 	 * @return the subFamilyName
 	 */
-	public String getSubFamilyName() {
+	public String getSubfamilyName() {
 		return subFamilyName;
 	}
 
 	/**
 	 * @param subFamilyName the subFamilyName to set
 	 */
-	public void setSubFamilyName(String subFamilyName) {
+	public void setSubfamilyName(String subFamilyName) {
 		this.subFamilyName = subFamilyName;
 	}
 
