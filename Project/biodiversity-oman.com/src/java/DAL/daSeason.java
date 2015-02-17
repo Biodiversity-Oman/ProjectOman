@@ -44,6 +44,35 @@ public class daSeason {
         }
         return season;
     }
+    
+    public static List<Season> selectAllByOrganismSeason(int organismId) throws SQLException {
+        List<Season> seasons = new ArrayList();
+
+        try {
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("SELECT * FROM omandb.organism_season "
+                    + "INNER JOIN omandb.season ON season.season_id = organism_season.season_id "
+                    + "WHERE organism_id=" + organismId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Season season = new Season();
+                season.setSeasonId(rs.getInt("season_id"));
+                season.setSeasonName(rs.getString("name"));
+                season.setDescription(rs.getString("description"));
+                seasons.add(season);
+            }
+
+            conn.commit();
+        } catch (Exception e) {
+            conn.rollback();
+        } finally {
+            conn.setAutoCommit(true);
+        }
+
+        return seasons;
+    }
 
     public static void updateSeason(Season seas, int seasonId) throws SQLException {
 
