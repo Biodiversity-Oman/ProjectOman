@@ -96,12 +96,12 @@ public class DaWorld {
         }
     }
 
-    public static void updateWorld(World world, int worldId) throws SQLException {
+    public static void updateWorld(World world) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE world (world_name, world_description ) VALUES (?,?) WHERE world_id=" + worldId + "");
+            stmt = conn.prepareStatement("UPDATE world set world_name = ?, world_description = ? WHERE world_id=" + world.getWorldId());
             stmt.setString(1, world.getWorldName());
             stmt.setString(2, world.getDescription());
             stmt.executeUpdate();
@@ -113,4 +113,27 @@ public class DaWorld {
             conn.setAutoCommit(true);
         }
     }
+    
+//     public static void updateWorld(World world, int worldID) throws SQLException {
+//
+//        try {
+//            conn = DataSource.getConnection();
+//            conn.setAutoCommit(false);
+//            if (world.getWorldName() != null) {
+//                stmt = conn.prepareStatement("UPDATE world set world_name =? WHERE world_id=" + worldID);
+//                stmt.setString(1, world.getWorldName());
+//            }
+//            if (world.getDescription() != null) {
+//                stmt = conn.prepareStatement("UPDATE world set world_description = ? WHERE world_id=" + worldID);
+//                stmt.setString(1, world.getDescription());
+//            }
+//            stmt.executeUpdate();
+//            conn.commit();
+//        } catch (SQLException ex) {
+//            System.out.println(ex);
+//
+//        } finally {
+//            conn.setAutoCommit(true);
+//        }
+//    }
 }
