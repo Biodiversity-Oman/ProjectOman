@@ -25,7 +25,13 @@ public class UtDaOrganism {
         newOrganism.setValidated(Boolean.TRUE);
         newOrganism.setSubfamily(sf);
         
+        try{
         DaOrganism.insertOrganism(newOrganism);
+        }
+        catch(java.sql.SQLException ex)
+        {
+            System.out.println(ex.getMessage());
+        }
         
         List<Organism> organisms = DaOrganism.sellectAll();
         
