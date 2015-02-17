@@ -10,18 +10,18 @@ package BLL;
  * @author Tom
  */
 public class GeoLocation {
-	
-	private Integer geolocationId;
-     private String areaName;
-     private String areaDescription;
-     private String latitudeHeight1;
-     private String longitudeHeight1;
-     private String latitudeWidth1;
-     private String longitudeWidth1;
-     private String latitudeHeight2;
-     private String longitudeHeight2;
-     private String latitudeWidth2;
-     private String longitudeWidth2;
+
+    private Integer geolocationId;
+    private String areaName;
+    private String areaDescription;
+    private String latitudeHeight1;
+    private String longitudeHeight1;
+    private String latitudeWidth1;
+    private String longitudeWidth1;
+    private String latitudeHeight2;
+    private String longitudeHeight2;
+    private String latitudeWidth2;
+    private String longitudeWidth2;
     private java.util.List<Organism> organisms;
 
     public Integer getGeolocationId() {
@@ -120,5 +120,4 @@ public class GeoLocation {
         this.organisms = organisms;
     }
 
-	
 }
