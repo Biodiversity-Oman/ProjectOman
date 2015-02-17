@@ -60,10 +60,10 @@ public class DaWorldTest {
     @Test
     public void testSelectOneByIdWorld() {
         System.out.println("selectOneByIdWorld");
-        int worldId = 1;
+        int worldId = 3;
         World expResult = null;
         World result = DaWorld.selectOneByIdWorld(worldId);
-        assertEquals("marine", result.getWorldName());
+        assertEquals("micro", result.getWorldName());
 
     }
 
@@ -97,11 +97,12 @@ public class DaWorldTest {
     @Test
     public void testUpdateWorld() throws Exception {
         System.out.println("updateWorld");
-        World world = new World();
-        world.setDescription("dit is een update");
+        World world = DAL.DaWorld.selectOneByIdWorld(3);
+       
+        world.setDescription("dit een UPDATE APDATE");
         int worldId = 3;
-        DaWorld.updateWorld(world, worldId);
+        DaWorld.updateWorld(world);
 
     }
-    
+
 }

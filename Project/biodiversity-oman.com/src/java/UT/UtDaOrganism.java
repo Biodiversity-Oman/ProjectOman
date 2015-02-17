@@ -15,6 +15,24 @@ public class UtDaOrganism {
     
     public static void main(String[] args)
     {
+        SubFamily sf = new SubFamily();
+        sf.setSubfamilyId(1);
+        
+        Organism newOrganism = new Organism();
+        newOrganism.setBenefits("benefitinserttest");
+        newOrganism.setCommonName("CommonNameTest");
+        newOrganism.setCultivated(Boolean.TRUE);
+        newOrganism.setValidated(Boolean.TRUE);
+        newOrganism.setSubfamily(sf);
+        
+        try{
+        DaOrganism.insertOrganism(newOrganism);
+        }
+        catch(java.sql.SQLException ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+        
         List<Organism> organisms = DaOrganism.sellectAll();
         
         System.out.println("Select All organisms:");
@@ -22,20 +40,20 @@ public class UtDaOrganism {
             System.out.println(o.getCommonName());
         }
         
-        Organism organism = DaOrganism.selectOneById(2);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getCommonName());
-        organism = DaOrganism.selectOneById(3);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getCommonName());
-        organism = DaOrganism.selectOneById(4);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getCommonName());
-        organism = DaOrganism.selectOneById(5);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getCommonName());
-        organism = DaOrganism.selectOneById(6);
-        System.out.println("Select one organism:");
-        System.out.println(organism.getCommonName());
+//        Organism organism = DaOrganism.selectOneById(2);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getCommonName());
+//        organism = DaOrganism.selectOneById(3);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getCommonName());
+//        organism = DaOrganism.selectOneById(4);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getCommonName());
+//        organism = DaOrganism.selectOneById(5);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getCommonName());
+//        organism = DaOrganism.selectOneById(6);
+//        System.out.println("Select one organism:");
+//        System.out.println(organism.getCommonName());
     }
 }
