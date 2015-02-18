@@ -31,31 +31,31 @@
 						</div>
 					</div>
 					<div id="tab2" class="tab">
-						<h3 class="h3">Create User</h3>
 						<div class="create-user">
-							<form id="create-user-form" class="form-horizontal">
+							<h3 class="h3" style="margin-left: 12em; margin-bottom: 1em;">Create User</h3>
+							<form id="create-user-form" class="form-horizontal" data-toggle="validator">
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="firstname">Firstname</label>
 									<div class="col-sm-10">
-										<input class="form-control" type="text" name="firstname">
+										<input class="form-control" type="text" name="firstname" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="lastname">Lastname</label>
 									<div class="col-sm-10">
-										<input class="form-control" type="text" name="lastname">
+										<input class="form-control" type="text" name="lastname" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="Country">Country</label>
 									<div class="col-sm-10">
-										<input class="form-control" type="text" name="Country">
+										<input class="form-control" type="text" name="country" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="City">City</label>
 									<div class="col-sm-10">
-										<input class="form-control" type="text" name="city">
+										<input class="form-control" type="text" name="city" required>
 									</div>
 								</div>
 								<div class="form-group">
@@ -67,19 +67,25 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="email">E-mail</label>
 									<div class="col-sm-10">
-										<input class="form-control" type="email" name="email">
+										<input class="form-control" type="email" name="email" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="username">Username</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="text" name="username" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="password">Password</label>
 									<div class="col-sm-10">
-										<input class="form-control" type="password" name="password">
+										<input class="form-control" type="password" name="password" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="comfirm-password">Comfirm password</label>
 									<div class="col-sm-10">
-										<input class="form-control" type="password" name="check">
+										<input class="form-control" type="password" name="check" required>
 									</div>
 								</div>
 								<div class="form-group">
@@ -89,6 +95,7 @@
 										<input style="width: 1em;"  type="radio" id="adminfalse" name="isadmin" value="false"> <label>Nee</label>
 									</div>
 								</div>
+								<label style="margin-left: 12em;" id="register-message" class="error-message"></label>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
 										<button type="submit" class="btn btn-default">Create</button>

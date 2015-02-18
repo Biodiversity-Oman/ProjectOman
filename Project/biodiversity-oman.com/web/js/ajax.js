@@ -67,32 +67,25 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
-    
+
+    // create user form usermanagement.jsp
     $('#create-user-form').submit(function (e) {
 
-        var wijzigbtn = $('#wijzig');
         $.ajax({
-            url: 'UpdatePassword',
+            url: 'InsertUserAccount',
             type: 'POST',
             dataType: 'text',
-            cache: false,
-            async: true,
-            data: $('#change-password-form').serialize(),
-            beforeSend: function () {
-                wijzigbtn.val('updating').attr('disabled', 'disabled');
-            },
+            data: $('#create-user-form').serialize(),
             complete: function (data) {
                 var jsontext = data.responseText;
-                $('#password-message').html(jsontext);
-                e.preventDefault();
+                $('#register-message').html(jsontext);
             },
             error: function (error) {
                 console.log(error);
             }
         }).done(function () {
-            loadUserInfo();
-            disableInput();
-            wijzigbtn.val('Wijzig').removeAttr('disabled');
+            $("#create-user-form")[0].reset();
+            loadUsers();
         });
         e.preventDefault();
     });
@@ -117,7 +110,7 @@ $(document).ready(function () {
             loadUsers();
         });
     });
-    
+
     // functie voor delete button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #make-admin-btn', function () {
 
@@ -147,9 +140,9 @@ $(document).ready(function () {
 
 // functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
 function loadUsers() {
-    
+
     var $userstable = $('#users-table');
-    
+
     $.ajax({
         url: 'SelectAllUserAccounts',
         type: 'GET',
@@ -186,7 +179,8 @@ function loadUsers() {
     }).done(function () {
         $('#users-table').html('');
     });
-};
+}
+;
 
 
 
