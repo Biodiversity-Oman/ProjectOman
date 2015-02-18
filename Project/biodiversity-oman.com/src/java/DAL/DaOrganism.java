@@ -42,7 +42,8 @@ public class DaOrganism {
             
             
             // SQL werkt
-            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.common_name, organism.subfamily_id, subfamily.subfamily_name," +
+            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.common_name, organism.inserted_on, organism.updated_on," + 
+                    "organism.subfamily_id, subfamily.subfamily_name," +
                     "subfamily.family_id, family.family_name," +
                     "family.world_id, world.world_name \n" +
                     "FROM organism \n" +
@@ -60,6 +61,8 @@ public class DaOrganism {
                 
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setCommonName(rs.getString("common_name"));
+                o.setInsertedOn(rs.getDate("inserted_on"));
+                o.setUpdatedOn(rs.getDate("updated_on"));
                 
                 sf.setSubfamilyId(rs.getInt("subfamily_id"));
                 sf.setSubfamilyName(rs.getString("subfamily_name"));
@@ -169,6 +172,8 @@ public class DaOrganism {
                 organism.setValidated(rsOrganism.getBoolean("isvalidated"));
                 organism.setFoodName(rsOrganism.getString("food_name"));
                 organism.setFoodDescription(rsOrganism.getString("food_description"));
+                organism.setInsertedOn(rsOrganism.getDate("inserted_on"));
+                organism.setUpdatedOn(rsOrganism.getDate("updated_on"));
                 
                 // One to many objecten
                 // Er moet nog een One To many bijkomen namelijk voor alle posts te selecteren die behoren tot dit bepaald organisme.
@@ -317,8 +322,10 @@ public class DaOrganism {
             stmt.setString(18, organism.getFoodDescription());
             if (organism.getValidated() == (null))  {stmt.setNull(19, Types.BIT);}
                 else {stmt.setBoolean(19, organism.getValidated());}
-            stmt.setDate(20, new java.sql.Date(new java.util.Date().getTime()));
-
+            java.util.Calendar cal = java.util.Calendar.getInstance();
+            // !Date methode retourneerd een datum zonder tijd!
+            stmt.setDate(20, new java.sql.Date(cal.getTimeInMillis()));
+            
             // Resultaat in de database opvragen en controleren.
             if (stmt.executeUpdate() == 0)  {throw new SQLException("Creating organism failed, no rows affected.");}
             
