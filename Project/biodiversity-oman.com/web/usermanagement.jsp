@@ -23,9 +23,9 @@
 					<li><a href="#tab2">Create User</a></li>
 				</ul>
 				<div class="tab-content">
-					<p>Press the <span class="icon-cross"></span> button to delete a user</p>
-					<p>Press the <span class="icon-plus"></span> button to make a user admin</p>
 					<div id="tab1" class="tab active">
+						<p>Press the <span class="icon-cross"></span> button to delete a user</p>
+						<p>Press the <span class="icon-plus"></span> button to make a user admin</p>
 						<table class="table table-striped" id="users-table">
 						</table>
 					</div>
