@@ -17,7 +17,7 @@ import java.sql.PreparedStatement;
  *
  * @author Eric
  */
-public class daSeason {
+public class DaSeason {
 
     private static Connection conn;
     private static PreparedStatement stmt;

@@ -73,9 +73,11 @@ public class DaUserAccount {
 			us.setCountry(rs.getString("country"));
 			us.setIsAdmin(rs.getBoolean("isadmin"));
 			us.setPhone(rs.getString("phone"));
+                         System.out.println(us.getUserName());
 			conn.commit();
 
 		} catch (SQLException ex) {
+                   
 			conn.rollback();
 		} finally {
 			conn.setAutoCommit(true);
