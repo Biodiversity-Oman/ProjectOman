@@ -8,6 +8,7 @@ package Service;
 import BLL.UserAccount;
 import DAL.DaUserAccount;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -56,5 +57,14 @@ public class ServUserAccount {
 	public static void deleteUserAccount(String username) throws SQLException {
 
 		DaUserAccount.deleteUserAccount(username);
+	}
+	
+	public static List<UserAccount> selectAll() throws SQLException{
+		
+		return DaUserAccount.selectAll();
+	}
+	public static void setSuperUser(String username) throws SQLException {
+		
+		DaUserAccount.setSuperUser(username);
 	}
 }

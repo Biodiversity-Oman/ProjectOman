@@ -15,7 +15,7 @@
 
 	} else {
 	// wanneer er geen us.Object is aangemaakt redirect de server terug naar adminlogin.jsp. dit is om te voorkomen dat de gebruiker in de browser wwww.domain.com/welcome.jsp kan gebruike om	  // login te omzeilen.
-		String message = "U bent niet ingelogd!";
+		String message = "You are not logged in";
 		session.setAttribute("error", message);
 		response.sendRedirect("adminlogin.jsp");
 		return;
@@ -28,7 +28,7 @@
 		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 		<script src="js/jquery.js"></script>
 		<link rel="StyleSheet" type="text/css" href="css/admin.css">
-		<link rel="StyleSheet" type="text/css" href="css/icon.css">
+		<link rel="StyleSheet" type="text/css" href="css/icons.css">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -62,7 +62,7 @@
         var adminuser = document.getElementById('adminuser');
         var adminpublish = document.getElementById('adminpublish');
 	<%if (us.getIsAdmin() == true) {%>
-        adminuser.innerHTML += '<a href="#">user management</a>';
+        adminuser.innerHTML += '<a href="usermanagement.jsp">user management</a>';
         adminpublish.innerHTML += '<a href="#">publish</a>';
 	<%} else {%>
         adminuser.innerHTML += '';
