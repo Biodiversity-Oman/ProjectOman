@@ -96,6 +96,7 @@ nav ul li {
 }
 nav ul li:hover a {
     color: #0047B2;
+    outline: 0;
 }
 nav ul li a {
     display: block; padding: 17px 27px;
@@ -103,6 +104,7 @@ nav ul li a {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     font-size: 1.1em;
+    outline: 0;
 }
 nav ul ul {
     background: white; border-radius: 0px; padding: 0;
@@ -119,10 +121,12 @@ nav ul ul li a {
     padding: 13px 20px;
     color: black;
     opacity: 1;
+    outline: 0;
 }   
 nav ul ul li a:hover {
     background: #909090;
     opacity: 1;
+    outline: 0;
 }
 nav ul ul ul {
     position: absolute; left: 100%; top:0;
@@ -291,27 +295,22 @@ nav ul ul ul {
    background: none;
 }
 /*--------------------------------------------------------*/
-/* -------------- userinfo -------------- */
+/* -------------- Tab Interface-------------- */
 /*----- Tabs -----*/
 .tabs {
     width:100%;
     display:inline-block;
 }
- 
-    /*----- Tab Links -----*/
-    /* Clearfix */
     .tab-links:after {
         display:block;
         clear:both;
         content:'';
     }
- 
     .tab-links li {
         margin:0px 5px;
         float:left;
         list-style:none;
     }
- 
         .tab-links a {
             padding:9px 15px;
             display:inline-block;
@@ -321,27 +320,24 @@ nav ul ul ul {
             font-weight:600;
             color:#4c4c4c;
             transition:all linear 0.15s;
+            outline: 0;
         }
- 
         .tab-links a:hover {
             background:#a7cce5;
             text-decoration:none;
+            outline: 0;
         }
- 
     li.active a, li.active a:hover {
         background:#4747FF; 
         color:#FFFFC2;
+        outline: 0;
     }
- 
-    /*----- Content of Tabs -----*/
     .tab-content {
         padding:15px;
         border-radius:3px;
         box-shadow:-1px 1px 1px #005CE6;
-        /*box-shadow:-1px 1px 1px rgba(0,0,0,0.15);*/
         background:#fff;
     }
- 
         .tab {
             display:none;
         }

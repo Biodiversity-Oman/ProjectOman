@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+    //tab interface
+    jQuery('.tabs .tab-links a').on('click', function (e) {
+        var currentAttrValue = jQuery(this).attr('href');
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+        e.preventDefault();
+    });
+
     //userinfo.jsp
     $('#update-user-form').submit(function (e) {
 
@@ -27,7 +35,7 @@ $(document).ready(function () {
             disableInput();
             updatebtn.val('edit').removeAttr('disabled');
         });
-        return false;
+        e.preventDefault();
     });
 
     //userinfo.jsp change password button + form
@@ -57,18 +65,19 @@ $(document).ready(function () {
             disableInput();
             wijzigbtn.val('Wijzig').removeAttr('disabled');
         });
-        return false;
+        e.preventDefault();
     });
-    
-    $('#delete-user-form').submit(function (e) {
-        
+
+    // functie voor make-admin button in list users tabel in usermanagement.jsp
+    $(document).on('click', '.table #delete-user-btn', function () {
+
+        var username = ($(this).attr("value"));
         $.ajax({
-            url: 'DeleteUserAccount',
+            url: 'DeleteUserAccount?username=' + username,
             type: 'POST',
             dataType: 'text',
             cache: false,
             async: true,
-            data: $('#delete-user-form').serialize(),
             complete: function (data) {
 
             },
@@ -78,18 +87,79 @@ $(document).ready(function () {
         }).done(function () {
             loadUsers();
         });
-        
-        e.preventDefault();
     });
     
-    $('.no-button').click(function() {
-            alert($(this).attr("value"));
-    });
-    
-     $('.no-button').on('click', function(){
-            alert('triggered');
-      });    
+    // functie voor delete button in list users tabel in usermanagement.jsp
+    $(document).on('click', '.table #make-admin-btn', function () {
 
+        var username = ($(this).attr("value"));
+        $.ajax({
+            url: 'SetSuperUser?username=' + username,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true,
+            complete: function (data) {
+
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            loadUsers();
+        });
+    });
 });
+
+//---------------------------------------------------------------------------------------------------------------------
+// load functies
+// hier behoren de functies die data moeten laden voor document.ready is
+//---------------------------------------------------------------------------------------------------------------------
+
+// functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
+function loadUsers() {
+    
+    var $userstable = $('#users-table');
+    
+    $.ajax({
+        url: 'SelectAllUserAccounts',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true,
+        complete: function (data) {
+            var users = data.responseJSON;
+            $userstable.append('<tr>\n\
+                                    <th>Username</th>\n\
+                                    <th>Firstname</th>\n\
+                                    <th>Lastname</th>\n\
+                                    <th>City</th>\n\
+                                    <th>Country</th>\n\
+                                    <th>Email</th>\n\
+                                    <th>Phone</th>\n\
+                                    <th>Admin</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+            users.forEach(function (user) {
+                $userstable.append('<tr>\n\
+                                        <td>' + user.userName + '</td>\n\
+                                        <td>' + user.firstName + '</td>\n\
+                                        <td>' + user.lastName + '</td>\n\
+                                        <td>' + user.city + '</td>\n\
+                                        <td>' + user.country + '</td>\n\
+                                        <td>' + user.email + '</td>\n\
+                                        <td>' + user.phone + '</td>\n\
+                                        <td>' + user.isAdmin + '</td>\n\
+                                        <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></td>\n\
+                                    </tr>');
+            });
+        }
+    }).done(function () {
+        $('#users-table').html('');
+    });
+};
+
+
+
 
 

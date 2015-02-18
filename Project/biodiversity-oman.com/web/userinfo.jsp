@@ -10,37 +10,38 @@
 		<script src="js/ajax.js"></script>
 	</header>
 	<script>
-		
-		// deze javascript functie zorgt ervoor dat de edit button naar update veranderd en dat de velden hun input enabled worden.
-		function enableInput() {
-			if (document.getElementById("update").type === "submit") {
-			    document.getElementById("update").type="button";
-				document.getElementById("update").value = "Update";
-				document.getElementById("firstname").disabled = false;
-				document.getElementById("lastname").disabled = false;
-				document.getElementById("city").disabled = false;
-				document.getElementById("country").disabled = false;
-				document.getElementById("phone").disabled = false;
-				document.getElementById("email").disabled = false;
-			} else if (document.getElementById("update").type === "button") {
-				document.getElementById("update").type = "submit";
-			}
-                };
-		
-		// deze functie zorgt ervoor dat deze na de update terug disabled worden.
+                // deze javascript functie zorgt ervoor dat de edit button naar update veranderd en dat de velden hun input enabled worden.
+                function enableInput() {
+                    if (document.getElementById("update").type === "submit") {
+                        document.getElementById("update").type = "button";
+                        document.getElementById("update").value = "Update";
+                        document.getElementById("firstname").disabled = false;
+                        document.getElementById("lastname").disabled = false;
+                        document.getElementById("city").disabled = false;
+                        document.getElementById("country").disabled = false;
+                        document.getElementById("phone").disabled = false;
+                        document.getElementById("email").disabled = false;
+                    } else if (document.getElementById("update").type === "button") {
+                        document.getElementById("update").type = "submit";
+                    }
+                }
+                ;
+
+                // deze functie zorgt ervoor dat deze na de update terug disabled worden.
                 function disableInput() {
                     document.getElementById("firstname").disabled = true;
                     document.getElementById("lastname").disabled = true;
                     document.getElementById("city").disabled = true;
                     document.getElementById("country").disabled = true;
                     document.getElementById("email").disabled = true;
-                };
-		
-		// ajax functie om userinfo uit de controller getUserInfo te halen. deze word in de <body> tag opgeroepen.
+                }
+                ;
+
+                // ajax functie om userinfo uit de controller getUserInfo te halen. deze word in de <body> tag opgeroepen.
                 function loadUserInfo() {
 
                     $.ajax({
-                        url: 'GetUserAccount?user=<%=username%>',
+			url: 'GetUserAccount?user=<%=username%>',
                         type: 'GET',
                         dataType: 'json',
                         cache: false,
@@ -115,7 +116,7 @@
 				<div id="fade" class="black_overlay-boxed"></div>
 				<div id="fade2" class="black_overlay-boxed"></div>
 				<a href = "javascript:void(0)" onclick = "document.getElementById('delete').style.display='block';document.getElementById('fade2').style.display='block'"><button class="button">Delete Account</button></a>
-				<div id="delete" class="whiteboxdialog"><a href = "javascript:void(0)" onclick = "document.getElementById('delete').style.display = 'none';
+                                            <div id="delete" class="whiteboxdialog"><a href = "javascript:void(0)" onclick = "document.getElementById('delete').style.display = 'none';
                                                 document.getElementById('fade2').style.display = 'none'"><label class="close-button">x</label></a>
 					<div class="content">
 						<p>Are you sure you want to delete your account?</p>
