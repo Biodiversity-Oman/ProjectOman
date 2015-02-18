@@ -132,29 +132,29 @@ LOCK TABLES `geolocation` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `geolocation_organisme`
+-- Table structure for table `geolocation_organism`
 --
 
-DROP TABLE IF EXISTS `geolocation_organisme`;
+DROP TABLE IF EXISTS `geolocation_organism`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `geolocation_organisme` (
+CREATE TABLE `geolocation_organism` (
   `organism_id` int(11) NOT NULL,
   `geolocation_id` int(11) NOT NULL,
   KEY `organism_id` (`organism_id`),
   KEY `geolocation_id` (`geolocation_id`),
-  CONSTRAINT `geolocation_organisme_ibfk_1` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
-  CONSTRAINT `geolocation_organisme_ibfk_2` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`)
+  CONSTRAINT `geolocation_organism_ibfk_1` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
+  CONSTRAINT `geolocation_organism_ibfk_2` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `geolocation_organisme`
+-- Dumping data for table `geolocation_organism`
 --
 
 LOCK TABLES `geolocation_organisme` WRITE;
-/*!40000 ALTER TABLE `geolocation_organisme` DISABLE KEYS */;
-/*!40000 ALTER TABLE `geolocation_organisme` ENABLE KEYS */;
+/*!40000 ALTER TABLE `geolocation_organism` DISABLE KEYS */;
+/*!40000 ALTER TABLE `geolocation_organism` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
