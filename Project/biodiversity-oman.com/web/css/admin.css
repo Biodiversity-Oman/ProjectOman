@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 body, html {
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #E6E6FF;
     font-size: 100%;
     opacity: 1;
     -moz-osx-font-smoothing: grayscale;
@@ -73,8 +73,8 @@ nav ul li:hover > ul {
     display: block;
 }
 nav ul {
-    background: white; 
-    box-shadow: 1px 1.2px 2px #0066FF;
+    background: #558EE6;
+    box-shadow: 1px  2px 2px #005CE6;
     padding: 0em;
     margin: 0 auto;
     opacity: 0.9;  
@@ -99,9 +99,9 @@ nav ul li:hover a {
 }
 nav ul li a {
     display: block; padding: 17px 27px;
-    color: #3385FF; text-decoration: none;
+    color: #FFFFC2; text-decoration: none;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 1.1em;
 }
 nav ul ul {
@@ -166,7 +166,7 @@ nav ul ul ul {
 
 .wrapper {
     height: auto;
-    background-color: black; /*#ffffff*/
+    background-color: #E6E6FF; /*#ffffff*/
     width: 90%;
     margin-bottom: 1em;
     padding-top: 0.1em;
@@ -182,7 +182,7 @@ nav ul ul ul {
     margin-right: auto;
     height: 100%;
     width: 60%;
-    background-color:  	#558EE6;
+    background-color: #558EE6;
     padding: 1em;
     margin-top: 1%;
     margin-bottom: 1%;
@@ -285,3 +285,67 @@ nav ul ul ul {
     color: white;
     border-radius: 0.3em 0.3em 0.3em 0.3em;
 }
+.no-button {
+   padding: 0;
+   border: none;
+   background: none;
+}
+/*--------------------------------------------------------*/
+/* -------------- userinfo -------------- */
+/*----- Tabs -----*/
+.tabs {
+    width:100%;
+    display:inline-block;
+}
+ 
+    /*----- Tab Links -----*/
+    /* Clearfix */
+    .tab-links:after {
+        display:block;
+        clear:both;
+        content:'';
+    }
+ 
+    .tab-links li {
+        margin:0px 5px;
+        float:left;
+        list-style:none;
+    }
+ 
+        .tab-links a {
+            padding:9px 15px;
+            display:inline-block;
+            border-radius:3px 3px 0px 0px;
+            background:#7FB5DA;
+            font-size:16px;
+            font-weight:600;
+            color:#4c4c4c;
+            transition:all linear 0.15s;
+        }
+ 
+        .tab-links a:hover {
+            background:#a7cce5;
+            text-decoration:none;
+        }
+ 
+    li.active a, li.active a:hover {
+        background:#4747FF; 
+        color:#FFFFC2;
+    }
+ 
+    /*----- Content of Tabs -----*/
+    .tab-content {
+        padding:15px;
+        border-radius:3px;
+        box-shadow:-1px 1px 1px #005CE6;
+        /*box-shadow:-1px 1px 1px rgba(0,0,0,0.15);*/
+        background:#fff;
+    }
+ 
+        .tab {
+            display:none;
+        }
+ 
+        .tab.active {
+            display:block;
+        }

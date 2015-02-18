@@ -133,7 +133,7 @@ public class DaUserAccountTest {
 //	@Test
 //	public void testSetSuperUser() throws Exception {
 //		System.out.println("setSuperUser");
-//		String username = "";
+//		String username = "admin1";
 //		DaUserAccount.setSuperUser(username);
 //		
 //	}

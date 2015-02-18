@@ -114,11 +114,12 @@ public class DaUserAccount {
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("DELETE FROM user_account where username=?");
 			stmt.setString(1, username);
-			stmt.executeUpdate();
 			conn.commit();
+			stmt.executeUpdate();
+			
 
 		} catch (SQLException ex) {
-			conn.rollback();
+			
 		} finally {
 			conn.setAutoCommit(true);
 		}
@@ -183,10 +184,11 @@ public class DaUserAccount {
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("UPDATE user_account SET isadmin = '1' WHERE username=?");
 			stmt.setString(1, username);
-			stmt.executeUpdate();
 			conn.commit();
+			stmt.executeUpdate();
+			
 		} catch (SQLException ex) {
-			conn.rollback();
+			
 		} finally {
 			conn.setAutoCommit(true);
 		}
