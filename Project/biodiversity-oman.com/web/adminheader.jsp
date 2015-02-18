@@ -50,8 +50,8 @@
 		<li><a href="#" >item</a></li>
 		<!--------------------------------------------------------------------------------------->
 		<!-- alle menu items aan de rechterkant -->
-		<li class="right"><a href="Logout">log out</a></li>
-		<li class="right"><a href="userinfo.jsp"><%=username%></a></li>
+		<li class="right"><a href="Logout"><strong>log out</strong></a></li>
+		<li class="right"><a href="userinfo.jsp"><strong><%=username%></strong></a></li>
 		<li class="right" id="adminuser"></li>
 		<li class="right" id="adminpublish"></li>
 		<!--------------------------------------------------------------------------------------->
@@ -62,8 +62,8 @@
         var adminuser = document.getElementById('adminuser');
         var adminpublish = document.getElementById('adminpublish');
 	<%if (us.getIsAdmin() == true) {%>
-        adminuser.innerHTML += '<a href="usermanagement.jsp">user management</a>';
-        adminpublish.innerHTML += '<a href="#">publish</a>';
+        adminuser.innerHTML += '<a href="usermanagement.jsp"><strong>user management</strong></a>';
+        adminpublish.innerHTML += '<a href="#"><strong>publish</strong></a>';
 	<%} else {%>
         adminuser.innerHTML += '';
         adminpublish.innerHTML += '';

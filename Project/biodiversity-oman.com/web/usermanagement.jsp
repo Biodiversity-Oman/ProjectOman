@@ -26,60 +26,71 @@
 					<div id="tab1" class="tab active">
 						<p>Press the <span class="icon-cross"></span> button to delete a user</p>
 						<p>Press the <span class="icon-plus"></span> button to make a user admin</p>
-						<table class="table table-striped" id="users-table">
-						</table>
+						<div class="table-responsive">
+							<table class="table table-striped" id="users-table">
+							</table>
+						</div>
 					</div>
-					<div id="tab2" class="tab" style="background-color: #558EE6;">
-						<div class="create-user-box">
-							<form id="register" class="form">
+					<div id="tab2" class="tab">
+						
+						<h3 class="h3">Create User</h3>
+						
+						<div class="create-user">
+							<form id="create-user-form" class="form-horizontal">
 								<div class="form-group">
-									<label for="voornaam">Voornaam*</label>
-									<input class="text-field" id="firstname" type="text" name="firstname" required/>
-									<label for="achternaam">Achternaam*</label>
-									<input class="text-field" id="lastname" type="text" name="lastname" required/>
+									<label class="col-sm-2 control-label" for="firstname">Firstname</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="text" name="firstname">
+									</div>
 								</div>
-								<br>
 								<div class="form-group">
-									<label for="E-mail">E-mail*</label><br>
-									<input class="text-field" id="email" type="email" name="email" required/>
+									<label class="col-sm-2 control-label" for="lastname">Lastname</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="text" name="lastname">
+									</div>
 								</div>
-								<br>
 								<div class="form-group">
-									<label for="stad">Stad</label><br>
-									<input  class="text-field" id="city" type="text" name="city" />
+									<label class="col-sm-2 control-label" for="Country">Country</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="text" name="Country">
+									</div>
 								</div>
-								<br>
 								<div class="form-group">
-									<label for="land">Land</label><br>
-									<input class="text-field" id="country" type="text" name="country" />
+									<label class="col-sm-2 control-label" for="City">City</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="text" name="city">
+									</div>
 								</div>
-								<br>
 								<div class="form-group">
-									<label for="adres">Adres</label><br>
-									<input class="text-field" id="adress" type="text" name="adress" />
+									<label class="col-sm-2 control-label" for="phone">Phone</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="text" name="phone">
+									</div>
 								</div>
-								<br>
 								<div class="form-group">
-									<label for="wachtwoord">Wachtwoord*</label>
-									<input class="text-field" id="password" type="password" name="password" required />
-									<label for="bevestig">Bevestig wachtwoord*</label>
-									<input class="text-field" id="check" type="password" name="check" required />
+									<label class="col-sm-2 control-label" for="email">E-mail</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="email" name="email">
+									</div>
 								</div>
-								<br>
 								<div class="form-group">
-									<label for="gebruikersnaam">Gebruikersnaam*</label><br>
-									<input class="text-field" id="username" type="text" name="username" />
+									<label class="col-sm-2 control-label" for="password">Password</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="password" name="password">
+									</div>
 								</div>
-								<br>
 								<div class="form-group">
-									<label for="admin?">Admin?*</label><br>
-									<input style="margin-left: 3%"  type="radio" id="admintrue"  name="admin" value="true"> <label>Ja</label><br>
-									<input style="margin-left: 3%" type="radio" id="adminfalse" name="admin" value="false"> <label>Nee</label>
+									<label class="col-sm-2 control-label" for="comfirm-password">Comfirm password</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="password" name="check">
+									</div>
 								</div>
-								<br>
-								<label id="register-message" class="error-message"></label>
 								<div class="form-group">
-									<input class="button" type="submit" value="opslaan" />
+									<label class="col-sm-2 control-label" for="admin?">Admin?*</label>
+									<div class="col-sm-10">
+										<input style="width: 1em;"   type="radio" id="admintrue"  name="isadmin" value="true"> <label>Ja</label><br>
+										<input style="width: 1em;"  type="radio" id="adminfalse" name="isadmin" value="false"> <label>Nee</label>
+									</div>
 								</div>
 							</form>
 						</div>

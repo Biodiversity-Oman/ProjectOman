@@ -29,8 +29,6 @@ body, html {
     background-color:  #558EE6;
     padding: 1em;
     margin-top: 10%;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
     border-radius: 0.2em 0.2em 0.2em 0.2em;
     border: 0px solid #000000;
     color: #000053;
@@ -52,8 +50,7 @@ body, html {
 .button {
     min-width: 12%;
     height: 2.6em;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 0.9em;
     border-radius: 0.3em 0.3em 0.3em 0.3em;
     border: 0px solid #000000;
@@ -102,8 +99,6 @@ nav ul li:hover a {
 nav ul li a {
     display: block; padding: 17px 27px;
     color: #FFFFC2; text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
     font-size: 1.1em;
     outline: 0;
     text-decoration: none;
@@ -122,13 +117,13 @@ nav ul ul li {
 nav ul ul li a {
     padding: 13px 20px;
     color: black;
-    opacity: 1;
+    
     outline: 0;
     text-decoration: none;
 }   
 nav ul ul li a:hover {
     background: #909090;
-    opacity: 1;
+    
     outline: 0;
 }
 nav ul ul ul {
@@ -156,14 +151,10 @@ nav ul ul ul {
     margin-top: 1.3em;
     height: 2em;
     border-radius: 0.3em 0.3em 0.3em 0.3em;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
     font-size: 0.8em;
     border: 1px solid #2EB8E6;
 }
 .searchbutton {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
     font-size: 0.8em;
     background-color: #2EB8E6;
     color: white;
@@ -193,8 +184,6 @@ nav ul ul ul {
     padding: 1em;
     margin-top: 1%;
     margin-bottom: 1%;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
     border-radius: 0.2em 0.2em 0.2em 0.2em;
     border: 0px solid #000000;
     color: #000053;
@@ -283,8 +272,6 @@ nav ul ul ul {
     margin-right: auto;
 }
 .button-blue {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
     font-size: 1em;
     border: 0px solid #000000;
     background-color: #0066FF;
@@ -351,24 +338,11 @@ li.active a, li.active a:hover {
     display:block;
 }
 /* ------- create user -----*/
-.create-user-box {
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
-    max-width: 84%;
-    background-color:  #558EE6;
-    padding: 1em;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    border-radius: 0.2em 0.2em 0.2em 0.2em;
-    border: 0px solid #000000;
-    color: #000053;
+.create-user label {
+    
+    width: 20em;
+   
 }
-.create-user-box label {
-    margin-left: 3%;
-}
-.create-user-box input {
-    margin-left: 3%;
+.create-user input {
+    width: 20em;
 }
