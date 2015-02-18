@@ -78,8 +78,8 @@ public class DaGeolocation {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("SELECT * FROM omandb.geolocation "
-                    + "INNER JOIN omandb.geolocation_organisme ON geolocation_organisme.geolocation_id = geolocation.geolocation_id "
-                    + "INNER JOIN omandb.organism ON organism.organism_id = geolocation_organisme.organism_id "
+                    + "INNER JOIN omandb.geolocation_organism ON geolocation_organism.geolocation_id = geolocation.geolocation_id "
+                    + "INNER JOIN omandb.organism ON organism.organism_id = geolocation_organism.organism_id "
                     + "WHERE organism.organism_id=" + organismId);
             ResultSet rs = stmt.executeQuery();
             
