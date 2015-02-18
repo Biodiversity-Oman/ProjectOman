@@ -25,8 +25,9 @@ public class UtDaOrganism {
         newOrganism.setValidated(Boolean.TRUE);
         newOrganism.setSubfamily(sf);
         
+        int newOrganismId = 0;
         try{
-        DaOrganism.insertOrganism(newOrganism);
+        newOrganismId = DaOrganism.insertOrganism(newOrganism);
         }
         catch(java.sql.SQLException ex)
         {
@@ -40,20 +41,16 @@ public class UtDaOrganism {
             System.out.println(o.getCommonName());
         }
         
-//        Organism organism = DaOrganism.selectOneById(2);
-//        System.out.println("Select one organism:");
-//        System.out.println(organism.getCommonName());
-//        organism = DaOrganism.selectOneById(3);
-//        System.out.println("Select one organism:");
-//        System.out.println(organism.getCommonName());
-//        organism = DaOrganism.selectOneById(4);
-//        System.out.println("Select one organism:");
-//        System.out.println(organism.getCommonName());
-//        organism = DaOrganism.selectOneById(5);
-//        System.out.println("Select one organism:");
-//        System.out.println(organism.getCommonName());
-//        organism = DaOrganism.selectOneById(6);
-//        System.out.println("Select one organism:");
-//        System.out.println(organism.getCommonName());
+        if (newOrganismId > 0)
+        {
+            Organism organism = DaOrganism.selectOneById(newOrganismId);
+            System.out.println("Select one organism:");
+            System.out.println(organism.getCommonName());
+        }
+        else
+        {
+            System.out.println("ErrorCode: "+ newOrganismId);
+        }
+        
     }
 }
