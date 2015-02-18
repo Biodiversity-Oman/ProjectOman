@@ -39,7 +39,7 @@ public class DeleteUserAccount extends HttpServlet {
 			String user = request.getParameter("username");
 			try {
 				ServUserAccount.deleteUserAccount(user);
-				response.sendRedirect("redirect.jsp");
+				//response.sendRedirect("redirect.jsp");
 			} catch (SQLException ex) {
 				System.out.println("problem");
 			}

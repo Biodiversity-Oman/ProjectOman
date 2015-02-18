@@ -59,15 +59,16 @@ $(document).ready(function () {
         });
         return false;
     });
-
-    function deleteUser() {
+    
+    $('#delete-user-form').submit(function (e) {
+        
         $.ajax({
             url: 'DeleteUserAccount',
             type: 'POST',
             dataType: 'text',
             cache: false,
             async: true,
-            data: $('#user-table-form').serialize(),
+            data: $('#delete-user-form').serialize(),
             complete: function (data) {
 
             },
@@ -77,64 +78,17 @@ $(document).ready(function () {
         }).done(function () {
             loadUsers();
         });
-        return false;
-    }
-    ;
-
-    function setSuperUser() {
-
-        $.ajax({
-            url: 'SetSuperUser',
-            type: 'POST',
-            dataType: 'text',
-            cache: false,
-            async: true,
-            data: $('#user-table-form').serialize(),
-            complete: function (data) {
-
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        }).done(function () {
-            loadUsers();
-        });
-        return false;
-    }
-    ;
-
-
-
-    $('#delete-user, #make-admin').click(function (e) {
-        if (this.id == 'delete-user') {
-            deleteUser();
-        }
-        else if (this.id == 'make-admin') {
-            setSuperUser();
-        }
+        
         e.preventDefault();
     });
     
-//    $('#user-table-form').submit(function (e) {
-//        
-//        $.ajax({
-//            url: 'UserManagement',
-//            type: 'POST',
-//            dataType: 'text',
-//            cache: false,
-//            async: true,
-//            data: $('#user-table-form').serialize(),
-//            complete: function (data) {
-//
-//            },
-//            error: function (error) {
-//                console.log(error);
-//            }
-//        }).done(function () {
-//            loadUsers();
-//        });
-//        return false;
-//    });
+    $('.no-button').click(function() {
+            alert($(this).attr("value"));
+    });
+    
+     $('.no-button').on('click', function(){
+            alert('triggered');
+      });    
 
 });
 

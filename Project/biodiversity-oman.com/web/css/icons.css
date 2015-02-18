@@ -39,5 +39,8 @@
 
 .icon-cross:before {
 	content: "\ea0f";
+        margin-left: 1em;
+        margin-right: 1em;
+        
 }
 
