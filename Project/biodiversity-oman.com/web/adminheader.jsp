@@ -45,9 +45,8 @@
 		<li class="current"><a href="#" onclick=""><span class="icon-menu"></span></a></li>
 		<!-- ------------------------------------------------------------------------------------>
 		<!-- alle menu items aan de linkerkant -->
-		<li><a href="#" >item</a></li>
-		<li><a href="#" >item</a></li>
-		<li><a href="#" >item</a></li>
+		<li><a href="dashboard.jsp" ><Strong>Dashboard</strong></a></li>
+		
 		<!--------------------------------------------------------------------------------------->
 		<!-- alle menu items aan de rechterkant -->
 		<li class="right"><a href="Logout"><strong>log out</strong></a></li>
@@ -63,7 +62,7 @@
         var adminpublish = document.getElementById('adminpublish');
 	<%if (us.getIsAdmin() == true) {%>
         adminuser.innerHTML += '<a href="usermanagement.jsp"><strong>user management</strong></a>';
-        adminpublish.innerHTML += '<a href="#"><strong>publish</strong></a>';
+        adminpublish.innerHTML += '<a href="publish.jsp"><strong>publish</strong></a>';
 	<%} else {%>
         adminuser.innerHTML += '';
         adminpublish.innerHTML += '';

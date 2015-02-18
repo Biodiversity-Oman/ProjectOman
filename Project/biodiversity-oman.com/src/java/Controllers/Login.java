@@ -48,7 +48,7 @@ public class Login extends HttpServlet {
 					user.setIsAdmin(false);
 				}
 				session.setAttribute("user", user);
-				response.sendRedirect("welcome.jsp");
+				response.sendRedirect("dashboard.jsp");
 			} else {
 				String message = "Username or password not valid";
 				session.setAttribute("error", message);

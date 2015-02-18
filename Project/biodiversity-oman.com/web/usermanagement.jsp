@@ -16,7 +16,6 @@
 	</head>
 	<body onload="loadUsers()">
 		<div class="wrapper">
-			<div id="fade" class="black_overlay-boxed"></div>
 			<div class="tabs">
 				<ul class="tab-links">
 					<li class="active"><a href="#tab1">List Users </a></li>
@@ -32,9 +31,7 @@
 						</div>
 					</div>
 					<div id="tab2" class="tab">
-						
 						<h3 class="h3">Create User</h3>
-						
 						<div class="create-user">
 							<form id="create-user-form" class="form-horizontal">
 								<div class="form-group">
@@ -64,7 +61,7 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="phone">Phone</label>
 									<div class="col-sm-10">
-										<input class="form-control" type="text" name="phone">
+										<input class="form-control" type="tel" name="phone">
 									</div>
 								</div>
 								<div class="form-group">
@@ -90,6 +87,11 @@
 									<div class="col-sm-10">
 										<input style="width: 1em;"   type="radio" id="admintrue"  name="isadmin" value="true"> <label>Ja</label><br>
 										<input style="width: 1em;"  type="radio" id="adminfalse" name="isadmin" value="false"> <label>Nee</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" class="btn btn-default">Create</button>
 									</div>
 								</div>
 							</form>

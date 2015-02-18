@@ -67,6 +67,35 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
+    
+    $('#create-user-form').submit(function (e) {
+
+        var wijzigbtn = $('#wijzig');
+        $.ajax({
+            url: 'UpdatePassword',
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true,
+            data: $('#change-password-form').serialize(),
+            beforeSend: function () {
+                wijzigbtn.val('updating').attr('disabled', 'disabled');
+            },
+            complete: function (data) {
+                var jsontext = data.responseText;
+                $('#password-message').html(jsontext);
+                e.preventDefault();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            loadUserInfo();
+            disableInput();
+            wijzigbtn.val('Wijzig').removeAttr('disabled');
+        });
+        e.preventDefault();
+    });
 
     // functie voor make-admin button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
