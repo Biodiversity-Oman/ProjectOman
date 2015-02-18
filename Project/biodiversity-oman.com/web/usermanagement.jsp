@@ -13,6 +13,7 @@
 <html>
 	<head>
 		<script src="js/ajax.js"></script>
+		<script src="js/validator.js"></script>
 	</head>
 	<body onload="loadUsers()">
 		<div class="wrapper">
@@ -33,72 +34,81 @@
 					<div id="tab2" class="tab">
 						<div class="create-user">
 							<h3 class="h3" style="margin-left: 12em; margin-bottom: 1em;">Create User</h3>
-							<form id="create-user-form" class="form-horizontal" data-toggle="validator">
+							<form role="form" id="create-user-form" class="form-horizontal" data-toggle="validator">
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="firstname">Firstname</label>
-									<div class="col-sm-10">
-										<input class="form-control" type="text" name="firstname" required>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" name="firstname" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required>
+										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="lastname">Lastname</label>
-									<div class="col-sm-10">
-										<input class="form-control" type="text" name="lastname" required>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" name="lastname" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required>
+										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="Country">Country</label>
-									<div class="col-sm-10">
-										<input class="form-control" type="text" name="country" required>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" name="country" maxlength="50" data-delay="1200" pattern="^([-A-z]){1,}$" required>
+										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="City">City</label>
-									<div class="col-sm-10">
-										<input class="form-control" type="text" name="city" required>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" name="city" data-delay="1200" maxlength="50" pattern="^([-A-z]){1,}$" required>
+										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="phone">Phone</label>
-									<div class="col-sm-10">
-										<input class="form-control" type="tel" name="phone">
+									<div class="col-sm-4">
+										<input class="form-control" type="tel" data-delay="1200" pattern="^[0-9./()-]+$" name="phone">
+										<span class="help-block with-errors">Up to 20 digits between 0-9 and symbols "- / . ()"</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="email">E-mail</label>
-									<div class="col-sm-10">
-										<input class="form-control" type="email" name="email" required>
+									<div class="col-sm-4">
+										<input class="form-control" type="email" data-delay="1200" name="email" data-error="That email address is invalid" required>
+										<span class="help-block with-errors">Valid e-mail address required</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="username">Username</label>
-									<div class="col-sm-10">
-										<input class="form-control" type="text" name="username" required>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" name="username" data-delay="1200" pattern="^([-_A-z0-9]){1,}$" maxlength="20" data-minlength="5" required>
+										<span class="help-block with-errors">Up to 20 characters and symbols "- _"  (min length 5 characters)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="password">Password</label>
-									<div class="col-sm-10">
-										<input class="form-control" type="password" name="password" required>
+									<div class="col-sm-4">
+										<input class="form-control" id="inputPassword" data-delay="1200" type="password" name="password" data-minlength="6" maxlength="15" required>
+										<span class="help-block">Minimum of 6 characters maximum 15 characters</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="comfirm-password">Comfirm password</label>
-									<div class="col-sm-10">
-										<input class="form-control" type="password" name="check" required>
+									<div class="col-sm-4">
+										<input class="form-control" type="password" data-delay="1200" data-minlength="6" maxlength="15" data-match="#inputPassword" data-match-error="Passwords dont match" name="check" required>
+										<div class="help-block with-errors"></div>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="admin?">Admin?*</label>
-									<div class="col-sm-10">
-										<input style="width: 1em;"   type="radio" id="admintrue"  name="isadmin" value="true"> <label>Ja</label><br>
-										<input style="width: 1em;"  type="radio" id="adminfalse" name="isadmin" value="false"> <label>Nee</label>
+									<div class="col-sm-4">
+										<input style="width: 1em;"   type="radio" id="admintrue"  name="isadmin" value="true" required> <label>Yes</label><br>
+										<input style="width: 1em;"  type="radio" id="adminfalse" name="isadmin" value="false" required> <label>No</label>
 									</div>
 								</div>
 								<label style="margin-left: 12em;" id="register-message" class="error-message"></label>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
-										<button type="submit" class="btn btn-default">Create</button>
+										<button type="submit" class="btn btn-default" data-disable="true">Create user</button>
 									</div>
 								</div>
 							</form>
