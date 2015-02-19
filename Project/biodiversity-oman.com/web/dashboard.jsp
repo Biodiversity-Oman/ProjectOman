@@ -11,7 +11,6 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<h1 class="h1">welcome at webPortofOman ;)</h1>
 			<div class="tabs">
 				<ul class="tab-links">
 					<li class="active"><a href="#tab1"><span class="icon-file-text"></span>Organisms</a></li>
