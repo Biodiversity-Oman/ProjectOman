@@ -100,7 +100,7 @@ nav ul li:hover a {
 }
 nav ul li a {
     display: block; padding: 17px 27px;
-    color: #fff; text-decoration: none;
+    color: #F5FAFF; text-decoration: none;
     font-size: 1.1em;
     outline: 0;
     text-decoration: none;
@@ -166,7 +166,7 @@ nav ul ul ul {
 
 .wrapper {
     height: auto;
-    background-color: #E6E6FF; /*#ffffff*/
+    background-color: #F9F9F9; /*#ffffff*/
     width: 90%;
     margin-bottom: 1em;
     padding-top: 0.1em;
