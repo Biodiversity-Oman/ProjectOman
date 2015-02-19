@@ -5,57 +5,77 @@
  */
 package DAL;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import BLL.Habitat;
+import BLL.*;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
  * @author Eric
  */
 public class DaHabitat {
-    
+
     private static Connection conn;
     private static PreparedStatement stmt;
-    
-    
-    public static List selectHabitat(int habitatId) throws SQLException {
 
-        List<Habitat> habitat = new ArrayList<>();
+    public static List<Habitat> selectAllfamily() throws SQLException {
+        List<Habitat> habitats = new ArrayList();
+
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT name, description, id FROM habitat WHERE habitat_id =" + habitatId +"");
+            stmt = conn.prepareStatement("SELECT * FROM omandb.habitat");
             ResultSet rs = stmt.executeQuery();
+
             while (rs.next()) {
-                Habitat hab = new Habitat();
-                hab.setDescription(rs.getString("description"));
-                hab.setHabitatName(rs.getString("name"));
-                habitat.add(hab);
+                Habitat h = new Habitat();
+                h.setHabitatId(rs.getInt("habitat_id"));
+                h.setHabitatName(rs.getString("habitat_name"));
+                h.setDescription(rs.getString("habitat_description"));
+                habitats.add(h);
             }
+
             conn.commit();
-        } catch (SQLException ex) {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             conn.rollback();
         } finally {
             conn.setAutoCommit(true);
         }
-        return habitat;
+
+        return habitats;
     }
-    
-    
- 
-    
-    public static void deleteHabitat(int habitatId) throws SQLException {
+
+    public static Habitat selectOneByIDHabitat(int id) throws SQLException {
+        Habitat h = new Habitat();
 
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("SELECT * FROM omandb.habitat WHERE habitat_id=" + id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            h.setHabitatId(rs.getInt("habitat_id"));
+            h.setHabitatName(rs.getString("habitat_name"));
+            h.setDescription(rs.getString("habitat_description"));
 
-            stmt = conn.prepareStatement("DELETE FROM habitat WHERE HABITAT_ID=" + habitatId + "");
+            conn.commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            conn.rollback();
+        } finally {
+            conn.setAutoCommit(true);
+        }
+
+        return h;
+    }
+
+    public static void deleteHabitat(Habitat h) throws SQLException {
+
+        try {
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("DELETE FROM habitat WHERE HABITAT_ID=" + h.getHabitatId() + "");
             stmt.executeUpdate();
             conn.commit();
 
@@ -65,17 +85,16 @@ public class DaHabitat {
             conn.setAutoCommit(true);
         }
     }
-    
-    
-    public static void updateHabitat(Habitat habi, int habitatId) throws SQLException {
+
+    public static void updateHabitat(Habitat h) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("UPDATE habitat "
-                    + "(name, description, world_id) VALUES (?,?,?) WHERE habitat_id=" + habitatId +"");
-            stmt.setString(1, habi.getHabitatName());
-            stmt.setString(2, habi.getDescription());
+                    + "(name, description, world_id) VALUES (?,?,?) WHERE habitat_id=" + h.getHabitatId() + "");
+            stmt.setString(1, h.getHabitatName());
+            stmt.setString(2, h.getDescription());
             stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
@@ -84,26 +103,24 @@ public class DaHabitat {
             conn.setAutoCommit(true);
         }
     }
-    
-    
-    
-    public static void insertHabitat(Habitat habi) throws SQLException {
+
+    public static void insertHabitat(Habitat h) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("INSERT INTO habitat "
-                    + "(name, description, world_id) VALUES (?,?,?)");
-            stmt.setString(1, habi.getHabitatName());
-            stmt.setString(2, habi.getDescription());
+                    + "(name, description) VALUES (?,?)");
+            stmt.setString(1, h.getHabitatName());
+            stmt.setString(2, h.getDescription());
             stmt.executeUpdate();
             conn.commit();
-	    
+
         } catch (SQLException ex) {
             System.out.println(ex);
         } finally {
             conn.setAutoCommit(true);
         }
     }
-    
+
 }

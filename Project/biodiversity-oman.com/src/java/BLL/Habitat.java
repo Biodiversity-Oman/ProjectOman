@@ -58,17 +58,5 @@ public class Habitat {
         this.habitatId = habitatId;
     }
 
-    /**
-     * @return the organisms
-     */
-    public java.util.List<Organism> getOrganisms() {
-        return organisms;
-    }
-
-    /**
-     * @param organisms the organisms to set
-     */
-    public void setOrganisms(java.util.List<Organism> organisms) {
-        this.organisms = organisms;
-    }
+ 
 }
