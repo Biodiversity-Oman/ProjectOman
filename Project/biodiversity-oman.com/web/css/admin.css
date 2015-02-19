@@ -33,6 +33,9 @@ body, html {
     border: 0px solid #000000;
     color: #000053;
 }
+.loginbox label {
+    font-size: 1.2em;
+}
 .loginbox form {
     margin-top: 2.2em;
     margin-left: auto;
@@ -98,7 +101,7 @@ nav ul li:hover a {
 }
 nav ul li a {
     display: block; padding: 17px 27px;
-    color: #FFEBD6; text-decoration: none;
+    color: #F5FAFF; text-decoration: none;
     font-size: 1.1em;
     outline: 0;
     text-decoration: none;
@@ -320,8 +323,8 @@ nav ul ul ul {
     outline: 0;
 }
 li.active a, li.active a:hover {
-    background:#4747FF; 
-    color:#FFFFC2;
+    background:	#0099CC; 
+    color:#F5FAFF;
     outline: 0;
     text-decoration: none;
 }

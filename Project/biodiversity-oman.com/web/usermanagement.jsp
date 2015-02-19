@@ -24,7 +24,7 @@
 				</ul>
 				<div class="tab-content">
 					<div id="tab1" class="tab active">
-						<p>Press the <span class="icon-cross"></span> button to delete a user( Caution no comfirmation screen)</p>
+						<p>Press the <span class="icon-cross"></span> button to delete a user (Caution! no confirmation screen)</p>
 						<p>Press the <span class="icon-plus"></span> button to promote a user to admin</p>
 						<p>Press the <span class="icon-minus"></span> button to demote a user to normal</p>
 						<div class="table-responsive">

@@ -4,6 +4,11 @@
     Author     : lennyasus
 --%>
 <%@include file="/adminheader.jsp" %>
+<%
+	if (us.getIsAdmin() == false) {
+		response.sendRedirect("notallowed.jsp");
+	}
+%>
 <!DOCTYPE html>
 <html>
 	<head>
