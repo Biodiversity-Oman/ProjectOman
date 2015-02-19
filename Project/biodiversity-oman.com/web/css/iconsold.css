@@ -23,6 +23,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+
 .icon-file-text:before {
 	content: "\e922";
         margin-right: 0.3em;
@@ -34,7 +35,6 @@
 
 .icon-list:before {
 	content: "\e9ba";
-        margin-right: 0.3em;
 }
 
 .icon-menu:before {
@@ -96,4 +96,7 @@
     content: "\ea14";
     margin-right: 0.5em;
 }
+
+
+
 

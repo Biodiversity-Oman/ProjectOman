@@ -19,8 +19,8 @@
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">
-					<li class="active"><a href="#tab1">List Users </a></li>
-					<li><a href="#tab2">Create User</a></li>
+					<li class="active"><a href="#tab1"><span class="icon-file-text"></span> Users </a></li>
+					<li><a href="#tab2"><span class="icon-pencil2"></span>Create User</a></li>
 				</ul>
 				<div class="tab-content">
 					<div id="tab1" class="tab active">

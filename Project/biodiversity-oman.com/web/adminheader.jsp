@@ -45,12 +45,12 @@
 		<li class="current"><a href="#" onclick=""><span class="icon-menu"></span></a></li>
 		<!-- ------------------------------------------------------------------------------------>
 		<!-- alle menu items aan de linkerkant -->
-		<li><a href="dashboard.jsp" ><Strong>Dashboard</strong></a></li>
+		<li><a href="dashboard.jsp" ><span class="icon-home"></span><Strong>Dashboard</strong></a></li>
 		
 		<!--------------------------------------------------------------------------------------->
 		<!-- alle menu items aan de rechterkant -->
-		<li class="right"><a href="Logout"><strong>Log out</strong></a></li>
-		<li class="right"><a href="userinfo.jsp"><strong><%=username%></strong></a></li>
+		<li class="right"><a href="Logout"><span class="icon-exit"></span><strong>Log out</strong></a></li>
+		<li class="right"><a href="userinfo.jsp"><span class="icon-user"></span><strong><%=username%></strong></a></li>
 		<li class="right" id="adminuser"></li>
 		<li class="right" id="adminpublish"></li>
 		<!--------------------------------------------------------------------------------------->
@@ -61,8 +61,8 @@
         var adminuser = document.getElementById('adminuser');
         var adminpublish = document.getElementById('adminpublish');
 	<%if (us.getIsAdmin() == true) {%>
-        adminuser.innerHTML += '<a href="usermanagement.jsp"><strong>User Management</strong></a>';
-        adminpublish.innerHTML += '<a href="publish.jsp"><strong>Publish</strong></a>';
+        adminuser.innerHTML += '<a href="usermanagement.jsp"><span class="icon-users"></span><strong>User Management</strong></a>';
+        adminpublish.innerHTML += '<a href="publish.jsp"><span class="icon-book"></span><strong>Publish</strong></a>';
 	<%} else {%>
         adminuser.innerHTML += '';
         adminpublish.innerHTML += '';

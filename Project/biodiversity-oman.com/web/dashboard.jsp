@@ -14,8 +14,8 @@
 			<h1 class="h1">welcome at webPortofOman ;)</h1>
 			<div class="tabs">
 				<ul class="tab-links">
-					<li class="active"><a href="#tab1">Organism list </a></li>
-					<li><a href="#tab2">Create Organism</a></li>
+					<li class="active"><a href="#tab1"><span class="icon-file-text"></span>Organisms</a></li>
+					<li><a href="#tab2"><span class="icon-pencil2"></span>Create Organism</a></li>
 					<li><a href="#tab3">tab3</a></li>
 					<li><a href="#tab4">tab3</a></li>
 					<li><a href="#tab5">tab3</a></li>
