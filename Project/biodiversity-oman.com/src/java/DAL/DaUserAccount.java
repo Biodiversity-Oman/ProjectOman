@@ -238,5 +238,22 @@ public class DaUserAccount {
 		conn.setAutoCommit(true);
 		return match;
 	}
+	
+	public static void setNormalUser(String username) throws SQLException {
+
+		try {
+			conn = DataSource.getConnection();
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement("UPDATE user_account SET isadmin = '0' WHERE username=?");
+			stmt.setString(1, username);
+			conn.commit();
+			stmt.executeUpdate();
+			
+		} catch (SQLException ex) {
+			
+		} finally {
+			conn.setAutoCommit(true);
+		}
+	}
 
 }

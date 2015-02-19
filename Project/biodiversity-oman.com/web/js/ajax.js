@@ -131,6 +131,26 @@ $(document).ready(function () {
             loadUsers();
         });
     });
+    
+    $(document).on('click', '.table #make-normal-btn', function () {
+
+        var username = ($(this).attr("value"));
+        $.ajax({
+            url: 'SetNormalUser?username=' + username,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true,
+            complete: function (data) {
+
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            loadUsers();
+        });
+    });
 });
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -172,7 +192,7 @@ function loadUsers() {
                                         <td>' + user.email + '</td>\n\
                                         <td>' + user.phone + '</td>\n\
                                         <td>' + user.isAdmin + '</td>\n\
-                                        <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
                                     </tr>');
             });
         }

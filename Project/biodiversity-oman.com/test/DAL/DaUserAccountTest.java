@@ -28,11 +28,11 @@ public class DaUserAccountTest {
 	@AfterClass
 	public static void tearDownClass() {
 	}
-
-	/**
-	 * Test of insertUserAccount method, of class DaUserAccount.
-	 */
-	//@Test
+//
+//	/**
+//	 * Test of insertUserAccount method, of class DaUserAccount.
+//	 */
+//	@Test
 //	public void testInsertUserAccount() throws Exception {
 //		System.out.println("insertUserAccount");
 //		UserAccount user = new UserAccount();
@@ -48,7 +48,7 @@ public class DaUserAccountTest {
 //		DaUserAccount.insertUserAccount(user);
 //		
 //	}
-
+//
 //	/**
 //	 * Test of selectByUsername method, of class DaUserAccount.
 //	 */
@@ -60,7 +60,7 @@ public class DaUserAccountTest {
 //		System.out.println(result);
 //		
 //	}
-
+//
 //	/**
 //	 * Test of updateUserAccount method, of class DaUserAccount.
 //	 */
@@ -79,9 +79,9 @@ public class DaUserAccountTest {
 //		
 //	}
 //
-	/**
-	 * Test of deleteUserAccount method, of class DaUserAccount.
-	 */
+//	/**
+//	 * Test of deleteUserAccount method, of class DaUserAccount.
+//	 */
 //	@Test
 //	public void testDeleteUserAccount() throws Exception {
 //		System.out.println("deleteUserAccount");
@@ -161,5 +161,16 @@ public class DaUserAccountTest {
 //		System.out.println(result);
 //		
 //	}
-	
-}
+//
+//	/**
+//	 * Test of setNormalUser method, of class DaUserAccount.
+//	 */
+//	@Test
+//	public void testSetNormalUser() throws Exception {
+//		System.out.println("setNormalUser");
+//		String username = "admin";
+//		DaUserAccount.setNormalUser(username);
+//		
+//	}
+//	
+//}

@@ -49,7 +49,7 @@
     content: "\ea0a";
     margin-left: 1em;
     margin-right: 1em;
-    color: #5CADFF;
+    color: #8AE65C;
 }
 
 .icon-cross:before {
@@ -90,6 +90,10 @@
 
 .icon-minus:before {
     content: "\ea0b";
+    color: #5CADFF;
+    margin-left: 1em;
+    margin-right: 1em;
+    
 }
 
 .icon-exit:before {
