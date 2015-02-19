@@ -22,7 +22,7 @@ public class DaWorld {
 
     public static List<World> selectAllWold() {
 
-        List<World> world = new ArrayList<>();
+        List<World> worlds = new ArrayList<>();
         try {
             conn = DataSource.getConnection();
             stmt = conn.prepareStatement("SELECT world_id, world_name, world_description FROM world");
@@ -32,13 +32,13 @@ public class DaWorld {
                 w.setWorldId(rs.getInt("world_id"));
                 w.setWorldName(rs.getString("world_name"));
                 w.setDescription(rs.getString("world_description"));
-                world.add(w);
+                worlds.add(w);
             }
             conn.commit();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        return world;
+        return worlds;
     }
 
     public static World selectOneByIdWorld(int worldId) {

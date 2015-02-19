@@ -5,13 +5,9 @@
  */
 package DAL;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import BLL.Season;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import BLL.*;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -22,27 +18,53 @@ public class DaSeason {
     private static Connection conn;
     private static PreparedStatement stmt;
 
-    public static List selectSeason(int seasonId) throws SQLException {
+    public static List<Season> selectAllSeason() throws SQLException {
+        List<Season> seasons = new ArrayList();
 
-        List<Season> season = new ArrayList<>();
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT name, description, id FROM season WHERE season_id =" + seasonId + "");
+            stmt = conn.prepareStatement("SELECT * FROM omandb.season");
             ResultSet rs = stmt.executeQuery();
+
             while (rs.next()) {
-                Season seaso = new Season();
-                seaso.setDescription(rs.getString("description"));
-                seaso.setSeasonName(rs.getString("name"));
-                season.add(seaso);
+                Season s = new Season();
+                s.setSeasonId(rs.getInt("season_id"));
+                s.setSeasonName(rs.getString("season_name"));
+                s.setDescription(rs.getString("season_description"));
+
+                seasons.add(s);
             }
+
             conn.commit();
-        } catch (SQLException ex) {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             conn.rollback();
         } finally {
             conn.setAutoCommit(true);
         }
-        return season;
+
+        return seasons;
+    }
+    
+     public static Season selectOneByIdSeason(int seasonId) {
+        Season s = new Season();
+
+        try {
+            conn = DataSource.getConnection();
+            stmt = conn.prepareStatement("SELECT * FROM omandb.season WHERE season_id=" + seasonId + "");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                s.setSeasonId(rs.getInt("season_id"));
+                s.setSeasonName(rs.getString("season_name"));
+                s.getDescription(rs.getString("season_description"));
+
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return s;
     }
     
     public static List<Season> selectAllByOrganismSeason(int organismId) throws SQLException {
@@ -92,13 +114,13 @@ public class DaSeason {
         }
     }
 
-    public static void deleteSeason(int seasonId) throws SQLException {
+    public static void deleteSeason(Season s) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
 
-            stmt = conn.prepareStatement("DELETE FROM season WHERE season_id=" + seasonId + "");
+            stmt = conn.prepareStatement("DELETE FROM omandb.season WHERE season_id=" + s.getSeasonId() + "");
             stmt.executeUpdate();
             conn.commit();
 
@@ -109,15 +131,15 @@ public class DaSeason {
         }
     }
 
-    public static void insertSeason(Season seas) throws SQLException {
+    public static void insertSeason(Season s) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("INSERT INTO season "
+            stmt = conn.prepareStatement("INSERT INTO omandb.season "
                     + "(name, description) VALUES (?,?)");
-            stmt.setString(1, seas.getSeasonName());
-            stmt.setString(2, seas.getDescription());
+            stmt.setString(1, s.getSeasonName());
+            stmt.setString(2, s.getDescription());
             stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
