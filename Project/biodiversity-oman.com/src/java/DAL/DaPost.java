@@ -7,16 +7,11 @@ package DAL;
 
 import BLL.*;
 import java.awt.Image;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -178,8 +173,8 @@ public class DaPost {
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
             conn.rollback();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Foutje", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
         conn.close();
         return file;
