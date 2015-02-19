@@ -13,7 +13,6 @@ import java.awt.Image;
  */
 public class Post {
 
-<<<<<<< HEAD
     private Integer postId;
     private Integer organismId;
     private String postFirstName;
@@ -27,18 +26,6 @@ public class Post {
     /**
      * @return the postId
      */
-=======
-     private Integer postId;
-     private Organism organism;
-     private String postFirstName;
-     private String postLastName;
-     private String postEmail;
-     private String postDescription;
-     private byte[] photoPost;
-     private String postLongitude;
-     private String postLatitude;
-
->>>>>>> origin/master
     public Integer getPostId() {
         return postId;
     }
@@ -162,5 +149,4 @@ public class Post {
         this.postLatitude = postLatitude;
     }
 
-   
 }
