@@ -110,14 +110,7 @@ CREATE TABLE `geolocation` (
   `geolocation_id` int(11) NOT NULL AUTO_INCREMENT,
   `area_name` varchar(50) NOT NULL,
   `area_description` varchar(10000) NOT NULL,
-  `latitude_height_1` varchar(50) DEFAULT NULL,
-  `longitude_height_1` varchar(50) DEFAULT NULL,
-  `latitude_width_1` varchar(50) DEFAULT NULL,
-  `longitude_width_1` varchar(50) DEFAULT NULL,
-  `latitude_height_2` varchar(50) DEFAULT NULL,
-  `longitude_height_2` varchar(50) DEFAULT NULL,
-  `latitude_width_2` varchar(50) DEFAULT NULL,
-  `longitude_width_2` varchar(50) DEFAULT NULL,
+  `coordinates` varchar(300) NOT NULL,
   PRIMARY KEY (`geolocation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -152,7 +145,7 @@ CREATE TABLE `geolocation_organism` (
 -- Dumping data for table `geolocation_organism`
 --
 
-LOCK TABLES `geolocation_organisme` WRITE;
+LOCK TABLES `geolocation_organism` WRITE;
 /*!40000 ALTER TABLE `geolocation_organism` DISABLE KEYS */;
 /*!40000 ALTER TABLE `geolocation_organism` ENABLE KEYS */;
 UNLOCK TABLES;

@@ -35,6 +35,7 @@ public class DaGeolocation {
                 geolocation.setGeolocationId(rs.getInt("geolocation_id"));
                 geolocation.setAreaName(rs.getString("area_name"));
                 geolocation.setAreaDescription(rs.getString("area_description"));
+                geolocation.setCoordinates("coordinates");
                 geolocations.add(geolocation);
             }
             
@@ -60,6 +61,7 @@ public class DaGeolocation {
             geolocation.setGeolocationId(id);
             geolocation.setAreaName(rs.getString("area_name"));
             geolocation.setAreaDescription(rs.getString("area_description"));
+            geolocation.setCoordinates(rs.getString("coordinates"));
             
             conn.commit();
         } catch (Exception e) {
@@ -88,6 +90,7 @@ public class DaGeolocation {
                 geolocation.setGeolocationId(rs.getInt("geolocation_id"));
                 geolocation.setAreaName(rs.getString("area_name"));
                 geolocation.setAreaDescription(rs.getString("area_description"));
+                geolocation.setCoordinates(rs.getString("coordinates"));
                 geolocations.add(geolocation);
             }
             
@@ -106,9 +109,10 @@ public class DaGeolocation {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("INSERT INTO omandb.geolocation(area_name, "
-                    + "area_description) VALUES(?, ?)");
+                    + "area_description, coordinates) VALUES(?, ?, ?)");
             stmt.setString(1, geolocation.getAreaName());
             stmt.setString(2, geolocation.getAreaDescription());
+            stmt.setString(3, geolocation.getCoordinates());
             stmt.executeUpdate();
 
             conn.commit();
@@ -139,10 +143,11 @@ public class DaGeolocation {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("UPDATE omandb.geolocation SET area_name=?, "
-                    + "area_description=? WHERE geolocation_id=?");
+                    + "area_description=?, coordinates=? WHERE geolocation_id=?");
             stmt.setString(1, geolocation.getAreaName());
             stmt.setString(2, geolocation.getAreaDescription());
-            stmt.setInt(3, geolocation.getGeolocationId());
+            stmt.setString(3, geolocation.getCoordinates());
+            stmt.setInt(4, geolocation.getGeolocationId());
             stmt.executeUpdate();
             
             conn.commit();
