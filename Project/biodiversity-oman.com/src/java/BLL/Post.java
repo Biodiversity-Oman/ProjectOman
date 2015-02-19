@@ -11,7 +11,7 @@ package BLL;
  */
 public class Post {
 
-	private Integer postId;
+     private Integer postId;
      private Organism organism;
      private String postFirstName;
      private String postLastName;
