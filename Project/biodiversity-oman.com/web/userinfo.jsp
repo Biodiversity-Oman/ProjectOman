@@ -137,9 +137,9 @@
                                                     document.getElementById('fade2').style.display = 'none'"><label class="close-button">x</label></a>
 						<div class="content">
 							<p>Are you sure you want to delete your account?</p>
-							<a href="DeleteUserAccount?username=<%=username%>"><input class="button-blue" type="button" value="Yes" /></a>
+							<a href="DeleteUserAccount?username=<%=username%>"><input class="btn btn-primary" type="button" value="Yes" /></a>
 							<a href = "javascript:void(0)" onclick = "document.getElementById('delete').style.display = 'none';
-                                                                    document.getElementById('fade2').style.display = 'none'"><button class="button-blue">No</button></a>
+                                                                    document.getElementById('fade2').style.display = 'none'"><button class="btn btn-primary">No</button></a>
 						</div>
 					</div>
 					<a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'block';

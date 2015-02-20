@@ -229,10 +229,11 @@ nav ul ul ul {
 .whitebox {
     display: none;
     position: absolute;
-    top: 40%;
-    left: 5em;
-    width: 30em;
-    height: 40%;
+    top:17.5%;
+    left: 25%;
+    right: 25%;
+    width: 50%;
+    height: 65%;
     padding: 16px;
     border-radius: 0.2em 0.2em 0.2em 0.2em;
     background-color: #558EE6;
@@ -247,18 +248,20 @@ nav ul ul ul {
 .whiteboxdialog {
     display: none;
     position: absolute;
-    top: 50%;
-    width: 30em;
-    height: 14%;
-    padding: 16px;
+    top: 37.5%;
+    width: 50%;
+    height: 25%;
+    padding: 12px;
+    margin-left: 25%;
+    margin-right: 25%;
     border-radius: 0.2em 0.2em 0.2em 0.2em;
     background-color: white;
     z-index:1002;
     overflow: auto;
 }
 .whiteboxdialog .content {
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
     margin-left: auto;
     margin-right: auto;
 }
