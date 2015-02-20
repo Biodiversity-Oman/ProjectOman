@@ -62,7 +62,7 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT * FROM user_account where username = ?");
+			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, isadmin, phone FROM user_account where username = ?");
 			stmt.setString(1, username);
 			ResultSet rs = stmt.executeQuery();
 			rs.next();
@@ -73,11 +73,11 @@ public class DaUserAccount {
 			us.setCountry(rs.getString("country"));
 			us.setIsAdmin(rs.getBoolean("isadmin"));
 			us.setPhone(rs.getString("phone"));
-                         System.out.println(us.getUserName());
+			System.out.println(us.getUserName());
 			conn.commit();
 
 		} catch (SQLException ex) {
-                   
+
 			conn.rollback();
 		} finally {
 			conn.setAutoCommit(true);
@@ -116,10 +116,9 @@ public class DaUserAccount {
 			stmt.setString(1, username);
 			conn.commit();
 			stmt.executeUpdate();
-			
 
 		} catch (SQLException ex) {
-			
+
 		} finally {
 			conn.setAutoCommit(true);
 		}
@@ -186,9 +185,9 @@ public class DaUserAccount {
 			stmt.setString(1, username);
 			conn.commit();
 			stmt.executeUpdate();
-			
+
 		} catch (SQLException ex) {
-			
+
 		} finally {
 			conn.setAutoCommit(true);
 		}
@@ -223,9 +222,9 @@ public class DaUserAccount {
 
 		return users;
 	}
-	
-	public static boolean isAdmin(String username) throws SQLException{
-		
+
+	public static boolean isAdmin(String username) throws SQLException {
+
 		boolean match;
 		conn = DataSource.getConnection();
 		conn.setAutoCommit(false);
@@ -238,7 +237,7 @@ public class DaUserAccount {
 		conn.setAutoCommit(true);
 		return match;
 	}
-	
+
 	public static void setNormalUser(String username) throws SQLException {
 
 		try {
@@ -248,12 +247,38 @@ public class DaUserAccount {
 			stmt.setString(1, username);
 			conn.commit();
 			stmt.executeUpdate();
-			
+
 		} catch (SQLException ex) {
-			
+
 		} finally {
 			conn.setAutoCommit(true);
 		}
+	}
+
+	public static List searchByUserNameFirstNameLastName(String keyword) throws SQLException {
+
+		List<UserAccount> result = new ArrayList();
+		conn = DataSource.getConnection();
+		conn.setAutoCommit(false);
+		stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, isadmin, phone\n"
+			+ "FROM user_account \n"
+			+ "WHERE (CONCAT(username,first_name,last_name,email) LIKE '%"+ keyword +"%') OR (CONCAT_WS(' ', first_name, last_name) LIKE '%"+ keyword +"%')");
+		ResultSet rs = stmt.executeQuery();
+		conn.commit();
+		while (rs.next()) {
+			UserAccount user = new UserAccount();
+			user.setFirstName(rs.getString("first_name"));
+			user.setLastName(rs.getString("last_name"));
+			user.setEmail(rs.getString("email"));
+			user.setCity(rs.getString("phone"));
+			user.setCountry(rs.getString("city"));
+			user.setIsAdmin(rs.getBoolean("country"));
+			user.setIsAdmin(rs.getBoolean("isadmin"));
+			user.setIsAdmin(Boolean.FALSE);
+			result.add(user);
+		}
+		conn.setAutoCommit(true);
+		return result;
 	}
 
 }

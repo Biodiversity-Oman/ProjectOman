@@ -172,5 +172,18 @@ public class DaUserAccountTest {
 //		DaUserAccount.setNormalUser(username);
 //		
 //	}
-//	
+
+	/**
+	 * Test of searchByUserNameFirstNameLastName method, of class DaUserAccount.
+	 */
+	@Test
+	public void testSearchByUserNameFirstNameLastName() throws Exception {
+		System.out.println("searchByUserNameFirstNameLastName");
+		String keyword = "lenny donnez";
+		
+		List result = DaUserAccount.searchByUserNameFirstNameLastName(keyword);
+		System.out.println(result);
+		
+	}
+	
 }
