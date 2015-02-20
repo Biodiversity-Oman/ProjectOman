@@ -199,7 +199,7 @@ public class DaUserAccount {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT * FROM user_account");
+			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, username, phone, isadmin FROM user_account");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				UserAccount user = new UserAccount();
@@ -260,7 +260,7 @@ public class DaUserAccount {
 		List<UserAccount> result = new ArrayList();
 		conn = DataSource.getConnection();
 		conn.setAutoCommit(false);
-		stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, isadmin, phone\n"
+		stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, username, phone, isadmin\n"
 			+ "FROM user_account \n"
 			+ "WHERE (CONCAT(username,first_name,last_name,email) LIKE '%"+ keyword +"%') OR (CONCAT_WS(' ', first_name, last_name) LIKE '%"+ keyword +"%')");
 		ResultSet rs = stmt.executeQuery();
@@ -270,11 +270,11 @@ public class DaUserAccount {
 			user.setFirstName(rs.getString("first_name"));
 			user.setLastName(rs.getString("last_name"));
 			user.setEmail(rs.getString("email"));
-			user.setCity(rs.getString("phone"));
-			user.setCountry(rs.getString("city"));
-			user.setIsAdmin(rs.getBoolean("country"));
+			user.setCity(rs.getString("city"));
+			user.setCountry(rs.getString("country"));
+			user.setUserName(rs.getString("username"));
+			user.setPhone(rs.getString("phone"));
 			user.setIsAdmin(rs.getBoolean("isadmin"));
-			user.setIsAdmin(Boolean.FALSE);
 			result.add(user);
 		}
 		conn.setAutoCommit(true);

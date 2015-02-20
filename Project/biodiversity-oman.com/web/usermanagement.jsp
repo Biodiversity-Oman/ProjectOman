@@ -27,17 +27,15 @@
 						<p>Press the <span class="icon-cross"></span> button to delete a user (Caution! no confirmation screen)</p>
 						<p>Press the <span class="icon-plus"></span> button to promote a user to admin</p>
 						<p>Press the <span class="icon-minus"></span> button to demote a user to normal</p>
-						<form role="form" id="search-user-form" class="form-horizontal">
-							<div class="form-group">
-								<div class="col-sm-4">
-									<input class="form-control" type="text" name="keyword" placeholder="Search by username, name or email">
-								</div>
-							</div>
-						</form>
 						<div class="table-responsive">
+							<div class="col-sm-4">
+								<input class="form-control" id="search-user-account" type="text" name="keyword" placeholder="Search by username, name or email (minimal 3 characters)"><br>
+							</div>
+
 							<table class="table table-striped" id="users-table">
 							</table>
 						</div>
+
 					</div>
 					<div id="tab2" class="tab">
 						<div class="create-user">

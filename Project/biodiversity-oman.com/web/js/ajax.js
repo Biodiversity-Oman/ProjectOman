@@ -152,19 +152,21 @@ $(document).ready(function () {
         });
     });
 
-    $('#create-user-form').submit(function (e) {
+    $('#search-user-account').keyup(function (e) {
 
         var $userstable = $('#users-table');
-
-        $.ajax({
-            url: 'SearchUserAccount',
-            type: 'GET',
-            dataType: 'json',
-            cache: false,
-            async: true,
-            complete: function (data) {
-                var users = data.responseJSON;
-                $userstable.append('<tr>\n\
+        var keyword = $(this).val();
+        if (keyword.length >= 3) {
+            $.ajax({
+                url: 'SearchUserAccount',
+                type: 'GET',
+                dataType: 'json',
+                cache: false,
+                async: true,
+                data: 'keyword=' + keyword,
+                complete: function (data) {
+                    var users = data.responseJSON;
+                    $userstable.append('<tr>\n\
                                     <th>Username</th>\n\
                                     <th>Firstname</th>\n\
                                     <th>Lastname</th>\n\
@@ -175,8 +177,12 @@ $(document).ready(function () {
                                     <th>Admin</th>\n\
                                     <th>Action</th>\n\
                                 </tr>');
-                users.forEach(function (user) {
-                    $userstable.append('<tr>\n\
+                    if (users.length === 0) {
+                        $userstable.append('<tr><td>User not found</td></tr>');
+                    }
+                    ;
+                    users.forEach(function (user) {
+                        $userstable.append('<tr>\n\
                                         <td>' + user.userName + '</td>\n\
                                         <td>' + user.firstName + '</td>\n\
                                         <td>' + user.lastName + '</td>\n\
@@ -187,13 +193,14 @@ $(document).ready(function () {
                                         <td>' + user.isAdmin + '</td>\n\
                                         <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
                                     </tr>');
-                });
-            }
-        }).done(function () {
-            $('#users-table').html('');
-        });
-
-
+                    });
+                }
+            }).done(function () {
+                $('#users-table').html('');
+            });
+        } else {
+            loadUsers();
+        }
     });
 
 });
@@ -244,8 +251,7 @@ function loadUsers() {
     }).done(function () {
         $('#users-table').html('');
     });
-}
-;
+};
 
 
 
