@@ -89,12 +89,17 @@ public class ServUserAccount {
 	}
 
 	public static boolean checkUsername(String username) throws SQLException {
-		
+
 		return DaUserAccount.checkUsername(username);
 	}
-	
+
 	public static void setNormalUser(String username) throws SQLException {
-		
+
 		DaUserAccount.setNormalUser(username);
+	}
+
+	public static List<UserAccount> searchUserAccount(String keyword) throws SQLException {
+
+		return DaUserAccount.searchUserAccount(keyword);
 	}
 }

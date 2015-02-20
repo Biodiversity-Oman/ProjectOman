@@ -255,7 +255,7 @@ public class DaUserAccount {
 		}
 	}
 
-	public static List searchByUserNameFirstNameLastName(String keyword) throws SQLException {
+	public static List searchUserAccount(String keyword) throws SQLException {
 
 		List<UserAccount> result = new ArrayList();
 		conn = DataSource.getConnection();
