@@ -31,7 +31,7 @@ public class DaSeason {
                 Season s = new Season();
                 s.setSeasonId(rs.getInt("season_id"));
                 s.setSeasonName(rs.getString("season_name"));
-                s.setDescription(rs.getString("season_description"));
+                s.setSeasonDescription(rs.getString("season_description"));
 
                 seasons.add(s);
             }
@@ -46,8 +46,8 @@ public class DaSeason {
 
         return seasons;
     }
-    
-     public static Season selectOneByIdSeason(int seasonId) {
+
+    public static Season selectOneByIdSeason(int seasonId) {
         Season s = new Season();
 
         try {
@@ -57,8 +57,7 @@ public class DaSeason {
             while (rs.next()) {
                 s.setSeasonId(rs.getInt("season_id"));
                 s.setSeasonName(rs.getString("season_name"));
-                s.getDescription(rs.getString("season_description"));
-
+                s.getSeasonDescription(rs.getString("season_description"));
 
             }
         } catch (SQLException e) {
@@ -66,7 +65,7 @@ public class DaSeason {
         }
         return s;
     }
-    
+
     public static List<Season> selectAllByOrganismSeason(int organismId) throws SQLException {
         List<Season> seasons = new ArrayList();
 
@@ -82,7 +81,7 @@ public class DaSeason {
                 Season season = new Season();
                 season.setSeasonId(rs.getInt("season_id"));
                 season.setSeasonName(rs.getString("name"));
-                season.setDescription(rs.getString("description"));
+                season.setSeasonDescription(rs.getString("description"));
                 seasons.add(season);
             }
 
@@ -104,7 +103,7 @@ public class DaSeason {
             stmt = conn.prepareStatement("UPDATE season "
                     + "(name, description) VALUES (?,?) WHERE season_id=" + seasonId + "");
             stmt.setString(1, seas.getSeasonName());
-            stmt.setString(2, seas.getDescription());
+            stmt.setString(2, seas.getSeasonDescription());
             stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
@@ -139,7 +138,7 @@ public class DaSeason {
             stmt = conn.prepareStatement("INSERT INTO omandb.season "
                     + "(name, description) VALUES (?,?)");
             stmt.setString(1, s.getSeasonName());
-            stmt.setString(2, s.getDescription());
+            stmt.setString(2, s.getSeasonDescription());
             stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {

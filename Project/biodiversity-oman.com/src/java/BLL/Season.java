@@ -13,50 +13,50 @@ public class Season {
 	
 	private int seasonId;
 	private String seasonName;
-	private String description;
+	private String seasonDescription;
         private java.util.List<Organism> organisms;
 
-	/**
-	 * @return the seasonId
-	 */
-	public int getSeasonId() {
-		return seasonId;
-	}
+    /**
+     * @return the seasonId
+     */
+    public int getSeasonId() {
+        return seasonId;
+    }
 
-	/**
-	 * @param seasonId the seasonId to set
-	 */
-	public void setSeasonId(int seasonId) {
-		this.seasonId = seasonId;
-	}
+    /**
+     * @param seasonId the seasonId to set
+     */
+    public void setSeasonId(int seasonId) {
+        this.seasonId = seasonId;
+    }
 
-	/**
-	 * @return the name
-	 */
-	public String getSeasonName() {
-		return seasonName;
-	}
+    /**
+     * @return the seasonName
+     */
+    public String getSeasonName() {
+        return seasonName;
+    }
 
-	/**
-	 * @param seasonName the name to set
-	 */
-	public void setSeasonName(String seasonName) {
-		this.seasonName = seasonName;
-	}
+    /**
+     * @param seasonName the seasonName to set
+     */
+    public void setSeasonName(String seasonName) {
+        this.seasonName = seasonName;
+    }
 
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
+    /**
+     * @return the seasonDescription
+     */
+    public String getSeasonDescription() {
+        return seasonDescription;
+    }
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    /**
+     * @param seasonDescription the seasonDescription to set
+     */
+    public void setSeasonDescription(String seasonDescription) {
+        this.seasonDescription = seasonDescription;
+    }
 
     /**
      * @return the organisms
@@ -71,4 +71,11 @@ public class Season {
     public void setOrganisms(java.util.List<Organism> organisms) {
         this.organisms = organisms;
     }
+
+    public String getSeasonDescription(String string) {
+        return seasonDescription;
+    }
+
+   
+	
 }
