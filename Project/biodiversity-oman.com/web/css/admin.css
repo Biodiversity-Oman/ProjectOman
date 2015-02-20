@@ -183,7 +183,8 @@ nav ul ul ul {
     margin-right: auto;
     height: 100%;
     width: 60%;
-    background-color: #558EE6;
+    background-color: #ffffff;
+    box-shadow:-1px 1px 1px #005CE6;
     padding: 1em;
     margin-top: 1%;
     margin-bottom: 1%;

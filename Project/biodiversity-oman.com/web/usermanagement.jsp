@@ -44,8 +44,7 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="firstname">Firstname</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="firstname" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required>
-										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+										<input class="form-control" type="text" name="firstname" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$"										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
@@ -113,9 +112,11 @@
 								</div>
 								<label style="margin-left: 12em;" id="register-message" class="error-message"></label>
 								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-10">
-										<button type="submit" class="btn btn-primary btn-lg" data-disable="true">Create user</button>
+									<label class="col-sm-2 control-label"></label>
+									<div class="col-sm-2">
+										<button type="submit" class="btn btn-default  form-control" data-disable="true">Create user</button>
 									</div>
+									
 								</div>
 							</form>
 						</div>
