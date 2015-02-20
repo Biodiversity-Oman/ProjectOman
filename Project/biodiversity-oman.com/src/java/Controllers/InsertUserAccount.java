@@ -58,8 +58,8 @@ public class InsertUserAccount extends HttpServlet {
 					String message = "Username already exists";
 					response.getWriter().write(message);
 				}
-			} catch (SQLException ex) {
-				String message = "Er is iets fout met je verbinding";
+			} catch (Exception ex) {
+				String message = "Vul alle velden in!";
 				response.getWriter().write(message);
 			}
 		} else {

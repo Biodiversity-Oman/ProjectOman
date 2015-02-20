@@ -114,7 +114,7 @@
 								<label style="margin-left: 12em;" id="register-message" class="error-message"></label>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
-										<button type="submit" class="btn btn-default" data-disable="true">Create user</button>
+										<button type="submit" class="btn btn-primary btn-lg" data-disable="true">Create user</button>
 									</div>
 								</div>
 							</form>
