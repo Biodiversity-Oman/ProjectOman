@@ -119,8 +119,7 @@ public class DaSeason {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
 
-            stmt = conn.prepareStatement("DELETE FROM omandb.season WHERE season_id=" + s.getSeasonId() + 
-"");
+            stmt = conn.prepareStatement("DELETE FROM omandb.season WHERE season_id=" + s.getSeasonId() + "");
             stmt.executeUpdate();
             conn.commit();
 
