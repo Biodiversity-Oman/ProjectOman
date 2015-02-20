@@ -131,7 +131,7 @@ $(document).ready(function () {
             loadUsers();
         });
     });
-    
+
     $(document).on('click', '.table #make-normal-btn', function () {
 
         var username = ($(this).attr("value"));
@@ -151,6 +151,51 @@ $(document).ready(function () {
             loadUsers();
         });
     });
+
+    $('#create-user-form').submit(function (e) {
+
+        var $userstable = $('#users-table');
+
+        $.ajax({
+            url: 'SearchUserAccount',
+            type: 'GET',
+            dataType: 'json',
+            cache: false,
+            async: true,
+            complete: function (data) {
+                var users = data.responseJSON;
+                $userstable.append('<tr>\n\
+                                    <th>Username</th>\n\
+                                    <th>Firstname</th>\n\
+                                    <th>Lastname</th>\n\
+                                    <th>City</th>\n\
+                                    <th>Country</th>\n\
+                                    <th>Email</th>\n\
+                                    <th>Phone</th>\n\
+                                    <th>Admin</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+                users.forEach(function (user) {
+                    $userstable.append('<tr>\n\
+                                        <td>' + user.userName + '</td>\n\
+                                        <td>' + user.firstName + '</td>\n\
+                                        <td>' + user.lastName + '</td>\n\
+                                        <td>' + user.city + '</td>\n\
+                                        <td>' + user.country + '</td>\n\
+                                        <td>' + user.email + '</td>\n\
+                                        <td>' + user.phone + '</td>\n\
+                                        <td>' + user.isAdmin + '</td>\n\
+                                        <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
+                                    </tr>');
+                });
+            }
+        }).done(function () {
+            $('#users-table').html('');
+        });
+
+
+    });
+
 });
 
 //---------------------------------------------------------------------------------------------------------------------
