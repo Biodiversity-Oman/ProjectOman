@@ -21,7 +21,6 @@ public class DaPost {
 
     private static Connection conn;
     private static PreparedStatement stmt;
-    Image image;
 
 //    public  Image getPhoto()
 //    {
@@ -52,16 +51,16 @@ public class DaPost {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                image = ImageIO.read(rs.getBinaryStream("post_photo"));
+                
                 Post p = new Post();
                 p.setOrganismId(rs.getInt("organism_id"));
                 p.setPostFirstName(rs.getString("post_first_name"));
                 p.setPostLastName(rs.getString("post_last_name"));
-                p.setPostEmail("post_email");
-                p.setPostDescription("post_description");
-                p.setPostPhoto(image);
-                p.setPostLongitude("post_longitude");
-                p.setPostLatitude("post_latitude");
+                p.setPostEmail(rs.getString("post_email"));
+                p.setPostDescription(rs.getString("post_description"));
+                p.setPostPhoto(rs.getBytes("post_photo"));
+                p.setPostLongitude(rs.getString("post_longitude"));
+                p.setPostLatitude(rs.getString("post_latitude"));
                 posts.add(p);
             }
 
@@ -87,12 +86,12 @@ public class DaPost {
             rs.next();
             p.setOrganismId(rs.getInt("organism_id"));
             p.setPostFirstName(rs.getString("post_first_name"));
-            p.setPostLastName("post_last_name");
-            p.setPostEmail("post_email");
-            p.setPostDescription("post_description");
-            p.setPostPhoto(image);
-            p.setPostLongitude("post_longitude");
-            p.setPostLatitude("post_latitude");
+            p.setPostLastName(rs.getString("post_last_name"));
+            p.setPostEmail(rs.getString("post_email"));
+            p.setPostDescription(rs.getString("post_description"));
+            p.setPostPhoto(rs.getBytes("post_photo"));
+            p.setPostLongitude(rs.getString("post_longitude"));
+            p.setPostLatitude(rs.getString("post_latitude"));
 
             conn.commit();
         } catch (Exception e) {
@@ -115,16 +114,15 @@ public class DaPost {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                image = ImageIO.read(rs.getBinaryStream("post_photo"));
                 Post p = new Post();
                 p.setPostId(rs.getInt("post_id"));
                 p.setPostFirstName(rs.getString("post_first_name"));
-                p.setPostLastName("post_last_name");
-                p.setPostEmail("post_email");
-                p.setPostDescription("post_description");
-                p.setPostPhoto(image);
-                p.setPostLongitude("post_longitude");
-                p.setPostLatitude("post_latitude");
+                p.setPostLastName(rs.getString("post_last_name"));
+                p.setPostEmail(rs.getString("post_email"));
+                p.setPostDescription(rs.getString("post_description"));
+                p.setPostPhoto(rs.getBytes("post_photo"));
+                p.setPostLongitude(rs.getString("post_longitude"));
+                p.setPostLatitude(rs.getString("post_latitude"));
                 posts.add(p);
             }
 
