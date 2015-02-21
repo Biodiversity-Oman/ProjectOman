@@ -34,9 +34,6 @@ public class SelectPostById extends HttpServlet {
         
         List<Post> post = DaPost.selectOneByIdPost(Integer.parseInt(request.getParameter("id"));
         
-        request.getSession().setAttribute("vm", kleren);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("KlerenDetails.jsp");
-        dispatcher.forward(request, response);
         }
     }
 
