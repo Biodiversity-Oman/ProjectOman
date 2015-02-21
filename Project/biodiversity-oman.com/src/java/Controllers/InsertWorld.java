@@ -39,19 +39,13 @@ public class InsertWorld extends HttpServlet {
 
 		String worldName = request.getParameter("world-name");
 		String worldDescription = request.getParameter("world-description");
-		String message;
 
 		try {
 			if (ServWorld.checkWorld(worldName) == false) {
 				ServWorld.insertWorld(worldName, worldDescription);
-				message = "succes";
-				response.getWriter().write(message);
-			} else if (worldName == null) {
-				message = "error2";
-				response.getWriter().write(message);
+				response.getWriter().write("succes");
 			} else {
-				message = "succes";
-				response.getWriter().write(message);
+				response.getWriter().write("error");
 			}
 		} catch (SQLException ex) {
 			Logger.getLogger(InsertWorld.class.getName()).log(Level.SEVERE, null, ex);

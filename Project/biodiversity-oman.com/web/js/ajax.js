@@ -227,7 +227,6 @@ $(document).ready(function () {
     // functie inserten van world. dashboard.jsp
     $('#create-world-form').submit(function (e) {
 
-        
         $.ajax({
             url: 'InsertWorld',
             type: 'POST',
@@ -235,6 +234,7 @@ $(document).ready(function () {
             data: $('#create-world-form').serialize(),
             complete: function (data) {
                 var jsontext = data.responseText;
+                console.log(jsontext);
 //                if (jsontext === 'succes') {
 //                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
 //                } else if (jsontext === 'error1') {
