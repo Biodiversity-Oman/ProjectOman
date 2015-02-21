@@ -1,3 +1,7 @@
+//---------------------------------------------------------------------------------------------------------------------
+// Insert functies etc...
+// hier behoren de functies die data moeten laden wanneer document.ready is bijvoorbeeld inserets, updates, search etc..
+//---------------------------------------------------------------------------------------------------------------------
 $(document).ready(function () {
 
     //tab interface
@@ -220,6 +224,32 @@ $(document).ready(function () {
         }
     });
 
+    // functie inserten van world. dashboard.jsp
+    $('#create-world').submit(function (e) {
+
+        var $message = $('#create-world');
+        $.ajax({
+            url: 'InsertWorld',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-world').serialize(),
+            complete: function (data) {
+                var jsontext = data.responseText;
+                if (jsontext === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
+                } else if (jsontext === 'error1') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
+                } else if (jsontext === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World name is a required field</div>');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        e.preventDefault();
+    });
+
 });
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -231,7 +261,6 @@ $(document).ready(function () {
 function loadUsers() {
 
     var $userstable = $('#users-table');
-
     $.ajax({
         url: 'SelectAllUserAccounts',
         type: 'GET',
@@ -268,38 +297,4 @@ function loadUsers() {
     }).done(function () {
         $('#users-table').html('');
     });
-    //---------------------------------------------------------------------------------------------------------------------
-// world create
-// hier de functies voor een world toe te voegen
-//---------------------------------------------------------------------------------------------------------------------
-    
-     $('#create-world').submit(function (e) {
-
-        var $message = $('#create-world');
-        $.ajax({
-            url: 'InsertWorld',
-            type: 'POST',
-            dataType: 'text',
-            data: $('#create-world').serialize(),
-            complete: function (data) {
-                var jsontext = data.responseText;
-                if (jsontext === 'succes') {
-                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
-                } else if (jsontext === 'error1') {
-                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
-                } else if (jsontext === 'error2') {
-                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World name is a required field</div>');
-                }
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-        e.preventDefault();
-    });
 };
-
-
-
-
-
