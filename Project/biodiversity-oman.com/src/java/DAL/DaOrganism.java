@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -405,8 +407,126 @@ public class DaOrganism {
     
     public static void updateOrganism(Organism organism)
     {
-        // updatedOn invoegen!
-        //         if (organism.getUpdatedOn() == (null))  {stmt.setNull(21, Types.BIT);}
-        //    else {stmt.setDate(21, new java.sql.Date(organism.getUpdatedOn().getTime()));}
+        try 
+        {
+            // Setup variabelen
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            
+            // Eerste statement: Updaten van een organisme met One To Many relaties
+            stmt = conn.prepareStatement(
+                    "UPDATE organism SET scientific_name = ?, common_name = ?, local_name = ?, subfamily_id = ?, " +
+                    "organism_description = ?, population = ?, indigenous = ?, cultivated = ?, endangered = ?, medicinal = ?, benefits = ?, dangerous = ?, " +
+                    "threats = ?, opportunities = ?, photo = ?, links = ?, food_name = ?, food_description = ?, isvalidated = ?, updated_on = ?\n" +
+                    "WHERE organism.organism_id="+Integer.toString(organism.getOrganismId()));
+                    
+            stmt.setString(1, organism.getScientificName());
+            stmt.setString(2, organism.getCommonName());
+            stmt.setString(3, organism.getLocalName());
+            stmt.setInt(4, organism.getSubfamily().getSubfamilyId());
+            stmt.setString(5, organism.getDescription());
+            stmt.setString(6, organism.getPopulation());
+            if (organism.getIndigenous() == (null))  {stmt.setNull(7, Types.BIT);}
+                else {stmt.setBoolean(7, organism.getIndigenous());}
+            if (organism.getCultivated() == (null))  {stmt.setNull(8, Types.BIT);}
+                else {stmt.setBoolean(8, organism.getCultivated());}
+            if (organism.getEndangered() == (null))  {stmt.setNull(9, Types.BIT);}
+                else {stmt.setBoolean(9, organism.getEndangered());}
+            if (organism.getMedicinal() == (null))  {stmt.setNull(10, Types.BIT);}
+                else {stmt.setBoolean(10, organism.getMedicinal());}
+            stmt.setString(11, organism.getBenefits());
+            stmt.setString(12, organism.getDangerous());
+            stmt.setString(13, organism.getThreats());
+            stmt.setString(14, organism.getOpportunities());
+            stmt.setObject(15, organism.getPhoto());
+            stmt.setString(16, organism.getLinks());
+            stmt.setString(17, organism.getFoodName());
+            stmt.setString(18, organism.getFoodDescription());
+            if (organism.getValidated() == (null))  {stmt.setNull(19, Types.BIT);}
+                else {stmt.setBoolean(19, organism.getValidated());}
+            java.util.Calendar cal = java.util.Calendar.getInstance();
+            // !Date methode retourneerd een datum zonder tijd!
+            stmt.setDate(20, new java.sql.Date(cal.getTimeInMillis()));
+            
+            // Resultaat in de database opvragen en controleren.
+            if (stmt.executeUpdate() == 0)  {throw new SQLException("Creating organism failed, no rows affected.");}
+                    
+            // volgende statements zijn voor de Many To Many relaties up te daten.
+            // season
+            if(organism.getSeason() != null){
+                stmt = conn.prepareStatement("DELETE FROM organism_season WHERE organism_season.organism_id="+Integer.toString(organism.getOrganismId()));
+                stmt.executeUpdate();
+                stmt = conn.prepareStatement("INSERT INTO organism_season VALUES(?,?)");
+                for (Season s : organism.getSeason())
+                {
+                    stmt.setInt(1, organism.getOrganismId());
+                    stmt.setInt(2, s.getSeasonId());
+                    stmt.executeUpdate();
+                }}
+            // habitat
+            if(organism.getHabitat() != null){
+                stmt = conn.prepareStatement("DELETE FROM habitat_organism WHERE habitat_organism.organism_id="+Integer.toString(organism.getOrganismId()));
+                stmt.executeUpdate();
+                stmt = conn.prepareStatement("INSERT INTO habitat_organism VALUES(?,?)");
+                for (Habitat h : organism.getHabitat()) 
+                {
+                    stmt.setInt(1, h.getHabitatId());
+                    stmt.setInt(2, organism.getOrganismId());
+                    stmt.executeUpdate();
+                }}
+            // EatenBy
+            if(organism.getEatenByOrganism() != null){
+                stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism="+Integer.toString(organism.getOrganismId()));
+                stmt.executeUpdate();
+                stmt = conn.prepareStatement("INSERT INTO food VALUES(?,?)");
+                for (Organism o : organism.getEatenByOrganism()) 
+                {
+                    stmt.setInt(1, organism.getOrganismId());
+                    stmt.setInt(2, o.getOrganismId());
+                    stmt.executeUpdate();
+                }}
+            // Eating
+            if(organism.getEatingOrganisms() != null){                
+                stmt = conn.prepareStatement("DELETE FROM food WHERE food.eating_organism="+Integer.toString(organism.getOrganismId()));
+                stmt.executeUpdate();
+                stmt = conn.prepareStatement("INSERT INTO food VALUES(?,?)");
+                for (Organism o : organism.getEatingOrganisms()) 
+                {
+                    stmt.setInt(1, o.getOrganismId());
+                    stmt.setInt(2, organism.getOrganismId());
+                    stmt.executeUpdate();
+                }}
+            // Geolocation
+            if(organism.getGeolocations() != null){
+                stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id="+Integer.toString(organism.getOrganismId()));
+                stmt.executeUpdate();
+                stmt = conn.prepareStatement("INSERT INTO geolocation_organism VALUES(?,?)");
+                for (GeoLocation g : organism.getGeolocations()) 
+                {
+                    stmt.setInt(1, organism.getOrganismId());
+                    stmt.setInt(2, g.getGeolocationId());
+                    stmt.executeUpdate();
+                }}
+
+            conn.commit();
+        }
+        
+        catch(SQLException ex)
+        {
+            System.out.println(ex.getMessage());
+            try {
+                conn.rollback();
+            } catch (SQLException ex1) {
+                Logger.getLogger(DaOrganism.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
+        finally
+        {
+            try {
+                conn.setAutoCommit(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(DaOrganism.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }
