@@ -52,19 +52,15 @@ public class InsertUserAccount extends HttpServlet {
 									  request.getParameter("email"),
 									  request.getParameter("isadmin"),
 									  request.getParameter("password"));
-					String message = "succes";
-					response.getWriter().write(message);
+					response.getWriter().write("succes");
 				} else {
-					String message = "error1";
-					response.getWriter().write(message);
+					response.getWriter().write("error1");
 				}
 			} catch (Exception ex) {
-				String message = "error2";
-				response.getWriter().write(message);
+				response.getWriter().write("error2");
 			}
 		} else {
-			String message = "error3";
-			response.getWriter().write(message);
+			response.getWriter().write("error3");
 		}
 	}
 

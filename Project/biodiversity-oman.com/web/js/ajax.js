@@ -300,6 +300,8 @@ $(document).ready(function () {
             error: function (error) {
                 console.log(error);
             }
+        }).done (function () {
+            $("#create-world-form")[0].reset();
         });
         e.preventDefault();
     });
