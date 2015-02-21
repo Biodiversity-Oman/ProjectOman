@@ -1,3 +1,7 @@
+//---------------------------------------------------------------------------------------------------------------------
+// Insert functies etc...
+// hier behoren de functies die data moeten laden wanneer document.ready is bijvoorbeeld inserets, updates, search etc..
+//---------------------------------------------------------------------------------------------------------------------
 $(document).ready(function () {
 
     //tab interface
@@ -10,7 +14,7 @@ $(document).ready(function () {
 
     //userinfo.jsp
     $('#update-user-form').submit(function (e) {
-
+        var $message = $('#update-user-message');
         var updatebtn = $('#update');
         $.ajax({
             url: 'UpdateUserAccount',
@@ -24,8 +28,9 @@ $(document).ready(function () {
             },
             complete: function (data) {
                 var jsontext = data.responseText;
-                $('#update-message').html(jsontext);
-                e.preventDefault();
+                if (jsontext === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated succesfully</div>');
+                }
             },
             error: function (error) {
                 console.log(error);
@@ -40,7 +45,7 @@ $(document).ready(function () {
 
     //userinfo.jsp change password button + form
     $('#change-password-form').submit(function (e) {
-
+        var $message = $('#update-password-message');
         var wijzigbtn = $('#wijzig');
         $.ajax({
             url: 'UpdatePassword',
@@ -54,8 +59,13 @@ $(document).ready(function () {
             },
             complete: function (data) {
                 var jsontext = data.responseText;
-                $('#password-message').html(jsontext);
-                e.preventDefault();
+                if (jsontext === 'error1') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your password is not valid</div>');
+                } else if (jsontext === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your passwords do not match</div>');
+                } else if (jsontext === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password changed succesfully</div>');
+                }
             },
             error: function (error) {
                 console.log(error);
@@ -71,6 +81,7 @@ $(document).ready(function () {
     // create user form usermanagement.jsp
     $('#create-user-form').submit(function (e) {
 
+        var $message = $('#create-user-message');
         $.ajax({
             url: 'InsertUserAccount',
             type: 'POST',
@@ -78,7 +89,15 @@ $(document).ready(function () {
             data: $('#create-user-form').serialize(),
             complete: function (data) {
                 var jsontext = data.responseText;
-                $('#register-message').html(jsontext);
+                if (jsontext === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User succesfully created</div>');
+                } else if (jsontext === 'error1') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Username already exists</div>');
+                } else if (jsontext === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
+                } else if (jsontext === 'error3') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Passwords do not match</div>');
+                }
             },
             error: function (error) {
                 console.log(error);
@@ -86,6 +105,58 @@ $(document).ready(function () {
         }).done(function () {
             $("#create-user-form")[0].reset();
             loadUsers();
+        });
+        e.preventDefault();
+    });
+    
+     // create season form usermanagement.jsp
+    $('#create-season-form').submit(function (e) {
+
+        //var $message = $('#create-season-message');
+        $.ajax({
+            url: 'InsertSeason',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-season-form').serialize(),
+            complete: function (data) {
+                var jsontext = data.responseText;
+//                if (jsontext === 'succes') {
+//                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created</div>');
+//                }  else if (jsontext === 'error1') {
+//                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
+//                } 
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            $("#create-season-form")[0].reset();
+        });
+        e.preventDefault();
+    });
+    
+     // create habitat form usermanagement.jsp
+    $('#create-habitat-form').submit(function (e) {
+
+        var $message = $('#create-habitat-message');
+        $.ajax({
+            url: 'InsertHabitat',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-habitat-form').serialize(),
+            complete: function (data) {
+                var jsontext = data.responseText;
+                if (jsontext === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created</div>');
+                }  else if (jsontext === 'error1') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
+                } 
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            $("#create-habitat-form")[0].reset();
         });
         e.preventDefault();
     });
@@ -132,6 +203,7 @@ $(document).ready(function () {
         });
     });
 
+    // functie voor demoten van een user in usermanagement.jsp
     $(document).on('click', '.table #make-normal-btn', function () {
 
         var username = ($(this).attr("value"));
@@ -152,6 +224,7 @@ $(document).ready(function () {
         });
     });
 
+    //functie voor de zoekbalk in usermanagement.jsp
     $('#search-user-account').keyup(function (e) {
 
         var $userstable = $('#users-table');
@@ -203,6 +276,34 @@ $(document).ready(function () {
         }
     });
 
+    // functie inserten van world. dashboard.jsp
+    $('#create-world-form').submit(function (e) {
+
+        $.ajax({
+            url: 'InsertWorld',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-world-form').serialize(),
+            complete: function (data) {
+                var jsontext = data.responseText;
+                console.log(jsontext);
+//                if (jsontext === 'succes') {
+//                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
+//                } else if (jsontext === 'error1') {
+//                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
+//                } else if (jsontext === 'error2') {
+//                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World name is a required field</div>');
+//                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done (function () {
+            $("#create-world-form")[0].reset();
+        });
+        e.preventDefault();
+    });
+
 });
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -214,7 +315,6 @@ $(document).ready(function () {
 function loadUsers() {
 
     var $userstable = $('#users-table');
-
     $.ajax({
         url: 'SelectAllUserAccounts',
         type: 'GET',
@@ -252,8 +352,3 @@ function loadUsers() {
         $('#users-table').html('');
     });
 };
-
-
-
-
-

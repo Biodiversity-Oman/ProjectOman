@@ -5,7 +5,7 @@
  */
 package BLL;
 
-import java.awt.Image;
+
 
 /**
  *
@@ -19,7 +19,7 @@ public class Post {
     private String postLastName;
     private String postEmail;
     private String postDescription;
-    private Image postPhoto;
+    private byte[] postPhoto;
     private String postLongitude;
     private String postLatitude;
 
@@ -110,14 +110,14 @@ public class Post {
     /**
      * @return the postPhoto
      */
-    public Image getPostPhoto() {
+    public byte[] getPostPhoto() {
         return postPhoto;
     }
 
     /**
      * @param postPhoto the postPhoto to set
      */
-    public void setPostPhoto(Image postPhoto) {
+    public void setPostPhoto(byte[] postPhoto) {
         this.postPhoto = postPhoto;
     }
 

@@ -5,10 +5,12 @@
  */
 package Controllers;
 
-import Service.ServUserAccount;
+import Service.ServWorld;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,10 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author lennyasus
+ * @author Tom
  */
-@WebServlet(name = "InsertUserAccount", urlPatterns = {"/InsertUserAccount"})
-public class InsertUserAccount extends HttpServlet {
+@WebServlet(name = "InsertWorld", urlPatterns = {"/InsertWorld"})
+public class InsertWorld extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and
@@ -35,33 +37,20 @@ public class InsertUserAccount extends HttpServlet {
 		throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 
-		String password = request.getParameter("password");
-		String check = request.getParameter("check");
-		String username = request.getParameter("username");
+		String worldName = request.getParameter("world-name");
+		String worldDescription = request.getParameter("world-description");
 
-		if (password.equals(check)) {
-			try {
-				if (ServUserAccount.checkUsername(username) == false) {
-					
-					ServUserAccount.insertUserAccount(request.getParameter("username"),
-									  request.getParameter("firstname"),
-									  request.getParameter("lastname"),
-									  request.getParameter("city"),
-									  request.getParameter("country"),
-									  request.getParameter("phone"),
-									  request.getParameter("email"),
-									  request.getParameter("isadmin"),
-									  request.getParameter("password"));
-					response.getWriter().write("succes");
-				} else {
-					response.getWriter().write("error1");
-				}
-			} catch (Exception ex) {
-				response.getWriter().write("error2");
+		try {
+			if (ServWorld.checkWorld(worldName) == false) {
+				ServWorld.insertWorld(worldName, worldDescription);
+				response.getWriter().write("succes");
+			} else {
+				response.getWriter().write("error");
 			}
-		} else {
-			response.getWriter().write("error3");
+		} catch (SQLException ex) {
+			Logger.getLogger(InsertWorld.class.getName()).log(Level.SEVERE, null, ex);
 		}
+
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -44,18 +44,17 @@ public class UpdatePassword extends HttpServlet {
 			try {
 				if (ServUserAccount.checkPassword(username, oldpassword) == true) {
 					ServUserAccount.updatePassword(newpassword, username);
-					String msg = "Uw wachtwoord werd met succes gewijzigd";
+					String msg = "succes";
 					response.getWriter().write(msg);
 				} else {
-					String msg = "Uw wachtwoord is onjuist, wachtwoord niet gewijzigd";
+					String msg = "error1";
 					response.getWriter().write(msg);
 				}
 			} catch (SQLException ex) {
-				String msg = "Uw wachtwoord is onjuist";
-				response.getWriter().write(msg);
+				
 			}
 		} else {
-			String msg = "Uw watchtwoorden komen niet overeen";
+			String msg = "error2";
 			response.getWriter().write(msg);
 		}
 	}
