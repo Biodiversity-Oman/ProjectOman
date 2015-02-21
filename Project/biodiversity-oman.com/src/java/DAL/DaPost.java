@@ -41,7 +41,7 @@ public class DaPost {
 //            
 //               
 //    }
-    public List<Post> selectAllPost() throws SQLException {
+    public static List<Post> selectAllPost() throws SQLException {
         List<Post> posts = new ArrayList();
 
         try {
@@ -75,7 +75,7 @@ public class DaPost {
         return posts;
     }
 
-    public Post selectOneByIdPost(int id) throws SQLException {
+    public static Post selectOneByIdPost(int id) throws SQLException {
         Post p = new Post();
 
         try {
@@ -104,7 +104,7 @@ public class DaPost {
         return p;
     }
 
-    public List<Post> selectAllPostByOrganisme(int organismId) throws SQLException {
+    public static List<Post> selectAllPostByOrganisme(int organismId) throws SQLException {
         List<Post> posts = new ArrayList();
 
         try {
