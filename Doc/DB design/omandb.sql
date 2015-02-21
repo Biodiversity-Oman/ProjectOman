@@ -29,12 +29,21 @@ USE `omandb`;
 --
 
 CREATE TABLE IF NOT EXISTS `download` (
-  `download_id` int(11) NOT NULL,
+  `download_id` int(11) NOT NULL AUTO_INCREMENT,
   `world_id` int(11) DEFAULT NULL,
   `download_funstuff` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`download_id`),
   KEY `world_id` (`world_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `download`
+--
+
+INSERT INTO `download` (`world_id`, `download_funstuff`) VALUES
+(2, 'eerste downloadlink'),
+(2, 'tweede downloadlink'),
+(3, 'derde downloadlink');
 
 -- --------------------------------------------------------
 
