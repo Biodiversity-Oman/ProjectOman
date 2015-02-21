@@ -15,11 +15,11 @@ import java.util.List;
 
 /**
  *
- * @author lennyasus
+ * @author Eric
  */
-public class daseasonold {
-
-	private static Connection conn;
+public class DaSeason {
+    
+    private static Connection conn;
 	private static PreparedStatement stmt;
 
 	public static List<Season> selectAllSeason() throws SQLException {
@@ -151,4 +151,5 @@ public class daseasonold {
 			conn.setAutoCommit(true);
 		}
 	}
+    
 }
