@@ -22,7 +22,6 @@
 					<li><a href="#tab2"><span class="icon-list"></span>Queue</a></li>
 					<li><a href="#tab3"><span class="icon-list"></span>Post</a></li>
 					<li><a href="#tab4"><span class="icon-list"></span>Subscriber</a></li>
-					
 				</ul>
 				<div class="tab-content">
 					<div id="tab1" class="tab active">
