@@ -113,7 +113,23 @@ public class DaWorld {
             conn.setAutoCommit(true);
         }
     }
-    
+
+    public static boolean checkWorldExist(String worldName) throws SQLException {
+        boolean match;
+        conn = DataSource.getConnection();
+        conn.setAutoCommit(false);
+        stmt = conn.prepareStatement("SELECT COUNT(*) world_name FROM omandb.world_name WHERE world_name = ?");
+        stmt.setString(1, worldName);
+        ResultSet rs = stmt.executeQuery();
+        conn.commit();
+        rs.next();
+        match = rs.getInt(1) == 1;
+        conn.setAutoCommit(true);
+        return match;
+
+    }
+}
+
 //     public static void updateWorld(World world, int worldID) throws SQLException {
 //
 //        try {
@@ -136,4 +152,4 @@ public class DaWorld {
 //            conn.setAutoCommit(true);
 //        }
 //    }
-}
+
