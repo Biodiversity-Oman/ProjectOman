@@ -27,7 +27,7 @@ body, html {
     margin-right: auto;
     height: 50%;
     width: 70%;
-    background-color: #666666;
+    background-color: #808080;
     padding: 1em;
     margin-top: 10%;
     border-radius: 0.2em 0.2em 0.2em 0.2em;
@@ -36,6 +36,7 @@ body, html {
 }
 .loginbox label {
     font-size: 1.2em;
+    color: #FF8533;
 }
 .loginbox form {
     margin-top: 2.2em;
@@ -169,12 +170,12 @@ nav ul ul ul {
 .wrapper {
     height: auto;
     background-color: #F5F5FF; /*#ffffff*/
-    width: 90%;
+    width: 95%;
     margin-bottom: 1em;
     padding-top: 0.1em;
     margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     float: left;
 }
 /*--------------------------------------------------------*/
@@ -306,10 +307,14 @@ nav ul ul ul {
     clear:both;
     content:'';
 }
+.tabs ul {
+    margin-bottom: 0.1em;
+}
 .tab-links li {
-    margin:0px 5px;
+    
     float:left;
     list-style:none;
+    margin-left:0.2em;
 }
 .tab-links a {
     padding:9px 15px;
@@ -340,6 +345,7 @@ li.active a, li.active a:hover {
     border-radius:3px;
     box-shadow:-1px 1px 1px #FFA366;
     background:#fff;
+    margin-top: 0.1em;
 }
 .tab {
     display:none;

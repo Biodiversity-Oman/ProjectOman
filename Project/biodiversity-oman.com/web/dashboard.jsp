@@ -14,13 +14,19 @@
 			<div class="tabs">
 				<ul class="tab-links">
 					<li class="active"><a href="#tab1"><span class="icon-file-text"></span>Organisms</a></li>
-					<li><a href="#tab2"><span class="icon-pencil2"></span>Create Organism</a></li>
-					<li><a href="#tab3"><span class="icon-pencil2"></span>World</a></li>
-					<li><a href="#tab4"><span class="icon-pencil2"></span>Family</a></li>
-					<li><a href="#tab5"><span class="icon-pencil2"></span>Subfamily</a></li>
-					<li><a href="#tab6"><span class="icon-pencil2"></span>Season</a></li>
-					<li><a href="#tab7"><span class="icon-pencil2"></span>Habitat</a></li>
-					<li><a href="#tab8"><span class="icon-pencil2"></span>Geolocation</a></li>
+					<li><a href="#tab2"><span class="icon-pencil2"></span>Organism</a></li>
+					<li><a href="#tab3"><span class="icon-file-text"></span>Worlds</a></li>
+					<li><a href="#tab4"><span class="icon-pencil2"></span>World</a></li>
+					<li><a href="#tab5"><span class="icon-file-text"></span>Families</a></li>
+					<li><a href="#tab6"><span class="icon-pencil2"></span>Family</a></li>
+					<li><a href="#tab7"><span class="icon-file-text"></span>Subfamilies</a></li>
+					<li><a href="#tab8"><span class="icon-pencil2"></span>Subfamily</a></li>
+					<li><a href="#tab9"><span class="icon-file-text"></span>Seasons</a></li>
+					<li><a href="#tab10"><span class="icon-pencil2"></span>Season</a></li>
+					<li><a href="#tab11"><span class="icon-file-text"></span>Habitats</a></li>
+					<li><a href="#tab12"><span class="icon-pencil2"></span>Habitat</a></li>
+					<li><a href="#tab13"><span class="icon-file-text"></span>Geolocations</a></li>
+					<li><a href="#tab14"><span class="icon-pencil2"></span>Geolocation</a></li>
 				</ul>
 				<div class="tab-content">
 					<div id="tab1" class="tab active">
@@ -30,21 +36,35 @@
 						<p>content</p>
 					</div>
 					<div id="tab3" class="tab">
-						<div id="create-world">
-							<h1>Create World</h1>
-							<input type="text" name="world-name" id="world-name" />
-							<input type="text" name="world-description" id="world-description" />
-							<button type="submit" name="action" value="insert-world" >Insert</button>
-							<button type="reset" name="action" value="cancel-world" >Reset</button>
-						</div>
+						<p>content</p>
 					</div>
 					<div id="tab4" class="tab">
-						<p>content</p>
+						<div id="create-world">
+							<form id="create-world-form">
+								<h1>Create World</h1>
+								<input type="text" name="world-name" id="world-name" />
+								<input type="text" name="world-description" id="world-description" />
+								<button type="submit" name="action" value="insert-world" >Insert</button>
+								<button type="reset" name="action" value="cancel-world" >Reset</button>
+							</form>
+						</div>
 					</div>
 					<div id="tab5" class="tab">
 						<p>content</p>
 					</div>
 					<div id="tab6" class="tab">
+						<p>content</p>
+					</div>
+					<div id="tab7" class="tab">
+						<p>content</p>
+					</div>
+					<div id="tab8" class="tab">
+						<p>content</p>
+					</div>
+					<div id="tab9" class="tab">
+						<p>content</p>
+					</div>
+					<div id="tab10" class="tab">
 						<div id="create-season">
 							<h1>Create Season</h1>
 							<form id="create-season-form">
@@ -55,7 +75,10 @@
 							</form>
 						</div>
 					</div>
-					<div id="tab7" class="tab">
+					<div id="tab11" class="tab">
+						<p>content</p>
+					</div>
+					<div id="tab12" class="tab">
 						<div id="create-habitat">
 							<h1>Create Habitat</h1>
 							<form id="create-habitat-form">
@@ -66,11 +89,14 @@
 							</form>
 						</div>
 					</div>
-					<div id="tab8" class="tab">
+					<div id="tab13" class="tab">
 						<p>content</p>
 					</div>
-
+					<div id="tab14" class="tab">
+						<p>content</p>
+					</div>
 				</div>
 			</div>
+		</div>
 	</body>
 </html>
