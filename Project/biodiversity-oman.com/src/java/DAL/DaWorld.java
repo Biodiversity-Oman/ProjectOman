@@ -118,7 +118,7 @@ public class DaWorld {
         boolean match;
         conn = DataSource.getConnection();
         conn.setAutoCommit(false);
-        stmt = conn.prepareStatement("SELECT COUNT(*) world_name FROM omandb.world_name WHERE world_name = ?");
+        stmt = conn.prepareStatement("SELECT COUNT(*) world_name FROM world WHERE world_name = ?");
         stmt.setString(1, worldName);
         ResultSet rs = stmt.executeQuery();
         conn.commit();

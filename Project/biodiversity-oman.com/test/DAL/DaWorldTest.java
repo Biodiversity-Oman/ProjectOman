@@ -40,69 +40,80 @@ public class DaWorldTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of selectAllWold method, of class DaWorld.
-     */
-    @Test
-    public void testSelectAllWold() {
-       System.out.println("selectAllWorld");
-        List<World> worlds = DaWorld.selectAllWold();
-        
-        System.out.println("Select All world:");
-        for (World w : worlds) {
-            System.out.println(w.getWorldName());
-        }
-    }
+//    /**
+//     * Test of selectAllWold method, of class DaWorld.
+//     */
+//    @Test
+//    public void testSelectAllWold() {
+//       System.out.println("selectAllWorld");
+//        List<World> worlds = DaWorld.selectAllWold();
+//        
+//        System.out.println("Select All world:");
+//        for (World w : worlds) {
+//            System.out.println(w.getWorldName());
+//        }
+//    }
+//
+//    /**
+//     * Test of selectOneByIdWorld method, of class DaWorld.
+//     */
+//    @Test
+//    public void testSelectOneByIdWorld() {
+//        System.out.println("selectOneByIdWorld");
+//        int worldId = 3;
+//        World expResult = null;
+//        World result = DaWorld.selectOneByIdWorld(worldId);
+//        assertEquals("micro", result.getWorldName());
+//
+//    }
+//
+//    /**
+//     * Test of insertWorld method, of class DaWorld.
+//     */
+//    @Test
+//    public void testInsertWorld() throws Exception {
+//        System.out.println("insertWorld");
+//        World w = new World();
+//        w.setWorldName("micro");
+//        w.setDescription("dit is een test");
+//        DaWorld.insertWorld(w);
+//
+//    }
+//
+//    /**
+//     * Test of deleteWorld method, of class DaWorld.
+//     */
+//    @Test
+//    public void testDeleteWorld() throws Exception {
+//        System.out.println("deleteWorld");
+//        int worldId = 4;
+//        DaWorld.deleteWorld(worldId);
+//
+//    }
+//
+//    /**
+//     * Test of updateWorld method, of class DaWorld.
+//     */
+//    @Test
+//    public void testUpdateWorld() throws Exception {
+//        System.out.println("updateWorld");
+//        World world = DAL.DaWorld.selectOneByIdWorld(3);
+//       
+//        world.setDescription("dit een UPDATE APDATE");
+//        int worldId = 3;
+//        DaWorld.updateWorld(world);
+//
+//    }
 
-    /**
-     * Test of selectOneByIdWorld method, of class DaWorld.
-     */
-    @Test
-    public void testSelectOneByIdWorld() {
-        System.out.println("selectOneByIdWorld");
-        int worldId = 3;
-        World expResult = null;
-        World result = DaWorld.selectOneByIdWorld(worldId);
-        assertEquals("micro", result.getWorldName());
-
-    }
-
-    /**
-     * Test of insertWorld method, of class DaWorld.
-     */
-    @Test
-    public void testInsertWorld() throws Exception {
-        System.out.println("insertWorld");
-        World w = new World();
-        w.setWorldName("micro");
-        w.setDescription("dit is een test");
-        DaWorld.insertWorld(w);
-
-    }
-
-    /**
-     * Test of deleteWorld method, of class DaWorld.
-     */
-    @Test
-    public void testDeleteWorld() throws Exception {
-        System.out.println("deleteWorld");
-        int worldId = 4;
-        DaWorld.deleteWorld(worldId);
-
-    }
-
-    /**
-     * Test of updateWorld method, of class DaWorld.
-     */
-    @Test
-    public void testUpdateWorld() throws Exception {
-        System.out.println("updateWorld");
-        World world = DAL.DaWorld.selectOneByIdWorld(3);
-       
-        world.setDescription("dit een UPDATE APDATE");
-        int worldId = 3;
-        DaWorld.updateWorld(world);
-
-    }
+	/**
+	 * Test of checkWorldExist method, of class DaWorld.
+	 */
+	@Test
+	public void testCheckWorldExist() throws Exception {
+		System.out.println("checkWorldExist");
+		String worldName = "test";
+		boolean result = DaWorld.checkWorldExist(worldName);
+		System.out.println(result);
+	}
 
 }
