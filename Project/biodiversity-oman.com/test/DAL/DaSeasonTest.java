@@ -40,13 +40,13 @@ public class DaSeasonTest {
     }
 
     /**
-     * Test of selectAllSeason method, of class DaSeason.
+     * Test of selectAll method, of class DaSeason.
      */
     @Test
-    public void testSelectAllSeason() throws Exception {
+    public void testSelectAll() throws Exception {
         System.out.println("selectAllSeason");
         List<Season> expResult = null;
-        List<Season> result = DaSeason.selectAllSeason();
+        List<Season> result = DaSeason.selectAll();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -99,8 +99,8 @@ public class DaSeasonTest {
     @Test
     public void testDeleteSeason() throws Exception {
         System.out.println("deleteSeason");
-        Season s = null;
-        DaSeason.deleteSeason(s);
+        int id = 1;
+        DaSeason.deleteSeason(id);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

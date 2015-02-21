@@ -22,7 +22,7 @@ public class DaSeason {
     private static Connection conn;
 	private static PreparedStatement stmt;
 
-	public static List<Season> selectAllSeason() throws SQLException {
+	public static List<Season> selectAll() throws SQLException {
 		List<Season> seasons = new ArrayList();
 
 		try {
@@ -117,13 +117,12 @@ public class DaSeason {
 		}
 	}
 
-	public static void deleteSeason(Season s) throws SQLException {
+	public static void deleteSeason(int id) throws SQLException {
 
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-
-			stmt = conn.prepareStatement("DELETE FROM omandb.season WHERE season_id=" + s.getSeasonId() + "");
+			stmt = conn.prepareStatement("DELETE FROM omandb.season WHERE season_id=" + id + "");
 			stmt.executeUpdate();
 			conn.commit();
 

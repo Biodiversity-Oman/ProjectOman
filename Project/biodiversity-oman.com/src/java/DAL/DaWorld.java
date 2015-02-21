@@ -20,7 +20,7 @@ public class DaWorld {
     private static Connection conn;
     private static PreparedStatement stmt;
 
-    public static List<World> selectAllWold() {
+    public static List<World> selectAll() {
 
         List<World> worlds = new ArrayList<>();
         try {

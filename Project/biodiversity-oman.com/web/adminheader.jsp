@@ -14,7 +14,7 @@
 		username = us.getUserName();
 
 	} else {
-	// wanneer er geen us.Object is aangemaakt redirect de server terug naar adminlogin.jsp. dit is om te voorkomen dat de gebruiker in de browser wwww.domain.com/welcome.jsp kan gebruike om	  // login te omzeilen.
+		// wanneer er geen us.Object is aangemaakt redirect de server terug naar adminlogin.jsp. dit is om te voorkomen dat de gebruiker in de browser wwww.domain.com/welcome.jsp kan gebruike om	  // login te omzeilen.
 		String message = "You are not logged in";
 		session.setAttribute("error", message);
 		response.sendRedirect("adminlogin.jsp");
@@ -46,7 +46,7 @@
 		<!-- ------------------------------------------------------------------------------------>
 		<!-- alle menu items aan de linkerkant -->
 		<li><a href="dashboard.jsp" ><span class="icon-home"></span><Strong>Dashboard</strong></a></li>
-		
+
 		<!--------------------------------------------------------------------------------------->
 		<!-- alle menu items aan de rechterkant -->
 		<li class="right"><a href="Logout"><span class="icon-exit"></span><strong>Log out</strong></a></li>

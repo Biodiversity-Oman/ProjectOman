@@ -40,19 +40,16 @@ public class DaWorldTest {
     public void tearDown() {
     }
 
-//    /**
-//     * Test of selectAllWold method, of class DaWorld.
-//     */
-//    @Test
-//    public void testSelectAllWold() {
-//       System.out.println("selectAllWorld");
-//        List<World> worlds = DaWorld.selectAllWold();
-//        
-//        System.out.println("Select All world:");
-//        for (World w : worlds) {
-//            System.out.println(w.getWorldName());
-//        }
-//    }
+    /**
+     * Test of selectAllWold method, of class DaWorld.
+     */
+    @Test
+    public void testSelectAll() {
+       System.out.println("selectAll");
+        List<World> worlds = DaWorld.selectAll();
+        System.out.println(worlds);
+        
+    }
 //
 //    /**
 //     * Test of selectOneByIdWorld method, of class DaWorld.
@@ -105,15 +102,15 @@ public class DaWorldTest {
 //
 //    }
 
-	/**
-	 * Test of checkWorldExist method, of class DaWorld.
-	 */
-	@Test
-	public void testCheckWorldExist() throws Exception {
-		System.out.println("checkWorldExist");
-		String worldName = "test";
-		boolean result = DaWorld.checkWorldExist(worldName);
-		System.out.println(result);
-	}
+//	/**
+//	 * Test of checkWorldExist method, of class DaWorld.
+//	 */
+//	@Test
+//	public void testCheckWorldExist() throws Exception {
+//		System.out.println("checkWorldExist");
+//		String worldName = "test";
+//		boolean result = DaWorld.checkWorldExist(worldName);
+//		System.out.println(result);
+//	}
 
 }

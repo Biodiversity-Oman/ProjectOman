@@ -6,11 +6,9 @@
 package Controllers;
 
 import Service.ServWorld;
+import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Tom
+ * @author lennyasus
  */
-@WebServlet(name = "InsertWorld", urlPatterns = {"/InsertWorld"})
-public class InsertWorld extends HttpServlet {
+@WebServlet(name = "SelectAllWorlds", urlPatterns = {"/SelectAllWorlds"})
+public class SelectAllWorlds extends HttpServlet {
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and
@@ -37,20 +35,8 @@ public class InsertWorld extends HttpServlet {
 		throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 
-		String worldName = request.getParameter("world-name");
-		String worldDescription = request.getParameter("world-description");
-
-		try {
-			if (ServWorld.checkWorld(worldName) == false) {
-				ServWorld.insertWorld(worldName, worldDescription);
-				response.getWriter().write("succes");
-			} else {
-				response.getWriter().write("error1");
-			}
-		} catch (Exception ex) {
-			response.getWriter().write("error2");
-		}
-
+		List worlds = ServWorld.selectAll();
+		response.getWriter().write(new Gson().toJson(worlds));
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

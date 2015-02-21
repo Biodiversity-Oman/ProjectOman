@@ -18,13 +18,13 @@ public class DaHabitat {
     private static Connection conn;
     private static PreparedStatement stmt;
 
-    public static List<Habitat> selectAllfamily() throws SQLException {
+    public static List<Habitat> selectAll() throws SQLException {
         List<Habitat> habitats = new ArrayList();
 
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.habitat");
+            stmt = conn.prepareStatement("SELECT * FROM habitat");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -70,12 +70,12 @@ public class DaHabitat {
         return h;
     }
 
-    public static void deleteHabitat(Habitat h) throws SQLException {
+    public static void deleteHabitat(int id) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("DELETE FROM habitat WHERE HABITAT_ID=" + h.getHabitatId() + "");
+            stmt = conn.prepareStatement("DELETE FROM habitat WHERE HABITAT_ID=" + id + "");
             stmt.executeUpdate();
             conn.commit();
 

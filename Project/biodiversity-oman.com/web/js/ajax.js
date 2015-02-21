@@ -1,6 +1,7 @@
 //---------------------------------------------------------------------------------------------------------------------
 // Insert functies etc...
 // hier behoren de functies die data moeten laden wanneer document.ready is bijvoorbeeld inserets, updates, search etc..
+// GEEEEEEEEEEN LOOAAAAAAAAAD FUNCTIES HIER!!!!!!!
 //---------------------------------------------------------------------------------------------------------------------
 $(document).ready(function () {
 
@@ -27,8 +28,8 @@ $(document).ready(function () {
                 updatebtn.val('updating').attr('disabled', 'disabled');
             },
             complete: function (data) {
-                var jsontext = data.responseText;
-                if (jsontext === 'succes') {
+                var response = data.responseText;
+                if (response === 'succes') {
                     $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated succesfully</div>');
                 }
             },
@@ -58,12 +59,12 @@ $(document).ready(function () {
                 wijzigbtn.val('updating').attr('disabled', 'disabled');
             },
             complete: function (data) {
-                var jsontext = data.responseText;
-                if (jsontext === 'error1') {
+                var response = data.responseText;
+                if (response === 'error1') {
                     $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your password is not valid</div>');
-                } else if (jsontext === 'error2') {
+                } else if (response === 'error2') {
                     $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your passwords do not match</div>');
-                } else if (jsontext === 'succes') {
+                } else if (response === 'succes') {
                     $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password changed succesfully</div>');
                 }
             },
@@ -108,11 +109,11 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
-    
-     // create season form usermanagement.jsp
+
+    // create season form usermanagement.jsp
     $('#create-season-form').submit(function (e) {
 
-        //var $message = $('#create-season-message');
+        var $message = $('#create-season-message');
         $.ajax({
             url: 'InsertSeason',
             type: 'POST',
@@ -120,22 +121,23 @@ $(document).ready(function () {
             data: $('#create-season-form').serialize(),
             complete: function (data) {
                 var jsontext = data.responseText;
-//                if (jsontext === 'succes') {
-//                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created</div>');
-//                }  else if (jsontext === 'error1') {
-//                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
-//                } 
+                if (jsontext === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created</div>');
+                } else if (jsontext === 'error') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
+                }
             },
             error: function (error) {
                 console.log(error);
             }
         }).done(function () {
             $("#create-season-form")[0].reset();
+            loadSeasons();
         });
         e.preventDefault();
     });
-    
-     // create habitat form usermanagement.jsp
+
+    // create habitat form usermanagement.jsp
     $('#create-habitat-form').submit(function (e) {
 
         var $message = $('#create-habitat-message');
@@ -148,15 +150,16 @@ $(document).ready(function () {
                 var jsontext = data.responseText;
                 if (jsontext === 'succes') {
                     $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created</div>');
-                }  else if (jsontext === 'error1') {
+                } else if (jsontext === 'error') {
                     $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
-                } 
+                }
             },
             error: function (error) {
                 console.log(error);
             }
         }).done(function () {
             $("#create-habitat-form")[0].reset();
+            loadHabitats();
         });
         e.preventDefault();
     });
@@ -170,13 +173,7 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'text',
             cache: false,
-            async: true,
-            complete: function (data) {
-
-            },
-            error: function (error) {
-                console.log(error);
-            }
+            async: true
         }).done(function () {
             loadUsers();
         });
@@ -191,13 +188,7 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'text',
             cache: false,
-            async: true,
-            complete: function (data) {
-
-            },
-            error: function (error) {
-                console.log(error);
-            }
+            async: true
         }).done(function () {
             loadUsers();
         });
@@ -212,18 +203,57 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'text',
             cache: false,
-            async: true,
-            complete: function (data) {
-
-            },
-            error: function (error) {
-                console.log(error);
-            }
+            async: true
         }).done(function () {
             loadUsers();
         });
     });
+    
+    // functie voor delete world btn in dashboard.jsp
+    $(document).on('click', '.table #delete-world-btn', function () {
 
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteWorld?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadWorlds();
+        });
+    });
+    
+    // functie voor delete season btn in dashboard.jsp
+    $(document).on('click', '.table #delete-season-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteSeason?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadSeasons();
+        });
+    });
+    
+    // functie voor delete habitat btn in dashboard.jsp
+    $(document).on('click', '.table #delete-habitat-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteHabitat?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadHabitats();
+        });
+    });
+    
     //functie voor de zoekbalk in usermanagement.jsp
     $('#search-user-account').keyup(function (e) {
 
@@ -279,42 +309,51 @@ $(document).ready(function () {
     // functie inserten van world. dashboard.jsp
     $('#create-world-form').submit(function (e) {
 
+        var $message = $('#create-world-message');
         $.ajax({
             url: 'InsertWorld',
             type: 'POST',
             dataType: 'text',
             data: $('#create-world-form').serialize(),
             complete: function (data) {
-                var jsontext = data.responseText;
-                console.log(jsontext);
-//                if (jsontext === 'succes') {
-//                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
-//                } else if (jsontext === 'error1') {
-//                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
-//                } else if (jsontext === 'error2') {
-//                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World name is a required field</div>');
-//                }
+                var response = data.responseText;
+                if (response === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
+                } else if (response === 'error1') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
+                } else if (response === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in al fields!</div>');
+                }
             },
             error: function (error) {
                 console.log(error);
             }
-        }).done (function () {
+        }).done(function () {
             $("#create-world-form")[0].reset();
+            loadWorlds();
         });
         e.preventDefault();
     });
 
 });
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+
+
 
 //---------------------------------------------------------------------------------------------------------------------
-// load functies
+// LOAD FUNCTIES
 // hier behoren de functies die data moeten laden voor document.ready is
+// GEEEEEN IIINSEEEERT FUNCTIEEEES HIER!!!!!!!!!!!!!!!!!!!!!!
 //---------------------------------------------------------------------------------------------------------------------
 
 // functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
 function loadUsers() {
 
-    var $userstable = $('#users-table');
+    var $table = $('#users-table');
     $.ajax({
         url: 'SelectAllUserAccounts',
         type: 'GET',
@@ -323,7 +362,7 @@ function loadUsers() {
         async: true,
         complete: function (data) {
             var users = data.responseJSON;
-            $userstable.append('<tr>\n\
+            $table.append('<tr>\n\
                                     <th>Username</th>\n\
                                     <th>Firstname</th>\n\
                                     <th>Lastname</th>\n\
@@ -335,7 +374,7 @@ function loadUsers() {
                                     <th>Action</th>\n\
                                 </tr>');
             users.forEach(function (user) {
-                $userstable.append('<tr>\n\
+                $table.append('<tr>\n\
                                         <td>' + user.userName + '</td>\n\
                                         <td>' + user.firstName + '</td>\n\
                                         <td>' + user.lastName + '</td>\n\
@@ -352,3 +391,98 @@ function loadUsers() {
         $('#users-table').html('');
     });
 };
+
+// functie vult tabel in World tab in dashboard.jsp
+function loadWorlds() {
+
+    var $table = $('#worlds-table');
+    $.ajax({
+        url: 'SelectAllWorlds',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true,
+        complete: function (data) {
+            var worlds = data.responseJSON;
+            $table.append('<tr>\n\
+                                    <th>Name</th>\n\
+                                    <th>Description</th>\n\\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+            worlds.forEach(function (world) {
+                $table.append('<tr id="parent">\n\
+                                        <td>' + world.worldName + '</td>\n\
+                                        <td>' + world.description + '</td>\n\
+                                        <td id="test"><button class="no-button" id="delete-world-btn" type="submit" value="' + world.worldId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+            });
+        }
+    }).done(function () {
+        $('#worlds-table').html('');
+    });
+};
+
+// functie vult tabel in Season tab in dashboard.jsp
+function loadSeasons() {
+
+    var $table = $('#seasons-table');
+    $.ajax({
+        url: 'SelectAllSeasons',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true,
+        complete: function (data) {
+            var seasons = data.responseJSON;
+            $table.append('<tr>\n\
+                                    <th>Name</th>\n\
+                                    <th>Description</th>\n\\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+            seasons.forEach(function (season) {
+                $table.append('<tr>\n\
+                                        <td>' + season.seasonName + '</td>\n\
+                                        <td>' + season.seasonDescription + '</td>\n\
+                                        <td><button class="no-button" id="delete-season-btn" type="submit" value="' + season.seasonId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+            });
+        }
+    }).done(function () {
+        $('#seasons-table').html('');
+    });
+};
+
+// functie vult tabel in Habitat tab in dashboard.jsp
+function loadHabitats() {
+
+    var $table = $('#habitats-table');
+    $.ajax({
+        url: 'SelectAllHabitats',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true,
+        complete: function (data) {
+            var habitats = data.responseJSON;
+            $table.append('<tr>\n\
+                                    <th>Name</th>\n\
+                                    <th>Description</th>\n\\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+            habitats.forEach(function (habitat) {
+                $table.append('<tr>\n\
+                                        <td>' + habitat.habitatName + '</td>\n\
+                                        <td>' + habitat.habitatDescription + '</td>\n\
+                                        <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+            });
+        }
+    }).done(function () {
+        $('#habitats-table').html('');
+    });
+};
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------

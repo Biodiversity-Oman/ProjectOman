@@ -16,6 +16,12 @@ public class World {
 	private String description;
 	private java.util.List<Download> downloads;
 
+	@Override
+	public String toString() {
+		return  worldId +  worldName + description  + downloads;
+	}
+
+	
 	/**
 	 * @return the worldId
 	 */

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Service;
+
 import BLL.*;
 import DAL.*;
 import java.sql.*;
@@ -14,18 +15,28 @@ import java.util.*;
  * @author Tom
  */
 public class ServWorld {
-    
-    public static boolean checkWorld(String worldName) throws SQLException {
+
+	public static boolean checkWorld(String worldName) throws SQLException {
 
 		return DaWorld.checkWorldExist(worldName);
 	}
-    
-    public static void insertWorld(String worldName, String worldDescription) throws SQLException {
-		World world =new World();
-                world.setWorldName(worldName);
-                world.setDescription(worldDescription);
+
+	public static void insertWorld(String worldName, String worldDescription) throws SQLException {
+		
+		World world = new World();
+		world.setWorldName(worldName);
+		world.setDescription(worldDescription);
 		DaWorld.insertWorld(world);
-                
 	}
-   
+	
+	public static List selectAll() {
+		
+		return DaWorld.selectAll();
+	}
+	
+	public static void deleteWorld(int id) throws SQLException {
+		
+		DaWorld.deleteWorld(id);
+	}
+
 }
