@@ -24,7 +24,7 @@ $(document).ready(function () {
             },
             complete: function (data) {
                 var jsontext = data.responseText;
-                if(jsontext === 'succes') {
+                if (jsontext === 'succes') {
                     $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated succesfully</div>');
                 }
             },
@@ -55,9 +55,9 @@ $(document).ready(function () {
             },
             complete: function (data) {
                 var jsontext = data.responseText;
-                if(jsontext === 'error1') {
+                if (jsontext === 'error1') {
                     $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your password is not valid</div>');
-                } else if(jsontext === 'error2') {
+                } else if (jsontext === 'error2') {
                     $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your passwords do not match</div>');
                 } else if (jsontext === 'succes') {
                     $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password changed succesfully</div>');
@@ -85,8 +85,8 @@ $(document).ready(function () {
             data: $('#create-user-form').serialize(),
             complete: function (data) {
                 var jsontext = data.responseText;
-                if(jsontext === 'succes') {
-                   $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User succesfully created</div>');
+                if (jsontext === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User succesfully created</div>');
                 } else if (jsontext === 'error1') {
                     $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Username already exists</div>');
                 } else if (jsontext === 'error2') {
@@ -147,6 +147,7 @@ $(document).ready(function () {
         });
     });
 
+    // functie voor demoten van een user in usermanagement.jsp
     $(document).on('click', '.table #make-normal-btn', function () {
 
         var username = ($(this).attr("value"));
@@ -167,6 +168,7 @@ $(document).ready(function () {
         });
     });
 
+    //functie voor de zoekbalk in usermanagement.jsp
     $('#search-user-account').keyup(function (e) {
 
         var $userstable = $('#users-table');

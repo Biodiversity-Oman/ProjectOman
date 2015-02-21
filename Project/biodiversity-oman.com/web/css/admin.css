@@ -19,7 +19,7 @@ body, html {
 }
 .error-message {
     color: #FF3300;
-    
+
 }
 /* -------------- adminlogin -------------- */
 .loginbox {
@@ -120,13 +120,13 @@ nav ul ul li {
 nav ul ul li a {
     padding: 13px 20px;
     color: black;
-    
+
     outline: 0;
     text-decoration: none;
 }   
 nav ul ul li a:hover {
     background: #909090;
-    
+
     outline: 0;
 }
 nav ul ul ul {
@@ -346,5 +346,5 @@ li.active a, li.active a:hover {
 .tab.active {
     display:block;
 }
-/* ------- create user -----*/
+
 

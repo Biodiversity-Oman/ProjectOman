@@ -31,11 +31,9 @@
 							<div class="col-sm-4">
 								<input class="form-control" id="search-user-account" type="text" name="keyword" placeholder="Search by username, name or email (minimal 3 characters)"><br>
 							</div>
-
 							<table class="table table-striped" id="users-table">
 							</table>
 						</div>
-
 					</div>
 					<div id="tab2" class="tab">
 						<div class="create-user">
@@ -121,7 +119,6 @@
 									<div class="col-sm-2">
 										<button type="submit" class="btn btn-default  form-control" data-disable="true">Create user</button>
 									</div>
-
 								</div>
 							</form>
 						</div>

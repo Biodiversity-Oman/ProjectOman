@@ -24,8 +24,7 @@
                     } else if (document.getElementById("update").type === "button") {
                         document.getElementById("update").type = "submit";
                     }
-                }
-                ;
+                };
 
                 // deze functie zorgt ervoor dat deze na de update terug disabled worden.
                 function disableInput() {
@@ -35,8 +34,7 @@
                     document.getElementById("country").disabled = true;
                     document.getElementById("email").disabled = true;
                     document.getElementById("phone").disabled = true;
-                }
-                ;
+                };
 
                 // ajax functie om userinfo uit de controller getUserInfo te halen. deze word in de <body> tag opgeroepen.
                 function loadUserInfo() {
@@ -61,7 +59,7 @@
                         $("#change-password-form")[0].reset();
                     });
                     return false;
-                }
+                };
 	</script>
 	<body onload="loadUserInfo()">
 		<div class="wrapper">
@@ -185,7 +183,6 @@
                                                                                             document.getElementById('fade').style.display = 'none'"><input class="btn btn-primary" type="reset" value="Cancel" ></a>
 									</div>
 								</div>
-
 							</form>
 						</div>
 					</div>
