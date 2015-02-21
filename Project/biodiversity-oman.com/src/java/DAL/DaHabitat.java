@@ -31,7 +31,7 @@ public class DaHabitat {
                 Habitat h = new Habitat();
                 h.setHabitatId(rs.getInt("habitat_id"));
                 h.setHabitatName(rs.getString("habitat_name"));
-                h.setDescription(rs.getString("habitat_description"));
+                h.setHabitatDescription(rs.getString("habitat_description"));
                 habitats.add(h);
             }
 
@@ -57,7 +57,7 @@ public class DaHabitat {
             rs.next();
             h.setHabitatId(rs.getInt("habitat_id"));
             h.setHabitatName(rs.getString("habitat_name"));
-            h.setDescription(rs.getString("habitat_description"));
+            h.setHabitatDescription(rs.getString("habitat_description"));
 
             conn.commit();
         } catch (Exception e) {
@@ -94,7 +94,7 @@ public class DaHabitat {
             stmt = conn.prepareStatement("UPDATE habitat "
                     + "(name, description, world_id) VALUES (?,?) WHERE habitat_id=" + h.getHabitatId() + "");
             stmt.setString(1, h.getHabitatName());
-            stmt.setString(2, h.getDescription());
+            stmt.setString(2, h.getHabitatDescription());
             stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
@@ -110,9 +110,9 @@ public class DaHabitat {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             stmt = conn.prepareStatement("INSERT INTO habitat "
-                    + "(name, description) VALUES (?,?)");
+                    + "(habitat_name, habitat_description) VALUES (?,?)");
             stmt.setString(1, h.getHabitatName());
-            stmt.setString(2, h.getDescription());
+            stmt.setString(2, h.getHabitatDescription());
             stmt.executeUpdate();
             conn.commit();
 

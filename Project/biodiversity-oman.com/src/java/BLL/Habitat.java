@@ -13,7 +13,7 @@ public class Habitat {
 	
         private int habitatId;
 	private String habitatName;
-	private String description;
+	private String habitatDescription;
         private java.util.List<Organism> organisms;
 
 	/**
@@ -31,17 +31,17 @@ public class Habitat {
 	}
 
 	/**
-	 * @return the description
+	 * @return the habitatDescription
 	 */
-	public String getDescription() {
-		return description;
+	public String getHabitatDescription() {
+		return habitatDescription;
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param habitatDescription the description to set
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setHabitatDescription(String description) {
+		this.habitatDescription = description;
 	}
 
     /**

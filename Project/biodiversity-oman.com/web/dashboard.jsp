@@ -17,7 +17,7 @@
                     <li><a href="#tab2"><span class="icon-pencil2"></span>Create Organism</a></li>
                     <li><a href="#tab3"><span class="icon-pencil2"></span>World</a></li>
                     <li><a href="#tab4"><span class="icon-pencil2"></span>Family</a></li>
-                    <li><a href="#tab5"><span class="icon-pencil2"></span>Submfamily</a></li>
+                    <li><a href="#tab5"><span class="icon-pencil2"></span>Subfamily</a></li>
                     <li><a href="#tab6"><span class="icon-pencil2"></span>Season</a></li>
                     <li><a href="#tab7"><span class="icon-pencil2"></span>Habitat</a></li>
                     <li><a href="#tab8"><span class="icon-pencil2"></span>Geolocation</a></li>
@@ -45,10 +45,26 @@
                             <p>content</p>
                         </div>
                         <div id="tab6" class="tab">
-                            <p>content</p>
+                            <div id="create-season">
+                            <h1>Create Season</h1>
+                            <form id="create-season-form">
+                            <input type="text" name="season-name" id="season-name" />
+                            <input type="text" name="season-description" id="season-description" />
+                            <button type="submit" name="action" value="insert-season" >Insert</button>
+                            <button type="reset" name="action" value="cancel-season" >Reset</button>
+                       </form>
+                            </div>
                         </div>
                         <div id="tab7" class="tab">
-                            <p>content</p>
+                            <div id="create-habitat">
+                            <h1>Create Season</h1>
+                            <form id="create-habitat-form">
+                            <input type="text" name="habitat-name" id="habitat-name" />
+                            <input type="text" name="habitat-description" id="habitat-description" />
+                            <button type="submit" name="action" value="insert-habitat" >Insert</button>
+                            <button type="reset" name="action" value="cancel-habitat" >Reset</button>
+                       </form>
+                            </div>
                         </div>
                         <div id="tab8" class="tab">
                             <p>content</p>

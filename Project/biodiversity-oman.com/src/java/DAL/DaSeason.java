@@ -140,7 +140,7 @@ public class DaSeason {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("INSERT INTO omandb.season "
-				+ "(name, description) VALUES (?,?)");
+				+ "(season_name, season_description) VALUES (?,?)");
 			stmt.setString(1, s.getSeasonName());
 			stmt.setString(2, s.getSeasonDescription());
 			stmt.executeUpdate();
