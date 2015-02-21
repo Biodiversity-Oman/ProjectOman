@@ -27,12 +27,12 @@ body, html {
     margin-right: auto;
     height: 50%;
     width: 70%;
-    background-color:  #558EE6;
+    background-color: #666666;
     padding: 1em;
     margin-top: 10%;
     border-radius: 0.2em 0.2em 0.2em 0.2em;
     border: 0px solid #000000;
-    color: #000053;
+    color: #ffffff;
 }
 .loginbox label {
     font-size: 1.2em;
@@ -50,6 +50,7 @@ body, html {
     margin-bottom: 0.8em;
     border-radius: 0.2em 0.2em 0.2em 0.2em;
     border: 0px solid #000000;
+    color: black;
 }
 .button {
     min-width: 12%;
@@ -323,8 +324,8 @@ nav ul ul ul {
     text-decoration: none;
 }
 .tab-links a:hover {
-    background: #CCCCCC;
-    color: #333333; 
+    background: #FFC299;
+    color: #FFFFFF; 
     text-decoration:none;
     outline: 0;
 }
