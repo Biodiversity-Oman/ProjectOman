@@ -33,7 +33,7 @@
                     <div id="tab3" class="tab">
                         <div id="create-world">
                             <h1>Create World</h1>
-                            <form role="form" id="create-world" class="form-horizontal" data-toggle="validator">
+                            <form role="form" id="create-world-form" class="form-horizontal" data-toggle="validator">
                             <input type="text" name="world-name" id="world-name" />
                             <input type="text" name="world-description" id="world-description" />
                             <button type="submit"  data-disable="true" >Insert</button>

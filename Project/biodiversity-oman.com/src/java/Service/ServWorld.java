@@ -22,13 +22,10 @@ public class ServWorld {
     
     public static void insertWorld(String worldName, String worldDescription) throws SQLException {
 		World world =new World();
-                
-                if(!world.getWorldName().equals(worldName)){
                 world.setWorldName(worldName);
                 world.setDescription(worldDescription);
-		
 		DaWorld.insertWorld(world);
-                }
+                
 	}
    
 }
