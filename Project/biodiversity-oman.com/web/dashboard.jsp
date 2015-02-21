@@ -36,8 +36,8 @@
                             <form role="form" id="create-world" class="form-horizontal" data-toggle="validator">
                             <input type="text" name="world-name" id="world-name" />
                             <input type="text" name="world-description" id="world-description" />
-                            <button type="submit" name="action" value="insert-world" >Insert</button>
-                            <button type="reset" name="action" value="cancel-world" >Reset</button>
+                            <button type="submit"  data-disable="true" >Insert</button>
+                            <button type="reset" data-disable="true" >Reset</button>
                             </form>
                         </div>
                     </div>
