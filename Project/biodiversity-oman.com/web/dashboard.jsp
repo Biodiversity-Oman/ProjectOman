@@ -15,12 +15,12 @@
 				<ul class="tab-links">
 					<li class="active"><a href="#tab1"><span class="icon-file-text"></span>Organisms</a></li>
 					<li><a href="#tab2"><span class="icon-pencil2"></span>Create Organism</a></li>
-					<li><a href="#tab3">tab3</a></li>
-					<li><a href="#tab4">tab3</a></li>
-					<li><a href="#tab5">tab3</a></li>
-					<li><a href="#tab6">tab3</a></li>
-					<li><a href="#tab7">tab3</a></li>
-					<li><a href="#tab8">tab3</a></li>
+					<li><a href="#tab3"><span class="icon-pencil2"></span>World</a></li>
+					<li><a href="#tab4"><span class="icon-pencil2"></span>Family</a></li>
+					<li><a href="#tab5"><span class="icon-pencil2"></span>Submfamily</a></li>
+					<li><a href="#tab6"><span class="icon-pencil2"></span>Season</a></li>
+					<li><a href="#tab7"><span class="icon-pencil2"></span>Habitat</a></li>
+					<li><a href="#tab8"><span class="icon-pencil2"></span>Geolocation</a></li>
 				</ul>
 				<div class="tab-content">
 					<div id="tab1" class="tab active">
