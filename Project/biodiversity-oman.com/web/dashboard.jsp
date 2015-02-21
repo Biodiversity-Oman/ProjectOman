@@ -57,7 +57,7 @@
 					</div>
 					<div id="tab7" class="tab">
 						<div id="create-habitat">
-							<h1>Create Season</h1>
+							<h1>Create Habitat</h1>
 							<form id="create-habitat-form">
 								<input type="text" name="habitat-name" id="habitat-name" />
 								<input type="text" name="habitat-description" id="habitat-description" />
