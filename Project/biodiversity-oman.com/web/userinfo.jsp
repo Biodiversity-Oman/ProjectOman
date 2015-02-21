@@ -66,7 +66,7 @@
 	<body onload="loadUserInfo()">
 		<div class="wrapper">
 			<h1 class="field-title">User Information:</h1>
-			<div class="bluebox">
+			<div class="user-box">
 				<form role="form" id="update-user-form" class="form-horizontal">
 					<input type="hidden" value="<%=username%>" name="username">
 					<div class="form-group">
@@ -119,13 +119,16 @@
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label"></label>
+						<div class="col-sm-6">
+							<div id="update-user-message"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label"></label>
 						<div class="col-sm-2">
 							<input class="btn btn-default" id="update" type="submit" value="Edit" onClick="enableInput()" />
 						</div>
-
-
 					</div>
-					<label id="update-message" class="error-message"></label>
 				</form>
 				<div id="fade" class="black_overlay-boxed"></div>
 				<div id="fade2" class="black_overlay-boxed"></div>
@@ -147,25 +150,42 @@
 					<div id="changepassword" class="whitebox"><a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'none';
                                                     document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
 						<div class="content">
-							<form class="form" id="change-password-form">
+							<form role="form" class="form-horizontal" id="change-password-form">
 								<input type="hidden" value="<%=username%>" name="username">
 								<div class="form-group">
-									<label for="oldpassword">Old password</label><br>
-									<input class="text-field" type="password" name="oldpassword" required>
+									<label class="col-sm-4 control-label">Old password</label>
+									<div class="col-sm-6">
+										<input class="form-control" type="password" name="oldpassword" required>
+									</div>
 								</div>
 								<div class="form-group">
-									<label for="newpassword">New password</label><br>
-									<input class="text-field" type="password" name="newpassword" required>
+									<label class="col-sm-4 control-label" for="newpassword">New password</label>
+									<div class="col-sm-6">
+										<input class="form-control" type="password" name="newpassword" required>
+									</div>
 								</div>
 								<div class="form-group">
-									<label for="comfirmnewpassword">Comfirm new password</label><br>
-									<input class="text-field" type="password" name="check" required>
+									<label class="col-sm-4 control-label" for="comfirmnewpassword">Comfirm new password</label>
+									<div class="col-sm-6">
+										<input class="form-control" type="password" name="check" required>
+									</div>
 								</div>
-								<label id="password-message" class="error-message"></label>
-								<a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'block';
-                                                                            document.getElementById('fade').style.display = 'block'"><input id="wijzig" class="button" type="submit" value="Change" ></a>
-								<a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'none';
-                                                                            document.getElementById('fade').style.display = 'none'"><input class="button" type="reset" value="Cancel" ></a>
+								<div class="form-group">
+									<label class="col-sm-4 control-label"></label>
+									<div class="col-sm-6">
+										<div id="update-password-message"></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-4 control-label"></label>
+									<div class="col-sm-6">
+										<a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'block';
+                                                                                            document.getElementById('fade').style.display = 'block'"><input id="wijzig" class="btn btn-primary" type="submit" value="Change" ></a>
+										<a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'none';
+                                                                                            document.getElementById('fade').style.display = 'none'"><input class="btn btn-primary" type="reset" value="Cancel" ></a>
+									</div>
+								</div>
+
 							</form>
 						</div>
 					</div>

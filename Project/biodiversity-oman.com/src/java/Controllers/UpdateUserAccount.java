@@ -47,7 +47,7 @@ public class UpdateUserAccount extends HttpServlet {
 							  request.getParameter("phone"),
 							  request.getParameter("email"));
 							  
-			response.getWriter().write("Info updated succesfully");
+			response.getWriter().write("succes");
 		} catch (SQLException ex) {
 			response.getWriter().write("Info not updated, there may be something wrong");
 		}

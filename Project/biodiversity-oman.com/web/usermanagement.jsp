@@ -110,13 +110,18 @@
 										<input style="width: 1em;"  type="radio" id="adminfalse" name="isadmin" value="false" required> <label>No</label>
 									</div>
 								</div>
-								<label style="margin-left: 12em;" id="register-message" class="error-message"></label>
+								<div class="form-group"">
+									<label class="col-sm-2 control-label"></label>
+									<div class="col-sm-4">
+										<div id="create-user-message"></div>
+									</div>
+								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label"></label>
 									<div class="col-sm-2">
 										<button type="submit" class="btn btn-default  form-control" data-disable="true">Create user</button>
 									</div>
-									
+
 								</div>
 							</form>
 						</div>

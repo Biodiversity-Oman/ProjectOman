@@ -52,18 +52,18 @@ public class InsertUserAccount extends HttpServlet {
 									  request.getParameter("email"),
 									  request.getParameter("isadmin"),
 									  request.getParameter("password"));
-					String message = "User succesfully created";
+					String message = "succes";
 					response.getWriter().write(message);
 				} else {
-					String message = "Username already exists";
+					String message = "error1";
 					response.getWriter().write(message);
 				}
 			} catch (Exception ex) {
-				String message = "Vul alle velden in!";
+				String message = "error2";
 				response.getWriter().write(message);
 			}
 		} else {
-			String message = "Passwords do not match";
+			String message = "error3";
 			response.getWriter().write(message);
 		}
 	}
