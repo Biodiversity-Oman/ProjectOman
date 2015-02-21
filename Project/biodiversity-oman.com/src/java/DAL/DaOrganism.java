@@ -282,7 +282,7 @@ public class DaOrganism {
         return new ArrayList<>();
     }
     
-    public static int insertOrganism(Organism organism) throws SQLException
+    public static int insertOrganism(Organism organism)
     {
         // Return variabel. Hier wordt het id van de geïnserted organism in opgeslaan.
         int newOrganismId = 0;
@@ -297,7 +297,7 @@ public class DaOrganism {
             // Eerste statement: Inserten van een organisme met One To Many relaties
             stmt = conn.prepareStatement("INSERT INTO organism (scientific_name, common_name, local_name, subfamily_id," +
                     "organism_description, population, indigenous, cultivated, endangered, medicinal, benefits, dangerous, " +
-                    "threats, opportunities, photo, links, food_name, food_description, isvalidated, inserted_on)\n" +
+                    "threats, opportunities, photo, links, food_name, food_description, isvalidated, inserted_on, organism_id)\n" +
                     "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", java.sql.Statement.RETURN_GENERATED_KEYS);
                     
             stmt.setString(1, organism.getScientificName());
@@ -391,11 +391,14 @@ public class DaOrganism {
         {
             System.out.println(ex.getMessage());
             newOrganismId = -1;
-            conn.rollback();
+            try{conn.rollback();}
+            catch (SQLException ex2){ System.out.println(ex.getMessage()); }
+            
         }
         finally
         {
-            conn.setAutoCommit(true);
+            try{conn.setAutoCommit(true);}
+            catch (SQLException ex){ System.out.println(ex.getMessage()); }
         }
         return newOrganismId;
     }
@@ -516,8 +519,8 @@ public class DaOrganism {
             System.out.println(ex.getMessage());
             try {
                 conn.rollback();
-            } catch (SQLException ex1) {
-                Logger.getLogger(DaOrganism.class.getName()).log(Level.SEVERE, null, ex1);
+            } catch (SQLException ex2) {
+                Logger.getLogger(DaOrganism.class.getName()).log(Level.SEVERE, null, ex2);
             }
         }
         finally
