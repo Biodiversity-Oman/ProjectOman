@@ -33,28 +33,31 @@
                     <div id="tab3" class="tab">
                         <div id="create-world">
                             <h1>Create World</h1>
+                            <form role="form" id="create-world" class="form-horizontal" data-toggle="validator">
                             <input type="text" name="world-name" id="world-name" />
                             <input type="text" name="world-description" id="world-description" />
                             <button type="submit" name="action" value="insert-world" >Insert</button>
                             <button type="reset" name="action" value="cancel-world" >Reset</button>
+                            </form>
                         </div>
-                        <div id="tab4" class="tab">
-                            <p>content</p>
-                        </div>
-                        <div id="tab5" class="tab">
-                            <p>content</p>
-                        </div>
-                        <div id="tab6" class="tab">
-                            <p>content</p>
-                        </div>
-                        <div id="tab7" class="tab">
-                            <p>content</p>
-                        </div>
-                        <div id="tab8" class="tab">
-                            <p>content</p>
-                        </div>
+                    </div>
+                    <div id="tab4" class="tab">
+                        <p>content</p>
+                    </div>
+                    <div id="tab5" class="tab">
+                        <p>content</p>
+                    </div>
+                    <div id="tab6" class="tab">
+                        <p>content</p>
+                    </div>
+                    <div id="tab7" class="tab">
+                        <p>content</p>
+                    </div>
+                    <div id="tab8" class="tab">
+                        <p>content</p>
                     </div>
                 </div>
             </div>
+        </div>
     </body>
 </html>
