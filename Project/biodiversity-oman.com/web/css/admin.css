@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 body, html {
     margin: 0 auto;
-    background-color: #F9F9F9;
+    background-color: #F5F5FF;
     font-size: 100%;
     opacity: 1;
     -moz-osx-font-smoothing: grayscale;
@@ -167,7 +167,7 @@ nav ul ul ul {
 
 .wrapper {
     height: auto;
-    background-color: #F9F9F9; /*#ffffff*/
+    background-color: #F5F5FF; /*#ffffff*/
     width: 90%;
     margin-bottom: 1em;
     padding-top: 0.1em;
