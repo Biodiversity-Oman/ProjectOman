@@ -112,7 +112,7 @@ $(document).ready(function () {
      // create season form usermanagement.jsp
     $('#create-season-form').submit(function (e) {
 
-        var $message = $('#create-season-message');
+        //var $message = $('#create-season-message');
         $.ajax({
             url: 'InsertSeason',
             type: 'POST',
@@ -120,18 +120,17 @@ $(document).ready(function () {
             data: $('#create-season-form').serialize(),
             complete: function (data) {
                 var jsontext = data.responseText;
-                if (jsontext === 'succes') {
-                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created</div>');
-                }  else if (jsontext === 'error1') {
-                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
-                } 
+//                if (jsontext === 'succes') {
+//                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created</div>');
+//                }  else if (jsontext === 'error1') {
+//                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
+//                } 
             },
             error: function (error) {
                 console.log(error);
             }
         }).done(function () {
             $("#create-season-form")[0].reset();
-            loadUsers();
         });
         e.preventDefault();
     });
@@ -158,7 +157,6 @@ $(document).ready(function () {
             }
         }).done(function () {
             $("#create-habitat-form")[0].reset();
-            loadUsers();
         });
         e.preventDefault();
     });
