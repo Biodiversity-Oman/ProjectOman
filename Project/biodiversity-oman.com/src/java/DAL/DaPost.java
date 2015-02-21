@@ -6,11 +6,9 @@
 package DAL;
 
 import BLL.*;
-import java.awt.Image;
 import java.io.*;
 import java.sql.*;
 import java.util.*;
-import javax.imageio.ImageIO;
 
 
 /**
@@ -53,6 +51,7 @@ public class DaPost {
             while (rs.next()) {
                 
                 Post p = new Post();
+                p.setPostId(rs.getInt("post_id"));
                 p.setOrganismId(rs.getInt("organism_id"));
                 p.setPostFirstName(rs.getString("post_first_name"));
                 p.setPostLastName(rs.getString("post_last_name"));
