@@ -25,13 +25,13 @@
 					<li><a href="#tab4"><span class="icon-pencil2"></span>World</a></li>
 					<li><a href="#tab5" onclick="adminCheck();" ><span class="icon-file-text"></span>Families</a></li>
 					<li><a href="#tab6"><span class="icon-pencil2"></span>Family</a></li>
-					<li><a href="#tab7"><span class="icon-file-text"></span>Subfamilies</a></li>
+					<li><a href="#tab7" onclick="adminCheck();"><span class="icon-file-text"></span>Subfamilies</a></li>
 					<li><a href="#tab8"><span class="icon-pencil2"></span>Subfamily</a></li>
 					<li><a href="#tab9" onclick="adminCheck();"><span class="icon-file-text"></span>Seasons</a></li>
 					<li><a href="#tab10"><span class="icon-pencil2"></span>Season</a></li>
 					<li><a href="#tab11" onclick="adminCheck();"><span class="icon-file-text"></span>Habitats</a></li>
 					<li><a href="#tab12"><span class="icon-pencil2"></span>Habitat</a></li>
-					<li><a href="#tab13"><span class="icon-file-text"></span>Geolocations</a></li>
+					<li><a href="#tab13" onclick="adminCheck();"><span class="icon-file-text"></span>Geolocations</a></li>
 					<li><a href="#tab14"><span class="icon-pencil2"></span>Geolocation</a></li>
 				</ul>
 				<div class="tab-content">

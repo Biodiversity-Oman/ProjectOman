@@ -163,6 +163,62 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
+    
+    // functie inserten van world. dashboard.jsp
+    $('#create-world-form').submit(function (e) {
+
+        var $message = $('#create-world-message');
+        $.ajax({
+            url: 'InsertWorld',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-world-form').serialize(),
+            complete: function (data) {
+                var response = data.responseText;
+                if (response === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
+                } else if (response === 'error1') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
+                } else if (response === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            $("#create-world-form")[0].reset();
+            loadWorlds();
+        });
+        e.preventDefault();
+    });
+
+// functie inserten van family. dashboard.jsp
+    $('#create-family-form').submit(function (e) {
+
+        var $message = $('#create-family-message');
+        $.ajax({
+            url: 'InsertFamily',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-family-form').serialize(),
+            complete: function (data) {
+                var response = data.responseText;
+                if (response === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created</div>');
+                } else if (response === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            $("#create-family-form")[0].reset();
+            loadFamilies();
+        });
+        e.preventDefault();
+    });
 
     // functie voor make-admin button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
@@ -319,66 +375,8 @@ $(document).ready(function () {
         } else {
             loadUsers();
         }
-    });
-
-    // functie inserten van world. dashboard.jsp
-    $('#create-world-form').submit(function (e) {
-
-        var $message = $('#create-world-message');
-        $.ajax({
-            url: 'InsertWorld',
-            type: 'POST',
-            dataType: 'text',
-            data: $('#create-world-form').serialize(),
-            complete: function (data) {
-                var response = data.responseText;
-                if (response === 'succes') {
-                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
-                } else if (response === 'error1') {
-                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
-                } else if (response === 'error2') {
-                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
-                }
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        }).done(function () {
-            $("#create-world-form")[0].reset();
-            loadWorlds();
-        });
-        e.preventDefault();
-    });
-
-// functie inserten van family. dashboard.jsp
-    $('#create-family-form').submit(function (e) {
-
-        var $message = $('#create-family-message');
-        $.ajax({
-            url: 'InsertFamily',
-            type: 'POST',
-            dataType: 'text',
-            data: $('#create-family-form').serialize(),
-            complete: function (data) {
-                var response = data.responseText;
-                if (response === 'succes') {
-                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created</div>');
-                } else if (response === 'error2') {
-                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
-                }
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        }).done(function () {
-            $("#create-family-form")[0].reset();
-            loadFamilies();
-        });
-        e.preventDefault();
-    });
-    
+    });   
  });
-
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------
@@ -469,7 +467,6 @@ function loadWorlds() {
             });
         }
     }).done(function () {
-      
         $('#worlds-table').html('');
     });
 };
@@ -504,7 +501,6 @@ function loadSeasons() {
             });
         }
     }).done(function () {
-        
         $('#seasons-table').html('');
     });
 };
@@ -528,18 +524,17 @@ function loadHabitats() {
             $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
-                                    <th id="admin">Action</th>\n\
+                                    <th>Action</th>\n\
                                 </tr>');
             habitats.forEach(function (habitat) {
                 $table.append('<tr>\n\
                                         <td>' + habitat.habitatName + '</td>\n\
                                         <td>' + habitat.habitatDescription + '</td>\n\
-                                        <td id="admin1"><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
             });
         }
     }).done(function () {
-        
         $('#habitats-table').html('');
     });
 };

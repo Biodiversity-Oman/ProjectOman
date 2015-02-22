@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author Oualid
  */
-public class DaSubfamily {
+public class DaSubFamily {
 
     private static Connection conn;
     private static PreparedStatement stmt;
@@ -36,7 +36,7 @@ public class DaSubfamily {
                 subfamily.setSubfamilyId(rs.getInt("subfamily_id"));
                 subfamily.setFamilyId(rs.getInt("family_id"));
                 subfamily.setSubfamilyName(rs.getString("subfamily_name"));
-                subfamily.setDescription(rs.getString("subfamily_description"));
+                subfamily.setSubFamilyDescription(rs.getString("subfamily_description"));
                 subfamilies.add(subfamily);
             }
 
@@ -62,7 +62,7 @@ public class DaSubfamily {
             subfamily.setSubfamilyId(id);
             subfamily.setFamilyId(rs.getInt("family_id"));
             subfamily.setSubfamilyName(rs.getString("subfamily_name"));
-            subfamily.setDescription(rs.getString("subfamily_description"));
+            subfamily.setSubFamilyDescription(rs.getString("subfamily_description"));
 
             conn.commit();
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class DaSubfamily {
                 subfamily.setSubfamilyId(rs.getInt("subfamily_id"));
                 subfamily.setFamilyId(id);
                 subfamily.setSubfamilyName(rs.getString("subfamily_name"));
-                subfamily.setDescription(rs.getString("subfamily_description"));
+                subfamily.setSubFamilyDescription(rs.getString("subfamily_description"));
                 subfamilies.add(subfamily);
             }
 
@@ -110,7 +110,7 @@ public class DaSubfamily {
                     + "subfamily_name, subfamily_description) VALUES(?, ?, ?)");
             stmt.setInt(1, subfamily.getFamilyId());
             stmt.setString(2, subfamily.getSubfamilyName());
-            stmt.setString(3, subfamily.getDescription());
+            stmt.setString(3, subfamily.getSubFamilyDescription());
             stmt.executeUpdate();
 
             conn.commit();
@@ -144,7 +144,7 @@ public class DaSubfamily {
                     + "subfamily_name=?, subfamily_description=? WHERE subfamily_id=?");
             stmt.setInt(1, subfamily.getFamilyId());
             stmt.setString(2, subfamily.getSubfamilyName());
-            stmt.setString(3, subfamily.getDescription());
+            stmt.setString(3, subfamily.getSubFamilyDescription());
             stmt.setInt(4, subfamily.getSubfamilyId());
             stmt.executeUpdate();
 

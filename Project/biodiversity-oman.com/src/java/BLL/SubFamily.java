@@ -14,7 +14,7 @@ public class SubFamily {
 	private int subFamilyId;
 	private int familyId;
 	private String subFamilyName;
-	private String description;
+	private String subFamilyDescription;
 
 	/**
 	 * @return the subFamilyId
@@ -61,14 +61,14 @@ public class SubFamily {
 	/**
 	 * @return the description
 	 */
-	public String getDescription() {
-		return description;
+	public String getSubFamilyDescription() {
+		return subFamilyDescription;
 	}
 
 	/**
 	 * @param description the description to set
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setSubFamilyDescription(String description) {
+		this.subFamilyDescription = description;
 	}
 }
