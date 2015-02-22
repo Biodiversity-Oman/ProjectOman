@@ -607,7 +607,7 @@ function loadFamilies() {
                 $table.append('<tr>\n\
                                         <td>' + family.familyName + '</td>\n\
                                         <td>' + family.familyDescription + '</td>\n\
-                                        <td>' + family.WorldId + '</td>\n\
+                                        <td>' + family.worldId + '</td>\n\
                                         <td><button class="no-button" id="delete-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
             });
