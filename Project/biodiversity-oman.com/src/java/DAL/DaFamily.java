@@ -102,7 +102,7 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("DELETE FROM family WHERE family_id=" + familyId + "");
+            stmt = conn.prepareStatement("DELETE FROM omandb.family WHERE family_id=" + familyId + "");
             stmt.executeUpdate();
             conn.commit();
 
@@ -119,7 +119,7 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE family "
+            stmt = conn.prepareStatement("UPDATE omandb.family "
                     + "(family_name, family_description, world_id ) VALUES (?,?,?) WHERE family_id=" + familyId + "");
             stmt.setString(1, fam.getFamilyName());
             stmt.setString(2, fam.getDescription());
@@ -138,7 +138,7 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("INSERT INTO family "
+            stmt = conn.prepareStatement("INSERT INTO omandb.family "
                     + "(family_name, family_description, world_id) VALUES (?,?,?)");
             stmt.setString(1, fami.getFamilyName());
             stmt.setString(2, fami.getDescription());

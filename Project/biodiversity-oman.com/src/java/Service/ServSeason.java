@@ -17,7 +17,7 @@ import java.util.List;
 public class ServSeason {
 	
 	
-	public static List selectAll() throws SQLException {
+	public static List selectAllSeasons() throws SQLException {
 		
 		return DaSeason.selectAll();
 	}

@@ -16,10 +16,12 @@ import java.util.List;
  */
 public class ServHabitat {
 	
-	public static List selectAll() throws SQLException {
+	public static List selectAllHabitats() throws SQLException {
 		
 		return DaHabitat.selectAll();
 	}
+        
+        
 	
 	public static void insertHabitat(String name, String description) throws SQLException {
 		

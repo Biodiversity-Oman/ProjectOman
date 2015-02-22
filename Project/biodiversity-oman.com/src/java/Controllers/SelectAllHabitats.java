@@ -39,7 +39,7 @@ public class SelectAllHabitats extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		
 		try {
-			List habitats = ServHabitat.selectAll();
+			List habitats = ServHabitat.selectAllHabitats();
 			response.getWriter().write(new Gson().toJson(habitats));
 		} catch (SQLException ex) {
 			Logger.getLogger(SelectAllSeasons.class.getName()).log(Level.SEVERE, null, ex);

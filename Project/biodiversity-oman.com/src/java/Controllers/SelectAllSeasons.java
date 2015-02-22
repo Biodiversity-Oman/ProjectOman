@@ -40,7 +40,7 @@ public class SelectAllSeasons extends HttpServlet {
 		
 		
 		try {
-			List seasons = ServSeason.selectAll();
+			List seasons = ServSeason.selectAllSeasons();
 			response.getWriter().write(new Gson().toJson(seasons));
 		} catch (SQLException ex) {
 			Logger.getLogger(SelectAllSeasons.class.getName()).log(Level.SEVERE, null, ex);
