@@ -13,7 +13,7 @@ public class Family {
 	
 	private int familyId;
 	private String familyName;
-	private String description;
+	private String familyDescription;
         private int worldId;
 
 	/**
@@ -43,20 +43,7 @@ public class Family {
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
-
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
+        
 
     /**
      * @return the worldId
@@ -70,5 +57,19 @@ public class Family {
      */
     public void setWorldId(int worldId) {
         this.worldId = worldId;
+    }
+
+    /**
+     * @return the familyDescription
+     */
+    public String getFamilyDescription() {
+        return familyDescription;
+    }
+
+    /**
+     * @param familyDescription the familyDescription to set
+     */
+    public void setFamilyDescription(String familyDescription) {
+        this.familyDescription = familyDescription;
     }
 }

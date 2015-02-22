@@ -65,7 +65,7 @@ $(document).ready(function () {
                 } else if (response === 'error2') {
                     $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your passwords do not match</div>');
                 } else if (response === 'succes') {
-                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password changed succesfully</div>');
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password is changed succesfully</div>');
                 }
             },
             error: function (error) {
@@ -239,6 +239,21 @@ $(document).ready(function () {
         });
     });
     
+    // functie voor delete family btn in dashboard.jsp
+    $(document).on('click', '.table #delete-family-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteFamily?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadFamilies();
+        });
+    });
+    
     // functie voor delete habitat btn in dashboard.jsp
     $(document).on('click', '.table #delete-habitat-btn', function () {
 
@@ -322,7 +337,7 @@ $(document).ready(function () {
                 } else if (response === 'error1') {
                     $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
                 } else if (response === 'error2') {
-                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in al fields!</div>');
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
                 }
             },
             error: function (error) {
@@ -335,7 +350,35 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-});
+// functie inserten van family. dashboard.jsp
+    $('#create-family-form').submit(function (e) {
+
+        var $message = $('#create-family-message');
+        $.ajax({
+            url: 'InsertFamily',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-family-form').serialize(),
+            complete: function (data) {
+                var response = data.responseText;
+                if (response === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created</div>');
+                } else if (response === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            $("#create-family-form")[0].reset();
+            loadFamilies();
+        });
+        e.preventDefault();
+    });
+    
+ });
+
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------
@@ -495,6 +538,42 @@ function loadHabitats() {
         }
     }).done(function () {
         $('#habitats-table').html('');
+    });
+};
+
+// functie vult tabel in Family tab in dashboard.jsp
+function loadFamilies() {
+
+    var $table = $('#families-table');
+    var $content = $('.content');
+    $.ajax({
+        url: 'SelectAllFamilies',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true,
+        beforesend: function () {
+            $content.append('<div class="spinner"></div>');
+        },
+        complete: function (data) {
+            var families = data.responseJSON;
+            $table.append('<tr>\n\
+                                    <th>Name</th>\n\
+                                    <th>Description</th>\n\
+                                    <th>World</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+            families.forEach(function (family) {
+                $table.append('<tr>\n\
+                                        <td>' + family.familyName + '</td>\n\
+                                        <td>' + family.familyDescription + '</td>\n\
+                                        <td>' + family.familyWorldId + '</td>\n\
+                                        <td><button class="no-button" id="delete-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+            });
+        }
+    }).done(function () {
+        $('#families-table').html('');
     });
 };
 //---------------------------------------------------------------------------------------------------------------------

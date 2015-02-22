@@ -45,9 +45,8 @@ public class DaFamilyTest {
     @Test
     public void testSelectAllfamily() throws Exception {
         System.out.println("selectAllfamily");
-        List<Family> expResult = null;
         List<Family> result = DaFamily.selectAllfamily();
-        assertEquals(expResult, result);
+        System.out.println(result.toString());
     }
 
     /**
@@ -68,7 +67,7 @@ public class DaFamilyTest {
     @Test
     public void testSelectAllFamilyByWorld() throws Exception {
         System.out.println("selectAllFamilyByWorld");
-        int id = 0;
+        int id = 2;
         Family expResult = null;
         Family result = DaFamily.selectAllFamilyByWorld(id);
         assertEquals(expResult, result);
@@ -90,8 +89,11 @@ public class DaFamilyTest {
     @Test
     public void testUpdateFamily() throws Exception {
         System.out.println("updateFamily");
-        Family fam = null;
-        int familyId = 0;
+        Family fam = new Family();
+        fam.setFamilyDescription("testupdate");
+        fam.setFamilyName("testing");
+        fam.setWorldId(5);
+        int familyId = 3;
         DaFamily.updateFamily(fam, familyId);
     }
 
@@ -102,7 +104,7 @@ public class DaFamilyTest {
     public void testInsertFamily() throws Exception {
         System.out.println("insertFamily");
         Family fami = new Family();
-        fami.setDescription("testing");
+        fami.setFamilyDescription("testing");
         fami.setFamilyName("testing");
         fami.setWorldId(2);
         DaFamily.insertFamily(fami);

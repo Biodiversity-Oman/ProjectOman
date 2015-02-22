@@ -24,7 +24,8 @@
 	</script>
 	<body onload="loadWorlds();
                     loadSeasons();
-                    loadHabitats();">
+                    loadHabitats();
+                    loadFamilies();">
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">
@@ -32,7 +33,7 @@
 					<li><a href="#tab2"><span class="icon-pencil2"></span>Organism</a></li>
 					<li><a href="#tab3" onclick="adminCheck();"><span class="icon-file-text"></span>Worlds</a></li>
 					<li><a href="#tab4"><span class="icon-pencil2"></span>World</a></li>
-					<li><a href="#tab5" ><span class="icon-file-text"></span>Families</a></li>
+					<li><a href="#tab5" onclick="adminCheck();" ><span class="icon-file-text"></span>Families</a></li>
 					<li><a href="#tab6"><span class="icon-pencil2"></span>Family</a></li>
 					<li><a href="#tab7"><span class="icon-file-text"></span>Subfamilies</a></li>
 					<li><a href="#tab8"><span class="icon-pencil2"></span>Subfamily</a></li>
@@ -96,10 +97,55 @@
 						</div>
 					</div>
 					<div id="tab5" class="tab">
-						<div class="spinner"></div>
+						<div class="table-responsive">
+							<div class="col-sm-10">
+								<table class="table table-striped" id="families-table"></table>
+							</div>
+						</div>
 					</div>
 					<div id="tab6" class="tab">
-						<div class="spinner"></div>
+						<div id="create-family">
+							<form class="form form-horizontal" id="create-family-form" data-toggle="validator">
+								<div class="form-group">
+									<label class="col-sm-2 control-label"></label>
+									<div class="col-sm-2">
+										<h2 class="h2">Create Family</h2>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="family-name">Name</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" name="family-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="family-description">Description</label>
+									<div class="col-sm-4">
+										<textarea rows="3" class="form-control" type="text" name="family-description"></textarea>
+									</div>
+								</div>                                                            
+                                                                <div class="form-group">
+									<label class="col-sm-2 control-label" for="family-world">World</label>
+									<div class="col-sm-4">
+										<textarea rows="1" class="form-control" type="text" name="world-id"></textarea>
+									</div>
+								</div>
+								<div class="form-group"">
+									<label class="col-sm-2 control-label"></label>
+									<div class="col-sm-4">
+										<div id="create-family-message"></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label"></label>
+									<div class="col-sm-2">
+										<button class="btn btn-default" type="submit">Insert</button>
+										<button class="btn btn-default" type="reset">Reset</button>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
 					<div id="tab7" class="tab">
 						<div class="spinner"></div>
