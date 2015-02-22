@@ -6,6 +6,7 @@
 package UT;
 import BLL.*;
 import DAL.*;
+import java.sql.SQLException;
 import java.util.List;
 /**
  *
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class UtDaOrganism {
     
-    public static void main(String[] args)
+    public static void main(String[] args) throws SQLException
     {
         // De objecten waarmee gewerkt gaat worden.
         // Als eerst de objecten waarmee het organisme in relatie zal staan.
