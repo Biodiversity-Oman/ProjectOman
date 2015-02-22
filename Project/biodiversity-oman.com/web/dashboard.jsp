@@ -9,6 +9,7 @@
 	<head>
 		<script src="js/ajax.js"></script>
 		<script src="js/validator.js"></script>
+		
 	</head>
 	<script>
                 function adminCheck() {
@@ -18,11 +19,12 @@
                     });
 		<%} else {%>
 		<%}%>
-                };
+                }
+                ;
 	</script>
 	<body onload="loadWorlds();
-                      loadSeasons();
-                      loadHabitats();">
+                    loadSeasons();
+                    loadHabitats();">
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">
@@ -43,10 +45,10 @@
 				</ul>
 				<div class="tab-content">
 					<div id="tab1" class="tab active">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab2" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab3" class="tab">
 						<div class="table-responsive">
@@ -94,16 +96,16 @@
 						</div>
 					</div>
 					<div id="tab5" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab6" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab7" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab8" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab9" class="tab">
 						<div class="table-responsive">
@@ -196,10 +198,10 @@
 						</div>
 					</div>
 					<div id="tab13" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab14" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 				</div>
 			</div>

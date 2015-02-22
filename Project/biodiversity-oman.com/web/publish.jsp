@@ -25,16 +25,16 @@
 				</ul>
 				<div class="tab-content">
 					<div id="tab1" class="tab active">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab2" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab3" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 					<div id="tab4" class="tab">
-						<p>content</p>
+						<div class="spinner"></div>
 					</div>
 				</div>
 			</div>

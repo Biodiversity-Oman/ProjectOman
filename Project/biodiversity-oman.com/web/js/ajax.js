@@ -354,12 +354,16 @@ $(document).ready(function () {
 function loadUsers() {
 
     var $table = $('#users-table');
+    var $content = $('.content');
     $.ajax({
         url: 'SelectAllUserAccounts',
         type: 'GET',
         dataType: 'json',
         cache: false,
         async: true,
+        beforesend: function () {
+            $content.append('<div class="spinner"></div>');
+        },
         complete: function (data) {
             var users = data.responseJSON;
             $table.append('<tr>\n\
@@ -396,12 +400,16 @@ function loadUsers() {
 function loadWorlds() {
 
     var $table = $('#worlds-table');
+    var $content = $('.content');
     $.ajax({
         url: 'SelectAllWorlds',
         type: 'GET',
         dataType: 'json',
         cache: false,
         async: true,
+        beforesend: function () {
+            $content.append('<div class="spinner"></div>');
+        },
         complete: function (data) {
             var worlds = data.responseJSON;
             $table.append('<tr>\n\
@@ -426,12 +434,16 @@ function loadWorlds() {
 function loadSeasons() {
 
     var $table = $('#seasons-table');
+    var $content = $('.content');
     $.ajax({
         url: 'SelectAllSeasons',
         type: 'GET',
         dataType: 'json',
         cache: false,
         async: true,
+        beforesend: function () {
+            $content.append('<div class="spinner"></div>');
+        },
         complete: function (data) {
             var seasons = data.responseJSON;
             $table.append('<tr>\n\
@@ -456,12 +468,16 @@ function loadSeasons() {
 function loadHabitats() {
 
     var $table = $('#habitats-table');
+    var $content = $('.content');
     $.ajax({
         url: 'SelectAllHabitats',
         type: 'GET',
         dataType: 'json',
         cache: false,
         async: true,
+        beforesend: function () {
+            $content.append('<div class="spinner"></div>');
+        },
         complete: function (data) {
             var habitats = data.responseJSON;
             $table.append('<tr>\n\
