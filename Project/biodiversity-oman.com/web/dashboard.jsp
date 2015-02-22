@@ -8,6 +8,7 @@
 <html>
 	<head>
 		<script src="js/ajax.js"></script>
+		<script src="js/validator.js"></script>
 	</head>
 	<script>
                 function adminCheck() {
@@ -56,7 +57,7 @@
 					</div>
 					<div id="tab4" class="tab">
 						<div id="create-world">
-							<form class="form form-horizontal" id="create-world-form">
+							<form class="form form-horizontal" id="create-world-form" data-toggle="validator">
 								<div class="form-group">
 									<label class="col-sm-2 control-label"></label>
 									<div class="col-sm-2">
@@ -66,7 +67,8 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="world-name">Name</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="world-name" required/>
+										<input class="form-control" type="text" name="world-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
@@ -112,7 +114,7 @@
 					</div>
 					<div id="tab10" class="tab">
 						<div id="create-season">
-							<form class="form form-horizontal" id="create-season-form">
+							<form class="form form-horizontal" id="create-season-form" data-toggle="validator">
 								<div class="form-group">
 									<div class="form-group">
 										<label class="col-sm-2 control-label"></label>
@@ -122,7 +124,8 @@
 									</div>
 									<label class="col-sm-2 control-label" for="season-name">Name</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="season-name" required/>
+										<input class="form-control" type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
@@ -156,7 +159,7 @@
 					</div>
 					<div id="tab12" class="tab">
 						<div id="create-habitat">
-							<form class="form form-horizontal" id="create-habitat-form">
+							<form class="form form-horizontal" id="create-habitat-form" data-toggle="validator">
 								<div class="form-group">
 									<label class="col-sm-2 control-label"></label>
 									<div class="col-sm-2">
@@ -166,7 +169,8 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="habitat-name">Name</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="habitat-name" required />
+										<input class="form-control" type="text" name="habitat-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
