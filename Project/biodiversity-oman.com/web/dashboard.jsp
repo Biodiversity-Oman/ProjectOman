@@ -13,14 +13,9 @@
 	<script>
 	</script>
 	<body onload="loadWorlds();
-<<<<<<< HEAD
                     loadSeasons();
                     loadHabitats();
-                    loadFamilies();">
-=======
-                      loadSeasons();
-                      loadHabitats();">
->>>>>>> origin/master
+                    loadFamilies();">;">
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">
