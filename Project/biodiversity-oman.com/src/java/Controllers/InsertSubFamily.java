@@ -5,15 +5,9 @@
  */
 package Controllers;
 
-import Service.ServFamily;
-import Service.ServHabitat;
-import com.google.gson.Gson;
+import Service.ServSubFamily;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Eric
  */
-@WebServlet(name = "SelectAllFamilies", urlPatterns = {"/SelectAllFamilies"})
-public class SelectAllFamilies extends HttpServlet {
+@WebServlet(name = "InsertSubFamily", urlPatterns = {"/InsertSubFamily"})
+public class InsertSubFamily extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,11 +35,12 @@ public class SelectAllFamilies extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         try {
-            List families = ServFamily.selectAllFamily();
-            response.getWriter().write(new Gson().toJson(families));
+            ServSubFamily.insertSubFamily(request.getParameter("subfamily-name"), request.getParameter("subfamily-description"),
+                                Integer.parseInt(request.getParameter("subfamily-family-id")));
+            response.getWriter().write("succes");
             
-            } catch (SQLException ex) {
-			Logger.getLogger(SelectAllFamilies.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+			response.getWriter().write("error");
 		}
     }
 

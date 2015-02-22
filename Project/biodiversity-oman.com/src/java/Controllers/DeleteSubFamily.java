@@ -5,13 +5,10 @@
  */
 package Controllers;
 
-import Service.ServFamily;
-import Service.ServHabitat;
-import com.google.gson.Gson;
+import Service.ServSubFamily;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -24,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Eric
  */
-@WebServlet(name = "SelectAllFamilies", urlPatterns = {"/SelectAllFamilies"})
-public class SelectAllFamilies extends HttpServlet {
+@WebServlet(name = "DeleteSubFamily", urlPatterns = {"/DeleteSubFamily"})
+public class DeleteSubFamily extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,12 +37,11 @@ public class SelectAllFamilies extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        try {
-            List families = ServFamily.selectAllFamily();
-            response.getWriter().write(new Gson().toJson(families));
-            
-            } catch (SQLException ex) {
-			Logger.getLogger(SelectAllFamilies.class.getName()).log(Level.SEVERE, null, ex);
+        int id = Integer.parseInt(request.getParameter("id"));
+		try {
+                    ServSubFamily.deleteSubFamily(id);
+		} catch (SQLException ex) {
+			Logger.getLogger(DeleteSubFamily.class.getName()).log(Level.SEVERE, null, ex);
 		}
     }
 

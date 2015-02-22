@@ -15,7 +15,8 @@
 	<body onload="loadWorlds();
                     loadSeasons();
                     loadHabitats();
-                    loadFamilies();">;">
+                    loadFamilies();
+                    loadSubFamilies()">;">
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">
@@ -138,10 +139,55 @@
 						</div>
 					</div>
 					<div id="tab7" class="tab">
-						<div class="spinner"></div>
+						<div class="table-responsive">
+							<div class="col-sm-10">
+								<table class="table table-striped" id="subfamilies-table"></table>
+							</div>
+						</div>
 					</div>
 					<div id="tab8" class="tab">
-						<div class="spinner"></div>
+						<div id="create-subfamily">
+							<form class="form form-horizontal" id="create-subfamily-form" data-toggle="validator">
+								<div class="form-group">
+									<label class="col-sm-2 control-label"></label>
+									<div class="col-sm-2">
+										<h2 class="h2">Create SubFamily</h2>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="subfamily-name">Name</label>
+									<div class="col-sm-4">
+										<input class="form-control" type="text" name="subfamily-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="subfamily-description">Description</label>
+									<div class="col-sm-4">
+										<textarea rows="3" class="form-control" type="text" name="subfamily-description"></textarea>
+									</div>
+								</div>                                                            
+                                                                <div class="form-group">
+									<label class="col-sm-2 control-label" for="subfamily-family-id">Family</label>
+									<div class="col-sm-4">
+										<textarea rows="1" class="form-control" type="text" name="subfamily-family-id"></textarea>
+									</div>
+								</div>
+								<div class="form-group"">
+									<label class="col-sm-2 control-label"></label>
+									<div class="col-sm-4">
+										<div id="create-subfamily-message"></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label"></label>
+									<div class="col-sm-2">
+										<button class="btn btn-default" type="submit">Insert</button>
+										<button class="btn btn-default" type="reset">Reset</button>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
 					<div id="tab9" class="tab">
 						<div class="table-responsive">

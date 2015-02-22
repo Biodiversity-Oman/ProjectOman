@@ -219,6 +219,33 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
+    
+    // functie inserten van subfamily. dashboard.jsp
+    $('#create-subfamily-form').submit(function (e) {
+
+        var $message = $('#create-subfamily-message');
+        $.ajax({
+            url: 'InsertSubFamily',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-subfamily-form').serialize(),
+            complete: function (data) {
+                var response = data.responseText;
+                if (response === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>SubFamily succesfully created</div>');
+                } else if (response === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            $("#create-subfamily-form")[0].reset();
+            loadSubFamilies();
+        });
+        e.preventDefault();
+    });
 
     // functie voor make-admin button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
@@ -322,6 +349,21 @@ $(document).ready(function () {
             async: true
         }).done(function () {
             loadHabitats();
+        });
+    });
+    
+    // functie voor delete subfamily btn in dashboard.jsp
+    $(document).on('click', '.table #delete-subfamily-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteSubFamily?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadSubFamilies();
         });
     });
     
@@ -572,6 +614,42 @@ function loadFamilies() {
         }
     }).done(function () {
         $('#families-table').html('');
+    });
+};
+
+// functie vult tabel in SubFamily tab in dashboard.jsp
+function loadSubFamilies() {
+
+    var $table = $('#subfamilies-table');
+    var $content = $('.content');
+    $.ajax({
+        url: 'SelectAllSubFamilies',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true,
+        beforesend: function () {
+            $content.append('<div class="spinner"></div>');
+        },
+        complete: function (data) {
+            var subfamilies = data.responseJSON;
+            $table.append('<tr>\n\
+                                    <th>Name</th>\n\
+                                    <th>Description</th>\n\
+                                    <th>Family</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+            subfamilies.forEach(function (subfamily) {
+                $table.append('<tr>\n\
+                                        <td>' + subfamily.subFamilyName + '</td>\n\
+                                        <td>' + subfamily.subFamilyDescription + '</td>\n\
+                                        <td>' + subfamily.familyId + '</td>\n\
+                                        <td><button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+            });
+        }
+    }).done(function () {
+        $('#subfamilies-table').html('');
     });
 };
 //---------------------------------------------------------------------------------------------------------------------

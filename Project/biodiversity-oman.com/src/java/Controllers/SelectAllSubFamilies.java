@@ -5,8 +5,7 @@
  */
 package Controllers;
 
-import Service.ServFamily;
-import Service.ServHabitat;
+import Service.ServSubFamily;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Eric
  */
-@WebServlet(name = "SelectAllFamilies", urlPatterns = {"/SelectAllFamilies"})
-public class SelectAllFamilies extends HttpServlet {
+@WebServlet(name = "SelectAllSubFamilies", urlPatterns = {"/SelectAllSubFamilies"})
+public class SelectAllSubFamilies extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,13 +38,12 @@ public class SelectAllFamilies extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
         try {
-            List families = ServFamily.selectAllFamily();
-            response.getWriter().write(new Gson().toJson(families));
+            List subfamilies = ServSubFamily.selectAllSubFamily();
+            response.getWriter().write(new Gson().toJson(subfamilies));
             
             } catch (SQLException ex) {
-			Logger.getLogger(SelectAllFamilies.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(SelectAllSubFamilies.class.getName()).log(Level.SEVERE, null, ex);
 		}
     }
 
