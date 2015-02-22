@@ -8,7 +8,6 @@ package Controllers;
 import Service.ServUserAccount;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.ServletException;
