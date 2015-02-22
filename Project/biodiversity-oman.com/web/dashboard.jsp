@@ -9,22 +9,12 @@
 	<head>
 		<script src="js/ajax.js"></script>
 		<script src="js/validator.js"></script>
-		
 	</head>
 	<script>
-                function adminCheck() {
-		<%if (us.getIsAdmin() == false) {%>
-                    $(".no-button").each(function () {
-                        $(this).hide();
-                    });
-		<%} else {%>
-		<%}%>
-                }
-                ;
 	</script>
 	<body onload="loadWorlds();
-                    loadSeasons();
-                    loadHabitats();">
+                      loadSeasons();
+                      loadHabitats();">
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">

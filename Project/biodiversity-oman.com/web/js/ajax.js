@@ -426,6 +426,7 @@ function loadWorlds() {
             });
         }
     }).done(function () {
+      
         $('#worlds-table').html('');
     });
 };
@@ -460,6 +461,7 @@ function loadSeasons() {
             });
         }
     }).done(function () {
+        
         $('#seasons-table').html('');
     });
 };
@@ -483,17 +485,18 @@ function loadHabitats() {
             $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
-                                    <th>Action</th>\n\
+                                    <th id="admin">Action</th>\n\
                                 </tr>');
             habitats.forEach(function (habitat) {
                 $table.append('<tr>\n\
                                         <td>' + habitat.habitatName + '</td>\n\
                                         <td>' + habitat.habitatDescription + '</td>\n\
-                                        <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td id="admin1"><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
             });
         }
     }).done(function () {
+        
         $('#habitats-table').html('');
     });
 };

@@ -67,5 +67,14 @@
         adminuser.innerHTML += '';
         adminpublish.innerHTML += '';
 	<%}%>
+		
+	function adminCheck() {
+	<%if (us.getIsAdmin() == false) {%>
+                    $(".no-button").each(function () {
+                        $(this).hide();
+                    });
+	<%} else {%>
+	<%}%>
+        };
 </script>
 </html>
