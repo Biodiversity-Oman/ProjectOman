@@ -14,7 +14,7 @@ public class Family {
 	private int familyId;
 	private String familyName;
 	private String familyDescription;
-        private int worldId;
+        private int WorldId;
 
 	/**
 	 * @return the familyId
@@ -46,20 +46,6 @@ public class Family {
         
 
     /**
-     * @return the worldId
-     */
-    public int getWorldId() {
-        return worldId;
-    }
-
-    /**
-     * @param worldId the worldId to set
-     */
-    public void setWorldId(int worldId) {
-        this.worldId = worldId;
-    }
-
-    /**
      * @return the familyDescription
      */
     public String getFamilyDescription() {
@@ -71,5 +57,19 @@ public class Family {
      */
     public void setFamilyDescription(String familyDescription) {
         this.familyDescription = familyDescription;
+    }
+
+    /**
+     * @return the WorldId
+     */
+    public int getWorldId() {
+        return WorldId;
+    }
+
+    /**
+     * @param WorldId the WorldId to set
+     */
+    public void setWorldId(int WorldId) {
+        this.WorldId = WorldId;
     }
 }
