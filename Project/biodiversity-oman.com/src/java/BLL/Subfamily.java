@@ -9,7 +9,7 @@ package BLL;
  *
  * @author lennyasus
  */
-public class Subfamilyold {
+public class Subfamily {
 
     private int subFamilyId;
     private int familyId;

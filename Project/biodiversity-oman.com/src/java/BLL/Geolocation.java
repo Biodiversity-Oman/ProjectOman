@@ -9,7 +9,7 @@ package BLL;
  *
  * @author Tom
  */
-public class Geolocationold {
+public class Geolocation {
 
     private Integer geolocationId;
     private String areaName;
