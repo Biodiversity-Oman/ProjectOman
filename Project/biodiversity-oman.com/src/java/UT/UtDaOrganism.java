@@ -17,7 +17,7 @@ public class UtDaOrganism {
     public static void main(String[] args) throws SQLException
     {
         // De objecten waarmee een insert van een organisme op uitgevoerd worden.
-        SubFamily subfamilyNew = new SubFamily();
+        Subfamily subfamilyNew = new Subfamily();
         subfamilyNew.setSubfamilyId(1);
         
         Season seasonNew1 = new Season();
@@ -52,17 +52,17 @@ public class UtDaOrganism {
         eatingOrganismsNew.add(eatingOrganismNew1);
         eatingOrganismsNew.add(eatingOrganismNew2);
         
-        GeoLocation geoLocationNew1 = new GeoLocation();
+        Geolocation geoLocationNew1 = new Geolocation();
         geoLocationNew1.setGeolocationId(1);
-        GeoLocation geoLocationNew2 = new GeoLocation();
+        Geolocation geoLocationNew2 = new Geolocation();
         geoLocationNew2.setGeolocationId(2);
-        List<GeoLocation> geoLocationsNew = new java.util.ArrayList();
+        List<Geolocation> geoLocationsNew = new java.util.ArrayList();
         geoLocationsNew.add(geoLocationNew1);
         geoLocationsNew.add(geoLocationNew2);
         
         Organism organismNew = new Organism();
-        organismNew.setScientificName("ScientificNameInsert10000");
-        organismNew.setCommonName("CommonNameInsert10000");
+        organismNew.setScientificName("ScientificNameInsert20000");
+        organismNew.setCommonName("CommonNameInsert20000");
         organismNew.setLocalName("LocalNameInsert");
         organismNew.setSubfamily(subfamilyNew);
         organismNew.setDescription("DescriptionInsert");
@@ -112,7 +112,7 @@ public class UtDaOrganism {
             System.out.println("ScientificName: " + organism.getScientificName());
             System.out.println("CommonName: " + organism.getCommonName());
             System.out.println("LocalName: " + organism.getLocalName());
-            System.out.println("SubFamily: " + organism.getSubfamily().getSubfamilyName());
+            System.out.println("Subfamily: " + organism.getSubfamily().getSubfamilyName());
             System.out.println("Description: " + organism.getDescription());
             System.out.println("Population: " + organism.getPopulation());
             System.out.println("Indigenous: " + Boolean.toString(organism.getIndigenous()));
@@ -136,8 +136,8 @@ public class UtDaOrganism {
             for (Organism o : organism.getEatenByOrganism()) {System.out.println("- " + o.getCommonName());}
             System.out.println("EatingOrganisms: ");
             for (Organism o : organism.getEatingOrganisms()) {System.out.println("- " + o.getCommonName());}
-            System.out.println("GeoLocations: ");
-            for (GeoLocation g : organism.getGeolocations()) {System.out.println("- " + g.getAreaName());}
+            System.out.println("Geolocations: ");
+            for (Geolocation g : organism.getGeolocations()) {System.out.println("- " + g.getAreaName());}
         }
         else
         {
@@ -145,7 +145,7 @@ public class UtDaOrganism {
         }
         
         // Objecten om een update mee uit te voeren op een organismen.
-        SubFamily subfamilyUpdate = new SubFamily();
+        Subfamily subfamilyUpdate = new Subfamily();
         subfamilyUpdate.setSubfamilyId(2);
         
         Season seasonUpdate1 = new Season();
@@ -180,19 +180,19 @@ public class UtDaOrganism {
         eatingOrganismsUpdate.add(eatingOrganismUpdate1);
         eatingOrganismsUpdate.add(eatingOrganismUpdate2);
         
-        GeoLocation geoLocationUpdate1 = new GeoLocation();
+        Geolocation geoLocationUpdate1 = new Geolocation();
         geoLocationUpdate1.setGeolocationId(3);
-        GeoLocation geoLocationUpdate2 = new GeoLocation();
+        Geolocation geoLocationUpdate2 = new Geolocation();
         geoLocationUpdate2.setGeolocationId(4);
-        List<GeoLocation> geoLocationsUpdate = new java.util.ArrayList();
+        List<Geolocation> geoLocationsUpdate = new java.util.ArrayList();
         geoLocationsUpdate.add(geoLocationUpdate1);
         geoLocationsUpdate.add(geoLocationUpdate2);
         
         Organism organismUpdate = new Organism();
         // Het Id wordt hier meegegeven zodat de methode weet welk organisme eht moet updaten.
         organismUpdate.setOrganismId(organismIdNew);
-        organismUpdate.setScientificName("ScientificNameUpdate10001");
-        organismUpdate.setCommonName("CommonNameUpdate10001");
+        organismUpdate.setScientificName("ScientificNameUpdate20001");
+        organismUpdate.setCommonName("CommonNameUpdate20001");
         organismUpdate.setLocalName("LocalNameUpdate");
         organismUpdate.setSubfamily(subfamilyUpdate);
         organismUpdate.setDescription("DescriptionUpdate");
@@ -228,7 +228,7 @@ public class UtDaOrganism {
             System.out.println("ScientificName: " + organism.getScientificName());
             System.out.println("CommonName: " + organism.getCommonName());
             System.out.println("LocalName: " + organism.getLocalName());
-            System.out.println("SubFamily: " + organism.getSubfamily().getSubfamilyName());
+            System.out.println("Subfamily: " + organism.getSubfamily().getSubfamilyName());
             System.out.println("Description: " + organism.getDescription());
             System.out.println("Population: " + organism.getPopulation());
             System.out.println("Indigenous: " + Boolean.toString(organism.getIndigenous()));
@@ -252,8 +252,8 @@ public class UtDaOrganism {
             for (Organism o : organism.getEatenByOrganism()) {System.out.println("- " + o.getCommonName());}
             System.out.println("EatingOrganisms: ");
             for (Organism o : organism.getEatingOrganisms()) {System.out.println("- " + o.getCommonName());}
-            System.out.println("GeoLocations: ");
-            for (GeoLocation g : organism.getGeolocations()) {System.out.println("- " + g.getAreaName());}
+            System.out.println("Geolocations: ");
+            for (Geolocation g : organism.getGeolocations()) {System.out.println("- " + g.getAreaName());}
         }
         else
         {

@@ -57,7 +57,7 @@ public class DaOrganism {
             
             while(rs.next()){
                 Organism o = new Organism();
-                SubFamily sf = new SubFamily();
+                Subfamily sf = new Subfamily();
                 Family f = new Family();
                 World w = new World();
                 
@@ -99,7 +99,7 @@ public class DaOrganism {
             List<Organism> eatenByOrganisms = new ArrayList();
             List<Habitat> habitats = new ArrayList();
             List<Season> seasons = new ArrayList();
-            List<GeoLocation> geolocations = new ArrayList<>();
+            List<Geolocation> geolocations = new ArrayList<>();
             List<Post> posts = new ArrayList();
             conn = DataSource.getConnection();
             
@@ -157,7 +157,7 @@ public class DaOrganism {
             while(rsOrganism.next()){
                 
                 // De objecten voor de One to many relaties.
-                SubFamily sf = new SubFamily();
+                Subfamily sf = new Subfamily();
                 Family f = new Family();
                 World w = new World();
                 
@@ -227,7 +227,7 @@ public class DaOrganism {
                 seasons.add(s);
             }
             while (rsGeolocation.next()){
-                GeoLocation g = new GeoLocation();
+                Geolocation g = new Geolocation();
                 g.setGeolocationId(rsGeolocation.getInt("geolocation_id"));
                 g.setAreaName(rsGeolocation.getString("area_name"));
                 geolocations.add(g);
@@ -391,7 +391,7 @@ public class DaOrganism {
             // Geolocation
             if(organism.getGeolocations() != null){
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
-                for (GeoLocation g : organism.getGeolocations()) 
+                for (Geolocation g : organism.getGeolocations()) 
                 {
                     stmt.setInt(1, newOrganismId);
                     stmt.setInt(2, g.getGeolocationId());
@@ -518,7 +518,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id="+Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
-                for (GeoLocation g : organism.getGeolocations()) 
+                for (Geolocation g : organism.getGeolocations()) 
                 {
                     stmt.setInt(1, organism.getOrganismId());
                     stmt.setInt(2, g.getGeolocationId());
