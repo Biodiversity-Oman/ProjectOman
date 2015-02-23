@@ -57,7 +57,7 @@ public class DaOrganism {
             
             while(rs.next()){
                 Organism o = new Organism();
-                SubFamilyold sf = new SubFamilyold();
+                Subfamily sf = new Subfamily();
                 Family f = new Family();
                 World w = new World();
                 
@@ -150,7 +150,7 @@ public class DaOrganism {
             while(rsOrganism.next()){
                 
                 // De objecten voor de One to many relaties.
-                SubFamilyold sf = new SubFamilyold();
+                Subfamily sf = new Subfamily();
                 Family f = new Family();
                 World w = new World();
                 
@@ -377,7 +377,7 @@ public class DaOrganism {
             // Geolocation
             if(organism.getGeolocations() != null){
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism VALUES(?,?)");
-                for (GeoLocationold g : organism.getGeolocations()) 
+                for (Geolocation g : organism.getGeolocations()) 
                 {
                     stmt.setInt(1, newOrganismId);
                     stmt.setInt(2, g.getGeolocationId());
@@ -504,7 +504,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id="+Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism VALUES(?,?)");
-                for (GeoLocationold g : organism.getGeolocations()) 
+                for (Geolocation g : organism.getGeolocations()) 
                 {
                     stmt.setInt(1, organism.getOrganismId());
                     stmt.setInt(2, g.getGeolocationId());

@@ -5,7 +5,7 @@
  */
 package DAL;
 
-import BLL.SubFamilyold;
+import BLL.Subfamily;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,15 +15,15 @@ import java.util.List;
 
 /**
  *
- * @author Oualid
+ * @author Eric
  */
 public class DaSubFamily {
 
     private static Connection conn;
     private static PreparedStatement stmt;
 
-    public static List<SubFamilyold> selectAllSubfamily() throws SQLException {
-        List<SubFamilyold> subfamilies = new ArrayList();
+    public static List<Subfamily> selectAllSubfamily() throws SQLException {
+        List<Subfamily> subfamilies = new ArrayList();
 
         try {
             conn = DataSource.getConnection();
@@ -32,7 +32,7 @@ public class DaSubFamily {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                SubFamilyold subfamily = new SubFamilyold();
+                Subfamily subfamily = new Subfamily();
                 subfamily.setSubfamilyId(rs.getInt("subfamily_id"));
                 subfamily.setFamilyId(rs.getInt("family_id"));
                 subfamily.setSubfamilyName(rs.getString("subfamily_name"));
@@ -50,8 +50,8 @@ public class DaSubFamily {
         return subfamilies;
     }
 
-    public static SubFamilyold selectOneByIDSubfamily(int id) throws SQLException {
-        SubFamilyold subfamily = new SubFamilyold();
+    public static Subfamily selectOneByIDSubfamily(int id) throws SQLException {
+        Subfamily subfamily = new Subfamily();
 
         try {
             conn = DataSource.getConnection();
@@ -74,8 +74,8 @@ public class DaSubFamily {
         return subfamily;
     }
 
-    public static List<SubFamilyold> selectAllByFamilySubfamily(int id) throws SQLException {
-        List<SubFamilyold> subfamilies = new ArrayList();
+    public static List<Subfamily> selectAllByFamilySubfamily(int id) throws SQLException {
+        List<Subfamily> subfamilies = new ArrayList();
 
         try {
             conn = DataSource.getConnection();
@@ -84,7 +84,7 @@ public class DaSubFamily {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                SubFamilyold subfamily = new SubFamilyold();
+                Subfamily subfamily = new Subfamily();
                 subfamily.setSubfamilyId(rs.getInt("subfamily_id"));
                 subfamily.setFamilyId(id);
                 subfamily.setSubfamilyName(rs.getString("subfamily_name"));
@@ -102,7 +102,7 @@ public class DaSubFamily {
         return subfamilies;
     }
 
-    public static void insertSubfamily(SubFamilyold subfamily) throws SQLException {
+    public static void insertSubfamily(Subfamily subfamily) throws SQLException {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
@@ -136,7 +136,7 @@ public class DaSubFamily {
         }
     }
 
-    public static void updateSubfamily(SubFamilyold subfamily) throws SQLException {
+    public static void updateSubfamily(Subfamily subfamily) throws SQLException {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);

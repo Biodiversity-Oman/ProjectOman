@@ -5,7 +5,7 @@
  */
 package Service;
 
-import BLL.SubFamilyold;
+import BLL.Subfamily;
 import DAL.DaSubFamily;
 import java.sql.SQLException;
 import java.util.List;
@@ -23,7 +23,7 @@ public class ServSubFamily {
 	
 	public static void insertSubFamily(String name, String description, int familyId) throws SQLException {
             
-            SubFamilyold subfam = new SubFamilyold();
+            Subfamily subfam = new Subfamily();
             subfam.setSubFamilyDescription(description);
             subfam.setSubfamilyName(name);
             subfam.setFamilyId(familyId);

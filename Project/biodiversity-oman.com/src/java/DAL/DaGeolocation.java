@@ -5,7 +5,7 @@
  */
 package DAL;
 
-import BLL.GeoLocationold;
+import BLL.Geolocation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,8 +21,8 @@ public class DaGeolocation {
     private static Connection conn;
     private static PreparedStatement stmt;
 
-    public static List<GeoLocationold> selectAllGeolocation() throws SQLException {
-        List<GeoLocationold> geolocations = new ArrayList();
+    public static List<Geolocation> selectAllGeolocation() throws SQLException {
+        List<Geolocation> geolocations = new ArrayList();
 
         try {
             conn = DataSource.getConnection();
@@ -31,7 +31,7 @@ public class DaGeolocation {
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                GeoLocationold geolocation = new GeoLocationold();
+                Geolocation geolocation = new Geolocation();
                 geolocation.setGeolocationId(rs.getInt("geolocation_id"));
                 geolocation.setAreaName(rs.getString("area_name"));
                 geolocation.setAreaDescription(rs.getString("area_description"));
@@ -49,8 +49,8 @@ public class DaGeolocation {
         return geolocations;
     }
     
-    public static GeoLocationold selectOneByIDGeolocation(int id) throws SQLException {
-        GeoLocationold geolocation = new GeoLocationold();
+    public static Geolocation selectOneByIDGeolocation(int id) throws SQLException {
+        Geolocation geolocation = new Geolocation();
 
         try {
             conn = DataSource.getConnection();
@@ -73,8 +73,8 @@ public class DaGeolocation {
         return geolocation;
     }
     
-    public static List<GeoLocationold> selectAllByOrganismGeolocation(int organismId) throws SQLException {
-        List<GeoLocationold> geolocations = new ArrayList();
+    public static List<Geolocation> selectAllByOrganismGeolocation(int organismId) throws SQLException {
+        List<Geolocation> geolocations = new ArrayList();
 
         try {
             conn = DataSource.getConnection();
@@ -86,7 +86,7 @@ public class DaGeolocation {
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                GeoLocationold geolocation = new GeoLocationold();
+                Geolocation geolocation = new Geolocation();
                 geolocation.setGeolocationId(rs.getInt("geolocation_id"));
                 geolocation.setAreaName(rs.getString("area_name"));
                 geolocation.setAreaDescription(rs.getString("area_description"));
@@ -104,7 +104,7 @@ public class DaGeolocation {
         return geolocations;
     }
     
-    public static void insertGeolocation(GeoLocationold geolocation) throws SQLException {
+    public static void insertGeolocation(Geolocation geolocation) throws SQLException {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
@@ -138,7 +138,7 @@ public class DaGeolocation {
         }
     }
     
-    public static void updateGeolocation(GeoLocationold geolocation) throws SQLException {
+    public static void updateGeolocation(Geolocation geolocation) throws SQLException {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
