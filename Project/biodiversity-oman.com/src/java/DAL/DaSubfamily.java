@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author Eric
  */
-public class DaSubFamilyold {
+public class DaSubfamily {
 
     private static Connection conn;
     private static PreparedStatement stmt;

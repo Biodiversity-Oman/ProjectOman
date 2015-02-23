@@ -6,7 +6,7 @@
 package Service;
 
 import BLL.Subfamily;
-import DAL.DaSubFamilyold;
+import DAL.DaSubfamily;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class ServSubFamily {
     
     public static List selectAllSubFamily() throws SQLException {
 		
-		return DaSubFamilyold.selectAllSubfamily();
+		return DaSubfamily.selectAllSubfamily();
 	}
 	
 	public static void insertSubFamily(String name, String description, int familyId) throws SQLException {
@@ -28,12 +28,12 @@ public class ServSubFamily {
             subfam.setSubfamilyName(name);
             subfam.setFamilyId(familyId);
             
-            DaSubFamilyold.insertSubfamily(subfam);
+            DaSubfamily.insertSubfamily(subfam);
 	}
 	
 	public static void deleteSubFamily(int id) throws SQLException{
 		
-		DaSubFamilyold.deleteSubfamily(id);
+		DaSubfamily.deleteSubfamily(id);
 	}
     
 }
