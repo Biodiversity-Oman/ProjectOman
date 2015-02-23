@@ -5,7 +5,7 @@
  */
 package DAL;
 
-import BLL.SubFamily;
+import BLL.Subfamily;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,8 +22,8 @@ public class DaSubfamily {
     private static Connection conn;
     private static PreparedStatement stmt;
 
-    public static List<SubFamily> selectAllSubfamily() throws SQLException {
-        List<SubFamily> subfamilies = new ArrayList();
+    public static List<Subfamily> selectAllSubfamily() throws SQLException {
+        List<Subfamily> subfamilies = new ArrayList();
 
         try {
             conn = DataSource.getConnection();
@@ -32,11 +32,11 @@ public class DaSubfamily {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                SubFamily subfamily = new SubFamily();
+                Subfamily subfamily = new Subfamily();
                 subfamily.setSubfamilyId(rs.getInt("subfamily_id"));
                 subfamily.setFamilyId(rs.getInt("family_id"));
                 subfamily.setSubfamilyName(rs.getString("subfamily_name"));
-                subfamily.setDescription(rs.getString("subfamily_description"));
+                subfamily.setSubFamilyDescription(rs.getString("subfamily_description"));
                 subfamilies.add(subfamily);
             }
 
@@ -50,8 +50,8 @@ public class DaSubfamily {
         return subfamilies;
     }
 
-    public static SubFamily selectOneByIDSubfamily(int id) throws SQLException {
-        SubFamily subfamily = new SubFamily();
+    public static Subfamily selectOneByIDSubfamily(int id) throws SQLException {
+        Subfamily subfamily = new Subfamily();
 
         try {
             conn = DataSource.getConnection();
@@ -62,7 +62,7 @@ public class DaSubfamily {
             subfamily.setSubfamilyId(id);
             subfamily.setFamilyId(rs.getInt("family_id"));
             subfamily.setSubfamilyName(rs.getString("subfamily_name"));
-            subfamily.setDescription(rs.getString("subfamily_description"));
+            subfamily.setSubFamilyDescription(rs.getString("subfamily_description"));
 
             conn.commit();
         } catch (Exception e) {
@@ -74,8 +74,8 @@ public class DaSubfamily {
         return subfamily;
     }
 
-    public static List<SubFamily> selectAllByFamilySubfamily(int id) throws SQLException {
-        List<SubFamily> subfamilies = new ArrayList();
+    public static List<Subfamily> selectAllByFamilySubfamily(int id) throws SQLException {
+        List<Subfamily> subfamilies = new ArrayList();
 
         try {
             conn = DataSource.getConnection();
@@ -84,11 +84,11 @@ public class DaSubfamily {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                SubFamily subfamily = new SubFamily();
+                Subfamily subfamily = new Subfamily();
                 subfamily.setSubfamilyId(rs.getInt("subfamily_id"));
                 subfamily.setFamilyId(id);
                 subfamily.setSubfamilyName(rs.getString("subfamily_name"));
-                subfamily.setDescription(rs.getString("subfamily_description"));
+                subfamily.setSubFamilyDescription(rs.getString("subfamily_description"));
                 subfamilies.add(subfamily);
             }
 
@@ -102,7 +102,7 @@ public class DaSubfamily {
         return subfamilies;
     }
 
-    public static void insertSubfamily(SubFamily subfamily) throws SQLException {
+    public static void insertSubfamily(Subfamily subfamily) throws SQLException {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
@@ -110,7 +110,7 @@ public class DaSubfamily {
                     + "subfamily_name, subfamily_description) VALUES(?, ?, ?)");
             stmt.setInt(1, subfamily.getFamilyId());
             stmt.setString(2, subfamily.getSubfamilyName());
-            stmt.setString(3, subfamily.getDescription());
+            stmt.setString(3, subfamily.getSubFamilyDescription());
             stmt.executeUpdate();
 
             conn.commit();
@@ -136,7 +136,7 @@ public class DaSubfamily {
         }
     }
 
-    public static void updateSubfamily(SubFamily subfamily) throws SQLException {
+    public static void updateSubfamily(Subfamily subfamily) throws SQLException {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
@@ -144,7 +144,7 @@ public class DaSubfamily {
                     + "subfamily_name=?, subfamily_description=? WHERE subfamily_id=?");
             stmt.setInt(1, subfamily.getFamilyId());
             stmt.setString(2, subfamily.getSubfamilyName());
-            stmt.setString(3, subfamily.getDescription());
+            stmt.setString(3, subfamily.getSubFamilyDescription());
             stmt.setInt(4, subfamily.getSubfamilyId());
             stmt.executeUpdate();
 

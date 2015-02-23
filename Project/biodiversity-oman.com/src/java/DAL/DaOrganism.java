@@ -57,7 +57,7 @@ public class DaOrganism {
             
             while(rs.next()){
                 Organism o = new Organism();
-                SubFamily sf = new SubFamily();
+                Subfamily sf = new Subfamily();
                 Family f = new Family();
                 World w = new World();
                 
@@ -157,7 +157,7 @@ public class DaOrganism {
             while(rsOrganism.next()){
                 
                 // De objecten voor de One to many relaties.
-                SubFamily sf = new SubFamily();
+                Subfamily sf = new Subfamily();
                 Family f = new Family();
                 World w = new World();
                 
@@ -390,8 +390,13 @@ public class DaOrganism {
                 }}
             // Geolocation
             if(organism.getGeolocations() != null){
+<<<<<<< HEAD
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
                 for (GeoLocation g : organism.getGeolocations()) 
+=======
+                stmt = conn.prepareStatement("INSERT INTO geolocation_organism VALUES(?,?)");
+                for (Geolocation g : organism.getGeolocations()) 
+>>>>>>> origin/master
                 {
                     stmt.setInt(1, newOrganismId);
                     stmt.setInt(2, g.getGeolocationId());
@@ -517,8 +522,13 @@ public class DaOrganism {
             if(organism.getGeolocations() != null){
                 stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id="+Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
+<<<<<<< HEAD
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
                 for (GeoLocation g : organism.getGeolocations()) 
+=======
+                stmt = conn.prepareStatement("INSERT INTO geolocation_organism VALUES(?,?)");
+                for (Geolocation g : organism.getGeolocations()) 
+>>>>>>> origin/master
                 {
                     stmt.setInt(1, organism.getOrganismId());
                     stmt.setInt(2, g.getGeolocationId());

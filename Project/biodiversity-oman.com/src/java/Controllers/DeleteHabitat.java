@@ -37,7 +37,7 @@ public class DeleteHabitat extends HttpServlet {
 		throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		
-		int id = parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		try {
 			ServHabitat.deleteHabitat(id);
 		} catch (SQLException ex) {

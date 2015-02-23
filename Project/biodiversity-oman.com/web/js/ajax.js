@@ -65,7 +65,7 @@ $(document).ready(function () {
                 } else if (response === 'error2') {
                     $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your passwords do not match</div>');
                 } else if (response === 'succes') {
-                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password changed succesfully</div>');
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password is changed succesfully</div>');
                 }
             },
             error: function (error) {
@@ -163,6 +163,89 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
+    
+    // functie inserten van world. dashboard.jsp
+    $('#create-world-form').submit(function (e) {
+
+        var $message = $('#create-world-message');
+        $.ajax({
+            url: 'InsertWorld',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-world-form').serialize(),
+            complete: function (data) {
+                var response = data.responseText;
+                if (response === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
+                } else if (response === 'error1') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
+                } else if (response === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            $("#create-world-form")[0].reset();
+            loadWorlds();
+        });
+        e.preventDefault();
+    });
+
+// functie inserten van family. dashboard.jsp
+    $('#create-family-form').submit(function (e) {
+
+        var $message = $('#create-family-message');
+        $.ajax({
+            url: 'InsertFamily',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-family-form').serialize(),
+            complete: function (data) {
+                var response = data.responseText;
+                if (response === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created</div>');
+                } else if (response === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            $("#create-family-form")[0].reset();
+            loadFamilies();
+        });
+        e.preventDefault();
+    });
+    
+    // functie inserten van subfamily. dashboard.jsp
+    $('#create-subfamily-form').submit(function (e) {
+
+        var $message = $('#create-subfamily-message');
+        $.ajax({
+            url: 'InsertSubFamily',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-subfamily-form').serialize(),
+            complete: function (data) {
+                var response = data.responseText;
+                if (response === 'succes') {
+                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>SubFamily succesfully created</div>');
+                } else if (response === 'error2') {
+                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }).done(function () {
+            $("#create-subfamily-form")[0].reset();
+            loadSubFamilies();
+        });
+        e.preventDefault();
+    });
 
     // functie voor make-admin button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
@@ -239,6 +322,21 @@ $(document).ready(function () {
         });
     });
     
+    // functie voor delete family btn in dashboard.jsp
+    $(document).on('click', '.table #delete-family-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteFamily?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadFamilies();
+        });
+    });
+    
     // functie voor delete habitat btn in dashboard.jsp
     $(document).on('click', '.table #delete-habitat-btn', function () {
 
@@ -251,6 +349,21 @@ $(document).ready(function () {
             async: true
         }).done(function () {
             loadHabitats();
+        });
+    });
+    
+    // functie voor delete subfamily btn in dashboard.jsp
+    $(document).on('click', '.table #delete-subfamily-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteSubFamily?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadSubFamilies();
         });
     });
     
@@ -304,38 +417,8 @@ $(document).ready(function () {
         } else {
             loadUsers();
         }
-    });
-
-    // functie inserten van world. dashboard.jsp
-    $('#create-world-form').submit(function (e) {
-
-        var $message = $('#create-world-message');
-        $.ajax({
-            url: 'InsertWorld',
-            type: 'POST',
-            dataType: 'text',
-            data: $('#create-world-form').serialize(),
-            complete: function (data) {
-                var response = data.responseText;
-                if (response === 'succes') {
-                    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created</div>');
-                } else if (response === 'error1') {
-                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
-                } else if (response === 'error2') {
-                    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in al fields!</div>');
-                }
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        }).done(function () {
-            $("#create-world-form")[0].reset();
-            loadWorlds();
-        });
-        e.preventDefault();
-    });
-
-});
+    });   
+ });
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------
@@ -426,7 +509,6 @@ function loadWorlds() {
             });
         }
     }).done(function () {
-      
         $('#worlds-table').html('');
     });
 };
@@ -461,7 +543,6 @@ function loadSeasons() {
             });
         }
     }).done(function () {
-        
         $('#seasons-table').html('');
     });
 };
@@ -485,19 +566,90 @@ function loadHabitats() {
             $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
-                                    <th id="admin">Action</th>\n\
+                                    <th>Action</th>\n\
                                 </tr>');
             habitats.forEach(function (habitat) {
                 $table.append('<tr>\n\
                                         <td>' + habitat.habitatName + '</td>\n\
                                         <td>' + habitat.habitatDescription + '</td>\n\
-                                        <td id="admin1"><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
             });
         }
     }).done(function () {
-        
         $('#habitats-table').html('');
+    });
+};
+
+// functie vult tabel in Family tab in dashboard.jsp
+function loadFamilies() {
+
+    var $table = $('#families-table');
+    var $content = $('.content');
+    $.ajax({
+        url: 'SelectAllFamilies',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true,
+        beforesend: function () {
+            $content.append('<div class="spinner"></div>');
+        },
+        complete: function (data) {
+            var families = data.responseJSON;
+            $table.append('<tr>\n\
+                                    <th>Name</th>\n\
+                                    <th>Description</th>\n\
+                                    <th>World</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+            families.forEach(function (family) {
+                $table.append('<tr>\n\
+                                        <td>' + family.familyName + '</td>\n\
+                                        <td>' + family.familyDescription + '</td>\n\
+                                        <td>' + family.worldId + '</td>\n\
+                                        <td><button class="no-button" id="delete-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+            });
+        }
+    }).done(function () {
+        $('#families-table').html('');
+    });
+};
+
+// functie vult tabel in SubFamily tab in dashboard.jsp
+function loadSubFamilies() {
+
+    var $table = $('#subfamilies-table');
+    var $content = $('.content');
+    $.ajax({
+        url: 'SelectAllSubFamilies',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true,
+        beforesend: function () {
+            $content.append('<div class="spinner"></div>');
+        },
+        complete: function (data) {
+            var subfamilies = data.responseJSON;
+            $table.append('<tr>\n\
+                                    <th>Name</th>\n\
+                                    <th>Description</th>\n\
+                                    <th>Family</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+            subfamilies.forEach(function (subfamily) {
+                $table.append('<tr>\n\
+                                        <td>' + subfamily.subFamilyName + '</td>\n\
+                                        <td>' + subfamily.subFamilyDescription + '</td>\n\
+                                        <td>' + subfamily.familyId + '</td>\n\
+                                        <td><button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+            });
+        }
+    }).done(function () {
+        $('#subfamilies-table').html('');
     });
 };
 //---------------------------------------------------------------------------------------------------------------------

@@ -39,7 +39,7 @@ public class DeleteSeason extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		try (PrintWriter out = response.getWriter()) {
 			
-			int id = parseInt(request.getParameter("id"));
+			int id = Integer.parseInt(request.getParameter("id"));
 			try {
 				ServSeason.deleteSeason(id);
 			} catch (SQLException ex) {

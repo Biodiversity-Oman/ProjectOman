@@ -32,7 +32,7 @@ public class DaFamily {
                 Family f = new Family();
                 f.setFamilyId(rs.getInt("family_id"));
                 f.setFamilyName(rs.getString("family_name"));
-                f.setDescription(rs.getString("subfamily_description"));
+                f.setFamilyDescription(rs.getString("family_description"));
                 f.setWorldId(rs.getInt("world_id"));
                 families.add(f);
             }
@@ -59,7 +59,7 @@ public class DaFamily {
             rs.next();
             f.setFamilyId(rs.getInt("family_id"));
             f.setFamilyName(rs.getString("family_name"));
-            f.setDescription(rs.getString("subfamily_description"));
+            f.setFamilyDescription(rs.getString("family_description"));
             f.setWorldId(rs.getInt("world_id"));
 
             conn.commit();
@@ -84,7 +84,7 @@ public class DaFamily {
             rs.next();
             f.setFamilyId(rs.getInt("family_id"));
             f.setFamilyName(rs.getString("family_name"));
-            f.setDescription(rs.getString("subfamily_description"));
+            f.setFamilyDescription(rs.getString("family_description"));
 
             conn.commit();
         } catch (Exception e) {
@@ -122,7 +122,7 @@ public class DaFamily {
             stmt = conn.prepareStatement("UPDATE omandb.family "
                     + "(family_name, family_description, world_id ) VALUES (?,?,?) WHERE family_id=" + familyId + "");
             stmt.setString(1, fam.getFamilyName());
-            stmt.setString(2, fam.getDescription());
+            stmt.setString(2, fam.getFamilyDescription());
             stmt.setInt(3, fam.getWorldId());
             stmt.executeUpdate();
             conn.commit();
@@ -141,7 +141,7 @@ public class DaFamily {
             stmt = conn.prepareStatement("INSERT INTO omandb.family "
                     + "(family_name, family_description, world_id) VALUES (?,?,?)");
             stmt.setString(1, fami.getFamilyName());
-            stmt.setString(2, fami.getDescription());
+            stmt.setString(2, fami.getFamilyDescription());
             stmt.setInt(3, fami.getWorldId());
             stmt.executeUpdate();
             conn.commit();

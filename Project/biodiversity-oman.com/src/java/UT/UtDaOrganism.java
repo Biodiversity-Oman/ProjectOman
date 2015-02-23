@@ -16,8 +16,14 @@ public class UtDaOrganism {
     
     public static void main(String[] args) throws SQLException
     {
+<<<<<<< HEAD
         // De objecten waarmee een insert van een organisme op uitgevoerd worden.
         SubFamily subfamilyNew = new SubFamily();
+=======
+        // De objecten waarmee gewerkt gaat worden.
+        // Als eerst de objecten waarmee het organisme in relatie zal staan.
+        Subfamily subfamilyNew = new Subfamily();
+>>>>>>> origin/master
         subfamilyNew.setSubfamilyId(1);
         
         Season seasonNew1 = new Season();
@@ -52,11 +58,11 @@ public class UtDaOrganism {
         eatingOrganismsNew.add(eatingOrganismNew1);
         eatingOrganismsNew.add(eatingOrganismNew2);
         
-        GeoLocation geoLocationNew1 = new GeoLocation();
+        Geolocation geoLocationNew1 = new Geolocation();
         geoLocationNew1.setGeolocationId(1);
-        GeoLocation geoLocationNew2 = new GeoLocation();
+        Geolocation geoLocationNew2 = new Geolocation();
         geoLocationNew2.setGeolocationId(2);
-        List<GeoLocation> geoLocationsNew = new java.util.ArrayList();
+        List<Geolocation> geoLocationsNew = new java.util.ArrayList();
         geoLocationsNew.add(geoLocationNew1);
         geoLocationsNew.add(geoLocationNew2);
         
@@ -137,7 +143,11 @@ public class UtDaOrganism {
             System.out.println("EatingOrganisms: ");
             for (Organism o : organism.getEatingOrganisms()) {System.out.println("- " + o.getCommonName());}
             System.out.println("GeoLocations: ");
+<<<<<<< HEAD
             for (GeoLocation g : organism.getGeolocations()) {System.out.println("- " + g.getAreaName());}
+=======
+            for (Geolocation g : organism.getGeolocations()) {System.out.println(g.getAreaName() + ", ");}
+>>>>>>> origin/master
         }
         else
         {

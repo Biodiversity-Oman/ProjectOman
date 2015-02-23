@@ -24,7 +24,7 @@ public class ServFamily {
 	public static void insertFamily(String name, String description, int worldId) throws SQLException {
             
             Family fam = new Family();
-            fam.setDescription(description);
+            fam.setFamilyDescription(description);
             fam.setFamilyName(name);
             fam.setWorldId(worldId);
             

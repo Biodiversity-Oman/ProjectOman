@@ -9,7 +9,7 @@ package BLL;
  *
  * @author Tom
  */
-public class GeoLocation {
+public class Geolocation {
 
     private Integer geolocationId;
     private String areaName;
@@ -41,11 +41,11 @@ public class GeoLocation {
         this.areaDescription = areaDescription;
     }
 
-    public String getCoordinates(){
+    public String getCoordinates() {
         return coordinates;
     }
-    
-    public void setCoordinates(String coordinates){
+
+    public void setCoordinates(String coordinates) {
         this.coordinates = coordinates;
     }
 
@@ -56,5 +56,4 @@ public class GeoLocation {
     public void setOrganisms(java.util.List<Organism> organisms) {
         this.organisms = organisms;
     }
-
 }
