@@ -48,6 +48,8 @@
             var lang = 'english';
             var markers = [];
             var area = [];
+            var areaWindow;
+            var infoWindow;
             var map;
 
             var icons = {
@@ -140,25 +142,43 @@
                         mapOptions);
 
                 google.maps.event.addListener(map, 'click', function (event) {
-
                     makeArea(event.latLng);
                 });
 
                 function makeArea(location) {
+                    var areaPath;
                     area.push(location);
 
                     if (area.length > 3) {
-                        area.push(area[0]);
-                        var areaPath = new google.maps.Polyline({
-                            path: area,
-                            geodesic: true,
+                        areaPath = new google.maps.Polygon({
+                            paths: area,
                             strokeColor: '#FF0000',
-                            strokeOpacity: 1.0,
-                            strokeWeight: 2
+                            strokeOpacity: 0.4,
+                            strokeWeight: 3,
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.35,
+                            editable: true
                         });
                         areaPath.setMap(map);
+                        google.maps.event.addListener(areaPath, 'click', showCoordinates);
+                        areaWindow = new google.maps.InfoWindow();
                         area = [];
                     }
+                }
+
+                function showCoordinates(event) {
+                    var string = '';
+
+                    var coordinates = this.getPath();
+                    for (var i = 0; i < coordinates.getLength(); i++) {
+                        var xy = coordinates.getAt(i);
+                        string += 'Coordinate ' + (i + 1) + ': ' + xy.lat() + ',' + xy.lng() + '<br>';
+                    }
+
+                    areaWindow.setContent(string);
+                    areaWindow.setPosition(event.latLng);
+
+                    areaWindow.open(map);
                 }
 
                 var styleArray = [
@@ -174,6 +194,7 @@
 
                 for (var i = 0, feature; feature = features[i]; i++) {
                     addMarker(feature);
+                    infoWindow = new google.maps.InfoWindow();
                 }
 
                 map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
@@ -202,13 +223,10 @@
                         title: feature.title
                     });
 
-                    var infowindow = new google.maps.InfoWindow({
-                        content: feature.content
-                    });
-
                     google.maps.event.addListener(marker, 'click',
                             function () {
-                                infowindow.open(map, marker);
+                                infoWindow.setContent(feature.content);
+                                infoWindow.open(map, marker);
                             });
 
                     markers.push(marker);
