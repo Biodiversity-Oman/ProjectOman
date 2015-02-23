@@ -99,6 +99,7 @@ public class DaOrganism {
             List<Organism> eatenByOrganisms = new ArrayList();
             List<Habitat> habitats = new ArrayList();
             List<Season> seasons = new ArrayList();
+            List<GeoLocation> geolocations = new ArrayList<>();
             List<Post> posts = new ArrayList();
             conn = DataSource.getConnection();
             
@@ -146,6 +147,12 @@ public class DaOrganism {
                                         "INNER JOIN season ON organism_season.season_id = season.season_id\n" +
                                         "WHERE organism_season.organism_id ="+Integer.toString(id));
             ResultSet rsSeason = stmt.executeQuery();
+            // SQL Werkt
+            stmt = conn.prepareStatement("SELECT geolocation_organism.geolocation_id, geolocation.area_name\n" +
+                                        "FROM geolocation_organism\n" +
+                                        "INNER JOIN geolocation ON geolocation_organism.geolocation_id = geolocation.geolocation_id\n" +
+                                        "WHERE geolocation_organism.organism_id ="+Integer.toString(id));
+            ResultSet rsGeolocation = stmt.executeQuery();
             
             while(rsOrganism.next()){
                 
@@ -219,6 +226,12 @@ public class DaOrganism {
                 s.setSeasonName(rsSeason.getString("season_name"));
                 seasons.add(s);
             }
+            while (rsGeolocation.next()){
+                GeoLocation g = new GeoLocation();
+                g.setGeolocationId(rsGeolocation.getInt("geolocation_id"));
+                g.setAreaName(rsGeolocation.getString("area_name"));
+                geolocations.add(g);
+            }
             
             // De List toevoegen aan de juiste properties.
             // Deze bevatten de objecten die in een Many to Many relatie staan met het organisme.
@@ -226,6 +239,7 @@ public class DaOrganism {
             organism.setEatenByOrganism(eatenByOrganisms);
             organism.setHabitat(habitats);
             organism.setSeason(seasons);
+            organism.setGeolocations(geolocations);
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -295,9 +309,9 @@ public class DaOrganism {
             conn.setAutoCommit(false);
             
             // Eerste statement: Inserten van een organisme met One To Many relaties
-            stmt = conn.prepareStatement("INSERT INTO organism (scientific_name, common_name, local_name, subfamily_id," +
-                    "organism_description, population, indigenous, cultivated, endangered, medicinal, benefits, dangerous, " +
-                    "threats, opportunities, photo, links, food_name, food_description, isvalidated, inserted_on, organism_id)\n" +
+            stmt = conn.prepareStatement("INSERT INTO organism (scientific_name, common_name, local_name, subfamily_id, organism_description," +
+                    "population, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats, opportunities, photo, links," +
+                    "food_name, food_description, isvalidated, inserted_on)\n" + 
                     "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", java.sql.Statement.RETURN_GENERATED_KEYS);
                     
             stmt.setString(1, organism.getScientificName());
@@ -341,7 +355,7 @@ public class DaOrganism {
             // volgende statements zijn voor de Many To Many relaties vast te leggen.
             // season
             if(organism.getSeason() != null){
-                stmt = conn.prepareStatement("INSERT INTO organism_season VALUES(?,?)");
+                stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
                 for (Season s : organism.getSeason())
                 {
                     stmt.setInt(1, newOrganismId);
@@ -350,7 +364,7 @@ public class DaOrganism {
                 }}
             // habitat
             if(organism.getHabitat() != null){
-                stmt = conn.prepareStatement("INSERT INTO habitat_organism VALUES(?,?)");
+                stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
                 for (Habitat h : organism.getHabitat()) 
                 {
                     stmt.setInt(1, h.getHabitatId());
@@ -359,7 +373,7 @@ public class DaOrganism {
                 }}
             // EatenBy
             if(organism.getEatenByOrganism() != null){
-                stmt = conn.prepareStatement("INSERT INTO food VALUES(?,?)");
+                stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
                 for (Organism o : organism.getEatenByOrganism()) 
                 {
                     stmt.setInt(1, newOrganismId);
@@ -376,7 +390,7 @@ public class DaOrganism {
                 }}
             // Geolocation
             if(organism.getGeolocations() != null){
-                stmt = conn.prepareStatement("INSERT INTO geolocation_organism VALUES(?,?)");
+                stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
                 for (GeoLocation g : organism.getGeolocations()) 
                 {
                     stmt.setInt(1, newOrganismId);
@@ -459,7 +473,7 @@ public class DaOrganism {
             if(organism.getSeason() != null){
                 stmt = conn.prepareStatement("DELETE FROM organism_season WHERE organism_season.organism_id="+Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
-                stmt = conn.prepareStatement("INSERT INTO organism_season VALUES(?,?)");
+                stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
                 for (Season s : organism.getSeason())
                 {
                     stmt.setInt(1, organism.getOrganismId());
@@ -470,7 +484,7 @@ public class DaOrganism {
             if(organism.getHabitat() != null){
                 stmt = conn.prepareStatement("DELETE FROM habitat_organism WHERE habitat_organism.organism_id="+Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
-                stmt = conn.prepareStatement("INSERT INTO habitat_organism VALUES(?,?)");
+                stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
                 for (Habitat h : organism.getHabitat()) 
                 {
                     stmt.setInt(1, h.getHabitatId());
@@ -479,9 +493,9 @@ public class DaOrganism {
                 }}
             // EatenBy
             if(organism.getEatenByOrganism() != null){
-                stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism="+Integer.toString(organism.getOrganismId()));
+                stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism_id="+Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
-                stmt = conn.prepareStatement("INSERT INTO food VALUES(?,?)");
+                stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
                 for (Organism o : organism.getEatenByOrganism()) 
                 {
                     stmt.setInt(1, organism.getOrganismId());
@@ -490,9 +504,9 @@ public class DaOrganism {
                 }}
             // Eating
             if(organism.getEatingOrganisms() != null){                
-                stmt = conn.prepareStatement("DELETE FROM food WHERE food.eating_organism="+Integer.toString(organism.getOrganismId()));
+                stmt = conn.prepareStatement("DELETE FROM food WHERE food.eating_organism_id="+Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
-                stmt = conn.prepareStatement("INSERT INTO food VALUES(?,?)");
+                stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
                 for (Organism o : organism.getEatingOrganisms()) 
                 {
                     stmt.setInt(1, o.getOrganismId());
@@ -503,7 +517,7 @@ public class DaOrganism {
             if(organism.getGeolocations() != null){
                 stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id="+Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
-                stmt = conn.prepareStatement("INSERT INTO geolocation_organism VALUES(?,?)");
+                stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
                 for (GeoLocation g : organism.getGeolocations()) 
                 {
                     stmt.setInt(1, organism.getOrganismId());
