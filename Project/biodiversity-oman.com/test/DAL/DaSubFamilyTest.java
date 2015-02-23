@@ -5,7 +5,7 @@
  */
 package DAL;
 
-import BLL.SubFamilyold;
+import BLL.Subfamilyold;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -45,8 +45,8 @@ public class DaSubFamilyTest {
     @Test
     public void testSelectAllSubfamily() throws Exception {
         System.out.println("selectAllSubfamily");
-        List<SubFamilyold> expResult = null;
-        List<SubFamilyold> result = DaSubFamily.selectAllSubfamily();
+        List<Subfamilyold> expResult = null;
+        List<Subfamilyold> result = DaSubFamilyold.selectAllSubfamily();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -59,8 +59,8 @@ public class DaSubFamilyTest {
     public void testSelectOneByIDSubfamily() throws Exception {
         System.out.println("selectOneByIDSubfamily");
         int id = 0;
-        SubFamilyold expResult = null;
-        SubFamilyold result = DaSubFamily.selectOneByIDSubfamily(id);
+        Subfamilyold expResult = null;
+        Subfamilyold result = DaSubFamilyold.selectOneByIDSubfamily(id);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -73,8 +73,8 @@ public class DaSubFamilyTest {
     public void testSelectAllByFamilySubfamily() throws Exception {
         System.out.println("selectAllByFamilySubfamily");
         int id = 0;
-        List<SubFamilyold> expResult = null;
-        List<SubFamilyold> result = DaSubFamily.selectAllByFamilySubfamily(id);
+        List<Subfamilyold> expResult = null;
+        List<Subfamilyold> result = DaSubFamilyold.selectAllByFamilySubfamily(id);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -86,8 +86,8 @@ public class DaSubFamilyTest {
     @Test
     public void testInsertSubfamily() throws Exception {
         System.out.println("insertSubfamily");
-        SubFamilyold subfamily = null;
-        DaSubFamily.insertSubfamily(subfamily);
+        Subfamilyold subfamily = null;
+        DaSubFamilyold.insertSubfamily(subfamily);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -99,7 +99,7 @@ public class DaSubFamilyTest {
     public void testDeleteSubfamily() throws Exception {
         System.out.println("deleteSubfamily");
         int id = 2;
-        DaSubFamily.deleteSubfamily(id);
+        DaSubFamilyold.deleteSubfamily(id);
     }
 
     /**
@@ -108,8 +108,8 @@ public class DaSubFamilyTest {
     @Test
     public void testUpdateSubfamily() throws Exception {
         System.out.println("updateSubfamily");
-        SubFamilyold subfamily = null;
-        DaSubFamily.updateSubfamily(subfamily);
+        Subfamilyold subfamily = null;
+        DaSubFamilyold.updateSubfamily(subfamily);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

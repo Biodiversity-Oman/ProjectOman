@@ -18,7 +18,7 @@ public class Organism {
 	private String commonName;
 	private String localName;
 	private String description;
-	private Subfamily subFamily;
+	private Subfamilyold subFamily;
 	private Family family;
 	private World world;
 	private List<Habitat> habitat;
@@ -42,7 +42,7 @@ public class Organism {
 	private String foodDescription;
         private java.util.Date insertedOn;
         private java.util.Date updatedOn;
-        private List<Geolocation> geolocations;
+        private List<Geolocationold> geolocations;
 
 	/**
 	 * @return the organismId
@@ -117,14 +117,14 @@ public class Organism {
 	/**
 	 * @return the subFamily
 	 */
-	public Subfamily getSubfamily() {
+	public Subfamilyold getSubfamily() {
 		return subFamily;
 	}
 
 	/**
 	 * @param subFamily the subFamily to set
 	 */
-	public void setSubfamily(Subfamily subFamily) {
+	public void setSubfamily(Subfamilyold subFamily) {
 		this.subFamily = subFamily;
 	}
 
@@ -453,14 +453,14 @@ public class Organism {
     /**
      * @return the geolocations
      */
-    public List<Geolocation> getGeolocations() {
+    public List<Geolocationold> getGeolocations() {
         return geolocations;
     }
 
     /**
      * @param geolocations the geolocations to set
      */
-    public void setGeolocations(List<Geolocation> geolocations) {
+    public void setGeolocations(List<Geolocationold> geolocations) {
         this.geolocations = geolocations;
     }
 

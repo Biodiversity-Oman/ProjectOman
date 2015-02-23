@@ -18,7 +18,7 @@ public class UtDaOrganism {
     {
         // De objecten waarmee gewerkt gaat worden.
         // Als eerst de objecten waarmee het organisme in relatie zal staan.
-        Subfamily subfamilyNew = new Subfamily();
+        Subfamilyold subfamilyNew = new Subfamilyold();
         subfamilyNew.setSubfamilyId(1);
         
         Season seasonNew1 = new Season();
@@ -53,11 +53,11 @@ public class UtDaOrganism {
         eatingOrganismsNew.add(eatenByOrganismNew1);
         eatingOrganismsNew.add(eatenByOrganismNew2);
         
-        Geolocation geoLocationNew1 = new Geolocation();
+        Geolocationold geoLocationNew1 = new Geolocationold();
         geoLocationNew1.setGeolocationId(1);
-        Geolocation geoLocationNew2 = new Geolocation();
+        Geolocationold geoLocationNew2 = new Geolocationold();
         geoLocationNew2.setGeolocationId(2);
-        List<Geolocation> geoLocationsNew = new java.util.ArrayList();
+        List<Geolocationold> geoLocationsNew = new java.util.ArrayList();
         geoLocationsNew.add(geoLocationNew1);
         geoLocationsNew.add(geoLocationNew2);
         
@@ -136,7 +136,7 @@ public class UtDaOrganism {
             System.out.println("EatingOrganisms: ");
             for (Organism o : organism.getEatingOrganisms()) {System.out.println(o.getCommonName() + ", ");}
             System.out.println("GeoLocations: ");
-            for (Geolocation g : organism.getGeolocations()) {System.out.println(g.getAreaName() + ", ");}
+            for (Geolocationold g : organism.getGeolocations()) {System.out.println(g.getAreaName() + ", ");}
         }
         else
         {
