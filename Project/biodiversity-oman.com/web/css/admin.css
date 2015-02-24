@@ -246,6 +246,21 @@ nav ul ul ul {
     z-index:1002;
     overflow: hidden;
 }
+
+.insert-box-worlds {
+    display: none;
+    position: absolute;
+    top:20%;
+    left: 12.5%;
+    right: 12.5%;
+    width: 75%;
+    height: auto;
+    padding: 16px;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    background-color: #ffffff;
+    z-index:1002;
+    overflow: hidden;
+}
 .whitebox .content {
     margin-top: 2em;
     margin-bottom: 2em;
@@ -315,14 +330,16 @@ nav ul ul ul {
     margin-bottom: 0.1em;
 }
 .tab-links li {
+    font-size: 0.8em;
     float:left;
     list-style:none;
     margin-left:0.2em;
+    margin-top: 0.2em;
 }
 .tab-links a {
     padding:9px 15px;
     display:inline-block;
-    border-radius:3px 3px 0px 0px;
+    border-radius:2px 3px 0px 0px;
     background: #DDDDDD;
     font-size:16px;
     font-weight:600;
@@ -332,13 +349,13 @@ nav ul ul ul {
     text-decoration: none;
 }
 .tab-links a:hover {
-    background: #FFC299;
+    background: #FFA366;
     color: #FFFFFF; 
     text-decoration:none;
     outline: 0;
 }
 li.active a, li.active a:hover {
-    background:	#FFA366; 
+    background:	#FF944D; 
     color: #ffffff;
     outline: 0;
     text-decoration: none;
@@ -346,7 +363,10 @@ li.active a, li.active a:hover {
 .tab-content {
     padding:15px;
     border-radius:3px;
-    box-shadow:-1px 1px 1px #FFA366;
+    border-style: solid;
+    border-color: #FFA366;
+    /*box-shadow:-1px 1px 1px #FFA366;*/
+    border-width: 1px;
     background:#fff;
     margin-top: 0.3em;
 }
