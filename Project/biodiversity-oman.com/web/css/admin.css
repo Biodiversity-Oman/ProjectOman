@@ -313,14 +313,16 @@ nav ul ul ul {
     padding: 0;
     border: none;
     background: none;
-    outline: 0;
+    outline: none;
+    button:focus {outline:0;}
 }
 .action-button {
     padding: 0;
+    font-size: 1.4em;
     border: none;
     background: none;
-    outline: 0;
-    font-size: 1.4em;
+    outline: none;
+    button:focus {outline:0;}
 }
 /*--------------------------------------------------------*/
 /* -------------- Tab Interface-------------- */
