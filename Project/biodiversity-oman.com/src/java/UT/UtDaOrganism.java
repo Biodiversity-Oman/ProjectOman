@@ -37,17 +37,17 @@ public class UtDaOrganism {
         habitatsNew.add(habitatNew2);
         
         Organism eatenByOrganismNew1 = new Organism();
-        eatenByOrganismNew1.setOrganismId(2);
+        eatenByOrganismNew1.setOrganismId(1);
         Organism eatenByOrganismNew2 = new Organism();
-        eatenByOrganismNew2.setOrganismId(3);
+        eatenByOrganismNew2.setOrganismId(2);
         List<Organism> eatenByOrganismsNew = new java.util.ArrayList<>();
         eatenByOrganismsNew.add(eatenByOrganismNew1);
         eatenByOrganismsNew.add(eatenByOrganismNew2);
         
         Organism eatingOrganismNew1 = new Organism();
-        eatingOrganismNew1.setOrganismId(4);
+        eatingOrganismNew1.setOrganismId(3);
         Organism eatingOrganismNew2 = new Organism();
-        eatingOrganismNew2.setOrganismId(5);
+        eatingOrganismNew2.setOrganismId(4);
         List<Organism> eatingOrganismsNew = new java.util.ArrayList<>();
         eatingOrganismsNew.add(eatingOrganismNew1);
         eatingOrganismsNew.add(eatingOrganismNew2);
@@ -61,8 +61,8 @@ public class UtDaOrganism {
         geoLocationsNew.add(geoLocationNew2);
         
         Organism organismNew = new Organism();
-        organismNew.setScientificName("ScientificNameInsert20000");
-        organismNew.setCommonName("CommonNameInsert20000");
+        organismNew.setScientificName("ScientificNameInsert");
+        organismNew.setCommonName("CommonNameInsert");
         organismNew.setLocalName("LocalNameInsert");
         organismNew.setSubfamily(subfamilyNew);
         organismNew.setDescription("DescriptionInsert");
@@ -165,17 +165,17 @@ public class UtDaOrganism {
         habitatsUpdate.add(habitatUpdate2);
         
         Organism eatenByOrganismUpdate1 = new Organism();
-        eatenByOrganismUpdate1.setOrganismId(4);
+        eatenByOrganismUpdate1.setOrganismId(3);
         Organism eatenByOrganismUpdate2 = new Organism();
-        eatenByOrganismUpdate2.setOrganismId(5);
+        eatenByOrganismUpdate2.setOrganismId(4);
         List<Organism> eatenByOrganismsUpdate = new java.util.ArrayList<>();
         eatenByOrganismsUpdate.add(eatenByOrganismUpdate1);
         eatenByOrganismsUpdate.add(eatenByOrganismUpdate2);
         
         Organism eatingOrganismUpdate1 = new Organism();
-        eatingOrganismUpdate1.setOrganismId(2);
+        eatingOrganismUpdate1.setOrganismId(1);
         Organism eatingOrganismUpdate2 = new Organism();
-        eatingOrganismUpdate2.setOrganismId(3);
+        eatingOrganismUpdate2.setOrganismId(2);
         List<Organism> eatingOrganismsUpdate = new java.util.ArrayList<>();
         eatingOrganismsUpdate.add(eatingOrganismUpdate1);
         eatingOrganismsUpdate.add(eatingOrganismUpdate2);
@@ -191,8 +191,8 @@ public class UtDaOrganism {
         Organism organismUpdate = new Organism();
         // Het Id wordt hier meegegeven zodat de methode weet welk organisme eht moet updaten.
         organismUpdate.setOrganismId(organismIdNew);
-        organismUpdate.setScientificName("ScientificNameUpdate20001");
-        organismUpdate.setCommonName("CommonNameUpdate20001");
+        organismUpdate.setScientificName("ScientificNameUpdate");
+        organismUpdate.setCommonName("CommonNameUpdate");
         organismUpdate.setLocalName("LocalNameUpdate");
         organismUpdate.setSubfamily(subfamilyUpdate);
         organismUpdate.setDescription("DescriptionUpdate");
@@ -260,5 +260,11 @@ public class UtDaOrganism {
             System.out.println("ErrorCode: "+ organismIdNew);
         }
         
+        DaOrganism.deleteOrganism(organismIdNew);
+        // Resultaten van de selectAll() methode worden afgeprint in de console.
+        System.out.println("-----Select All organisms (excl. new organism) -----");
+        for (Organism o : organisms) {
+            System.out.println(o.getCommonName());
+        }
     }
 }
