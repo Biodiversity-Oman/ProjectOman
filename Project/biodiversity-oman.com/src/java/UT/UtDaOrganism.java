@@ -93,14 +93,11 @@ public class UtDaOrganism {
         // Methode om het organisme in de db op te slaan.
         organismIdNew = DaOrganism.insertOrganism(organismNew);
 
-        // Methode welke een List retourneerd met alle organismes aanwezig in de databank.
-        List<Organism> organisms = DaOrganism.sellectAll();
-        
         // Resultaten van de selectAll() methode worden afgeprint in de console.
         System.out.println("-----Select All organisms-----");
-        for (Organism o : organisms) {
+        DaOrganism.sellectAll().stream().forEach((o) -> {
             System.out.println(o.getCommonName());
-        }
+        });
         
         // Details van het nieuwe organisme.
         if (organismIdNew > 0)
@@ -263,8 +260,8 @@ public class UtDaOrganism {
         DaOrganism.deleteOrganism(organismIdNew);
         // Resultaten van de selectAll() methode worden afgeprint in de console.
         System.out.println("-----Select All organisms (excl. new organism) -----");
-        for (Organism o : organisms) {
+        DaOrganism.sellectAll().stream().forEach((o) -> {
             System.out.println(o.getCommonName());
-        }
+        });
     }
 }
