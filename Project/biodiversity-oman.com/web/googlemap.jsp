@@ -38,7 +38,7 @@
                 border: 0.2em solid #ffe128;
                 border-radius: 0.4em;
                 box-shadow: 0 0.3em 0.9em rgba(0, 0, 0, 0.3);
-                background: rgba(255, 255, 255, 0.9);
+                background: rgba(255, 255, 255, 0.95);
                 padding-left: 0.7em;
                 padding-right: 0.7em;
                 padding: 0.4em;
@@ -199,7 +199,7 @@
 
                 map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
                         document.getElementById('legend'));
-                map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(
+                map.controls[google.maps.ControlPosition.TOP_CENTER].push(
                         document.getElementById('control'));
 
                 var legend = document.getElementById('legend');
@@ -266,6 +266,21 @@
                 setAllMap(map, 'http://i.imgur.com/r96PNDq.png');
             }
 
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = new google.maps.LatLng(position.coords.latitude,
+                                position.coords.longitude);
+
+                        infoWindow.open(map);
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent('Your location');
+
+                        map.setCenter(pos);
+                    });
+                }
+            }
+
             function loadScript() {
                 var script = document.createElement('script');
                 script.type = 'text/javascript';
@@ -294,6 +309,7 @@
             <input onclick="showMarkers();" type=button value="Show All">
             <input onclick="showMammals();" type="button" value="Show Mammals">
             <input onclick="showPlants();" type="button" value="Show Plants">
+            <input onclick="getLocation();" type="button" value="Show Location">
         </div>
     </body>
 </html>

@@ -60,12 +60,11 @@ public class DaGeolocationTest {
     @Test
     public void testSelectAllByOrganismGeolocation() throws Exception {
         System.out.println("selectAllByOrganismGeolocation");
-        int organismId = 0;
-        List<Geolocation> expResult = null;
-        List<Geolocation> result = DaGeolocation.selectAllByOrganismGeolocation(organismId);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int organismId = DaOrganism.sellectAll().get(0).getOrganismId();
+        List<Geolocation> results = DaGeolocation.selectAllByOrganismGeolocation(organismId);
+        for (Geolocation result : results) {
+            System.out.println("byOrganism: " + result.getAreaName());
+        }
     }
 
     /**
@@ -84,12 +83,12 @@ public class DaGeolocationTest {
     /**
      * Test of deleteGeolocation method, of class DaGeolocation.
      */
-    @Test
-    public void testDeleteGeolocation() throws Exception {
-        System.out.println("deleteGeolocation");
-        int id = DaGeolocation.selectAllGeolocation().get(0).getGeolocationId();
-        DaGeolocation.deleteGeolocation(id);
-    }
+//    @Test
+//    public void testDeleteGeolocation() throws Exception {
+//        System.out.println("deleteGeolocation");
+//        int id = DaGeolocation.selectAllGeolocation().get(0).getGeolocationId();
+//        DaGeolocation.deleteGeolocation(id);
+//    }
 
     /**
      * Test of updateGeolocation method, of class DaGeolocation.
