@@ -27,8 +27,10 @@ h2 {
 .loginbox {
     margin-left: auto;
     margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     height: 50%;
-    width: 70%;
+    width: 30%;
     background-color: #CCCCCC;
     padding: 1em;
     margin-top: 10%;
@@ -42,12 +44,12 @@ h2 {
 }
 .loginbox form {
     margin-top: 2.2em;
-    margin-left: auto;
+    margin-left: 5em;
     margin-right: auto;
     width: 35%;
 }
 .loginfield {
-    width: 100%;
+    width: 20em;
     height: 2.2em;
     margin-top: 0.8em;
     margin-bottom: 0.8em;
@@ -56,10 +58,10 @@ h2 {
     color: black;
 }
 .button {
-    min-width: 12%;
+    //min-width: 15%;
     height: 2.6em;
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 1em;
     border-radius: 0.3em 0.3em 0.3em 0.3em;
     border: 0px solid #000000;
     margin-bottom: 1em;
