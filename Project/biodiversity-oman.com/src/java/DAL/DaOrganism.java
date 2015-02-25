@@ -27,16 +27,40 @@ public class DaOrganism {
     
     private static PreparedStatement stmt;
     private static Connection conn;
-    
-    /*  Deze methode selecteert de volgende properties van alle organisme:
+
+    public static boolean checkOrganismExist(String scientificname)
+    {
+        try {conn = DataSource.getConnection();}
+        catch (SQLException e)  {System.out.println(e.getMessage());}
+        
+        try 
+        {
+            stmt = conn.prepareStatement("SELECT 1 FROM organism \n" +
+                        "WHERE organism.scientific_name = ? \n");
+            stmt.setString(1, scientificname);
+
+            ResultSet rsExists = stmt.executeQuery();
+            if(rsExists.next())
+            {
+                return true;
+            }
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+    }
+    public static List<Organism> sellectAll ()
+    {
+            /*  Deze methode selecteert de volgende properties van alle organisme:
         organism_id, common_name, subfamily_id, family_id en world_id.
         Deze methode is bedoelt om een snel overzicht te bieden van alle organisme in de databank.
         De reden waarom er ook foreign keys en names worden opgevraagd is zodat we de lijst in secties kunnen weergeven.
         je kan ook voor elk van deze entiteiten een aparte methode oproepen in de view maar dan moet je 3x een querie verzenden
         om hetzelfde resultaat te bekomen. Met deze select heb je alle informatie om alle organismen weer 
         te geven onderverdeeld in wereld, family en subfamily.*/
-    public static List<Organism> sellectAll ()
-    {
+        
         List<Organism> organisms = new ArrayList<>();
         
         try {

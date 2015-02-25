@@ -92,7 +92,10 @@ public class UtDaOrganism {
         
         // Methode om het organisme in de db op te slaan.
         organismIdNew = DaOrganism.insertOrganism(organismNew);
-
+        
+        if (DaOrganism.checkOrganismExist(organismNew.getScientificName())) {System.out.println("---- organism exists: true ----");}
+        else    {System.out.println("---- organism exists: false ----");}
+        
         // Resultaten van de selectAll() methode worden afgeprint in de console.
         System.out.println("-----Select All organisms-----");
         DaOrganism.sellectAll().stream().forEach((o) -> {
@@ -263,5 +266,8 @@ public class UtDaOrganism {
         DaOrganism.sellectAll().stream().forEach((o) -> {
             System.out.println(o.getCommonName());
         });
+        
+        if (DaOrganism.checkOrganismExist(organismUpdate.getScientificName())) {System.out.println("---- organism exists: true ----");}
+        else    {System.out.println("---- organism exists: false ----");}
     }
 }
