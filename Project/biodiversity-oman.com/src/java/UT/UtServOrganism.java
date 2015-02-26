@@ -6,7 +6,6 @@
 package UT;
 
 import Service.ServOrganism;
-import java.sql.SQLException;
 
 /**
  *
@@ -14,7 +13,7 @@ import java.sql.SQLException;
  */
 public class UtServOrganism {
     
-    public static void main(String[] args) throws SQLException
+    public static void main(String[] args)
     {
         int[] habitatid = { 1, 2 };
         int[] seasonid = { 1, 2 };
