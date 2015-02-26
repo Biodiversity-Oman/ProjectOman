@@ -139,25 +139,6 @@ display: none;
 .logo {
 	width: 15.2542%;
 }
-/* Navigation styles*/
-.topNav {
-	clear: none;
-	width: 49.1525%;
-    margin-left: 35.5932%;
-}
-.topNavUl {
-	position: static;
-	width: 100%;
-	margin-left: 0;
-}
-.topNavLI {
-	clear: none;
-	width: 31.0344%;
-	height: auto;
-	position: static;
-	margin-left: 3.4482%;
-}
-
 /* Main heading styles*/
 .mainHeading {
 }
@@ -237,24 +218,6 @@ margin-left: 0;
 }
 .logo {
 	width: 15.2542%;
-}
-/* Navigation styles*/
-.topNav {
-	width: 23.7288%;
-	clear: none;
-	margin-left: 52.5423%;
-}
-.topNavUl {
-	width: 100%;
-	margin-left: 0;
-	position: static;
-}
-.topNavLI {
-	width: 28.5714%;
-	margin-left: 7.1428%;
-	clear: none;
-	height: auto;
-	position: static;
 }
 /* Main heading styles*/
 
