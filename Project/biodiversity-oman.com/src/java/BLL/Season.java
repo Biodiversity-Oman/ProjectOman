@@ -11,10 +11,19 @@ package BLL;
  */
 public class Season {
 	
-	private int seasonId;
-	private String seasonName;
-	private String seasonDescription;
-        private java.util.List<Organism> organisms;
+    private int seasonId;
+    private String seasonName;
+    private String seasonDescription;
+    private java.util.List<Organism> organisms;
+
+    // Algemene constructor
+    public Season() {
+    }
+    
+    // Relatie constructor
+    public Season(int seasonId) {
+        this.seasonId = seasonId;
+    }
 
     /**
      * @return the seasonId

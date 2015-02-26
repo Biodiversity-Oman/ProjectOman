@@ -11,58 +11,67 @@ package BLL;
  */
 public class World {
 	
-	private int worldId;
-	private String worldName;
-	private String description;
-	private java.util.List<Download> downloads;
+    private int worldId;
+    private String worldName;
+    private String description;
+    private java.util.List<Download> downloads;
 
-	@Override
-	public String toString() {
-		return  worldId +  worldName + description  + downloads;
-	}
+    // Algemene constructor    
+    public World() {
+    }
 
-	
-	/**
-	 * @return the worldId
-	 */
-	public int getWorldId() {
-		return worldId;
-	}
+    // Relatie Constructor
+    public World(int worldId) {
+        this.worldId = worldId;
+    }
 
-	/**
-	 * @param worldId the worldId to set
-	 */
-	public void setWorldId(int worldId) {
-		this.worldId = worldId;
-	}
+    @Override
+    public String toString() {
+            return  worldId +  worldName + description  + downloads;
+    }
 
-	/**
-	 * @return the name
-	 */
-	public String getWorldName() {
-		return worldName;
-	}
 
-	/**
-	 * @param worldName the name to set
-	 */
-	public void setWorldName(String worldName) {
-		this.worldName = worldName;
-	}
+    /**
+     * @return the worldId
+     */
+    public int getWorldId() {
+            return worldId;
+    }
 
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
+    /**
+     * @param worldId the worldId to set
+     */
+    public void setWorldId(int worldId) {
+            this.worldId = worldId;
+    }
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    /**
+     * @return the name
+     */
+    public String getWorldName() {
+            return worldName;
+    }
+
+    /**
+     * @param worldName the name to set
+     */
+    public void setWorldName(String worldName) {
+            this.worldName = worldName;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+            return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+            this.description = description;
+    }
 
     /**
      * @return the downloads

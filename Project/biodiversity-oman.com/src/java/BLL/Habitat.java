@@ -11,38 +11,47 @@ package BLL;
  */
 public class Habitat {
 	
-        private int habitatId;
-	private String habitatName;
-	private String habitatDescription;
-        private java.util.List<Organism> organisms;
+    private int habitatId;
+    private String habitatName;
+    private String habitatDescription;
+    private java.util.List<Organism> organisms;
 
-	/**
-	 * @return the name
-	 */
-	public String getHabitatName() {
-		return habitatName;
-	}
+    // Algemene constructor
+    public Habitat() {
+    }
 
-	/**
-	 * @param habitatName the name to set
-	 */
-	public void setHabitatName(String habitatName) {
-		this.habitatName = habitatName;
-	}
+    // Relatie constructor
+    public Habitat(int habitatId) {
+        this.habitatId = habitatId;
+    }
 
-	/**
-	 * @return the habitatDescription
-	 */
-	public String getHabitatDescription() {
-		return habitatDescription;
-	}
+    /**
+     * @return the name
+     */
+    public String getHabitatName() {
+            return habitatName;
+    }
 
-	/**
-	 * @param habitatDescription the description to set
-	 */
-	public void setHabitatDescription(String description) {
-		this.habitatDescription = description;
-	}
+    /**
+     * @param habitatName the name to set
+     */
+    public void setHabitatName(String habitatName) {
+            this.habitatName = habitatName;
+    }
+
+    /**
+     * @return the habitatDescription
+     */
+    public String getHabitatDescription() {
+            return habitatDescription;
+    }
+
+    /**
+     * @param habitatDescription the description to set
+     */
+    public void setHabitatDescription(String description) {
+            this.habitatDescription = description;
+    }
 
     /**
      * @return the habitatId

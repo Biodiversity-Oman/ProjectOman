@@ -35,8 +35,8 @@ public class DaOrganism {
         
         try 
         {
-            stmt = conn.prepareStatement("SELECT 1 FROM organism \n" +
-                        "WHERE organism.scientific_name = ? \n");
+            stmt = conn.prepareStatement("SELECT 1 FROM organism\n" +
+                        "WHERE organism.scientific_name = ?");
             stmt.setString(1, scientificname);
 
             ResultSet rsExists = stmt.executeQuery();

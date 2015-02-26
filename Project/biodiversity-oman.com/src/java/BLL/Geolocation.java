@@ -17,6 +17,15 @@ public class Geolocation {
     private String coordinates;
     private java.util.List<Organism> organisms;
 
+    // Algemene constructor
+    public Geolocation() {
+    }
+
+    // Relatie constructor
+    public Geolocation(Integer geolocationId) {
+        this.geolocationId = geolocationId;
+    }
+
     public Integer getGeolocationId() {
         return geolocationId;
     }

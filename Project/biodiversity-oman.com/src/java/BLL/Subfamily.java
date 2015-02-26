@@ -16,6 +16,15 @@ public class Subfamily {
     private String subFamilyName;
     private String subFamilyDescription;
 
+    // Algemene constructor
+    public Subfamily() {
+    }
+
+    // Relatie constructor
+    public Subfamily(int subFamilyId) {
+        this.subFamilyId = subFamilyId;
+    }
+
     /**
      * @return the subFamilyId
      */

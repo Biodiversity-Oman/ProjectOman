@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package BLL;
-
 import java.util.List;
 
 /**
@@ -43,7 +42,126 @@ public class Organism {
         private java.util.Date insertedOn;
         private java.util.Date updatedOn;
         private List<Geolocation> geolocations;
+        
+        // Algemene constructor
+        public Organism() {
+        }
+        
+        // Constructor voor relaties vast te leggen (eatenby/eating)
+        public Organism(int organismId) {
+            this.organismId = organismId;
+        }
 
+        // Insert constructor
+        public Organism(String scientificName, String commonName, String localName, String description, 
+                Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, 
+                List<Season> season, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, 
+                String benefits, String dangerous, String threats, String opportunities, Byte photo, String links, 
+                List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, Boolean validated, String foodName, 
+                String foodDescription, List<Geolocation> geolocations) 
+        {
+            this.scientificName = scientificName;
+            this.commonName = commonName;
+            this.localName = localName;
+            this.description = description;
+            this.subFamily = subFamily;
+            this.family = family;
+            this.world = world;
+            this.habitat = habitat;
+            this.population = population;
+            this.season = season;
+            this.indigenous = indigenous;
+            this.cultivated = cultivated;
+            this.endangered = endangered;
+            this.medicinal = medicinal;
+            this.benefits = benefits;
+            this.dangerous = dangerous;
+            this.threats = threats;
+            this.opportunities = opportunities;
+            this.photo = photo;
+            this.links = links;
+            this.eatenByOrganism = eatenByOrganism;
+            this.eatingOrganisms = eatingOrganisms;
+            this.validated = validated;
+            this.foodName = foodName;
+            this.foodDescription = foodDescription;
+            this.geolocations = geolocations;
+        }
+
+        // Update constructor
+        public Organism(int organismId, String scientificName, String commonName, String localName, String description,
+                Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, List<Season> season,
+                Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous,
+                String threats, String opportunities, Byte photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms,
+                Boolean validated, String foodName, String foodDescription, List<Geolocation> geolocations) 
+        {
+            this.organismId = organismId;
+            this.scientificName = scientificName;
+            this.commonName = commonName;
+            this.localName = localName;
+            this.description = description;
+            this.subFamily = subFamily;
+            this.family = family;
+            this.world = world;
+            this.habitat = habitat;
+            this.population = population;
+            this.season = season;
+            this.indigenous = indigenous;
+            this.cultivated = cultivated;
+            this.endangered = endangered;
+            this.medicinal = medicinal;
+            this.benefits = benefits;
+            this.dangerous = dangerous;
+            this.threats = threats;
+            this.opportunities = opportunities;
+            this.photo = photo;
+            this.links = links;
+            this.eatenByOrganism = eatenByOrganism;
+            this.eatingOrganisms = eatingOrganisms;
+            this.validated = validated;
+            this.foodName = foodName;
+            this.foodDescription = foodDescription;
+            this.geolocations = geolocations;
+        }
+
+        // Select one detailed (Voor op de beozkers site, m.a.w. bevat het geen insertedOn/updatedOn params)
+        public Organism(int organismId, String scientificName, String commonName, String localName, String description, 
+                Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, List<Season> season, 
+                Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous, 
+                String threats, String opportunities, Byte photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, 
+                List<Post> post, Boolean validated, String foodName, String foodDescription, List<Geolocation> geolocations) 
+        {
+            this.organismId = organismId;
+            this.scientificName = scientificName;
+            this.commonName = commonName;
+            this.localName = localName;
+            this.description = description;
+            this.subFamily = subFamily;
+            this.family = family;
+            this.world = world;
+            this.habitat = habitat;
+            this.population = population;
+            this.season = season;
+            this.indigenous = indigenous;
+            this.cultivated = cultivated;
+            this.endangered = endangered;
+            this.medicinal = medicinal;
+            this.benefits = benefits;
+            this.dangerous = dangerous;
+            this.threats = threats;
+            this.opportunities = opportunities;
+            this.photo = photo;
+            this.links = links;
+            this.eatenByOrganism = eatenByOrganism;
+            this.eatingOrganisms = eatingOrganisms;
+            this.post = post;
+            this.validated = validated;
+            this.foodName = foodName;
+            this.foodDescription = foodDescription;
+            this.geolocations = geolocations;
+        }
+
+        
 	/**
 	 * @return the organismId
 	 */

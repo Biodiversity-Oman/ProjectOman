@@ -11,38 +11,47 @@ package BLL;
  */
 public class Family {
 	
-	private int familyId;
-	private String familyName;
-	private String familyDescription;
-        private int worldId;
+    private int familyId;
+    private String familyName;
+    private String familyDescription;
+    private int worldId;
 
-	/**
-	 * @return the familyId
-	 */
-	public int getFamilyId() {
-		return familyId;
-	}
+    // Algemene constructor
+    public Family() {
+    }
 
-	/**
-	 * @param familyId the familyId to set
-	 */
-	public void setFamilyId(int familyId) {
-		this.familyId = familyId;
-	}
+    // Relatie constructor
+    public Family(int familyId) {
+        this.familyId = familyId;
+    }
 
-	/**
-	 * @return the familyName
-	 */
-	public String getFamilyName() {
-		return familyName;
-	}
+    /**
+     * @return the familyId
+     */
+    public int getFamilyId() {
+            return familyId;
+    }
 
-	/**
-	 * @param familyName the familyName to set
-	 */
-	public void setFamilyName(String familyName) {
-		this.familyName = familyName;
-	}
+    /**
+     * @param familyId the familyId to set
+     */
+    public void setFamilyId(int familyId) {
+            this.familyId = familyId;
+    }
+
+    /**
+     * @return the familyName
+     */
+    public String getFamilyName() {
+            return familyName;
+    }
+
+    /**
+     * @param familyName the familyName to set
+     */
+    public void setFamilyName(String familyName) {
+            this.familyName = familyName;
+    }
         
 
     /**
