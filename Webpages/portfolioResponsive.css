@@ -47,25 +47,6 @@ img, object, embed, video {
 .logo {
 	width: 100%;
 }
-/* Navigation Bar styles */
-.topNav {
-	width: 100%;
-	margin-left: 0;
-	clear: both;
-}
-.topNavUl {
-	position: static;
-	width: 100%;
-	margin-left: 0;
-}
-.topNavLI {
-	width: 32.2033%;
-	margin-left: 1.6949%;
-	clear: none;
-	height: auto;
-	position: static;
-}
-
 /* Main heading styles*/
 
 .mainHeading {
