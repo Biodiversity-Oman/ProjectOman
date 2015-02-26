@@ -217,7 +217,14 @@ public class UtDaOrganism {
         organismUpdate.setEatingOrganisms(eatingOrganismsUpdate);
         organismUpdate.setGeolocations(geoLocationsUpdate);
         
+        if (DaOrganism.checkOrganismExist("CommonNameUpdate", organismIdNew)) {System.out.println("---- organism exists: true ----");}
+        else    {System.out.println("---- organism exists: false ----");}
+        
         DaOrganism.updateOrganism(organismUpdate);
+        
+        if (DaOrganism.checkOrganismExist("CommonNameUpdate", organismIdNew)) {System.out.println("---- organism exists: true ----");}
+        else    {System.out.println("---- organism exists: false ----");}
+                
         // Details van de upgedated organism weergeven.
         if (organismIdNew > 0)
         {

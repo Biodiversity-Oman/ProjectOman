@@ -28,9 +28,37 @@ public class DaOrganism {
     private static PreparedStatement stmt;
     private static Connection conn;
 
-    public static boolean checkOrganismExist(String scientificname)
+    // Nagaan voor doubles op alle records buiten 1. (update)
+    public static boolean checkOrganismExist(String scientificname, Integer id)
     {
         try {conn = DataSource.getConnection();}
+        catch (SQLException e)  {System.out.println(e.getMessage());}
+        
+        try 
+        {
+            stmt = conn.prepareStatement("SELECT 1 FROM organism\n" +
+                        "WHERE organism.scientific_name = ?\n" +
+                        "AND organism.organism_id not in (?)");
+            stmt.setString(1, scientificname);
+            stmt.setInt(2, id);
+
+            ResultSet rsExists = stmt.executeQuery();
+            if(rsExists.next())
+            {
+                return true;
+            }
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+    }
+    
+    // Nagaan voor doubles op alle records. (insert)
+    public static boolean checkOrganismExist(String scientificname)
+    {
+                try {conn = DataSource.getConnection();}
         catch (SQLException e)  {System.out.println(e.getMessage());}
         
         try 
@@ -51,6 +79,7 @@ public class DaOrganism {
         }
         return false;
     }
+    
     public static List<Organism> sellectAll ()
     {
             /*  Deze methode selecteert de volgende properties van alle organisme:
@@ -323,7 +352,7 @@ public class DaOrganism {
     public static int insertOrganism(Organism organism)
     {
         // Return variabel. Hier wordt het id van de geïnserted organism in opgeslaan.
-        int newOrganismId = 0;
+        int result = 0;
         
         // DAL code
         try 
@@ -367,12 +396,12 @@ public class DaOrganism {
             stmt.setDate(20, new java.sql.Date(cal.getTimeInMillis()));
             
             // Resultaat in de database opvragen en controleren.
-            if (stmt.executeUpdate() == 0)  {throw new SQLException("Creating organism failed, no rows affected.");}
+            if ((result = stmt.executeUpdate()) == 0)  {throw new SQLException("Creating organism failed, no rows affected.");}
             
             // Het id dat gegenereerd werd voor het nieuwe organisme wordt opgehaald
             try(ResultSet generatedKeys = stmt.getGeneratedKeys();)
             {
-            if (generatedKeys.next())   {newOrganismId = (int) generatedKeys.getLong(1);}
+            if (generatedKeys.next())   {result = (int) generatedKeys.getLong(1);}
             else {throw new SQLException("Creating organism failed, no ID obtained.");}
             }
                     
@@ -382,7 +411,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
                 for (Season s : organism.getSeason())
                 {
-                    stmt.setInt(1, newOrganismId);
+                    stmt.setInt(1, result);
                     stmt.setInt(2, s.getSeasonId());
                     stmt.executeUpdate();
                 }}
@@ -392,7 +421,7 @@ public class DaOrganism {
                 for (Habitat h : organism.getHabitat()) 
                 {
                     stmt.setInt(1, h.getHabitatId());
-                    stmt.setInt(2, newOrganismId);
+                    stmt.setInt(2, result);
                     stmt.executeUpdate();
                 }}
             // EatenBy
@@ -400,7 +429,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
                 for (Organism o : organism.getEatenByOrganism()) 
                 {
-                    stmt.setInt(1, newOrganismId);
+                    stmt.setInt(1, result);
                     stmt.setInt(2, o.getOrganismId());
                     stmt.executeUpdate();
                 }}
@@ -409,7 +438,7 @@ public class DaOrganism {
                 for (Organism o : organism.getEatingOrganisms()) 
                 {
                     stmt.setInt(1, o.getOrganismId());
-                    stmt.setInt(2, newOrganismId);
+                    stmt.setInt(2, result);
                     stmt.executeUpdate();
                 }}
             // Geolocation
@@ -417,7 +446,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
                 for (Geolocation g : organism.getGeolocations()) 
                 {
-                    stmt.setInt(1, newOrganismId);
+                    stmt.setInt(1, result);
                     stmt.setInt(2, g.getGeolocationId());
                     stmt.executeUpdate();
                 }}
@@ -428,7 +457,7 @@ public class DaOrganism {
         catch(SQLException ex)
         {
             System.out.println(ex.getMessage());
-            newOrganismId = -1;
+            result = -1;
             try{conn.rollback();}
             catch (SQLException ex2){ System.out.println(ex.getMessage()); }
             
@@ -438,11 +467,12 @@ public class DaOrganism {
             try{conn.setAutoCommit(true);}
             catch (SQLException ex){ System.out.println(ex.getMessage()); }
         }
-        return newOrganismId;
+        return result;
     }
     
-    public static void deleteOrganism(int id)
+    public static int deleteOrganism(int id)
     {
+        int result;
         try
         {
             conn = DataSource.getConnection();
@@ -467,26 +497,31 @@ public class DaOrganism {
             
             stmt = conn.prepareStatement("DELETE FROM organism WHERE organism.organism_id=?");
             stmt.setInt(1, id);
-            stmt.executeUpdate();
+            if ((result = stmt.executeUpdate()) == 0) { throw new SQLException("Failed to delete organism with id=" + Integer.toString(id));}
         }
         catch (SQLException ex)
         {
+            System.out.println("---Delete failed on organism id="+Integer.toString(id)+"---");
+            result = -1;
             System.out.println(ex.getMessage());
         }
         finally
         {
-            try{
-            conn.setAutoCommit(true);
+            try
+            {
+                conn.setAutoCommit(true);
             }
             catch(SQLException e)
             {
                 System.out.println(e.getMessage());
             }
         }
+        return result;
     }
     
-    public static void updateOrganism(Organism organism)
+    public static int updateOrganism(Organism organism)
     {
+        int result;
         try 
         {
             // Setup variabelen
@@ -529,7 +564,7 @@ public class DaOrganism {
             stmt.setDate(20, new java.sql.Date(cal.getTimeInMillis()));
             
             // Resultaat in de database opvragen en controleren.
-            if (stmt.executeUpdate() == 0)  {throw new SQLException("Creating organism failed, no rows affected.");}
+            if ((result = stmt.executeUpdate()) == 0)  {throw new SQLException("Update failed on organism id=" +  Integer.toString(organism.getOrganismId()));}
                     
             // volgende statements zijn voor de Many To Many relaties up te daten.
             // season
@@ -593,11 +628,13 @@ public class DaOrganism {
         
         catch(SQLException ex)
         {
+            System.out.println("---Update failed on organism id="+Integer.toString(organism.getOrganismId())+"---");
             System.out.println(ex.getMessage());
+            result = -1;
             try {
                 conn.rollback();
             } catch (SQLException ex2) {
-                Logger.getLogger(DaOrganism.class.getName()).log(Level.SEVERE, null, ex2);
+                System.out.println(ex2.getMessage());
             }
         }
         finally
@@ -605,8 +642,9 @@ public class DaOrganism {
             try {
                 conn.setAutoCommit(true);
             } catch (SQLException ex) {
-                Logger.getLogger(DaOrganism.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
             }
         }
+        return result;
     }
 }
