@@ -1,21 +1,4 @@
 /*
-/*
- * HTML5 ✰ Boilerplate v3.0.2
- *
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- *
- * Detailed information about this CSS: h5bp.com/css
- * 
- * Dreamweaver modifications:
- * 1. Commented out selection highlight
- * 2. Removed media queries section (we add our own in a separate file)
- *
- * ==|== normalize ==========================================================
- */
-
-
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -46,7 +29,6 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
 /* 
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate
- * Also: hot pink! (or customize the background color to match your design)
  */
 
 
@@ -217,11 +199,6 @@ td { vertical-align: top; }
    ========================================================================== */
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
-
-
-/* ==|== primary styles =====================================================
-   Author:
-   ========================================================================== */
 
 
 
