@@ -71,7 +71,7 @@ a:hover {
 	text-align: center;
 	color: rgba(255,255,255,1.00);
 	font-size: 20px;
-	margin-top: 1%;
+	margin-top: 5%;
 }
 .sectionText {
 	text-align: center;
@@ -85,8 +85,7 @@ a:hover {
 
 /* Gallery styles */
 .gallery{
-    padding-top:20px;
-    padding-bottom:30px;
+    padding-bottom:5px;
 }
 .paraContent{
 	font-size: 14px;
