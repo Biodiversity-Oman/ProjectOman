@@ -41,22 +41,12 @@ a:hover {
 /* Header & HERO styles*/
 .logo {
 	text-align: center;
-    padding-top:20px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+	width:20%;
+    padding-top:2%;
 }
 .heroHeader {
-	height: 450px;
+	height: 25%;
 	background-color: rgba(208,207,207,1.00);
-}
-/* Navigation styles*/
-.topNavUl {
-	position: static;
-    padding-top:20px;
-    padding-bottom: 20px;
-}
-.topNavLI {
-	text-align: center;
 }
 /* Typography styles*/
 .textStyle {
@@ -75,7 +65,7 @@ a:hover {
 .mainHeading {
 	color: rgba(255,255,255,1.00);
 	text-align: center;
-	margin-top: 10%;
+	margin-top: 1%;
 	font-size: 48px;
 }
 .mainTagline {
