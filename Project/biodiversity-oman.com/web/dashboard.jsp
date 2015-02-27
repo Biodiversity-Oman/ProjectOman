@@ -13,18 +13,18 @@
     <script>
     </script>
     <body onload="loadWorlds();
-<<<<<<< HEAD
-            loadSeasons();
+            << << << < HEAD
+                    loadSeasons();
             loadHabitats();
             loadFamilies();
             loadSubFamilies()">;">
-=======
-	    loadSeasons();
-	    loadHabitats();
-	    loadFamilies();
-	    loadSubFamilies();
-	    loadDdlWorlds();">
->>>>>>> origin/master
+        =======
+        loadSeasons();
+        loadHabitats();
+        loadFamilies();
+        loadSubFamilies();
+        loadDdlWorlds();">
+        >>>>>>> origin/master
         <div class="wrapper">
             <div class="tabs">
                 <ul class="tab-links">
@@ -84,17 +84,11 @@
                                             <!-- hier 
                                             
                                             boolean indigenous
-                                            cultivated
-                                            endagered
-                                            medicinal                                       
+                                                     cultivated
+                                                        endagered
+                                                            medicinal                                       
 
                                             -->
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
-                                                <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" type="text" name="organism-benefits"></textarea>
-                                                </div>
-                                            </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
                                                 <div class="col-sm-4">
