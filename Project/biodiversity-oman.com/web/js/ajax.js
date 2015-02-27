@@ -605,6 +605,7 @@ function loadFamilies() {
 	},
 	complete: function (data) {
 	    var families = data.responseJSON;
+	    console.log(families);
 	    $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\
@@ -615,7 +616,7 @@ function loadFamilies() {
 		$table.append('<tr>\n\
                                         <td>' + family.familyName + '</td>\n\
                                         <td>' + family.familyDescription + '</td>\n\
-                                        <td>' + family.worldId + '</td>\n\
+                                        <td>' + family.familyWorldName + '</td>\n\
                                         <td><button class="no-button" id="delete-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
 	    });
@@ -663,34 +664,6 @@ function loadSubFamilies() {
 }
 ;
 
-//function loadDdlWorlds() {
-//    var $ddl = $('#world-ddl');
-//    var $content = $('.content');
-//    $.ajax({
-//	url: 'SelectAllWorlds',
-//	type: 'GET',
-//	dataType: 'json',
-//	cache: false,
-//	async: true,
-//	beforesend: function () {
-//	    $content.append('<div class="spinner"></div>');
-//	},
-//	complete: function (data) {
-//	    var worlds = data.responseJSON;
-////		$table.append('<tr>\n\
-////                                    <th>Name</th>\n\
-////                                    <th>Description</th>\n\\n\
-////                                    <th>Action</th>\n\
-////                                </tr>');
-//	    worlds.forEach(function (world) {
-//		$ddl.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
-//	    });
-//	}
-//    }).done(function () {
-//	//$('#worlds-table').html('');
-//    });
-//}
-;
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------

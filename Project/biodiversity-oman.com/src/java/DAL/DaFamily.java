@@ -25,7 +25,9 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.family");
+            stmt = conn.prepareStatement("SELECT family_id, family_name, family_description, world_name \n" +
+				         "FROM family \n " +
+				         "LEFT JOIN world ON family.world_id = world.world_id");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -33,7 +35,7 @@ public class DaFamily {
                 f.setFamilyId(rs.getInt("family_id"));
                 f.setFamilyName(rs.getString("family_name"));
                 f.setFamilyDescription(rs.getString("family_description"));
-                f.setWorldId(rs.getInt("world_id"));
+		f.setFamilyWorldName(rs.getString("world_name"));
                 families.add(f);
             }
 

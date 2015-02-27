@@ -10,77 +10,90 @@ package BLL;
  * @author lennyasus
  */
 public class Family {
-	
-    private int familyId;
-    private String familyName;
-    private String familyDescription;
-    private int worldId;
 
-    // Algemene constructor
-    public Family() {
-    }
+	private int familyId;
+	private String familyName;
+	private String familyDescription;
+	private int worldId;
+	private String familyWorldName;
 
-    // Relatie constructor
-    public Family(int familyId) {
-        this.familyId = familyId;
-    }
+	// Algemene constructor
+	public Family() {
+	}
 
-    /**
-     * @return the familyId
-     */
-    public int getFamilyId() {
-            return familyId;
-    }
+	// Relatie constructor
+	public Family(int familyId) {
+		this.familyId = familyId;
+	}
 
-    /**
-     * @param familyId the familyId to set
-     */
-    public void setFamilyId(int familyId) {
-            this.familyId = familyId;
-    }
+	/**
+	 * @return the familyId
+	 */
+	public int getFamilyId() {
+		return familyId;
+	}
 
-    /**
-     * @return the familyName
-     */
-    public String getFamilyName() {
-            return familyName;
-    }
+	/**
+	 * @param familyId the familyId to set
+	 */
+	public void setFamilyId(int familyId) {
+		this.familyId = familyId;
+	}
 
-    /**
-     * @param familyName the familyName to set
-     */
-    public void setFamilyName(String familyName) {
-            this.familyName = familyName;
-    }
-        
+	/**
+	 * @return the familyName
+	 */
+	public String getFamilyName() {
+		return familyName;
+	}
 
-    /**
-     * @return the familyDescription
-     */
-    public String getFamilyDescription() {
-        return familyDescription;
-    }
+	/**
+	 * @param familyName the familyName to set
+	 */
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
+	}
 
-    /**
-     * @param familyDescription the familyDescription to set
-     */
-    public void setFamilyDescription(String familyDescription) {
-        this.familyDescription = familyDescription;
-    }
+	/**
+	 * @return the familyDescription
+	 */
+	public String getFamilyDescription() {
+		return familyDescription;
+	}
 
-    /**
-     * @return the worldId
-     */
-    public int getWorldId() {
-        return worldId;
-    }
+	/**
+	 * @param familyDescription the familyDescription to set
+	 */
+	public void setFamilyDescription(String familyDescription) {
+		this.familyDescription = familyDescription;
+	}
 
-    /**
-     * @param worldId the worldId to set
-     */
-    public void setWorldId(int worldId) {
-        this.worldId = worldId;
-    }
+	/**
+	 * @return the worldId
+	 */
+	public int getWorldId() {
+		return worldId;
+	}
 
+	/**
+	 * @param worldId the worldId to set
+	 */
+	public void setWorldId(int worldId) {
+		this.worldId = worldId;
+	}
+
+	/**
+	 * @return the familyWorldName
+	 */
+	public String getFamilyWorldName() {
+		return familyWorldName;
+	}
+
+	/**
+	 * @param familyWorldName the familyWorldName to set
+	 */
+	public void setFamilyWorldName(String familyWorldName) {
+		this.familyWorldName = familyWorldName;
+	}
 
 }
