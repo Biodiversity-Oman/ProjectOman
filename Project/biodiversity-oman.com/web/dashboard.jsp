@@ -13,10 +13,18 @@
     <script>
     </script>
     <body onload="loadWorlds();
+<<<<<<< HEAD
             loadSeasons();
             loadHabitats();
             loadFamilies();
             loadSubFamilies()">;">
+=======
+	    loadSeasons();
+	    loadHabitats();
+	    loadFamilies();
+	    loadSubFamilies();
+	    loadDdlWorlds();">
+>>>>>>> origin/master
         <div class="wrapper">
             <div class="tabs">
                 <ul class="tab-links">
@@ -226,7 +234,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-world">World</label>
                                             <div class="col-sm-4">
-                                                <textarea rows="1" class="form-control" type="text" name="world-id"></textarea>
+                                                <select class="form-control" id="world-ddl" name="world-id"></select>
                                             </div>
                                         </div>
                                         <div class="form-group"">
