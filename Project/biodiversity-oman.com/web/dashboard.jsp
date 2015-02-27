@@ -37,9 +37,6 @@
 				document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-organism">
-
-                                    <p> FORM HERE </p>
-
                                     <form class="form form-horizontal" id="create-organism-form" data-toggle="validator">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
@@ -50,7 +47,9 @@
                                         <form class="form-group">                                            
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
-                                                <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+						<div class="col-sm-4">
+						    <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+						</div>    
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>                                            
                                             <div class="form-group">
@@ -59,10 +58,10 @@
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                             <!-- hier drop down subfamily
-                                            
-                                            
-                                            
-                                            
+					    
+					    
+					    
+					    
                                             -->
 
                                             <div class="form-group">
@@ -83,14 +82,14 @@
                                                     <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" required> <label>No</label>
                                                 </div>
                                             </div>
-                                             <div class="form-group">
+					    <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
                                                 <div class="col-sm-4">
                                                     <input style="width: 1em;"   type="radio" id="organismCultivateTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
                                                     <input style="width: 1em;"  type="radio" id="organismCultivateFalse" name="organism-indigenous" value="false" required> <label>No</label>
                                                 </div>
                                             </div>
-                                             <div class="form-group">
+					    <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-endangered">Endangered</label>
                                                 <div class="col-sm-4">
                                                     <input style="width: 1em;"   type="radio" id="organismEndangeredTrue"  name="organism-endangered" value="true" required> <label>Yes</label><br>
@@ -129,9 +128,9 @@
                                                 </div>
                                             </div>
                                             <!--
-                                            
+					    
                                             FOTO
-                                            
+					    
                                             -->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
@@ -151,8 +150,6 @@
                                                 </div>
                                             </div>
                                         </form>    
-                                    </form>
-
                                 </div>
                             </div>
                         </div>
