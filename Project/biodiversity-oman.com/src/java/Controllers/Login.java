@@ -54,9 +54,13 @@ public class Login extends HttpServlet {
 				response.sendRedirect("adminlogin.jsp");
 			}
 		} catch (SQLException ex) {
-			session.setAttribute("error", "");
-			response.sendRedirect("adminlogin.jsp");
-
+			if(ex.getMessage().contains("Communications")) {
+				session.setAttribute("error", "Service unavailable");
+				response.sendRedirect("adminlogin.jsp");
+			} else if(ex.getMessage().contains("Illegal")) {
+				session.setAttribute("error", "Username or password is not valid");
+				response.sendRedirect("adminlogin.jsp");
+			}
 		} catch (NullPointerException e) {
 			session.setAttribute("error", "Fill in al fields");
 			response.sendRedirect("adminlogin.jsp");
@@ -72,7 +76,6 @@ public class Login extends HttpServlet {
 	 * @throws ServletException if a servlet-specific error occurs
 	 * @throws IOException if an I/O error occurs
 	 */
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		processRequest(request, response);
@@ -86,7 +89,6 @@ public class Login extends HttpServlet {
 	 * @throws ServletException if a servlet-specific error occurs
 	 * @throws IOException if an I/O error occurs
 	 */
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		processRequest(request, response);
@@ -97,7 +99,6 @@ public class Login extends HttpServlet {
 	 *
 	 * @return a String containing servlet description
 	 */
-	@Override
 	public String getServletInfo() {
 		return "Short description";
 	}// </editor-fold>
