@@ -82,6 +82,7 @@ public class DaFamilyTest {
         Family fami = new Family();
         fami.setFamilyDescription("testing");
         fami.setFamilyName("testing");
+        fami.setWorldId(2);
         try{
         DaFamily.insertFamily(fami);
             System.out.println("gelukt");
@@ -98,9 +99,14 @@ public class DaFamilyTest {
         Family fam = new Family();
         fam.setFamilyDescription("testupdate");
         fam.setFamilyName("testing");
-        fam.setWorldId(5);
-        int familyId = 3;
+        fam.setWorldId(2);
+        int familyId = 7;
+        try{
         DaFamily.updateFamily(fam, familyId);
+            System.out.println("gelukt");
+    }catch(Exception e)
+    {
+        System.out.println("niet gelukt" + e);}
     }
 //    /**
 //     * Test of deleteFamily method, of class DaFamily.
@@ -108,7 +114,7 @@ public class DaFamilyTest {
     @Test
     public void testDeleteFamily() throws Exception {
         System.out.println("deleteFamily");
-        int familyId = 0;
+        int familyId = 7;
         DaFamily.deleteFamily(familyId);
     }
     
