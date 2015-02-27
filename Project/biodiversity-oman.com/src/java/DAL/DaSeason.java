@@ -28,7 +28,7 @@ public class DaSeason {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT * FROM omandb.season");
+			stmt = conn.prepareStatement("SELECT * FROM season");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -56,7 +56,7 @@ public class DaSeason {
 
 		try {
 			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM omandb.season WHERE season_id=" + seasonId + "");
+			stmt = conn.prepareStatement("SELECT * FROM season WHERE season_id=" + seasonId + "");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				s.setSeasonId(rs.getInt("season_id"));
@@ -76,8 +76,8 @@ public class DaSeason {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT * FROM omandb.organism_season "
-				+ "INNER JOIN omandb.season ON season.season_id = organism_season.season_id "
+			stmt = conn.prepareStatement("SELECT * FROM organism_season "
+				+ "INNER JOIN season ON season.season_id = organism_season.season_id "
 				+ "WHERE organism_id=" + organismId);
 			ResultSet rs = stmt.executeQuery();
 
@@ -122,7 +122,7 @@ public class DaSeason {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("DELETE FROM omandb.season WHERE season_id=" + id + "");
+			stmt = conn.prepareStatement("DELETE FROM season WHERE season_id=" + id + "");
 			stmt.executeUpdate();
 			conn.commit();
 
@@ -138,7 +138,7 @@ public class DaSeason {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("INSERT INTO omandb.season "
+			stmt = conn.prepareStatement("INSERT INTO season "
 				+ "(season_name, season_description) VALUES (?,?)");
 			stmt.setString(1, s.getSeasonName());
 			stmt.setString(2, s.getSeasonDescription());
