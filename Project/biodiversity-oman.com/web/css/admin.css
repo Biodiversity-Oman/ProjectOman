@@ -18,56 +18,17 @@ body, html {
     min-width: 100%;
 }
 .error-message {
-    color: #FF3300;
+    color: #FF944D;
+    margin-left: 1em;
 }
 h2 {
     padding-left: 0.2em;
 }
 /* -------------- adminlogin -------------- */
-.loginbox {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 50%;
-    width: 30%;
-    background-color: #CCCCCC;
-    padding: 1em;
-    margin-top: 10%;
-    border-radius: 0.2em 0.2em 0.2em 0.2em;
-    border: 0px solid #000000;
-    color: #ffffff;
+.login {
+    margin-top: 14%;
 }
-.loginbox label {
-    font-size: 1.2em;
-    color: #FF8533;
-}
-.loginbox form {
-    margin-top: 2.2em;
-    margin-left: 5em;
-    margin-right: auto;
-    width: 35%;
-}
-.loginfield {
-    width: 20em;
-    height: 2.2em;
-    margin-top: 0.8em;
-    margin-bottom: 0.8em;
-    border-radius: 0.2em 0.2em 0.2em 0.2em;
-    border: 0px solid #000000;
-    color: black;
-}
-.button {
-    //min-width: 15%;
-    height: 2.6em;
-    font-weight: bold;
-    font-size: 1em;
-    border-radius: 0.3em 0.3em 0.3em 0.3em;
-    border: 0px solid #000000;
-    margin-bottom: 1em;
-    text-decoration: none;
-    color: black;
-}
+
 /*--------------------------------------------------------*/
 /* -------------- header & navigation --------------*/
 .current {

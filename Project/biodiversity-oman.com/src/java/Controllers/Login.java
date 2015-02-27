@@ -36,12 +36,13 @@ public class Login extends HttpServlet {
 		throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		
+		String username = request.getParameter("username");
 		HttpSession session = request.getSession();
 		try {
-			if (ServUserAccount.checkPassword(request.getParameter("username"), request.getParameter("password")) == true) {
+			if (ServUserAccount.checkPassword(username, request.getParameter("password")) == true) {
 				UserAccount user = new UserAccount();
-				user.setUserName(request.getParameter("username"));
-				if (ServUserAccount.isAdmin(request.getParameter("username"))==true) {
+				user.setUserName(username);
+				if (ServUserAccount.isAdmin(username)==true) {
 					user.setIsAdmin(true);
 				} else {
 					user.setIsAdmin(false);
@@ -49,20 +50,17 @@ public class Login extends HttpServlet {
 				session.setAttribute("user", user);
 				response.sendRedirect("dashboard.jsp");
 			} else {
-				String message = "Username or password not valid";
-				session.setAttribute("error", message);
+				session.setAttribute("error", "Username or password not valid");
 				response.sendRedirect("adminlogin.jsp");
 			}
 		} catch (SQLException ex) {
-			String message = "Service unavailable";
-			session.setAttribute("error", message);
+			session.setAttribute("error", "");
 			response.sendRedirect("adminlogin.jsp");
 
 		} catch (NullPointerException e) {
-			String message = "Username or password not valid";
-			session.setAttribute("error", message);
+			session.setAttribute("error", "Fill in al fields");
 			response.sendRedirect("adminlogin.jsp");
-		}
+		} 
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

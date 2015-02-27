@@ -40,6 +40,9 @@ $(document).ready(function () {
 	    loadUserInfo();
 	    disableInput();
 	    updatebtn.val('edit').removeAttr('disabled');
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -75,6 +78,9 @@ $(document).ready(function () {
 	    loadUserInfo();
 	    disableInput();
 	    wijzigbtn.val('Wijzig').removeAttr('disabled');
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -106,6 +112,9 @@ $(document).ready(function () {
 	}).done(function () {
 	    $("#create-user-form")[0].reset();
 	    loadUsers();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -133,6 +142,9 @@ $(document).ready(function () {
 	}).done(function () {
 	    $("#create-season-form")[0].reset();
 	    loadSeasons();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -160,6 +172,9 @@ $(document).ready(function () {
 	}).done(function () {
 	    $("#create-habitat-form")[0].reset();
 	    loadHabitats();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -189,6 +204,9 @@ $(document).ready(function () {
 	}).done(function () {
 	    $("#create-world-form")[0].reset();
 	    loadWorlds();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -216,6 +234,9 @@ $(document).ready(function () {
 	}).done(function () {
 	    $("#create-family-form")[0].reset();
 	    loadFamilies();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -243,6 +264,9 @@ $(document).ready(function () {
 	}).done(function () {
 	    $("#create-subfamily-form")[0].reset();
 	    loadSubFamilies();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
 	});
 	e.preventDefault();
     });

@@ -10,8 +10,6 @@
         <script src="js/ajax.js"></script>
         <script src="js/validator.js"></script>
     </head>
-    <script>
-    </script>
     <body onload="loadWorlds();
             loadSeasons();
             loadHabitats();
@@ -206,7 +204,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <div id="create-world-message"></div>
+                                                <div class="message" id="create-world-message"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
