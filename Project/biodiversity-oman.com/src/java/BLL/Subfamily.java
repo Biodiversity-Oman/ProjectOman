@@ -15,6 +15,7 @@ public class Subfamily {
     private int familyId;
     private String subFamilyName;
     private String subFamilyDescription;
+    private String subFamilyFamilyName;
 
     // Algemene constructor
     public Subfamily() {
@@ -80,4 +81,18 @@ public class Subfamily {
     public void setSubFamilyDescription(String description) {
         this.subFamilyDescription = description;
     }
+
+	/**
+	 * @return the subFamilyFamilyName
+	 */
+	public String getSubFamilyFamilyName() {
+		return subFamilyFamilyName;
+	}
+
+	/**
+	 * @param subFamilyFamilyName the subFamilyFamilyName to set
+	 */
+	public void setSubFamilyFamilyName(String subFamilyFamilyName) {
+		this.subFamilyFamilyName = subFamilyFamilyName;
+	}
 }

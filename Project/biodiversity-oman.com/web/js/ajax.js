@@ -594,6 +594,7 @@ function loadFamilies() {
 
     var $table = $('#families-table');
     var $content = $('.content');
+    var $ddl = $('#family-ddl');
     $.ajax({
 	url: 'SelectAllFamilies',
 	type: 'GET',
@@ -605,13 +606,13 @@ function loadFamilies() {
 	},
 	complete: function (data) {
 	    var families = data.responseJSON;
-	    console.log(families);
 	    $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\
                                     <th>World</th>\n\
                                     <th>Action</th>\n\
                                 </tr>');
+	    $ddl.append('<option value="" disabled selected>Select family</option>');
 	    families.forEach(function (family) {
 		$table.append('<tr>\n\
                                         <td>' + family.familyName + '</td>\n\
@@ -619,6 +620,7 @@ function loadFamilies() {
                                         <td>' + family.familyWorldName + '</td>\n\
                                         <td><button class="no-button" id="delete-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
+		$ddl.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
 	    });
 	}
     }).done(function () {
@@ -653,7 +655,7 @@ function loadSubFamilies() {
 		$table.append('<tr>\n\
                                         <td>' + subfamily.subFamilyName + '</td>\n\
                                         <td>' + subfamily.subFamilyDescription + '</td>\n\
-                                        <td>' + subfamily.familyId + '</td>\n\
+                                        <td>' + subfamily.subFamilyFamilyName + '</td>\n\
                                         <td><button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
 	    });

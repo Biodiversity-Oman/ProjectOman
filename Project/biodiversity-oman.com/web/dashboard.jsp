@@ -241,7 +241,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-world">World</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl" name="world-id"></select>
+                                                <select class="form-control" id="world-ddl" name="world-id" required></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -275,7 +275,7 @@
 				document.getElementById('fade6').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-subfamily">
-                                    <form class="form form-horizontal" id="create-family-form" data-toggle="validator">
+                                    <form class="form form-horizontal" id="create-subfamily-form" data-toggle="validator">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
@@ -296,15 +296,15 @@
                                             </div>
                                         </div>                                                            
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label" for="subfamily-world">World</label>
+                                            <label class="col-sm-2 control-label" for="subfamily-family">Family</label>
                                             <div class="col-sm-4">
-                                                <textarea rows="1" class="form-control" type="text" name="world-id"></textarea>
+                                                <select class="form-control" id="family-ddl" name="family-id"></select>
                                             </div>
                                         </div>
                                         <div class="form-group"">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <div id="create-family-message"></div>
+                                                <div id="create-subfamily-message"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -355,7 +355,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <div id="create-world-message"></div>
+                                                <div id="create-season-message"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">

@@ -36,7 +36,7 @@ public class InsertSubFamily extends HttpServlet {
         
         try {
             ServSubFamily.insertSubFamily(request.getParameter("subfamily-name"), request.getParameter("subfamily-description"),
-                                Integer.parseInt(request.getParameter("subfamily-family-id")));
+                                Integer.parseInt(request.getParameter("family-id")));
             response.getWriter().write("succes");
             
             } catch (Exception ex) {
