@@ -35,17 +35,13 @@ public class DeleteOrganism extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        try (PrintWriter out = response.getWriter()) {
 			
 			int id = Integer.parseInt(request.getParameter("id"));
-                        try{
-                        ServOrganism.delete(id);
-                        }
-                        catch(Exception ex){
-                            Logger.getLogger(DeleteOrganism.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-		 	
-		
+			
+				ServOrganism.delete(id);
+			
+		}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
