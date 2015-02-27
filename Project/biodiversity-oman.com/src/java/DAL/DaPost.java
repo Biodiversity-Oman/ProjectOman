@@ -159,23 +159,23 @@ public class DaPost {
         }
     }
 
-    public String insertPostPhoto(String file, int postId) throws SQLException, FileNotFoundException {
-        try {
-            File f = new File(file);
-            FileInputStream fins = new FileInputStream(f);
-            conn = DataSource.getConnection();
-            stmt = conn.prepareStatement("INSERT INTO post set post_photo=? where id =" + postId);
-            stmt.setBinaryStream(1, fins);
-            stmt.execute();
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-            conn.rollback();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        conn.close();
-        return file;
-    }
+//    public String insertPostPhoto(String file, int postId) throws SQLException, FileNotFoundException {
+//        try {
+//            File f = new File(file);
+//            FileInputStream fins = new FileInputStream(f);
+//            conn = DataSource.getConnection();
+//            stmt = conn.prepareStatement("INSERT INTO post set post_photo=? where id =" + postId);
+//            stmt.setBinaryStream(1, fins);
+//            stmt.execute();
+//        } catch (FileNotFoundException e) {
+//            System.out.println(e.getMessage());
+//            conn.rollback();
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//        }
+//        conn.close();
+//        return file;
+//    }
 
     public static void deletePost(int id) throws SQLException {
         try {
