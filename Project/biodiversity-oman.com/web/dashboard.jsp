@@ -130,7 +130,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-world">World</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl" placeholder="Select world"></select>
+                                                <select class="form-control" id="world-ddl" name="world-id"></select>
                                             </div>
                                         </div>
                                         <div class="form-group"">
