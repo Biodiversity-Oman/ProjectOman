@@ -27,7 +27,7 @@ public class DaGeolocation {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.geolocation");
+            stmt = conn.prepareStatement("SELECT * FROM geolocation");
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -55,7 +55,7 @@ public class DaGeolocation {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.geolocation WHERE geolocation_id=" + id);
+            stmt = conn.prepareStatement("SELECT * FROM geolocation WHERE geolocation_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             geolocation.setGeolocationId(id);
@@ -79,9 +79,9 @@ public class DaGeolocation {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.geolocation "
-                    + "INNER JOIN omandb.geolocation_organism ON geolocation_organism.geolocation_id = geolocation.geolocation_id "
-                    + "INNER JOIN omandb.organism ON organism.organism_id = geolocation_organism.organism_id "
+            stmt = conn.prepareStatement("SELECT * FROM geolocation "
+                    + "INNER JOIN geolocation_organism ON geolocation_organism.geolocation_id = geolocation.geolocation_id "
+                    + "INNER JOIN organism ON organism.organism_id = geolocation_organism.organism_id "
                     + "WHERE organism.organism_id=" + organismId);
             ResultSet rs = stmt.executeQuery();
             
@@ -108,7 +108,7 @@ public class DaGeolocation {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("INSERT INTO omandb.geolocation(area_name, "
+            stmt = conn.prepareStatement("INSERT INTO geolocation(area_name, "
                     + "area_description, coordinates) VALUES(?, ?, ?)");
             stmt.setString(1, geolocation.getAreaName());
             stmt.setString(2, geolocation.getAreaDescription());
@@ -127,7 +127,7 @@ public class DaGeolocation {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("DELETE FROM omandb.geolocation WHERE geolocation_id=" + id);
+            stmt = conn.prepareStatement("DELETE FROM geolocation WHERE geolocation_id=" + id);
             stmt.executeUpdate();
             
             conn.commit();
@@ -142,7 +142,7 @@ public class DaGeolocation {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE omandb.geolocation SET area_name=?, "
+            stmt = conn.prepareStatement("UPDATE geolocation SET area_name=?, "
                     + "area_description=?, coordinates=? WHERE geolocation_id=?");
             stmt.setString(1, geolocation.getAreaName());
             stmt.setString(2, geolocation.getAreaDescription());

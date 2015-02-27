@@ -28,7 +28,7 @@ public class DaSubfamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.subfamily");
+            stmt = conn.prepareStatement("SELECT * FROM subfamily");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -56,7 +56,7 @@ public class DaSubfamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.subfamily WHERE subfamily_id=" + id);
+            stmt = conn.prepareStatement("SELECT * FROM subfamily WHERE subfamily_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             subfamily.setSubfamilyId(id);
@@ -80,7 +80,7 @@ public class DaSubfamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.subfamily WHERE family_id=" + id);
+            stmt = conn.prepareStatement("SELECT * FROM subfamily WHERE family_id=" + id);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -106,7 +106,7 @@ public class DaSubfamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("INSERT INTO omandb.subfamily(family_id, "
+            stmt = conn.prepareStatement("INSERT INTO subfamily(family_id, "
                     + "subfamily_name, subfamily_description) VALUES(?, ?, ?)");
             stmt.setInt(1, subfamily.getFamilyId());
             stmt.setString(2, subfamily.getSubfamilyName());
@@ -125,7 +125,7 @@ public class DaSubfamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("DELETE FROM omandb.subfamily WHERE subfamily_id=" + id);
+            stmt = conn.prepareStatement("DELETE FROM subfamily WHERE subfamily_id=" + id);
             stmt.executeUpdate();
 
             conn.commit();
@@ -140,7 +140,7 @@ public class DaSubfamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE omandb.subfamily SET family_id=?, "
+            stmt = conn.prepareStatement("UPDATE subfamily SET family_id=?, "
                     + "subfamily_name=?, subfamily_description=? WHERE subfamily_id=?");
             stmt.setInt(1, subfamily.getFamilyId());
             stmt.setString(2, subfamily.getSubfamilyName());

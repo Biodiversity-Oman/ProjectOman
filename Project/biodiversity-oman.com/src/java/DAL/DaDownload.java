@@ -28,7 +28,7 @@ public class DaDownload {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.download");
+            stmt = conn.prepareStatement("SELECT * FROM download");
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -56,7 +56,7 @@ public class DaDownload {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.download WHERE download_id=" + id);
+            stmt = conn.prepareStatement("SELECT * FROM download WHERE download_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             download.setDownloadId(id);
@@ -79,7 +79,7 @@ public class DaDownload {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.download WHERE world_id=" + id);
+            stmt = conn.prepareStatement("SELECT * FROM download WHERE world_id=" + id);
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -104,7 +104,7 @@ public class DaDownload {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("INSERT INTO omandb.download" +
+            stmt = conn.prepareStatement("INSERT INTO download" +
                     "(world_id, download_funstuff) VALUES(?, ?)");
             stmt.setInt(1, download.getWorldId());
             stmt.setString(2, download.getDownloadFunStuff());
@@ -122,7 +122,7 @@ public class DaDownload {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("DELETE FROM omandb.download WHERE download_id=" + id);
+            stmt = conn.prepareStatement("DELETE FROM download WHERE download_id=" + id);
             stmt.executeUpdate();
             
             conn.commit();
@@ -137,7 +137,7 @@ public class DaDownload {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE omandb.download SET world_id=?, "
+            stmt = conn.prepareStatement("UPDATE download SET world_id=?, "
                     + "download_funstuff=? WHERE download_id=?");
             stmt.setInt(1, download.getWorldId());
             stmt.setString(2, download.getDownloadFunStuff());
