@@ -37,7 +37,116 @@
 				document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-organism">
+<<<<<<< HEAD
                                     <p> FORM HERE </p>
+=======
+                                    <form class="form form-horizontal" id="create-organism-form" data-toggle="validator">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <h2 class="h2">Create Organism</h2>
+                                            </div>
+                                        </div>
+                                        <form class="form-group">                                            
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
+                                                <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>                                            
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
+                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>
+                                            <!-- hier drop down subfamily
+                                            
+                                            
+                                            
+                                            
+                                            -->
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
+                                                <div class="col-sm-4">
+                                                    <textarea rows="3" class="form-control" type="text" name="organism-description"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-population">Common name</label>
+                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" required/> 
+                                                <span class="help-block with-errors">Up to 50 characters </span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-indigenous">Indegenous</label>
+                                                <div class="col-sm-4">
+                                                    <input style="width: 1em;"   type="radio" id="organismIndigenousTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
+                                                    <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" required> <label>No</label>
+                                                </div>
+                                            </div>
+                                             <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
+                                                <div class="col-sm-4">
+                                                    <input style="width: 1em;"   type="radio" id="organismIndigenousTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
+                                                    <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" required> <label>No</label>
+                                                </div>
+                                            </div>
+                                            <!-- hier 
+                                            
+                                            boolean indigenous
+                                                     cultivated
+                                                        endagered
+                                                            medicinal                                       
+
+                                            -->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
+                                                <div class="col-sm-4">
+                                                    <textarea rows="3" class="form-control" type="text" name="organism-benefits"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
+                                                <div class="col-sm-4">
+                                                    <textarea rows="3" class="form-control" type="text" name="organism-dangerous"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
+                                                <div class="col-sm-4">
+                                                    <textarea rows="3" class="form-control" type="text" name="organism-threats"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
+                                                <div class="col-sm-4">
+                                                    <textarea rows="3" class="form-control" type="text" name="organism-opportunities"></textarea>
+                                                </div>
+                                            </div>
+                                            <!--
+                                            
+                                            FOTO
+                                            
+                                            -->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
+                                                <div class="col-sm-4">
+                                                    <textarea rows="3" class="form-control" type="text" name="organism-links"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
+                                                <input class="form-control" type="text" name="organism-food-name" maxlength="50" data-delay="1200" required/> 
+                                                <span class="help-block with-errors">Up to 50 characters </span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
+                                                <div class="col-sm-4">
+                                                    <textarea rows="3" class="form-control" type="text" name="organism-food-description"></textarea>
+                                                </div>
+                                            </div>
+                                        </form>    
+                                    </form>
+>>>>>>> origin/master
                                 </div>
                             </div>
                         </div>
