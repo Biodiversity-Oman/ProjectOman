@@ -52,7 +52,7 @@ public class DaHabitat {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.habitat WHERE habitat_id=" + id);
+            stmt = conn.prepareStatement("SELECT * FROM habitat WHERE habitat_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             h.setHabitatId(rs.getInt("habitat_id"));

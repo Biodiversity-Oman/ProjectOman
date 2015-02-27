@@ -56,7 +56,7 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.family WHERE family_id=" + id);
+            stmt = conn.prepareStatement("SELECT * FROM family WHERE family_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             f.setFamilyId(rs.getInt("family_id"));
@@ -81,7 +81,7 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.family WHERE world_id=" + id);
+            stmt = conn.prepareStatement("SELECT * FROM family WHERE world_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             f.setFamilyId(rs.getInt("family_id"));
@@ -104,7 +104,7 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("DELETE FROM omandb.family WHERE family_id=" + familyId + "");
+            stmt = conn.prepareStatement("DELETE FROM family WHERE family_id=" + familyId + "");
             stmt.executeUpdate();
             conn.commit();
 
@@ -121,7 +121,7 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE omandb.family "
+            stmt = conn.prepareStatement("UPDATE family "
                     + "(family_name, family_description, world_id ) VALUES (?,?,?) WHERE family_id=" + familyId + "");
             stmt.setString(1, fam.getFamilyName());
             stmt.setString(2, fam.getFamilyDescription());
@@ -140,7 +140,7 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("INSERT INTO omandb.family "
+            stmt = conn.prepareStatement("INSERT INTO family "
                     + "(family_name, family_description, world_id) VALUES (?,?,?)");
             stmt.setString(1, fami.getFamilyName());
             stmt.setString(2, fami.getFamilyDescription());

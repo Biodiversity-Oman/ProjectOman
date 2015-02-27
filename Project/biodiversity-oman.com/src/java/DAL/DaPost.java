@@ -45,7 +45,7 @@ public class DaPost {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.post");
+            stmt = conn.prepareStatement("SELECT * FROM post");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -80,7 +80,7 @@ public class DaPost {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.post WHERE post_id=" + id);
+            stmt = conn.prepareStatement("SELECT * FROM post WHERE post_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             p.setOrganismId(rs.getInt("organism_id"));
@@ -109,7 +109,7 @@ public class DaPost {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.post WHERE organism_id=" + organismId);
+            stmt = conn.prepareStatement("SELECT * FROM post WHERE organism_id=" + organismId);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -140,7 +140,7 @@ public class DaPost {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("INSERT INTO omandb.post (organism_id, post_first_name, post_last_name, post_email, post_description,  post_longitude, post_latitude VALUES(?, ?, ?, ?, ?, ?, ?)");
+            stmt = conn.prepareStatement("INSERT INTO post (organism_id, post_first_name, post_last_name, post_email, post_description,  post_longitude, post_latitude VALUES(?, ?, ?, ?, ?, ?, ?)");
             stmt.setInt(1, p.getOrganismId());
             stmt.setString(2, p.getPostFirstName());
             stmt.setString(3, p.getPostLastName());
@@ -164,7 +164,7 @@ public class DaPost {
             File f = new File(file);
             FileInputStream fins = new FileInputStream(f);
             conn = DataSource.getConnection();
-            stmt = conn.prepareStatement("INSERT INTO omandb.post set post_photo=? where id =" + postId);
+            stmt = conn.prepareStatement("INSERT INTO post set post_photo=? where id =" + postId);
             stmt.setBinaryStream(1, fins);
             stmt.execute();
         } catch (FileNotFoundException e) {
@@ -181,7 +181,7 @@ public class DaPost {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("DELETE FROM omandb.post WHERE post_id=" + id);
+            stmt = conn.prepareStatement("DELETE FROM post WHERE post_id=" + id);
             stmt.executeUpdate();
 
             conn.commit();
@@ -197,7 +197,7 @@ public class DaPost {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE omandb.post SET (organism_id, post_first_name, post_last_name, post_email, post_description,  post_longitude, post_latitude VALUES(?, ?, ?, ?, ?, ?, ?, ?)  WHERE post_id=" + p.getPostId());
+            stmt = conn.prepareStatement("UPDATE post SET (organism_id, post_first_name, post_last_name, post_email, post_description,  post_longitude, post_latitude VALUES(?, ?, ?, ?, ?, ?, ?, ?)  WHERE post_id=" + p.getPostId());
             stmt.setInt(1, p.getOrganismId());
             stmt.setString(2, p.getPostFirstName());
             stmt.setString(3, p.getPostLastName());
