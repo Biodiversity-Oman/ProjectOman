@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author bert
  */
-@WebServlet(name = "InsertOrganism", urlPatterns = {"/InsertOrganism"})
-public class InsertOrganism extends HttpServlet {
+@WebServlet(name = "UpdateOrganism", urlPatterns = {"/UpdateOrganism"})
+public class UpdateOrganism extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +32,7 @@ public class InsertOrganism extends HttpServlet {
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
-            
+              
         int[] habitatIds = new int[request.getParameterValues("habitat-id").length];
         for (int i=0; i < request.getParameterValues("habitat-id").length; i++) {
         habitatIds[i] = Integer.parseInt(request.getParameterValues("habitat-id")[i]);}
@@ -54,7 +54,8 @@ public class InsertOrganism extends HttpServlet {
         geolocationIds[i] = Integer.parseInt(request.getParameterValues("geolocation-id")[i]);}
 
 
-        response.getWriter().write(Service.ServOrganism.insert(request.getParameter("scientific-name"), 
+        response.getWriter().write(Service.ServOrganism.update(Integer.parseInt(request.getParameter("organism-id")),
+                                                                request.getParameter("scientific-name"), 
                                                                 request.getParameter("common-name"), 
                                                                 request.getParameter("local-name"), 
                                                                 request.getParameter("description"), 
@@ -80,7 +81,8 @@ public class InsertOrganism extends HttpServlet {
                                                                 request.getParameter("food-name"), 
                                                                 request.getParameter("food-description"), 
                                                                 geolocationIds));
-    }
+        }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -120,5 +122,6 @@ public class InsertOrganism extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
 }
