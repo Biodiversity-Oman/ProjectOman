@@ -114,7 +114,7 @@ public class DaFamilyTest {
     @Test
     public void testDeleteFamily() throws Exception {
         System.out.println("deleteFamily");
-        int familyId = 7;
+        int familyId = 8;
         DaFamily.deleteFamily(familyId);
     }
     

@@ -197,7 +197,8 @@ public class DaPost {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE post SET (organism_id, post_first_name, post_last_name, post_email, post_description,  post_longitude, post_latitude VALUES(?, ?, ?, ?, ?, ?, ?, ?)  WHERE post_id=" + p.getPostId());
+            stmt = conn.prepareStatement("UPDATE post SET (organism_id=?, post_first_name=?, "
+                    + "post_last_name=?, post_email=?, post_description=?,  post_longitude=?, post_latitude=? WHERE post_id=" + p.getPostId());
             stmt.setInt(1, p.getOrganismId());
             stmt.setString(2, p.getPostFirstName());
             stmt.setString(3, p.getPostLastName());

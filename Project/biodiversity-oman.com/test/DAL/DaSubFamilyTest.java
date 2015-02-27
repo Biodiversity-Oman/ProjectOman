@@ -53,63 +53,67 @@ public class DaSubFamilyTest {
 //    /**
 //     * Test of selectOneByIDSubfamily method, of class DaSubFamily.
 //     */
-//    @Test
-//    public void testSelectOneByIDSubfamily() throws Exception {
-//        System.out.println("selectOneByIDSubfamily");
-//        int id = 0;
-//        Subfamily expResult = null;
-//        Subfamily result = DaSubfamily.selectOneByIDSubfamily(id);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testSelectOneByIDSubfamily() throws Exception {
+        System.out.println("selectOneByIDSubfamily");
+        int id = 1;
+        Subfamily result = DaSubfamily.selectOneByIDSubfamily(id);
+        System.out.println(result);
+    }
 //
 //    /**
 //     * Test of selectAllByFamilySubfamily method, of class DaSubFamily.
 //     */
-//    @Test
-//    public void testSelectAllByFamilySubfamily() throws Exception {
-//        System.out.println("selectAllByFamilySubfamily");
-//        int id = 0;
-//        List<Subfamily> expResult = null;
-//        List<Subfamily> result = DaSubfamily.selectAllByFamilySubfamily(id);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testSelectAllByFamilySubfamily() throws Exception {
+        System.out.println("selectAllByFamilySubfamily");
+        int id = 4;
+        List<Subfamily> result = DaSubfamily.selectAllByFamilySubfamily(id);
+        System.out.println(result);
+        
+    }
 //
 //    /**
 //     * Test of insertSubfamily method, of class DaSubFamily.
 //     */
-//    @Test
-//    public void testInsertSubfamily() throws Exception {
-//        System.out.println("insertSubfamily");
-//        Subfamily subfamily = null;
-//        DaSubfamily.insertSubfamily(subfamily);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testInsertSubfamily() throws Exception {
+        System.out.println("insertSubfamily");
+        Subfamily subfamily = new Subfamily();
+        subfamily.setFamilyId(1);
+        subfamily.setSubFamilyDescription("insert");
+        subfamily.setSubfamilyName("insert");
+        try{
+        DaSubfamily.insertSubfamily(subfamily);
+            System.out.println("gelukt");
+    }catch(Exception e){System.out.println("niet gelukt"+e);}
+    }
 //
-//    /**
-//     * Test of deleteSubfamily method, of class DaSubFamily.
-//     */
-//    @Test
-//    public void testDeleteSubfamily() throws Exception {
-//        System.out.println("deleteSubfamily");
-//        int id = 2;
-//        DaSubfamily.deleteSubfamily(id);
-//    }
 //
 //    /**
 //     * Test of updateSubfamily method, of class DaSubFamily.
 //     */
-//    @Test
-//    public void testUpdateSubfamily() throws Exception {
-//        System.out.println("updateSubfamily");
-//        Subfamily subfamily = null;
-//        DaSubfamily.updateSubfamily(subfamily);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testUpdateSubfamily() throws Exception {
+        System.out.println("updateSubfamily");
+        Subfamily subfamily = new Subfamily();
+        subfamily.setFamilyId(1);
+        subfamily.setSubFamilyDescription("insert");
+        subfamily.setSubfamilyName("insert");
+        try{
+        DaSubfamily.insertSubfamily(subfamily);
+            System.out.println("gelukt");
+    }catch(Exception e){System.out.println("niet gelukt"+e);}
+    }
+    //    /**
+//     * Test of deleteSubfamily method, of class DaSubFamily.
+//     */
+    @Test
+    public void testDeleteSubfamily() throws Exception {
+        System.out.println("deleteSubfamily");
+        int id = 6;
+        DaSubfamily.deleteSubfamily(id);
+        
+    }
     
 }
