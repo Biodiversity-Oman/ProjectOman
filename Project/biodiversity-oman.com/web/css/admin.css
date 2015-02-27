@@ -453,3 +453,9 @@ li.active a, li.active a:hover {
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: #FFF0E6;
 }
+
+.selecttest {
+   
+    border-radius:2px 3px 0px 0px;
+    border-color: black;
+}

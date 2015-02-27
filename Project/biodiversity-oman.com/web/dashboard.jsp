@@ -14,10 +14,8 @@
     </head>
     <script>
 	$(document).ready(function () {
-	    $('#example').chosen();
-	    $(".chosen-select").chosen({width: "95%"});
+	    $(".chosen-select").chosen({width: "100%"});
 	});
-
     </script>
     <body onload="loadWorlds();
 	    loadSeasons();
@@ -59,17 +57,6 @@
                                                 </div>    
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div> 
-					    <div class="form-group">
-						<label class="col-sm-2 control-label">Favorite color</label>
-						<div class="col-sm-4">
-						    <select class="form-control chosen-select" name="colors" multiple data-placeholder="Choose Season" style="width: 100%;">
-							<option value="winter">winter</option>
-							<option value="summer">summer</option>
-							<option value="autumn">autumn</option>
-							<option value="spring">spring</option>
-						    </select>
-						</div>
-					    </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
                                                 <div class="col-sm-4">
@@ -96,14 +83,23 @@
                                                     <textarea rows="3" class="form-control" type="text" name="organism-description"></textarea>
                                                 </div>
                                             </div>
-
+					    <div class="form-group">
+						<label class="col-sm-2 control-label">Choose Habitat</label>
+						<div class="col-sm-4">
+						    <select class="chosen-select form-control" name="habitat-name" multiple data-placeholder="Choose Habitat">
+							<option value="sea">sea</option>
+							<option value="mountains">mountains</option>
+							<option value="jungle">jungle</option>
+							<option value="spring">spring</option>
+						    </select>
+						</div>
+					    </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
                                                 <div class="col-sm-4">
                                                     <input class="btn btn-default" type="file"  name="upfileSpeelgoed" >
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-indigenous">Indegenous</label>
                                                 <div class="col-sm-4">
@@ -176,6 +172,28 @@
                                                     <textarea rows="3" class="form-control" type="text" name="organism-food-description"></textarea>
                                                 </div>
                                             </div>
+					    <div class="form-group">
+						<label class="col-sm-2 control-label">Choose season</label>
+						<div class="col-sm-4">
+						    <select class="chosen-select form-control" name="colors" multiple data-placeholder="Choose Season">
+							<option value="winter">winter</option>
+							<option value="summer">summer</option>
+							<option value="autumn">autumn</option>
+							<option value="spring">spring</option>
+						    </select>
+						</div>
+					    </div>
+					    <div class="form-group">
+						<label class="col-sm-2 control-label">Choose geolocations</label>
+						<div class="col-sm-4">
+						    <select class="chosen-select form-control" name="geolocations" multiple data-placeholder="Choose Geolocations">
+							<option value="winter">geo</option>
+							<option value="summer">geo</option>
+							<option value="autumn">geo</option>
+							<option value="spring">geo</option>
+						    </select>
+						</div>
+					    </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label"></label>
                                                 <div class="col-sm-2">
