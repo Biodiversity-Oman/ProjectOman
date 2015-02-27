@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
 				response.sendRedirect("adminlogin.jsp");
 			}
 		} catch (SQLException ex) {
-			String message = "Username or password not valid";
+			String message = "Service unavailable";
 			session.setAttribute("error", message);
 			response.sendRedirect("adminlogin.jsp");
 
