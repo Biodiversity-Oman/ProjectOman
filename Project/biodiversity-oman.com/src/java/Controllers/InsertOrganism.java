@@ -32,18 +32,40 @@ public class InsertOrganism extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet InsertOrganism</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet InsertOrganism at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+            
+            int[] habitatIds = new int[request.getParameterValues("habitat-id").length];
+            for (int i=0; i < request.getParameterValues("habitat-id").length; i++) {
+            habitatIds[i] = Integer.parseInt(request.getParameterValues("habitat-id")[i]);}
+            
+            int[] seasonIds = new int[request.getParameterValues("season-id").length];
+            for (int i=0; i < request.getParameterValues("season-id").length; i++) {
+            seasonIds[i] = Integer.parseInt(request.getParameterValues("season-id")[i]);}
+            
+            int[] eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
+            for (int i=0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
+            eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);}
+            
+            int[] eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
+            for (int i=0; i < request.getParameterValues("eating-organism-id").length; i++) {
+            eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);}
+            
+            int[] geolocationIds = new int[request.getParameterValues("geolocation-id").length];
+            for (int i=0; i < request.getParameterValues("geolocation-id").length; i++) {
+            geolocationIds[i] = Integer.parseInt(request.getParameterValues("geolocation-id")[i]);}
+            
+            
+                response.getWriter().write(Service.ServOrganism.insert(request.getParameter("scientific-name"), request.getParameter("common-name"), request.getParameter("local-name"), 
+            request.getParameter("description"), Integer.parseInt(request.getParameter("subfamily-id")), 
+            Integer.parseInt(request.getParameter("family-id")), Integer.parseInt(request.getParameter("world-id")), 
+            habitatIds, request.getParameter("population"), 
+            seasonIds, Boolean.parseBoolean(request.getParameter("indigenous")), 
+            Boolean.parseBoolean(request.getParameter("cultivated")), Boolean.parseBoolean(request.getParameter("endangered")), 
+            Boolean.parseBoolean(request.getParameter("medicinal")), request.getParameter("benefits"), request.getParameter("dangerous"),
+            request.getParameter("threats"), request.getParameter("opportunities"), Byte.parseByte(request.getParameter("photo")), 
+            request.getParameter("links"), eatenByOrganismIds, 
+            eatingOrganismIds, Boolean.parseBoolean(("validated")), 
+            request.getParameter("food-name"), request.getParameter("food-description"), 
+            geolocationIds));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

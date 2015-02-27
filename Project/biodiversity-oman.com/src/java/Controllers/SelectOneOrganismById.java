@@ -37,8 +37,8 @@ public class SelectOneOrganismById extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             int id = Integer.parseInt(request.getParameter("id"));
-                      try{ 
-                        ServOrganism.selectOneById(id);
+                      try{
+                        response.getWriter().write(new com.google.gson.Gson().toJson(ServOrganism.selectOneById(id)));
                       }
                       catch(Exception ex){
                           Logger.getLogger(SelectOneOrganismById.class.getName()).log(Level.SEVERE, null, ex);
