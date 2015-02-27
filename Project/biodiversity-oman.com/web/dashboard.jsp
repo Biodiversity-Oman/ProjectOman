@@ -16,7 +16,8 @@
 	    loadSeasons();
 	    loadHabitats();
 	    loadFamilies();
-	    loadSubFamilies()">;">
+	    loadSubFamilies();
+	    loadDdlWorlds();">
         <div class="wrapper">
             <div class="tabs">
                 <ul class="tab-links">
@@ -129,7 +130,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-world">World</label>
                                             <div class="col-sm-4">
-                                                <textarea rows="1" class="form-control" type="text" name="world-id"></textarea>
+                                                <select class="form-control" id="world-ddl" placeholder="Select world"></select>
                                             </div>
                                         </div>
                                         <div class="form-group"">
