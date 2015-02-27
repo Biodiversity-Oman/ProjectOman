@@ -37,9 +37,9 @@
 				document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-organism">
-<<<<<<< HEAD
+
                                     <p> FORM HERE </p>
-=======
+
                                     <form class="form form-horizontal" id="create-organism-form" data-toggle="validator">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
@@ -86,18 +86,24 @@
                                              <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
                                                 <div class="col-sm-4">
-                                                    <input style="width: 1em;"   type="radio" id="organismIndigenousTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
-                                                    <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" required> <label>No</label>
+                                                    <input style="width: 1em;"   type="radio" id="organismCultivateTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
+                                                    <input style="width: 1em;"  type="radio" id="organismCultivateFalse" name="organism-indigenous" value="false" required> <label>No</label>
                                                 </div>
                                             </div>
-                                            <!-- hier 
-                                            
-                                            boolean indigenous
-                                                     cultivated
-                                                        endagered
-                                                            medicinal                                       
-
-                                            -->
+                                             <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-endangered">Endangered</label>
+                                                <div class="col-sm-4">
+                                                    <input style="width: 1em;"   type="radio" id="organismEndangeredTrue"  name="organism-endangered" value="true" required> <label>Yes</label><br>
+                                                    <input style="width: 1em;"  type="radio" id="organismEndangeredFalse" name="organism-endangered" value="false" required> <label>No</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-medicinal">Medicinal</label>
+                                                <div class="col-sm-4">
+                                                    <input style="width: 1em;"   type="radio" id="organismMedicinalTrue"  name="organism-medicinal" value="true" required> <label>Yes</label><br>
+                                                    <input style="width: 1em;"  type="radio" id="organismMedicinalFalse" name="organism-medicinal" value="false" required> <label>No</label>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
                                                 <div class="col-sm-4">
@@ -146,7 +152,7 @@
                                             </div>
                                         </form>    
                                     </form>
->>>>>>> origin/master
+
                                 </div>
                             </div>
                         </div>
