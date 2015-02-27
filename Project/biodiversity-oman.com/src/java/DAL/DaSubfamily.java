@@ -28,7 +28,9 @@ public class DaSubfamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("SELECT * FROM omandb.subfamily");
+            stmt = conn.prepareStatement("SELECT subfamily.subfamily_id, family.family_id, subfamily.subfamily_name, subfamily.subfamily_description, family.family_name \n" +
+					 "FROM subfamily\n" +
+					 "LEFT JOIN family on family.family_id = subfamily.family_id");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -37,6 +39,7 @@ public class DaSubfamily {
                 subfamily.setFamilyId(rs.getInt("family_id"));
                 subfamily.setSubfamilyName(rs.getString("subfamily_name"));
                 subfamily.setSubFamilyDescription(rs.getString("subfamily_description"));
+		subfamily.setSubFamilyFamilyName(rs.getString("family_name"));
                 subfamilies.add(subfamily);
             }
 
