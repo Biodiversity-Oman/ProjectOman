@@ -647,4 +647,33 @@ public class DaOrganism {
         }
         return result;
     }
+
+    public static List<Organism> selectAllForValidation() throws SQLException {
+		List<Organism> org = new ArrayList();
+
+		try {
+			conn = DataSource.getConnection();
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement("SELECT common_name FROM organism WHERE isvalidated = 1");
+                        
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Organism o = new Organism();
+                                o.setCommonName(rs.getString("common_name"));
+                                org.add(o);
+			}
+
+			conn.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			conn.rollback();
+		} finally {
+			conn.setAutoCommit(true);
+		}
+
+		return org;
+	}
+    
+    
 }
