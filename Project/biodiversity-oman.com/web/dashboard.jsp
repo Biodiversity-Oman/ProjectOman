@@ -88,6 +88,20 @@
                                                 <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" required/> 
                                                 <span class="help-block with-errors">Up to 50 characters </span>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-indigenous">Indegenous</label>
+                                                <div class="col-sm-4">
+                                                    <input style="width: 1em;"   type="radio" id="organismIndigenousTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
+                                                    <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" required> <label>No</label>
+                                                </div>
+                                            </div>
+                                             <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
+                                                <div class="col-sm-4">
+                                                    <input style="width: 1em;"   type="radio" id="organismIndigenousTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
+                                                    <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" required> <label>No</label>
+                                                </div>
+                                            </div>
                                             <!-- hier 
                                             
                                             boolean indigenous
