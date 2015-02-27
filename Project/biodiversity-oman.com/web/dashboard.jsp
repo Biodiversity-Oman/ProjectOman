@@ -7,14 +7,23 @@
 <!DOCTYPE html>
 <html>
     <head>
+	<link rel="StyleSheet" type="text/css" href="css/chosen.css">
         <script src="js/ajax.js"></script>
         <script src="js/validator.js"></script>
+	<script src="js/chosen.jquery.min.js"></script>
     </head>
+    <script>
+	$(document).ready(function () {
+	    $('#example').chosen();
+	    $(".chosen-select").chosen({width: "95%"});
+	});
+
+    </script>
     <body onload="loadWorlds();
-            loadSeasons();
-            loadHabitats();
-            loadFamilies();
-            loadSubFamilies();">
+	    loadSeasons();
+	    loadHabitats();
+	    loadFamilies();
+	    loadSubFamilies();">
         <div class="wrapper">
             <div class="tabs">
                 <ul class="tab-links">
@@ -29,10 +38,10 @@
                 <div class="tab-content">
                     <div id="tab1" class="tab active">
                         <div id="fade" class="black_overlay-boxed"></div>
-                        <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
-                                document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
-                        <div id="insert-organism" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'none';
-                                document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
+			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
+				document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
+									<div id="insert-organism" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'none';
+				document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-organism">
                                     <form class="form form-horizontal" id="create-organism-form" data-toggle="validator">
@@ -49,7 +58,18 @@
                                                     <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
                                                 </div>    
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
-                                            </div>                                            
+                                            </div> 
+					    <div class="form-group">
+						<label class="col-sm-2 control-label">Favorite color</label>
+						<div class="col-sm-4">
+						    <select class="form-control chosen-select" name="colors" multiple data-placeholder="Choose Season" style="width: 100%;">
+							<option value="winter">winter</option>
+							<option value="summer">summer</option>
+							<option value="autumn">autumn</option>
+							<option value="spring">spring</option>
+						    </select>
+						</div>
+					    </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
                                                 <div class="col-sm-4">
@@ -175,10 +195,10 @@
                     </div>
                     <div id="tab2" class="tab">
                         <div id="fade2" class="black_overlay-boxed"></div>
-                        <a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';
-                                document.getElementById('fade2').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                        <div id="insert-world" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'none';
-                                document.getElementById('fade2').style.display = 'none'"><label class="close-button">x</label></a>
+			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';
+				document.getElementById('fade2').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+								     <div id="insert-world" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'none';
+				document.getElementById('fade2').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-world">
                                     <form class="form form-horizontal" id="create-world-form" data-toggle="validator">
@@ -226,10 +246,10 @@
                     </div>
                     <div id="tab3" class="tab">
                         <div id="fade5" class="black_overlay-boxed"></div>
-                        <a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'block';
-                                document.getElementById('fade5').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                        <div id="insert-family" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'none';
-                                document.getElementById('fade5').style.display = 'none'"><label class="close-button">x</label></a>
+			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'block';
+				document.getElementById('fade5').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+								      <div id="insert-family" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'none';
+				document.getElementById('fade5').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-family">
                                     <form class="form form-horizontal" id="create-family-form" data-toggle="validator">
@@ -283,10 +303,10 @@
                     </div>
                     <div id="tab4" class="tab">
                         <div id="fade6" class="black_overlay-boxed"></div>
-                        <a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'block';
-                                document.getElementById('fade6').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                        <div id="insert-subfamily" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'none';
-                                document.getElementById('fade6').style.display = 'none'"><label class="close-button">x</label></a>
+			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'block';
+				document.getElementById('fade6').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+									 <div id="insert-subfamily" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'none';
+				document.getElementById('fade6').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-subfamily">
                                     <form class="form form-horizontal" id="create-subfamily-form" data-toggle="validator">
@@ -340,10 +360,10 @@
                     </div>
                     <div id="tab5" class="tab">
                         <div id="fade3" class="black_overlay-boxed"></div>
-                        <a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'block';
-                                document.getElementById('fade3').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                        <div id="insert-season" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'none';
-                                document.getElementById('fade3').style.display = 'none'"><label class="close-button">x</label></a>
+			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'block';
+				document.getElementById('fade3').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+								      <div id="insert-season" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'none';
+				document.getElementById('fade3').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-season">
                                     <form class="form form-horizontal" id="create-season-form" data-toggle="validator">
@@ -391,10 +411,10 @@
                     </div>
                     <div id="tab6" class="tab">
                         <div id="fade4" class="black_overlay-boxed"></div>
-                        <a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'block';
-                                document.getElementById('fade4').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                        <div id="insert-habitat" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'none';
-                                document.getElementById('fade4').style.display = 'none'"><label class="close-button">x</label></a>
+			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'block';
+				document.getElementById('fade4').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+								       <div id="insert-habitat" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'none';
+				document.getElementById('fade4').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-habitat">
                                     <form class="form form-horizontal" id="create-habitat-form" data-toggle="validator">
@@ -442,10 +462,10 @@
                     </div>
                     <div id="tab7" class="tab">
                         <div id="fade8" class="black_overlay-boxed"></div>
-                        <a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
-                                document.getElementById('fade8').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                        <div id="insert-geolocation" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'none';
-                                document.getElementById('fade8').style.display = 'none'"><label class="close-button">x</label></a>
+			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
+				document.getElementById('fade8').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+									   <div id="insert-geolocation" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'none';
+				document.getElementById('fade8').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-geolocation">
                                     <p> FORM HERE </p>
