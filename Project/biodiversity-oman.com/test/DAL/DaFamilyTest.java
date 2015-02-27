@@ -52,63 +52,64 @@ public class DaFamilyTest {
 //    /**
 //     * Test of selectOneByIDfamily method, of class DaFamily.
 //     */
-//    @Test
-//    public void testSelectOneByIDfamily() throws Exception {
-//        System.out.println("selectOneByIDfamily");
-//        int id = 0;
-//        Family expResult = null;
-//        Family result = DaFamily.selectOneByIDfamily(id);
-//        assertEquals(expResult, result);
-//    }
+    @Test
+    public void testSelectOneByIDfamily() throws Exception {
+        System.out.println("selectOneByIDfamily");
+        int id = 3;
+        Family result = DaFamily.selectOneByIDfamily(id);
+        System.out.println(result);
+    }
 //
 //    /**
 //     * Test of selectAllFamilyByWorld method, of class DaFamily.
 //     */
-//    @Test
-//    public void testSelectAllFamilyByWorld() throws Exception {
-//        System.out.println("selectAllFamilyByWorld");
-//        int id = 2;
-//        Family expResult = null;
-//        Family result = DaFamily.selectAllFamilyByWorld(id);
-//        assertEquals(expResult, result);
-//    }
+    @Test
+    public void testSelectAllFamilyByWorld() throws Exception {
+        System.out.println("selectAllFamilyByWorld");
+        int id = 2;
+        Family result = DaFamily.selectAllFamilyByWorld(id);
+        System.out.println(result);
+    }
 //
-//    /**
-//     * Test of deleteFamily method, of class DaFamily.
-//     */
-//    @Test
-//    public void testDeleteFamily() throws Exception {
-//        System.out.println("deleteFamily");
-//        int familyId = 0;
-//        DaFamily.deleteFamily(familyId);
-//    }
-//
-//    /**
-//     * Test of updateFamily method, of class DaFamily.
-//     */
-//    @Test
-//    public void testUpdateFamily() throws Exception {
-//        System.out.println("updateFamily");
-//        Family fam = new Family();
-//        fam.setFamilyDescription("testupdate");
-//        fam.setFamilyName("testing");
-//        fam.setWorldId(5);
-//        int familyId = 3;
-//        DaFamily.updateFamily(fam, familyId);
-//    }
+
 //
 //    /**
 //     * Test of insertFamily method, of class DaFamily.
 //     */
-//    @Test
-//    public void testInsertFamily() throws Exception {
-//        System.out.println("insertFamily");
-//        Family fami = new Family();
-//        fami.setFamilyDescription("testing");
-//        fami.setFamilyName("testing");
-//        fami.setWorldId(2);
-//        DaFamily.insertFamily(fami);
-//        
-//    }
+    @Test
+    public void testInsertFamily() throws Exception {
+        System.out.println("insertFamily");
+        Family fami = new Family();
+        fami.setFamilyDescription("testing");
+        fami.setFamilyName("testing");
+        try{
+        DaFamily.insertFamily(fami);
+            System.out.println("gelukt");
+        }catch(Exception e){System.out.println("niet gelukt"+e);}
+    }
+    
+    //
+//    /**
+//     * Test of updateFamily method, of class DaFamily.
+//     */
+    @Test
+    public void testUpdateFamily() throws Exception {
+        System.out.println("updateFamily");
+        Family fam = new Family();
+        fam.setFamilyDescription("testupdate");
+        fam.setFamilyName("testing");
+        fam.setWorldId(5);
+        int familyId = 3;
+        DaFamily.updateFamily(fam, familyId);
+    }
+//    /**
+//     * Test of deleteFamily method, of class DaFamily.
+//     */
+    @Test
+    public void testDeleteFamily() throws Exception {
+        System.out.println("deleteFamily");
+        int familyId = 0;
+        DaFamily.deleteFamily(familyId);
+    }
     
 }

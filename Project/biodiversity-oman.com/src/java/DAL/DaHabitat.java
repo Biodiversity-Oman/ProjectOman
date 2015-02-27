@@ -91,8 +91,8 @@ public class DaHabitat {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE habitat "
-                    + "(habitat_name, habitat_description) VALUES (?,?) WHERE habitat_id=" + h.getHabitatId() + "");
+            stmt = conn.prepareStatement("UPDATE habitat SET" 
+                    + "(habitat_name=?, habitat_description=?) WHERE habitat_id=" + h.getHabitatId() + "");
             stmt.setString(1, h.getHabitatName());
             stmt.setString(2, h.getHabitatDescription());
             stmt.executeUpdate();

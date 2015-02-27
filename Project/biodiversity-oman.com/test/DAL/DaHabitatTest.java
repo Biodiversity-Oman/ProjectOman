@@ -111,7 +111,7 @@ public class DaHabitatTest {
     public void testDeleteHabitat() throws Exception {
         System.out.println("deleteHabitat");
         // Make sure that the id given to update is equal to the new id in the previous test
-        int id = 14;
+        int id = 17;
         try{
             DaHabitat.deleteHabitat(id);
             System.out.println("delete gelukt");
