@@ -15,11 +15,14 @@ function loadUsers() {
 	dataType: 'json',
 	cache: false,
 	async: true,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
 	}
     }).done(function (data) {
-	$('#users-table').html('');
+	$table.html('');
 	$table.append('<tr>\n\
                                     <th>Username</th>\n\
                                     <th>Firstname</th>\n\
@@ -59,11 +62,14 @@ function loadWorlds() {
 	dataType: 'json',
 	cache: false,
 	async: true,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
 	}
     }).done(function (data) {
-	$('#worlds-table').html('');
+	$table.html('');
 	$ddl.html('');
 	$table.append('<tr>\n\
                                     <th>Name</th>\n\
@@ -94,17 +100,21 @@ function loadSeasons() {
 	dataType: 'json',
 	cache: false,
 	async: true,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
-	},
-	complete: function (data) {
-	    var seasons = data.responseJSON;
-	    $table.append('<tr>\n\
+	}
+    }).done(function (data) {
+	$table.html('');
+	$ddl.html('');
+	$table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
                                     <th>Action</th>\n\
                                 </tr>');
-	    seasons.forEach(function (season) {
+        data.forEach(function (season) {
 		$table.append('<tr>\n\
                                         <td>' + season.seasonName + '</td>\n\
                                         <td>' + season.seasonDescription + '</td>\n\
@@ -112,11 +122,8 @@ function loadSeasons() {
                                     </tr>');
 		$ddl.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
 		$(".chosen-select").trigger("chosen:updated");
-	    });
-	}
-    }).done(function () {
-	$('#seasons-table').html('');
     });
+});
 };
 
 // functie vult tabel in Habitat tab in dashboard.jsp
@@ -131,19 +138,22 @@ function loadHabitats() {
 	dataType: 'json',
 	cache: false,
 	async: true,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
 	    $(".chosen-select").chosen({width: "100%"});
-	},
-	complete: function (data) {
-	    var habitats = data.responseJSON;
-	    $table.append('<tr>\n\
+	}
+    }).done(function (data) {
+	$ddl.html('');
+	$table.html('');
+	$table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
                                     <th>Action</th>\n\
                                 </tr>');
-	    
-	    habitats.forEach(function (habitat) {
+        data.forEach(function (habitat) {
 		$table.append('<tr>\n\
                                         <td>' + habitat.habitatName + '</td>\n\
                                         <td>' + habitat.habitatDescription + '</td>\n\
@@ -152,11 +162,6 @@ function loadHabitats() {
 		$ddl.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
 		$(".chosen-select").trigger("chosen:updated");
 	    });
-	    
-	}
-    }).done(function (data) {
-	$ddl.html('');
-	$('#habitats-table').html('');
     });
 };
 
@@ -172,19 +177,23 @@ function loadFamilies() {
 	dataType: 'json',
 	cache: false,
 	async: true,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
-	},
-	complete: function (data) {
-	    var families = data.responseJSON;
-	    $table.append('<tr>\n\
+	}
+    }).done(function (data) {
+	$table.html('');
+	$ddl.html('');
+	$table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\
                                     <th>World</th>\n\
                                     <th>Action</th>\n\
                                 </tr>');
 	    $ddl.append('<option value="" disabled selected>Select family</option>');
-	    families.forEach(function (family) {
+	    data.forEach(function (family) {
 		$table.append('<tr>\n\
                                         <td>' + family.familyName + '</td>\n\
                                         <td>' + family.familyDescription + '</td>\n\
@@ -193,9 +202,6 @@ function loadFamilies() {
                                     </tr>');
 		$ddl.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
 	    });
-	}
-    }).done(function () {
-	$('#families-table').html('');
     });
 };
 
@@ -211,18 +217,22 @@ function loadSubFamilies() {
 	dataType: 'json',
 	cache: false,
 	async: true,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
-	},
-	complete: function (data) {
-	    var subfamilies = data.responseJSON;
-	    $table.append('<tr>\n\
+	}
+    }).done(function (data) {
+	$table.html('');
+	$ddl.html('');
+	 $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\
                                     <th>Family</th>\n\
                                     <th>Action</th>\n\
                                 </tr>');
-	    subfamilies.forEach(function (subfamily) {
+	    data.forEach(function (subfamily) {
 		$table.append('<tr>\n\
                                         <td>' + subfamily.subFamilyName + '</td>\n\
                                         <td>' + subfamily.subFamilyDescription + '</td>\n\
@@ -231,13 +241,10 @@ function loadSubFamilies() {
                                     </tr>');
 		$ddl.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
 	    });
-	}
-    }).done(function () {
-	$('#subfamilies-table').html('');
     });
 };
 
-// functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
+ //functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
 function loadGeolocations() {
 
     var $table = $('#geolocations-table');
@@ -247,26 +254,26 @@ function loadGeolocations() {
 	type: 'GET',
 	dataType: 'json',
 	cache: false,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
-	},
-	complete: function (data) {
-	    var geolocations = data.responseJSON;
-	    $table.append('<tr>\n\
+	}
+    }).done(function (data) {
+	$table.html('');
+	 $table.append('<tr>\n\
                                     <th>Area name</th>\n\
                                     <th>Description</th>\n\\n\
                                     <th>Action</th>\n\
                                 </tr>');
-	    geolocations.forEach(function (geolocation) {
+	    data.forEach(function (geolocation) {
 		$table.append('<tr>\n\
                                         <td>' + geolocation.areaName + '</td>\n\
                                         <td>' + geolocation.areaDescription + '</td>\n\
                                         <td><button class="no-button" id="delete-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
 	    });
-	}
-    }).done(function () {
-	$('#geolocations-table').html('');
     });
 };
 
@@ -275,18 +282,20 @@ function loadToValidateOrganisms() {
     
     var $table = $('#tovalidate-table');
     var $content = $('.content');
-  
     $.ajax({
 	url: 'SelectOrganismToValidate',
 	type: 'GET',
 	dataType: 'json',
 	cache: false,
 	async: true,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');  
 	}
     }).done(function (data) {
-	$('#tovalidate-table').html('');
+	$table.html('');
 	    $table.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\\n\
@@ -321,7 +330,7 @@ function loadPublishedOrganisms() {
 	    $content.append('<div class="spinner"></div>');
 	}
     }).done(function (data) {
-	$('#published-table').html('');
+	$table.html('');
 	   $table.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\\n\
@@ -339,7 +348,6 @@ function loadPublishedOrganisms() {
 
 // functie vult tabel voor subscribers tab in publish.jsp
 function loadSubscriber() {
-    $('#subscriber-table').html('');
     var $table = $('#subscriber-table');
     var $content = $('.content');
     $.ajax({
@@ -355,6 +363,7 @@ function loadSubscriber() {
 	    $content.append('<div class="spinner"></div>');
         }
     }).done(function(data){
+	    $table.html('');
 	    $table.append('<tr>\n\
                                     <th>First name</th>\n\
                                     <th>Family name</th>\n\\n\

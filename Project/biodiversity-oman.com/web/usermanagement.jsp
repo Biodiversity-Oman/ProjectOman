@@ -15,13 +15,13 @@
 		<script src="js/ajax.js"></script>
 		<script src="js/validator.js"></script>
 		<script src="js/loaders.js"></script>
-	</head>
-	<body>
-	    <script>
+		<script>
 		$(document).ready(function(){
 		   loadUsers(); 
 		});
-	    </script>
+		</script>
+	</head>
+	<body>
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">

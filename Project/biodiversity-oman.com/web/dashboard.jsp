@@ -13,20 +13,19 @@
         <script src="js/maps.js"></script>
         <script src="js/validator.js"></script>
         <script src="js/chosen.jquery.min.js"></script>
-    </head>
-    <body onload="loadWorlds();
-	    loadSeasons();
-	    loadHabitats();
-	    loadFamilies();
-	    loadSubFamilies();
-	    loadGeolocations();
-          ">
 	<script>
-	    // choosen many to many inputs
 	    $(document).ready(function(){
-		 $(".chosen-select").chosen({width: "100%"});
+		loadWorlds();
+		loadSeasons();
+		loadFamilies();
+		loadSubFamilies();
+		loadHabitats();
+		loadGeolocations();
+		$(".chosen-select").chosen({width: "100%"});
 	    });
 	</script>
+    </head>
+    <body>
         <div class="wrapper">
             <div class="tabs">
                 <ul class="tab-links">

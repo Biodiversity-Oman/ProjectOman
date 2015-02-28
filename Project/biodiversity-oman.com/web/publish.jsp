@@ -14,15 +14,15 @@
 	<head>
 		<script src="js/ajax.js"></script>
 		<script src="js/loaders.js"></script>
-	</head>
-        <body>
-	      <script>
+		<script>
 		  $(document).ready(function(){
 		      loadToValidateOrganisms();
 		      loadPublishedOrganisms();
                       loadSubscriber();
 		  });
-	      </script>
+		</script>
+	</head>
+        <body>
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">
