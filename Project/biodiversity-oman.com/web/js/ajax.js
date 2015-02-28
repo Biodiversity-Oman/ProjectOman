@@ -472,4 +472,36 @@ $(document).ready(function () {
 	    loadUsers();
 	}
     });
+    
+    // functie inserten van Organism. dashboard.jsp
+    $('#create-organism-form').submit(function (e) {
+
+	var $message = $('#create-geolocation-message');
+	$.ajax({
+	    url: 'InsertOrganism',
+	    type: 'POST',
+	    dataType: 'text',
+	    data: $('#create-organism-form').serialize(),
+	    complete: function (data) {
+		var response = data.responseText;
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism was added successfully.</div>');
+		} else if (response === 'error1') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+		} else if (response === 'error2') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
+		}
+	    },
+	    error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    $("#create-organism-form")[0].reset();
+	    //loadWorlds();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
+	});
+	e.preventDefault();
+    });
 });
