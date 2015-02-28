@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.0.4.2
 -- http://www.phpmyadmin.net
 --
@@ -398,8 +398,8 @@ ALTER TABLE `food`
 -- Beperkingen voor tabel `geolocation_organism`
 --
 ALTER TABLE `geolocation_organism`
-  ADD CONSTRAINT `geolocation_organism_ibfk_1` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `geolocation_organism_ibfk_2` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`);
+  ADD CONSTRAINT `geolocation_organism_ibfk_1` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `geolocation_organism_ibfk_2` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`) ON DELETE CASCADE;
 
 --
 -- Beperkingen voor tabel `habitat_organism`

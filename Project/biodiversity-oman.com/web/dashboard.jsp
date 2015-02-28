@@ -521,14 +521,6 @@
                                                 <textarea rows="3" class="form-control" type="text" name="area-description"></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label" for="area-map">Make area</label>
-                                            <div class="col-sm-4">
-                                                <div id="map-canvas"></div>
-                                                <span class="help-block with-errors">Use 4 mouse clicks to make an area</span>
-                                                <input class="form-control" id="area-coordinates" type="text" name="area-coordinates" disabled/>
-                                            </div>
-                                        </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
@@ -539,7 +531,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
-                                                <button class="btn btn-default" type="submit" onclick="showCoordinates()">Insert</button>
+                                                <button class="btn btn-default" type="submit">Insert</button>
                                                 <button class="btn btn-default" type="reset">Reset</button>
                                             </div>
                                         </div>

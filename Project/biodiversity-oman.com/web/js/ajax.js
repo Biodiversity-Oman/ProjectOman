@@ -293,7 +293,7 @@ $(document).ready(function () {
 	    }
 	}).done(function () {
 	    $("#create-geolocation-form")[0].reset();
-	    loadWorlds();
+	    loadGeolocations();
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
 	    }, 2800);

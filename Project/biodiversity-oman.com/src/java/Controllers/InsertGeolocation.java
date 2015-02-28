@@ -7,7 +7,6 @@ package Controllers;
 
 import Service.ServGeolocation;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +34,7 @@ public class InsertGeolocation extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         try {
-            ServGeolocation.insertGeolocation(request.getParameter("area-name"), request.getParameter("area-description"), request.getParameter("area-coordinates"));
+            ServGeolocation.insertGeolocation(request.getParameter("area-name"), request.getParameter("area-description"), "100,20");
             response.getWriter().write("succes");
         } catch (Exception e) {
             response.getWriter().write("error");
