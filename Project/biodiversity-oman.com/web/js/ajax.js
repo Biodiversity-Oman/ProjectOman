@@ -501,10 +501,14 @@ $(document).ready(function () {
 	    loadOrganism();
 	});
     });
+    
+    // general close-button function to close pop-ups dashboard.jsp
     $(document).on('click', '.close-button', function(){
 	$('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
     });
+    
+    // update world-button dashboard.jsp - worlds tab
     $(document).on('click', 'table #update-world-btn', function() {
 	document.getElementById('update-world').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
