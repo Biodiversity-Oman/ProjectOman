@@ -15,7 +15,6 @@ import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -119,8 +118,9 @@ public class DaOrganism {
                 
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setCommonName(rs.getString("common_name"));
-                o.setInsertedOn(rs.getDate("inserted_on"));
-                o.setUpdatedOn(rs.getDate("updated_on"));
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                o.setInsertedOn(df.format(rs.getDate("inserted_on")));
+                o.setUpdatedOn(df.format(rs.getDate("updated_on")));
                 
                 sf.setSubfamilyId(rs.getInt("subfamily_id"));
                 sf.setSubfamilyName(rs.getString("subfamily_name"));
@@ -237,8 +237,9 @@ public class DaOrganism {
                 organism.setValidated(rsOrganism.getBoolean("isvalidated"));
                 organism.setFoodName(rsOrganism.getString("food_name"));
                 organism.setFoodDescription(rsOrganism.getString("food_description"));
-                organism.setInsertedOn(rsOrganism.getDate("inserted_on"));
-                organism.setUpdatedOn(rsOrganism.getDate("updated_on"));
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                organism.setInsertedOn(df.format(rsOrganism.getDate("inserted_on")));
+                organism.setUpdatedOn(df.format(rsOrganism.getDate("updated_on")));
                 
                 // One to many objecten
                 // Er moet nog een One To many bijkomen namelijk voor alle posts te selecteren die behoren tot dit bepaald organisme.
@@ -670,10 +671,9 @@ public class DaOrganism {
                                 o.setOrganismId(rs.getInt("organism_id"));
                                 o.setScientificName(rs.getString("scientific_name"));
                                 // Date to short date
-                                java.sql.Date date = rs.getDate("inserted_on");
-                                Format format = new SimpleDateFormat("dd/MM/yyyy");
-                                format.format(date);                               
-                                o.setInsertedOn(date);                                
+                                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                                o.setInsertedOn(df.format(rs.getDate("inserted_on")));  
+                                
                                 org.add(o);
 			}
 
@@ -703,10 +703,9 @@ public class DaOrganism {
                                 o.setCommonName(rs.getString("common_name"));
                                 o.setScientificName(rs.getString("scientific_name"));
                                 // Date to short date
-                                java.sql.Date date = rs.getDate("updated_on");
-                                Format format = new SimpleDateFormat("dd/MM/yyyy");
-                                format.format(date);
-                                o.setUpdatedOn(date);
+                                                
+                                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                                o.setUpdatedOn(df.format(rs.getDate("updated_on")));
                                 o.setOrganismId(rs.getInt("organism_id"));
                                 org.add(o);
 			}
