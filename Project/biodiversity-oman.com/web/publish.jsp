@@ -14,7 +14,8 @@
 	<head>
 		<script src="js/ajax.js"></script>
 	</head>
-	<body>
+        <body onload="loadToValidateOrganisms();
+              loadPublishedOrganisms();">
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">
@@ -25,10 +26,18 @@
 				</ul>
 				<div class="tab-content">
 					<div id="tab1" class="tab active">
-						<div class="spinner"></div>
+						<div class="table-responsive">
+                                                    <div class="col-sm-10">
+                                                        <table class="table table-striped" id="published-table"></table>
+                                                    </div>
+                                                </div>
 					</div>
 					<div id="tab2" class="tab">
-						<div class="spinner"></div>
+						<div class="table-responsive">
+                                                    <div class="col-sm-10">
+                                                        <table class="table table-striped" id="tovalidate-table"></table>
+                                                    </div>
+                                                </div>
 					</div>
 					<div id="tab3" class="tab">
 						<div class="spinner"></div>

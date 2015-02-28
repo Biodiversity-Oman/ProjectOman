@@ -707,6 +707,77 @@ function loadSubFamilies() {
 }
 ;
 
+// functie vult tabel voor te valideren organisms tab in publish.jsp
+function loadToValidateOrganisms() {
+
+    var $table = $('#tovalidate-table');
+    var $content = $('.content');
+    $.ajax({
+	url: 'SelectOrganismToValidate',
+	type: 'GET',
+	dataType: 'json',
+	cache: false,
+	async: true,
+	beforesend: function () {
+	    $content.append('<div class="spinner"></div>');
+	},
+	complete: function (data) {
+	    var orgval = data.responseJSON;
+	    $table.append('<tr>\n\
+                                    <th>Common name</th>\n\
+                                    <th>Scientific name</th>\n\\n\
+                                    <th>Submitted on</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+	    orgval.forEach(function (o) {
+		$table.append('<tr>\n\
+                                        <td>' + o.commonName + '</td>\n\\n\
+                                        <td>' + o.scientificName + '</td>\n\
+                                        <td>'+ o.insertedOn + '</td>\n\
+                                        <td><button class="no-button" id="select-organism-btn" type="submit" value="' + o.organismId+ '"><span class="icon-pencil"></span></button></td>\n\
+                                    </tr>');
+	    });
+	}
+    }).done(function () {
+	$('#tovalidate-table').html('');
+    });
+}
+;
+// functie vult tabel voor published organisms tab in publish.jsp
+function loadPublishedOrganisms() {
+
+    var $table = $('#published-table');
+    var $content = $('.content');
+    $.ajax({
+	url: 'SelectAllPublishedOrganisms',
+	type: 'GET',
+	dataType: 'json',
+	cache: false,
+	async: true,
+	beforesend: function () {
+	    $content.append('<div class="spinner"></div>');
+	},
+	complete: function (data) {
+	    var orgpub = data.responseJSON;
+	    $table.append('<tr>\n\
+                                    <th>Common name</th>\n\
+                                    <th>Scientific name</th>\n\\n\
+                                    <th>Last updated on</th>\n\
+                                </tr>');
+	    orgpub.forEach(function (o) {
+		$table.append('<tr>\n\
+                                        <td>' + o.commonName + '</td>\n\\n\
+                                        <td>' + o.scientificName + '</td>\n\
+                                        <td>'+ o.updatedOn + '</td>\n\
+                                  </tr>');
+	    });
+	}
+    }).done(function () {
+	$('#published-table').html('');
+    });
+}
+;
+
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------

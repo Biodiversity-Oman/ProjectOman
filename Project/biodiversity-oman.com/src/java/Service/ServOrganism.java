@@ -6,6 +6,8 @@
 package Service;
 
 import DAL.DaOrganism;
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -106,4 +108,13 @@ public class ServOrganism {
         if (result < 1)  {return "Service not available. Please contact an administrator if the problem persists.";}
         return "The organism was added successfully.";
     }
+    
+    public static List selectOrganismsToValidate() throws SQLException {
+		
+		return DaOrganism.selectAllForValidation();
+	}
+    public static List selectOrganismsPublished() throws SQLException {
+		
+		return DaOrganism.selectAllPublished();
+	}
 }

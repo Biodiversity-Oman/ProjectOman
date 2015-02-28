@@ -11,10 +11,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Locale;
 
 /**
  *
@@ -654,13 +657,56 @@ public class DaOrganism {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT common_name FROM organism WHERE isvalidated = 1");
+			stmt = conn.prepareStatement("SELECT common_name, organism_id,scientific_name inserted_on FROM organism WHERE isvalidated = 0 ORDER BY inserted_on");
                         
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
 				Organism o = new Organism();
                                 o.setCommonName(rs.getString("common_name"));
+                                // Date to short date
+                                Date date = rs.getDate("inserted_on");
+                                Format format = new SimpleDateFormat("dd/MM/yyyy");
+                                format.format(date);
+                                
+                                o.setInsertedOn(date);
+                                o.setScientificName(rs.getString("scientific_name"));
+                                o.setOrganismId(rs.getInt("organism_id"));
+                                org.add(o);
+			}
+
+			conn.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			conn.rollback();
+		} finally {
+			conn.setAutoCommit(true);
+		}
+
+		return org;
+	}
+    
+    public static List<Organism> selectAllPublished() throws SQLException {
+		List<Organism> org = new ArrayList();
+
+		try {
+			conn = DataSource.getConnection();
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement("SELECT common_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
+                        
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Organism o = new Organism();
+                                o.setCommonName(rs.getString("common_name"));
+                                o.setScientificName(rs.getString("scientific_name"));
+                                // Date to short date
+                                Date date = rs.getDate("updated_on");
+                                Format format = new SimpleDateFormat("dd/MM/yyyy");
+                                format.format(date);
+                                
+                                o.setInsertedOn(date);
+                                o.setOrganismId(rs.getInt("organism_id"));
                                 org.add(o);
 			}
 
