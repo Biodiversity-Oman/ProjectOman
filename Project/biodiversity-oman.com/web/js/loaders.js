@@ -263,7 +263,7 @@ function loadGeolocations() {
 		$table.append('<tr>\n\
                                         <td>' + geolocation.areaName + '</td>\n\
                                         <td>' + geolocation.areaDescription + '</td>\n\
-                                        <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
 	    });
 	}
