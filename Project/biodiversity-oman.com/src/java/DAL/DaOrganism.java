@@ -654,11 +654,10 @@ public class DaOrganism {
     }
 
     public static List<Organism> selectAllForValidation() throws SQLException {
-		List<Organism> org = new ArrayList();
+		List<Organism> orga = new ArrayList();
 
 		try {
 			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("SELECT common_name, organism_id, scientific_name, inserted_on FROM organism WHERE isvalidated = 0 ORDER BY inserted_on");
                         
 			ResultSet rs = stmt.executeQuery();
@@ -672,26 +671,19 @@ public class DaOrganism {
                                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                                 o.setInsertedOn(df.format(rs.getDate("inserted_on")));  
                                 
-                                org.add(o);
+                                orga.add(o);
 			}
-
-			conn.commit();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);
-		}
+			System.out.println(e.getMessage());}
 
-		return org;
+		return orga;
 	}
     
     public static List<Organism> selectAllPublished() throws SQLException {
-		List<Organism> org = new ArrayList();
+		List<Organism> orgb = new ArrayList();
 
 		try {
 			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
                         
 			ResultSet rs = stmt.executeQuery();
@@ -702,21 +694,16 @@ public class DaOrganism {
                                 o.setScientificName(rs.getString("scientific_name"));
                                 o.setUpdatedOn(rs.getString("updated_on"));
                                 o.setOrganismId(rs.getInt("organism_id"));
-                                org.add(o);
+                                orgb.add(o);
 			}
-
-			conn.commit();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);
 		}
 
-		return org;
+		return orgb;
 	}
     
-    public static List<Organism> sellectAllToValidate ()
+    public static List<Organism> sellectAllToValidate()
     {
         List<Organism> organisms = new ArrayList<>();
         
@@ -725,7 +712,7 @@ public class DaOrganism {
             
             
             // SQL werkt
-            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.scientific_name organism.common_name, organism.inserted_on \n" + 
+            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.scientific_name, organism.common_name, organism.inserted_on \n" + 
                     "FROM organism \n" +
                     "WHERE organism.isvalidated=0");
             
@@ -738,6 +725,40 @@ public class DaOrganism {
                 o.setCommonName(rs.getString("scientific_name"));
                 o.setCommonName(rs.getString("common_name"));
                 o.setInsertedOn(rs.getString("inserted_on"));
+                
+                organisms.add(o);
+            }
+            
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return organisms;
+    }
+    
+    public static List<Organism> sellectAllToPublish()
+    {
+        List<Organism> organisms = new ArrayList<>();
+        
+        try {
+            conn = DataSource.getConnection();
+            
+            
+            // SQL werkt
+            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.scientific_name, organism.common_name, organism.updated_on \n" + 
+                    "FROM organism \n" +
+                    "WHERE organism.isvalidated=1");
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Organism o = new Organism();
+                
+                o.setOrganismId(rs.getInt("organism_id"));
+                o.setCommonName(rs.getString("scientific_name"));
+                o.setCommonName(rs.getString("common_name"));
+                DateFormat df = new SimpleDateFormat("MMddyyyy");
+                o.setInsertedOn(df.format(rs.getDate("updated_on")));
                 
                 organisms.add(o);
             }

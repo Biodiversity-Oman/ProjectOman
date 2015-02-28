@@ -117,4 +117,13 @@ public class ServOrganism {
 		
 		return DaOrganism.selectAllPublished();
 	}
+    
+    public static List<BLL.Organism> selectAllOrganismToValidate()
+    {
+        return DAL.DaOrganism.sellectAllToValidate();
+    }
+    public static List<BLL.Organism> selectAllOrganismToPublish()
+    {
+        return DAL.DaOrganism.sellectAllToPublish();
+    }
 }
