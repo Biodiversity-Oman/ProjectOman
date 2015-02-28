@@ -284,8 +284,8 @@ function loadToValidateOrganisms() {
 	dataType: 'json',
 	cache: false,
 	async: true,
-	error: function(request, status, error) {
-	  console.log(status);  
+	beforesend: function () {
+	    $content.append('<div class="spinner"></div>');  
 	}
     }).done(function (data) {
 	$('#tovalidate-table').html('');
@@ -316,8 +316,8 @@ function loadPublishedOrganisms() {
 	dataType: 'json',
 	cache: false,
 	async: true,
-	error: function(request, status, error) {
-	  console.log(status);  
+	beforesend: function () {
+	    $content.append('<div class="spinner"></div>');
 	}
     }).done(function (data) {
 	$('#published-table').html('');
