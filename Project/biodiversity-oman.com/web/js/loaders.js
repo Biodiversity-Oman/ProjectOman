@@ -257,7 +257,8 @@ function loadGeolocations() {
 	    var geolocations = data.responseJSON;
 	    $table.append('<tr>\n\
                                     <th>Area name</th>\n\
-                                    <th>Description</th>\n\
+                                    <th>Description</th>\n\\n\
+                                    <th>Action</th>\n\
                                 </tr>');
 	    geolocations.forEach(function (geolocation) {
 		$table.append('<tr>\n\
