@@ -42,11 +42,11 @@ public class UtServOrganism {
             System.out.println(o.getCommonName());
         });
         
-//        message = ServOrganism.delete(4);
-//        System.out.println(message);
-//        ServOrganism.selectAll().stream().forEach((o) -> {
-//            System.out.println(o.getCommonName());
-//        });
+        message = ServOrganism.delete(4);
+        System.out.println(message);
+        ServOrganism.selectAll().stream().forEach((o) -> {
+            System.out.println(o.getCommonName());
+        });
 
     }
 }

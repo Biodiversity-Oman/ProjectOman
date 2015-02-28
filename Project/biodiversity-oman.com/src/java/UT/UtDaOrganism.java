@@ -61,7 +61,7 @@ public class UtDaOrganism {
         geoLocationsNew.add(geoLocationNew2);
         
         Organism organismNew = new Organism();
-        organismNew.setScientificName("ScientificNameInsert");
+        organismNew.setScientificName("ScientificNameInserter");
         organismNew.setCommonName("CommonNameInsert");
         organismNew.setLocalName("LocalNameInsert");
         organismNew.setSubfamily(subfamilyNew);
