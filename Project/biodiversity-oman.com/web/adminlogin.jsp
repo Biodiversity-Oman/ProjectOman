@@ -33,25 +33,25 @@
 	    <form class="form form-horizontal" method="POST" action="Login">
 		<div class="form-group">
 		    <label class="col-sm-3 control-label" for="username">Username</label>
-		    <div class="col-sm-6">
+		    <div class="col-sm-7">
 			<input class="form-control" type="text" name="username" required />
 		    </div>
 		</div>
 		<div class="form-group">
 		    <label class="col-sm-3 control-label" for="username">Password</label>
-		    <div class="col-sm-6">
-			<input class="form-control" type="text" name="password" required />
+		    <div class="col-sm-7">
+			<input class="form-control" type="password" name="password" required />
+		    </div>
+		</div>
+		<div class="form-group">
+		    <label class="col-sm-3 control-label"> </label>
+		    <div class="col-sm-3">
+			<button class="btn btn-default" type="submit">Login</button>
 		    </div>
 		</div>
 		<div class="form-group">
 		    <label class="col-sm-3 control-label"></label>
 		    <label class="error-message"><%=message%></label>
-		</div>
-		<div class="form-group">
-		    <label class="col-sm-3 control-label"> </label>
-		    <div class="col-sm-2">
-			<button class="btn btn-default" type="submit">Login</button>
-		    </div>
 		</div>
 	    </form>
 	</div>

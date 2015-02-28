@@ -68,7 +68,7 @@
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
 					    <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-subfamily">Family</label>
+                                                <label class="col-sm-2 control-label" for="organism-family">Family</label>
                                                 <div class="col-sm-4">
                                                     <select class="form-control" id="family-ddl1" name="family-id"></select>
                                                 </div>
@@ -88,7 +88,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" name="organism-description"></textarea>
+                                                    <textarea class="form-control" rows="3" name="organism-description"></textarea>
                                                 </div>
                                             </div>
 					    <div class="form-group">

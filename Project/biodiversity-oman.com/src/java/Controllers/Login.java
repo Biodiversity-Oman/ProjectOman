@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
 				session.setAttribute("user", user);
 				response.sendRedirect("dashboard.jsp");
 			} else {
-				session.setAttribute("error", "Username or password not valid");
+				session.setAttribute("error", "Password not valid");
 				response.sendRedirect("adminlogin.jsp");
 			}
 		} catch (SQLException ex) {
