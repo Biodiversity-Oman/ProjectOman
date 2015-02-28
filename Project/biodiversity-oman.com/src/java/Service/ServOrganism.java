@@ -57,10 +57,10 @@ public class ServOrganism {
         }
         else
         {
-            return "An organism with this scientific name allready exists.";
+            return "error1";
         }
-        if (result < 1)  {return "Service not available. Please contact an administrator if the problem persists.";}
-        return "The organism was added successfully.";
+        if (result < 1)  {return "error2";}
+        return "succes";
     }
     
     // Anders dan bij de dal methodes worden hier de parameters als primitive types meegegeven. Geen Lists of objecten maar variables
@@ -98,7 +98,7 @@ public class ServOrganism {
             return "An organism with this scientific name allready exists.";
         }
         if (result < 1)  {return "Service not available. Please contact an administrator if the problem persists.";}
-        return "The organism was added successfully.";
+        return "The organism was updated successfully.";
     }
     
     public static String delete(int id)

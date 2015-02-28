@@ -51,7 +51,7 @@
                                                 <h2 class="h2">Create Organism</h2>
                                             </div>
                                         </div>
-                                        <form class="form-group">                                            
+                                        <!--<form class="form-group"> -->                                           
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
                                                 <div class="col-sm-4">
@@ -76,13 +76,13 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-family">Family</label>
                                                 <div class="col-sm-4">
-                                                    <select class="form-control" id="family-ddl1" name="family-id"></select>
+                                                    <select class="form-control" id="family-ddl1" name="organism-family-id"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                                 <div class="col-sm-4">
-                                                    <select class="form-control" id="subfamily-ddl" name="subfamily-id"></select>
+                                                    <select class="form-control" id="subfamily-ddl" name="organism-subfamily-id"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -101,6 +101,12 @@
                                                 <label class="col-sm-2 control-label">Choose Habitat</label>
                                                 <div class="col-sm-4">
                                                     <select class="chosen-select form-control" id="habitat-ddl" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Choose World</label>
+                                                <div class="col-sm-4">
+                                                    <select class="form-control" id="world-ddl" name="organism-world-id" data-placeholder="Choose World"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -193,10 +199,10 @@
                                                 <label class="col-sm-2 control-label">Choose geolocations</label>
                                                 <div class="col-sm-4">
                                                     <select class="chosen-select form-control" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
-                                                        <option value="winter">geo</option>
-                                                        <option value="summer">geo</option>
-                                                        <option value="autumn">geo</option>
-                                                        <option value="spring">geo</option>
+                                                        <option value="1">geo</option>
+                                                        <option value="2">geo</option>
+                                                        <option value="3">geo</option>
+                                                        <option value="4">geo</option>
                                                     </select>
                                                 </div>
                                             </div>

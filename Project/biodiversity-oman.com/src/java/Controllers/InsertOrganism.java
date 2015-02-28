@@ -41,14 +41,18 @@ public class InsertOrganism extends HttpServlet {
         for (int i=0; i < request.getParameterValues("organism-season-id").length; i++) {
         seasonIds[i] = Integer.parseInt(request.getParameterValues("organism-season-id")[i]);}
 
-        int[] eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
-        for (int i=0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
-        eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);}
+//        int[] eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
+//        for (int i=0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
+//        eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);}
+//
+//        int[] eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
+//        for (int i=0; i < request.getParameterValues("eating-organism-id").length; i++) {
+//        eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);}
 
-        int[] eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
-        for (int i=0; i < request.getParameterValues("eating-organism-id").length; i++) {
-        eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);}
+        int[] eatenByOrganismIds = { 1, 2 };
 
+        int[] eatingOrganismIds = { 1, 2 };
+        
         int[] geolocationIds = new int[request.getParameterValues("organism-geolocation-id").length];
         for (int i=0; i < request.getParameterValues("organism-geolocation-id").length; i++) {
         geolocationIds[i] = Integer.parseInt(request.getParameterValues("organism-geolocation-id")[i]);}
@@ -58,9 +62,9 @@ public class InsertOrganism extends HttpServlet {
                                                                 request.getParameter("organism-common-name"), 
                                                                 request.getParameter("organism-local-name"), 
                                                                 request.getParameter("organism-description"), 
-                                                                Integer.parseInt(request.getParameter("subfamily-id")), 
-                                                                Integer.parseInt(request.getParameter("family-id")), 
-                                                                Integer.parseInt(request.getParameter("world-id")), 
+                                                                Integer.parseInt(request.getParameter("organism-subfamily-id")), 
+                                                                Integer.parseInt(request.getParameter("organism-family-id")), 
+                                                                Integer.parseInt(request.getParameter("organism-world-id")), 
                                                                 habitatIds, 
                                                                 request.getParameter("organism-population"), 
                                                                 seasonIds, 
@@ -76,7 +80,7 @@ public class InsertOrganism extends HttpServlet {
                                                                 request.getParameter("organism-links"), 
                                                                 eatenByOrganismIds, 
                                                                 eatingOrganismIds, 
-                                                                Boolean.parseBoolean(("validated")), 
+                                                                false,//Boolean.parseBoolean(("validated")), 
                                                                 request.getParameter("organism-food-name"), 
                                                                 request.getParameter("organism-food-description"), 
                                                                 geolocationIds));
