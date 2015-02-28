@@ -271,7 +271,9 @@
                         </div>
 			<div id="update-world" class="insert-box">
 			    <label class="close-button">x</label>
-			    <div class="content"></div>
+			    <div class="content">
+				<p>UPDATE WORLD FORM HERE</p>
+			    </div>
 			</div>
                         <div class="table-responsive">
                             <div class="col-sm-10">
