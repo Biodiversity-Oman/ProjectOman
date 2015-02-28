@@ -30,7 +30,7 @@ public class ServOrganism {
     public static String insert(String scientificname, String commonname, String localname, String description,
                         int subfamilyid, int familyid, int worldid, int[] habitatid, String population, 
                         int[] seasonid, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
-                        String benefits, String dangerous, String threats, String opportunities, Byte photo, String links,
+                        String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
                         int[] eatenbyorganismid, int[] eatingorganismid, Boolean validated, String foodname, 
                         String fooddescription,int[] geolocationid)
     {
@@ -68,7 +68,7 @@ public class ServOrganism {
     public static String update(int id, String scientificname, String commonname, String localname, String description,
                         int subfamilyid, int familyid, int worldid, int[] habitatid, String population, 
                         int[] seasonid, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
-                        String benefits, String dangerous, String threats, String opportunities, Byte photo, String links,
+                        String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
                         int[] eatenbyorganismid, int[] eatingorganismid, Boolean validated, String foodname, 
                         String fooddescription,int[] geolocationid)
     {
