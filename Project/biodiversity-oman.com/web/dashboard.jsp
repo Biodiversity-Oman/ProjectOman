@@ -88,7 +88,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" type="text" name="organism-description"></textarea>
+                                                    <textarea rows="3" name="organism-description"></textarea>
                                                 </div>
                                             </div>
 					    <div class="form-group">
@@ -134,32 +134,32 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" type="text" name="organism-benefits"></textarea>
+                                                    <textarea rows="3" class="form-control"  name="organism-benefits"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" type="text" name="organism-dangerous"></textarea>
+                                                    <textarea rows="3" class="form-control"  name="organism-dangerous"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" type="text" name="organism-threats"></textarea>
+                                                    <textarea rows="3" class="form-control" name="organism-threats"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" type="text" name="organism-opportunities"></textarea>
+                                                    <textarea rows="3" class="form-control" name="organism-opportunities"></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" type="text" name="organism-links"></textarea>
+                                                    <textarea rows="3" class="form-control" name="organism-links"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -172,7 +172,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" type="text" name="organism-food-description"></textarea>
+                                                    <textarea rows="3" class="form-control" name="organism-food-description"></textarea>
                                                 </div>
                                             </div>
 					    <div class="form-group">
