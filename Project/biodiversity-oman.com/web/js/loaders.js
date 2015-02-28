@@ -372,9 +372,9 @@ function loadSubscriber() {
                                 </tr>');
 	    data.forEach(function (s) {
 		$table.append('<tr>\n\
-                                        <td>' + s.firstName + '</td>\n\\n\
-                                        <td>' + s.lastName + '</td>\n\
-                                        <td>'+ s.email + '</td>\n\
+                                        <td>' + s.subscriberFirstName + '</td>\n\\n\
+                                        <td>' + s.subscriberLastName + '</td>\n\
+                                        <td>'+ s.subscriberEmail + '</td>\n\
                                         <td><button class="no-button" id="select-subscriber-btn" type="submit" value="' + s.subscriberId+ '"><span class="icon-pencil"></span></button></td>\n\
                                     </tr>');
 	}); 
