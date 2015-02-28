@@ -6,7 +6,7 @@
 
 // functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
 function loadUsers() {
-    $('#users-table').html('');
+    
     var $table = $('#users-table');
     var $content = $('.content');
     $.ajax({
@@ -19,6 +19,7 @@ function loadUsers() {
 	    $content.append('<div class="spinner"></div>');
 	}
     }).done(function (data) {
+	$('#users-table').html('');
 	$table.append('<tr>\n\
                                     <th>Username</th>\n\
                                     <th>Firstname</th>\n\
@@ -273,20 +274,21 @@ function loadGeolocations() {
 
 // functie vult tabel voor te valideren organisms tab in publish.jsp
 function loadToValidateOrganisms() {
-    $('#tovalidate-table').html('');
+    
     var $table = $('#tovalidate-table');
     var $content = $('.content');
-    var succes;
+  
     $.ajax({
 	url: 'SelectOrganismToValidate',
 	type: 'GET',
 	dataType: 'json',
 	cache: false,
 	async: true,
-	beforesend: function () {
-	    $content.append('<div class="spinner"></div>');
+	error: function(request, status, error) {
+	  console.log(status);  
 	}
     }).done(function (data) {
+	$('#tovalidate-table').html('');
 	    $table.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\\n\
@@ -306,7 +308,6 @@ function loadToValidateOrganisms() {
 
 // functie vult tabel voor published organisms tab in publish.jsp
 function loadPublishedOrganisms() {
-    $('#published-table').html('');
     var $table = $('#published-table');
     var $content = $('.content');
     $.ajax({
@@ -315,10 +316,11 @@ function loadPublishedOrganisms() {
 	dataType: 'json',
 	cache: false,
 	async: true,
-	beforesend: function () {
-	    $content.append('<div class="spinner"></div>');
+	error: function(request, status, error) {
+	  console.log(status);  
 	}
     }).done(function (data) {
+	$('#published-table').html('');
 	   $table.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\\n\
@@ -334,34 +336,4 @@ function loadPublishedOrganisms() {
     });
 };
 
-// functie vult tabel voor subscribers tab in publish.jsp
-function loadSubscriber() {
-    $('#subscriber-table').html('');
-    var $table = $('#subscriber-table');
-    var $content = $('.content');
-    $.ajax({
-	url: 'SelectAllSubscriber',
-	type: 'GET',
-	dataType: 'json',
-	cache: false,
-	async: true,
-	beforesend: function () {
-	    $content.append('<div class="spinner"></div>');
-        }
-    }).done(function(data){
-	    $table.append('<tr>\n\
-                                    <th>First name</th>\n\
-                                    <th>Family name</th>\n\\n\
-                                    <th>Email</th>\n\
-                                    <th>Action</th>\n\
-                                </tr>');
-	    data.forEach(function (s) {
-		$table.append('<tr>\n\
-                                        <td>' + s.firstName + '</td>\n\\n\
-                                        <td>' + s.lastName + '</td>\n\
-                                        <td>'+ s.email + '</td>\n\
-                                        <td><button class="no-button" id="select-subscriber-btn" type="submit" value="' + s.subscriberId+ '"><span class="icon-pencil"></span></button></td>\n\
-                                    </tr>');
-	}); 
-    });
-};
+

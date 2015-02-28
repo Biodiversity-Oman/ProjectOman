@@ -328,10 +328,6 @@ $(document).ready(function () {
 	    async: true
 	}).done(function () {
 	    loadUsers();
-	    
-	})
-	.always(function(){
-	    //$('#users-table').html('');
 	});
     });
 
@@ -347,10 +343,6 @@ $(document).ready(function () {
 	    async: true
 	}).done(function () {
 	    loadUsers();
-	    
-	})
-	.always(function(){
-	    //$('#users-table').html('');
 	});
     });
 
@@ -479,20 +471,6 @@ $(document).ready(function () {
 	} else {
 	    loadUsers();
 	}
-    });
-      // functie voor delete organism btn in dashboard.jsp
-    $(document).on('click', '.table #delete-organism-btn', function () {
-
-	var id = ($(this).attr("value"));
-	$.ajax({
-	    url: 'DeleteOrganism?id=' + id,
-	    type: 'POST',
-	    dataType: 'text',
-	    cache: false,
-	    async: true
-	}).done(function () {
-	    loadOrganism();
-	});
     });
     
     // functie inserten van Organism. dashboard.jsp
