@@ -692,7 +692,7 @@ public class DaOrganism {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT common_name, organism_id, updated_on, scientific_name FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
+			stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
                         
 			ResultSet rs = stmt.executeQuery();
 
@@ -705,7 +705,7 @@ public class DaOrganism {
                                 Format format = new SimpleDateFormat("dd/MM/yyyy");
                                 format.format(date);
                                 
-                                o.setInsertedOn(date);
+                                o.setUpdatedOn(date);
                                 o.setOrganismId(rs.getInt("organism_id"));
                                 org.add(o);
 			}
