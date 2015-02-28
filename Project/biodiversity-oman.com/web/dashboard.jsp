@@ -110,8 +110,8 @@
                                                 <div class="col-sm-4">
                                                     <select class="form-control" id="world-ddl" name="organism-world-id" data-placeholder="Choose World"></select>
                                                 </div>
-                                           <!-- </div>
-                                            <div class="form-group">
+                                           </div>
+                                           <!--  <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
                                                 <div class="col-sm-4">
                                                     <input class="btn btn-default" type="file"  name="upfileOrganism" >
