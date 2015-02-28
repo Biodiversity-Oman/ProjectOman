@@ -37,10 +37,10 @@ public class SelectOrganismToValidate extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json");
         try {
-            List organisms = ServOrganism.selectOrganismsToValidate();
-            response.getWriter().write(new Gson().toJson(organisms));
+            List orgs = ServOrganism.selectOrganismsToValidate();
+            response.getWriter().write(new Gson().toJson(orgs));
             
             } catch (SQLException ex) {
 			Logger.getLogger(SelectOrganismToValidate.class.getName()).log(Level.SEVERE, null, ex);

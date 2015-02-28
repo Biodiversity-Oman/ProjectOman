@@ -328,10 +328,6 @@ $(document).ready(function () {
 	    async: true
 	}).done(function () {
 	    loadUsers();
-	    
-	})
-	.always(function(){
-	    //$('#users-table').html('');
 	});
     });
 
@@ -347,10 +343,6 @@ $(document).ready(function () {
 	    async: true
 	}).done(function () {
 	    loadUsers();
-	    
-	})
-	.always(function(){
-	    //$('#users-table').html('');
 	});
     });
 
