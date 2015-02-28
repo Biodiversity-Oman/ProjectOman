@@ -10,6 +10,7 @@
         <link rel="StyleSheet" type="text/css" href="css/chosen.css">
         <script src="js/ajax.js"></script>
 	<script src="js/loaders.js"></script>
+        <script src="js/maps.js"></script>
         <script src="js/validator.js"></script>
         <script src="js/chosen.jquery.min.js"></script>
     </head>
