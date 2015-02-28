@@ -11,10 +11,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  *
@@ -667,16 +669,11 @@ public class DaOrganism {
 				Organism o = new Organism();
                                 o.setCommonName(rs.getString("common_name"));
                                 o.setOrganismId(rs.getInt("organism_id"));
-<<<<<<< HEAD
-                                o.setScientificName(rs.getString("scientific_name"));                         
-                                o.setInsertedOn(rs.getDate("inserted_on"));                                
-=======
                                 o.setScientificName(rs.getString("scientific_name"));
                                 // Date to short date
                                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                                 o.setInsertedOn(df.format(rs.getDate("inserted_on")));  
                                 
->>>>>>> origin/master
                                 org.add(o);
 			}
 
@@ -697,7 +694,7 @@ public class DaOrganism {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT common_name, scientific_name, updated_on, organism_id FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
+			stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
                         
 			ResultSet rs = stmt.executeQuery();
 
@@ -705,15 +702,10 @@ public class DaOrganism {
 				Organism o = new Organism();
                                 o.setCommonName(rs.getString("common_name"));
                                 o.setScientificName(rs.getString("scientific_name"));
-<<<<<<< HEAD
-                                
-                                o.setUpdatedOn(rs.getDate("updated_on"));
-=======
                                 // Date to short date
                                                 
                                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                                 o.setUpdatedOn(df.format(rs.getDate("updated_on")));
->>>>>>> origin/master
                                 o.setOrganismId(rs.getInt("organism_id"));
                                 org.add(o);
 			}

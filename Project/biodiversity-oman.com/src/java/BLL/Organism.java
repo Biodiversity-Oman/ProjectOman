@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package BLL;
-import java.sql.Date;
 import java.util.List;
 
 /**
@@ -40,13 +39,8 @@ public class Organism {
 	private Boolean validated;
 	private String foodName;
 	private String foodDescription;
-<<<<<<< HEAD
-        private Date insertedOn;
-        private Date updatedOn;
-=======
         private String insertedOn;
         private String updatedOn;
->>>>>>> origin/master
         private List<Geolocation> geolocations;
         
         // Algemene constructor
@@ -549,44 +543,28 @@ public class Organism {
     /**
      * @return the insertedOn
      */
-<<<<<<< HEAD
-    public Date getInsertedOn() {
-=======
     public String getInsertedOn() {
->>>>>>> origin/master
         return insertedOn;
     }
 
     /**
      * @param insertedOn the insertedOn to set
      */
-<<<<<<< HEAD
-    public void setInsertedOn(Date insertedOn) {
-=======
     public void setInsertedOn(String insertedOn) {
->>>>>>> origin/master
         this.insertedOn = insertedOn;
     }
 
     /**
      * @return the updatedOn
      */
-<<<<<<< HEAD
-    public Date getUpdatedOn() {
-=======
     public String getUpdatedOn() {
->>>>>>> origin/master
         return updatedOn;
     }
 
     /**
      * @param updatedOn the updatedOn to set
      */
-<<<<<<< HEAD
-    public void setUpdatedOn(Date updatedOn) {
-=======
     public void setUpdatedOn(String updatedOn) {
->>>>>>> origin/master
         this.updatedOn = updatedOn;
     }
 
