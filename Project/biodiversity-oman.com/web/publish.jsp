@@ -20,6 +20,7 @@
 		  $(document).ready(function(){
 		      loadToValidateOrganisms();
 		      loadPublishedOrganisms();
+                      loadSubscriber();
 		  });
 	      </script>
 		<div class="wrapper">
@@ -48,7 +49,7 @@
 					<div id="tab3" class="tab">
 						<div class="spinner"></div>
 					</div>
-					<div id="tab4" class="tab">
+					<div id="tab4" class="tab active">
 						<div class="table-responsive">
                                                     <div class="col-sm-10">
                                                         <table class="table table-striped" id="subscriber-table"></table>
