@@ -273,6 +273,36 @@ $(document).ready(function () {
 	});
 	e.preventDefault();
     });
+    
+    // functie inserten van geolocation. dashboard.jsp
+    $('#create-geolocation-form').submit(function (e) {
+
+	var $message = $('#create-geolocation-message');
+	$.ajax({
+	    url: 'InsertGeolocation',
+	    type: 'POST',
+	    dataType: 'text',
+	    data: $('#create-geolocation-form').serialize(),
+	    complete: function (data) {
+		var response = data.responseText;
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area succesfully created</div>');
+		} else if (response === 'error') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area already exists</div>');
+		}
+	    },
+	    error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    $("#create-geolocation-form")[0].reset();
+	    loadWorlds();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
+	});
+	e.preventDefault();
+    });
 
     // functie voor make-admin button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
@@ -706,6 +736,38 @@ function loadSubFamilies() {
     });
 }
 ;
+
+// functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
+function loadUsers() {
+
+    var $table = $('#geolocations-table');
+    var $content = $('.content');
+    $.ajax({
+	url: 'SelectAllGeolocations',
+	type: 'GET',
+	dataType: 'json',
+	cache: false,
+	beforesend: function () {
+	    $content.append('<div class="spinner"></div>');
+	},
+	complete: function (data) {
+	    var geolocations = data.responseJSON;
+	    $table.append('<tr>\n\
+                                    <th>Area name</th>\n\
+                                    <th>Description</th>\n\
+                                </tr>');
+	    geolocations.forEach(function (geolocation) {
+		$table.append('<tr>\n\
+                                        <td>' + geolocation.areaName + '</td>\n\
+                                        <td>' + geolocation.areaDescription + '</td>\n\
+                                        <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
+                                    </tr>');
+	    });
+	}
+    }).done(function () {
+	$('#geolocations-table').html('');
+    });
+}
 
 // functie vult tabel voor te valideren organisms tab in publish.jsp
 function loadToValidateOrganisms() {
