@@ -49,7 +49,11 @@
 						<div class="spinner"></div>
 					</div>
 					<div id="tab4" class="tab">
-						<div class="spinner"></div>
+						<div class="table-responsive">
+                                                    <div class="col-sm-10">
+                                                        <table class="table table-striped" id="subscriber-table"></table>
+                                                    </div>
+                                                </div>
 					</div>
 				</div>
 			</div>
