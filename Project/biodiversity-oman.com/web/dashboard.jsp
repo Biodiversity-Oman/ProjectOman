@@ -21,7 +21,8 @@
 	    loadSeasons();
 	    loadHabitats();
 	    loadFamilies();
-	    loadSubFamilies();">
+	    loadSubFamilies();
+	    ">
         <div class="wrapper">
             <div class="tabs">
                 <ul class="tab-links">
@@ -86,12 +87,7 @@
 					    <div class="form-group">
 						<label class="col-sm-2 control-label">Choose Habitat</label>
 						<div class="col-sm-4">
-						    <select class="chosen-select form-control" name="habitat-name" multiple data-placeholder="Choose Habitat">
-							<option value="sea">sea</option>
-							<option value="mountains">mountains</option>
-							<option value="jungle">jungle</option>
-							<option value="spring">spring</option>
-						    </select>
+						    <select class="chosen-select form-control" id="habitat-ddl" name="habitat-name" multiple data-placeholder="Choose Habitat"></select>
 						</div>
 					    </div>
                                             <div class="form-group">
@@ -175,11 +171,8 @@
 					    <div class="form-group">
 						<label class="col-sm-2 control-label">Choose season</label>
 						<div class="col-sm-4">
-						    <select class="chosen-select form-control" name="colors" multiple data-placeholder="Choose Season">
-							<option value="winter">winter</option>
-							<option value="summer">summer</option>
-							<option value="autumn">autumn</option>
-							<option value="spring">spring</option>
+						    <select class="chosen-select form-control" id="season-ddl" name="colors" multiple data-placeholder="Choose Season">
+							
 						    </select>
 						</div>
 					    </div>

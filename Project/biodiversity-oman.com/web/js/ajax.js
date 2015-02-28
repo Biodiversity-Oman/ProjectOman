@@ -548,6 +548,7 @@ function loadSeasons() {
 
     var $table = $('#seasons-table');
     var $content = $('.content');
+    var $ddl = $('#season-ddl');
     $.ajax({
 	url: 'SelectAllSeasons',
 	type: 'GET',
@@ -570,6 +571,8 @@ function loadSeasons() {
                                         <td>' + season.seasonDescription + '</td>\n\
                                         <td><button class="no-button" id="delete-season-btn" type="submit" value="' + season.seasonId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
+		$ddl.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
+		$(".chosen-select").trigger("chosen:updated");
 	    });
 	}
     }).done(function () {
@@ -583,6 +586,7 @@ function loadHabitats() {
 
     var $table = $('#habitats-table');
     var $content = $('.content');
+    var $ddl = $('#habitat-ddl');
     $.ajax({
 	url: 'SelectAllHabitats',
 	type: 'GET',
@@ -591,6 +595,7 @@ function loadHabitats() {
 	async: true,
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
+	    $(".chosen-select").chosen({width: "100%"});
 	},
 	complete: function (data) {
 	    var habitats = data.responseJSON;
@@ -599,16 +604,23 @@ function loadHabitats() {
                                     <th>Description</th>\n\\n\
                                     <th>Action</th>\n\
                                 </tr>');
+	    
 	    habitats.forEach(function (habitat) {
 		$table.append('<tr>\n\
                                         <td>' + habitat.habitatName + '</td>\n\
                                         <td>' + habitat.habitatDescription + '</td>\n\
                                         <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
+		$ddl.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
+		$(".chosen-select").trigger("chosen:updated");
 	    });
+	    
 	}
     }).done(function () {
 	$('#habitats-table').html('');
+	$ddl.html('');
+	
+	
     });
 }
 ;
