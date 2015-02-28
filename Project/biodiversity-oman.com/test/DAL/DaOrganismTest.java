@@ -182,16 +182,48 @@ public class DaOrganismTest {
 //    /**
 //     * Test of insertOrganism method, of class DaOrganism.
 //     */
-//    @Test
-//    public void testInsertOrganism() {
-//        System.out.println("insertOrganism");
-//        Organism organism = null;
-//        int expResult = 0;
-//        int result = DaOrganism.insertOrganism(organism);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testInsertOrganism() {
+        try{
+        System.out.println("insertOrganism");
+        Organism organism = new Organism();
+        organism.setBenefits("test");
+        organism.setCommonName("test");
+        organism.setCultivated(Boolean.TRUE);
+        organism.setDangerous("test");
+        organism.setDescription("test");
+        organism.setEatenByOrganism(null);
+        organism.setEatingOrganisms(null);
+        organism.setEndangered(Boolean.TRUE);
+        organism.setFamily(null);
+        organism.setFoodDescription("test");
+        organism.setFoodName("test");
+        organism.setGeolocations(null);
+        organism.setHabitat(null);
+        organism.setIndigenous(Boolean.TRUE);
+        organism.setInsertedOn(null);
+        organism.setLinks(null);
+        organism.setLinks("test");
+        organism.setLocalName("test");
+        organism.setMedicinal(Boolean.TRUE);
+        organism.setOpportunities("test");
+        organism.setPhoto(null);
+        organism.setPopulation("test");
+        organism.setScientificName("test");
+        organism.setSeason(null);
+        organism.setSubfamily(null);
+        organism.setThreats("test");
+        organism.setUpdatedOn(null);
+        organism.setValidated(Boolean.TRUE);
+        organism.setWorld(null);
+            System.out.println("gelukt");
+        }
+        catch(Exception e){System.out.println("niet gelukt"+e);}
+        
+        
+        
+        
+    }
 //
 //    /**
 //     * Test of deleteOrganism method, of class DaOrganism.
