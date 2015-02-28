@@ -375,7 +375,7 @@ function loadSubscriber() {
                                         <td>' + s.subscriberFirstName + '</td>\n\\n\
                                         <td>' + s.subscriberLastName + '</td>\n\
                                         <td>'+ s.subscriberEmail + '</td>\n\
-                                        <td><button class="no-button" id="select-subscriber-btn" type="submit" value="' + s.subscriberId+ '"><span class="icon-pencil"></span></button></td>\n\
+                                       <td><button class="no-button" id="delete-geolocation-btn" type="submit" value="' + s.subscriberId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
 	}); 
     });
