@@ -336,34 +336,4 @@ function loadPublishedOrganisms() {
     });
 };
 
-// functie vult tabel voor subscribers tab in publish.jsp
-function loadSubscriber() {
-    $('#subscriber-table').html('');
-    var $table = $('#subscriber-table');
-    var $content = $('.content');
-    $.ajax({
-	url: 'SelectAllSubscriber',
-	type: 'GET',
-	dataType: 'json',
-	cache: false,
-	async: true,
-	beforesend: function () {
-	    $content.append('<div class="spinner"></div>');
-        }
-    }).done(function(data){
-	    $table.append('<tr>\n\
-                                    <th>First name</th>\n\
-                                    <th>Family name</th>\n\\n\
-                                    <th>Email</th>\n\
-                                    <th>Action</th>\n\
-                                </tr>');
-	    data.forEach(function (s) {
-		$table.append('<tr>\n\
-                                        <td>' + s.firstName + '</td>\n\\n\
-                                        <td>' + s.lastName + '</td>\n\
-                                        <td>'+ s.email + '</td>\n\
-                                        <td><button class="no-button" id="select-subscriber-btn" type="submit" value="' + s.subscriberId+ '"><span class="icon-pencil"></span></button></td>\n\
-                                    </tr>');
-	}); 
-    });
-};
+

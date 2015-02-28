@@ -472,20 +472,6 @@ $(document).ready(function () {
 	    loadUsers();
 	}
     });
-      // functie voor delete organism btn in dashboard.jsp
-    $(document).on('click', '.table #delete-organism-btn', function () {
-
-	var id = ($(this).attr("value"));
-	$.ajax({
-	    url: 'DeleteOrganism?id=' + id,
-	    type: 'POST',
-	    dataType: 'text',
-	    cache: false,
-	    async: true
-	}).done(function () {
-	    loadOrganism();
-	});
-    });
     
     // functie inserten van Organism. dashboard.jsp
     $('#create-organism-form').submit(function (e) {
