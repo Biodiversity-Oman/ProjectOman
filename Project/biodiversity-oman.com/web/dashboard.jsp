@@ -14,7 +14,7 @@
         <script src="js/validator.js"></script>
         <script src="js/chosen.jquery.min.js"></script>
 	<script>
-	    $(document).ready(function(){
+	    $(document).ready(function () {
 		loadWorlds();
 		loadSeasons();
 		loadFamilies();
@@ -54,69 +54,69 @@
                                             </div>
                                         </div>
                                         <!--<form class="form-group"> -->                                           
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
-                                                <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
-                                                </div>    
-                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
-                                            </div> 
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
-                                                <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
-                                                </div>
-                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
-                                                <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="organism-local-name" maxlength="50" data-delay="1200" required/> 
-                                                </div>
-                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-family">Family</label>
-                                                <div class="col-sm-4">
-                                                    <select class="form-control" id="family-ddl1" name="organism-family-id"></select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
-                                                <div class="col-sm-4">
-                                                    <select class="form-control" id="subfamily-ddl" name="organism-subfamily-id"></select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-population">Population</label>
-                                                <div class="col-sm-4">
-                                                    <input class="form-control" type="text" id="organism-population" maxlength="50" data-delay="1200" name="organism-population" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
-                                                <div class="col-sm-4">
-                                                    <textarea class="form-control" rows="3" name="organism-description"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Choose Habitat</label>
-                                                <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="habitat-ddl" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Choose World</label>
-                                                <div class="col-sm-4">
-                                                    <select class="form-control" id="world-ddl" name="organism-world-id" data-placeholder="Choose World"></select>
-                                                </div>
-                                           <!-- </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
-                                                <div class="col-sm-4">
-                                                    <input class="btn btn-default" type="file"  name="upfileOrganism" >
-                                                </div>
-                                            </div>-->
+					<div class="form-group">
+					    <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
+					    <div class="col-sm-4">
+						<input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+					    </div>    
+					    <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+					</div> 
+					<div class="form-group">
+					    <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
+					    <div class="col-sm-4">
+						<input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+					    </div>
+					    <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
+					    <div class="col-sm-4">
+						<input class="form-control" type="text" name="organism-local-name" maxlength="50" data-delay="1200" required/> 
+					    </div>
+					    <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 control-label" for="organism-family">Family</label>
+					    <div class="col-sm-4">
+						<select class="form-control" id="family-ddl1" name="organism-family-id"></select>
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
+					    <div class="col-sm-4">
+						<select class="form-control" id="subfamily-ddl" name="organism-subfamily-id"></select>
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 control-label" for="organism-population">Population</label>
+					    <div class="col-sm-4">
+						<input class="form-control" type="text" id="organism-population" maxlength="50" data-delay="1200" name="organism-population" />
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
+					    <div class="col-sm-4">
+						<textarea class="form-control" rows="3" name="organism-description"></textarea>
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 control-label">Choose Habitat</label>
+					    <div class="col-sm-4">
+						<select class="chosen-select form-control" id="habitat-ddl" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 control-label">Choose World</label>
+					    <div class="col-sm-4">
+						<select class="form-control" id="world-ddl" name="organism-world-id" data-placeholder="Choose World"></select>
+					    </div>
+					    <!-- </div>
+					     <div class="form-group">
+						 <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
+						 <div class="col-sm-4">
+						     <input class="btn btn-default" type="file"  name="upfileOrganism" >
+						 </div>
+					     </div>-->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-indigenous">Indigenous</label>
                                                 <div class="col-sm-4">
@@ -208,6 +208,12 @@
                                                     </select>
                                                 </div>
                                             </div>
+					    <div class="form-group">
+						<label class="col-sm-2 control-label"></label>
+						<div class="col-sm-4">
+						    <div id="create-organism-message"></div>
+						</div>
+					    </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label"></label>
                                                 <div class="col-sm-2">
@@ -215,7 +221,7 @@
                                                     <button class="btn btn-default" type="reset">Reset</button>
                                                 </div>
                                             </div>
-                                        </form>    
+				    </form>    
                                 </div>
                             </div>
                         </div>
