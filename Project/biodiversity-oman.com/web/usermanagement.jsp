@@ -14,6 +14,7 @@
 	<head>
 		<script src="js/ajax.js"></script>
 		<script src="js/validator.js"></script>
+		<script src="js/loaders.js"></script>
 	</head>
 	<body onload="loadUsers()">
 		<div class="wrapper">

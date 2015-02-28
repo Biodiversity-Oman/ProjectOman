@@ -13,6 +13,7 @@
 <html>
 	<head>
 		<script src="js/ajax.js"></script>
+		<script src="js/loaders.js"></script>
 	</head>
         <body onload="loadToValidateOrganisms();
               loadPublishedOrganisms();">

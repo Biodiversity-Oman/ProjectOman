@@ -8,6 +8,7 @@
 <html>
 	<header>
 		<script src="js/ajax.js"></script>
+		<script src="js/loaders.js"></script>
 	</header>
 	<script>
                 // deze javascript functie zorgt ervoor dat de edit button naar update veranderd en dat de velden hun input enabled worden.
