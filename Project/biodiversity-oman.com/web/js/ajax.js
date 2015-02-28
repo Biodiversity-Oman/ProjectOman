@@ -738,7 +738,7 @@ function loadSubFamilies() {
 ;
 
 // functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
-function loadUsers() {
+function loadGeolocations() {
 
     var $table = $('#geolocations-table');
     var $content = $('.content');
