@@ -669,8 +669,7 @@ public class DaOrganism {
                                 // Date to short date
                                 Date date = rs.getDate("inserted_on");
                                 Format format = new SimpleDateFormat("dd/MM/yyyy");
-                                format.format(date);
-                                
+                                format.format(date);                               
                                 o.setInsertedOn(date);                                
                                 org.add(o);
 			}
@@ -704,7 +703,6 @@ public class DaOrganism {
                                 Date date = rs.getDate("updated_on");
                                 Format format = new SimpleDateFormat("dd/MM/yyyy");
                                 format.format(date);
-                                
                                 o.setUpdatedOn(date);
                                 o.setOrganismId(rs.getInt("organism_id"));
                                 org.add(o);
