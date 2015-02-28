@@ -81,7 +81,7 @@ function loadWorlds() {
 		$table.append('<tr id="parent">\n\
                                         <td>' + world.worldName + '</td>\n\
                                         <td>' + world.description + '</td>\n\
-                                        <td id="test"><button class="no-button" id="delete-world-btn" type="submit" value="' + world.worldId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td id="test"><button class="no-button" id="delete-world-btn" type="submit" value="' + world.worldId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-world-btn" type="submit" value="' + world.worldId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
 	    });
