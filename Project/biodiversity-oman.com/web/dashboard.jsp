@@ -519,10 +519,16 @@
                                                 <textarea rows="3" class="form-control" name="area-description"></textarea>
                                             </div>
                                         </div>
-
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="area-map">Make area</label>
+                                            <div class="col-sm-4">
+                                                <div id="map-canvas"></div>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
+                                                <input class="form-control" id="area-coordinates" type="hidden" name="area-coordinates" value="20.87,55.76"/>
                                                 <div id="create-geolocation-message"></div>
                                             </div>
                                         </div>

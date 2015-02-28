@@ -34,7 +34,7 @@ public class InsertGeolocation extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         try {
-            ServGeolocation.insertGeolocation(request.getParameter("area-name"), request.getParameter("area-description"), "100,20");
+            ServGeolocation.insertGeolocation(request.getParameter("area-name"), request.getParameter("area-description"), request.getParameter("area-coordinates"));
             response.getWriter().write("succes");
         } catch (Exception e) {
             response.getWriter().write("error");
