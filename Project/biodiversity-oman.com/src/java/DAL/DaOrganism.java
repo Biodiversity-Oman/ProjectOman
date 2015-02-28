@@ -671,7 +671,7 @@ public class DaOrganism {
                                 o.setOrganismId(rs.getInt("organism_id"));
                                 o.setScientificName(rs.getString("scientific_name"));
                                 // Date to short date
-                                DateFormat df = new SimpleDateFormat("MMddyyyy");
+                                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                                 o.setInsertedOn(df.format(rs.getDate("inserted_on")));  
                                 
                                 org.add(o);
@@ -704,7 +704,7 @@ public class DaOrganism {
                                 o.setScientificName(rs.getString("scientific_name"));
                                 // Date to short date
                                                 
-                                DateFormat df = new SimpleDateFormat("MMddyyyy");
+                                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                                 o.setUpdatedOn(df.format(rs.getDate("updated_on")));
                                 o.setOrganismId(rs.getInt("organism_id"));
                                 org.add(o);
