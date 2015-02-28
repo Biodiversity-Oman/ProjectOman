@@ -272,7 +272,42 @@
 			<div id="update-world" class="insert-box">
 			    <label class="close-button">x</label>
 			    <div class="content">
-				<p>UPDATE WORLD FORM HERE</p>
+				<div id="create-world">
+                                    <form class="form form-horizontal" id="update-world-form" data-toggle="validator">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <h2 class="h2">Update World</h2>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="world-name">Name</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" type="text" name="world-name" maxlength="50" data-delay="1200" pattern="^([A-z ]){1,}$" required/>
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="world-description">Description</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control"  name="world-description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <div class="message" id="update-world-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-2">
+                                                <button class="btn btn-default" type="submit">Edit</button>
+                                                <button class="btn btn-default" type="reset">Reset</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
 			    </div>
 			</div>
                         <div class="table-responsive">
