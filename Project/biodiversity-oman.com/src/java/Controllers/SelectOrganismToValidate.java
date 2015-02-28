@@ -42,7 +42,7 @@ public class SelectOrganismToValidate extends HttpServlet {
             List orgs = ServOrganism.selectOrganismsToValidate();
             response.getWriter().write(new Gson().toJson(orgs));
             
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
 			Logger.getLogger(SelectOrganismToValidate.class.getName()).log(Level.SEVERE, null, ex);
 		}
         }

@@ -39,8 +39,8 @@ public class Organism {
 	private Boolean validated;
 	private String foodName;
 	private String foodDescription;
-        private String insertedOn;
-        private String updatedOn;
+        private java.util.Date insertedOn;
+        private java.util.Date updatedOn;
         private List<Geolocation> geolocations;
         
         // Algemene constructor
@@ -543,28 +543,28 @@ public class Organism {
     /**
      * @return the insertedOn
      */
-    public String getInsertedOn() {
+    public java.util.Date getInsertedOn() {
         return insertedOn;
     }
 
     /**
      * @param insertedOn the insertedOn to set
      */
-    public void setInsertedOn(String insertedOn) {
+    public void setInsertedOn(java.util.Date insertedOn) {
         this.insertedOn = insertedOn;
     }
 
     /**
      * @return the updatedOn
      */
-    public String getUpdatedOn() {
+    public java.util.Date getUpdatedOn() {
         return updatedOn;
     }
 
     /**
      * @param updatedOn the updatedOn to set
      */
-    public void setUpdatedOn(String updatedOn) {
+    public void setUpdatedOn(java.util.Date updatedOn) {
         this.updatedOn = updatedOn;
     }
 

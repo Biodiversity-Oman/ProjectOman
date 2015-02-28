@@ -109,21 +109,12 @@ public class ServOrganism {
         return "The organism was added successfully.";
     }
     
-    public static List selectOrganismsToValidate() throws SQLException {
-		
-		return DaOrganism.selectAllForValidation();
-	}
-    public static List selectOrganismsPublished() throws SQLException {
-		
-		return DaOrganism.selectAllPublished();
-	}
-    
-    public static List<BLL.Organism> selectAllOrganismToValidate()
+    public static List selectOrganismsToValidate()
     {
-        return DAL.DaOrganism.sellectAllToValidate();
+	return DaOrganism.selectAllForValidation();
     }
-    public static List<BLL.Organism> selectAllOrganismToPublish()
+    public static List selectOrganismsPublished()
     {
-        return DAL.DaOrganism.sellectAllToPublish();
+	return DaOrganism.selectAllPublished();
     }
 }

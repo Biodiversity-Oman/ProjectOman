@@ -118,8 +118,8 @@ public class DaOrganism {
                 
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setCommonName(rs.getString("common_name"));
-                o.setInsertedOn(rs.getString("inserted_on"));
-                o.setUpdatedOn(rs.getString("updated_on"));
+                o.setInsertedOn(rs.getDate("inserted_on"));
+                o.setUpdatedOn(rs.getDate("updated_on"));
                 
                 sf.setSubfamilyId(rs.getInt("subfamily_id"));
                 sf.setSubfamilyName(rs.getString("subfamily_name"));
@@ -236,8 +236,8 @@ public class DaOrganism {
                 organism.setValidated(rsOrganism.getBoolean("isvalidated"));
                 organism.setFoodName(rsOrganism.getString("food_name"));
                 organism.setFoodDescription(rsOrganism.getString("food_description"));
-                organism.setInsertedOn(rsOrganism.getString("inserted_on"));
-                organism.setUpdatedOn(rsOrganism.getString("updated_on"));
+                organism.setInsertedOn(rsOrganism.getDate("inserted_on"));
+                organism.setUpdatedOn(rsOrganism.getDate("updated_on"));
                 
                 // One to many objecten
                 // Er moet nog een One To many bijkomen namelijk voor alle posts te selecteren die behoren tot dit bepaald organisme.
@@ -653,121 +653,53 @@ public class DaOrganism {
         return result;
     }
 
-    public static List<Organism> selectAllForValidation() throws SQLException {
-		List<Organism> orga = new ArrayList();
-
-		try {
-			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT common_name, organism_id, scientific_name, inserted_on FROM organism WHERE isvalidated = 0 ORDER BY inserted_on");
-                        
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				Organism o = new Organism();
-                                o.setCommonName(rs.getString("common_name"));
-                                o.setOrganismId(rs.getInt("organism_id"));
-                                o.setScientificName(rs.getString("scientific_name"));
-                                // Date to short date
-                                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                                o.setInsertedOn(df.format(rs.getDate("inserted_on")));  
-                                
-                                orga.add(o);
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());}
-
-		return orga;
-	}
-    
-    public static List<Organism> selectAllPublished() throws SQLException {
-		List<Organism> orgb = new ArrayList();
-
-		try {
-			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
-                        
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				Organism o = new Organism();
-                                o.setCommonName(rs.getString("common_name"));
-                                o.setScientificName(rs.getString("scientific_name"));
-                                o.setUpdatedOn(rs.getString("updated_on"));
-                                o.setOrganismId(rs.getInt("organism_id"));
-                                orgb.add(o);
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-
-		return orgb;
-	}
-    
-    public static List<Organism> sellectAllToValidate()
+    public static List<Organism> selectAllForValidation()
     {
-        List<Organism> organisms = new ArrayList<>();
-        
+        List<Organism> orga = new ArrayList();
+
         try {
-            conn = DataSource.getConnection();
-            
-            
-            // SQL werkt
-            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.scientific_name, organism.common_name, organism.inserted_on \n" + 
-                    "FROM organism \n" +
-                    "WHERE organism.isvalidated=0");
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                Organism o = new Organism();
-                
-                o.setOrganismId(rs.getInt("organism_id"));
-                o.setCommonName(rs.getString("scientific_name"));
-                o.setCommonName(rs.getString("common_name"));
-                o.setInsertedOn(rs.getString("inserted_on"));
-                
-                organisms.add(o);
-            }
-            
-            
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return organisms;
+                conn = DataSource.getConnection();
+                stmt = conn.prepareStatement("SELECT common_name, organism_id, scientific_name, inserted_on FROM organism WHERE isvalidated = 0 ORDER BY inserted_on");
+
+                ResultSet rs = stmt.executeQuery();
+
+                while (rs.next()) {
+                        Organism o = new Organism();
+                        o.setCommonName(rs.getString("common_name"));
+                        o.setOrganismId(rs.getInt("organism_id"));
+                        o.setScientificName(rs.getString("scientific_name"));
+                        o.setInsertedOn(rs.getDate("inserted_on"));  
+
+                        orga.add(o);
+                }
+        } catch (Exception e) {
+                System.out.println(e.getMessage());}
+
+        return orga;
     }
     
-    public static List<Organism> sellectAllToPublish()
+    public static List<Organism> selectAllPublished() 
     {
-        List<Organism> organisms = new ArrayList<>();
-        
+        List<Organism> orgb = new ArrayList();
+
         try {
-            conn = DataSource.getConnection();
-            
-            
-            // SQL werkt
-            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.scientific_name, organism.common_name, organism.updated_on \n" + 
-                    "FROM organism \n" +
-                    "WHERE organism.isvalidated=1");
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                Organism o = new Organism();
-                
-                o.setOrganismId(rs.getInt("organism_id"));
-                o.setCommonName(rs.getString("scientific_name"));
-                o.setCommonName(rs.getString("common_name"));
-                DateFormat df = new SimpleDateFormat("MMddyyyy");
-                o.setInsertedOn(df.format(rs.getDate("updated_on")));
-                
-                organisms.add(o);
-            }
-            
-            
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+                conn = DataSource.getConnection();
+                stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
+
+                ResultSet rs = stmt.executeQuery();
+
+                while (rs.next()) {
+                        Organism o = new Organism();
+                        o.setCommonName(rs.getString("common_name"));
+                        o.setScientificName(rs.getString("scientific_name"));
+                        o.setUpdatedOn(rs.getDate("updated_on"));
+                        o.setOrganismId(rs.getInt("organism_id"));
+                        orgb.add(o);
+                }
+        } catch (Exception e) {
+                System.out.println(e.getMessage());
         }
-        return organisms;
-    }
-    
+
+        return orgb;
+    } 
 }
