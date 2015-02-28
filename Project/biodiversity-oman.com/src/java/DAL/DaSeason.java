@@ -27,7 +27,7 @@ public class DaSeason {
 
 		try {
 			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
+			
 			stmt = conn.prepareStatement("SELECT * FROM season");
 			ResultSet rs = stmt.executeQuery();
 
@@ -40,13 +40,11 @@ public class DaSeason {
 				seasons.add(s);
 			}
 
-			conn.commit();
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);
-		}
+			
+		} 
 
 		return seasons;
 	}
@@ -75,7 +73,7 @@ public class DaSeason {
 
 		try {
 			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
+			
 			stmt = conn.prepareStatement("SELECT * FROM organism_season "
 				+ "INNER JOIN season ON season.season_id = organism_season.season_id "
 				+ "WHERE organism_id=" + organismId);
@@ -89,12 +87,10 @@ public class DaSeason {
 				seasons.add(season);
 			}
 
-			conn.commit();
+			
 		} catch (Exception e) {
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);
-		}
+			
+		} 
 
 		return seasons;
 	}

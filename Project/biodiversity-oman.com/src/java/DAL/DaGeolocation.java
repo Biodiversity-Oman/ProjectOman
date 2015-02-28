@@ -26,7 +26,7 @@ public class DaGeolocation {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM geolocation");
             ResultSet rs = stmt.executeQuery();
             
@@ -39,12 +39,10 @@ public class DaGeolocation {
                 geolocations.add(geolocation);
             }
             
-            conn.commit();
+            
         } catch (Exception e) {
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+           
+        } 
         
         return geolocations;
     }
@@ -54,7 +52,7 @@ public class DaGeolocation {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM geolocation WHERE geolocation_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -63,12 +61,10 @@ public class DaGeolocation {
             geolocation.setAreaDescription(rs.getString("area_description"));
             geolocation.setCoordinates(rs.getString("coordinates"));
             
-            conn.commit();
+            
         } catch (Exception e) {
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
         
         return geolocation;
     }
@@ -78,7 +74,7 @@ public class DaGeolocation {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM geolocation "
                     + "INNER JOIN geolocation_organism ON geolocation_organism.geolocation_id = geolocation.geolocation_id "
                     + "INNER JOIN organism ON organism.organism_id = geolocation_organism.organism_id "
@@ -94,12 +90,10 @@ public class DaGeolocation {
                 geolocations.add(geolocation);
             }
             
-            conn.commit();
+            
         } catch (Exception e) {
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+           
+        } 
         
         return geolocations;
     }

@@ -44,7 +44,7 @@ public class DaPost {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM post");
             ResultSet rs = stmt.executeQuery();
 
@@ -63,13 +63,11 @@ public class DaPost {
                 posts.add(p);
             }
 
-            conn.commit();
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return posts;
     }
@@ -79,7 +77,7 @@ public class DaPost {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM post WHERE post_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -92,13 +90,11 @@ public class DaPost {
             p.setPostLongitude(rs.getString("post_longitude"));
             p.setPostLatitude(rs.getString("post_latitude"));
 
-            conn.commit();
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return p;
     }
@@ -108,7 +104,7 @@ public class DaPost {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM post WHERE organism_id=" + organismId);
             ResultSet rs = stmt.executeQuery();
 
@@ -125,13 +121,11 @@ public class DaPost {
                 posts.add(p);
             }
 
-            conn.commit();
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return posts;
     }

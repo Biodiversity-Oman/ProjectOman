@@ -23,7 +23,6 @@ public class DaHabitat {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
             stmt = conn.prepareStatement("SELECT * FROM habitat");
             ResultSet rs = stmt.executeQuery();
 
@@ -35,13 +34,10 @@ public class DaHabitat {
                 habitats.add(h);
             }
 
-            conn.commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return habitats;
     }
@@ -51,7 +47,7 @@ public class DaHabitat {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM habitat WHERE habitat_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -59,13 +55,11 @@ public class DaHabitat {
             h.setHabitatName(rs.getString("habitat_name"));
             h.setHabitatDescription(rs.getString("habitat_description"));
 
-            conn.commit();
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return h;
     }

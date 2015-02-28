@@ -46,12 +46,10 @@ public class DaUserAccount {
 			stmt.executeUpdate();
 			// do my commit
 			conn.commit();
-
 		} catch (SQLException ex) {
 			// if someting goes wrong with the query will the commit be rolled back
 			conn.rollback();
 		} finally {
-			// autocommit back on true, NEVER FORGET THIS!!
 			conn.setAutoCommit(true);
 		}
 	}
@@ -61,7 +59,7 @@ public class DaUserAccount {
 		UserAccount us = new UserAccount();
 		try {
 			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
+			
 			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, isadmin, phone FROM user_account where username = ?");
 			stmt.setString(1, username);
 			ResultSet rs = stmt.executeQuery();
@@ -74,14 +72,9 @@ public class DaUserAccount {
 			us.setIsAdmin(rs.getBoolean("isadmin"));
 			us.setPhone(rs.getString("phone"));
 			System.out.println(us.getUserName());
-			conn.commit();
-
 		} catch (SQLException ex) {
 
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);
-		}
+		} 
 		return us;
 	}
 
@@ -116,7 +109,6 @@ public class DaUserAccount {
 			stmt.setString(1, username);
 			conn.commit();
 			stmt.executeUpdate();
-
 		} catch (SQLException ex) {
 
 		} finally {
@@ -135,7 +127,6 @@ public class DaUserAccount {
 			stmt.setString(2, username);
 			stmt.executeUpdate();
 			conn.commit();
-
 		} catch (SQLException ex) {
 			conn.rollback();
 		} finally {
@@ -148,15 +139,12 @@ public class DaUserAccount {
 
 		boolean match;
 		conn = DataSource.getConnection();
-		conn.setAutoCommit(false);
 		stmt = conn.prepareStatement("SELECT password FROM user_account where username = ?");
 		stmt.setString(1, username);
 		ResultSet rs = stmt.executeQuery();
-		conn.commit();
 		rs.next();
 		String pass = rs.getString("password");
 		match = BCrypt.checkpw(password, pass);
-		conn.setAutoCommit(true);
 		return match;
 	}
 
@@ -165,14 +153,11 @@ public class DaUserAccount {
 
 		boolean match;
 		conn = DataSource.getConnection();
-		conn.setAutoCommit(false);
 		stmt = conn.prepareStatement("SELECT COUNT(*) FROM user_account WHERE username = ?");
 		stmt.setString(1, username);
 		ResultSet rs = stmt.executeQuery();
-		conn.commit();
 		rs.next();
 		match = rs.getInt(1) == 1;
-		conn.setAutoCommit(true);
 		return match;
 	}
 
@@ -187,7 +172,7 @@ public class DaUserAccount {
 			stmt.executeUpdate();
 
 		} catch (SQLException ex) {
-
+			conn.rollback();
 		} finally {
 			conn.setAutoCommit(true);
 		}
@@ -198,7 +183,6 @@ public class DaUserAccount {
 		List<UserAccount> users = new ArrayList();
 		try {
 			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, username, phone, isadmin FROM user_account");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -213,12 +197,10 @@ public class DaUserAccount {
 				user.setIsAdmin(rs.getBoolean("isadmin"));
 				users.add(user);
 			}
-			conn.commit();
+			
 		} catch (SQLException e) {
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);
-		}
+			
+		} 
 
 		return users;
 	}
@@ -227,14 +209,11 @@ public class DaUserAccount {
 
 		boolean match;
 		conn = DataSource.getConnection();
-		conn.setAutoCommit(false);
 		stmt = conn.prepareStatement("SELECT isadmin FROM user_account WHERE username = ?");
 		stmt.setString(1, username);
 		ResultSet rs = stmt.executeQuery();
-		conn.commit();
 		rs.next();
 		match = rs.getInt(1) == 1;
-		conn.setAutoCommit(true);
 		return match;
 	}
 
@@ -259,12 +238,11 @@ public class DaUserAccount {
 
 		List<UserAccount> result = new ArrayList();
 		conn = DataSource.getConnection();
-		conn.setAutoCommit(false);
 		stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, username, phone, isadmin\n"
 			+ "FROM user_account \n"
 			+ "WHERE (CONCAT(username,first_name,last_name,email) LIKE '%"+ keyword +"%') OR (CONCAT_WS(' ', first_name, last_name) LIKE '%"+ keyword +"%')");
 		ResultSet rs = stmt.executeQuery();
-		conn.commit();
+		
 		while (rs.next()) {
 			UserAccount user = new UserAccount();
 			user.setFirstName(rs.getString("first_name"));
@@ -277,7 +255,7 @@ public class DaUserAccount {
 			user.setIsAdmin(rs.getBoolean("isadmin"));
 			result.add(user);
 		}
-		conn.setAutoCommit(true);
+		
 		return result;
 	}
 

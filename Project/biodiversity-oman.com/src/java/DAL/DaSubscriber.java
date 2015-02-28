@@ -34,7 +34,7 @@ public class DaSubscriber {
                 s.setSubscriberEmail(rs.getString("subscriber_email"));
                 subScriber.add(s);
             }
-            conn.commit();
+            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

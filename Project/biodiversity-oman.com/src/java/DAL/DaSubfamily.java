@@ -27,7 +27,7 @@ public class DaSubfamily {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+          
             stmt = conn.prepareStatement("SELECT subfamily.subfamily_id, family.family_id, subfamily.subfamily_name, subfamily.subfamily_description, family.family_name " +
 					 "FROM subfamily " +
 					 "LEFT JOIN family on family.family_id = subfamily.family_id");
@@ -43,12 +43,10 @@ public class DaSubfamily {
                 subfamilies.add(subfamily);
             }
 
-            conn.commit();
+           
         } catch (Exception e) {
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return subfamilies;
     }
@@ -58,7 +56,7 @@ public class DaSubfamily {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM subfamily WHERE subfamily_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -67,12 +65,10 @@ public class DaSubfamily {
             subfamily.setSubfamilyName(rs.getString("subfamily_name"));
             subfamily.setSubFamilyDescription(rs.getString("subfamily_description"));
 
-            conn.commit();
+           
         } catch (Exception e) {
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return subfamily;
     }
@@ -82,7 +78,7 @@ public class DaSubfamily {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM subfamily WHERE family_id=" + id);
             ResultSet rs = stmt.executeQuery();
 
@@ -95,12 +91,9 @@ public class DaSubfamily {
                 subfamilies.add(subfamily);
             }
 
-            conn.commit();
         } catch (Exception e) {
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return subfamilies;
     }

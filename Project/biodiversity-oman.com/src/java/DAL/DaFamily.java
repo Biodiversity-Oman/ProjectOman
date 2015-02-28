@@ -24,7 +24,7 @@ public class DaFamily {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+          
             stmt = conn.prepareStatement("SELECT family_id, family_name, family_description, world_name \n" +
 				         "FROM family \n " +
 				         "LEFT JOIN world ON family.world_id = world.world_id");
@@ -39,13 +39,11 @@ public class DaFamily {
                 families.add(f);
             }
 
-            conn.commit();
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return families;
     }
@@ -55,7 +53,7 @@ public class DaFamily {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM family WHERE family_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -64,13 +62,11 @@ public class DaFamily {
             f.setFamilyDescription(rs.getString("family_description"));
             f.setWorldId(rs.getInt("world_id"));
 
-            conn.commit();
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return f;
     }
@@ -80,7 +76,7 @@ public class DaFamily {
 
         try {
             conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
+            
             stmt = conn.prepareStatement("SELECT * FROM family WHERE world_id=" + id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -88,13 +84,11 @@ public class DaFamily {
             f.setFamilyName(rs.getString("family_name"));
             f.setFamilyDescription(rs.getString("family_description"));
 
-            conn.commit();
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
+            
+        } 
 
         return f;
     }
@@ -109,11 +103,11 @@ public class DaFamily {
             conn.commit();
 
         } catch (SQLException e) {
-           System.out.println(e.getMessage());
-            conn.rollback();
+           conn.rollback();
+            
         } finally {
-            conn.setAutoCommit(true);
-        }
+	  conn.setAutoCommit(true);
+	}
     }
 
     public static void updateFamily(Family fam, int familyId) throws SQLException {
@@ -127,12 +121,13 @@ public class DaFamily {
             stmt.setString(2, fam.getFamilyDescription());
             stmt.setInt(3, fam.getWorldId());
             stmt.executeUpdate();
-            conn.commit();
+	    conn.commit();
+            
         } catch (SQLException ex) {
-            System.out.println(ex);
+            conn.rollback();
         } finally {
-            conn.setAutoCommit(true);
-        }
+	    conn.setAutoCommit(false);
+	}
     }
 
     public static void insertFamily(Family fami) throws SQLException {
@@ -146,12 +141,13 @@ public class DaFamily {
             stmt.setString(2, fami.getFamilyDescription());
             stmt.setInt(3, fami.getWorldId());
             stmt.executeUpdate();
-            conn.commit();
+	    conn.commit();
+            
         } catch (SQLException ex) {
-            System.out.println(ex);
+            conn.rollback();
         } finally {
-            conn.setAutoCommit(true);
-        }
+	    conn.setAutoCommit(true);
+	}
     }
 
 }
