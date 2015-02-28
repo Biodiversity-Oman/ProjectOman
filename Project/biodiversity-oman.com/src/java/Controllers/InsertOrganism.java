@@ -92,9 +92,9 @@ public class InsertOrganism extends HttpServlet {
         for (int i=0; i < request.getParameterValues("organism-geolocation-id").length; i++) {
         geolocationIds[i] = Integer.parseInt(request.getParameterValues("organism-geolocation-id")[i]);}
 
-//        Part filePart = request.getPart("upfileOrganism"); 
-//        InputStream fileContent = filePart.getInputStream();
-//        byte[] bytes = IOUtils.toByteArray(fileContent);
+        Part filePart = request.getPart("upfileOrganism"); 
+        InputStream fileContent = filePart.getInputStream();
+        byte[] bytes = IOUtils.toByteArray(fileContent);
 
         response.getWriter().write(Service.ServOrganism.insert(request.getParameter("organism-scientific-name"), 
                                                                 request.getParameter("organism-common-name"), 
@@ -114,7 +114,7 @@ public class InsertOrganism extends HttpServlet {
                                                                 request.getParameter("organism-dangerous"),
                                                                 request.getParameter("organism-threats"), 
                                                                 request.getParameter("organism-opportunities"),
-                                                                null,                                                                
+                                                                bytes,                                                                
                                                                 request.getParameter("organism-links"), 
                                                                 eatenByOrganismIds, 
                                                                 eatingOrganismIds, 
