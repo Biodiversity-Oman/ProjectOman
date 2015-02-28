@@ -30,10 +30,9 @@ h2 {
     background-color: #666666;
     padding-top: 3.5em;
     border-radius: 0.3em 0.3em 0.3em 0.3em;
-}
-.login,label {
     color: #ffffff;
 }
+
 
 /*--------------------------------------------------------*/
 /* -------------- header & navigation --------------*/
