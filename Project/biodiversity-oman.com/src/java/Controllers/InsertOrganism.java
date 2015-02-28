@@ -6,12 +6,15 @@
 package Controllers;
 
 import java.io.IOException;
+import java.io.InputStream;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
+import org.apache.commons.io.IOUtils;
 
 /**
  *
@@ -33,59 +36,7 @@ public class InsertOrganism extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        response.setContentType("text/html;charset=UTF-8");
-            
-        int[] habitatIds = new int[request.getParameterValues("organism-habitat-id").length];
-        for (int i=0; i < request.getParameterValues("organism-habitat-id").length; i++) {
-        habitatIds[i] = Integer.parseInt(request.getParameterValues("organism-habitat-id")[i]);}
-
-        int[] seasonIds = new int[request.getParameterValues("organism-season-id").length];
-        for (int i=0; i < request.getParameterValues("organism-season-id").length; i++) {
-        seasonIds[i] = Integer.parseInt(request.getParameterValues("organism-season-id")[i]);}
-
-//        int[] eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
-//        for (int i=0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
-//        eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);}
-//
-//        int[] eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
-//        for (int i=0; i < request.getParameterValues("eating-organism-id").length; i++) {
-//        eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);}
-
-        int[] eatenByOrganismIds = { 1, 2 };
-
-        int[] eatingOrganismIds = { 1, 2 };
         
-        int[] geolocationIds = new int[request.getParameterValues("organism-geolocation-id").length];
-        for (int i=0; i < request.getParameterValues("organism-geolocation-id").length; i++) {
-        geolocationIds[i] = Integer.parseInt(request.getParameterValues("organism-geolocation-id")[i]);}
-
-
-        response.getWriter().write(Service.ServOrganism.insert(request.getParameter("organism-scientific-name"), 
-                                                                request.getParameter("organism-common-name"), 
-                                                                request.getParameter("organism-local-name"), 
-                                                                request.getParameter("organism-description"), 
-                                                                Integer.parseInt(request.getParameter("organism-subfamily-id")), 
-                                                                Integer.parseInt(request.getParameter("organism-family-id")), 
-                                                                Integer.parseInt(request.getParameter("organism-world-id")), 
-                                                                habitatIds, 
-                                                                request.getParameter("organism-population"), 
-                                                                seasonIds, 
-                                                                Boolean.parseBoolean(request.getParameter("organism-indigenous")), 
-                                                                Boolean.parseBoolean(request.getParameter("organism-cultivated")), 
-                                                                Boolean.parseBoolean(request.getParameter("organism-endangered")), 
-                                                                Boolean.parseBoolean(request.getParameter("organism-medicinal")), 
-                                                                request.getParameter("organism-benefits"), 
-                                                                request.getParameter("organism-dangerous"),
-                                                                request.getParameter("organism-threats"), 
-                                                                request.getParameter("organism-opportunities"), 
-                                                                org.apache.commons.io.IOUtils.toByteArray((request.getPart("upfileBoek").getInputStream())),
-                                                                request.getParameter("organism-links"), 
-                                                                eatenByOrganismIds, 
-                                                                eatingOrganismIds, 
-                                                                false,//Boolean.parseBoolean(("validated")), 
-                                                                request.getParameter("organism-food-name"), 
-                                                                request.getParameter("organism-food-description"), 
-                                                                geolocationIds));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -115,6 +66,62 @@ public class InsertOrganism extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+            
+        int[] habitatIds = new int[request.getParameterValues("organism-habitat-id").length];
+        for (int i=0; i < request.getParameterValues("organism-habitat-id").length; i++) {
+        habitatIds[i] = Integer.parseInt(request.getParameterValues("organism-habitat-id")[i]);}
+
+        int[] seasonIds = new int[request.getParameterValues("organism-season-id").length];
+        for (int i=0; i < request.getParameterValues("organism-season-id").length; i++) {
+        seasonIds[i] = Integer.parseInt(request.getParameterValues("organism-season-id")[i]);}
+
+//        int[] eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
+//        for (int i=0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
+//        eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);}
+//
+//        int[] eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
+//        for (int i=0; i < request.getParameterValues("eating-organism-id").length; i++) {
+//        eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);}
+
+        int[] eatenByOrganismIds = { 1, 2 };
+
+        int[] eatingOrganismIds = { 1, 2 };
+        
+        int[] geolocationIds = new int[request.getParameterValues("organism-geolocation-id").length];
+        for (int i=0; i < request.getParameterValues("organism-geolocation-id").length; i++) {
+        geolocationIds[i] = Integer.parseInt(request.getParameterValues("organism-geolocation-id")[i]);}
+
+//        Part filePart = request.getPart("upfileOrganism"); 
+//        InputStream fileContent = filePart.getInputStream();
+//        byte[] bytes = IOUtils.toByteArray(fileContent);
+
+        response.getWriter().write(Service.ServOrganism.insert(request.getParameter("organism-scientific-name"), 
+                                                                request.getParameter("organism-common-name"), 
+                                                                request.getParameter("organism-local-name"), 
+                                                                request.getParameter("organism-description"), 
+                                                                Integer.parseInt(request.getParameter("organism-subfamily-id")), 
+                                                                Integer.parseInt(request.getParameter("organism-family-id")), 
+                                                                Integer.parseInt(request.getParameter("organism-world-id")), 
+                                                                habitatIds, 
+                                                                request.getParameter("organism-population"), 
+                                                                seasonIds, 
+                                                                Boolean.parseBoolean(request.getParameter("organism-indigenous")), 
+                                                                Boolean.parseBoolean(request.getParameter("organism-cultivated")), 
+                                                                Boolean.parseBoolean(request.getParameter("organism-endangered")), 
+                                                                Boolean.parseBoolean(request.getParameter("organism-medicinal")), 
+                                                                request.getParameter("organism-benefits"), 
+                                                                request.getParameter("organism-dangerous"),
+                                                                request.getParameter("organism-threats"), 
+                                                                request.getParameter("organism-opportunities"),
+                                                                null,                                                                
+                                                                request.getParameter("organism-links"), 
+                                                                eatenByOrganismIds, 
+                                                                eatingOrganismIds, 
+                                                                false,//Boolean.parseBoolean(("validated")), 
+                                                                request.getParameter("organism-food-name"), 
+                                                                request.getParameter("organism-food-description"), 
+                                                                geolocationIds));
     }
 
     /**

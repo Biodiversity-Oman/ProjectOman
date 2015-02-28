@@ -114,11 +114,11 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
                                                 <div class="col-sm-4">
-                                                    <input class="btn btn-default" type="file"  name="upfileSpeelgoed" >
+                                                    <input class="btn btn-default" type="file"  name="upfileOrganism" >
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-indigenous">Indegenous</label>
+                                                <label class="col-sm-2 control-label" for="organism-indigenous">Indigenous</label>
                                                 <div class="col-sm-4">
                                                     <input style="width: 1em;"   type="radio" id="organismIndigenousTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
                                                     <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" required> <label>No</label>
@@ -127,8 +127,8 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
                                                 <div class="col-sm-4">
-                                                    <input style="width: 1em;"   type="radio" id="organismCultivateTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
-                                                    <input style="width: 1em;"  type="radio" id="organismCultivateFalse" name="organism-indigenous" value="false" required> <label>No</label>
+                                                    <input style="width: 1em;"   type="radio" id="organismCultivateTrue"  name="organism-cultivated" value="true" required> <label>Yes</label><br>
+                                                    <input style="width: 1em;"  type="radio" id="organismCultivateFalse" name="organism-cultivated" value="false" required> <label>No</label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
