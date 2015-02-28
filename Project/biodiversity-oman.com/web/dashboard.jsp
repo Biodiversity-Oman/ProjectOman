@@ -78,6 +78,12 @@
                                                     <select class="form-control" id="subfamily-ddl" name="subfamily-id"></select>
                                                 </div>
                                             </div>
+                                              <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-population">Population</label>
+                                                <div class="col-sm-4">
+                                                    <select class="form-control" id="organism-population" name="organism-population"></select>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
                                                 <div class="col-sm-4">
@@ -87,7 +93,7 @@
 					    <div class="form-group">
 						<label class="col-sm-2 control-label">Choose Habitat</label>
 						<div class="col-sm-4">
-						    <select class="chosen-select form-control" id="habitat-ddl" name="habitat-name" multiple data-placeholder="Choose Habitat"></select>
+						    <select class="chosen-select form-control" id="habitat-ddl" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
 						</div>
 					    </div>
                                             <div class="form-group">
@@ -171,7 +177,7 @@
 					    <div class="form-group">
 						<label class="col-sm-2 control-label">Choose season</label>
 						<div class="col-sm-4">
-						    <select class="chosen-select form-control" id="season-ddl" name="colors" multiple data-placeholder="Choose Season">
+						    <select class="chosen-select form-control" id="season-ddl" name="organism-season-id" multiple data-placeholder="Choose Season">
 							
 						    </select>
 						</div>
@@ -179,7 +185,7 @@
 					    <div class="form-group">
 						<label class="col-sm-2 control-label">Choose geolocations</label>
 						<div class="col-sm-4">
-						    <select class="chosen-select form-control" name="geolocations" multiple data-placeholder="Choose Geolocations">
+						    <select class="chosen-select form-control" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
 							<option value="winter">geo</option>
 							<option value="summer">geo</option>
 							<option value="autumn">geo</option>
