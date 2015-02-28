@@ -31,7 +31,7 @@ public class Organism {
 	private String dangerous;
 	private String threats;
 	private String opportunities;
-	private Byte photo;
+	private byte[] photo;
 	private String links;
 	private List<Organism> eatenByOrganism;
 	private List<Organism> eatingOrganisms;
@@ -56,7 +56,7 @@ public class Organism {
         public Organism(String scientificName, String commonName, String localName, String description, 
                 Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, 
                 List<Season> season, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, 
-                String benefits, String dangerous, String threats, String opportunities, Byte photo, String links, 
+                String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links, 
                 List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, Boolean validated, String foodName, 
                 String foodDescription, List<Geolocation> geolocations) 
         {
@@ -92,7 +92,7 @@ public class Organism {
         public Organism(int organismId, String scientificName, String commonName, String localName, String description,
                 Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, List<Season> season,
                 Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous,
-                String threats, String opportunities, Byte photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms,
+                String threats, String opportunities, byte[] photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms,
                 Boolean validated, String foodName, String foodDescription, List<Geolocation> geolocations) 
         {
             this.organismId = organismId;
@@ -128,7 +128,7 @@ public class Organism {
         public Organism(int organismId, String scientificName, String commonName, String localName, String description, 
                 Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, List<Season> season, 
                 Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous, 
-                String threats, String opportunities, Byte photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, 
+                String threats, String opportunities, byte[] photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, 
                 List<Post> post, Boolean validated, String foodName, String foodDescription, List<Geolocation> geolocations) 
         {
             this.organismId = organismId;
@@ -431,14 +431,14 @@ public class Organism {
 	/**
 	 * @return the photo
 	 */
-	public Byte getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
 	/**
 	 * @param photo the photo to set
 	 */
-	public void setPhoto(Byte photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 
