@@ -47,7 +47,7 @@
 				document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-organism">
-                                    <form class="form form-horizontal" id="create-organism-form" data-toggle="validator">
+                                    <form class="form form-horizontal" id="create-organism-form" data-toggle="validator" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">

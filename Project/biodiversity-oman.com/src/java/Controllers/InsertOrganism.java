@@ -11,12 +11,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.annotation.MultipartConfig;
 
 /**
  *
  * @author bert
  */
 @WebServlet(name = "InsertOrganism", urlPatterns = {"/InsertOrganism"})
+@MultipartConfig
 public class InsertOrganism extends HttpServlet {
 
     /**
@@ -76,7 +78,7 @@ public class InsertOrganism extends HttpServlet {
                                                                 request.getParameter("organism-dangerous"),
                                                                 request.getParameter("organism-threats"), 
                                                                 request.getParameter("organism-opportunities"), 
-                                                                Byte.parseByte(request.getParameter("upfileSpeelgoed")), 
+                                                                org.apache.commons.io.IOUtils.toByteArray((request.getPart("upfileBoek").getInputStream())),
                                                                 request.getParameter("organism-links"), 
                                                                 eatenByOrganismIds, 
                                                                 eatingOrganismIds, 

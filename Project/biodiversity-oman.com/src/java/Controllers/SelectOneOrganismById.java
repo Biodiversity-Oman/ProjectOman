@@ -38,6 +38,7 @@ public class SelectOneOrganismById extends HttpServlet {
         
             int id = Integer.parseInt(request.getParameter("id"));
                       try{
+                          
                         response.getWriter().write(new com.google.gson.Gson().toJson(ServOrganism.selectOneById(id)));
                       }
                       catch(Exception ex){

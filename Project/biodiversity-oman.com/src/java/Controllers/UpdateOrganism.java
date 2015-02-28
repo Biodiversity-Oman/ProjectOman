@@ -73,7 +73,7 @@ public class UpdateOrganism extends HttpServlet {
                                                                 request.getParameter("dangerous"),
                                                                 request.getParameter("threats"), 
                                                                 request.getParameter("opportunities"), 
-                                                                Byte.parseByte(request.getParameter("photo")), 
+                                                                org.apache.commons.io.IOUtils.toByteArray((request.getPart("upfileBoek").getInputStream())), 
                                                                 request.getParameter("links"), 
                                                                 eatenByOrganismIds, 
                                                                 eatingOrganismIds, 
