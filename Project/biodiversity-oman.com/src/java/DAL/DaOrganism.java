@@ -15,7 +15,7 @@ import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -670,7 +670,7 @@ public class DaOrganism {
                                 o.setOrganismId(rs.getInt("organism_id"));
                                 o.setScientificName(rs.getString("scientific_name"));
                                 // Date to short date
-                                Date date = rs.getDate("inserted_on");
+                                java.sql.Date date = rs.getDate("inserted_on");
                                 Format format = new SimpleDateFormat("dd/MM/yyyy");
                                 format.format(date);                               
                                 o.setInsertedOn(date);                                
@@ -703,7 +703,7 @@ public class DaOrganism {
                                 o.setCommonName(rs.getString("common_name"));
                                 o.setScientificName(rs.getString("scientific_name"));
                                 // Date to short date
-                                Date date = rs.getDate("updated_on");
+                                java.sql.Date date = rs.getDate("updated_on");
                                 Format format = new SimpleDateFormat("dd/MM/yyyy");
                                 format.format(date);
                                 o.setUpdatedOn(date);
