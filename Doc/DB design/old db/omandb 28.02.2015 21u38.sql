@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 28 feb 2015 om 20:36
+-- Genereertijd: 28 feb 2015 om 19:52
 -- Serverversie: 5.6.13
 -- PHP-versie: 5.4.17
 
@@ -146,10 +146,10 @@ CREATE TABLE IF NOT EXISTS `habitat` (
 --
 
 INSERT INTO `habitat` (`habitat_id`, `habitat_name`, `habitat_description`) VALUES
-(1, 'Mountains', 'kijk omhoog'),
-(2, 'Dessert', 'Wreed goe weer'),
-(3, 'Reef', 'Was ik maar aan t duiken'),
-(4, 'Wetlands', 'das is goeie zomer in Belgie'),
+(1, 'Mountains', 'sticks and stones'),
+(2, 'Dessert', NULL),
+(3, 'Reef', NULL),
+(4, 'Wetlands', NULL),
 (19, 'insert test', 'insert test'),
 (20, 'insert test', 'insert test'),
 (21, 'insert test', 'insert test');
@@ -293,7 +293,9 @@ INSERT INTO `subfamily` (`subfamily_id`, `family_id`, `subfamily_name`, `subfami
 (4, 1, 'Oryx', ''),
 (5, 1, 'Camel', ''),
 (7, 1, 'insert', 'insert'),
-(8, 1, 'insert', 'insert');
+(8, 1, 'insert', 'insert'),
+(9, 1, 'insert', 'insert'),
+(10, 1, 'insert', 'insert');
 
 -- --------------------------------------------------------
 
@@ -302,20 +304,13 @@ INSERT INTO `subfamily` (`subfamily_id`, `family_id`, `subfamily_name`, `subfami
 --
 
 CREATE TABLE IF NOT EXISTS `subscriber` (
-  `subscriber_id` int(11) NOT NULL AUTO_INCREMENT,
+  `subscribed_id` int(11) NOT NULL AUTO_INCREMENT,
   `subscriber_first_name` varchar(50) DEFAULT NULL,
   `subscriber_last_name` varchar(200) NOT NULL,
   `subscriber_email` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`subscriber_id`),
+  PRIMARY KEY (`subscribed_id`),
   UNIQUE KEY `subscriber_email` (`subscriber_email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Gegevens worden uitgevoerd voor tabel `subscriber`
---
-
-INSERT INTO `subscriber` (`subscriber_id`, `subscriber_first_name`, `subscriber_last_name`, `subscriber_email`) VALUES
-(1, 'tom', 'adriaens', 'adriaenstom@gmail.com');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -368,7 +363,7 @@ INSERT INTO `world` (`world_id`, `world_name`, `world_description`) VALUES
 (3, 'Animal world', 'All the animals of oman'),
 (5, 'Marine world', 'All the water creatures of oman'),
 (6, 'Microbial world', 'All the microscopic organisms of Oman'),
-(7, 'micro', 'qsddlmjqsdml jsmqlkdj mlqsdj mqsldj mqlsdj mlsdjj qmldjsd  qmsoud qmjdqpodu poqudo qpsoduiopu poudpsu pqduupou pqsoduq pqsodu pudo');
+(7, 'micro', 'dit is een test');
 
 --
 -- Beperkingen voor gedumpte tabellen
