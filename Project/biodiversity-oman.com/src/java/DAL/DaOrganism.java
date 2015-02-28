@@ -118,9 +118,8 @@ public class DaOrganism {
                 
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setCommonName(rs.getString("common_name"));
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                o.setInsertedOn(df.format(rs.getDate("inserted_on")));
-                o.setUpdatedOn(df.format(rs.getDate("updated_on")));
+                o.setInsertedOn(rs.getString("inserted_on"));
+                o.setUpdatedOn(rs.getString("updated_on"));
                 
                 sf.setSubfamilyId(rs.getInt("subfamily_id"));
                 sf.setSubfamilyName(rs.getString("subfamily_name"));
@@ -237,9 +236,8 @@ public class DaOrganism {
                 organism.setValidated(rsOrganism.getBoolean("isvalidated"));
                 organism.setFoodName(rsOrganism.getString("food_name"));
                 organism.setFoodDescription(rsOrganism.getString("food_description"));
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                organism.setInsertedOn(df.format(rsOrganism.getDate("inserted_on")));
-                organism.setUpdatedOn(df.format(rsOrganism.getDate("updated_on")));
+                organism.setInsertedOn(rsOrganism.getString("inserted_on"));
+                organism.setUpdatedOn(rsOrganism.getString("updated_on"));
                 
                 // One to many objecten
                 // Er moet nog een One To many bijkomen namelijk voor alle posts te selecteren die behoren tot dit bepaald organisme.
@@ -702,10 +700,7 @@ public class DaOrganism {
 				Organism o = new Organism();
                                 o.setCommonName(rs.getString("common_name"));
                                 o.setScientificName(rs.getString("scientific_name"));
-                                // Date to short date
-                                                
-                                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                                o.setUpdatedOn(df.format(rs.getDate("updated_on")));
+                                o.setUpdatedOn(rs.getString("updated_on"));
                                 o.setOrganismId(rs.getInt("organism_id"));
                                 org.add(o);
 			}
@@ -742,8 +737,7 @@ public class DaOrganism {
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setCommonName(rs.getString("scientific_name"));
                 o.setCommonName(rs.getString("common_name"));
-                DateFormat df = new SimpleDateFormat("MMddyyyy");
-                o.setInsertedOn(df.format(rs.getDate("inserted_on")));
+                o.setInsertedOn(rs.getString("inserted_on"));
                 
                 organisms.add(o);
             }
