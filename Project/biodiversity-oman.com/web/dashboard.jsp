@@ -7,17 +7,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<link rel="StyleSheet" type="text/css" href="css/chosen.css">
+        <link rel="StyleSheet" type="text/css" href="css/chosen.css">
         <script src="js/ajax.js"></script>
         <script src="js/validator.js"></script>
-	<script src="js/chosen.jquery.min.js"></script>
+        <script src="js/chosen.jquery.min.js"></script>
     </head>
     <body onload="loadWorlds();
-	    loadSeasons();
-	    loadHabitats();
-	    loadFamilies();
-	    loadSubFamilies();
-	    ">
+            loadSeasons();
+            loadHabitats();
+            loadFamilies();
+            loadSubFamilies();
+          ">
         <div class="wrapper">
             <div class="tabs">
                 <ul class="tab-links">
@@ -32,10 +32,10 @@
                 <div class="tab-content">
                     <div id="tab1" class="tab active">
                         <div id="fade" class="black_overlay"></div>
-			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
-				document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
-									<div id="insert-organism" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'none';
-				document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
+                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
+                                   document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
+                                                                        <div id="insert-organism" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'none';
+                                                                                document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-organism">
                                     <form class="form form-horizontal" id="create-organism-form" data-toggle="validator">
@@ -67,7 +67,7 @@
                                                 </div>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
-					    <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-family">Family</label>
                                                 <div class="col-sm-4">
                                                     <select class="form-control" id="family-ddl1" name="family-id"></select>
@@ -79,7 +79,7 @@
                                                     <select class="form-control" id="subfamily-ddl" name="subfamily-id"></select>
                                                 </div>
                                             </div>
-                                              <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-population">Population</label>
                                                 <div class="col-sm-4">
                                                     <input class="form-control" type="text" id="organism-population" maxlength="50" data-delay="1200" name="organism-population" />
@@ -91,12 +91,12 @@
                                                     <textarea class="form-control" rows="3" name="organism-description"></textarea>
                                                 </div>
                                             </div>
-					    <div class="form-group">
-						<label class="col-sm-2 control-label">Choose Habitat</label>
-						<div class="col-sm-4">
-						    <select class="chosen-select form-control" id="habitat-ddl" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
-						</div>
-					    </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Choose Habitat</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="habitat-ddl" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
                                                 <div class="col-sm-4">
@@ -175,25 +175,25 @@
                                                     <textarea rows="3" class="form-control" name="organism-food-description"></textarea>
                                                 </div>
                                             </div>
-					    <div class="form-group">
-						<label class="col-sm-2 control-label">Choose season</label>
-						<div class="col-sm-4">
-						    <select class="chosen-select form-control" id="season-ddl" name="organism-season-id" multiple data-placeholder="Choose Season">
-							
-						    </select>
-						</div>
-					    </div>
-					    <div class="form-group">
-						<label class="col-sm-2 control-label">Choose geolocations</label>
-						<div class="col-sm-4">
-						    <select class="chosen-select form-control" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
-							<option value="winter">geo</option>
-							<option value="summer">geo</option>
-							<option value="autumn">geo</option>
-							<option value="spring">geo</option>
-						    </select>
-						</div>
-					    </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Choose season</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="season-ddl" name="organism-season-id" multiple data-placeholder="Choose Season">
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Choose geolocations</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
+                                                        <option value="winter">geo</option>
+                                                        <option value="summer">geo</option>
+                                                        <option value="autumn">geo</option>
+                                                        <option value="spring">geo</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label"></label>
                                                 <div class="col-sm-2">
@@ -213,10 +213,10 @@
                     </div>
                     <div id="tab2" class="tab">
                         <div id="fade2" class="black_overlay-boxed"></div>
-			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';
-				document.getElementById('fade2').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-								     <div id="insert-world" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'none';
-				document.getElementById('fade2').style.display = 'none'"><label class="close-button">x</label></a>
+                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';
+                                   document.getElementById('fade2').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                                                                     <div id="insert-world" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'none';
+                                                                             document.getElementById('fade2').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-world">
                                     <form class="form form-horizontal" id="create-world-form" data-toggle="validator">
@@ -264,10 +264,10 @@
                     </div>
                     <div id="tab3" class="tab">
                         <div id="fade5" class="black_overlay-boxed"></div>
-			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'block';
-				document.getElementById('fade5').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-								      <div id="insert-family" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'none';
-				document.getElementById('fade5').style.display = 'none'"><label class="close-button">x</label></a>
+                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'block';
+                                   document.getElementById('fade5').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                                                                      <div id="insert-family" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'none';
+                                                                              document.getElementById('fade5').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-family">
                                     <form class="form form-horizontal" id="create-family-form" data-toggle="validator">
@@ -321,10 +321,10 @@
                     </div>
                     <div id="tab4" class="tab">
                         <div id="fade6" class="black_overlay-boxed"></div>
-			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'block';
-				document.getElementById('fade6').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-									 <div id="insert-subfamily" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'none';
-				document.getElementById('fade6').style.display = 'none'"><label class="close-button">x</label></a>
+                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'block';
+                                   document.getElementById('fade6').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                                                                         <div id="insert-subfamily" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'none';
+                                                                                 document.getElementById('fade6').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-subfamily">
                                     <form class="form form-horizontal" id="create-subfamily-form" data-toggle="validator">
@@ -378,10 +378,10 @@
                     </div>
                     <div id="tab5" class="tab">
                         <div id="fade3" class="black_overlay-boxed"></div>
-			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'block';
-				document.getElementById('fade3').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-								      <div id="insert-season" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'none';
-				document.getElementById('fade3').style.display = 'none'"><label class="close-button">x</label></a>
+                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'block';
+                                   document.getElementById('fade3').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                                                                      <div id="insert-season" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'none';
+                                                                              document.getElementById('fade3').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-season">
                                     <form class="form form-horizontal" id="create-season-form" data-toggle="validator">
@@ -429,10 +429,10 @@
                     </div>
                     <div id="tab6" class="tab">
                         <div id="fade4" class="black_overlay-boxed"></div>
-			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'block';
-				document.getElementById('fade4').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-								       <div id="insert-habitat" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'none';
-				document.getElementById('fade4').style.display = 'none'"><label class="close-button">x</label></a>
+                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'block';
+                                   document.getElementById('fade4').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                                                                       <div id="insert-habitat" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'none';
+                                                                               document.getElementById('fade4').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-habitat">
                                     <form class="form form-horizontal" id="create-habitat-form" data-toggle="validator">
@@ -480,13 +480,55 @@
                     </div>
                     <div id="tab7" class="tab">
                         <div id="fade8" class="black_overlay-boxed"></div>
-			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
-				document.getElementById('fade8').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-									   <div id="insert-geolocation" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'none';
-				document.getElementById('fade8').style.display = 'none'"><label class="close-button">x</label></a>
+                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
+                                   document.getElementById('fade8').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                                                                           <div id="insert-geolocation" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'none';
+                                                                                   document.getElementById('fade8').style.display = 'none'"><label class="close-button">x</label></a>
                             <div class="content">
                                 <div id="create-geolocation">
-                                    <p> FORM HERE </p>
+                                    <form class="form form-horizontal" id="create-geolocation-form" data-toggle="validator">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <h2 class="h2">Create Geolocation</h2>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="area-name">Area name</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" type="text" name="area-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="area-description">Description</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" type="text" name="area-description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="area-map">Make area</label>
+                                            <div class="col-sm-4">
+                                                <div id="map-canvas"></div>
+                                                <span class="help-block with-errors">Use 4 mouse clicks to make an area</span>
+                                                <input class="form-control" id="area-coordinates" type="text" name="area-coordinates" disabled/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <div id="create-geolocation-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-2">
+                                                <button class="btn btn-default" type="submit" onclick="showCoordinates()">Insert</button>
+                                                <button class="btn btn-default" type="reset">Reset</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
