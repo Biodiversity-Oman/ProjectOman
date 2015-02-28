@@ -721,5 +721,38 @@ public class DaOrganism {
 		return org;
 	}
     
+    public static List<Organism> sellectAllToValidate ()
+    {
+        List<Organism> organisms = new ArrayList<>();
+        
+        try {
+            conn = DataSource.getConnection();
+            
+            
+            // SQL werkt
+            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.scientific_name organism.common_name, organism.inserted_on \n" + 
+                    "FROM organism \n" +
+                    "WHERE organism.isvalidated=0");
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Organism o = new Organism();
+                
+                o.setOrganismId(rs.getInt("organism_id"));
+                o.setCommonName(rs.getString("scientific_name"));
+                o.setCommonName(rs.getString("common_name"));
+                DateFormat df = new SimpleDateFormat("MMddyyyy");
+                o.setInsertedOn(df.format(rs.getDate("inserted_on")));
+                
+                organisms.add(o);
+            }
+            
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return organisms;
+    }
     
 }
