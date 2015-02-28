@@ -232,7 +232,7 @@ public class DaOrganism {
                 organism.setDangerous(rsOrganism.getString("dangerous"));
                 organism.setThreats(rsOrganism.getString("threats"));
                 organism.setOpportunities(rsOrganism.getString("opportunities"));
-                organism.setPhoto(rsOrganism.getByte("photo"));
+                organism.setPhoto(rsOrganism.getBytes("photo"));
                 organism.setLinks(rsOrganism.getString("links"));
                 organism.setValidated(rsOrganism.getBoolean("isvalidated"));
                 organism.setFoodName(rsOrganism.getString("food_name"));
