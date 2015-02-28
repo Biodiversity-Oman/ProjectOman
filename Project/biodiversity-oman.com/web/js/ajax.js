@@ -12,6 +12,9 @@ $(document).ready(function () {
 	$(this).parent('li').addClass('active').siblings().removeClass('active');
 	e.preventDefault();
     });
+    
+    // choosen many to many inputs
+    $(".chosen-select").chosen({width: "100%"});
 
     //userinfo.jsp
     $('#update-user-form').submit(function (e) {

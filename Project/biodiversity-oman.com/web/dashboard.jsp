@@ -12,11 +12,6 @@
         <script src="js/validator.js"></script>
 	<script src="js/chosen.jquery.min.js"></script>
     </head>
-    <script>
-	$(document).ready(function () {
-	    $(".chosen-select").chosen({width: "100%"});
-	});
-    </script>
     <body onload="loadWorlds();
 	    loadSeasons();
 	    loadHabitats();
@@ -36,7 +31,7 @@
                 </ul>
                 <div class="tab-content">
                     <div id="tab1" class="tab active">
-                        <div id="fade" class="black_overlay-boxed"></div>
+                        <div id="fade" class="black_overlay"></div>
 			   <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
 				document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
 									<div id="insert-organism" class="insert-box"><a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'none';
