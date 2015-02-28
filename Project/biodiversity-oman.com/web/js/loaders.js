@@ -316,6 +316,9 @@ function loadPublishedOrganisms() {
 	dataType: 'json',
 	cache: false,
 	async: true,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
 	}
@@ -347,6 +350,9 @@ function loadSubscriber() {
 	dataType: 'json',
 	cache: false,
 	async: true,
+	error: function(error, status, request){
+	    console.log(status);
+	},
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
         }
