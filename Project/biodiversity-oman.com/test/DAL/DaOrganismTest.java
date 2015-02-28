@@ -228,7 +228,11 @@ public class DaOrganismTest {
     public void testSelectAllForValidation() throws Exception {
         System.out.println("selectAllForValidation");
         List<Organism> result = DaOrganism.selectAllForValidation();
-        System.out.println(result);
+        for (Organism o : result) {
+            System.out.println(o.getUpdatedOn());
+            System.out.println(o.getCommonName());
+            System.out.println(o.getScientificName());
+        }
     }
 
     /**
@@ -238,7 +242,11 @@ public class DaOrganismTest {
     public void testSelectAllPublished() throws Exception {
         System.out.println("selectAllPublished");
         List<Organism> result = DaOrganism.selectAllPublished();
-        System.out.println(result);
+        for (Organism o : result) {
+            System.out.println(o.getUpdatedOn());
+            System.out.println(o.getCommonName());
+            System.out.println(o.getScientificName());
+        }
     }
     
 }
