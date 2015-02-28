@@ -260,12 +260,14 @@ public class DaOrganismTest {
     public void testSelectAllForValidation() throws Exception {
         System.out.println("selectAllForValidation");
         List<Organism> result = DaOrganism.selectAllForValidation();
-        for (Organism o : result) {
+            for (Organism o : result) {
+            
             System.out.println(o.getUpdatedOn());
             System.out.println(o.getCommonName());
             System.out.println(o.getScientificName());
         }
     }
+    
 
     /**
      * Test of selectAllPublished method, of class DaOrganism.
