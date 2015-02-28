@@ -501,6 +501,15 @@ $(document).ready(function () {
 	    loadOrganism();
 	});
     });
+    $(document).on('click', '.close-button', function(){
+	$('.insert-box').hide();
+	document.getElementById('fade').style.display = 'none';
+    });
+    $(document).on('click', 'table #update-world-btn', function() {
+	document.getElementById('update-world').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+    });
+    
     // functie inserten van Organism. dashboard.jsp
     $('#create-organism-form').submit(function (e) {
 
