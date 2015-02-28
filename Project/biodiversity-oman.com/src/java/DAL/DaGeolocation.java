@@ -21,7 +21,7 @@ public class DaGeolocation {
     private static Connection conn;
     private static PreparedStatement stmt;
 
-    public static List<Geolocation> selectAllGeolocation() throws SQLException {
+    public static List<Geolocation> selectAll() throws SQLException {
         List<Geolocation> geolocations = new ArrayList();
 
         try {
@@ -104,7 +104,7 @@ public class DaGeolocation {
         return geolocations;
     }
     
-    public static void insertGeolocation(Geolocation geolocation) throws SQLException {
+    public static void insert(Geolocation geolocation) throws SQLException {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
@@ -123,7 +123,7 @@ public class DaGeolocation {
         }
     }
     
-    public static void deleteGeolocation(int id) throws SQLException {
+    public static void delete(int id) throws SQLException {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);

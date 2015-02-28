@@ -35,7 +35,7 @@ public class DaGeolocationTest {
     @Test
     public void testSelectAllGeolocation() throws Exception {
         System.out.println("selectAllGeolocation");
-        List<Geolocation> results = DaGeolocation.selectAllGeolocation();
+        List<Geolocation> results = DaGeolocation.selectAll();
         
         for (Geolocation result : results) {
             System.out.println(result.getAreaName());
@@ -48,7 +48,7 @@ public class DaGeolocationTest {
     @Test
     public void testSelectOneByIDGeolocation() throws Exception {
         System.out.println("selectOneByIDGeolocation");
-        int id = DaGeolocation.selectAllGeolocation().get(0).getGeolocationId();
+        int id = DaGeolocation.selectAll().get(0).getGeolocationId();
         Geolocation result = DaGeolocation.selectOneByIDGeolocation(id);
         
         System.out.println(result.getAreaName());
@@ -77,7 +77,7 @@ public class DaGeolocationTest {
         geolocation.setAreaName("test");
         geolocation.setAreaDescription("insert test");
         geolocation.setCoordinates("00,00");
-        DaGeolocation.insertGeolocation(geolocation);
+        DaGeolocation.insert(geolocation);
     }
 
     /**
@@ -96,7 +96,7 @@ public class DaGeolocationTest {
     @Test
     public void testUpdateGeolocation() throws Exception {
         System.out.println("updateGeolocation");
-        Geolocation geolocation = DaGeolocation.selectAllGeolocation().get(0);
+        Geolocation geolocation = DaGeolocation.selectAll().get(0);
         geolocation.setAreaName("update");
         geolocation.setAreaDescription("success");
         geolocation.setCoordinates("100,100");
