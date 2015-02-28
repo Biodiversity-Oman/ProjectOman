@@ -23,13 +23,14 @@ public class DaSubscriber {
         List<Subscriber> subScriber = new ArrayList<>();
         try {
             conn = DataSource.getConnection();
-            stmt = conn.prepareStatement("SELECT subscriber_id, subscriber_firstname, subscriber_lastname, subscriber_email FROM subscriber");
+            //stmt = conn.prepareStatement("SELECT subscriber_id, subscriber_firstname, subscriber_lastname, subscriber_email FROM subscriber");
+            stmt = conn.prepareStatement("SELECT * FROM subscriber");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Subscriber s = new Subscriber();
                 s.setSubscriberId(rs.getInt("subscriber_id"));
-                s.setSubscriberFirstName(rs.getString("subscriber_firstname"));
-                s.setSubscriberLastName(rs.getString("subscriber_lastname"));
+                s.setSubscriberFirstName(rs.getString("subscriber_first_name"));
+                s.setSubscriberLastName(rs.getString("subscriber_last_name"));
                 s.setSubscriberEmail(rs.getString("subscriber_email"));
                 subScriber.add(s);
             }
@@ -45,7 +46,7 @@ public class DaSubscriber {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("INSERT INTO subscriber (subscriber_firstname, subscriber_lastname, subscriber_email) VALUES (?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO subscriber (subscriber_first_name, subscriber_last_name, subscriber_email) VALUES (?,?,?)");
             stmt.setString(1, s.getSubscriberFirstName());
             stmt.setString(2, s.getSubscriberFirstName());
             stmt.setString(3, s.getSubscriberEmail());

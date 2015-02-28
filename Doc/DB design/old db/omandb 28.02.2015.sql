@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 28 feb 2015 om 16:21
+-- Genereertijd: 28 feb 2015 om 13:21
 -- Serverversie: 5.6.13
 -- PHP-versie: 5.4.17
 
@@ -304,20 +304,13 @@ INSERT INTO `subfamily` (`subfamily_id`, `family_id`, `subfamily_name`, `subfami
 --
 
 CREATE TABLE IF NOT EXISTS `subscriber` (
-  `subscriber_id` int(11) NOT NULL AUTO_INCREMENT,
+  `subscribed_id` int(11) NOT NULL AUTO_INCREMENT,
   `subscriber_first_name` varchar(50) DEFAULT NULL,
   `subscriber_last_name` varchar(200) NOT NULL,
   `subscriber_email` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`subscriber_id`),
+  PRIMARY KEY (`subscribed_id`),
   UNIQUE KEY `subscriber_email` (`subscriber_email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Gegevens worden uitgevoerd voor tabel `subscriber`
---
-
-INSERT INTO `subscriber` (`subscriber_id`, `subscriber_first_name`, `subscriber_last_name`, `subscriber_email`) VALUES
-(1, 'Tom', 'Adriaens', 'adriaenstom@gmail.com');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
