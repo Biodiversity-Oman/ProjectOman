@@ -67,6 +67,12 @@
                                                 </div>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
+					    <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="organism-subfamily">Family</label>
+                                                <div class="col-sm-4">
+                                                    <select class="form-control" id="family-ddl1" name="family-id"></select>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                                 <div class="col-sm-4">
@@ -76,7 +82,7 @@
                                               <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-population">Population</label>
                                                 <div class="col-sm-4">
-                                                    <select class="form-control" id="organism-population" name="organism-population"></select>
+                                                    <input class="form-control" type="text" id="organism-population" maxlength="50" data-delay="1200" name="organism-population" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -344,7 +350,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="subfamily-family">Family</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="family-ddl" name="family-id"></select>
+                                                <select class="form-control" id="family-ddl2" name="family-id"></select>
                                             </div>
                                         </div>
                                         <div class="form-group"">

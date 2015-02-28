@@ -633,7 +633,7 @@ function loadFamilies() {
 
     var $table = $('#families-table');
     var $content = $('.content');
-    var $ddl = $('#family-ddl');
+    var $ddl = $('#family-ddl1, #family-ddl2 ');
     $.ajax({
 	url: 'SelectAllFamilies',
 	type: 'GET',
@@ -673,6 +673,7 @@ function loadSubFamilies() {
 
     var $table = $('#subfamilies-table');
     var $content = $('.content');
+    var $ddl = $('#subfamily-ddl');
     $.ajax({
 	url: 'SelectAllSubFamilies',
 	type: 'GET',
@@ -697,6 +698,7 @@ function loadSubFamilies() {
                                         <td>' + subfamily.subFamilyFamilyName + '</td>\n\
                                         <td><button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
+		$ddl.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
 	    });
 	}
     }).done(function () {
