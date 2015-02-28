@@ -664,14 +664,14 @@ public class DaOrganism {
 			while (rs.next()) {
 				Organism o = new Organism();
                                 o.setCommonName(rs.getString("common_name"));
+                                o.setOrganismId(rs.getInt("organism_id"));
+                                o.setScientificName(rs.getString("scientific_name"));
                                 // Date to short date
                                 Date date = rs.getDate("inserted_on");
                                 Format format = new SimpleDateFormat("dd/MM/yyyy");
                                 format.format(date);
                                 
-                                o.setInsertedOn(date);
-                                o.setScientificName(rs.getString("scientific_name"));
-                                o.setOrganismId(rs.getInt("organism_id"));
+                                o.setInsertedOn(date);                                
                                 org.add(o);
 			}
 
