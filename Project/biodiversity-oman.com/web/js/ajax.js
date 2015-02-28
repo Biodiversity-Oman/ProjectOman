@@ -512,8 +512,22 @@ $(document).ready(function () {
     $(document).on('click', 'table #update-world-btn', function() {
 	document.getElementById('update-world').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
+         var id = ($(this).attr("value"));
+            //functie voor update world
+	$.ajax({
+	    url: 'SelectWorldById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+	     $('#world-name').val(data.worldName);
+             
+	});
     });
-    
+ 
+   
+
     // functie inserten van Organism. dashboard.jsp
     $('#create-organism-form').submit(function (e) {
 
