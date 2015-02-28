@@ -420,6 +420,21 @@ $(document).ready(function () {
 	    loadSubFamilies();
 	});
     });
+    
+    // functie voor delete geolocation btn in dashboard.jsp
+    $(document).on('click', '.table #delete-geolocation-btn', function () {
+
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'DeleteGeolocation?id=' + id,
+	    type: 'POST',
+	    dataType: 'text',
+	    cache: false,
+	    async: true
+	}).done(function () {
+	    loadGeolocations();
+	});
+    });
 
     //functie voor de zoekbalk in usermanagement.jsp
     $('#search-user-account').keyup(function (e) {
