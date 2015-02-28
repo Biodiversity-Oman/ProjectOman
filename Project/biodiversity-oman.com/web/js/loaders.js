@@ -299,7 +299,7 @@ function loadToValidateOrganisms() {
 	    $table.append('<tr>\n\
                                         <td>' + o.commonName + '</td>\n\\n\
                                         <td>' + o.scientificName + '</td>\n\
-                                        <td>'+ o.insertedOn + '</td>\n\
+                                        <td>'+ o.insertedOn.toString() + '</td>\n\
                                         <td><button class="no-button" id="select-organism-btn" type="submit" value="' + o.organismId+ '"><span class="icon-pencil"></span></button></td>\n\
                                     </tr>');
 	});
@@ -330,7 +330,7 @@ function loadPublishedOrganisms() {
 	    $table.append('<tr>\n\
                                         <td>' + org.commonName + '</td>\n\\n\
                                         <td>' + org.scientificName + '</td>\n\
-                                        <td>' + org.updatedOn + '</td>\n\
+                                        <td>' + org.updatedOn.toString() + '</td>\n\
                                   </tr>');
 	}); 
     });
