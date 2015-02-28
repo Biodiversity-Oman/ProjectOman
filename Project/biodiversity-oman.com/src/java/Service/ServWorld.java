@@ -47,5 +47,10 @@ public class ServWorld {
 		DaWorld.updateWorld(w);
 
 	}
+        
+        public static BLL.World selectOneById(int id)
+    {
+        return DaWorld.selectOneByIdWorld(id);
+    }
 
 }
