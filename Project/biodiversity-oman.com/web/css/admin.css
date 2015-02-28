@@ -601,6 +601,6 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
 
 
 #map-canvas {
-    height: 300px;
-    width: 300px;
+    height: 30em;
+    width: 30em;
 }
