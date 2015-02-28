@@ -16,7 +16,12 @@
 		<script src="js/validator.js"></script>
 		<script src="js/loaders.js"></script>
 	</head>
-	<body onload="loadUsers()">
+	<body>
+	    <script>
+		$(document).ready(function(){
+		   loadUsers(); 
+		});
+	    </script>
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">

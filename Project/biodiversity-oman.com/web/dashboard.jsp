@@ -22,7 +22,9 @@
           ">
 	<script>
 	    // choosen many to many inputs
-	    $(".chosen-select").chosen({width: "100%"});
+	    $(document).ready(function(){
+		 $(".chosen-select").chosen({width: "100%"});
+	    });
 	</script>
         <div class="wrapper">
             <div class="tabs">

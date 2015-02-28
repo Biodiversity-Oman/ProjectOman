@@ -15,8 +15,13 @@
 		<script src="js/ajax.js"></script>
 		<script src="js/loaders.js"></script>
 	</head>
-        <body onload="loadToValidateOrganisms();
-              loadPublishedOrganisms();">
+        <body>
+	      <script>
+		  $(document).ready(function(){
+		      loadToValidateOrganisms();
+		      loadPublishedOrganisms();
+		  });
+	      </script>
 		<div class="wrapper">
 			<div class="tabs">
 				<ul class="tab-links">

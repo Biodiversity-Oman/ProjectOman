@@ -6,7 +6,7 @@
 
 // functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
 function loadUsers() {
-
+    $('#users-table').html('');
     var $table = $('#users-table');
     var $content = $('.content');
     $.ajax({
@@ -17,10 +17,9 @@ function loadUsers() {
 	async: true,
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
-	},
-	complete: function (data) {
-	    var users = data.responseJSON;
-	    $table.append('<tr>\n\
+	}
+    }).done(function (data) {
+	$table.append('<tr>\n\
                                     <th>Username</th>\n\
                                     <th>Firstname</th>\n\
                                     <th>Lastname</th>\n\
@@ -31,8 +30,8 @@ function loadUsers() {
                                     <th>Admin</th>\n\
                                     <th>Action</th>\n\
                                 </tr>');
-	    users.forEach(function (user) {
-		$table.append('<tr>\n\
+	data.forEach(function (user) {	   
+	   $table.append('<tr>\n\
                                         <td>' + user.userName + '</td>\n\
                                         <td>' + user.firstName + '</td>\n\
                                         <td>' + user.lastName + '</td>\n\
@@ -43,10 +42,7 @@ function loadUsers() {
                                         <td>' + user.isAdmin + '</td>\n\
                                         <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
                                     </tr>');
-	    });
-	}
-    }).done(function () {
-	$('#users-table').html('');
+	});
     });
 };
 
@@ -163,8 +159,6 @@ function loadHabitats() {
     }).done(function () {
 	$('#habitats-table').html('');
 	$ddl.html('');
-	
-	
     });
 };
 
@@ -279,9 +273,10 @@ function loadGeolocations() {
 
 // functie vult tabel voor te valideren organisms tab in publish.jsp
 function loadToValidateOrganisms() {
-
+    $('#tovalidate-table').html('');
     var $table = $('#tovalidate-table');
     var $content = $('.content');
+    var succes;
     $.ajax({
 	url: 'SelectOrganismToValidate',
 	type: 'GET',
@@ -290,32 +285,28 @@ function loadToValidateOrganisms() {
 	async: true,
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
-	},
-	complete: function (data) {
-	    var orgval = data.responseJSON;
+	}
+    }).done(function (data) {
 	    $table.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\\n\
                                     <th>Submitted on</th>\n\
                                     <th>Action</th>\n\
                                 </tr>');
-	    orgval.forEach(function (o) {
-		$table.append('<tr>\n\
+	data.forEach(function (o){
+	    $table.append('<tr>\n\
                                         <td>' + o.commonName + '</td>\n\\n\
                                         <td>' + o.scientificName + '</td>\n\
                                         <td>'+ o.insertedOn + '</td>\n\
                                         <td><button class="no-button" id="select-organism-btn" type="submit" value="' + o.organismId+ '"><span class="icon-pencil"></span></button></td>\n\
                                     </tr>');
-	    });
-	}
-    }).done(function () {
-	$('#tovalidate-table').html('');
+	});
     });
 };
 
 // functie vult tabel voor published organisms tab in publish.jsp
 function loadPublishedOrganisms() {
-
+    $('#published-table').html('');
     var $table = $('#published-table');
     var $content = $('.content');
     $.ajax({
@@ -326,24 +317,20 @@ function loadPublishedOrganisms() {
 	async: true,
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
-	},
-	complete: function (data) {
-	    var orgpub = data.responseJSON;
-	    $table.append('<tr>\n\
+	}
+    }).done(function (data) {
+	   $table.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\\n\
                                     <th>Last updated on</th>\n\
                                 </tr>');
-	    orgpub.forEach(function (o) {
-		$table.append('<tr>\n\
-                                        <td>' + o.commonName + '</td>\n\\n\
-                                        <td>' + o.scientificName + '</td>\n\
-                                        <td>'+ o.updatedOn + '</td>\n\
+	data.forEach(function (org) {
+	    $table.append('<tr>\n\
+                                        <td>' + org.commonName + '</td>\n\\n\
+                                        <td>' + org.scientificName + '</td>\n\
+                                        <td>' + org.updatedOn + '</td>\n\
                                   </tr>');
-	    });
-	}
-    }).done(function () {
-	$('#published-table').html('');
+	}); 
     });
 };
 
