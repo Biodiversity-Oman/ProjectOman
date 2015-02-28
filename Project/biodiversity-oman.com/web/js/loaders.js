@@ -61,16 +61,17 @@ function loadWorlds() {
 	async: true,
 	beforesend: function () {
 	    $content.append('<div class="spinner"></div>');
-	},
-	complete: function (data) {
-	    var worlds = data.responseJSON;
-	    $table.append('<tr>\n\
+	}
+    }).done(function (data) {
+	$('#worlds-table').html('');
+	$ddl.html('');
+	$table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
                                     <th>Action</th>\n\
                                 </tr>');
-	    $ddl.append('<option value="" disabled selected>Select world</option>');
-	    worlds.forEach(function (world) {
+	$ddl.append('<option value="" disabled selected>Select world</option>');
+	data.forEach(function (world) {
 		$table.append('<tr id="parent">\n\
                                         <td>' + world.worldName + '</td>\n\
                                         <td>' + world.description + '</td>\n\
@@ -78,10 +79,6 @@ function loadWorlds() {
                                     </tr>');
 		$ddl.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
 	    });
-	}
-    }).done(function () {
-	$('#worlds-table').html('');
-	$ddl.html('');
     });
 };
 
@@ -157,9 +154,9 @@ function loadHabitats() {
 	    });
 	    
 	}
-    }).done(function () {
-	$('#habitats-table').html('');
+    }).done(function (data) {
 	$ddl.html('');
+	$('#habitats-table').html('');
     });
 };
 
