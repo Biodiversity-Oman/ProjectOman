@@ -522,8 +522,8 @@ $(document).ready(function () {
 	$.ajax({
             url:'InsertOrganism',
 	    dataType: 'text',
-            contenType: false,
-            processData: false,
+            processData : false,
+            contentType : false,
             type: 'POST',
 	    data: formData,
 	    complete: function (data) {
