@@ -129,7 +129,7 @@ public class DaDownload {
 		} catch (Exception e) {
 			conn.rollback();
 		} finally {
-			conn.setAutoCommit(true);
+			conn.setAutoCommit(true);    
 		}
 	}
 }
