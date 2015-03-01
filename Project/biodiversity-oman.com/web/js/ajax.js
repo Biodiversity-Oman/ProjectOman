@@ -681,6 +681,25 @@ $(document).ready(function () {
 	});
     });
     
+    // update family-button dashboard.jsp - seasons tab
+    $(document).on('click', 'table #update-family-btn', function() {
+	document.getElementById('update-family').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectFamilyById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+	     $('#family-id').val(id);
+	     $('#family-name').val(data.familyName);
+	     $('#family-description').val(data.familyDescription);
+             $('#world-ddl').val(data.worldId);
+	});
+    });
+    
     // update select-organism-button publish.jsp - queue tab
     $(document).on('click', 'table #select-organism-btn', function() {
 	document.getElementById('update-organism').style.display = 'block';
