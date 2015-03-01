@@ -228,9 +228,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            
                                 <table class="table table-striped" id="organisms-table"></table>
-                            
                         </div>
                     </div>
                     <div id="tab2" class="tab">
@@ -320,9 +318,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <div class="col-sm-10">
                                 <table class="table table-striped" id="worlds-table"></table>
-                            </div>
                         </div>
                     </div>
                     <div id="tab3" class="tab">
@@ -376,9 +372,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <div class="col-sm-10">
                                 <table class="table table-striped" id="families-table"></table>
-                            </div>
                         </div>
                     </div>
                     <div id="tab4" class="tab">
@@ -432,9 +426,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <div class="col-sm-10">
                                 <table class="table table-striped" id="subfamilies-table"></table>
-                            </div>
                         </div>
                     </div>
                     <div id="tab5" class="tab">
@@ -461,7 +453,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="season-description">Description</label>
                                             <div class="col-sm-4">
-                                                <textarea rows="3" class="form-control" type="text" name="season-description"></textarea>
+                                                <textarea rows="3" class="form-control" name="season-description"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -503,7 +495,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="season-description">Description</label>
                                             <div class="col-sm-4">
-                                                <textarea rows="3" class="form-control" type="text" name="season-description"></textarea>
+                                                <textarea rows="3" class="form-control" name="season-description"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -524,9 +516,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <div class="col-sm-10">
                                 <table class="table table-striped" id="seasons-table"></table>
-                            </div>
                         </div>
                     </div>
                     <div id="tab6" class="tab">
@@ -573,9 +563,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <div class="col-sm-10">
                                 <table class="table table-striped" id="habitats-table"></table>
-                            </div>
                         </div>
                     </div>
                     <div id="tab7" class="tab">
@@ -630,15 +618,12 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <div class="col-sm-10">
                                 <table class="table table-striped" id="geolocations-table"></table>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 </html>
 
