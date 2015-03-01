@@ -58,14 +58,14 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+                                                <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([ A-z]){1,}$" required/> 
                                             </div>    
                                             <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                         </div> 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([ A-z]){1,}$" required/> 
                                             </div>
                                             <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                         </div>
