@@ -20,6 +20,14 @@
 		      loadPublishedOrganisms();
                       loadPosts();
                       loadSubscriber();
+                      loadOrganisms();
+                      loadWorlds();
+                      loadSeasons();
+                      loadFamilies();
+                      loadSubFamilies();
+                      loadHabitats();
+                      loadGeolocations();
+                      $(".chosen-select").chosen({width: "100%"});
 		  });
 		</script>
 	</head>
@@ -56,21 +64,21 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
                                                 <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+                                                    <input class="form-control" id="scientific-name" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
                                                 </div>    
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div> 
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
                                                 <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
+                                                    <input class="form-control" id="common-name" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/> 
                                                 </div>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
                                                 <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="organism-local-name" maxlength="50" data-delay="1200" required/> 
+                                                    <input class="form-control" id="local-name" type="text" name="organism-local-name" maxlength="50" data-delay="1200" required/> 
                                                 </div>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
@@ -89,13 +97,13 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-population">Population</label>
                                                 <div class="col-sm-4">
-                                                    <input class="form-control" type="text" id="organism-population" maxlength="50" data-delay="1200" name="organism-population" />
+                                                    <input class="form-control" type="text" id="population" maxlength="50" data-delay="1200" name="organism-population" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
                                                 <div class="col-sm-4">
-                                                    <textarea class="form-control" rows="3" name="organism-description"></textarea>
+                                                    <textarea class="form-control" rows="3" id="description" name="organism-description"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -111,9 +119,9 @@
                                                 </div>
                                            </div>
                                              <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
+                                                <label class="col-sm-2 control-label" for="organism-photo">Add Photo</label>
                                                 <div class="col-sm-4">
-                                                    <input type="file"  name="upfileOrganism" >
+                                                    <input type="file" id="photo"  name="upfileOrganism" >
                                                 </div>
                                              </div>
                                             
@@ -148,45 +156,45 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control"  name="organism-benefits"></textarea>
+                                                    <textarea rows="3" class="form-control" id="benefits"  name="organism-benefits"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control"  name="organism-dangerous"></textarea>
+                                                    <textarea rows="3" class="form-control" id="dangerous"  name="organism-dangerous"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" name="organism-threats"></textarea>
+                                                    <textarea rows="3" class="form-control" id="threats" name="organism-threats"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" name="organism-opportunities"></textarea>
+                                                    <textarea rows="3" class="form-control" id="opportunities" name="organism-opportunities"></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" name="organism-links"></textarea>
+                                                    <textarea rows="3" class="form-control" id="links" name="organism-links"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
                                                 <div class="col-sm-4">
-                                                    <input class="form-control" type="text" name="organism-food-name" maxlength="50" data-delay="1200" required/> 
+                                                    <input class="form-control" type="text" id="food-name" name="organism-food-name" maxlength="50" data-delay="1200" required/> 
                                                 </div>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
                                                 <div class="col-sm-4">
-                                                    <textarea rows="3" class="form-control" name="organism-food-description"></textarea>
+                                                    <textarea rows="3" class="form-control" id="food-description" name="organism-food-description"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -200,7 +208,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Choose geolocations</label>
                                                 <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
+                                                    <select class="chosen-select form-control" id="geolocation" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
                                                         <option value="1">geo</option>
                                                         <option value="2">geo</option>
                                                         <option value="3">geo</option>
