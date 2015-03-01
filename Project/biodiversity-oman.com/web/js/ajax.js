@@ -560,9 +560,16 @@ $(document).ready(function () {
 	document.getElementById('update-world').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
     });
-   
+        
     
-     // function for validation of Organism. in publish.jsp
+    // update organism-button publish.jsp - queue tab
+    $(document).on('click', 'table #update-organism-btn', function() {
+	document.getElementById('update-organism').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+    });
+       
+    
+     // function for update of Organism. in publish.jsp
     $('#update-organism-form').submit(function (e) {
 
 	var $message = $('#update-organism-message');

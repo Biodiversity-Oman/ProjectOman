@@ -307,7 +307,7 @@ function loadToValidateOrganisms() {
                                         <td>' + o.commonName + '</td>\n\\n\
                                         <td>' + o.scientificName + '</td>\n\
                                         <td>'+ o.insertedOn.toString() + '</td>\n\
-                                        <td><button class="no-button" id="select-organism-btn" type="submit" value="' + o.organismId+ '"><span class="icon-pencil"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + + o.organismId+ + '"><span class="icon-pencil2"></span></button></td>\n\
+                                        <td><button class="no-button" id="update-organism-btn" type="submit" value="' + o.organismId+ '"><span class="icon-pencil2"></span></button>\n\
                                     </tr>');
 	});
     });
