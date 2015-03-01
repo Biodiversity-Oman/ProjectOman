@@ -527,7 +527,7 @@ $(document).ready(function () {
 	    cache: false,
 	    async: true
 	}).done(function () {
-	    loadOrganism();
+	    loadOrganisms();
 	});
     });
 
