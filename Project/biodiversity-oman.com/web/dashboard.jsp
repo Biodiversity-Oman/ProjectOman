@@ -111,12 +111,13 @@
                                                     <select class="form-control" id="world-ddl" name="organism-world-id" data-placeholder="Choose World"></select>
                                                 </div>
                                            </div>
-                                           <!--  <div class="form-group">
+                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
                                                 <div class="col-sm-4">
-                                                    <input class="btn btn-default" type="file"  name="upfileOrganism" >
+                                                    <input type="file"  name="upfileOrganism" >
                                                 </div>
-                                            </div>-->
+                                             </div>
+                                            
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-indigenous">Indigenous</label>
                                                 <div class="col-sm-4">
@@ -215,7 +216,7 @@
                                                     <button class="btn btn-default" type="reset">Reset</button>
                                                 </div>
                                             </div>
-                                        </form>    
+                                      </form>
                                 </div>
                             </div>
                         </div>

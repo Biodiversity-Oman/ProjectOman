@@ -517,12 +517,15 @@ $(document).ready(function () {
     // functie inserten van Organism. dashboard.jsp
     $('#create-organism-form').submit(function (e) {
 
-	var $message = $('#create-geolocation-message');
+	var $message = $('#create-organism-message');
+        var formData = new FormData($(this)[0]);
 	$.ajax({
-	    url: 'InsertOrganism',
-	    type: 'POST',
+            url:'InsertOrganism',
 	    dataType: 'text',
-	    data: $('#create-organism-form').serialize(),
+            contenType: false,
+            processData: false,
+            type: 'POST',
+	    data: formData,
 	    complete: function (data) {
 		var response = data.responseText;
 		if (response === 'succes') {
@@ -538,7 +541,6 @@ $(document).ready(function () {
 	    }
 	}).done(function () {
 	    $("#create-organism-form")[0].reset();
-	    //loadWorlds();
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
 	    }, 2800);
