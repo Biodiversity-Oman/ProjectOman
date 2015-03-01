@@ -557,6 +557,21 @@ $(document).ready(function () {
 	    loadOrganisms();
 	});
     });
+    
+    // functie voor delete organism btn in published.jsp
+    $(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
+
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'DeleteOrganism?id=' + id,
+	    type: 'POST',
+	    dataType: 'text',
+	    cache: false,
+	    async: true
+	}).done(function () {
+	    loadToValidateOrganisms();
+	});
+    });
 
     //functie voor de zoekbalk in usermanagement.jsp
     $('#search-user-account').keyup(function (e) {
