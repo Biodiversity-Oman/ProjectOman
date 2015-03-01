@@ -26,14 +26,11 @@ public class DaUserAccount {
 	public static void insertUserAccount(UserAccount user) throws SQLException {
 
 		String password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
-
 		try {
-			// set autocommit to false to control when the query has to be commited, this gives a huge performance boost
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("INSERT INTO user_account"
 				+ "(username, password, first_name, last_name, email, city, country, isadmin, phone) VALUES (?,?,?,?,?,?,?,?,?)");
-			// set my query strings fro mmy user object(parameter)
 			stmt.setString(1, user.getUserName());
 			stmt.setString(2, password);
 			stmt.setString(3, user.getFirstName());
@@ -44,11 +41,10 @@ public class DaUserAccount {
 			stmt.setBoolean(8, user.getIsAdmin());
 			stmt.setString(9, user.getPhone());
 			stmt.executeUpdate();
-			// do my commit
 			conn.commit();
 		} catch (SQLException ex) {
-			// if someting goes wrong with the query will the commit be rolled back
 			conn.rollback();
+			System.out.println(ex.getMessage());
 		} finally {
 			conn.setAutoCommit(true);
 		}
@@ -59,7 +55,6 @@ public class DaUserAccount {
 		UserAccount us = new UserAccount();
 		try {
 			conn = DataSource.getConnection();
-			
 			stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, isadmin, phone FROM user_account where username = ?");
 			stmt.setString(1, username);
 			ResultSet rs = stmt.executeQuery();
@@ -73,8 +68,8 @@ public class DaUserAccount {
 			us.setPhone(rs.getString("phone"));
 			System.out.println(us.getUserName());
 		} catch (SQLException ex) {
-
-		} 
+			System.out.println(ex.getMessage());
+		}
 		return us;
 	}
 
@@ -95,6 +90,7 @@ public class DaUserAccount {
 			conn.commit();
 		} catch (SQLException ex) {
 			conn.rollback();
+			System.out.println(ex.getMessage());
 		} finally {
 			conn.setAutoCommit(true);
 		}
@@ -110,7 +106,8 @@ public class DaUserAccount {
 			conn.commit();
 			stmt.executeUpdate();
 		} catch (SQLException ex) {
-
+			conn.rollback();
+			System.out.println(ex.getMessage());
 		} finally {
 			conn.setAutoCommit(true);
 		}
@@ -170,9 +167,9 @@ public class DaUserAccount {
 			stmt.setString(1, username);
 			conn.commit();
 			stmt.executeUpdate();
-
 		} catch (SQLException ex) {
 			conn.rollback();
+			System.out.println(ex.getMessage());
 		} finally {
 			conn.setAutoCommit(true);
 		}
@@ -197,11 +194,9 @@ public class DaUserAccount {
 				user.setIsAdmin(rs.getBoolean("isadmin"));
 				users.add(user);
 			}
-			
-		} catch (SQLException e) {
-			
-		} 
-
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
 		return users;
 	}
 
@@ -226,9 +221,9 @@ public class DaUserAccount {
 			stmt.setString(1, username);
 			conn.commit();
 			stmt.executeUpdate();
-
 		} catch (SQLException ex) {
-
+			conn.rollback();
+			System.out.println(ex.getMessage());
 		} finally {
 			conn.setAutoCommit(true);
 		}
@@ -240,9 +235,8 @@ public class DaUserAccount {
 		conn = DataSource.getConnection();
 		stmt = conn.prepareStatement("SELECT first_name, last_name, email, city, country, username, phone, isadmin\n"
 			+ "FROM user_account \n"
-			+ "WHERE (CONCAT(username,first_name,last_name,email) LIKE '%"+ keyword +"%') OR (CONCAT_WS(' ', first_name, last_name) LIKE '%"+ keyword +"%')");
+			+ "WHERE (CONCAT(username,first_name,last_name,email) LIKE '%" + keyword + "%') OR (CONCAT_WS(' ', first_name, last_name) LIKE '%" + keyword + "%')");
 		ResultSet rs = stmt.executeQuery();
-		
 		while (rs.next()) {
 			UserAccount user = new UserAccount();
 			user.setFirstName(rs.getString("first_name"));
@@ -255,7 +249,6 @@ public class DaUserAccount {
 			user.setIsAdmin(rs.getBoolean("isadmin"));
 			result.add(user);
 		}
-		
 		return result;
 	}
 

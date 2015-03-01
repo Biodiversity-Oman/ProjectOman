@@ -8,8 +8,6 @@ package DAL;
 import BLL.*;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -34,7 +32,6 @@ public class DaWorld {
 				w.setDescription(rs.getString("world_description"));
 				worlds.add(w);
 			}
-
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 		}
@@ -42,8 +39,8 @@ public class DaWorld {
 	}
 
 	public static World selectOneByIdWorld(int worldId) {
-		World w = new World();
 
+		World w = new World();
 		try {
 			conn = DataSource.getConnection();
 			stmt = conn.prepareStatement("SELECT world_name, world_description FROM world WHERE world_id=" + worldId + "");
@@ -113,6 +110,7 @@ public class DaWorld {
 	}
 
 	public static boolean checkWorldExist(String worldName) throws SQLException {
+		
 		boolean match;
 		conn = DataSource.getConnection();
 		stmt = conn.prepareStatement("SELECT COUNT(*) world_name FROM world WHERE world_name = ?");
@@ -123,27 +121,3 @@ public class DaWorld {
 		return match;
 	}
 }
-
-//     public static void updateWorld(World world, int worldID) throws SQLException {
-//
-//        try {
-//            conn = DataSource.getConnection();
-//            conn.setAutoCommit(false);
-//            if (world.getWorldName() != null) {
-//                stmt = conn.prepareStatement("UPDATE world set world_name =? WHERE world_id=" + worldID);
-//                stmt.setString(1, world.getWorldName());
-//            }
-//            if (world.getDescription() != null) {
-//                stmt = conn.prepareStatement("UPDATE world set world_description = ? WHERE world_id=" + worldID);
-//                stmt.setString(1, world.getDescription());
-//            }
-//            stmt.executeUpdate();
-//            conn.commit();
-//        } catch (SQLException ex) {
-//            System.out.println(ex);
-//
-//        } finally {
-//            conn.setAutoCommit(true);
-//        }
-//    }
-

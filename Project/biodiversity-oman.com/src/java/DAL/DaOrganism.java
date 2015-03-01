@@ -11,12 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.text.DateFormat;
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  *
@@ -674,14 +670,12 @@ public class DaOrganism {
                 }
         } catch (Exception e) {
                 System.out.println(e.getMessage());}
-
         return orga;
     }
     
     public static List<Organism> selectAllPublished() 
     {
         List<Organism> orgb = new ArrayList();
-
         try {
                 conn = DataSource.getConnection();
                 stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
@@ -699,7 +693,6 @@ public class DaOrganism {
         } catch (Exception e) {
                 System.out.println(e.getMessage());
         }
-
         return orgb;
     } 
 }
