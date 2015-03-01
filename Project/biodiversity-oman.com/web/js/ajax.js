@@ -628,7 +628,27 @@ $(document).ready(function () {
 	});
     });
     
-     // update world-button dashboard.jsp - worlds tab
+    // update geolocation-button dashboard.jsp - geolocations tab
+    $(document).on('click', 'table #update-geolocation-btn', function() {
+	document.getElementById('update-geolocation').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectGeolocationById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+	     $('#geolocation-id').val(id);
+	     $('#area-name').val(data.areaName);
+	     $('#area-description').val(data.areaDescription);
+             $('#area-coordinates').val(data.coordinates);
+	});
+    });
+
+    
+     // update season-button dashboard.jsp - seasons tab
     $(document).on('click', 'table #update-season-btn', function() {
 	document.getElementById('update-season').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';

@@ -228,7 +228,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                                <table class="table table-striped" id="organisms-table"></table>
+                            <table class="table table-striped" id="organisms-table"></table>
                         </div>
                     </div>
                     <div id="tab2" class="tab">
@@ -318,7 +318,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                                <table class="table table-striped" id="worlds-table"></table>
+                            <table class="table table-striped" id="worlds-table"></table>
                         </div>
                     </div>
                     <div id="tab3" class="tab">
@@ -372,7 +372,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                                <table class="table table-striped" id="families-table"></table>
+                            <table class="table table-striped" id="families-table"></table>
                         </div>
                     </div>
                     <div id="tab4" class="tab">
@@ -426,7 +426,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                                <table class="table table-striped" id="subfamilies-table"></table>
+                            <table class="table table-striped" id="subfamilies-table"></table>
                         </div>
                     </div>
                     <div id="tab5" class="tab">
@@ -516,7 +516,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                                <table class="table table-striped" id="seasons-table"></table>
+                            <table class="table table-striped" id="seasons-table"></table>
                         </div>
                     </div>
                     <div id="tab6" class="tab">
@@ -563,7 +563,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                                <table class="table table-striped" id="habitats-table"></table>
+                            <table class="table table-striped" id="habitats-table"></table>
                         </div>
                     </div>
                     <div id="tab7" class="tab">
@@ -617,13 +617,56 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="update-geolocation" class="insert-box">
+                            <label class="close-button">x</label>
+                            <div class="content">
+                                <div id="update-geolocation-test">
+                                    <form class="form form-horizontal" id="update-geolocation-form" data-toggle="validator">
+                                        <input type="hidden" id="world-id" name="geolocation-id" />
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <h2 class="h2">Update Geolocation</h2>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="area-name">Name</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" type="text" name="area-name" id="area-name" maxlength="50" data-delay="1200" pattern="^([A-z ]){1,}$" required/>
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="area-description">Description</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" id="area-description" name="area-description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" id="area-coordinates" type="text" name="area-coordinates" value="20.87,55.76"/>
+                                                <div class="message" id="update-geolocation-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-2">
+                                                <button class="btn btn-default" type="submit">Update</button>
+                                                <button class="btn btn-default" type="reset">Reset</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <div class="table-responsive">
-                                <table class="table table-striped" id="geolocations-table"></table>
+                            <table class="table table-striped" id="geolocations-table"></table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-</body>
+    </body>
 </html>
 
