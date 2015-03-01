@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author bert
  */
-@WebServlet(name = "SelectAllPost", urlPatterns = {"/SelectAllPost"})
-public class SelectAllPost extends HttpServlet {
+@WebServlet(name = "SelectAllPosts", urlPatterns = {"/SelectAllPosts"})
+public class SelectAllPosts extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

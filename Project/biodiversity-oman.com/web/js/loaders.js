@@ -421,7 +421,7 @@ function loadPosts() {
     var $table = $('#posts-table');
     var $content = $('.content');
     $.ajax({
-	url: 'SelectAllPost',
+	url: 'SelectAllPosts',
 	type: 'GET',
 	dataType: 'json',
 	cache: false,
