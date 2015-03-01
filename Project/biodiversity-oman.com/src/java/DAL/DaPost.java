@@ -37,31 +37,33 @@ public class DaPost {
 //            
 //               
 //    }
-	public static List<Post> selectAllPost() throws SQLException {
-
-		List<Post> posts = new ArrayList();
-		try {
-			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM post");
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				Post p = new Post();
-				p.setPostId(rs.getInt("post_id"));
-				p.setOrganismId(rs.getInt("organism_id"));
-				p.setPostFirstName(rs.getString("post_first_name"));
-				p.setPostLastName(rs.getString("post_last_name"));
-				p.setPostEmail(rs.getString("post_email"));
-				p.setPostDescription(rs.getString("post_description"));
-				p.setPostPhoto(rs.getBytes("post_photo"));
-				p.setPostLongitude(rs.getString("post_longitude"));
-				p.setPostLatitude(rs.getString("post_latitude"));
-				posts.add(p);
-			}
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-		return posts;
-	}
+public static List<Post> selectAllPost()
+{
+    List<Post> posts = new ArrayList();
+    try 
+    {
+        conn = DataSource.getConnection();
+        stmt = conn.prepareStatement("SELECT post.post_id, post.post_email," +
+                                    "post.organism_id, organism.common_name AS organism_name" +
+                                    "FROM post\n" +
+                                    "LEFT JOIN post.organism_id = organism.organism_id");
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) 
+        {
+                Post p = new Post();
+                p.setPostId(rs.getInt("post_id"));
+                p.setPostEmail(rs.getString("post_email"));
+                p.setOrganismId(rs.getInt("organism_id"));
+                p.setOrganismName(rs.getString("organism_name"));
+                posts.add(p);
+        }
+    } 
+    catch (SQLException ex) 
+    {
+        System.out.println(ex.getMessage());
+    }
+    return posts;
+}
 
 	public static Post selectOneByIdPost(int id) throws SQLException {
 

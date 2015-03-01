@@ -22,6 +22,7 @@ public class Post {
     private byte[] postPhoto;
     private String postLongitude;
     private String postLatitude;
+    private String organismName;
 
     /**
      * @return the postId
@@ -147,6 +148,20 @@ public class Post {
      */
     public void setPostLatitude(String postLatitude) {
         this.postLatitude = postLatitude;
+    }
+
+    /**
+     * @return the organismName
+     */
+    public String getOrganismName() {
+        return organismName;
+    }
+
+    /**
+     * @param organismName the organismName to set
+     */
+    public void setOrganismName(String organismName) {
+        this.organismName = organismName;
     }
 
 }
