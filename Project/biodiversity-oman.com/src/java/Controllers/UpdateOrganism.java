@@ -5,9 +5,12 @@
  */
 package Controllers;
 
+import BLL.Organism;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +23,7 @@ import org.apache.commons.io.IOUtils;
  * @author bert
  */
 @WebServlet(name = "UpdateOrganism", urlPatterns = {"/UpdateOrganism"})
+@MultipartConfig
 public class UpdateOrganism extends HttpServlet {
 
     /**
@@ -86,9 +90,24 @@ public class UpdateOrganism extends HttpServlet {
         for (int i=0; i < request.getParameterValues("geolocation-id").length; i++) {
         geolocationIds[i] = Integer.parseInt(request.getParameterValues("geolocation-id")[i]);}
         
+        byte[] bytes = null;
+        try{
         Part filePart = request.getPart("upfileOrganism"); 
         InputStream fileContent = filePart.getInputStream();
-        byte[] bytes = IOUtils.toByteArray(fileContent);
+        
+        
+        if(fileContent!= null)
+           bytes = IOUtils.toByteArray(fileContent);
+        else{
+           
+            Organism o = Service.ServOrganism.selectOneById(Integer.parseInt(request.getParameter("organism-id")));
+            bytes = o.getPhoto();   
+        }
+        }
+        catch(Exception e){
+            System.out.println(""+e);
+        
+        }
 
 
         response.getWriter().write(Service.ServOrganism.update(Integer.parseInt(request.getParameter("organism-id")),

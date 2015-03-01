@@ -53,7 +53,6 @@
                             <div class="content">
                                 <div id="update-organism">
                                     <form class="form form-horizontal" id="update-organism-form" data-toggle="validator" enctype="multipart/form-data">
-                                        <input type="hidden" id="organism-id" name="organism-id" />
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
@@ -225,7 +224,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label"></label>
                                                 <div class="col-sm-2">
-                                                    <button class="btn btn-default" type="submit">Approve and submit</button>
+                                                    <button class="btn btn-default" id="organism-id" type="submit">Approve and submit</button>
                                                 </div>
                                             </div>
                                       </form>
