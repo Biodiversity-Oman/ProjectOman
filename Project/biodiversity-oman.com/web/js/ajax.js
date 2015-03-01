@@ -679,6 +679,17 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
 	     $('#organism-id').val(id);
+             $('#scientific-name').val(data.scientificName);
+             $('#common-name').val(data.commonName);
+             $('#local-name').val(data.localName);
+             $('#description').val(data.description);
+             $('#benefits').val(data.benefits);
+             $('#dangerous').val(data.dangerous);
+             $('#threats').val(data.threats);
+             $('#opportunities').val(data.opportunities);
+             $('#links').val(data.links);
+             $('#food-name').val(data.foodName);
+             $('#food-description').val(data.foodDescription);                      
 	});
     });
    
