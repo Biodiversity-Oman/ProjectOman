@@ -414,3 +414,35 @@ function loadOrganisms() {
 	    });
     });
 };
+
+function loadPosts() {
+
+    var $table = $('#posts-table');
+    var $content = $('.content');
+    $.ajax({
+	url: 'SelectAllPost',
+	type: 'GET',
+	dataType: 'json',
+	cache: false,
+	error: function(error, status, request){
+	    console.log(status);
+	},
+	beforesend: function () {
+	    $content.append('<div class="spinner"></div>');
+	}
+    }).done(function (data) {
+	$table.html('');
+	 $table.append('<tr>\n\
+                                    <th>Email</th>\n\
+                                    <th>Organism</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+	    data.forEach(function (post) {
+		$table.append('<tr>\n\
+                                        <td>' + post.postEmail + '</td>\n\
+                                        <td>' + post.organismName + '</td>\n\
+                                        <td><button class="no-button" id="delete-post-btn" type="submit" value="' + organism.organismId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+	    });
+    });
+};

@@ -18,6 +18,7 @@
 		  $(document).ready(function(){
 		      loadToValidateOrganisms();
 		      loadPublishedOrganisms();
+                      loadPosts();
                       loadSubscriber();
 		  });
 		</script>
@@ -228,7 +229,9 @@
                                                 </div>
 					</div>
 					<div id="tab3" class="tab">
-						<div class="spinner"></div>
+                                            <div class="table-responsive">
+                                                    <table class="table table-striped" id="posts-table"></table>
+                                            </div>
 					</div>
 					<div id="tab4" class="tab">
 						<div class="table-responsive">
