@@ -371,6 +371,54 @@
                                 </div>
                             </div>
                         </div>
+                         <div id="update-family" class="insert-box">
+                            <label class="close-button">x</label>
+                            <div class="content">
+                                <div id="update-family">
+                                    <form class="form form-horizontal" id="update-family-form" data-toggle="validator">
+                                        <input type="hidden" id="family-id" name="world-id" />
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <h2 class="h2">Update Family</h2>
+                                            </div>
+                                        </div>
+                                       <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="family-name">Name</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" type="text" name="family-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="family-description">Description</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" name="family-description"></textarea>
+                                            </div>
+                                        </div>                                                            
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="family-world">World</label>
+                                            <div class="col-sm-4">
+                                                <select class="form-control" id="world-ddl" name="world-id" required></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <div id="create-family-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-2">
+                                                <button class="btn btn-default" type="submit">Update</button>
+                                                <button class="btn btn-default" type="reset">Reset</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped" id="families-table"></table>
                         </div>
@@ -425,6 +473,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="table-responsive">
                             <table class="table table-striped" id="subfamilies-table"></table>
                         </div>
