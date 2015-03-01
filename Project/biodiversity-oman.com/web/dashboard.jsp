@@ -529,7 +529,7 @@
                     </div>
                     <div id="tab7" class="tab">
                         <a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
-				document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+				document.getElementById('fade').style.display = 'block'"><button class="action-button" onclick="loadScript();"><span class="icon-plus"></button></a>
                         <div id="insert-geolocation" class="insert-box">
 			    <label class="close-button">x</label>
                             <div class="content">
