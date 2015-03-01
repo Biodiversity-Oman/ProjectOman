@@ -43,7 +43,7 @@ public class DaGeolocation {
         return geolocations;
     }
     
-    public static Geolocation selectOneByIDGeolocation(int id) throws SQLException {
+    public static Geolocation selectOneByID(int id) throws SQLException {
 	    
         Geolocation geolocation = new Geolocation();
         try {
@@ -61,7 +61,7 @@ public class DaGeolocation {
         return geolocation;
     }
     
-    public static List<Geolocation> selectAllByOrganismGeolocation(int organismId) throws SQLException {
+    public static List<Geolocation> selectAllByOrganism(int organismId) throws SQLException {
 	    
         List<Geolocation> geolocations = new ArrayList();
         try {
@@ -121,7 +121,7 @@ public class DaGeolocation {
         }
     }
     
-    public static void updateGeolocation(Geolocation geolocation) throws SQLException {
+    public static void update(Geolocation geolocation) throws SQLException {
 	    
         try {
             conn = DataSource.getConnection();

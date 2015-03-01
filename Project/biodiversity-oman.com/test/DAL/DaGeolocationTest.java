@@ -49,7 +49,7 @@ public class DaGeolocationTest {
     public void testSelectOneByIDGeolocation() throws Exception {
         System.out.println("selectOneByIDGeolocation");
         int id = DaGeolocation.selectAll().get(0).getGeolocationId();
-        Geolocation result = DaGeolocation.selectOneByIDGeolocation(id);
+        Geolocation result = DaGeolocation.selectOneByID(id);
         
         System.out.println(result.getAreaName());
     }
@@ -61,7 +61,7 @@ public class DaGeolocationTest {
     public void testSelectAllByOrganismGeolocation() throws Exception {
         System.out.println("selectAllByOrganismGeolocation");
         int organismId = DaOrganism.sellectAll().get(0).getOrganismId();
-        List<Geolocation> results = DaGeolocation.selectAllByOrganismGeolocation(organismId);
+        List<Geolocation> results = DaGeolocation.selectAllByOrganism(organismId);
         for (Geolocation result : results) {
             System.out.println("byOrganism: " + result.getAreaName());
         }
@@ -100,7 +100,7 @@ public class DaGeolocationTest {
         geolocation.setAreaName("update");
         geolocation.setAreaDescription("success");
         geolocation.setCoordinates("100,100");
-        DaGeolocation.updateGeolocation(geolocation);
+        DaGeolocation.update(geolocation);
     }
     
 }

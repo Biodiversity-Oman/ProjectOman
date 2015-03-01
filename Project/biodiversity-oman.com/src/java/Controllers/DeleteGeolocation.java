@@ -42,7 +42,7 @@ public class DeleteGeolocation extends HttpServlet {
 
             int id = Integer.parseInt(request.getParameter("id"));
             try {
-                ServGeolocation.deleteGeolocation(id);
+                ServGeolocation.delete(id);
             } catch (SQLException ex) {
                 Logger.getLogger(DeleteSeason.class.getName()).log(Level.SEVERE, null, ex);
             }

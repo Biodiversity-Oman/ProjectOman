@@ -16,22 +16,36 @@ import java.util.List;
  */
 public class ServGeolocation {
 
-	public static List selectAllGeolocations() throws SQLException {
+    public static Geolocation selectOneByID(int id) throws SQLException {
 
-		return DaGeolocation.selectAll();
-	}
+        return DaGeolocation.selectOneByID(id);
+    }
 
-	public static void insertGeolocation(String name, String description, String coordinates) throws SQLException {
+    public static List selectAll() throws SQLException {
 
-		Geolocation geolocation = new Geolocation();
-		geolocation.setAreaName(name);
-		geolocation.setAreaDescription(description);
-		geolocation.setCoordinates(coordinates);
-		DaGeolocation.insert(geolocation);
-	}
+        return DaGeolocation.selectAll();
+    }
 
-	public static void deleteGeolocation(int id) throws SQLException {
+    public static void insert(String name, String description, String coordinates) throws SQLException {
 
-		DaGeolocation.delete(id);
-	}
+        Geolocation geolocation = new Geolocation();
+        geolocation.setAreaName(name);
+        geolocation.setAreaDescription(description);
+        geolocation.setCoordinates(coordinates);
+        DaGeolocation.insert(geolocation);
+    }
+
+    public static void delete(int id) throws SQLException {
+
+        DaGeolocation.delete(id);
+    }
+
+    public static void update(String name, String description, String coordinates, int id) throws SQLException {
+        Geolocation geolocation = new Geolocation();
+        geolocation.setAreaName(name);
+        geolocation.setAreaDescription(description);
+        geolocation.setCoordinates(coordinates);
+        geolocation.setGeolocationId(id);
+        DaGeolocation.update(geolocation);
+    }
 }

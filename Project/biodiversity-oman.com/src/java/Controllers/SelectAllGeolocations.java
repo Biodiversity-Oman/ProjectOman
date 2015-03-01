@@ -39,7 +39,7 @@ public class SelectAllGeolocations extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         try {
-            List geolocations = ServGeolocation.selectAllGeolocations();
+            List geolocations = ServGeolocation.selectAll();
             response.getWriter().write(new Gson().toJson(geolocations));
         } catch (SQLException e) {
             Logger.getLogger(SelectAllGeolocations.class.getName()).log(Level.SEVERE, null, e);

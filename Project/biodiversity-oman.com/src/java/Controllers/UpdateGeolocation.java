@@ -6,7 +6,11 @@
 package Controllers;
 
 import Service.ServGeolocation;
+import Service.ServWorld;
 import java.io.IOException;
+import java.io.PrintWriter;
+import static java.lang.Integer.parseInt;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Noblesse
+ * @author Oualid
  */
-@WebServlet(name = "InsertGeolocation", urlPatterns = {"/InsertGeolocation"})
-public class InsertGeolocation extends HttpServlet {
+@WebServlet(name = "UpdateGeolocation", urlPatterns = {"/UpdateGeolocation"})
+public class UpdateGeolocation extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,11 +36,14 @@ public class InsertGeolocation extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
+        int id = parseInt(request.getParameter("geolocation-id"));
         try {
-            ServGeolocation.insert(request.getParameter("area-name"), request.getParameter("area-description"), request.getParameter("area-coordinates"));
+
+            ServGeolocation.update(request.getParameter("area-name"), request.getParameter("area-description"), 
+                    request.getParameter("area-coordinates"), id);
             response.getWriter().write("succes");
-        } catch (Exception e) {
+        } catch (SQLException ex) {
             response.getWriter().write("error");
         }
     }

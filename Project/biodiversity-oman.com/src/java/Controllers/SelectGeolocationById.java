@@ -6,7 +6,11 @@
 package Controllers;
 
 import Service.ServGeolocation;
+import Service.ServWorld;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Noblesse
+ * @author Oualid
  */
-@WebServlet(name = "InsertGeolocation", urlPatterns = {"/InsertGeolocation"})
-public class InsertGeolocation extends HttpServlet {
+@WebServlet(name = "SelectGeolocationById", urlPatterns = {"/SelectGeolocationById"})
+public class SelectGeolocationById extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,12 +36,14 @@ public class InsertGeolocation extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        int id = Integer.parseInt(request.getParameter("id"));
         
         try {
-            ServGeolocation.insert(request.getParameter("area-name"), request.getParameter("area-description"), request.getParameter("area-coordinates"));
-            response.getWriter().write("succes");
-        } catch (Exception e) {
-            response.getWriter().write("error");
+
+            response.getWriter().write(new com.google.gson.Gson().toJson(ServGeolocation.selectOneByID(id)));
+        } catch (Exception ex) {
+            Logger.getLogger(SelectWorldById.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
