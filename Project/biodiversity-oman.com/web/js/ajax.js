@@ -547,4 +547,38 @@ $(document).ready(function () {
 	});
 	e.preventDefault();
     });
+    
+     // function for validation of Organism. in publish.jsp
+    $('#update-organism-form').submit(function (e) {
+
+	var $message = $('#update-organism-message');
+	var formData = new FormData($(this)[0]);
+	$.ajax({
+            url: 'UpdateOrganism',
+	    dataType: 'text',
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    data: formData,
+	    complete: function (data) {
+		var response = data.responseText;
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism was added successfully.</div>');
+		} else if (response === 'error1') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+		} else if (response === 'error2') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
+		}
+	    },
+	    error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    $("#update-organism-form")[0].reset();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
+	});
+	e.preventDefault();
+    });
 });
