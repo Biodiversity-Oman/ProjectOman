@@ -704,7 +704,12 @@ $(document).ready(function () {
              $('#opportunities').val(data.opportunities);
              $('#links').val(data.links);
              $('#food-name').val(data.foodName);
-             $('#food-description').val(data.foodDescription);                      
+             $('#food-description').val(data.foodDescription);  
+             
+             $('#family-ddl1').val(data.family.familyName).focus();
+             $('#subfamily-ddl1').val(data.subfamily.subFamilyName).focus();
+             $('#habitat-ddl').val(data.habitat.habitatName).focus();
+             $('#world-ddl').val(data.world.worldName).focus();  
 	});
     });
    

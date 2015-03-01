@@ -442,7 +442,7 @@ function loadPosts() {
 		$table.append('<tr>\n\
                                         <td>' + post.postEmail + '</td>\n\
                                         <td>' + post.organismName + '</td>\n\
-                                        <td><button class="no-button" id="delete-post-btn" type="submit" value="' + organism.organismId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-post-btn" type="submit" value="' + post.postId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
 	    });
     });
