@@ -5,6 +5,7 @@
  */
 
 var area = [];
+var areaPath;
 
 function initialize() {
     var mapOptions = {
@@ -24,20 +25,20 @@ function initialize() {
         makeArea(event.latLng);
     });
 
+    areaPath = new google.maps.Polygon({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.4,
+        strokeWeight: 3,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        editable: true
+    });
+
     function makeArea(location) {
-        var areaPath;
         area.push(location);
 
         if (area.length > 3) {
-            areaPath = new google.maps.Polygon({
-                paths: area,
-                strokeColor: '#FF0000',
-                strokeOpacity: 0.4,
-                strokeWeight: 3,
-                fillColor: '#FF0000',
-                fillOpacity: 0.35,
-                editable: true
-            });
+            areaPath.setPath(area);
             areaPath.setMap(map);
             showCoordinates(areaPath);
             area = [];
