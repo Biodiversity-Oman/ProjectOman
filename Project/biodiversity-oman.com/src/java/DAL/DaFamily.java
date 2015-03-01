@@ -92,13 +92,13 @@ public class DaFamily {
 		}
 	}
 
-	public static void updateFamily(Family fam, int familyId) throws SQLException {
+	public static void updateFamily(Family fam) throws SQLException {
 
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("UPDATE family "
-				+ "SET family_name = ?, family_description =?, world_id=? WHERE family_id=" + familyId + "");
+				+ "SET family_name = ?, family_description =?, world_id=? WHERE family_id=" + fam.getFamilyId() + "");
 			stmt.setString(1, fam.getFamilyName());
 			stmt.setString(2, fam.getFamilyDescription());
 			stmt.setInt(3, fam.getWorldId());
