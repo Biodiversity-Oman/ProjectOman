@@ -386,14 +386,14 @@
                                        <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="family-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control" type="text" name="family-name" id="family-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-description">Description</label>
                                             <div class="col-sm-4">
-                                                <textarea rows="3" class="form-control" name="family-description"></textarea>
+                                                <textarea rows="3" class="form-control" name="family-description" id="family-description"></textarea>
                                             </div>
                                         </div>                                                            
                                         <div class="form-group">
@@ -550,13 +550,13 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <div id="create-season-message"></div>
+                                                <div id="update-season-message"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
-                                                <button class="btn btn-default" type="submit">Insert</button>
+                                                <button class="btn btn-default" type="submit">Update</button>
                                                 <button class="btn btn-default" type="reset">Reset</button>
                                             </div>
                                         </div>
