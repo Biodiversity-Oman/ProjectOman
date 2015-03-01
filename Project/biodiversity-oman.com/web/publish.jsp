@@ -24,6 +24,7 @@
 	</head>
         <body>
 		<div class="wrapper">
+                    <div id="fade" class="black_overlay"></div>
 			<div class="tabs">
 				<ul class="tab-links">
 					<li class="active"><a href="#tab1"><span class="icon-file-text"></span>Published</a></li>
@@ -38,11 +39,12 @@
                                                 </div>
 					</div>
 					<div id="tab2" class="tab">
-                                            <div id="validate-organism" class="insert-box">
+                                            <div id="update-organism" class="insert-box">
 			    <label class="close-button">x</label>
                             <div class="content">
-                                <div id="validate-organism">
-                                    <form class="form form-horizontal" id="validate-organism-form" data-toggle="validator" enctype="multipart/form-data">
+                                <div id="update-organism">
+                                    <form class="form form-horizontal" id="update-organism-form" data-toggle="validator" enctype="multipart/form-data">
+                                        <input type="hidden" id="organism-id" name="organism-id" />
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">

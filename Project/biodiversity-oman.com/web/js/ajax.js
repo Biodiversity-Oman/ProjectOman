@@ -600,9 +600,26 @@ $(document).ready(function () {
 	     $('#world-description').val(data.description);
 	});
     });
+    
+    
+    // update select-organism-button publish.jsp - queue tab
+    $(document).on('click', 'table #select-organism-btn', function() {
+	document.getElementById('update-organism').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectOneOrganismById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+	     $('#organism-id').val(id);
+	});
+    });
    
     
-     // function for validation of Organism. in publish.jsp
+     // function for update of Organism. in publish.jsp
     $('#update-organism-form').submit(function (e) {
 
 	var $message = $('#update-organism-message');
