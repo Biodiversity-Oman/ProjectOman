@@ -518,13 +518,13 @@ $(document).ready(function () {
     $('#create-organism-form').submit(function (e) {
 
 	var $message = $('#create-organism-message');
-        var formData = new FormData($(this)[0]);
+	var formData = new FormData($(this)[0]);
 	$.ajax({
-            url:'InsertOrganism',
+            url: 'InsertOrganism',
 	    dataType: 'text',
-            processData : false,
-            contentType : false,
-            type: 'POST',
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
 	    data: formData,
 	    complete: function (data) {
 		var response = data.responseText;

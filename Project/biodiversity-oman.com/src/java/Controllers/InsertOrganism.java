@@ -66,7 +66,7 @@ public class InsertOrganism extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.setContentType("text/html;charset=UTF-8");
+        
             
         int[] habitatIds = new int[request.getParameterValues("organism-habitat-id").length];
         for (int i=0; i < request.getParameterValues("organism-habitat-id").length; i++) {
