@@ -33,4 +33,19 @@ public class ServHabitat {
 
 		DaHabitat.deleteHabitat(id);
 	}
+        
+        public static void updateHabitat(String habitatName, String habitatdescription, int habitatId) throws SQLException {
+
+            Habitat h = new Habitat();
+            h.setHabitatName(habitatName);
+            h.setHabitatDescription(habitatdescription);
+            h.setHabitatId(habitatId);
+            DaHabitat.updateHabitat(h);
+
+    }
+
+    public static BLL.Habitat selectOneById(int id) throws SQLException {
+
+        return DaHabitat.selectOneByIDHabitat(id);
+    }
 }
