@@ -118,7 +118,7 @@ function loadSeasons() {
 		$table.append('<tr>\n\
                                         <td>' + season.seasonName + '</td>\n\
                                         <td>' + season.seasonDescription + '</td>\n\
-                                        <td><button class="no-button" id="delete-season-btn" type="submit" value="' + season.seasonId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-season-btn" type="submit" value="' + season.seasonId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' +  season.seasonId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
 		$(".chosen-select").trigger("chosen:updated");
@@ -157,7 +157,7 @@ function loadHabitats() {
 		$table.append('<tr>\n\
                                         <td>' + habitat.habitatName + '</td>\n\
                                         <td>' + habitat.habitatDescription + '</td>\n\
-                                        <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
 		$(".chosen-select").trigger("chosen:updated");
@@ -198,7 +198,7 @@ function loadFamilies() {
                                         <td>' + family.familyName + '</td>\n\
                                         <td>' + family.familyDescription + '</td>\n\
                                         <td>' + family.familyWorldName + '</td>\n\
-                                        <td><button class="no-button" id="delete-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
 	    });
@@ -237,7 +237,7 @@ function loadSubFamilies() {
                                         <td>' + subfamily.subFamilyName + '</td>\n\
                                         <td>' + subfamily.subFamilyDescription + '</td>\n\
                                         <td>' + subfamily.subFamilyFamilyName + '</td>\n\
-                                        <td><button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
 	    });
@@ -271,7 +271,7 @@ function loadGeolocations() {
 		$table.append('<tr>\n\
                                         <td>' + geolocation.areaName + '</td>\n\
                                         <td>' + geolocation.areaDescription + '</td>\n\
-                                        <td><button class="no-button" id="delete-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-cross"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 	    });
     });
@@ -307,7 +307,7 @@ function loadToValidateOrganisms() {
                                         <td>' + o.commonName + '</td>\n\\n\
                                         <td>' + o.scientificName + '</td>\n\
                                         <td>'+ o.insertedOn.toString() + '</td>\n\
-                                        <td><button class="no-button" id="select-organism-btn" type="submit" value="' + o.organismId+ '"><span class="icon-pencil"></span></button></td>\n\
+                                        <td><button class="no-button" id="select-organism-btn" type="submit" value="' + o.organismId+ '"><span class="icon-pencil"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + + o.organismId+ + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 	});
     });

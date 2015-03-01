@@ -1,14 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 4.0.4.2
--- http://www.phpmyadmin.net
---
--- Machine: localhost
--- Genereertijd: 28 feb 2015 om 20:36
--- Serverversie: 5.6.13
--- PHP-versie: 5.4.17
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "+04:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -149,10 +140,7 @@ INSERT INTO `habitat` (`habitat_id`, `habitat_name`, `habitat_description`) VALU
 (1, 'Mountains', 'kijk omhoog'),
 (2, 'Dessert', 'Wreed goe weer'),
 (3, 'Reef', 'Was ik maar aan t duiken'),
-(4, 'Wetlands', 'das is goeie zomer in Belgie'),
-(19, 'insert test', 'insert test'),
-(20, 'insert test', 'insert test'),
-(21, 'insert test', 'insert test');
+(4, 'Wetlands', 'das is goeie zomer in Belgie');
 
 -- --------------------------------------------------------
 
@@ -244,6 +232,9 @@ CREATE TABLE IF NOT EXISTS `post` (
   KEY `LivingOrganismID` (`organism_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+INSERT INTO `post` (`post_id`, `organism_id`, `post_first_name`, `post_last_name`, `post_email`, `post_description`, `post_photo`, `post_longitude`, `post_latitude`) VALUES
+(1, 1, 'Bert', 'Cortois', 'bert.cortois@outlook.be', 'Goat eating gras high in the mountains of oman', NULL, '22.957370', '57.675238'),
+(2, 3, 'Bert', 'Cortois', 'bert.cortois@outlook.be', 'Birds singing', NULL, '23.546790', '58.655102');
 -- --------------------------------------------------------
 
 --
@@ -291,9 +282,7 @@ INSERT INTO `subfamily` (`subfamily_id`, `family_id`, `subfamily_name`, `subfami
 (2, 1, 'Cow', ''),
 (3, 2, 'Chicken', ''),
 (4, 1, 'Oryx', ''),
-(5, 1, 'Camel', ''),
-(7, 1, 'insert', 'insert'),
-(8, 1, 'insert', 'insert');
+(5, 1, 'Camel', '');
 
 -- --------------------------------------------------------
 
@@ -364,73 +353,68 @@ CREATE TABLE IF NOT EXISTS `world` (
 --
 
 INSERT INTO `world` (`world_id`, `world_name`, `world_description`) VALUES
-(2, 'Plant world', 'All the organic organisms of oman'),
-(3, 'Animal world', 'All the animals of oman'),
-(5, 'Marine world', 'All the water creatures of oman'),
-(6, 'Microbial world', 'All the microscopic organisms of Oman'),
-(7, 'micro', 'qsddlmjqsdml jsmqlkdj mlqsdj mqsldj mqlsdj mlsdjj qmldjsd  qmsoud qmjdqpodu poqudo qpsoduiopu poudpsu pqduupou pqsoduq pqsodu pudo');
-
---
--- Beperkingen voor gedumpte tabellen
---
+(1, 'Plant world', 'All the organic organisms of oman'),
+(2, 'Animal world', 'All the animals of oman'),
+(3, 'Marine world', 'All the water creatures of oman'),
+(4, 'Microbial world', 'All the microscopic organisms of Oman');
 
 --
 -- Beperkingen voor tabel `download`
 --
 ALTER TABLE `download`
-  ADD CONSTRAINT `download_ibfk_1` FOREIGN KEY (`world_id`) REFERENCES `world` (`world_id`);
+  ADD CONSTRAINT `fk_download_world` FOREIGN KEY (`world_id`) REFERENCES `world` (`world_id`);
 
 --
 -- Beperkingen voor tabel `family`
 --
 ALTER TABLE `family`
-  ADD CONSTRAINT `fk_world_id` FOREIGN KEY (`world_id`) REFERENCES `world` (`world_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_family_world` FOREIGN KEY (`world_id`) REFERENCES `world` (`world_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Beperkingen voor tabel `food`
 --
 ALTER TABLE `food`
-  ADD CONSTRAINT `Fk_LivingOrganismEatening_ID` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `Fk_LivingOrganismEaten_ID` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`);
+  ADD CONSTRAINT `fk_eating_eatenby` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`),
+  ADD CONSTRAINT `fk_eatenby_eating` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`);
 
 --
 -- Beperkingen voor tabel `geolocation_organism`
 --
 ALTER TABLE `geolocation_organism`
-  ADD CONSTRAINT `geolocation_organism_ibfk_1` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `geolocation_organism_ibfk_2` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`);
+  ADD CONSTRAINT `fk_organism_geolocation` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
+  ADD CONSTRAINT `fk_geolocation_organism` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`);
 
 --
 -- Beperkingen voor tabel `habitat_organism`
 --
 ALTER TABLE `habitat_organism`
-  ADD CONSTRAINT `habitat_organism_ibfk_1` FOREIGN KEY (`habitat_id`) REFERENCES `habitat` (`habitat_id`),
-  ADD CONSTRAINT `habitat_organism_ibfk_2` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`);
+  ADD CONSTRAINT `fk_habitat_organism` FOREIGN KEY (`habitat_id`) REFERENCES `habitat` (`habitat_id`),
+  ADD CONSTRAINT `fk_organism_habitat` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`);
 
 --
 -- Beperkingen voor tabel `organism`
 --
 ALTER TABLE `organism`
-  ADD CONSTRAINT `organism_ibfk_1` FOREIGN KEY (`subfamily_id`) REFERENCES `subfamily` (`subfamily_id`);
+  ADD CONSTRAINT `fk_organism_subfamily` FOREIGN KEY (`subfamily_id`) REFERENCES `subfamily` (`subfamily_id`);
 
 --
 -- Beperkingen voor tabel `organism_season`
 --
 ALTER TABLE `organism_season`
-  ADD CONSTRAINT `organism_season_ibfk_1` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `organism_season_ibfk_2` FOREIGN KEY (`season_id`) REFERENCES `season` (`season_id`);
+  ADD CONSTRAINT `fk_organism_season` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
+  ADD CONSTRAINT `fk_season_organism` FOREIGN KEY (`season_id`) REFERENCES `season` (`season_id`);
 
 --
 -- Beperkingen voor tabel `post`
 --
 ALTER TABLE `post`
-  ADD CONSTRAINT `FK_Livingorganisms_ID` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`);
+  ADD CONSTRAINT `fk_post_organism` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`);
 
 --
 -- Beperkingen voor tabel `subfamily`
 --
 ALTER TABLE `subfamily`
-  ADD CONSTRAINT `subfamily_ibfk_1` FOREIGN KEY (`family_id`) REFERENCES `family` (`family_id`);
+  ADD CONSTRAINT `fk_subfamily_family` FOREIGN KEY (`family_id`) REFERENCES `family` (`family_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

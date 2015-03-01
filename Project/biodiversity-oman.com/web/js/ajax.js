@@ -13,9 +13,17 @@ $(document).ready(function () {
 	e.preventDefault();
     });
     
+    // general close-button function to close pop-ups dashboard.jsp
+    $(document).on('click', '.close-button', function(){
+	$('.insert-box').hide();
+	document.getElementById('fade').style.display = 'none';
+    });
+    
     //userinfo.jsp
     $('#update-user-form').submit(function (e) {
+	
 	var $message = $('#update-user-message');
+	$message.show();
 	var updatebtn = $('#update');
 	$.ajax({
 	    url: 'UpdateUserAccount',
@@ -49,7 +57,9 @@ $(document).ready(function () {
 
     //userinfo.jsp change password button + form
     $('#change-password-form').submit(function (e) {
+	
 	var $message = $('#update-password-message');
+	$message.show();
 	var wijzigbtn = $('#wijzig');
 	$.ajax({
 	    url: 'UpdatePassword',
@@ -89,6 +99,7 @@ $(document).ready(function () {
     $('#create-user-form').submit(function (e) {
 
 	var $message = $('#create-user-message');
+	$message.show();
 	$.ajax({
 	    url: 'InsertUserAccount',
 	    type: 'POST',
@@ -123,6 +134,7 @@ $(document).ready(function () {
     $('#create-season-form').submit(function (e) {
 
 	var $message = $('#create-season-message');
+	$message.show();
 	$.ajax({
 	    url: 'InsertSeason',
 	    type: 'POST',
@@ -153,6 +165,7 @@ $(document).ready(function () {
     $('#create-habitat-form').submit(function (e) {
 
 	var $message = $('#create-habitat-message');
+	$message.show();
 	$.ajax({
 	    url: 'InsertHabitat',
 	    type: 'POST',
@@ -181,8 +194,9 @@ $(document).ready(function () {
 
     // functie inserten van world. dashboard.jsp
     $('#create-world-form').submit(function (e) {
-
+	
 	var $message = $('#create-world-message');
+	$message.show();
 	$.ajax({
 	    url: 'InsertWorld',
 	    type: 'POST',
@@ -215,6 +229,7 @@ $(document).ready(function () {
     $('#create-family-form').submit(function (e) {
 
 	var $message = $('#create-family-message');
+	$message.show();
 	$.ajax({
 	    url: 'InsertFamily',
 	    type: 'POST',
@@ -245,6 +260,7 @@ $(document).ready(function () {
     $('#create-subfamily-form').submit(function (e) {
 
 	var $message = $('#create-subfamily-message');
+	$message.show();
 	$.ajax({
 	    url: 'InsertSubFamily',
 	    type: 'POST',
@@ -275,6 +291,7 @@ $(document).ready(function () {
     $('#create-geolocation-form').submit(function (e) {
 
 	var $message = $('#create-geolocation-message');
+	$message.show();
 	$.ajax({
 	    url: 'InsertGeolocation',
 	    type: 'POST',
@@ -294,6 +311,41 @@ $(document).ready(function () {
 	}).done(function () {
 	    $("#create-geolocation-form")[0].reset();
 	    loadGeolocations();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
+	});
+	e.preventDefault();
+    });
+    
+    // functie inserten van Organism. dashboard.jsp
+    $('#create-organism-form').submit(function (e) {
+
+	var $message = $('#create-organism-message');
+	$message.show();
+	var formData = new FormData($(this)[0]);
+	$.ajax({
+            url: 'InsertOrganism',
+	    dataType: 'text',
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    data: formData,
+	    complete: function (data) {
+		var response = data.responseText;
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism was added successfully.</div>');
+		} else if (response === 'error1') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+		} else if (response === 'error2') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
+		}
+	    },
+	    error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    $("#create-organism-form")[0].reset();
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
 	    }, 2800);
@@ -435,6 +487,21 @@ $(document).ready(function () {
 	    loadGeolocations();
 	});
     });
+    
+    // functie voor delete organism btn in dashboard.jsp
+    $(document).on('click', '.table #delete-organism-btn', function () {
+
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'DeleteOrganism?id=' + id,
+	    type: 'POST',
+	    dataType: 'text',
+	    cache: false,
+	    async: true
+	}).done(function () {
+	    loadOrganism();
+	});
+    });
 
     //functie voor de zoekbalk in usermanagement.jsp
     $('#search-user-account').keyup(function (e) {
@@ -487,26 +554,6 @@ $(document).ready(function () {
 	    loadUsers();
 	}
     });
-      // functie voor delete organism btn in dashboard.jsp
-    $(document).on('click', '.table #delete-organism-btn', function () {
-
-	var id = ($(this).attr("value"));
-	$.ajax({
-	    url: 'DeleteOrganism?id=' + id,
-	    type: 'POST',
-	    dataType: 'text',
-	    cache: false,
-	    async: true
-	}).done(function () {
-	    loadOrganism();
-	});
-    });
-    
-    // general close-button function to close pop-ups dashboard.jsp
-    $(document).on('click', '.close-button', function(){
-	$('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-    });
     
     // update world-button dashboard.jsp - worlds tab
     $(document).on('click', 'table #update-world-btn', function() {
@@ -514,6 +561,7 @@ $(document).ready(function () {
 	document.getElementById('fade').style.display = 'block';
     });
     
+<<<<<<< HEAD
     // functie inserten van Organism. dashboard.jsp
     $('#create-organism-form').submit(function (e) {
 
@@ -581,4 +629,7 @@ $(document).ready(function () {
 	});
 	e.preventDefault();
     });
+=======
+    
+>>>>>>> origin/master
 });
