@@ -47,12 +47,15 @@ public class DaSeason {
 		Season s = new Season();
 		try {
 			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM season WHERE season_id=" + seasonId + "");
+			stmt = conn.prepareStatement("SELECT season.season_id, season.season_name, season.season_description \n" +
+                                                    "FROM season \n" +
+                                                    "WHERE season_id=?");
+                        stmt.setInt(1, seasonId);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				s.setSeasonId(rs.getInt("season_id"));
 				s.setSeasonName(rs.getString("season_name"));
-				s.getSeasonDescription(rs.getString("season_description"));
+				s.setSeasonDescription(rs.getString("season_description"));
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
