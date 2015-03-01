@@ -352,6 +352,34 @@ $(document).ready(function () {
 	});
 	e.preventDefault();
     });
+    
+      $('#update-world-form').submit(function (e) {
+	  
+	var $message = $('#update-world-message');
+	$.ajax({
+	    url: 'UpdateWorld',
+	    type: 'POST',
+	    dataType: 'text',
+	    data: $('#update-world-form').serialize(),
+	    complete: function (data) {
+		var response = data.responseText;
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The world was updated successfully.</div>');
+		} else if (response === 'error') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World not updated</div>');
+		}
+	    }, error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    $("#update-world-form")[0].reset();
+	    loadWorlds();
+	    setTimeout(function () {
+		$message.fadeOut('slow');
+	    }, 2800);
+	});
+	e.preventDefault();
+    });
 
     // functie voor make-admin button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
@@ -559,6 +587,18 @@ $(document).ready(function () {
     $(document).on('click', 'table #update-world-btn', function() {
 	document.getElementById('update-world').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectWorldById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+	     $('#world-id').val(id);
+	     $('#world-name').val(data.worldName);
+	     $('#world-description').val(data.description);
+	});
     });
    
     
