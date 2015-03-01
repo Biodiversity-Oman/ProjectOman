@@ -118,7 +118,7 @@ function loadSeasons() {
 		$table.append('<tr>\n\
                                         <td>' + season.seasonName + '</td>\n\
                                         <td>' + season.seasonDescription + '</td>\n\
-                                        <td><button class="no-button" id="delete-season-btn" type="submit" value="' + season.seasonId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' +  season.seasonId + '"><span class="icon-pencil2"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-season-btn" type="submit" value="' + season.seasonId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-season-btn" type="submit" value="' +  season.seasonId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
 		$(".chosen-select").trigger("chosen:updated");
@@ -157,7 +157,7 @@ function loadHabitats() {
 		$table.append('<tr>\n\
                                         <td>' + habitat.habitatName + '</td>\n\
                                         <td>' + habitat.habitatDescription + '</td>\n\
-                                        <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-pencil2"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
 		$(".chosen-select").trigger("chosen:updated");
@@ -237,7 +237,7 @@ function loadSubFamilies() {
                                         <td>' + subfamily.subFamilyName + '</td>\n\
                                         <td>' + subfamily.subFamilyDescription + '</td>\n\
                                         <td>' + subfamily.subFamilyFamilyName + '</td>\n\
-                                        <td><button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
 	    });
@@ -271,7 +271,7 @@ function loadGeolocations() {
 		$table.append('<tr>\n\
                                         <td>' + geolocation.areaName + '</td>\n\
                                         <td>' + geolocation.areaDescription + '</td>\n\
-                                        <td><button class="no-button" id="delete-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-pencil2"></span></button></td>\n\
+                                        <td><button class="no-button" id="delete-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 	    });
     });
@@ -307,7 +307,7 @@ function loadToValidateOrganisms() {
                                         <td>' + o.commonName + '</td>\n\\n\
                                         <td>' + o.scientificName + '</td>\n\
                                         <td>'+ o.insertedOn.toString() + '</td>\n\
-                                        <td><button class="no-button" id="update-organism-btn" type="submit" value="' + o.organismId+ '"><span class="icon-pencil2"></span></button>\n\
+                                        <td><button class="no-button" id="select-organism-btn" type="submit" value="' + o.organismId+ '"><span class="icon-pencil"></span></button><button class="no-button" id="update-organism-btn" type="submit" value="' + + o.organismId+ + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 	});
     });
@@ -378,5 +378,38 @@ function loadSubscriber() {
                                        <td><button class="no-button" id="delete-subscriber-btn" type="submit" value="' + s.subscriberId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
 	}); 
+    });
+};
+
+function loadOrganisms() {
+
+    var $table = $('#organisms-table');
+    var $content = $('.content');
+    $.ajax({
+	url: 'SelectAllOrganism',
+	type: 'GET',
+	dataType: 'json',
+	cache: false,
+	error: function(error, status, request){
+	    console.log(status);
+	},
+	beforesend: function () {
+	    $content.append('<div class="spinner"></div>');
+	}
+    }).done(function (data) {
+	$table.html('');
+	 $table.append('<tr>\n\
+                                    <th>Common name</th>\n\
+                                    <th>Inserted on</th>\n\\n\
+                                    <th>Updated on</th>\n\
+                                </tr>');
+	    data.forEach(function (organism) {
+		$table.append('<tr>\n\
+                                        <td>' + organism.commonName + '</td>\n\
+                                        <td>' + organism.insertedOn + '</td>\n\\n\
+                                        <td>' + organism.updatedOn + '</td>\n\
+                                        <td><button class="no-button" id="delete-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+	    });
     });
 };

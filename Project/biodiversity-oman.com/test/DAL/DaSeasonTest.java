@@ -88,7 +88,7 @@ public class DaSeasonTest {
         System.out.println("updateSeason");
         Season seas = null;
         int seasonId = 0;
-        DaSeason.updateSeason(seas);
+        DaSeason.updateSeason(seas, seasonId);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

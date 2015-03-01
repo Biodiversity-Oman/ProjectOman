@@ -82,13 +82,13 @@ public class DaSeason {
 		return seasons;
 	}
 
-	public static void updateSeason(Season seas) throws SQLException {
+	public static void updateSeason(Season seas, int seasonId) throws SQLException {
 
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("UPDATE season "
-				+ "SET season_name, season_description WHERE season_id=" + seas.getSeasonId() + "");
+				+ "SET season_name, season_description WHERE season_id=" + seasonId + "");
 			stmt.setString(1, seas.getSeasonName());
 			stmt.setString(2, seas.getSeasonDescription());
 			stmt.executeUpdate();
