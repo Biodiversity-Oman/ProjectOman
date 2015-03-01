@@ -7,6 +7,7 @@ package Controllers;
 
 import Service.*;
 import java.io.*;
+import static java.lang.Integer.parseInt;
 import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -33,13 +34,15 @@ public class UpdateWorld extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        int id = parseInt(request.getParameter("world-id"));
         try {
-			ServWorld.updateWorld(request.getParameter("worldName"),
-                        request.getParameter("description"));				  
+            
+			ServWorld.updateWorld(request.getParameter("world-name"),
+                        request.getParameter("world-description"),id);		  
 							  
 			response.getWriter().write("succes");
 		} catch (SQLException ex) {
-			response.getWriter().write("Info not updated, there may be something wrong");
+			response.getWriter().write("error");
 		}
     }
 

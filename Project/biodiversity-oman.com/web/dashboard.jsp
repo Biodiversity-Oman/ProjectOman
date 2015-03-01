@@ -272,8 +272,9 @@
 			<div id="update-world" class="insert-box">
 			    <label class="close-button">x</label>
 			    <div class="content">
-				<div id="create-world">
+				<div id="update-world">
                                     <form class="form form-horizontal" id="update-world-form" data-toggle="validator">
+                                        <input type="hidden" id="world-id" name="world-id" />
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
@@ -283,14 +284,14 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="world-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="world-name" id="world-id" maxlength="50" data-delay="1200" pattern="^([A-z ]){1,}$" required/>
+                                                <input class="form-control" type="text" name="world-name" id="world-name" maxlength="50" data-delay="1200" pattern="^([A-z ]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label" id="world-id" for="world-description">Description</label>
+                                            <label class="col-sm-2 control-label" for="world-description">Description</label>
                                             <div class="col-sm-4">
-                                                <textarea rows="3" class="form-control"  name="world-description"></textarea>
+                                                <textarea rows="3" class="form-control" id="world-description" name="world-description"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -302,7 +303,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
-                                                <button class="btn btn-default" type="submit">Edit</button>
+                                                <button class="btn btn-default" type="submit">Update</button>
                                                 <button class="btn btn-default" type="reset">Reset</button>
                                             </div>
                                         </div>

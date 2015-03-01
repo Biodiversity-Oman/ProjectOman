@@ -39,9 +39,10 @@ public class ServWorld {
 		DaWorld.deleteWorld(id);
 	}
         
-        public static void updateWorld(String worldName, String description) throws SQLException {
+        public static void updateWorld(String worldName, String description, int worldid) throws SQLException {
 
 		World w = new World();
+                w.setWorldId(worldid);
                 w.setWorldName(worldName);
 		w.setDescription(description);
 		DaWorld.updateWorld(w);
