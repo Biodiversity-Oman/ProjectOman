@@ -352,7 +352,7 @@ $(document).ready(function () {
 	});
 	e.preventDefault();
     });
-    
+    //function for update world
       $('#update-world-form').submit(function (e) {
 	  
 	var $message = $('#update-world-message');
@@ -380,34 +380,65 @@ $(document).ready(function () {
 	});
 	e.preventDefault();
     });
- // function for update season
-     $('#update-season-form').submit(function (e) {
+    
+     //function for update world
+      $('#update-world-form').submit(function (e) {
 	  
-	var $message = $('#update-season-message');
+	var $message = $('#update-world-message');
 	$.ajax({
-	    url: 'UpdateSeason',
+	    url: 'UpdateWorld',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#update-season-form').serialize(),
+	    data: $('#update-world-form').serialize(),
 	    complete: function (data) {
 		var response = data.responseText;
 		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The season was updated successfully.</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The world was updated successfully.</div>');
 		} else if (response === 'error') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season not updated</div>');
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World not updated</div>');
 		}
 	    }, error: function (error) {
 		console.log(error);
 	    }
 	}).done(function () {
-	    $("#update-season-form")[0].reset();
-	    loadSeasons();
+	    $("#update-world-form")[0].reset();
+	    loadWorlds();
 	    setTimeout(function () {
 		$message.fadeOut('slow');
 	    }, 2800);
 	});
 	e.preventDefault();
     });
+    
+ // function for update habitat
+     $('#update-habitat-form').submit(function (e) {
+	  
+	var $message = $('#update-habitat-message');
+	$.ajax({
+	    url: 'UpdateHabitat',
+	    type: 'POST',
+	    dataType: 'text',
+	    data: $('#update-habitat-form').serialize(),
+	    complete: function (data) {
+		var response = data.responseText;
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The habitat was updated successfully.</div>');
+		} else if (response === 'error') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat not updated</div>');
+		}
+	    }, error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    $("#update-habitat-form")[0].reset();
+	    loadHabitats();
+	    setTimeout(function () {
+		$message.fadeOut('slow');
+	    }, 2800);
+	});
+	e.preventDefault();
+    });
+    
     // functie voor make-admin button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
 
