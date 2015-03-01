@@ -22,35 +22,35 @@ public class ServWorld {
 	}
 
 	public static void insertWorld(String worldName, String worldDescription) throws SQLException {
-		
+
 		World world = new World();
 		world.setWorldName(worldName);
 		world.setDescription(worldDescription);
 		DaWorld.insertWorld(world);
 	}
-	
+
 	public static List selectAll() {
-		
+
 		return DaWorld.selectAll();
 	}
-	
+
 	public static void deleteWorld(int id) throws SQLException {
-		
+
 		DaWorld.deleteWorld(id);
 	}
-        
-        public static void updateWorld(String worldName, String description) throws SQLException {
+
+	public static void updateWorld(String worldName, String description, int worldid) throws SQLException {
 
 		World w = new World();
-                w.setWorldName(worldName);
+		w.setWorldId(worldid);
+		w.setWorldName(worldName);
 		w.setDescription(description);
 		DaWorld.updateWorld(w);
-
 	}
-        
-        public static BLL.World selectOneById(int id)
-    {
-        return DaWorld.selectOneByIdWorld(id);
-    }
+
+	public static BLL.World selectOneById(int id) {
+
+		return DaWorld.selectOneByIdWorld(id);
+	}
 
 }

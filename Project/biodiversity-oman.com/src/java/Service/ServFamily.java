@@ -15,25 +15,24 @@ import java.util.List;
  * @author Eric
  */
 public class ServFamily {
-    
-    public static List selectAllFamily() throws SQLException {
-		
+
+	public static List selectAllFamily() throws SQLException {
+
 		return DaFamily.selectAllfamily();
 	}
-	
+
 	public static void insertFamily(String name, String description, int worldId) throws SQLException {
-            
-            Family fam = new Family();
-            fam.setFamilyDescription(description);
-            fam.setFamilyName(name);
-            fam.setWorldId(worldId);
-            
-            DaFamily.insertFamily(fam);
+
+		Family fam = new Family();
+		fam.setFamilyDescription(description);
+		fam.setFamilyName(name);
+		fam.setWorldId(worldId);
+		DaFamily.insertFamily(fam);
 	}
-	
-	public static void deleteFamily(int id) throws SQLException{
-		
+
+	public static void deleteFamily(int id) throws SQLException {
+
 		DaFamily.deleteFamily(id);
 	}
-    
+
 }

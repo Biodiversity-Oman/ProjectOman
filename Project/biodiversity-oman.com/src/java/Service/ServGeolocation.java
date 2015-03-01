@@ -6,9 +6,7 @@
 package Service;
 
 import BLL.Geolocation;
-import BLL.Habitat;
 import DAL.DaGeolocation;
-import DAL.DaHabitat;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -18,22 +16,22 @@ import java.util.List;
  */
 public class ServGeolocation {
 
-    public static List selectAllGeolocations() throws SQLException {
+	public static List selectAllGeolocations() throws SQLException {
 
-        return DaGeolocation.selectAll();
-    }
+		return DaGeolocation.selectAll();
+	}
 
-    public static void insertGeolocation(String name, String description, String coordinates) throws SQLException {
+	public static void insertGeolocation(String name, String description, String coordinates) throws SQLException {
 
-        Geolocation geolocation = new Geolocation();
-        geolocation.setAreaName(name);
-        geolocation.setAreaDescription(description);
-        geolocation.setCoordinates(coordinates);
-        DaGeolocation.insert(geolocation);
-    }
+		Geolocation geolocation = new Geolocation();
+		geolocation.setAreaName(name);
+		geolocation.setAreaDescription(description);
+		geolocation.setCoordinates(coordinates);
+		DaGeolocation.insert(geolocation);
+	}
 
-    public static void deleteGeolocation(int id) throws SQLException {
+	public static void deleteGeolocation(int id) throws SQLException {
 
-        DaGeolocation.delete(id);
-    }
+		DaGeolocation.delete(id);
+	}
 }

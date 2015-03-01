@@ -37,10 +37,10 @@ public class SelectWorldById extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
                       try{
                           
-                        response.getWriter().write(new com.google.gson.Gson().toJson(ServOrganism.selectOneById(id)));
+                        response.getWriter().write(new com.google.gson.Gson().toJson(ServWorld.selectOneById(id)));
                       }
                       catch(Exception ex){
-                          Logger.getLogger(SelectOneOrganismById.class.getName()).log(Level.SEVERE, null, ex);
+                          Logger.getLogger(SelectWorldById.class.getName()).log(Level.SEVERE, null, ex);
                       }
     }
 
