@@ -371,7 +371,7 @@
                                 </div>
                             </div>
                         </div>
-                         <div id="update-family" class="insert-box">
+                        <div id="update-family" class="insert-box">
                             <label class="close-button">x</label>
                             <div class="content">
                                 <div id="update-family">
@@ -383,7 +383,7 @@
                                                 <h2 class="h2">Update Family</h2>
                                             </div>
                                         </div>
-                                       <div class="form-group">
+                                        <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-name">Name</label>
                                             <div class="col-sm-4">
                                                 <input class="form-control" type="text" name="family-name" id="family-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
@@ -473,7 +473,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="table-responsive">
                             <table class="table table-striped" id="subfamilies-table"></table>
                         </div>
@@ -604,6 +604,49 @@
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
                                                 <button class="btn btn-default" type="submit">Insert</button>
+                                                <button class="btn btn-default" type="reset">Reset</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="update-habitat" class="insert-box">
+                            <label class="close-button">x</label>
+                            <div class="content">
+                                <div id="update-habitat">
+                                    <form class="form form-horizontal" id="update-habitat-form" data-toggle="validator">
+                                        <input type="hidden" id="habitat-id" name="habitat-id" />
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <h2 class="h2">Update Habitat</h2>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="habitat-name">Name</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" type="text" name="habitat-name" id="habitat-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="habitat-description">Description</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" id="habitat-description" name="habitat-description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <div id="update-habitat-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-2">
+                                                <button class="btn btn-default" type="submit">Update</button>
                                                 <button class="btn btn-default" type="reset">Reset</button>
                                             </div>
                                         </div>
