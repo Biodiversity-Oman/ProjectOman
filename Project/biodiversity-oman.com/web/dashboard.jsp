@@ -645,7 +645,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" id="area-coordinates" type="text" name="area-coordinates" value="20.87,55.76"/>
+                                                <input class="form-control" id="update-coordinates" type="text" name="area-coordinates" value="20.87,55.76"/>
                                                 <div class="message" id="update-geolocation-message"></div>
                                             </div>
                                         </div>
