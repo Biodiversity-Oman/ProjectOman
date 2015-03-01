@@ -5,33 +5,29 @@
  */
 package Service;
 
-import BLL.*;
 import DAL.*;
 import java.sql.*;
 import java.util.*;
+
 /**
  *
  * @author Tom
  */
 public class ServSubscriber {
-    
-    public static List selectAllSubsriber() throws SQLException {
-		
+
+	public static List selectAllSubsriber() throws SQLException {
+
 		return DaSubscriber.selectAllSubscriber();
 	}
-	
+
 	public static void insertSubscriber(String firstName, String lastName, String email) throws SQLException {
-            
+
            // Subscriber s = new Subscriber();
-         
-            
-           
 	}
-	
-	public static void deleteSubsriber(int id) throws SQLException{
-		
+
+	public static void deleteSubsriber(int id) throws SQLException {
+
 		DaSubscriber.deleteSubscriber(id);
 	}
-    
-    
+
 }

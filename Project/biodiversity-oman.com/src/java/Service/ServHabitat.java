@@ -15,24 +15,22 @@ import java.util.List;
  * @author lennyasus
  */
 public class ServHabitat {
-	
+
 	public static List selectAllHabitats() throws SQLException {
-		
+
 		return DaHabitat.selectAll();
 	}
-        
-        
-	
+
 	public static void insertHabitat(String name, String description) throws SQLException {
-		
+
 		Habitat habitat = new Habitat();
 		habitat.setHabitatName(name);
 		habitat.setHabitatDescription(description);
 		DaHabitat.insertHabitat(habitat);
 	}
-	
-	public static void deleteHabitat(int id) throws SQLException{
-		
+
+	public static void deleteHabitat(int id) throws SQLException {
+
 		DaHabitat.deleteHabitat(id);
 	}
 }

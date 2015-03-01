@@ -6,7 +6,6 @@
 package Service;
 
 import DAL.DaOrganism;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
