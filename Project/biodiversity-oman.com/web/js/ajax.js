@@ -700,6 +700,25 @@ $(document).ready(function () {
 	});
     });
     
+    // update habitat-button dashboard.jsp - seasons tab
+    $(document).on('click', 'table #update-habitat-btn', function() {
+	document.getElementById('update-habitat').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectHabitatById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+	     $('#habitat-id').val(id);
+	     $('#habitat-name').val(data.habitatName);
+	     $('#habitat-description').val(data.habitatDescription);
+
+	});
+    });
+    
     // update select-organism-button publish.jsp - queue tab
     $(document).on('click', 'table #select-organism-btn', function() {
 	document.getElementById('update-organism').style.display = 'block';
