@@ -32,10 +32,7 @@ public class DaPost {
 //        } catch (IOException ex) {
 //            Logger.getLogger(DaPost.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-//        return image;
-//         
-//            
-//               
+//        return image;             
 //    }
 public static List<Post> selectAllPost()
 {
@@ -66,27 +63,28 @@ public static List<Post> selectAllPost()
     return posts;
 }
 
-	public static Post selectOneByIdPost(int id) throws SQLException {
+    public static Post selectOneByIdPost(int id)
+    {
 
-		Post p = new Post();
-		try {
-			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM post WHERE post_id=" + id);
-			ResultSet rs = stmt.executeQuery();
-			rs.next();
-			p.setOrganismId(rs.getInt("organism_id"));
-			p.setPostFirstName(rs.getString("post_first_name"));
-			p.setPostLastName(rs.getString("post_last_name"));
-			p.setPostEmail(rs.getString("post_email"));
-			p.setPostDescription(rs.getString("post_description"));
-			p.setPostPhoto(rs.getBytes("post_photo"));
-			p.setPostLongitude(rs.getString("post_longitude"));
-			p.setPostLatitude(rs.getString("post_latitude"));
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-		return p;
-	}
+        Post p = new Post();
+        try {
+                conn = DataSource.getConnection();
+                stmt = conn.prepareStatement("SELECT * FROM post WHERE post_id=" + id);
+                ResultSet rs = stmt.executeQuery();
+                rs.next();
+                p.setOrganismId(rs.getInt("organism_id"));
+                p.setPostFirstName(rs.getString("post_first_name"));
+                p.setPostLastName(rs.getString("post_last_name"));
+                p.setPostEmail(rs.getString("post_email"));
+                p.setPostDescription(rs.getString("post_description"));
+                p.setPostPhoto(rs.getBytes("post_photo"));
+                p.setPostLongitude(rs.getString("post_longitude"));
+                p.setPostLatitude(rs.getString("post_latitude"));
+        } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+        }
+        return p;
+    }
 
 	public static List<Post> selectAllPostByOrganisme(int organismId) throws SQLException {
 
