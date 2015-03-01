@@ -39,7 +39,7 @@ public class UpdateSeason extends HttpServlet {
                 ServSeason.updateWorld(request.getParameter("season-id"),
                         request.getParameter("season-description"), id);
                 
-                response.getWriter().write("succes");;
+                response.getWriter().write("succes");
         } catch (SQLException ex) {
             response.getWriter().write("error");
         }

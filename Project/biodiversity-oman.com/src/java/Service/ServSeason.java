@@ -41,4 +41,8 @@ public class ServSeason {
                 s.setSeasonId(seasonid);
                 DaSeason.updateSeason(s);
 	}
+                 
+          public static BLL.Season selectOneById(int id){
+             return DaSeason.selectOneByIdSeason(id);
+          }
 }

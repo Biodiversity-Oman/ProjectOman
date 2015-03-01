@@ -380,7 +380,34 @@ $(document).ready(function () {
 	});
 	e.preventDefault();
     });
-
+ // function for update season
+     $('#update-season-form').submit(function (e) {
+	  
+	var $message = $('#update-season-message');
+	$.ajax({
+	    url: 'UpdateSeason',
+	    type: 'POST',
+	    dataType: 'text',
+	    data: $('#update-season-form').serialize(),
+	    complete: function (data) {
+		var response = data.responseText;
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The season was updated successfully.</div>');
+		} else if (response === 'error') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season not updated</div>');
+		}
+	    }, error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    $("#update-season-form")[0].reset();
+	    loadSeasons();
+	    setTimeout(function () {
+		$message.fadeOut('slow');
+	    }, 2800);
+	});
+	e.preventDefault();
+    });
     // functie voor make-admin button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
 
@@ -601,6 +628,23 @@ $(document).ready(function () {
 	});
     });
     
+     // update world-button dashboard.jsp - worlds tab
+    $(document).on('click', 'table #update-season-btn', function() {
+	document.getElementById('update-season').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectSeasonById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+	     $('#season-id').val(id);
+	     $('#season-name').val(data.worldName);
+	     $('#season-description').val(data.description);
+	});
+    });
     
     // update select-organism-button publish.jsp - queue tab
     $(document).on('click', 'table #select-organism-btn', function() {
