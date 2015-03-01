@@ -58,14 +58,14 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([ A-z]){1,}$" required/> 
+                                                <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$" required/> 
                                             </div>    
                                             <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                         </div> 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([ A-z]){1,}$" required/> 
+                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$" required/> 
                                             </div>
                                             <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                         </div>
@@ -248,7 +248,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="world-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="world-name" maxlength="50" data-delay="1200" pattern="^([A-z ]){1,}$" required/>
+                                                <input class="form-control" type="text" name="world-name" maxlength="50" data-delay="1200" pattern="^([A-z\s ]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -290,7 +290,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="world-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="world-name" id="world-name" maxlength="50" data-delay="1200" pattern="^([A-z ]){1,}$" required/>
+                                                <input class="form-control" type="text" name="world-name" id="world-name" maxlength="50" data-delay="1200" pattern="^([A-z\s ]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -338,7 +338,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="family-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control" type="text" name="family-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -386,7 +386,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="family-name" id="family-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control" type="text" name="family-name" id="family-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -440,7 +440,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="subfamily-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="subfamily-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control" type="text" name="subfamily-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -495,7 +495,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="season-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control"type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control"type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -537,7 +537,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="season-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" id="season-name" type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control" id="season-name" type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -584,7 +584,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="habitat-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="habitat-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control" type="text" name="habitat-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -627,7 +627,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="habitat-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="habitat-name" id="habitat-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control" type="text" name="habitat-name" id="habitat-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -675,7 +675,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="area-name">Area name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="area-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control" type="text" name="area-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -724,7 +724,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="area-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="area-name" id="area-name" maxlength="50" data-delay="1200" pattern="^([A-z ]){1,}$" required/>
+                                                <input class="form-control" type="text" name="area-name" id="area-name" maxlength="50" data-delay="1200" pattern="^([A-z\s ]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
