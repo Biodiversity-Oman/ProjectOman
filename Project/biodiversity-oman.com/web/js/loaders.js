@@ -380,3 +380,36 @@ function loadSubscriber() {
 	}); 
     });
 };
+
+function loadOrganisms() {
+
+    var $table = $('#organisms-table');
+    var $content = $('.content');
+    $.ajax({
+	url: 'SelectAllOrganism',
+	type: 'GET',
+	dataType: 'json',
+	cache: false,
+	error: function(error, status, request){
+	    console.log(status);
+	},
+	beforesend: function () {
+	    $content.append('<div class="spinner"></div>');
+	}
+    }).done(function (data) {
+	$table.html('');
+	 $table.append('<tr>\n\
+                                    <th>Common name</th>\n\
+                                    <th>Inserted on</th>\n\\n\
+                                    <th>Updated on</th>\n\
+                                </tr>');
+	    data.forEach(function (organism) {
+		$table.append('<tr>\n\
+                                        <td>' + organism.commonName + '</td>\n\
+                                        <td>' + organism.insertedOn + '</td>\n\\n\
+                                        <td>' + organism.updatedOn + '</td>\n\
+                                        <td><button class="no-button" id="delete-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-cross"></span></button></td>\n\
+                                    </tr>');
+	    });
+    });
+};

@@ -15,6 +15,7 @@
         <script src="js/chosen.jquery.min.js"></script>
         <script>
             $(document).ready(function () {
+                loadOrganisms();
                 loadWorlds();
                 loadSeasons();
                 loadFamilies();
