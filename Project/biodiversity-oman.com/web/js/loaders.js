@@ -401,7 +401,8 @@ function loadOrganisms() {
 	 $table.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Inserted on</th>\n\\n\
-                                    <th>Updated on</th>\n\
+                                    <th>Updated on</th>\n\\n\
+                                    <th>Action</th>\n\
                                 </tr>');
 	    data.forEach(function (organism) {
 		$table.append('<tr>\n\
