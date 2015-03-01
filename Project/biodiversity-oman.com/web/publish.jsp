@@ -12,8 +12,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="StyleSheet" type="text/css" href="css/chosen.css">
 		<script src="js/ajax.js"></script>
 		<script src="js/loaders.js"></script>
+		<script src="js/chosen.jquery.min.js"></script>
 		<script>
 		  $(document).ready(function(){
 		      loadToValidateOrganisms();
@@ -53,6 +55,7 @@
                             <div class="content">
                                 <div id="update-organism">
                                     <form class="form form-horizontal" id="update-organism-form" data-toggle="validator" enctype="multipart/form-data">
+					<input type="hidden" id="organism-id" name="organism-id">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">

@@ -15,7 +15,11 @@ import java.sql.SQLException;
 public class DataSource {
 	
 	public static java.sql.Connection getConnection() throws SQLException {
+<<<<<<< Updated upstream
         	return DriverManager.getConnection("jdbc:mysql://localhost:3307/omandb", "root", "usbw");
+=======
+        	return DriverManager.getConnection("jdbc:mysql://localhost:3306/omandb", "root", "root");
+>>>>>>> Stashed changes
     }
         
 }
