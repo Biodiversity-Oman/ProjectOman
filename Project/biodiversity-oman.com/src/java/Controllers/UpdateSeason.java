@@ -36,7 +36,7 @@ public class UpdateSeason extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
        int id = parseInt(request.getParameter("season-id"));
         try {
-                ServSeason.updateWorld(request.getParameter("season-id"),
+                ServSeason.updateSeason(request.getParameter("season-name"),
                         request.getParameter("season-description"), id);
                 
                 response.getWriter().write("succes");
