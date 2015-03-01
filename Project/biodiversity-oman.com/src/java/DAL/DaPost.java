@@ -44,9 +44,10 @@ public static List<Post> selectAllPost()
     {
         conn = DataSource.getConnection();
         stmt = conn.prepareStatement("SELECT post.post_id, post.post_email," +
-                                    "post.organism_id, organism.common_name AS organism_name" +
+                                    "post.organism_id, organism.common_name AS organism_name\n" +
                                     "FROM post\n" +
-                                    "LEFT JOIN post.organism_id = organism.organism_id");
+                                    "LEFT JOIN organism ON post.organism_id = organism.organism_id");
+        
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) 
         {
