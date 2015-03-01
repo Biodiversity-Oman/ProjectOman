@@ -495,7 +495,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="season-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control"type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
@@ -537,14 +537,14 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="season-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
+                                                <input class="form-control" id="season-name" type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="season-description">Description</label>
                                             <div class="col-sm-4">
-                                                <textarea rows="3" class="form-control" name="season-description"></textarea>
+                                                <textarea rows="3" id="season-description" class="form-control" name="season-description"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">

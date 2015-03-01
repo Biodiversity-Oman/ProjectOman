@@ -676,8 +676,8 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
 	     $('#season-id').val(id);
-	     $('#season-name').val(data.worldName);
-	     $('#season-description').val(data.description);
+	     $('#season-name').val(data.seasonName);
+	     $('#season-description').val(data.seasonDescription);
 	});
     });
     
