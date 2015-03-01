@@ -6,9 +6,7 @@
 package Controllers;
 
 import Service.ServGeolocation;
-import Service.ServWorld;
 import java.io.IOException;
-import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
 import java.sql.SQLException;
 import javax.servlet.ServletException;

@@ -643,7 +643,7 @@ $(document).ready(function () {
 	     $('#geolocation-id').val(id);
 	     $('#area-name').val(data.areaName);
 	     $('#area-description').val(data.areaDescription);
-             $('#area-coordinates').val(data.coordinates);
+             $('#update-coordinates').val(data.coordinates);
 	});
     });
 
