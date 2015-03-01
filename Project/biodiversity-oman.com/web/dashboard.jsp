@@ -209,6 +209,12 @@
                                                     </select>
                                                 </div>
                                             </div>
+					<div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <div class="message" id="create-organism-message"></div>
+                                            </div>
+                                        </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label"></label>
                                                 <div class="col-sm-2">
