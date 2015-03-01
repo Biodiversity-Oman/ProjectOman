@@ -228,9 +228,9 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <div class="col-sm-10">
+                            
                                 <table class="table table-striped" id="organisms-table"></table>
-                            </div>
+                            
                         </div>
                     </div>
                     <div id="tab2" class="tab">
@@ -280,7 +280,7 @@
                         <div id="update-world" class="insert-box">
                             <label class="close-button">x</label>
                             <div class="content">
-                                <div id="update-world-test">
+                                <div id="update-world">
                                     <form class="form form-horizontal" id="update-world-form" data-toggle="validator">
                                         <input type="hidden" id="world-id" name="world-id" />
                                         <div class="form-group">
