@@ -55,7 +55,7 @@ function loadWorlds() {
 
     var $table = $('#worlds-table');
     var $content = $('.content');
-    var $ddl = $('#world-ddl');
+    var $ddl = $('#world-ddl1, #world-ddl2, #world-ddl3');
     $.ajax({
 	url: 'SelectAllWorlds',
 	type: 'GET',
@@ -170,7 +170,7 @@ function loadFamilies() {
 
     var $table = $('#families-table');
     var $content = $('.content');
-    var $ddl = $('#family-ddl1, #family-ddl2 ');
+    var $ddl = $('#family-ddl1, #family-ddl2');
     $.ajax({
 	url: 'SelectAllFamilies',
 	type: 'GET',

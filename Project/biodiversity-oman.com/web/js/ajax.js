@@ -289,7 +289,6 @@ $(document).ready(function () {
     
     // functie inserten van geolocation. dashboard.jsp
     $('#create-geolocation-form').submit(function (e) {
-
 	var $message = $('#create-geolocation-message');
 	$message.show();
 	$.ajax({
@@ -439,6 +438,37 @@ $(document).ready(function () {
 	e.preventDefault();
     });
     
+    // functie update van family
+    $('#update-family-form').submit(function (e) {
+
+	var $message = $('#update-family-message');
+	$message.show();
+	$.ajax({
+	    url: 'UpdateFamily',
+	    type: 'POST',
+	    dataType: 'text',
+	    data: $('#update-family-form').serialize(),
+	    complete: function (data) {
+		var response = data.responseText;
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family successfully updated</div>');
+		} else if (response === 'error') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Something went wrong</div>');
+		}
+	    },
+	    error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    $("#update-family-form")[0].reset();
+	    loadFamilies();
+	    setTimeout(function() {
+		    $message.fadeOut('slow');
+	    }, 2800);
+	});
+	e.preventDefault();
+    });
+    
     // functie update van geolocation
     $('#update-geolocation-form').submit(function (e) {
 
@@ -452,7 +482,7 @@ $(document).ready(function () {
 	    complete: function (data) {
 		var response = data.responseText;
 		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area succesfully updated</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area successfully updated</div>');
 		} else if (response === 'error') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Something went wrong</div>');
 		}

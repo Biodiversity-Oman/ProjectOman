@@ -36,9 +36,9 @@ public class ServFamily {
     }
 
     public static void updateFamily(String familyName, String familydescription, int familyWorldId, int familyId) throws SQLException {
-
+        
         Family f = new Family();
-        f.setFamilyWorldName(familyName);
+        f.setFamilyName(familyName);
         f.setFamilyDescription(familydescription);
         f.setFamilyWorldName(familyName);
         f.setWorldId(familyWorldId);

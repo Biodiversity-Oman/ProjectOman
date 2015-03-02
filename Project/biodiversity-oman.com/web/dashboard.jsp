@@ -109,7 +109,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Choose World</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl" name="organism-world-id" data-placeholder="Choose World"></select>
+                                                <select class="form-control" id="world-ddl1" name="organism-world-id" data-placeholder="Choose World"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -347,11 +347,11 @@
                                             <div class="col-sm-4">
                                                 <textarea rows="3" class="form-control" name="family-description"></textarea>
                                             </div>
-                                        </div>                                                            
+                                        </div>                                                           
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label" for="family-world">World</label>
+                                            <label class="col-sm-2 control-label">Choose World</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl" name="world-id" required></select>
+                                                <select class="form-control" id="world-ddl2" name="world-id" required></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -376,7 +376,7 @@
                             <div class="content">
                                 <div id="update-family">
                                     <form class="form form-horizontal" id="update-family-form" data-toggle="validator">
-                                        <input type="hidden" id="family-id" name="world-id" />
+                                        <input type="hidden" id="family-id" name="family-id" />
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
@@ -395,17 +395,17 @@
                                             <div class="col-sm-4">
                                                 <textarea rows="3" class="form-control" name="family-description" id="family-description"></textarea>
                                             </div>
-                                        </div>                                                            
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-world">World</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl" name="world-id" required></select>
+                                                <select class="form-control" id="world-ddl3" name="update-world-id" required></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <div id="create-family-message"></div>
+                                                <div class="message" id="update-family-message"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
