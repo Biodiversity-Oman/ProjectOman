@@ -519,6 +519,7 @@ public class DaOrganism {
         int result;
         try
         {
+            result = 0;
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
             
@@ -539,15 +540,22 @@ public class DaOrganism {
             stmt.setInt(1, id);
             stmt.executeUpdate();
             
+            stmt = conn.prepareStatement("DELETE FROM post WHERE post.organism_id=?");
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+            
             stmt = conn.prepareStatement("DELETE FROM organism WHERE organism.organism_id=?");
             stmt.setInt(1, id);
-            if ((result = stmt.executeUpdate()) == 0) { throw new java.sql.SQLException("Failed to delete organism with id=" + Integer.toString(id));}
+            stmt.executeUpdate();
+            
+            conn.commit();
+            result = 1;
         }
         catch (java.sql.SQLException ex)
         {
-            System.out.println("---Delete failed on organism id="+Integer.toString(id)+"---");
             result = -1;
             System.out.println(ex.getMessage());
+            System.out.println("Failed to delete organism with id=" + Integer.toString(id));
         }
         finally
         {
