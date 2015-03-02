@@ -112,7 +112,7 @@ $(document).ready(function () {
 		    $message.fadeOut('slow');
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -188,7 +188,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#create-user-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -221,7 +221,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#create-season-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -254,7 +254,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#create-habitat-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -289,7 +289,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#create-world-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -322,7 +322,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#create-family-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -355,7 +355,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#create-subfamily-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -387,7 +387,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#create-geolocation-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -426,7 +426,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#create-organism-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -469,7 +469,7 @@ $(document).ready(function () {
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
                     $("#update-user-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -499,7 +499,7 @@ $(document).ready(function () {
                 $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#update-world-form")[0].reset();        
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -530,7 +530,7 @@ $(document).ready(function () {
                 $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#update-habitat-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -563,7 +563,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#update-family-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -596,7 +596,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#update-subfamily-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -628,7 +628,7 @@ $(document).ready(function () {
                 $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#update-season-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -661,7 +661,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#update-geolocation-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
@@ -705,7 +705,7 @@ $(document).ready(function () {
                     $('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
         $("#update-organism-form")[0].reset();
-	    }, 4000);
+	    }, 2800);
 	});
 	e.preventDefault();
     });
