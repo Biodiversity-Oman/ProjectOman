@@ -600,7 +600,7 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
 }
 
 
-#map-canvas {
+.map-canvas {
     width: 100%;
     height: 300px;
 }

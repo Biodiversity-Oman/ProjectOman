@@ -678,6 +678,8 @@ $(document).ready(function () {
     $(document).on('click', 'table #update-geolocation-btn', function() {
 	document.getElementById('update-geolocation').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
+        $('#edit-map').show();
+        $('#update-canvas').hide();
 	var id = ($(this).attr("value"));
 	$.ajax({
 	    url: 'SelectGeolocationById?id=' + id,

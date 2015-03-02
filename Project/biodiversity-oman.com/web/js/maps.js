@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+var canvas = 'map-canvas';
 var area = [];
 var areaPath;
 
@@ -15,7 +16,7 @@ function initialize() {
         maxZoom: 11
     };
 
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
+    var map = new google.maps.Map(document.getElementById(canvas),
             mapOptions);
 
     map.set('styles', [{featureType: "all", stylers: [
@@ -33,6 +34,17 @@ function initialize() {
         fillOpacity: 0.35,
         editable: true
     });
+    
+    google.maps.event.addListener(map, 'mouseout', function () {
+        showCoordinates(areaPath);
+    });
+
+    if (area.length > 2) {
+        areaPath.setPath(area);
+        areaPath.setMap(map);
+        showCoordinates(areaPath);
+        area = [];
+    }
 
     function makeArea(location) {
         area.push(location);
@@ -44,6 +56,8 @@ function initialize() {
             area = [];
         }
     }
+
+    canvas = 'map-canvas';
 }
 
 function showCoordinates(areaPath) {
@@ -56,7 +70,7 @@ function showCoordinates(areaPath) {
     }
 
     var coord = document.getElementById('area-coordinates');
-    coord.value = string;
+    coord.value = string.slice(0, -1);
 }
 
 function loadScript() {
@@ -67,3 +81,24 @@ function loadScript() {
 
     document.body.appendChild(script);
 }
+
+function getCoordinates(){
+    var input = document.getElementById('update-coordinates').value;
+    var split = input.split("@");
+    for (var i = 0; i < split.length; i++) {
+        var part = split[i].split(",");
+        var latitude = part[0].slice(1, part[0].length);
+        var longitude = part[1].slice(0, -1);
+        area.push({lat: parseFloat(latitude), lng: parseFloat(longitude)});
+    }
+}
+
+$(document).ready(function () {    
+    $('#edit-map').click(function(){
+        $('#edit-map').hide();
+        $('#update-canvas').show();
+        canvas = 'update-canvas';
+        getCoordinates();
+        loadScript();
+    });
+});

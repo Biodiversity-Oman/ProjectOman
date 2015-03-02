@@ -688,7 +688,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="area-map">Make area</label>
                                             <div class="col-sm-4">
-                                                <div id="map-canvas"></div>
+                                                <div id="map-canvas" class="map-canvas"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -735,9 +735,16 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="area-map">Area</label>
+                                            <div class="col-sm-4">
+                                                <button id="edit-map" class="btn btn-default" type="button">Edit map</button>
+                                                <div id="update-canvas" class="map-canvas"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" id="update-coordinates" type="text" name="area-coordinates" value="20.87,55.76"/>
+                                                <input class="form-control" id="update-coordinates" type="hidden" name="area-coordinates" value="20.87,55.76"/>
                                                 <div class="message" id="update-geolocation-message"></div>
                                             </div>
                                         </div>
