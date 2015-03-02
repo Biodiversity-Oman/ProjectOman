@@ -854,8 +854,8 @@ $(document).ready(function () {
              $('#opportunities').val(data.opportunities);
              $('#links').val(data.links);
              $('#food-name').val(data.foodName);
-             $('#food-description').val(data.foodDescription);  
-             
+             $('#food-description').val(data.foodDescription); 
+             $('#organism-population').val(data.population);
              $('#family-ddl1').val(data.family.familyName).focus();
              $('#subfamily-ddl1').val(data.subFamily.subFamilyName).focus();
              $('#habitat-ddl').val(data.habitat.habitatName).focus();
