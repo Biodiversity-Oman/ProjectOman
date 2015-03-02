@@ -546,10 +546,8 @@ public class DaOrganism {
             
             stmt = conn.prepareStatement("DELETE FROM organism WHERE organism.organism_id=?");
             stmt.setInt(1, id);
-            stmt.executeUpdate();
-            
+            result = stmt.executeUpdate();
             conn.commit();
-            result = 1;
         }
         catch (java.sql.SQLException ex)
         {
@@ -562,6 +560,8 @@ public class DaOrganism {
             try
             {
                 conn.setAutoCommit(true);
+                if(stmt != null) stmt.close(); 
+                if(conn != null)  conn.close();
             }
             catch(java.sql.SQLException e)
             {
