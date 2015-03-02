@@ -19,6 +19,11 @@ public class ServOrganism {
         return DaOrganism.sellectAll();
     }
     
+    public static byte[] selectPhotoById(int id)
+    {
+        return DAL.DaOrganism.selectPhotoById(id);
+    }
+            
     public static BLL.Organism selectOneById(int id)
     {
         return DaOrganism.selectOneById(id);

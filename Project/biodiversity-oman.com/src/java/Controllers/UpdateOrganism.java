@@ -102,13 +102,11 @@ public class UpdateOrganism extends HttpServlet {
         
         if(bytes.length == 0){
 
-            Organism o = Service.ServOrganism.selectOneById(Integer.parseInt(request.getParameter("organism-id")));
-            bytes = o.getPhoto();   
+            bytes = Service.ServOrganism.selectPhotoById(Integer.parseInt(request.getParameter("organism-id")));  
         }
         }
         catch(Exception e){
-            System.out.println(""+e);
-        
+            System.out.println(e.getMessage());
         }
 
 

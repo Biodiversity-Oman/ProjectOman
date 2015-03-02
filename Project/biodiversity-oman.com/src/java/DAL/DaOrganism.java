@@ -130,6 +130,32 @@ public class DaOrganism {
         return organisms;
     }
     
+    public static byte[] selectPhotoById(int id)
+    {
+        java.sql.ResultSet rsPhoto;
+        byte[] photo = null;
+        try
+        {
+            conn = DataSource.getConnection();
+            stmt = conn.prepareStatement("SELECT organism.photo\n" +
+                                        "FROM organism\n" +
+                                        "WHERE organism.organism_id="+Integer.toString(id));
+            
+            if ((rsPhoto = stmt.executeQuery()) == null) { throw new java.sql.SQLException("Photo select failed for organismId=" + Integer.toString(id)); }
+            
+            while (rsPhoto.next())
+            {
+                photo = rsPhoto.getBytes("photo");
+            }
+        }
+        catch (java.sql.SQLException e)
+        {
+            photo = null;
+            System.out.println(e.getMessage());
+        }
+        return photo;
+    }
+    
     public static BLL.Organism selectOneById(int id)
     {
         // Dit object zal geretourneerd worden.
