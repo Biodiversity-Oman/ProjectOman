@@ -597,8 +597,8 @@ public class DaOrganism {
             stmt.setString(13, organism.getThreats());
             stmt.setString(14, organism.getOpportunities());
             //stmt.setBlob(15, new javax.sql.rowset.serial.SerialBlob(organism.getPhoto()));
-            if (organism.getPhoto() == null) {stmt.setNull(15, java.sql.Types.BLOB);}
-            else {stmt.setBlob(15, new javax.sql.rowset.serial.SerialBlob(organism.getPhoto()));}
+           // if (organism.getPhoto().length == 0) {stmt.setNull(15, java.sql.Types.BLOB);}
+            stmt.setBlob(15, new javax.sql.rowset.serial.SerialBlob(organism.getPhoto()));
             stmt.setString(16, organism.getLinks());
             stmt.setString(17, organism.getFoodName());
             stmt.setString(18, organism.getFoodDescription());

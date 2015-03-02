@@ -98,13 +98,10 @@ public class UpdateOrganism extends HttpServlet {
         try{
         Part filePart = request.getPart("upfileOrganism"); 
         InputStream fileContent = filePart.getInputStream();
+        bytes = IOUtils.toByteArray(fileContent);
         
-        
-        if(fileContent!= null){
-           bytes = IOUtils.toByteArray(fileContent);
-        }
-        else{
-           
+        if(bytes.length == 0){
+
             Organism o = Service.ServOrganism.selectOneById(Integer.parseInt(request.getParameter("organism-id")));
             bytes = o.getPhoto();   
         }

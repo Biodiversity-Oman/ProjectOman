@@ -420,6 +420,7 @@ $(document).ready(function () {
 	    }
 	}).done(function () {
             loadOrganisms();
+            loadToValidateOrganisms();
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
                     $('.insert-box').hide();
@@ -698,6 +699,7 @@ $(document).ready(function () {
 	    $("#update-organism-form")[0].reset();
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
+                    loadOrganisms();
                     loadPublishedOrganisms();
                     loadToValidateOrganisms();
                     $('.insert-box').hide();
