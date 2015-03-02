@@ -92,7 +92,7 @@ public class DaOrganism {
                     "FROM organism \n" +
                     "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"+
                     "LEFT JOIN family ON subfamily.family_id = family.family_id \n" +
-                    "LEFT JOIN world ON family.world_id = world.world_id \n");
+                    "LEFT JOIN world ON family.world_id = world.world_id WHERE organism.updated_on IS NOT NULL \n");
             
             java.sql.ResultSet rs = stmt.executeQuery();
             
@@ -426,7 +426,8 @@ public class DaOrganism {
             stmt.setString(12, organism.getDangerous());
             stmt.setString(13, organism.getThreats());
             stmt.setString(14, organism.getOpportunities());
-            if (organism.getPhoto() == null) {stmt.setNull(15, java.sql.Types.BLOB);}
+            byte[] bytes = new byte[2];
+            if (organism.getPhoto() == null) {stmt.setBytes(15, bytes);}
             else {stmt.setBlob(15, new javax.sql.rowset.serial.SerialBlob(organism.getPhoto()));}
             stmt.setString(16, organism.getLinks());
             stmt.setString(17, organism.getFoodName());
@@ -601,8 +602,7 @@ public class DaOrganism {
             stmt.setString(16, organism.getLinks());
             stmt.setString(17, organism.getFoodName());
             stmt.setString(18, organism.getFoodDescription());
-            if (organism.getValidated() == (null))  {stmt.setNull(19, java.sql.Types.BIT);}
-                else {stmt.setBoolean(19, organism.getValidated());}
+            stmt.setBoolean(19, true);
             java.util.Calendar cal = java.util.Calendar.getInstance();
             // !Date methode retourneerd een datum zonder tijd!
             stmt.setDate(20, new java.sql.Date(cal.getTimeInMillis()));

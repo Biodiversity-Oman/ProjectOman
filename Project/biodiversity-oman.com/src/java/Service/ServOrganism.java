@@ -94,18 +94,18 @@ public class ServOrganism {
         }
         else
         {
-            return "An organism with this scientific name allready exists.";
+            return "error1";
         }
-        if (result < 1)  {return "Service not available. Please contact an administrator if the problem persists.";}
-        return "The organism was updated successfully.";
+        if (result < 1)  {return "error2";}
+        return "succes";
     }
     
     public static String delete(int id)
     {
         int result = DaOrganism.deleteOrganism(id);
         
-        if (result < 1)  {return "Service not available. Please contact an administrator if the problem persists.";}
-        return "The organism was added successfully.";
+        if (result < 1)  {return "error";}
+        return "succes";
     }
     
     public static List selectOrganismsToValidate()

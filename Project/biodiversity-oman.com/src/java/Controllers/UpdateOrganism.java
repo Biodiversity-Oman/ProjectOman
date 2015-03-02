@@ -100,8 +100,9 @@ public class UpdateOrganism extends HttpServlet {
         InputStream fileContent = filePart.getInputStream();
         
         
-        if(fileContent!= null)
+        if(fileContent!= null){
            bytes = IOUtils.toByteArray(fileContent);
+        }
         else{
            
             Organism o = Service.ServOrganism.selectOneById(Integer.parseInt(request.getParameter("organism-id")));
@@ -137,7 +138,7 @@ public class UpdateOrganism extends HttpServlet {
                                                                 request.getParameter("organism-links"), 
                                                                 eatenByOrganismIds, 
                                                                 eatingOrganismIds, 
-                                                                Boolean.parseBoolean(("organism-validated")), 
+                                                                true, 
                                                                 request.getParameter("organism-food-name"), 
                                                                 request.getParameter("organism-food-description"), 
                                                                 geolocationIds));

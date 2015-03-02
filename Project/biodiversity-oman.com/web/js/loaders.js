@@ -55,7 +55,7 @@ function loadWorlds() {
 
     var $table = $('#worlds-table');
     var $content = $('.content');
-    var $ddl = $('#world-ddl1, #world-ddl2, #world-ddl3');
+    var $ddl = $('#world-ddl,#world-ddl1, #world-ddl2, #world-ddl3');
     $.ajax({
 	url: 'SelectAllWorlds',
 	type: 'GET',

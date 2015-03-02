@@ -473,6 +473,54 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="update-subfamily" class="insert-box">
+                            <label class="close-button">x</label>
+                            <div class="content">
+                                <div id="update-subfamily">
+                                    <form class="form form-horizontal" id="update-subfamily-form" data-toggle="validator">
+                                        <input type="hidden" id="subfamily-id" name="subfamily-id" />
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <h2 class="h2">Update Subfamily</h2>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="subfamily-name">Name</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" type="text" name="subfamily-name" id="subfamily-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="subfamily-description">Description</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" name="subfamily-description" id="subfamily-description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="family-id">Family</label>
+                                            <div class="col-sm-4">
+                                                <select class="form-control" id="family-ddl2" name="family-id" required></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <div class="message" id="update-subfamily-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-2">
+                                                <button class="btn btn-default" type="submit">Update</button>
+                                                <button class="btn btn-default" type="reset">Reset</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="table-responsive">
                             <table class="table table-striped" id="subfamilies-table"></table>
@@ -537,20 +585,20 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="season-name">Name</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" id="season-name" type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                <input class="form-control" type="text" name="season-name" id="season-name" maxlength="50" data-delay="1200" pattern="^([A-z\s ]){1,}$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="season-description">Description</label>
                                             <div class="col-sm-4">
-                                                <textarea rows="3" id="season-description" class="form-control" name="season-description"></textarea>
+                                                <textarea rows="3" class="form-control" id="season-description" name="season-description"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <div id="update-season-message"></div>
+                                                <div class="message" id="update-season-message"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
