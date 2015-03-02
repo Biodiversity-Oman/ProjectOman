@@ -714,7 +714,7 @@
                             <div class="content">
                                 <div id="update-geolocation-test">
                                     <form class="form form-horizontal" id="update-geolocation-form" data-toggle="validator">
-                                        <input type="hidden" id="world-id" name="geolocation-id" />
+                                        <input type="hidden" id="geolocation-id" name="geolocation-id" />
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
@@ -744,7 +744,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" id="update-coordinates" type="hidden" name="area-coordinates" value="20.87,55.76"/>
+                                                <input class="form-control" id="update-coordinates" type="hidden" name="update-coordinates" value="20.87,55.76"/>
                                                 <div class="message" id="update-geolocation-message"></div>
                                             </div>
                                         </div>

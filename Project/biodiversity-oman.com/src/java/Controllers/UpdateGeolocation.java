@@ -36,10 +36,10 @@ public class UpdateGeolocation extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         int id = parseInt(request.getParameter("geolocation-id"));
+        
         try {
-
             ServGeolocation.update(request.getParameter("area-name"), request.getParameter("area-description"), 
-                    request.getParameter("area-coordinates"), id);
+                    request.getParameter("update-coordinates"), id);
             response.getWriter().write("succes");
         } catch (SQLException ex) {
             response.getWriter().write("error");
