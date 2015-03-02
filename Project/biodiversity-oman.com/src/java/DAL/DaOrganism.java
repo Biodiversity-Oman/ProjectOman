@@ -92,7 +92,8 @@ public class DaOrganism {
                     "FROM organism \n" +
                     "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"+
                     "LEFT JOIN family ON subfamily.family_id = family.family_id \n" +
-                    "LEFT JOIN world ON family.world_id = world.world_id WHERE organism.updated_on IS NOT NULL \n");
+                    "LEFT JOIN world ON family.world_id = world.world_id \n" +
+                    "WHERE isvalidated = 1");
             
             java.sql.ResultSet rs = stmt.executeQuery();
             
