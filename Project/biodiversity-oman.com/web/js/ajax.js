@@ -884,11 +884,11 @@ $(document).ready(function () {
              $("#subfamily-ddl option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche
              $("#habitat-ddl2 option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
              $("#world-ddl4 option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche
+             $('#season-ddl2').chosen();
              data.season.forEach(function (season) {
-		 $("#season-ddl2").chosen().val(season.seasonName);
-		 $(".chosen-select").trigger("chosen:updated");
+		 $("#season-ddl2").chosen().val('"'+ season.seasonName+'"');
              });
-             
+             $(".chosen-select").trigger("chosen:updated");
 	     
 	});
     });
