@@ -85,9 +85,9 @@
 											<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-2 control-label" for="organism-family">Family</label>
+											<label class="col-sm-2 control-label" for="family">Family</label>
 											<div class="col-sm-4">
-												<select class="form-control" id="family-ddl2" name="organism-family-id"></select>
+												<select class="form-control" id="family-ddl2" name="family-id"></select>
 											</div>
 										</div>
 										<div class="form-group">
@@ -117,7 +117,7 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose World</label>
 											<div class="col-sm-4">
-												<select class="form-control" id="world-ddl4" name="organism-world-id" data-placeholder="Choose World"></select>
+												<select class="form-control" id="world-ddl4" name="world-id" data-placeholder="Choose World"></select>
 											</div>
 										</div>
 										<div class="form-group">

@@ -860,7 +860,7 @@ $(document).ready(function () {
              $('#food-name').val(data.foodName);
              $('#food-description').val(data.foodDescription); 
              $('#population').val(data.population);
-             $("#family-ddl2 option[value='" + data.family.familyId + "']").attr("selected","selected"); // ca marche
+             $("#family-ddl2 option[value='" + data.familyId + "']").attr("selected","selected"); // ca marche
              $("#subfamily-ddl option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche
              $("#habitat-ddl2 option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
              $("#world-ddl4 option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche
