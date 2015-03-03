@@ -860,10 +860,10 @@ $(document).ready(function () {
              $('#food-name').val(data.foodName);
              $('#food-description').val(data.foodDescription); 
              $('#population').val(data.population);
-             $("#family-ddl2 option[value='" + data.familyId + "']").attr("selected","selected"); // ca marche
-             $("#subfamily-ddl option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche
-             $("#habitat-ddl2 option[value='" + data.habitatId + "']").attr("selected","selected");
-             $("#world-ddl4 option[value='" + data.worldId + "']").attr("selected","selected"); // ca marche
+             $("#family-ddl2 option[value='" + data.familyId + "']").attr("selected","selected"); // ca marche nu
+             $("#subfamily-ddl option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche nu
+             $("#habitat-ddl2 option[value='" + data.habitat.habitatId + "']").attr("selected","selected");             
+             $("#world-ddl4 option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche nu
              $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); // radio buttons
              $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); // radio buttons
              $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); // radio buttons
