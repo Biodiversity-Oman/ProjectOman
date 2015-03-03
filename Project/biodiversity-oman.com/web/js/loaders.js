@@ -59,7 +59,7 @@ function loadWorlds() {
     var $table = $('#worlds-table');
     var $content = $('.content');
     var $ddl = $('#world-ddl, #world-ddl1, #world-ddl2, #world-ddl3');
-    var $ddl2 = $('#world-ddl4'); //enkel nodig voor select aangezien ddl gebruik maakt van een disable select
+    var $ddl2 = $('#world-ddl4'); //enkel nodig voor update aangezien ddl gebruik maakt van een disable select
     $.ajax({
         url: 'SelectAllWorlds',
         type: 'GET',
