@@ -55,7 +55,8 @@ function loadWorlds() {
 
     var $table = $('#worlds-table');
     var $content = $('.content');
-    var $ddl = $('#world-ddl,#world-ddl1, #world-ddl2, #world-ddl3');
+    var $ddl = $('#world-ddl, #world-ddl1, #world-ddl2, #world-ddl3');
+    var $ddl2 = $('#world-ddl4'); //enkel nodig voor select aangezien ddl gebruik maakt van een disable select
     $.ajax({
 	url: 'SelectAllWorlds',
 	type: 'GET',
@@ -71,6 +72,7 @@ function loadWorlds() {
     }).done(function (data) {
 	$table.html('');
 	$ddl.html('');
+        $ddl2.html('');
 	$table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
@@ -84,6 +86,7 @@ function loadWorlds() {
                                         <td id="test"><button class="no-button" id="delete-world-btn" type="submit" value="' + world.worldId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-world-btn" type="submit" value="' + world.worldId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
+                $ddl2.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
 	    });
     });
 };
@@ -94,6 +97,7 @@ function loadSeasons() {
     var $table = $('#seasons-table');
     var $content = $('.content');
     var $ddl = $('#season-ddl');
+    var $ddl2 = $('#season-ddl2');
     $.ajax({
 	url: 'SelectAllSeasons',
 	type: 'GET',
@@ -109,6 +113,7 @@ function loadSeasons() {
     }).done(function (data) {
 	$table.html('');
 	$ddl.html('');
+        $ddl2.html('');
 	$table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
@@ -121,6 +126,7 @@ function loadSeasons() {
                                         <td><button class="no-button" id="delete-season-btn" type="submit" value="' + season.seasonId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-season-btn" type="submit" value="' +  season.seasonId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
+                $ddl2.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
 		$(".chosen-select").trigger("chosen:updated");
     });
 });
@@ -132,6 +138,7 @@ function loadHabitats() {
     var $table = $('#habitats-table');
     var $content = $('.content');
     var $ddl = $('#habitat-ddl');
+    var $ddl2 = $('#habitat-ddl2');
     $.ajax({
 	url: 'SelectAllHabitats',
 	type: 'GET',
@@ -147,6 +154,7 @@ function loadHabitats() {
 	}
     }).done(function (data) {
 	$ddl.html('');
+        $ddl2.html('');
 	$table.html('');
 	$table.append('<tr>\n\
                                     <th>Name</th>\n\
@@ -160,6 +168,7 @@ function loadHabitats() {
                                         <td><button class="no-button" id="delete-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
+                $ddl2.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
 		$(".chosen-select").trigger("chosen:updated");
 	    });
     });
@@ -170,7 +179,8 @@ function loadFamilies() {
 
     var $table = $('#families-table');
     var $content = $('.content');
-    var $ddl = $('#family-ddl1, #family-ddl2');
+    var $ddl = $('#family-ddl');
+    var $ddl2 = $('#family-ddl2');
     $.ajax({
 	url: 'SelectAllFamilies',
 	type: 'GET',
@@ -186,6 +196,7 @@ function loadFamilies() {
     }).done(function (data) {
 	$table.html('');
 	$ddl.html('');
+        $ddl2.html('');
 	$table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\
@@ -201,6 +212,7 @@ function loadFamilies() {
                                         <td><button class="no-button" id="delete-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
+                $ddl2.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
 	    });
     });
 };
@@ -211,6 +223,7 @@ function loadSubFamilies() {
     var $table = $('#subfamilies-table');
     var $content = $('.content');
     var $ddl = $('#subfamily-ddl');
+    var $ddl2 = $('#subfamily-ddl2');
     $.ajax({
 	url: 'SelectAllSubFamilies',
 	type: 'GET',
@@ -226,6 +239,7 @@ function loadSubFamilies() {
     }).done(function (data) {
 	$table.html('');
 	$ddl.html('');
+        $ddl2.html('');
 	 $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\
@@ -240,6 +254,7 @@ function loadSubFamilies() {
                                         <td><button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button><button class="no-button" id="update-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
 		$ddl.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
+                $ddl2.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
 	    });
     });
 };

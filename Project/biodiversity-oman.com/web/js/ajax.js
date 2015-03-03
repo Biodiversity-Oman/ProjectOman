@@ -855,11 +855,14 @@ $(document).ready(function () {
              $('#links').val(data.links);
              $('#food-name').val(data.foodName);
              $('#food-description').val(data.foodDescription); 
-             $('#organism-population').val(data.population);
-             $('#family-ddl1').val(data.family.familyName).focus();
-             $('#subfamily-ddl1').val(data.subFamily.subFamilyName).focus();
-             $('#habitat-ddl').val(data.habitat.habitatName).focus();
-             $('#world-ddl').val(data.world.worldName).focus();  
+             $('#population').val(data.population);
+             $("#family-ddl2 option[value='" + data.family.familyId + "']").attr("selected","selected"); // ca marche
+             $("#subfamily-ddl option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche
+             $("#habitat-ddl2 option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
+             $("#world-ddl4 option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche
+             data.season.forEach(function (season) {
+             $("#season-ddl2 option[value='" + season.seasonId + "']").attr("selected","selected");
+             });
 	});
     });
 

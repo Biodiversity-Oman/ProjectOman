@@ -87,7 +87,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-family">Family</label>
                                                 <div class="col-sm-4">
-                                                    <select class="form-control" id="family-ddl1" name="organism-family-id"></select>
+                                                    <select class="form-control" id="family-ddl2" name="organism-family-id"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -111,13 +111,13 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Choose Habitat</label>
                                                 <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="habitat-ddl" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
+                                                    <select class="chosen-select form-control" id="habitat-ddl2" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Choose World</label>
                                                 <div class="col-sm-4">
-                                                    <select class="form-control" id="world-ddl" name="organism-world-id" data-placeholder="Choose World"></select>
+                                                    <select class="form-control" id="world-ddl4" name="organism-world-id" data-placeholder="Choose World"></select>
                                                 </div>
                                            </div>
                                              <div class="form-group">
@@ -202,7 +202,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Choose season</label>
                                                 <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="season-ddl" name="organism-season-id" multiple data-placeholder="Choose Season">
+                                                    <select class="chosen-select form-control" id="season-ddl2" name="organism-season-id" multiple data-placeholder="Choose Season">
 
                                                     </select>
                                                 </div>
