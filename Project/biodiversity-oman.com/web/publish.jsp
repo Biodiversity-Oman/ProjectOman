@@ -111,7 +111,7 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose Habitat</label>
 											<div class="col-sm-4">
-												<select class="chosen-select form-control" id="habitat-ddl2" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
+												<select class="chosen-select form-control" id="habitat-ddl2" name="habitat-id" multiple data-placeholder="Choose Habitat"></select>
 											</div>
 										</div>
 										<div class="form-group">
