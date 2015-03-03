@@ -808,7 +808,10 @@ $(document).ready(function () {
 	     $('#subfamily-id').val(id);
 	     $('#subfamily-name').val(data.subFamilyName);
 	     $('#subfamily-description').val(data.subFamilyDescription);
-             $('#family-ddl').val(data.subFamilyFamilyName);
+             $("#family-ddl3 option[value='" + data.familyId + "']").attr("selected","selected");
+             data.family.forEach(function (family) {
+             $("#family-ddl3 option[value='" + data.familyId + "']").attr("selected","selected");
+             });
 	});
     });
     

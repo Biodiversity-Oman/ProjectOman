@@ -453,7 +453,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="subfamily-family">Family</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="family-ddl2" name="family-id"></select>
+                                                <select class="form-control" id="family-ddl3" name="family-id"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
