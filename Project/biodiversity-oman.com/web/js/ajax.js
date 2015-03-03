@@ -846,6 +846,7 @@ $(document).ready(function () {
 	    cache: false,
 	    async: true
 	}).done(function (data) {
+             console.log(data);
 	     $('#organism-id').val(id);
              $('#scientific-name').val(data.scientificName);
              $('#common-name').val(data.commonName);
@@ -853,6 +854,26 @@ $(document).ready(function () {
              $('#description').val(data.description);
              $('#benefits').val(data.benefits);
              $('#dangerous').val(data.dangerous);
+             if(data.indigenous === false) {
+                 $("input[name=organism-indigenous][value=false]").prop('checked', true);
+             } else {
+                 $("input[name=organism-indigenous][value=true]").prop('checked', true);
+             }
+             if(data.cultivated === false) {
+                 $("input[name=organism-cultivated][value=false]").prop('checked', true);
+             } else {
+                 $("input[name=organism-cultivated][value=true]").prop('checked', true);
+             }
+             if(data.endangered === false) {
+                 $("input[name=organism-endangered][value=false]").prop('checked', true);
+             } else {
+                 $("input[name=organism-endangered][value=true]").prop('checked', true);
+             }
+             if(data.medicinal === false) {
+                 $("input[name=organism-medicinal][value=false]").prop('checked', true);
+             } else {
+                 $("input[name=organism-medicinal][value=true]").prop('checked', true);
+             }
              $('#threats').val(data.threats);
              $('#opportunities').val(data.opportunities);
              $('#links').val(data.links);
@@ -867,6 +888,7 @@ $(document).ready(function () {
 		 $("#season-ddl2").chosen().val(season.seasonName);
 		 $(".chosen-select").trigger("chosen:updated");
              });
+             
 	     
 	});
     });
