@@ -792,7 +792,7 @@ $(document).ready(function () {
 	     $('#family-id').val(id);
 	     $('#family-name').val(data.familyName);
 	     $('#family-description').val(data.familyDescription);
-             $("#world-ddl3 option[value='" + data.worldId + "']").attr("selected","selected");
+             $("#world-ddl4 option[value='" + data.worldId + "']").attr("selected","selected"); // ca marche
 	});
     });
     
@@ -811,7 +811,7 @@ $(document).ready(function () {
 	     $('#subfamily-id').val(id);
 	     $('#subfamily-name').val(data.subFamilyName);
 	     $('#subfamily-description').val(data.subFamilyDescription);
-             $('#family-ddl').val(data.subFamilyFamilyName);
+             $("#family-ddl2 option[value='" + data.familyId + "']").attr("selected","selected");
 	});
     });
     
