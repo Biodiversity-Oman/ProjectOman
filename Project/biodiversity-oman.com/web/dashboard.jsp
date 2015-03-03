@@ -34,7 +34,7 @@
                     <li class="active"><a href="#tab1"><span class="icon-file-text"></span>Organisms</a></li>
                     <li><a href="#tab2" onclick="adminCheck();"><span class="icon-file-text"></span>Worlds</a></li>
                     <li><a href="#tab3" onclick="adminCheck();"><span class="icon-file-text"></span>Families</a></li>
-                    <li><a href="#tab4" onclick="adminCheck();"><span class="icon-file-text"></span>Subfamilies</a></li>
+                    <li><a href="#tab4" onclick="adminCheck();"><span class="icon-file-text"></span>Breed</a></li>
                     <li><a href="#tab5" onclick="adminCheck();"><span class="icon-file-text"></span>Seasons</a></li>
                     <li><a href="#tab6" onclick="adminCheck();"><span class="icon-file-text"></span>Habitats</a></li>
                     <li><a href="#tab7" onclick="adminCheck();"><span class="icon-file-text"></span>Geolocations</a></li>
@@ -434,7 +434,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <h2 class="h2">Create Subfamily</h2>
+                                                <h2 class="h2">Create Breed</h2>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -482,7 +482,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <h2 class="h2">Update Subfamily</h2>
+                                                <h2 class="h2">Update Breed</h2>
                                             </div>
                                         </div>
                                         <div class="form-group">

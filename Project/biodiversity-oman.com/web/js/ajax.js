@@ -789,7 +789,7 @@ $(document).ready(function () {
 	     $('#family-id').val(id);
 	     $('#family-name').val(data.familyName);
 	     $('#family-description').val(data.familyDescription);
-             $('#world-ddl').val(data.worldId);
+             $("#world-ddl3 option[value='" + data.worldId + "']").attr("selected","selected");
 	});
     });
     
