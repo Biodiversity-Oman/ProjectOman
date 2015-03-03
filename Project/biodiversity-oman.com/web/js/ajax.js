@@ -884,6 +884,11 @@ $(document).ready(function () {
              $("#subfamily-ddl option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche
              $("#habitat-ddl2 option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
              $("#world-ddl4 option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche
+             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); // radio buttons
+             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); // radio buttons
+             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); // radio buttons
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); // radio buttons
+             
              data.season.forEach(function (season) {
 		 $("#season-ddl2").chosen().val(season.seasonName);
 		 $(".chosen-select").trigger("chosen:updated");
