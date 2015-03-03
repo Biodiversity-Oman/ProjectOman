@@ -14,6 +14,15 @@
         <script src="js/validator.js"></script>
         <script src="js/chosen.jquery.min.js"></script>
         <script>
+            <%if (us.getIsAdmin() == false) {%>
+                $(document).ready(function (){
+                    $(".no-button").each(function () {
+                        $(this).hide();
+                    });
+                });
+                    
+            <%} else {%>
+            <%}%>
             $(document).ready(function () {
                 loadOrganisms();
                 loadWorlds();
@@ -23,6 +32,7 @@
                 loadHabitats();
                 loadGeolocations();
                 $(".chosen-select").chosen({width: "100%"});
+                adminCheck();
             });
         </script>
     </head>
@@ -32,12 +42,12 @@
             <div class="tabs">
                 <ul class="tab-links">
                     <li class="active"><a href="#tab1"><span class="icon-file-text"></span>Organisms</a></li>
-                    <li><a href="#tab2" onclick="adminCheck();"><span class="icon-file-text"></span>Worlds</a></li>
-                    <li><a href="#tab3" onclick="adminCheck();"><span class="icon-file-text"></span>Families</a></li>
-                    <li><a href="#tab4" onclick="adminCheck();"><span class="icon-file-text"></span>Breed</a></li>
-                    <li><a href="#tab5" onclick="adminCheck();"><span class="icon-file-text"></span>Seasons</a></li>
-                    <li><a href="#tab6" onclick="adminCheck();"><span class="icon-file-text"></span>Habitats</a></li>
-                    <li><a href="#tab7" onclick="adminCheck();"><span class="icon-file-text"></span>Geolocations</a></li>
+                    <li><a href="#tab2"><span class="icon-file-text"></span>Worlds</a></li>
+                    <li><a href="#tab3"><span class="icon-file-text"></span>Families</a></li>
+                    <li><a href="#tab4"><span class="icon-file-text"></span>Breed</a></li>
+                    <li><a href="#tab5"><span class="icon-file-text"></span>Seasons</a></li>
+                    <li><a href="#tab6"><span class="icon-file-text"></span>Habitats</a></li>
+                    <li><a href="#tab7"><span class="icon-file-text"></span>Geolocations</a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="tab1" class="tab active">

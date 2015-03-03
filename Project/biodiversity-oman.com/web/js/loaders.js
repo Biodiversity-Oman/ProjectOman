@@ -6,7 +6,7 @@
 
 // functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
 function loadUsers() {
-
+    
     var $table = $('#users-table');
     var $content = $('.content');
     $.ajax({
@@ -55,7 +55,7 @@ function loadUsers() {
 
 // functie vult tabel in World tab in dashboard.jsp
 function loadWorlds() {
-
+    
     var $table = $('#worlds-table');
     var $content = $('.content');
     var $ddl = $('#world-ddl, #world-ddl1, #world-ddl2, #world-ddl3');
@@ -92,6 +92,7 @@ function loadWorlds() {
             $ddl.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
             $ddl2.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
         });
+        adminCheck();
     });
 }
 ;
@@ -135,6 +136,7 @@ function loadSeasons() {
             $ddl2.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
             $(".chosen-select").trigger("chosen:updated");
         });
+        adminCheck();
     });
 }
 ;
@@ -179,6 +181,7 @@ function loadHabitats() {
             $ddl2.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
             $(".chosen-select").trigger("chosen:updated");
         });
+        adminCheck();
     });
 }
 ;
@@ -224,6 +227,7 @@ function loadFamilies() {
             $ddl.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
             $ddl2.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
         });
+        adminCheck();
     });
 }
 ;
@@ -268,6 +272,7 @@ function loadSubFamilies() {
             $ddl.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
             $ddl2.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
         });
+        adminCheck();
     });
 }
 ;
@@ -303,6 +308,7 @@ function loadGeolocations() {
                                             <button class="no-button" id="update-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
         });
+        adminCheck();
     });
 }
 ;
@@ -447,6 +453,7 @@ function loadOrganisms() {
                                         <td><button class="no-button" id="delete-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
         });
+        adminCheck();
     });
 }
 ;

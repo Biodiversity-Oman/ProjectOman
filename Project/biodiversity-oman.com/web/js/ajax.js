@@ -2,7 +2,7 @@
 // General form functions
 //---------------------------------------------------------------------------------------------------------------------
 $(document).ready(function () {
-
+    adminCheck();
     //tab interface
     $('.tabs .tab-links a').on('click', function (e) {
 	var currentAttrValue = $(this).attr('href');
@@ -875,7 +875,9 @@ $(document).ready(function () {
                  //$("#season-ddl2").val(season.seasonName).attr('selected', 'selected')
                  //$("{#season-ddl2}").val(season.seasonName);
                  //$('#season-ddl2 .chosen-choices .search-choice a').val(season.seasonName);
-                 $("#season-ddl2 option[value='" + season.seasonName + "']").attr("selected","selected");
+                 //$("#season-ddl2 option[value='" + season.seasonName + "']").attr("selected","selected");
+                 //$("select[name^=state]:visible").val();
+                 $(".search-choice").val(season.seasonName);
                 // $("#season-ddl2").chosen().change();
 //                 $('.chosen-select').trigger('change');
              });
