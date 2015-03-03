@@ -86,7 +86,8 @@ public class ServSeasonTest {
         String seasonName = "geupdated";
         String seasonDescription = "geupdated";
         int seasonid = 5;
-        ServSeason.updateWorld(seasonName, seasonDescription, seasonid);
+	ServWorld.updateWorld(seasonName, seasonDescription, seasonid);
+       
 
     }
 

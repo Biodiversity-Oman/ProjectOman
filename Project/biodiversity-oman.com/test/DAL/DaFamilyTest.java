@@ -102,7 +102,8 @@ public class DaFamilyTest {
         fam.setWorldId(2);
         int familyId = 7;
         try{
-        DaFamily.updateFamily(fam, familyId);
+	DaFamily.updateFamily(fam);
+    
             System.out.println("gelukt");
     }catch(Exception e)
     {

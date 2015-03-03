@@ -184,11 +184,10 @@ $(document).ready(function () {
 	}).done(function () {
 	    loadUsers();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#create-user-form")[0].reset();
+		$message.fadeOut('slow');
 	    }, 2800);
+	    $("#create-user-form")[0].reset();
+	    $message.empty();
 	});
 	e.preventDefault();
     });
@@ -206,7 +205,7 @@ $(document).ready(function () {
 	    complete: function (data) {
 		var jsontext = data.responseText;
 		if (jsontext === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created. This screen closes automatically</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created.</div>');
 		} else if (jsontext === 'error') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
 		}
@@ -217,11 +216,10 @@ $(document).ready(function () {
 	}).done(function () {
 	    loadSeasons();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#create-season-form")[0].reset();
+		$message.fadeOut('slow');
 	    }, 2800);
+	    $message.empty();
+	    $("#create-season-form")[0].reset();
 	});
 	e.preventDefault();
     });
@@ -239,7 +237,7 @@ $(document).ready(function () {
 	    complete: function (data) {
 		var jsontext = data.responseText;
 		if (jsontext === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created. This screen closes automatically</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created.</div>');
 		} else if (jsontext === 'error') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
 		}
@@ -250,12 +248,12 @@ $(document).ready(function () {
 	}).done(function () {
 	    loadHabitats();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#create-habitat-form")[0].reset();
+		$message.fadeOut('slow');
 	    }, 2800);
+	    $message.empty();
+	    $("#create-habitat-form")[0].reset();
 	});
+	
 	e.preventDefault();
     });
 
@@ -272,7 +270,7 @@ $(document).ready(function () {
 	    complete: function (data) {
 		var response = data.responseText;
 		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created. This screen closes automatically</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created.</div>');
 		} else if (response === 'error1') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
 		} else if (response === 'error2') {
@@ -283,13 +281,13 @@ $(document).ready(function () {
 		console.log(error);
 	    }
 	}).done(function () {
+	    
 	    loadWorlds();
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#create-world-form")[0].reset();
 	    }, 2800);
+	    $message.empty();
+	    $("#create-world-form")[0].reset();
 	});
 	e.preventDefault();
     });
@@ -307,7 +305,7 @@ $(document).ready(function () {
 	    complete: function (data) {
 		var response = data.responseText;
 		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created. This screen closes automatically</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created.</div>');
 		} else if (response === 'error2') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
 		}
@@ -318,11 +316,10 @@ $(document).ready(function () {
 	}).done(function () {
 	    loadFamilies();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#create-family-form")[0].reset();
+		$message.fadeOut('slow');
 	    }, 2800);
+	    $message.empty();
+	    $("#create-family-form")[0].reset();
 	});
 	e.preventDefault();
     });
@@ -340,7 +337,7 @@ $(document).ready(function () {
 	    complete: function (data) {
 		var response = data.responseText;
 		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>SubFamily was succesfully created. This screen closes automatically</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>SubFamily was succesfully created.</div>');
 		} else if (response === 'error2') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
 		}
@@ -352,10 +349,9 @@ $(document).ready(function () {
 	    loadSubFamilies();
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#create-subfamily-form")[0].reset();
 	    }, 2800);
+	    $message.empty();
+	    $("#create-subfamily-form")[0].reset();
 	});
 	e.preventDefault();
     });
@@ -372,7 +368,7 @@ $(document).ready(function () {
 	    complete: function (data) {
 		var response = data.responseText;
 		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was succesfully created. This screen closes automatically</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was succesfully created.</div>');
 		} else if (response === 'error') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area already exists</div>');
 		}
@@ -383,11 +379,10 @@ $(document).ready(function () {
 	}).done(function () {
 	    loadGeolocations();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#create-geolocation-form")[0].reset();
+		$message.fadeOut('slow');
 	    }, 2800);
+	    $message.empty();
+	    $("#create-geolocation-form")[0].reset();
 	});
 	e.preventDefault();
     });
@@ -408,7 +403,7 @@ $(document).ready(function () {
 	    complete: function (data) {
 		var response = data.responseText;
 		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Organism was added successfully. This screen closes automatically</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Organism was added successfully.</div>');
 		} else if (response === 'error1') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
 		} else if (response === 'error2') {
@@ -423,10 +418,9 @@ $(document).ready(function () {
             loadToValidateOrganisms();
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#create-organism-form")[0].reset();
 	    }, 2800);
+	    $message.empty();
+	    $("#create-organism-form")[0].reset();
 	});
 	e.preventDefault();
     });
@@ -476,7 +470,9 @@ $(document).ready(function () {
 
 //function for update world
       $('#update-world-form').submit(function (e) {
+	  
 	var $message = $('#update-world-message');
+	$message.show();
 	$.ajax({
 	    url: 'UpdateWorld',
 	    type: 'POST',
@@ -500,6 +496,7 @@ $(document).ready(function () {
 	document.getElementById('fade').style.display = 'none';
         $("#update-world-form")[0].reset();        
 	    }, 2800);
+	    $message.empty();
 	});
 	e.preventDefault();
     });
@@ -508,6 +505,7 @@ $(document).ready(function () {
      $('#update-habitat-form').submit(function (e) {
 	  
 	var $message = $('#update-habitat-message');
+	$message.show();
 	$.ajax({
 	    url: 'UpdateHabitat',
 	    type: 'POST',
@@ -531,6 +529,7 @@ $(document).ready(function () {
 	document.getElementById('fade').style.display = 'none';
         $("#update-habitat-form")[0].reset();
 	    }, 2800);
+	    $message.empty();
 	});
 	e.preventDefault();
     });
@@ -564,6 +563,7 @@ $(document).ready(function () {
 	document.getElementById('fade').style.display = 'none';
         $("#update-family-form")[0].reset();
 	    }, 2800);
+	    $message.empty();
 	});
 	e.preventDefault();
     });
@@ -592,11 +592,12 @@ $(document).ready(function () {
 	}).done(function () {
 	    loadSubFamilies();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#update-subfamily-form")[0].reset();
+		$message.fadeOut('slow');
+                $('.insert-box').hide();
+		document.getElementById('fade').style.display = 'none';
 	    }, 2800);
+	     $("#update-subfamily-form")[0].reset();
+	    $message.empty();
 	});
 	e.preventDefault();
     });
@@ -626,9 +627,10 @@ $(document).ready(function () {
 	    setTimeout(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#update-season-form")[0].reset();
+		document.getElementById('fade').style.display = 'none';
 	    }, 2800);
+	    $("#update-season-form")[0].reset();
+	    $message.empty();
 	});
 	e.preventDefault();
     });
@@ -657,11 +659,12 @@ $(document).ready(function () {
 	}).done(function () {
 	    loadGeolocations();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#update-geolocation-form")[0].reset();
+		$message.fadeOut('slow');
+                $('.insert-box').hide();
+		document.getElementById('fade').style.display = 'none';
 	    }, 2800);
+	    $("#update-geolocation-form")[0].reset();
+	    $message.empty();
 	});
 	e.preventDefault();
     });
@@ -696,16 +699,16 @@ $(document).ready(function () {
 		console.log(error);
 	    }
 	}).done(function () {
-	    $("#update-organism-form")[0].reset();
+	    loadOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    loadOrganisms();
-                    loadPublishedOrganisms();
-                    loadToValidateOrganisms();
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#update-organism-form")[0].reset();
+		$message.fadeOut('slow');
+                $('.insert-box').hide();
+		document.getElementById('fade').style.display = 'none';
 	    }, 2800);
+	     $("#update-organism-form")[0].reset();
+	    $message.empty();
 	});
 	e.preventDefault();
     });
@@ -861,8 +864,10 @@ $(document).ready(function () {
              $("#habitat-ddl2 option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
              $("#world-ddl4 option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche
              data.season.forEach(function (season) {
-             $("#season-ddl2 option[value='" + season.seasonId + "']").attr("selected","selected");
+		 $("#season-ddl2").chosen().val(season.seasonName);
+		 $(".chosen-select").trigger("chosen:updated");
              });
+	     
 	});
     });
 
