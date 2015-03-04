@@ -58,8 +58,8 @@ function loadWorlds() {
     
     var $table = $('#worlds-table');
     var $content = $('.content');
-    var $ddl = $('#world-ddl, #world-ddl1, #world-ddl2, #world-ddl3');
-    var $ddl2 = $('#world-ddl4'); //enkel nodig voor update aangezien ddl gebruik maakt van een disable select
+    var $ddl = $('#world-ddl, #world-ddl1, #world-ddl2, #world-ddl3, #world-ddl4,#world-ddl4-pending');
+  //  var $ddl2 = $('#world-ddl4,#world-ddl4-pending'); //enkel nodig voor update aangezien ddl gebruik maakt van een disable select
     $.ajax({
         url: 'SelectAllWorlds',
         type: 'GET',
@@ -75,7 +75,6 @@ function loadWorlds() {
     }).done(function (data) {
         $table.html('');
         $ddl.html('');
-        $ddl2.html('');
         $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
@@ -90,7 +89,6 @@ function loadWorlds() {
                                             <button class="no-button" id="update-world-btn" type="submit" value="' + world.worldId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
             $ddl.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
-            $ddl2.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
         });
         adminCheck();
     });
@@ -102,8 +100,7 @@ function loadSeasons() {
 
     var $table = $('#seasons-table');
     var $content = $('.content');
-    var $ddl = $('#season-ddl');
-    var $ddl2 = $('#season-ddl2');
+    var $ddl = $('#season-ddl, #season-ddl2, #season-ddl2-pending');
     $.ajax({
         url: 'SelectAllSeasons',
         type: 'GET',
@@ -119,7 +116,6 @@ function loadSeasons() {
     }).done(function (data) {
         $table.html('');
         $ddl.html('');
-        $ddl2.html('');
         $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\\n\
@@ -133,7 +129,6 @@ function loadSeasons() {
                                             <button class="no-button" id="update-season-btn" type="submit" value="' + season.seasonId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
             $ddl.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
-            $ddl2.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
             $(".chosen-select").trigger("chosen:updated");
         });
         adminCheck();
@@ -146,8 +141,7 @@ function loadHabitats() {
 
     var $table = $('#habitats-table');
     var $content = $('.content');
-    var $ddl = $('#habitat-ddl');
-    var $ddl2 = $('#habitat-ddl2');
+    var $ddl = $('#habitat-ddl, #habitat-ddl2, #habitat-ddl2-pending');
     $.ajax({
         url: 'SelectAllHabitats',
         type: 'GET',
@@ -163,7 +157,6 @@ function loadHabitats() {
         }
     }).done(function (data) {
         $ddl.html('');
-        $ddl2.html('');
         $table.html('');
         $table.append('<tr>\n\
                                     <th>Name</th>\n\
@@ -178,7 +171,6 @@ function loadHabitats() {
                                             <button class="no-button" id="update-habitat-btn" type="submit" value="' + habitat.habitatId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
             $ddl.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
-            $ddl2.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
             $(".chosen-select").trigger("chosen:updated");
         });
         adminCheck();
@@ -191,8 +183,7 @@ function loadFamilies() {
 
     var $table = $('#families-table');
     var $content = $('.content');
-    var $ddl = $('#family-ddl');
-    var $ddl2 = $('#family-ddl2');
+    var $ddl = $('#family-ddl, #family-ddl2, #family-ddl2-pending');
     $.ajax({
         url: 'SelectAllFamilies',
         type: 'GET',
@@ -208,7 +199,6 @@ function loadFamilies() {
     }).done(function (data) {
         $table.html('');
         $ddl.html('');
-        $ddl2.html('');
         $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\
@@ -225,7 +215,6 @@ function loadFamilies() {
                                         <button class="no-button" id="update-family-btn" type="submit" value="' + family.familyId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
             $ddl.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
-            $ddl2.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
         });
         adminCheck();
     });
@@ -237,8 +226,7 @@ function loadSubFamilies() {
 
     var $table = $('#subfamilies-table');
     var $content = $('.content');
-    var $ddl = $('#subfamily-ddl');
-    var $ddl2 = $('#subfamily-ddl2');
+    var $ddl = $('#subfamily-ddl, #subfamily-ddl-pending,#subfamily-ddl2');
     $.ajax({
         url: 'SelectAllSubFamilies',
         type: 'GET',
@@ -254,13 +242,13 @@ function loadSubFamilies() {
     }).done(function (data) {
         $table.html('');
         $ddl.html('');
-        $ddl2.html('');
         $table.append('<tr>\n\
                                     <th>Name</th>\n\
                                     <th>Description</th>\n\
                                     <th>Family</th>\n\
                                     <th>Action</th>\n\
                                 </tr>');
+    $ddl.append('<option value="" disabled selected>Select breed</option>');
         data.forEach(function (subfamily) {
             $table.append('<tr>\n\
                                         <td>' + subfamily.subFamilyName + '</td>\n\
@@ -270,7 +258,6 @@ function loadSubFamilies() {
                                         <button class="no-button" id="update-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
             $ddl.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
-            $ddl2.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
         });
         adminCheck();
     });
@@ -352,6 +339,44 @@ function loadToValidateOrganisms() {
 }
 ;
 
+// functie vult tabel voor pending organisms in pending tab in dashboard.jsp
+function loadPendingOrganisms() {
+
+    var $table = $('#pending-table');
+    var $content = $('.content');
+    $.ajax({
+        url: 'SelectOrganismToValidate',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true,
+        error: function (error, status, request) {
+            console.log(status);
+        },
+        beforesend: function () {
+            $content.append('<div class="spinner"></div>');
+        }
+    }).done(function (data) {
+        $table.html('');
+        $table.append('<tr>\n\
+                                    <th>Common name</th>\n\
+                                    <th>Scientific name</th>\n\\n\
+                                    <th>Submitted on</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+        data.forEach(function (o) {
+            $table.append('<tr>\n\
+                                        <td>' + o.commonName + '</td>\n\
+                                        <td>' + o.scientificName + '</td>\n\
+                                        <td>' + o.insertedOn + '</td>\n\
+                                        <td><button class="no-button" id="select-pending-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
+                                        </td>\n\
+                                    </tr>');
+        });
+    });
+}
+;
+
 // functie vult tabel voor published organisms tab in publish.jsp
 function loadPublishedOrganisms() {
     var $table = $('#published-table');
@@ -372,14 +397,17 @@ function loadPublishedOrganisms() {
         $table.html('');
         $table.append('<tr>\n\
                                     <th>Common name</th>\n\
-                                    <th>Scientific name</th>\n\\n\
+                                    <th>Scientific name</th>\n\
                                     <th>Last updated on</th>\n\
+                                    <th>Action</th>\n\
                                 </tr>');
         data.forEach(function (org) {
             $table.append('<tr>\n\
                                         <td>' + org.commonName + '</td>\n\\n\
                                         <td>' + org.scientificName + '</td>\n\
-                                        <td>' + org.updatedOn + '</td>\n\
+                                        <td>' + org.updatedOn + '</td>\n\\n\
+                                        <td><button class="no-button" id="delete-organism-btn" type="submit" value="' + org.organismId + '"><span class="icon-cross"></span></button>\n\
+                                        <button class="no-button" id="update-organism-btn" type="submit" value="' + org.organismId + '"><span class="icon-pencil2"></span></button></td>\n\
                                   </tr>');
         });
     });
@@ -443,20 +471,19 @@ function loadOrganisms() {
                                     <th>Common name</th>\n\
                                     <th>Inserted on</th>\n\\n\
                                     <th>Updated on</th>\n\\n\
-                                    <th>Action</th>\n\
                                 </tr>');
         data.forEach(function (organism) {
             $table.append('<tr>\n\
                                         <td>' + organism.commonName + '</td>\n\
                                         <td>' + organism.insertedOn + '</td>\n\\n\
                                         <td>' + organism.updatedOn + '</td>\n\
-                                        <td><button class="no-button" id="delete-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-cross"></span></button></td>\n\
                                     </tr>');
         });
         adminCheck();
     });
 }
 ;
+
 
 function loadPosts() {
 

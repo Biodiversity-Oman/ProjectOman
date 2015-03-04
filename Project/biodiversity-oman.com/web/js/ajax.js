@@ -416,6 +416,7 @@ $(document).ready(function () {
 	}).done(function () {
             loadOrganisms();
             loadToValidateOrganisms();
+            loadPendingOrganisms();
 	    setTimeout(function() {
 		    $message.fadeOut('slow');
 	    }, 2800);
@@ -702,6 +703,7 @@ $(document).ready(function () {
 	    loadOrganisms();
             loadPublishedOrganisms();
             loadToValidateOrganisms();
+            loadPendingOrganisms();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
@@ -713,6 +715,48 @@ $(document).ready(function () {
 	e.preventDefault();
     });
 
+// function for update of pending Organism. in dashboard.jsp
+    $('#update-pendingorganism-form').submit(function (e) {
+
+	var $message = $('#update-pending-message');
+        $message.show();
+	var formData = new FormData($(this)[0]);
+	$.ajax({
+            url: 'UpdatePending',
+	    dataType: 'text',
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    data: formData,
+	    complete: function (data) {
+		var response = data.responseText;
+                // See servOrganism for response messages
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
+		} else if (response === 'error1') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+		} else if (response === 'error2') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
+		}
+	    },
+	    error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    loadOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+            loadPendingOrganisms();
+	    setTimeout(function() {
+		$message.fadeOut('slow');
+                $('.insert-box').hide();
+		document.getElementById('fade').style.display = 'none';
+	    }, 2800);
+	     $("#update-pendingorganism-form")[0].reset();
+	    $message.empty();
+	});
+	e.preventDefault();
+    });
 
 //---------------------------------------------------------------------------------------------------------------------
 // SelectOne functions (buttons)
@@ -883,6 +927,57 @@ $(document).ready(function () {
 	});
     });
 
+ // update select-pending-button dashboard.jsp - pending tab
+    $(document).on('click', 'table #select-pending-btn', function() {
+	document.getElementById('update-pendingorganism').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectOneOrganismById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+             console.log(data);
+	     $('#organism-id').val(id);
+             $('#scientific-name').val(data.scientificName);
+             $('#common-name').val(data.commonName);
+             $('#local-name').val(data.localName);
+             $('#description').val(data.description);
+             $('#benefits').val(data.benefits);
+             $('#dangerous').val(data.dangerous);
+             $('#threats').val(data.threats);
+             $('#opportunities').val(data.opportunities);
+             $('#links').val(data.links);
+             $('#food-name').val(data.foodName);
+             $('#food-description').val(data.foodDescription); 
+             $('#population').val(data.population);
+             $("#family-ddl2-pending option[value='" + data.family.familyId + "']").attr("selected","selected"); 
+             $("#subfamily-ddl-pending option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected");
+             $("#habitat-ddl2-pending option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
+             $("#world-ddl4-pending option[value='" + data.world.worldId + "']").attr("selected","selected"); 
+             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
+             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
+             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); 
+            
+             data.season.forEach(function (season) {
+                 console.log(season.seasonName);
+		 //$("#season-ddl2").chosen().val('"'+ season.seasonName+'"');
+                 //$("#season-ddl2").val(season.seasonName).attr('selected', 'selected')
+                 //$("{#season-ddl2}").val(season.seasonName);
+                 //$('#season-ddl2 .chosen-choices .search-choice a').val(season.seasonName);
+                 //$("#season-ddl2 option[value='" + season.seasonName + "']").attr("selected","selected");
+                 //$("select[name^=state]:visible").val();
+                 $(".search-choice").val(season.seasonName);
+                // $("#season-ddl2").chosen().change();
+                // $('.chosen-select').trigger('change');
+             });
+             $("#season-ddl2-pending").chosen().change();
+             $(".chosen-select").trigger("chosen:updated");
+	});
+    });
 
 
 
