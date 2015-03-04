@@ -46,7 +46,7 @@
                 </ul>
                 <div class="tab-content">  
                     <div id="tab1" class="tab active">
-                        <p>Press the<span class="icon-pencil2"></span> To edit</p>
+                         <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                         <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
                         <div id="update-published-organism" class="insert-box">
                             <label class="close-button">x</label>
@@ -239,7 +239,7 @@
                     </div>
                     <div id="tab2" class="tab">
                         <p>Press the <span class="icon-plus"></span> To publish to the website </p>
-                        <p>Press the<span class="icon-pencil2"></span> To edit</p>
+                         <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                         <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>					
 
                         <div id="update-queue-organism" class="insert-box">
