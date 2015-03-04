@@ -58,8 +58,8 @@ function loadWorlds() {
     
     var $table = $('#worlds-table');
     var $content = $('.content');
-    var $ddl = $('#world-ddl, #world-ddl1, #world-ddl2, #world-ddl3, #world-ddl4,#world-ddl4-pending');
-  //  var $ddl2 = $('#world-ddl4,#world-ddl4-pending'); //enkel nodig voor update aangezien ddl gebruik maakt van een disable select
+    var $ddl = $('#world-ddl-insert-organism, #world-ddl-insert-family, #world-ddl3, #world-ddl-update-family, #world-ddl-pending');
+  
     $.ajax({
         url: 'SelectAllWorlds',
         type: 'GET',
@@ -100,7 +100,7 @@ function loadSeasons() {
 
     var $table = $('#seasons-table');
     var $content = $('.content');
-    var $ddl = $('#season-ddl, #season-ddl2, #season-ddl2-pending');
+    var $ddl = $('#season-ddl-insert-organism, #season-ddl-update-published-organism, #season-ddl-pending');
     $.ajax({
         url: 'SelectAllSeasons',
         type: 'GET',
@@ -141,7 +141,7 @@ function loadHabitats() {
 
     var $table = $('#habitats-table');
     var $content = $('.content');
-    var $ddl = $('#habitat-ddl, #habitat-ddl2, #habitat-ddl2-pending');
+    var $ddl = $('#habitat-ddl-insert-organism, #habitat-ddl-update-published-organism, #habitat-ddl-pending');
     $.ajax({
         url: 'SelectAllHabitats',
         type: 'GET',
@@ -183,7 +183,7 @@ function loadFamilies() {
 
     var $table = $('#families-table');
     var $content = $('.content');
-    var $ddl = $('#family-ddl, #family-ddl2, #family-ddl2-pending');
+    var $ddl = $('#family-ddl-insert-organism, #family-ddl-insert-breed, #family-ddl-update-breed, #family-ddl-pending');
     $.ajax({
         url: 'SelectAllFamilies',
         type: 'GET',
@@ -226,7 +226,7 @@ function loadSubFamilies() {
 
     var $table = $('#subfamilies-table');
     var $content = $('.content');
-    var $ddl = $('#subfamily-ddl, #subfamily-ddl-pending,#subfamily-ddl2');
+    var $ddl = $('#subfamily-ddl-insert-organism, #subfamily-ddl-pending');
     $.ajax({
         url: 'SelectAllSubFamilies',
         type: 'GET',
@@ -269,7 +269,7 @@ function loadGeolocations() {
 
     var $table = $('#geolocations-table');
     var $content = $('.content');
-    var $ddl = $('#geolocation-ddl1, #geolocation-ddl2, #geolocation-ddl3');
+    var $ddl = $('#geolocation-ddl-insert-organism, #geolocation-ddl-update-published-organism, #geolocation-ddl-pending');
     $.ajax({
         url: 'SelectAllGeolocations',
         type: 'GET',
