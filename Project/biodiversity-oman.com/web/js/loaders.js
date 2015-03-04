@@ -335,7 +335,7 @@ function loadToValidateOrganisms() {
                                         <td>' + o.scientificName + '</td>\n\
                                         <td>' + o.insertedOn + '</td>\n\
                                         <td><button class="no-button" id="delete-organism-tovalidate-btn" type="submit" value="' + o.organismId + '"><span class="icon-cross"></span></button>\n\
-                                            <button class="no-button" id="select-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
+                                            <button class="no-button" id="update-queue-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
                                         </td>\n\
                                     </tr>');
         });
@@ -373,7 +373,7 @@ function loadPendingOrganisms() {
                                         <td>' + o.commonName + '</td>\n\
                                         <td>' + o.scientificName + '</td>\n\
                                         <td>' + o.insertedOn + '</td>\n\
-                                        <td><button class="no-button" id="select-pending-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
+                                        <td><button class="no-button" id="update-pending-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
                                         </td>\n\
                                     </tr>');
         });
@@ -411,7 +411,7 @@ function loadPublishedOrganisms() {
                                         <td>' + org.scientificName + '</td>\n\
                                         <td>' + org.updatedOn + '</td>\n\\n\
                                         <td><button class="no-button" id="delete-organism-published-btn" type="submit" value="' + org.organismId + '"><span class="icon-cross"></span></button>\n\
-                                        <button class="no-button" id="update-organism-btn" type="submit" value="' + org.organismId + '"><span class="icon-pencil2"></span></button></td>\n\
+                                        <button class="no-button" id="update-published-organism-btn" type="submit" value="' + org.organismId + '"><span class="icon-pencil2"></span></button></td>\n\
                                   </tr>');
         });
     });

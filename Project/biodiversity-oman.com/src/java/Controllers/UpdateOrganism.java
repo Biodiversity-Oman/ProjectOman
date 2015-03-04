@@ -95,6 +95,7 @@ public class UpdateOrganism extends HttpServlet {
         int[] eatingOrganismIds = { 1, 2 };
 	
         byte[] bytes = null;
+        int id= Integer.parseInt(request.getParameter("organism-id"));
         try{
         Part filePart = request.getPart("upfileOrganism"); 
         InputStream fileContent = filePart.getInputStream();
@@ -102,7 +103,7 @@ public class UpdateOrganism extends HttpServlet {
         
         if(bytes.length == 0){
 
-            bytes = Service.ServOrganism.selectPhotoById(Integer.parseInt(request.getParameter("organism-id")));  
+            bytes = Service.ServOrganism.selectPhotoById(id);  
         }
         }
         catch(Exception e){
@@ -110,7 +111,7 @@ public class UpdateOrganism extends HttpServlet {
         }
 
 
-        response.getWriter().write(Service.ServOrganism.update(Integer.parseInt(request.getParameter("organism-id")),
+        response.getWriter().write(Service.ServOrganism.update(id,
                                                                 request.getParameter("organism-scientific-name"), 
                                                                 request.getParameter("organism-common-name"), 
                                                                 request.getParameter("organism-local-name"), 

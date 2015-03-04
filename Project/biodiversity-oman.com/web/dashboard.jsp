@@ -821,11 +821,11 @@
                         </div>
                     </div>
                     <div id="tab8" class="tab">
-						<div id="update-pendingorganism" class="insert-box">
+						<div id="update-pending-organism" class="insert-box">
 							<label class="close-button">x</label>
 							<div class="content">
-								<div id="update-pendingorganism">
-									<form class="form form-horizontal" id="update-pendingorganism-form" data-toggle="validator" enctype="multipart/form-data">
+								<div id="update-pending-organism">
+									<form class="form form-horizontal" id="update-pending-organism-form" data-toggle="validator" enctype="multipart/form-data">
 										<input type="hidden" id="organism-id" name="organism-id">
 										<div class="form-group">
 											<label class="col-sm-2 control-label"></label>
@@ -988,13 +988,13 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label"></label>
 											<div class="col-sm-4">
-												<div id="update-pending-message"></div>
+												<div id="update-pending-organism-message"></div>
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-2 control-label"></label>
 											<div class="col-sm-2">
-												<button class="btn btn-default" id="organism-id" type="submit">Approve and submit</button>
+												<button class="btn btn-default" type="submit">Approve and submit</button>
 											</div>
 										</div>
 									</form>

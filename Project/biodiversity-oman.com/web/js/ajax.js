@@ -672,13 +672,14 @@ $(document).ready(function () {
     
 
    
-     // function for update of Organism. in publish.jsp
-    $('#update-organism-form').submit(function (e) {
+     // function for update of Organism/published in publish.jsp
+    $('#update-published-organism-form').submit(function (e) {
 
-	var $message = $('#update-organism-message');
+	var $message = $('#update-published-organism-message');
         $message.show();
 	var formData = new FormData($(this)[0]);
 	$.ajax({
+            //FOR VALIDATION = TRUE
             url: 'UpdateOrganism',
 	    dataType: 'text',
 	    processData: false,
@@ -709,19 +710,20 @@ $(document).ready(function () {
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
 	    }, 2800);
-	     $("#update-organism-form")[0].reset();
+	     $("#update-published-organism-form")[0].reset();
 	    $message.empty();
 	});
 	e.preventDefault();
     });
+    
+    // function for update of Organism/pending. in dashboard.jsp
+    $('#update-pending-organism-form').submit(function (e) {
 
-// function for update of pending Organism. in dashboard.jsp
-    $('#update-pendingorganism-form').submit(function (e) {
-
-	var $message = $('#update-pending-message');
+	var $message = $('#update-pending-organism-message');
         $message.show();
 	var formData = new FormData($(this)[0]);
 	$.ajax({
+            //FOR VALIDATION = FALSE
             url: 'UpdatePending',
 	    dataType: 'text',
 	    processData: false,
@@ -752,7 +754,51 @@ $(document).ready(function () {
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
 	    }, 2800);
-	     $("#update-pendingorganism-form")[0].reset();
+	     $("#update-pending-organism-form")[0].reset();
+	    $message.empty();
+	});
+	e.preventDefault();
+    });
+
+// function for update of Organism/queue. in publish.jsp
+    $('#update-queue-organism-form').submit(function (e) {
+
+	var $message = $('#update-queue-organism-message');
+        $message.show();
+	var formData = new FormData($(this)[0]);
+	$.ajax({
+            // FOR VALIDATION = TRUE
+            url: 'UpdateOrganism',
+	    dataType: 'text',
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    data: formData,
+	    complete: function (data) {
+		var response = data.responseText;
+                // See servOrganism for response messages
+		if (response === 'succes') {
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
+		} else if (response === 'error1') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+		} else if (response === 'error2') {
+		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
+		}
+	    },
+	    error: function (error) {
+		console.log(error);
+	    }
+	}).done(function () {
+	    loadOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+            loadPendingOrganisms();
+	    setTimeout(function() {
+		$message.fadeOut('slow');
+                $('.insert-box').hide();
+		document.getElementById('fade').style.display = 'none';
+	    }, 2800);
+	     $("#update-queue-organism-form")[0].reset();
 	    $message.empty();
 	});
 	e.preventDefault();
@@ -878,9 +924,9 @@ $(document).ready(function () {
 	});
     });
     
-    // update select-organism-button publish.jsp - queue tab
-    $(document).on('click', 'table #select-organism-btn', function() {
-	document.getElementById('update-organism').style.display = 'block';
+    // update select-organism-button/validate publish.jsp - queue tab
+    $(document).on('click', 'table #update-queue-organism-btn', function() {
+	document.getElementById('update-queue-organism').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
 	var id = ($(this).attr("value"));
 	$.ajax({
@@ -891,45 +937,94 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
              console.log(data);
-	     $('#organism-id').val(id);
-             $('#scientific-name').val(data.scientificName);
-             $('#common-name').val(data.commonName);
-             $('#local-name').val(data.localName);
-             $('#description').val(data.description);
-             $('#benefits').val(data.benefits);
-             $('#dangerous').val(data.dangerous);
-             $('#threats').val(data.threats);
-             $('#opportunities').val(data.opportunities);
-             $('#links').val(data.links);
-             $('#food-name').val(data.foodName);
-             $('#food-description').val(data.foodDescription); 
-             $('#population').val(data.population);
-             $("#family-ddl2 option[value='" + data.familyId + "']").attr("selected","selected"); // ca marche nu
-             $("#subfamily-ddl option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche nu
-             $("#habitat-ddl2 option[value='" + data.habitat.habitatId + "']").attr("selected","selected");             
-             $("#world-ddl4 option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche nu
+	     $('#organism-id-queue').val(id);
+             $('#scientific-name-queue').val(data.scientificName);
+             $('#common-name-queue').val(data.commonName);
+             $('#local-name-queue').val(data.localName);
+             $('#description-queue').val(data.description);
+             $('#benefits-queue').val(data.benefits);
+             $('#dangerous-queue').val(data.dangerous);
+             $('#threats-queue').val(data.threats);
+             $('#opportunities-queue').val(data.opportunities);
+             $('#links-queue').val(data.links);
+             $('#food-name-queue').val(data.foodName);
+             $('#food-description-queue').val(data.foodDescription); 
+             $('#population-queue').val(data.population);
+             $("#family-ddl2-queue option[value='" + data.familyId + "']").attr("selected","selected"); // ca marche nu
+             $("#subfamily-ddl-queue option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche nu
+             $("#habitat-ddl2-queue option[value='" + data.habitat.habitatId + "']").attr("selected","selected");             
+             $("#world-ddl4-queue option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche nu
              $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); // radio buttons
              $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); // radio buttons
              $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); // radio buttons
              $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); // radio buttons
              data.habitat.forEach(function(habitat) {
                  console.log(habitat);
-                 $('#habitat-ddl2 option[value='+ habitat.habitatId + ']').prop('selected', true);
+                 $('#habitat-ddl2-queue option[value='+ habitat.habitatId + ']').prop('selected', true);
              });
              data.geolocations.forEach(function(geolocation) {
                 console.log(geolocation); 
-                $('#geolocation-ddl2 option[value='+ geolocation.geolocationId + ']').prop('selected', true);
+                $('#geolocation-ddl2-queue option[value='+ geolocation.geolocationId + ']').prop('selected', true);
              });
              data.season.forEach(function (season) {
-                 $('#season-ddl2 option[value='+ season.seasonId + ']').prop('selected', true);
+                 $('#season-ddl2- option[value='+ season.seasonId + ']').prop('selected', true);
+             });
+             $(".chosen-select").trigger("chosen:updated");
+	});
+    });
+    
+    // update select-organism-button/published publish.jsp - published tab
+    $(document).on('click', 'table #update-published-organism-btn', function() {
+	document.getElementById('update-published-organism').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectOneOrganismById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+             console.log(data);
+	     $('#organism-id-published').val(id);
+             $('#scientific-name-published').val(data.scientificName);
+             $('#common-name-published').val(data.commonName);
+             $('#local-name-published').val(data.localName);
+             $('#description-published').val(data.description);
+             $('#benefits-published').val(data.benefits);
+             $('#dangerous-published').val(data.dangerous);
+             $('#threats-published').val(data.threats);
+             $('#opportunities-published').val(data.opportunities);
+             $('#links-published').val(data.links);
+             $('#food-name-published').val(data.foodName);
+             $('#food-description-published').val(data.foodDescription); 
+             $('#population-published').val(data.population);
+             $("#family-ddl2-published option[value='" + data.familyId + "']").attr("selected","selected"); // ca marche nu
+             $("#subfamily-ddl-published option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche nu
+             $("#habitat-ddl2-published option[value='" + data.habitat.habitatId + "']").attr("selected","selected");             
+             $("#world-ddl4-published option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche nu
+             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); // radio buttons
+             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); // radio buttons
+             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); // radio buttons
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); // radio buttons
+             data.habitat.forEach(function(habitat) {
+                 console.log(habitat);
+                 $('#habitat-ddl2-published option[value='+ habitat.habitatId + ']').prop('selected', true);
+             });
+             data.geolocations.forEach(function(geolocation) {
+                console.log(geolocation); 
+                $('#geolocation-ddl2-published option[value='+ geolocation.geolocationId + ']').prop('selected', true);
+             });
+             data.season.forEach(function (season) {
+                 $('#season-ddl2-published option[value='+ season.seasonId + ']').prop('selected', true);
              });
              $(".chosen-select").trigger("chosen:updated");
 	});
     });
 
  // update select-pending-button dashboard.jsp - pending tab
-    $(document).on('click', 'table #select-pending-btn', function() {
-	document.getElementById('update-pendingorganism').style.display = 'block';
+    $(document).on('click', 'table #update-pending-organism-btn', function() {
+	document.getElementById('update-pending-organism').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
 	var id = ($(this).attr("value"));
 	$.ajax({
@@ -1111,7 +1206,7 @@ $(document).ready(function () {
 	});
     });
     
-    // functie voor delete organism btn in published.jsp
+    // functie voor delete organism/published btn in published.jsp
     $(document).on('click', '.table #delete-organism-published-btn', function () {
 
 	var id = ($(this).attr("value"));
@@ -1129,7 +1224,7 @@ $(document).ready(function () {
 	});
     });
  
- // functie voor delete organism btn in published.jsp
+ // functie voor delete organism/queue btn in published.jsp
     $(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
 
 	var id = ($(this).attr("value"));
