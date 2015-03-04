@@ -284,7 +284,7 @@ $(document).ready(function () {
 	    
 	    loadWorlds();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
+		$message.fadeOut('slow');
 	    }, 2800);
 	    $message.empty();
 	    $("#create-world-form")[0].reset();
@@ -348,7 +348,7 @@ $(document).ready(function () {
 	}).done(function () {
 	    loadSubFamilies();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
+		$message.fadeOut('slow');
 	    }, 2800);
 	    $message.empty();
 	    $("#create-subfamily-form")[0].reset();
@@ -358,6 +358,7 @@ $(document).ready(function () {
     
     // functie inserten van geolocation. dashboard.jsp
     $('#create-geolocation-form').submit(function (e) {
+        
 	var $message = $('#create-geolocation-message');
 	$message.show();
 	$.ajax({
@@ -418,7 +419,7 @@ $(document).ready(function () {
             loadToValidateOrganisms();
             loadPendingOrganisms();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
+		$message.fadeOut('slow');
 	    }, 2800);
 	    $message.empty();
 	    $("#create-organism-form")[0].reset();
@@ -462,9 +463,10 @@ $(document).ready(function () {
 	    disableInput();
 	    updatebtn.val('edit').removeAttr('disabled');
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $("#update-user-form")[0].reset();
+                $message.fadeOut('slow');
+                $("#update-user-form")[0].reset();
 	    }, 2800);
+            $message.empty();
 	});
 	e.preventDefault();
     });
@@ -494,8 +496,8 @@ $(document).ready(function () {
 	    setTimeout(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#update-world-form")[0].reset();        
+                document.getElementById('fade').style.display = 'none';
+                $("#update-world-form")[0].reset();        
 	    }, 2800);
 	    $message.empty();
 	});
@@ -527,8 +529,8 @@ $(document).ready(function () {
 	    setTimeout(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#update-habitat-form")[0].reset();
+                document.getElementById('fade').style.display = 'none';
+                $("#update-habitat-form")[0].reset();
 	    }, 2800);
 	    $message.empty();
 	});
@@ -559,10 +561,10 @@ $(document).ready(function () {
 	}).done(function () {
 	    loadFamilies();
 	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-        $("#update-family-form")[0].reset();
+		$message.fadeOut('slow');
+                $('.insert-box').hide();
+                document.getElementById('fade').style.display = 'none';
+                $("#update-family-form")[0].reset();
 	    }, 2800);
 	    $message.empty();
 	});
@@ -596,8 +598,8 @@ $(document).ready(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
+                $("#update-subfamily-form")[0].reset();
 	    }, 2800);
-	     $("#update-subfamily-form")[0].reset();
 	    $message.empty();
 	});
 	e.preventDefault();
@@ -629,8 +631,8 @@ $(document).ready(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
+                $("#update-season-form")[0].reset();
 	    }, 2800);
-	    $("#update-season-form")[0].reset();
 	    $message.empty();
 	});
 	e.preventDefault();
@@ -663,8 +665,8 @@ $(document).ready(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
+                $("#update-geolocation-form")[0].reset();
 	    }, 2800);
-	    $("#update-geolocation-form")[0].reset();
 	    $message.empty();
 	});
 	e.preventDefault();
@@ -709,8 +711,9 @@ $(document).ready(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
+                $("#update-published-organism-form")[0].reset();
 	    }, 2800);
-	     $("#update-published-organism-form")[0].reset();
+	     
 	    $message.empty();
 	});
 	e.preventDefault();
@@ -753,8 +756,9 @@ $(document).ready(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
+                $("#update-pending-organism-form")[0].reset();
 	    }, 2800);
-	     $("#update-pending-organism-form")[0].reset();
+	     
 	    $message.empty();
 	});
 	e.preventDefault();
@@ -797,8 +801,9 @@ $(document).ready(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
+                 $("#update-queue-organism-form")[0].reset();
 	    }, 2800);
-	     $("#update-queue-organism-form")[0].reset();
+	    
 	    $message.empty();
 	});
 	e.preventDefault();
@@ -824,6 +829,7 @@ $(document).ready(function () {
 	     $('#world-id').val(id);
 	     $('#world-name').val(data.worldName);
 	     $('#world-description').val(data.description);
+             
 	});
     });
     
@@ -882,7 +888,7 @@ $(document).ready(function () {
 	     $('#family-id').val(id);
 	     $('#family-name').val(data.familyName);
 	     $('#family-description').val(data.familyDescription);
-             $("#world-ddl4 option[value='" + data.worldId + "']").attr("selected","selected"); // ca marche
+             $("#world-ddl-update-family option[value='" + data.worldId + "']").attr("selected","selected"); 
 	});
     });
     
@@ -901,7 +907,7 @@ $(document).ready(function () {
 	     $('#subfamily-id').val(id);
 	     $('#subfamily-name').val(data.subFamilyName);
 	     $('#subfamily-description').val(data.subFamilyDescription);
-             $("#family-ddl2 option[value='" + data.familyId + "']").attr("selected","selected");
+             $("#family-ddl-update-breed option[value='" + data.familyId + "']").attr("selected","selected");
 	});
     });
     
@@ -950,24 +956,22 @@ $(document).ready(function () {
              $('#food-name-queue').val(data.foodName);
              $('#food-description-queue').val(data.foodDescription); 
              $('#population-queue').val(data.population);
-             $("#family-ddl2-queue option[value='" + data.familyId + "']").attr("selected","selected"); // ca marche nu
-             $("#subfamily-ddl-queue option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche nu
-             $("#habitat-ddl2-queue option[value='" + data.habitat.habitatId + "']").attr("selected","selected");             
-             $("#world-ddl4-queue option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche nu
-             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); // radio buttons
-             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); // radio buttons
-             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); // radio buttons
-             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); // radio buttons
+             $("#family-ddl-queue option[value='" + data.familyId + "']").attr("selected","selected"); 
+             $("#subfamily-ddl-queue option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); 
+             $("#habitat-ddl-queue option[value='" + data.habitat.habitatId + "']").attr("selected","selected");             
+             $("#world-ddl-queue option[value='" + data.world.worldId + "']").attr("selected","selected"); 
+             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
+             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
+             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); 
              data.habitat.forEach(function(habitat) {
-                 console.log(habitat);
-                 $('#habitat-ddl2-queue option[value='+ habitat.habitatId + ']').prop('selected', true);
+                 $('#habitat-ddl-queue option[value='+ habitat.habitatId + ']').prop('selected', true);
              });
              data.geolocations.forEach(function(geolocation) {
-                console.log(geolocation); 
-                $('#geolocation-ddl2-queue option[value='+ geolocation.geolocationId + ']').prop('selected', true);
+                $('#geolocation-ddl-queue option[value='+ geolocation.geolocationId + ']').prop('selected', true);
              });
              data.season.forEach(function (season) {
-                 $('#season-ddl2- option[value='+ season.seasonId + ']').prop('selected', true);
+                 $('#season-ddl- option[value='+ season.seasonId + ']').prop('selected', true);
              });
              $(".chosen-select").trigger("chosen:updated");
 	});
@@ -999,24 +1003,21 @@ $(document).ready(function () {
              $('#food-name-published').val(data.foodName);
              $('#food-description-published').val(data.foodDescription); 
              $('#population-published').val(data.population);
-             $("#family-ddl2-published option[value='" + data.familyId + "']").attr("selected","selected"); // ca marche nu
-             $("#subfamily-ddl-published option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); // ca marche nu
-             $("#habitat-ddl2-published option[value='" + data.habitat.habitatId + "']").attr("selected","selected");             
-             $("#world-ddl4-published option[value='" + data.world.worldId + "']").attr("selected","selected"); // ca marche nu
-             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); // radio buttons
-             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); // radio buttons
-             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); // radio buttons
-             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); // radio buttons
+             $("#family-ddl-published option[value='" + data.family.familyId + "']").attr("selected","selected");
+             $("#subfamily-ddl-published option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); 
+             $("#world-ddl-published option[value='" + data.world.worldId + "']").attr("selected","selected"); 
+             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
+             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
+             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); 
              data.habitat.forEach(function(habitat) {
-                 console.log(habitat);
-                 $('#habitat-ddl2-published option[value='+ habitat.habitatId + ']').prop('selected', true);
+                 $('#habitat-ddl-published option[value='+ habitat.habitatId + ']').prop('selected', true);
              });
              data.geolocations.forEach(function(geolocation) {
-                console.log(geolocation); 
-                $('#geolocation-ddl2-published option[value='+ geolocation.geolocationId + ']').prop('selected', true);
+                $('#geolocation-ddl-published option[value='+ geolocation.geolocationId + ']').prop('selected', true);
              });
              data.season.forEach(function (season) {
-                 $('#season-ddl2-published option[value='+ season.seasonId + ']').prop('selected', true);
+                 $('#season-ddl-published option[value='+ season.seasonId + ']').prop('selected', true);
              });
              $(".chosen-select").trigger("chosen:updated");
 	});
@@ -1057,11 +1058,9 @@ $(document).ready(function () {
              $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
              $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); 
              data.habitat.forEach(function(habitat) {
-                 console.log(habitat);
                  $('#habitat-ddl-pending option[value='+ habitat.habitatId + ']').prop('selected', true);
              });
              data.geolocations.forEach(function(geolocation) {
-                console.log(geolocation); 
                 $('#geolocation-ddl-pending option[value='+ geolocation.geolocationId + ']').prop('selected', true);
              });
              data.season.forEach(function (season) {

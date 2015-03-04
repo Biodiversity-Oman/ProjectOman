@@ -269,9 +269,18 @@ nav ul ul ul {
     outline: none;
     button:focus {outline:0;}
 }
+.no-button-user {
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    button:focus {outline:0;}
+}
 .action-button {
     padding: 0;
     font-size: 1.4em;
+    margin-bottom: 0.5em;
+    margin-left: -0.8em;
     border: none;
     background: none;
     outline: none;

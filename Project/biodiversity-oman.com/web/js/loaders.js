@@ -6,7 +6,7 @@
 
 // functie om tabel te vullen met gebruikers info in de list users tab in usermanagement.jsp
 function loadUsers() {
-    
+
     var $table = $('#users-table');
     var $content = $('.content');
     $.ajax({
@@ -55,11 +55,11 @@ function loadUsers() {
 
 // functie vult tabel in World tab in dashboard.jsp
 function loadWorlds() {
-    
+
     var $table = $('#worlds-table');
     var $content = $('.content');
-    var $ddl = $('#world-ddl-insert-organism, #world-ddl-insert-family, #world-ddl3, #world-ddl-update-family, #world-ddl-pending');
-  
+    var $ddl = $('#world-ddl-insert-organism, #world-ddl-insert-family, #world-ddl-update-family, #world-ddl-pending, #world-ddl-published, #world-ddl-queue');
+
     $.ajax({
         url: 'SelectAllWorlds',
         type: 'GET',
@@ -100,7 +100,7 @@ function loadSeasons() {
 
     var $table = $('#seasons-table');
     var $content = $('.content');
-    var $ddl = $('#season-ddl-insert-organism, #season-ddl-update-published-organism, #season-ddl-pending');
+    var $ddl = $('#season-ddl-insert-organism, #season-ddl-published, #season-ddl-pending, #season-ddl-queue');
     $.ajax({
         url: 'SelectAllSeasons',
         type: 'GET',
@@ -141,7 +141,7 @@ function loadHabitats() {
 
     var $table = $('#habitats-table');
     var $content = $('.content');
-    var $ddl = $('#habitat-ddl-insert-organism, #habitat-ddl-update-published-organism, #habitat-ddl-pending');
+    var $ddl = $('#habitat-ddl-insert-organism, #habitat-ddl-published, #habitat-ddl-pending, #habitat-ddl-queue');
     $.ajax({
         url: 'SelectAllHabitats',
         type: 'GET',
@@ -183,7 +183,7 @@ function loadFamilies() {
 
     var $table = $('#families-table');
     var $content = $('.content');
-    var $ddl = $('#family-ddl-insert-organism, #family-ddl-insert-breed, #family-ddl-update-breed, #family-ddl-pending');
+    var $ddl = $('#family-ddl-insert-organism, #family-ddl-insert-breed, #family-ddl-update-breed, #family-ddl-pending, #family-ddl-published, #family-ddl-queue');
     $.ajax({
         url: 'SelectAllFamilies',
         type: 'GET',
@@ -226,7 +226,7 @@ function loadSubFamilies() {
 
     var $table = $('#subfamilies-table');
     var $content = $('.content');
-    var $ddl = $('#subfamily-ddl-insert-organism, #subfamily-ddl-pending');
+    var $ddl = $('#subfamily-ddl-insert-organism, #subfamily-ddl-pending, #subfamily-ddl-published, #subfamily-ddl-queue');
     $.ajax({
         url: 'SelectAllSubFamilies',
         type: 'GET',
@@ -248,7 +248,7 @@ function loadSubFamilies() {
                                     <th>Family</th>\n\
                                     <th>Action</th>\n\
                                 </tr>');
-    $ddl.append('<option value="" disabled selected>Select breed</option>');
+        $ddl.append('<option value="" disabled selected>Select breed</option>');
         data.forEach(function (subfamily) {
             $table.append('<tr>\n\
                                         <td>' + subfamily.subFamilyName + '</td>\n\
@@ -269,7 +269,7 @@ function loadGeolocations() {
 
     var $table = $('#geolocations-table');
     var $content = $('.content');
-    var $ddl = $('#geolocation-ddl-insert-organism, #geolocation-ddl-update-published-organism, #geolocation-ddl-pending');
+    var $ddl = $('#geolocation-ddl-insert-organism, #geolocation-ddl-published, #geolocation-ddl-pending, #geolocation-ddl-queue');
     $.ajax({
         url: 'SelectAllGeolocations',
         type: 'GET',
@@ -373,7 +373,7 @@ function loadPendingOrganisms() {
                                         <td>' + o.commonName + '</td>\n\
                                         <td>' + o.scientificName + '</td>\n\
                                         <td>' + o.insertedOn + '</td>\n\
-                                        <td><button class="no-button" id="update-pending-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
+                                        <td><button class="no-button-user" id="update-pending-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
                                         </td>\n\
                                     </tr>');
         });
@@ -519,5 +519,4 @@ function loadPosts() {
                                     </tr>');
         });
     });
-}
-;
+};
