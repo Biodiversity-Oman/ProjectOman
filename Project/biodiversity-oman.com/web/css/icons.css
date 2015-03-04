@@ -50,7 +50,11 @@
     margin-right: 1em;
     color: #8AE65C;
 }
-
+.icon-plus-button:before {
+    content: "\ea0a";
+    color: #8AE65C;
+    margin-right: 0.5em;
+}
 .icon-cross:before {
     content: "\ea0f";
     margin-left: 1em;
@@ -66,6 +70,10 @@
 .icon-pencil2:before {
     content: "\e906";
     margin-right: 0.2em;
+}
+.icon-pencil2-button:before {
+    content: "\e906";
+    margin-right: 0.5em;
 }
 
 .icon-book:before {

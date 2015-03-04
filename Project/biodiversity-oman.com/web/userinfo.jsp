@@ -125,7 +125,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label"></label>
 						<div class="col-sm-2">
-							<input class="btn btn-default" id="update" type="submit" value="Edit" onClick="enableInput()" />
+							<input class="button-grey" id="update" type="submit" value="Edit" onClick="enableInput()" />
 						</div>
 					</div>
 				</form>
@@ -134,7 +134,7 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label"></label>
 					<a href = "javascript:void(0)" onclick = "document.getElementById('delete').style.display = 'block';
-                                                    document.getElementById('fade2').style.display = 'block'"><button class="btn btn-default">Delete Account</button></a>
+                                                    document.getElementById('fade2').style.display = 'block'"><button class="button-grey"><span class="icon-cross"></span>Delete Account</button></a>
 					<div id="delete" class="whiteboxdialog"><a href = "javascript:void(0)" onclick = "document.getElementById('delete').style.display = 'none';
                                                     document.getElementById('fade2').style.display = 'none'"><label class="close-button">x</label></a>
 						<div class="content">
@@ -145,7 +145,7 @@
 						</div>
 					</div>
 					<a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'block';
-                                                    document.getElementById('fade').style.display = 'block'"><button class="btn btn-default">Change password</button></a>
+                                                    document.getElementById('fade').style.display = 'block'"><button class="button-grey"><span class="icon-pencil2"></span>Change password</button></a>
 					<div id="changepassword" class="whitebox"><a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'none';
                                                     document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
 						<div class="content">
