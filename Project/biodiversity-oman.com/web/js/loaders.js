@@ -410,7 +410,7 @@ function loadPublishedOrganisms() {
                                         <td>' + org.commonName + '</td>\n\\n\
                                         <td>' + org.scientificName + '</td>\n\
                                         <td>' + org.updatedOn + '</td>\n\\n\
-                                        <td><button class="no-button" id="delete-organism-btn" type="submit" value="' + org.organismId + '"><span class="icon-cross"></span></button>\n\
+                                        <td><button class="no-button" id="delete-organism-published-btn" type="submit" value="' + org.organismId + '"><span class="icon-cross"></span></button>\n\
                                         <button class="no-button" id="update-organism-btn" type="submit" value="' + org.organismId + '"><span class="icon-pencil2"></span></button></td>\n\
                                   </tr>');
         });

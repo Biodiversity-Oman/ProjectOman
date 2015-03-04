@@ -1105,10 +1105,31 @@ $(document).ready(function () {
 	    async: true
 	}).done(function () {
 	    loadOrganisms();
+            loadPendingOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
 	});
     });
     
     // functie voor delete organism btn in published.jsp
+    $(document).on('click', '.table #delete-organism-published-btn', function () {
+
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'DeleteOrganism?id=' + id,
+	    type: 'POST',
+	    dataType: 'text',
+	    cache: false,
+	    async: true
+	}).done(function () {
+            loadOrganisms();
+            loadPendingOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+	});
+    });
+ 
+ // functie voor delete organism btn in published.jsp
     $(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
 
 	var id = ($(this).attr("value"));
@@ -1119,8 +1140,8 @@ $(document).ready(function () {
 	    cache: false,
 	    async: true
 	}).done(function () {
-	    loadToValidateOrganisms();
+            loadPendingOrganisms();
+            loadToValidateOrganisms();
 	});
     });
- 
 });
