@@ -269,6 +269,7 @@ function loadGeolocations() {
 
     var $table = $('#geolocations-table');
     var $content = $('.content');
+    var $ddl = $('#geolocation-ddl1, #geolocation-ddl2');
     $.ajax({
         url: 'SelectAllGeolocations',
         type: 'GET',
@@ -282,6 +283,7 @@ function loadGeolocations() {
         }
     }).done(function (data) {
         $table.html('');
+        $ddl.html('');
         $table.append('<tr>\n\
                                     <th>Area name</th>\n\
                                     <th>Description</th>\n\\n\
@@ -294,6 +296,8 @@ function loadGeolocations() {
                                         <td><button class="no-button" id="delete-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-cross"></span></button>\n\
                                             <button class="no-button" id="update-geolocation-btn" type="submit" value="' + geolocation.geolocationId + '"><span class="icon-pencil2"></span></button></td>\n\
                                     </tr>');
+            $ddl.append('<option value="' + geolocation.geolocationId + '">' + geolocation.areaName + '</option>');
+            $(".chosen-select").trigger("chosen:updated");
         });
         adminCheck();
     });
