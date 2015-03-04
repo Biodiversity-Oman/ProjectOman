@@ -214,7 +214,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
                                                                                         <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" id="organism-id" type="submit">Update</button>
+                                                                                                <button class="button-grey" id="organism-id" type="submit"><span class="icon-pencil2-button"></span>Update</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -396,7 +396,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
                                                                                         <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Approve and submit</button>
+                                                                                                <button class="button-grey" type="submit">Approve and submit</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>

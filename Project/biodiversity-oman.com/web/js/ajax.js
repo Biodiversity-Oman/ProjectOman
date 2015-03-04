@@ -452,7 +452,7 @@ $(document).ready(function () {
 	    complete: function (data) {
 		var response = data.responseText;
 		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated succesfully. This screen closes automatically</div>');
+		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated succesfully.</div>');
 		}
 	    },
 	    error: function (error) {
@@ -464,7 +464,6 @@ $(document).ready(function () {
 	    updatebtn.val('edit').removeAttr('disabled');
 	    setTimeout(function() {
                 $message.fadeOut('slow');
-                $("#update-user-form")[0].reset();
 	    }, 2800);
             $message.empty();
 	});

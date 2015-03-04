@@ -213,9 +213,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Submit</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Submit</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -261,9 +261,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Insert</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -303,9 +303,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Update</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -357,9 +357,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Insert</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -405,9 +405,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Update</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -459,9 +459,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Insert</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -507,9 +507,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Update</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -556,9 +556,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Insert</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -598,9 +598,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Update</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -645,9 +645,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Insert</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -687,9 +687,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Update</button>
-                                                                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
+                                                                                                <button class="button-grey" type="reset">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -744,9 +744,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Insert</button>
-                                                                                                <button class="btn btn-default" type="reset" id="geolocation-reset1">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
+                                                                                                <button class="button-grey" type="reset" id="geolocation-reset1">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -794,9 +794,9 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Update</button>
-                                                                                                <button class="btn btn-default" type="reset" id="geolocation-reset2">Reset</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
+                                                                                                <button class="button-grey" type="reset" id="geolocation-reset2">Reset</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -976,8 +976,8 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Approve and submit</button>
+                                                                                        <div class="col-sm-4">
+                                                                                                <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
