@@ -1048,29 +1048,26 @@ $(document).ready(function () {
              $('#food-name').val(data.foodName);
              $('#food-description').val(data.foodDescription); 
              $('#population').val(data.population);
-             $("#family-ddl2-pending option[value='" + data.family.familyId + "']").attr("selected","selected"); 
+             $("#family-ddl-pending option[value='" + data.family.familyId + "']").attr("selected","selected"); 
              $("#subfamily-ddl-pending option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected");
-             $("#habitat-ddl2-pending option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
-             $("#world-ddl4-pending option[value='" + data.world.worldId + "']").attr("selected","selected"); 
+             $("#habitat-ddl-pending option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
+             $("#world-ddl-pending option[value='" + data.world.worldId + "']").attr("selected","selected"); 
              $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
              $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
              $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
              $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); 
-            
-             data.season.forEach(function (season) {
-                 console.log(season.seasonName);
-		 //$("#season-ddl2").chosen().val('"'+ season.seasonName+'"');
-                 //$("#season-ddl2").val(season.seasonName).attr('selected', 'selected')
-                 //$("{#season-ddl2}").val(season.seasonName);
-                 //$('#season-ddl2 .chosen-choices .search-choice a').val(season.seasonName);
-                 //$("#season-ddl2 option[value='" + season.seasonName + "']").attr("selected","selected");
-                 //$("select[name^=state]:visible").val();
-                 $(".search-choice").val(season.seasonName);
-                // $("#season-ddl2").chosen().change();
-                // $('.chosen-select').trigger('change');
+             data.habitat.forEach(function(habitat) {
+                 console.log(habitat);
+                 $('#habitat-ddl-pending option[value='+ habitat.habitatId + ']').prop('selected', true);
              });
-             $("#season-ddl2-pending").chosen().change();
-             $(".chosen-select").trigger("chosen:updated");
+             data.geolocations.forEach(function(geolocation) {
+                console.log(geolocation); 
+                $('#geolocation-ddl-pending option[value='+ geolocation.geolocationId + ']').prop('selected', true);
+             });
+             data.season.forEach(function (season) {
+                 $('#season-ddl-pending option[value='+ season.seasonId + ']').prop('selected', true);
+             });
+             $(".chosen-select").trigger("chosen:updated");             
 	});
     });
 

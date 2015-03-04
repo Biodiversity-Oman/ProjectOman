@@ -91,13 +91,13 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-family">Family</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="family-ddl" name="organism-family-id"></select>
+                                                <select class="form-control" id="family-ddl-insert-organism" name="organism-family-id"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="subfamily-ddl" name="organism-subfamily-id"></select>
+                                                <select class="form-control" id="subfamily-ddl-insert-organism" name="organism-subfamily-id"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -115,13 +115,13 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Choose Habitat</label>
                                             <div class="col-sm-4">
-                                                <select class="chosen-select form-control" id="habitat-ddl" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
+                                                <select class="chosen-select form-control" id="habitat-ddl-insert-organism" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Choose World</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl1" name="organism-world-id" data-placeholder="Choose World"></select>
+                                                <select class="form-control" id="world-ddl-insert-organism" name="organism-world-id" data-placeholder="Choose World"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -206,7 +206,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Choose season</label>
                                             <div class="col-sm-4">
-                                                <select class="chosen-select form-control" id="season-ddl" name="organism-season-id" multiple data-placeholder="Choose Season">
+                                                <select class="chosen-select form-control" id="season-ddl-insert-organism" name="organism-season-id" multiple data-placeholder="Choose Season">
 
                                                 </select>
                                             </div>
@@ -214,7 +214,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Choose geolocations</label>
                                             <div class="col-sm-4">
-                                                <select class="chosen-select form-control" id="geolocation-ddl1" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
+                                                <select class="chosen-select form-control" id="geolocation-ddl-insert-organism" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
                                                 </select>
                                             </div>
                                         </div>
@@ -359,7 +359,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Choose World</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl2" name="world-id" required></select>
+                                                <select class="form-control" id="world-ddl-insert-family" name="world-id" required></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -407,7 +407,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-world">World</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl4" name="update-world-id" required></select>
+                                                <select class="form-control" id="world-ddl-update-family" name="update-world-id" required></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -461,7 +461,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="subfamily-family">Family</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="family-ddl3" name="family-id"></select>
+                                                <select class="form-control" id="family-ddl-update-breed" name="family-id"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -509,7 +509,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="family-id">Family</label>
                                             <div class="col-sm-4">
-                                                <select class="form-control" id="family-ddl2" name="family-id" required></select>
+                                                <select class="form-control" id="family-ddl-insert-breed" name="family-id" required></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -858,7 +858,7 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="organism-family">Family</label>
 											<div class="col-sm-4">
-												<select class="form-control" id="family-ddl2-pending" name="organism-family-id"></select>
+												<select class="form-control" id="family-ddl-pending" name="organism-family-id"></select>
 											</div>
 										</div>
 										<div class="form-group">
@@ -882,13 +882,13 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose Habitat</label>
 											<div class="col-sm-4">
-												<select class="chosen-select form-control" id="habitat-ddl2-pending" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
+												<select class="chosen-select form-control" id="habitat-ddl-pending" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose World</label>
 											<div class="col-sm-4">
-												<select class="form-control" id="world-ddl4-pending" name="organism-world-id" data-placeholder="Choose World"></select>
+												<select class="form-control" id="world-ddl-pending" name="organism-world-id" data-placeholder="Choose World"></select>
 											</div>
 										</div>
 										<div class="form-group">
@@ -973,7 +973,7 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose season</label>
 											<div class="col-sm-4">
-												<select class="chosen-select form-control" id="season-ddl2-pending" name="organism-season-id" multiple data-placeholder="Choose Season">
+												<select class="chosen-select form-control" id="season-ddl-pending" name="organism-season-id" multiple data-placeholder="Choose Season">
 
 												</select>
 											</div>
@@ -981,7 +981,7 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose geolocations</label>
 											<div class="col-sm-4">
-												<select class="chosen-select form-control" id="geolocation-ddl3" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
+												<select class="chosen-select form-control" id="geolocation-ddl-pending" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
 												</select>
 											</div>
 										</div>

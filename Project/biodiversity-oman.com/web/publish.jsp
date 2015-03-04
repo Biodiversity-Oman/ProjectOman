@@ -106,7 +106,11 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose Habitat</label>
 											<div class="col-sm-4">
+<<<<<<< HEAD
 												<select class="chosen-select form-control" id="habitat-ddl2-published" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
+=======
+												<select class="chosen-select form-control" id="habitat-ddl-update-published-organism" name="habitat-id" multiple data-placeholder="Choose Habitat"></select>
+>>>>>>> origin/master
 											</div>
 										</div>
 										<div class="form-group">
@@ -197,7 +201,11 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose season</label>
 											<div class="col-sm-4">
+<<<<<<< HEAD
 												<select class="chosen-select form-control" id="season-ddl2-published" name="organism-season-id" multiple data-placeholder="Choose Season">
+=======
+												<select class="chosen-select form-control" id="season-ddl-update-published-organism" name="organism-season-id" multiple data-placeholder="Choose Season">
+>>>>>>> origin/master
 
 												</select>
 											</div>
@@ -205,7 +213,11 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose geolocations</label>
 											<div class="col-sm-4">
+<<<<<<< HEAD
 												<select class="chosen-select form-control" id="geolocation-ddl2-published" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
+=======
+												<select class="chosen-select form-control" id="geolocation-ddl-update-published-organism" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
+>>>>>>> origin/master
 												</select>
 											</div>
 										</div>
