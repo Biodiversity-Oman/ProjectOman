@@ -868,20 +868,17 @@ $(document).ready(function () {
              $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); // radio buttons
              $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); // radio buttons
              $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); // radio buttons
-            
-             data.season.forEach(function (season) {
-                 console.log(season.seasonName);
-		 //$("#season-ddl2").chosen().val('"'+ season.seasonName+'"');
-                 //$("#season-ddl2").val(season.seasonName).attr('selected', 'selected')
-                 //$("{#season-ddl2}").val(season.seasonName);
-                 //$('#season-ddl2 .chosen-choices .search-choice a').val(season.seasonName);
-                 //$("#season-ddl2 option[value='" + season.seasonName + "']").attr("selected","selected");
-                 //$("select[name^=state]:visible").val();
-                 $(".search-choice").val(season.seasonName);
-                // $("#season-ddl2").chosen().change();
-//                 $('.chosen-select').trigger('change');
+             data.habitat.forEach(function(habitat) {
+                 console.log(habitat);
+                 $('#habitat-ddl2 option[value='+ habitat.habitatId + ']').prop('selected', true);
              });
-             $("#season-ddl2").chosen().change();
+             data.geolocations.forEach(function(geolocation) {
+                console.log(geolocation); 
+                $('#geolocation-ddl2 option[value='+ geolocation.geolocationId + ']').prop('selected', true);
+             });
+             data.season.forEach(function (season) {
+                 $('#season-ddl2 option[value='+ season.seasonId + ']').prop('selected', true);
+             });
              $(".chosen-select").trigger("chosen:updated");
 	});
     });
