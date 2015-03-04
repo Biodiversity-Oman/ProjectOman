@@ -48,27 +48,27 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="firstname">Firstname</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="firstname" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$"										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+										<input class="form-control" type="text" name="firstname" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$" 	   									<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="lastname">Lastname</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="lastname" maxlength="50" data-delay="1200" pattern="^([A-z]){1,}$" required>
+										<input class="form-control" type="text" name="lastname" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$" required>
 										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="Country">Country</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="country" maxlength="50" data-delay="1200" pattern="^([-A-z]){1,}$" required>
+										<input class="form-control" type="text" name="country" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$"  required>
 										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="City">City</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="city" data-delay="1200" maxlength="50" pattern="^([-A-z]){1,}$" required>
+										<input class="form-control" type="text" name="city" data-delay="1200" maxlength="50" pattern="^([ A-z\s]){1,}$"  required>
 										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
