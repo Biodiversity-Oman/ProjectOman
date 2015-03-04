@@ -1007,7 +1007,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
-                                                <button class="btn btn-default" id="organism-id" type="submit">Update</button>
+                                                <button class="btn btn-default" type="submit">Update</button>
                                             </div>
                                         </div>
                                     </form>
