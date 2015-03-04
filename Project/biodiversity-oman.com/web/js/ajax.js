@@ -955,7 +955,7 @@ $(document).ready(function () {
              $('#food-name-queue').val(data.foodName);
              $('#food-description-queue').val(data.foodDescription); 
              $('#population-queue').val(data.population);
-             $("#family-ddl-queue option[value='" + data.familyId + "']").attr("selected","selected"); 
+             $("#family-ddl-queue option[value='" + data.family.familyId + "']").attr("selected","selected"); 
              $("#subfamily-ddl-queue option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); 
              $("#habitat-ddl-queue option[value='" + data.habitat.habitatId + "']").attr("selected","selected");             
              $("#world-ddl-queue option[value='" + data.world.worldId + "']").attr("selected","selected"); 
@@ -970,7 +970,7 @@ $(document).ready(function () {
                 $('#geolocation-ddl-queue option[value='+ geolocation.geolocationId + ']').prop('selected', true);
              });
              data.season.forEach(function (season) {
-                 $('#season-ddl- option[value='+ season.seasonId + ']').prop('selected', true);
+                 $('#season-ddl-queue option[value='+ season.seasonId + ']').prop('selected', true);
              });
              $(".chosen-select").trigger("chosen:updated");
 	});
