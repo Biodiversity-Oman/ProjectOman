@@ -1036,19 +1036,19 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
              console.log(data);
-	     $('#organism-id').val(id);
-             $('#scientific-name').val(data.scientificName);
-             $('#common-name').val(data.commonName);
-             $('#local-name').val(data.localName);
-             $('#description').val(data.description);
-             $('#benefits').val(data.benefits);
-             $('#dangerous').val(data.dangerous);
-             $('#threats').val(data.threats);
-             $('#opportunities').val(data.opportunities);
-             $('#links').val(data.links);
-             $('#food-name').val(data.foodName);
-             $('#food-description').val(data.foodDescription); 
-             $('#population').val(data.population);
+	     $('#organism-id-pending').val(id);
+             $('#scientific-name-pending').val(data.scientificName);
+             $('#common-name-pending').val(data.commonName);
+             $('#local-name-pending').val(data.localName);
+             $('#description-pending').val(data.description);
+             $('#benefits-pending').val(data.benefits);
+             $('#dangerous-pending').val(data.dangerous);
+             $('#threats-pending').val(data.threats);
+             $('#opportunities-pending').val(data.opportunities);
+             $('#links-pending').val(data.links);
+             $('#food-name-pending').val(data.foodName);
+             $('#food-description-pending').val(data.foodDescription); 
+             $('#population-pending').val(data.population);
              $("#family-ddl-pending option[value='" + data.family.familyId + "']").attr("selected","selected"); 
              $("#subfamily-ddl-pending option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected");
              $("#habitat-ddl-pending option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
