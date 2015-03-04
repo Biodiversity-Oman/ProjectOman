@@ -718,9 +718,9 @@
                     </div>
                     <div id="tab7" class="tab">
                         <a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
-                                document.getElementById('fade').style.display = 'block'"><button class="action-button" onclick="loadScript();"><span class="icon-plus"></button></a>
+                                document.getElementById('fade').style.display = 'block'; loadScript();"><button class="action-button" ><span class="icon-plus"></button></a>
                         <div id="insert-geolocation" class="insert-box">
-                            <label class="close-button">x</label>
+                            <label id="geolocation-close1" class="close-button">x</label>
                             <div class="content">
                                 <div id="create-geolocation">
                                     <form class="form form-horizontal" id="create-geolocation-form" data-toggle="validator">
@@ -746,6 +746,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="area-map">Make area</label>
                                             <div class="col-sm-4">
+                                                <span class="help-block with-errors">Use 3 mouse clicks to make an area</span>
                                                 <div id="map-canvas" class="map-canvas"></div>
                                             </div>
                                         </div>
@@ -760,7 +761,7 @@
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
                                                 <button class="btn btn-default" type="submit">Insert</button>
-                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                <button class="btn btn-default" type="reset" id="geolocation-reset1">Reset</button>
                                             </div>
                                         </div>
                                     </form>
@@ -768,7 +769,7 @@
                             </div>
                         </div>
                         <div id="update-geolocation" class="insert-box">
-                            <label class="close-button">x</label>
+                            <label id="geolocation-close2" class="close-button">x</label>
                             <div class="content">
                                 <div id="update-geolocation-test">
                                     <form class="form form-horizontal" id="update-geolocation-form" data-toggle="validator">
@@ -810,7 +811,7 @@
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
                                                 <button class="btn btn-default" type="submit">Update</button>
-                                                <button class="btn btn-default" type="reset">Reset</button>
+                                                <button class="btn btn-default" type="reset" id="geolocation-reset2">Reset</button>
                                             </div>
                                         </div>
                                     </form>
