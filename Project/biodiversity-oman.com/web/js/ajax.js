@@ -1035,7 +1035,7 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
              console.log(data);
-	     $('#organism-id-pending').val(id);
+	     $('#organism-id-pending').val(id);             
              $('#scientific-name-pending').val(data.scientificName);
              $('#common-name-pending').val(data.commonName);
              $('#local-name-pending').val(data.localName);
@@ -1065,7 +1065,9 @@ $(document).ready(function () {
              data.season.forEach(function (season) {
                  $('#season-ddl-pending option[value='+ season.seasonId + ']').prop('selected', true);
              });
-             $(".chosen-select").trigger("chosen:updated");             
+             $(".chosen-select").trigger("chosen:updated");  
+             loadPhoto();
+
 	});
     });
 

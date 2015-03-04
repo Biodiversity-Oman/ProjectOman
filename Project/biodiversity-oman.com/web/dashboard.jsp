@@ -901,6 +901,10 @@
                                                 <select class="form-control" id="world-ddl-pending" name="organism-world-id" data-placeholder="Choose World"></select>
                                             </div>
                                         </div>
+                                        <label class="col-sm-2 control-label" for="organism-photo-old">Current Photo</label>
+                                            <div class="col-sm-4">
+                                                <img src="loadPhoto()" alt="">
+                                            </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-photo">Add Photo</label>
                                             <div class="col-sm-4">
