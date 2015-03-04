@@ -981,11 +981,7 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Choose geolocations</label>
 											<div class="col-sm-4">
-												<select class="chosen-select form-control" id="geolocation" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
-													<option value="1">geo</option>
-													<option value="2">geo</option>
-													<option value="3">geo</option>
-													<option value="4">geo</option>
+												<select class="chosen-select form-control" id="geolocation-ddl3" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations">
 												</select>
 											</div>
 										</div>

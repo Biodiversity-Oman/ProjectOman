@@ -269,7 +269,7 @@ function loadGeolocations() {
 
     var $table = $('#geolocations-table');
     var $content = $('.content');
-    var $ddl = $('#geolocation-ddl1, #geolocation-ddl2');
+    var $ddl = $('#geolocation-ddl1, #geolocation-ddl2, #geolocation-ddl3');
     $.ajax({
         url: 'SelectAllGeolocations',
         type: 'GET',
