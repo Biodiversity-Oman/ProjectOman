@@ -186,8 +186,8 @@ public class ServOrganism {
        DaOrganism.publishFromQue(organismId);
     }
     
-    public static List SearchOrganism(String organismName){
+    public static List SearchOrganism(String keyword) throws SQLException {
                 
-        return DaOrganism.selectAllByNameLike(organismName);
+        return DaOrganism.searchOrganism(keyword);
     }
 }

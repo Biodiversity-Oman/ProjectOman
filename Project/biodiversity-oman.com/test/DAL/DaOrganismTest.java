@@ -182,48 +182,48 @@ public class DaOrganismTest {
 //    /**
 //     * Test of insertOrganism method, of class DaOrganism.
 //     */
-    @Test
-    public void testInsertOrganism() {
-        try{
-        System.out.println("insertOrganism");
-        Organism organism = new Organism();
-        organism.setBenefits("test");
-        organism.setCommonName("test");
-        organism.setCultivated(Boolean.TRUE);
-        organism.setDangerous("test");
-        organism.setDescription("test");
-        organism.setEatenByOrganism(null);
-        organism.setEatingOrganisms(null);
-        organism.setEndangered(Boolean.TRUE);
-        organism.setFamily(null);
-        organism.setFoodDescription("test");
-        organism.setFoodName("test");
-        organism.setGeolocations(null);
-        organism.setHabitat(null);
-        organism.setIndigenous(Boolean.TRUE);
-        organism.setInsertedOn(null);
-        organism.setLinks(null);
-        organism.setLinks("test");
-        organism.setLocalName("test");
-        organism.setMedicinal(Boolean.TRUE);
-        organism.setOpportunities("test");
-        organism.setPhoto(null);
-        organism.setPopulation("test");
-        organism.setScientificName("test");
-        organism.setSeason(null);
-        organism.setSubfamily(null);
-        organism.setThreats("test");
-        organism.setUpdatedOn(null);
-        organism.setValidated(Boolean.TRUE);
-        organism.setWorld(null);
-            System.out.println("gelukt");
-        }
-        catch(Exception e){System.out.println("niet gelukt"+e);}
-        
-        
-        
-        
-    }
+//    @Test
+//    public void testInsertOrganism() {
+//        try{
+//        System.out.println("insertOrganism");
+//        Organism organism = new Organism();
+//        organism.setBenefits("test");
+//        organism.setCommonName("test");
+//        organism.setCultivated(Boolean.TRUE);
+//        organism.setDangerous("test");
+//        organism.setDescription("test");
+//        organism.setEatenByOrganism(null);
+//        organism.setEatingOrganisms(null);
+//        organism.setEndangered(Boolean.TRUE);
+//        organism.setFamily(null);
+//        organism.setFoodDescription("test");
+//        organism.setFoodName("test");
+//        organism.setGeolocations(null);
+//        organism.setHabitat(null);
+//        organism.setIndigenous(Boolean.TRUE);
+//        organism.setInsertedOn(null);
+//        organism.setLinks(null);
+//        organism.setLinks("test");
+//        organism.setLocalName("test");
+//        organism.setMedicinal(Boolean.TRUE);
+//        organism.setOpportunities("test");
+//        organism.setPhoto(null);
+//        organism.setPopulation("test");
+//        organism.setScientificName("test");
+//        organism.setSeason(null);
+//        organism.setSubfamily(null);
+//        organism.setThreats("test");
+//        organism.setUpdatedOn(null);
+//        organism.setValidated(Boolean.TRUE);
+//        organism.setWorld(null);
+//            System.out.println("gelukt");
+//        }
+//        catch(Exception e){System.out.println("niet gelukt"+e);}
+//        
+//        
+//        
+//        
+//    }
 //
 //    /**
 //     * Test of deleteOrganism method, of class DaOrganism.
@@ -252,35 +252,99 @@ public class DaOrganismTest {
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
 //    }
-
-    /**
-     * Test of selectAllForValidation method, of class DaOrganism.
-     */
-    @Test
-    public void testSelectAllForValidation() throws Exception {
-        System.out.println("selectAllForValidation");
-        List<Organism> result = DaOrganism.selectAllForValidation();
-            for (Organism o : result) {
-            
-            System.out.println(o.getUpdatedOn());
-            System.out.println(o.getCommonName());
-            System.out.println(o.getScientificName());
-        }
-    }
-    
-
-    /**
-     * Test of selectAllPublished method, of class DaOrganism.
-     */
-    @Test
-    public void testSelectAllPublished() throws Exception {
-        System.out.println("selectAllPublished");
-        List<Organism> result = DaOrganism.selectAllPublished();
-        for (Organism o : result) {
-            System.out.println(o.getUpdatedOn());
-            System.out.println(o.getCommonName());
-            System.out.println(o.getScientificName());
-        }
-    }
+//
+//    /**
+//     * Test of selectAllForValidation method, of class DaOrganism.
+//     */
+//    @Test
+//    public void testSelectAllForValidation() throws Exception {
+//        System.out.println("selectAllForValidation");
+//        List<Organism> result = DaOrganism.selectAllForValidation();
+//            for (Organism o : result) {
+//            
+//            System.out.println(o.getUpdatedOn());
+//            System.out.println(o.getCommonName());
+//            System.out.println(o.getScientificName());
+//        }
+//    }
+//    
+//
+//    /**
+//     * Test of selectAllPublished method, of class DaOrganism.
+//     */
+//    @Test
+//    public void testSelectAllPublished() throws Exception {
+//        System.out.println("selectAllPublished");
+//        List<Organism> result = DaOrganism.selectAllPublished();
+//        for (Organism o : result) {
+//            System.out.println(o.getUpdatedOn());
+//            System.out.println(o.getCommonName());
+//            System.out.println(o.getScientificName());
+//        }
+//    }
+//
+//	/**
+//	 * Test of selectAll method, of class DaOrganism.
+//	 */
+//	@Test
+//	public void testSelectAll() {
+//		System.out.println("selectAll");
+//		List<Organism> expResult = null;
+//		List<Organism> result = DaOrganism.selectAll();
+//		assertEquals(expResult, result);
+//		// TODO review the generated test code and remove the default call to fail.
+//		fail("The test case is a prototype.");
+//	}
+//
+//	/**
+//	 * Test of selectPhotoById method, of class DaOrganism.
+//	 */
+//	@Test
+//	public void testSelectPhotoById() {
+//		System.out.println("selectPhotoById");
+//		int id = 0;
+//		byte[] expResult = null;
+//		byte[] result = DaOrganism.selectPhotoById(id);
+//		assertArrayEquals(expResult, result);
+//		// TODO review the generated test code and remove the default call to fail.
+//		fail("The test case is a prototype.");
+//	}
+//
+//	/**
+//	 * Test of UpdatePendingOrganism method, of class DaOrganism.
+//	 */
+//	@Test
+//	public void testUpdatePendingOrganism() {
+//		System.out.println("UpdatePendingOrganism");
+//		Organism organism = null;
+//		int expResult = 0;
+//		int result = DaOrganism.UpdatePendingOrganism(organism);
+//		assertEquals(expResult, result);
+//		// TODO review the generated test code and remove the default call to fail.
+//		fail("The test case is a prototype.");
+//	}
+//
+//	/**
+//	 * Test of publishFromQue method, of class DaOrganism.
+//	 */
+//	@Test
+//	public void testPublishFromQue() throws Exception {
+//		System.out.println("publishFromQue");
+//		int organismId = 0;
+//		DaOrganism.publishFromQue(organismId);
+//		// TODO review the generated test code and remove the default call to fail.
+//		fail("The test case is a prototype.");
+//	}
+//
+//	/**
+//	 * Test of searchOrganism method, of class DaOrganism.
+//	 */
+//	@Test
+//	public void testSearchOrganism() throws Exception {
+//		System.out.println("searchOrganism");
+//		String keyword = "Dho";
+//		List result = DaOrganism.searchOrganism(keyword);
+//		System.out.println(result);
+//	}
     
 }
