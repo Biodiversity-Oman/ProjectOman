@@ -45,7 +45,7 @@ function loadUsers() {
                                         <td>' + user.phone + '</td>\n\
                                         <td>' + user.isAdmin + '</td>\n\
                                         <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button>\n\
-                                            <button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button>\n\
+                                            <button class="no-button" id="queue-publish-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button>\n\
                                             <button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
                                     </tr>');
         });
