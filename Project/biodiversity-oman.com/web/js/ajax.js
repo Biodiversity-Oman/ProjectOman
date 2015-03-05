@@ -579,27 +579,22 @@ $(document).ready(function () {
 	    url: 'UpdateSubfamily',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#update-subfamily-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
+	    data: $('#update-subfamily-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
 		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Subfamily was successfully updated. This screen closes automatically</div>');
-		} else if (response === 'error') {
+	    } else if (data === 'error') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Subfamily not updated</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
 	    }
-	}).done(function () {
-	    loadSubFamilies();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
                 $("#update-subfamily-form")[0].reset();
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
+	}).always(function (){
+	    loadSubFamilies();
 	});
 	e.preventDefault();
     });
@@ -644,27 +639,22 @@ $(document).ready(function () {
 	    url: 'UpdateGeolocation',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#update-geolocation-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
+	    data: $('#update-geolocation-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
 		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was successfully updated. This screen closes automatically</div>');
-		} else if (response === 'error') {
+	    } else if (data === 'error') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area not updated</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
 	    }
-	}).done(function () {
-	    loadGeolocations();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
                 $("#update-geolocation-form")[0].reset();
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
+	}).always(function (){
+	    loadGeolocations();
 	});
 	e.preventDefault();
     });
@@ -678,40 +668,32 @@ $(document).ready(function () {
         $message.show();
 	var formData = new FormData($(this)[0]);
 	$.ajax({
-            //FOR VALIDATION = TRUE
             url: 'UpdateOrganism',
 	    dataType: 'text',
 	    processData: false,
 	    contentType: false,
 	    type: 'POST',
-	    data: formData,
-	    complete: function (data) {
-		var response = data.responseText;
-                // See servOrganism for response messages
-		if (response === 'succes') {
+	    data: formData
+	}).done(function (data) {
+	    if (data === 'succes') {
 		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism was validated and updated successfully. This screen closes automatically</div>');
-		} else if (response === 'error1') {
+	    } else if (data === 'error1') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
-		} else if (response === 'error2') {
+	    } else if (data === 'error2') {
 		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
 	    }
-	}).done(function () {
-	    loadOrganisms();
-            loadPublishedOrganisms();
-            loadToValidateOrganisms();
-            loadPendingOrganisms();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
                 $("#update-published-organism-form")[0].reset();
+		$message.empty();
 	    }, 2800);
-	     
-	    $message.empty();
+	}).always(function (){
+	    loadOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+            loadPendingOrganisms();
 	});
 	e.preventDefault();
     });
