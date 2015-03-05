@@ -69,7 +69,7 @@ $(document).ready(function () {
     //functie voor de zoekbalk in organism published
     $('#search-organism').keyup(function (e) {
 	
-	var $searchTable = $('#organisms-table');
+	var $searchTable = $('#published-table');
 	var keyword = $(this).val();
 	if (keyword.length >= 3) {
 	    $.ajax({
@@ -80,7 +80,7 @@ $(document).ready(function () {
 		async: true,
 		data: 'organismkey=' + keyword
 	    }).done(function (data) {
-		$('#organisms-table').html('');
+		$('#published-table').html('');
 		$searchTable.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\
@@ -100,7 +100,7 @@ $(document).ready(function () {
 		    });
 	    });
 	} else {
-	    loadOrganisms();
+	    loadPublishedOrganisms();
 	};
     });
     
