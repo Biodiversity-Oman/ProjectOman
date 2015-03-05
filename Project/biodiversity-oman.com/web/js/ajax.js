@@ -1078,7 +1078,7 @@ $(document).ready(function () {
         $.ajax({
             url: 'QueueAddToPublished?id=' + id,
             type: 'POST',
-            dataType: 'JSON',
+            dataType: 'text',
             cache: false,
             async: true
         }).done(function () {
