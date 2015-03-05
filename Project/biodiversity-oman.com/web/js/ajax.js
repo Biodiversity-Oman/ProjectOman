@@ -1073,9 +1073,7 @@ $(document).ready(function () {
     });
 
 // update queue-publish-button published.jsp - queue tab
-    $(document).on('click', 'table #queue-publish-btn', function () {
-        document.getElementById('update-queue-organism').style.display = 'block';
-        document.getElementById('fade').style.display = 'block';
+    $(document).on('click', 'table #queue-publish-btn', function () {      
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'QueueAddToPublished?id=' + id,
@@ -1088,16 +1086,8 @@ $(document).ready(function () {
             loadPublishedOrganisms();
             loadToValidateOrganisms();
             loadPendingOrganisms();
-            setTimeout(function () {
-                $message.fadeOut('slow');
-                $('.insert-box').hide();
-                document.getElementById('fade').style.display = 'none';
-                $("#update-queue-organism-form")[0].reset();
-            }, 2800);
-
-            $message.empty();
         });
-        e.preventDefault();
+       
     });
 
 

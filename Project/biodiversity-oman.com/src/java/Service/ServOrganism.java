@@ -183,9 +183,6 @@ public class ServOrganism {
 
     public static void PublishFromQueue(int organismId) throws SQLException {
 
-        Organism o = new Organism();
-        o.setOrganismId(organismId);
-        o.setValidated(Boolean.TRUE);
-        DaOrganism.UpdatePendingOrganism(o);
+        return DaOrganism.publishFromQue(organismId);
     }
 }

@@ -4,6 +4,9 @@
  * Aside for the CRUD there are functions to select organism based on various fields inside and outside the organism table.
  */
 package DAL;
+
+import java.sql.SQLException;
+
 /**
  *
  * @author bert
@@ -904,4 +907,20 @@ public class DaOrganism {
         }
         return orgb;
     } 
+    
+    public static void publishFromQue(int organismId) throws SQLException {
+
+		try {
+			conn = DataSource.getConnection();
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement("UPDATE organism set isvalidate= '1' WHERE organism_id=" + organismId);
+			stmt.executeUpdate();
+			conn.commit();
+		} catch (SQLException ex) {
+			System.out.println(ex);
+
+		} finally {
+			conn.setAutoCommit(true);
+		}
+	}
 }

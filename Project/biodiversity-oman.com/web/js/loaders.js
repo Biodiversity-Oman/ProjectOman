@@ -340,7 +340,7 @@ function loadToValidateOrganisms() {
                                         <td>' + o.commonName + '</td>\n\\n\
                                         <td>' + o.scientificName + '</td>\n\
                                         <td>' + o.insertedOn + '</td>\n\
-                                        <td><button class="no-button" id="publish-btn" type="submit" value="true"><span class="icon-plus"></span></button></span></button>\n\
+                                        <td><button class="no-button" id="queue-publish-btn" type="submit" value="' + o.organismId + '"><span class="icon-plus"></span></button></span></button>\n\
                                             <button class="no-button" id="update-queue-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
                                             <button class="no-button" id="delete-organism-tovalidate-btn" type="submit" value="' + o.organismId + '"><span class="icon-cross"></span></button>\n\
                                         </td>\
