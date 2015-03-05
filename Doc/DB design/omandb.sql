@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `geolocation` (
   `geolocation_id` int(11) NOT NULL AUTO_INCREMENT,
   `area_name` varchar(50) NOT NULL,
   `area_description` varchar(10000) NOT NULL,
-  `coordinates` varchar(300) NOT NULL,
+  `coordinates` varchar(2000) NOT NULL,
   PRIMARY KEY (`geolocation_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 

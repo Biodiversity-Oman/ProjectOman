@@ -798,7 +798,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label" for="area-map">Area</label>
 					    <div class="col-sm-4">
-						<button id="edit-map" class="btn btn-default" type="button">Edit map</button>
+						<button id="edit-map" class="button-grey" type="button">Edit map</button>
 						<div id="update-canvas" class="map-canvas"></div>
 					    </div>
 					</div>
