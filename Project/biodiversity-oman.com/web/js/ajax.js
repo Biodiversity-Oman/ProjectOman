@@ -2,7 +2,7 @@
 // General form functions
 //---------------------------------------------------------------------------------------------------------------------
 $(document).ready(function () {
-    adminCheck();
+    
     //tab interface
     $('.tabs .tab-links a').on('click', function (e) {
 	var currentAttrValue = $(this).attr('href');
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
     //functie voor de zoekbalk in usermanagement.jsp
     $('#search-user-account').keyup(function (e) {
-
+	
 	var $userstable = $('#users-table');
 	var keyword = $(this).val();
 	if (keyword.length >= 3) {
@@ -30,10 +30,10 @@ $(document).ready(function () {
 		dataType: 'json',
 		cache: false,
 		async: true,
-		data: 'keyword=' + keyword,
-		complete: function (data) {
-		    var users = data.responseJSON;
-		    $userstable.append('<tr>\n\
+		data: 'keyword=' + keyword
+	    }).done(function (data) {
+		$('#users-table').html('');
+		$userstable.append('<tr>\n\
                                     <th>Username</th>\n\
                                     <th>Firstname</th>\n\
                                     <th>Lastname</th>\n\
@@ -43,34 +43,29 @@ $(document).ready(function () {
                                     <th>Phone</th>\n\
                                     <th>Admin</th>\n\
                                     <th>Action</th>\n\
-                                </tr>');
-		    if (users.length === 0) {
+				    </tr>');
+		    if (data.length === 0) {
 			$userstable.append('<tr><td>User not found</td></tr>');
-		    }
-		    ;
-		    users.forEach(function (user) {
+		    };
+		    data.forEach(function (user) {
 			$userstable.append('<tr>\n\
-                                        <td>' + user.userName + '</td>\n\
-                                        <td>' + user.firstName + '</td>\n\
-                                        <td>' + user.lastName + '</td>\n\
-                                        <td>' + user.city + '</td>\n\
-                                        <td>' + user.country + '</td>\n\
-                                        <td>' + user.email + '</td>\n\
-                                        <td>' + user.phone + '</td>\n\
-                                        <td>' + user.isAdmin + '</td>\n\
-                                        <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
-                                    </tr>');
+					    <td>' + user.userName + '</td>\n\
+					    <td>' + user.firstName + '</td>\n\
+					    <td>' + user.lastName + '</td>\n\
+					    <td>' + user.city + '</td>\n\
+					    <td>' + user.country + '</td>\n\
+					    <td>' + user.email + '</td>\n\
+					    <td>' + user.phone + '</td>\n\
+					    <td>' + user.isAdmin + '</td>\n\
+					    <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
+					    </tr>');
 		    });
-		}
-	    }).done(function () {
-		$('#users-table').html('');
 	    });
 	} else {
 	    loadUsers();
-	}
+	};
     });
     
-
 //---------------------------------------------------------------------------------------------------------------------
 // User management functions
 //---------------------------------------------------------------------------------------------------------------------
@@ -90,35 +85,27 @@ $(document).ready(function () {
 	    data: $('#change-password-form').serialize(),
 	    beforeSend: function () {
 		wijzigbtn.val('updating').attr('disabled', 'disabled');
-	    },
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'error1') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your password is not valid</div>');
-		} else if (response === 'error2') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your passwords do not match</div>');
-		} else if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password is changed succesfully. This screen closes automatically</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
 	    }
-	}).done(function () {
+	}).done(function (data) {
+	    if (data === 'error1') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your password is not valid</div>');
+	    } else if (data === 'error2') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your passwords do not match</div>');
+	    } else if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password is changed succesfully. This screen closes automatically</div>');
+	    }
+	    setTimeout(function() {
+		$message.fadeOut('slow');
+		$('.whitebox').hide();
+		document.getElementById('fade').style.display = 'none';
+	    }, 2800);
+	}).always(function (){
 	    loadUserInfo();
 	    disableInput();
 	    wijzigbtn.val('Wijzig').removeAttr('disabled');
-	    setTimeout(function() {
-		    $message.fadeOut('slow');
-                    $('.insert-box').hide();
-	document.getElementById('fade').style.display = 'none';
-	    }, 2800);
 	});
 	e.preventDefault();
     });
-
-    
-    
      
     // functie voor make-admin button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
@@ -135,7 +122,6 @@ $(document).ready(function () {
 	});
     });
 
-   
     // functie voor demoten van een user in usermanagement.jsp
     $(document).on('click', '.table #make-normal-btn', function () {
 
@@ -151,12 +137,11 @@ $(document).ready(function () {
 	});
     });
 
-
 //---------------------------------------------------------------------------------------------------------------------
 // Insert functions
 //---------------------------------------------------------------------------------------------------------------------
 
-// create user form usermanagement.jsp
+    // create user form usermanagement.jsp
     $('#create-user-form').submit(function (e) {
 
 	var $message = $('#create-user-message');
@@ -165,29 +150,24 @@ $(document).ready(function () {
 	    url: 'InsertUserAccount',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#create-user-form').serialize(),
-	    complete: function (data) {
-		var jsontext = data.responseText;
-		if (jsontext === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User succesfully created</div>');
-		} else if (jsontext === 'error1') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Username already exists</div>');
-		} else if (jsontext === 'error2') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
-		} else if (jsontext === 'error3') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Passwords do not match</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    data: $('#create-user-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User succesfully created</div>');
+	    } else if (data === 'error1') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Username already exists</div>');
+	    } else if (data === 'error2') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
+	    } else if (data === 'error3') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Passwords do not match</div>');
 	    }
-	}).done(function () {
-	    loadUsers();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
+		$message.empty();
 	    }, 2800);
 	    $("#create-user-form")[0].reset();
-	    $message.empty();
+	}).always(function (){
+	   loadUsers(); 
 	});
 	e.preventDefault();
     });
@@ -201,25 +181,20 @@ $(document).ready(function () {
 	    url: 'InsertSeason',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#create-season-form').serialize(),
-	    complete: function (data) {
-		var jsontext = data.responseText;
-		if (jsontext === 'succes') {
+	    data: $('#create-season-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
 		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created.</div>');
-		} else if (jsontext === 'error') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    } else if (data === 'error') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
 	    }
-	}).done(function () {
-	    loadSeasons();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
 	    $("#create-season-form")[0].reset();
+	}).always(function (){
+	    loadSeasons();
 	});
 	e.preventDefault();
     });
@@ -233,27 +208,21 @@ $(document).ready(function () {
 	    url: 'InsertHabitat',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#create-habitat-form').serialize(),
-	    complete: function (data) {
-		var jsontext = data.responseText;
-		if (jsontext === 'succes') {
+	    data: $('#create-habitat-form').serialize()
+	}).done(function (data) {
+	   if (data === 'succes') {
 		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created.</div>');
-		} else if (jsontext === 'error') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    } else if (data === 'error') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
 	    }
-	}).done(function () {
-	    loadHabitats();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
 	    $("#create-habitat-form")[0].reset();
+	}).always(function(){
+	    loadHabitats();
 	});
-	
 	e.preventDefault();
     });
 
@@ -266,33 +235,27 @@ $(document).ready(function () {
 	    url: 'InsertWorld',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#create-world-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
+	    data: $('#create-world-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
 		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created.</div>');
-		} else if (response === 'error1') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
-		} else if (response === 'error2') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    } else if (data === 'error1') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World already exists</div>');
+	    } else if (data === 'error2') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
 	    }
-	}).done(function () {
-	    
-	    loadWorlds();
-	    setTimeout(function() {
+-	    setTimeout(function() {
 		$message.fadeOut('slow');
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
 	    $("#create-world-form")[0].reset();
+	}).always(function (){
+	    loadWorlds();
 	});
 	e.preventDefault();
     });
 
-// functie inserten van family. dashboard.jsp
+    // functie inserten van family. dashboard.jsp
     $('#create-family-form').submit(function (e) {
 
 	var $message = $('#create-family-message');
@@ -301,25 +264,20 @@ $(document).ready(function () {
 	    url: 'InsertFamily',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#create-family-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
+	    data: $('#create-family-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
 		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created.</div>');
-		} else if (response === 'error2') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    } else if (data === 'error2') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
 	    }
-	}).done(function () {
-	    loadFamilies();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
 	    $("#create-family-form")[0].reset();
+	}).always(function (){
+	    loadFamilies();
 	});
 	e.preventDefault();
     });
@@ -333,25 +291,20 @@ $(document).ready(function () {
 	    url: 'InsertSubFamily',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#create-subfamily-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>SubFamily was succesfully created.</div>');
-		} else if (response === 'error2') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    data: $('#create-subfamily-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>SubFamily was succesfully created.</div>');
+	    } else if (data === 'error2') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
 	    }
-	}).done(function () {
-	    loadSubFamilies();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
 	    $("#create-subfamily-form")[0].reset();
+	}).always(function (){
+	    loadSubFamilies();
 	});
 	e.preventDefault();
     });
@@ -365,25 +318,20 @@ $(document).ready(function () {
 	    url: 'InsertGeolocation',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#create-geolocation-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was succesfully created.</div>');
-		} else if (response === 'error') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area already exists</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    data: $('#create-geolocation-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was succesfully created.</div>');
+	    } else if (data === 'error') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area already exists</div>');
 	    }
-	}).done(function () {
-	    loadGeolocations();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
 	    $("#create-geolocation-form")[0].reset();
+	}).always(function(){
+	    loadGeolocations();
 	});
 	e.preventDefault();
     });
@@ -400,40 +348,33 @@ $(document).ready(function () {
 	    processData: false,
 	    contentType: false,
 	    type: 'POST',
-	    data: formData,
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Organism was added successfully.</div>');
-		} else if (response === 'error1') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
-		} else if (response === 'error2') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    data: formData
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Organism was added successfully.</div>');
+	    } else if (data === 'error1') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+	    } else if (data === 'error2') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
 	    }
-	}).done(function () {
-            loadOrganisms();
-            loadToValidateOrganisms();
-            loadPendingOrganisms();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
 	    $("#create-organism-form")[0].reset();
+	}).always(function (){
+	    loadOrganisms();
+            loadToValidateOrganisms();
+            loadPendingOrganisms();
 	});
 	e.preventDefault();
     });
-
 
 //---------------------------------------------------------------------------------------------------------------------
 // Update functions
 //---------------------------------------------------------------------------------------------------------------------
 
-
-//Update user in userinfo.jsp
+    //Update user in userinfo.jsp
     $('#update-user-form').submit(function (e) {
 	
 	var $message = $('#update-user-message');
@@ -448,30 +389,25 @@ $(document).ready(function () {
 	    data: $('#update-user-form').serialize(),
 	    beforeSend: function () {
 		updatebtn.val('updating').attr('disabled', 'disabled');
-	    },
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated succesfully.</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
 	    }
-	}).done(function () {
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated succesfully.</div>');
+	    }
+	    setTimeout(function() {
+                $message.fadeOut('slow');
+		$message.empty();
+	    }, 2800);
+	}).always(function(){
 	    loadUserInfo();
 	    disableInput();
 	    updatebtn.val('edit').removeAttr('disabled');
-	    setTimeout(function() {
-                $message.fadeOut('slow');
-	    }, 2800);
-            $message.empty();
 	});
 	e.preventDefault();
     });
 
-//function for update world
-      $('#update-world-form').submit(function (e) {
+    //function for update world
+    $('#update-world-form').submit(function (e) {
 	  
 	var $message = $('#update-world-message');
 	$message.show();
@@ -479,32 +415,28 @@ $(document).ready(function () {
 	    url: 'UpdateWorld',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#update-world-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World was updated successfully. This screen closes automatically</div>');
-		} else if (response === 'error') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World not updated</div>');
-		}
-	    }, error: function (error) {
-		console.log(error);
+	    data: $('#update-world-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World was updated successfully. This screen closes automatically</div>');
+	    } else if (data === 'error') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World not updated</div>');
 	    }
-	}).done(function () {
-	    loadWorlds();
 	    setTimeout(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
                 document.getElementById('fade').style.display = 'none';
-                $("#update-world-form")[0].reset();        
+                $("#update-world-form")[0].reset();
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
+	}).always(function(){
+	    loadWorlds();
 	});
 	e.preventDefault();
     });
     
- // function for update habitat
-     $('#update-habitat-form').submit(function (e) {
+    // function for update habitat
+    $('#update-habitat-form').submit(function (e) {
 	  
 	var $message = $('#update-habitat-message');
 	$message.show();
@@ -512,26 +444,22 @@ $(document).ready(function () {
 	    url: 'UpdateHabitat',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#update-habitat-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat was updated successfully. This screen closes automatically</div>');
-		} else if (response === 'error') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat not updated</div>');
-		}
-	    }, error: function (error) {
-		console.log(error);
+	    data: $('#update-habitat-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat was updated successfully. This screen closes automatically</div>');
+	    } else if (data === 'error') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat not updated</div>');
 	    }
-	}).done(function () {
-	    loadHabitats();
 	    setTimeout(function () {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
                 document.getElementById('fade').style.display = 'none';
                 $("#update-habitat-form")[0].reset();
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
+	}).always(function (){
+	    loadHabitats();
 	});
 	e.preventDefault();
     });
@@ -545,27 +473,22 @@ $(document).ready(function () {
 	    url: 'UpdateFamily',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#update-family-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family was successfully updated. This screen closes automatically</div>');
-		} else if (response === 'error') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family not updated</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    data: $('#update-family-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family was successfully updated. This screen closes automatically</div>');
+	    } else if (data === 'error') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family not updated</div>');
 	    }
-	}).done(function () {
-	    loadFamilies();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
                 document.getElementById('fade').style.display = 'none';
                 $("#update-family-form")[0].reset();
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
+	}).always(function (){
+	    loadFamilies();
 	});
 	e.preventDefault();
     });
@@ -705,85 +628,69 @@ $(document).ready(function () {
         $message.show();
 	var formData = new FormData($(this)[0]);
 	$.ajax({
-            //FOR VALIDATION = FALSE
             url: 'UpdatePending',
 	    dataType: 'text',
 	    processData: false,
 	    contentType: false,
 	    type: 'POST',
-	    data: formData,
-	    complete: function (data) {
-		var response = data.responseText;
-                // See servOrganism for response messages
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
-		} else if (response === 'error1') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
-		} else if (response === 'error2') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    data: formData
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
+	    } else if (data === 'error1') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+	    } else if (data === 'error2') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
 	    }
-	}).done(function () {
-	    loadOrganisms();
-            loadPublishedOrganisms();
-            loadToValidateOrganisms();
-            loadPendingOrganisms();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
                 $("#update-pending-organism-form")[0].reset();
+		$message.empty();
 	    }, 2800);
-	     
-	    $message.empty();
+	}).always(function (){
+	    loadOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+            loadPendingOrganisms();
 	});
 	e.preventDefault();
     });
 
-// function for update of Organism/queue. in publish.jsp
+    // function for update of Organism/queue. in publish.jsp
     $('#update-queue-organism-form').submit(function (e) {
 
 	var $message = $('#update-queue-organism-message');
         $message.show();
 	var formData = new FormData($(this)[0]);
 	$.ajax({
-            // FOR VALIDATION = TRUE
             url: 'UpdateOrganism',
 	    dataType: 'text',
 	    processData: false,
 	    contentType: false,
 	    type: 'POST',
-	    data: formData,
-	    complete: function (data) {
-		var response = data.responseText;
-                // See servOrganism for response messages
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
-		} else if (response === 'error1') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
-		} else if (response === 'error2') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
-		}
-	    },
-	    error: function (error) {
-		console.log(error);
+	    data: formData
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
+	    } else if (data === 'error1') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+	    } else if (data === 'error2') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
 	    }
-	}).done(function () {
-	    loadOrganisms();
-            loadPublishedOrganisms();
-            loadToValidateOrganisms();
-            loadPendingOrganisms();
 	    setTimeout(function() {
 		$message.fadeOut('slow');
                 $('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
-                 $("#update-queue-organism-form")[0].reset();
+                $("#update-queue-organism-form")[0].reset();
+		$message.empty();
 	    }, 2800);
-	    
-	    $message.empty();
+	}).always(function (){
+	    loadOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+            loadPendingOrganisms();
 	});
 	e.preventDefault();
     });
@@ -791,7 +698,6 @@ $(document).ready(function () {
 //---------------------------------------------------------------------------------------------------------------------
 // SelectOne functions (buttons)
 //---------------------------------------------------------------------------------------------------------------------
-
 
 // update world-button dashboard.jsp - worlds tab
     $(document).on('click', 'table #update-world-btn', function() {
@@ -833,8 +739,7 @@ $(document).ready(function () {
 	});
     });
 
-    
-     // update season-button dashboard.jsp - seasons tab
+    // update season-button dashboard.jsp - seasons tab
     $(document).on('click', 'table #update-season-btn', function() {
 	document.getElementById('update-season').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
@@ -1000,7 +905,7 @@ $(document).ready(function () {
 	});
     });
 
- // update select-pending-button dashboard.jsp - pending tab
+    // update select-pending-button dashboard.jsp - pending tab
     $(document).on('click', 'table #update-pending-organism-btn', function() {
 	document.getElementById('update-pending-organism').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
@@ -1046,14 +951,11 @@ $(document).ready(function () {
 	});
     });
 
-
-
 //---------------------------------------------------------------------------------------------------------------------
 // Delete functions
 //---------------------------------------------------------------------------------------------------------------------
 
-
- // functie voor delete button in list users tabel in usermanagement.jsp
+    // functie voor delete button in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #make-admin-btn', function () {
 
 	var username = ($(this).attr("value"));
@@ -1068,9 +970,7 @@ $(document).ready(function () {
 	});
     });
 
-
-
- // functie voor delete world btn in dashboard.jsp
+    // functie voor delete world btn in dashboard.jsp
     $(document).on('click', '.table #delete-world-btn', function () {
 
 	var id = ($(this).attr("value"));
@@ -1196,7 +1096,7 @@ $(document).ready(function () {
 	});
     });
  
- // functie voor delete organism/queue btn in published.jsp
+    // functie voor delete organism/queue btn in published.jsp
     $(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
 
 	var id = ($(this).attr("value"));
