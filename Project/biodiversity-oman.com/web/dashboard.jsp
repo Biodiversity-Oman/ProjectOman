@@ -49,7 +49,7 @@
 				document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
                         <div class="table-responsive">
                             <div class="col-sm-4">
-                                <input class="form-control" id="search-user-account" type="text" name="keyword" placeholder="Search"><br>
+                                <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on any name"><br>
                             </div>
                         </div>
 			<div id="insert-organism" class="insert-box">
@@ -835,7 +835,7 @@
 			<p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                         <div class="table-responsive">
                             <div class="col-sm-4">
-                                <input class="form-control" id="search-user-account" type="text" name="keyword" placeholder="Search"><br>
+                                <input class="form-control" id="search-organism" type="text" name="organism-key" placeholder="Search on any name"><br>
                             </div>
                         </div>
 			<div id="update-pending-organism" class="insert-box">

@@ -66,6 +66,44 @@ $(document).ready(function () {
 	};
     });
     
+    //functie voor de zoekbalk in organism published
+    $('#search-organism').keyup(function (e) {
+	
+	var $searchTable = $('#organisms-table');
+	var keyword = $(this).val();
+	if (keyword.length >= 3) {
+	    $.ajax({
+		url: 'SearchOrganism',
+		type: 'GET',
+		dataType: 'json',
+		cache: false,
+		async: true,
+		data: 'organismkey=' + keyword
+	    }).done(function (data) {
+		$('#organisms-table').html('');
+		$searchTable.append('<tr>\n\
+                                    <th>Common name</th>\n\
+                                    <th>Scientific name</th>\n\
+                                    <th>Last updated on</th>\n\
+                                    <th>Action</th>\n\
+				    </tr>');
+		    if (data.length === 0) {
+			$searchTable.append('<tr><td>Organism not found</td></tr>');
+		    };
+		    data.forEach(function (organism) {
+			$userstable.append('<tr>\n\
+					    <td>' + organism.commonName + '</td>\n\
+					    <td>' + organism.scientificName + '</td>\n\
+					    <td>' + organism.updatedOn + '</td>\n\
+					    <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
+					    </tr>');
+		    });
+	    });
+	} else {
+	    loadOrganisms();
+	};
+    });
+    
 //---------------------------------------------------------------------------------------------------------------------
 // User management functions
 //---------------------------------------------------------------------------------------------------------------------

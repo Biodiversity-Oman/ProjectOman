@@ -50,9 +50,11 @@
                         <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
                         <div class="table-responsive">
                             <div class="col-sm-4">
-                                <input class="form-control" id="search-user-account" type="text" name="keyword" placeholder="Search"><br>
+                                <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on any name"><br>
                             </div>
+                            <table class="table table-striped" id="organisms-table"></table>
                         </div>
+                    </div>
                         <div id="update-published-organism" class="insert-box">
                             <label class="close-button">x</label>
                             <div class="content">
@@ -441,7 +443,7 @@
                     </div>
                     <div id="tab4" class="tab">
                         <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
-                        
+
                         <div class="table-responsive">
                             <table class="table table-striped" id="subscriber-table"></table>
                         </div>

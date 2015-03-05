@@ -185,4 +185,9 @@ public class ServOrganism {
 
        DaOrganism.publishFromQue(organismId);
     }
+    
+    public static List SearchOrganism(String organismName){
+                
+        return DaOrganism.selectAllByNameLike(organismName);
+    }
 }
