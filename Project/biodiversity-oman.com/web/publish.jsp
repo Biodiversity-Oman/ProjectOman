@@ -48,7 +48,7 @@
                     <div id="tab1" class="tab active">
                         <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                         <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
-                        <div class="table-responsive">
+                         <div class="table-responsive">
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on any name"><br>
                             </div>

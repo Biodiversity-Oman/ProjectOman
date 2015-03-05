@@ -42,8 +42,7 @@
 		    <li><a href="#tab8"><span class="icon-file-text"></span>Pending for evaluation</a></li>
 		</ul>
 		<div class="tab-content">
-		    <div id="tab1" class="tab active">
-			
+		    <div id="tab1" class="tab active">			
                                 <div id="tab1" class="tab active">
                                     <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
 				document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
@@ -51,6 +50,7 @@
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on any name"><br>
                             </div>
+                            <table class="table table-striped" id="published-table"></table>
                         </div>
 			<div id="insert-organism" class="insert-box">
 			    <label class="close-button">x</label>
