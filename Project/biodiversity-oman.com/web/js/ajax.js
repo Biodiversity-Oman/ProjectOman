@@ -81,7 +81,8 @@ $(document).ready(function () {
 		data: 'organismkey=' + keyword
 	    }).done(function (data) {
 		$('#published-table').html('');
-		$searchTable.append('<tr>\n\
+                $('#organisms-table').html('');
+		$.searchTable.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\
                                     <th>Last updated on</th>\n\
@@ -101,6 +102,81 @@ $(document).ready(function () {
 	    });
 	} else {
 	    loadPublishedOrganisms();
+	};
+    });
+    
+    //functie voor de zoekbalk in organism dashboard
+    $('#search-organism').keyup(function (e) {
+	
+	var $searchTable = $('#organisms-table');
+	var keyword = $(this).val();
+	if (keyword.length >= 3) {
+	    $.ajax({
+		url: 'SearchOrganism',
+		type: 'GET',
+		dataType: 'json',
+		cache: false,
+		async: true,
+		data: 'organismkey=' + keyword
+	    }).done(function (data) {
+		$('#organisms-table').html('');
+		$.searchTable.append('<tr>\n\
+                                    <th>Common name</th>\n\
+                                    <th>Scientific name</th>\n\
+                                    <th>Last updated on</th>\n\
+				    </tr>');
+		    if (data.length === 0) {
+			$searchTable.append('<tr><td>Organism not found</td></tr>');
+		    };
+		    data.forEach(function (organism) {
+			$userstable.append('<tr>\n\
+					    <td>' + organism.commonName + '</td>\n\
+					    <td>' + organism.scientificName + '</td>\n\
+					    <td>' + organism.updatedOn + '</td>\n\
+					    </tr>');
+		    });
+	    });
+	} else {
+	    loadOrganisms();
+	};
+    });
+    
+    //functie voor de zoekbalk in queue published
+    $('#search-organism').keyup(function (e) {
+	
+	var $searchTable = $('#tovalidate-table');
+	var keyword = $(this).val();
+	if (keyword.length >= 3) {
+	    $.ajax({
+		url: 'SearchOrganism',
+		type: 'GET',
+		dataType: 'json',
+		cache: false,
+		async: true,
+		data: 'organismkey=' + keyword
+	    }).done(function (data) {
+		$('#tovalidate-table').html('');
+		$.searchTable.append('<tr>\n\
+                                    <th>Common name</th>\n\
+                                    <th>Scientific name</th>\n\\n\
+                                    <th>Submitted on</th>\n\
+                                    <th>Action</th>\n\
+				    </tr>');
+		    if (data.length === 0) {
+			$searchTable.append('<tr><td>Organism not found</td></tr>');
+		    };
+		    data.forEach(function (organism) {
+			$userstable.append('<tr>\n\
+					    <td>' + o.commonName + '</td>\n\
+                                        <td>' + o.scientificName + '</td>\n\
+                                        <td>' + o.insertedOn + '</td>\n\
+                                        <td><button class="no-button-user" id="update-pending-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
+                                        </td>\n\
+                                    </tr>');
+		    });
+	    });
+	} else {
+	   loadToValidateOrganisms();
 	};
     });
     
