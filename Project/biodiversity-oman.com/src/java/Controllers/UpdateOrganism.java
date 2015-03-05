@@ -134,7 +134,6 @@ public class UpdateOrganism extends HttpServlet {
                                                                 request.getParameter("organism-links"), 
                                                                 eatenByOrganismIds, 
                                                                 eatingOrganismIds, 
-                                                                true, 
                                                                 request.getParameter("organism-food-name"), 
                                                                 request.getParameter("organism-food-description"), 
                                                                 geolocationIds));

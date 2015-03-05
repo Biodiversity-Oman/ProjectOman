@@ -57,7 +57,7 @@ public class Organism {
                 Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, 
                 List<Season> season, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, 
                 String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links, 
-                List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, Boolean validated, String foodName, 
+                List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, String foodName, 
                 String foodDescription, List<Geolocation> geolocations) 
         {
             this.scientificName = scientificName;
@@ -92,8 +92,9 @@ public class Organism {
         public Organism(int organismId, String scientificName, String commonName, String localName, String description,
                 Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, List<Season> season,
                 Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous,
-                String threats, String opportunities, byte[] photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms,
-                Boolean validated, String foodName, String foodDescription, List<Geolocation> geolocations) 
+                String threats, String opportunities, byte[] photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, 
+                String foodName, String foodDescription, List<Geolocation> geolocations) 
+                
         {
             this.organismId = organismId;
             this.scientificName = scientificName;

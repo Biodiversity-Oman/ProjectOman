@@ -130,7 +130,6 @@ public class UpdatePending extends HttpServlet {
                                                                 request.getParameter("organism-links"), 
                                                                 eatenByOrganismIds, 
                                                                 eatingOrganismIds, 
-                                                                false, 
                                                                 request.getParameter("organism-food-name"), 
                                                                 request.getParameter("organism-food-description"), 
                                                                 geolocationIds));

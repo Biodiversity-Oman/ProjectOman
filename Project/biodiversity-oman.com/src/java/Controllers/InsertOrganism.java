@@ -124,8 +124,7 @@ public class InsertOrganism extends HttpServlet {
                                                                 bytes,                                                                
                                                                 request.getParameter("organism-links"), 
                                                                 eatenByOrganismIds, 
-                                                                eatingOrganismIds, 
-                                                                false,//Boolean.parseBoolean(("validated")), 
+                                                                eatingOrganismIds,  
                                                                 request.getParameter("organism-food-name"), 
                                                                 request.getParameter("organism-food-description"), 
                                                                 geolocationIds));

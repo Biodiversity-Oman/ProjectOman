@@ -34,7 +34,7 @@ public class ServOrganism {
             int subfamilyid, int familyid, int worldid, int[] habitatid, String population,
             int[] seasonid, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
             String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
-            int[] eatenbyorganismid, int[] eatingorganismid, Boolean validated, String foodname,
+            int[] eatenbyorganismid, int[] eatingorganismid, String foodname,
             String fooddescription, int[] geolocationid) {
         int result;
         if (!DaOrganism.checkOrganismExist(scientificname)) {
@@ -63,7 +63,7 @@ public class ServOrganism {
             result = DaOrganism.insertOrganism(new BLL.Organism(scientificname, commonname, localname, description,
                     new BLL.Subfamily(subfamilyid), new BLL.Family(familyid), new BLL.World(worldid), habitat,
                     population, season, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats,
-                    opportunities, photo, links, eatenbyorganism, eatingorganism, validated, foodname,
+                    opportunities, photo, links, eatenbyorganism, eatingorganism, foodname,
                     fooddescription, geolocation));
         } else {
             return "error1";
@@ -80,7 +80,7 @@ public class ServOrganism {
             int subfamilyid, int familyid, int worldid, int[] habitatid, String population,
             int[] seasonid, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
             String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
-            int[] eatenbyorganismid, int[] eatingorganismid, Boolean validated, String foodname,
+            int[] eatenbyorganismid, int[] eatingorganismid, String foodname,
             String fooddescription, int[] geolocationid) {
         int result;
         if (!DaOrganism.checkOrganismExist(scientificname, id)) {
@@ -109,7 +109,7 @@ public class ServOrganism {
             result = DaOrganism.updateOrganism(new BLL.Organism(id, scientificname, commonname, localname, description,
                     new BLL.Subfamily(subfamilyid), new BLL.Family(familyid), new BLL.World(worldid), habitat,
                     population, season, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats,
-                    opportunities, photo, links, eatenbyorganism, eatingorganism, validated, foodname,
+                    opportunities, photo, links, eatenbyorganism, eatingorganism, foodname,
                     fooddescription, geolocation));
         } else {
             return "error1";
@@ -124,7 +124,7 @@ public class ServOrganism {
             int subfamilyid, int familyid, int worldid, int[] habitatid, String population,
             int[] seasonid, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
             String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
-            int[] eatenbyorganismid, int[] eatingorganismid, Boolean validated, String foodname,
+            int[] eatenbyorganismid, int[] eatingorganismid, String foodname,
             String fooddescription, int[] geolocationid) {
         int result;
         if (!DaOrganism.checkOrganismExist(scientificname, id)) {
@@ -153,7 +153,7 @@ public class ServOrganism {
             result = DaOrganism.UpdatePendingOrganism(new BLL.Organism(id, scientificname, commonname, localname, description,
                     new BLL.Subfamily(subfamilyid), new BLL.Family(familyid), new BLL.World(worldid), habitat,
                     population, season, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats,
-                    opportunities, photo, links, eatenbyorganism, eatingorganism, validated, foodname,
+                    opportunities, photo, links, eatenbyorganism, eatingorganism, foodname,
                     fooddescription, geolocation));
         } else {
             return "error1";
