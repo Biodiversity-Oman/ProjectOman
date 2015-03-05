@@ -950,6 +950,24 @@ $(document).ready(function () {
              $(".chosen-select").trigger("chosen:updated");             
 	});
     });
+    
+    // update queue-publish-button published.jsp - queue tab
+    $(document).on('click', 'table #queue-publish-btn', function () {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'QueueAddToPublished?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+            loadPendingOrganisms();
+        });
+
+    });
 
 //---------------------------------------------------------------------------------------------------------------------
 // Delete functions
