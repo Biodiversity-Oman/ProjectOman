@@ -96,7 +96,7 @@ public class UtDaOrganism {
         
         // Resultaten van de selectAll() methode worden afgeprint in de console.
         System.out.println("-----Select All organisms-----");
-        DaOrganism.sellectAll().stream().forEach((o) -> {
+        DaOrganism.selectAll().stream().forEach((o) -> {
             System.out.println(o.getCommonName());
         });
         
@@ -113,7 +113,7 @@ public class UtDaOrganism {
             
             // Resultaten van de selectAll() methode worden afgeprint in de console.
             System.out.println("-----Select All organisms-----");
-            DaOrganism.sellectAll().stream().forEach((o) -> {
+            DaOrganism.selectAll().stream().forEach((o) -> {
             System.out.println(o.getCommonName());
         });
         }
@@ -283,7 +283,7 @@ public class UtDaOrganism {
             
             // Resultaten van de selectAll() methode worden afgeprint in de console.
             System.out.println("-----Select All organisms -----");
-            DaOrganism.sellectAll().stream().forEach((o) -> {
+            DaOrganism.selectAll().stream().forEach((o) -> {
             System.out.println(o.getCommonName());});
         }
         else

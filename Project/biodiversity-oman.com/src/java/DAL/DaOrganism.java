@@ -71,7 +71,7 @@ public class DaOrganism {
         return false;
     }
     
-    public static java.util.List<BLL.Organism> sellectAll ()
+    public static java.util.List<BLL.Organism> selectAll ()
     {
             /*  Deze methode selecteert de volgende properties van alle organisme:
         organism_id, common_name, subfamily_id, family_id en world_id.
@@ -96,7 +96,7 @@ public class DaOrganism {
                     "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"+
                     "LEFT JOIN family ON subfamily.family_id = family.family_id \n" +
                     "LEFT JOIN world ON family.world_id = world.world_id \n" +
-                    "WHERE isvalidated = 1");
+                    "WHERE isvalidated = 1 LIMIT 100");
             
             java.sql.ResultSet rs = stmt.executeQuery();
             
@@ -886,7 +886,7 @@ public class DaOrganism {
         java.util.List<BLL.Organism> orgb = new java.util.ArrayList();
         try {
                 conn = DataSource.getConnection();
-                stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on");
+                stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on LIMIT 100");
 
                 java.sql.ResultSet rs = stmt.executeQuery();
 

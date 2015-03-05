@@ -17,7 +17,7 @@ import java.util.List;
 public class ServOrganism {
 
     public static java.util.List<BLL.Organism> selectAll() {
-        return DaOrganism.sellectAll();
+        return DaOrganism.selectAll();
     }
 
     public static byte[] selectPhotoById(int id) {

@@ -60,7 +60,7 @@ public class DaGeolocationTest {
     @Test
     public void testSelectAllByOrganismGeolocation() throws Exception {
         System.out.println("selectAllByOrganismGeolocation");
-        int organismId = DaOrganism.sellectAll().get(0).getOrganismId();
+        int organismId = DaOrganism.selectAll().get(0).getOrganismId();
         List<Geolocation> results = DaGeolocation.selectAllByOrganism(organismId);
         for (Geolocation result : results) {
             System.out.println("byOrganism: " + result.getAreaName());

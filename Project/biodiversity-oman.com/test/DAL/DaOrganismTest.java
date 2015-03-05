@@ -69,13 +69,13 @@ public class DaOrganismTest {
 //    }
 //
 //    /**
-//     * Test of sellectAll method, of class DaOrganism.
+//     * Test of selectAll method, of class DaOrganism.
 //     */
 //    @Test
 //    public void testSellectAll() {
-//        System.out.println("sellectAll");
+//        System.out.println("selectAll");
 //        List<Organism> expResult = null;
-//        List<Organism> result = DaOrganism.sellectAll();
+//        List<Organism> result = DaOrganism.selectAll();
 //        assertEquals(expResult, result);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
