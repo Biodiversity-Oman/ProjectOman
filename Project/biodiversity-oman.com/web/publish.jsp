@@ -5,9 +5,9 @@
 --%>
 <%@include file="/adminheader.jsp" %>
 <%
-        if (us.getIsAdmin() == false) {
-                response.sendRedirect("notallowed.jsp");
-        }
+    if (us.getIsAdmin() == false) {
+        response.sendRedirect("notallowed.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -46,8 +46,13 @@
                 </ul>
                 <div class="tab-content">  
                     <div id="tab1" class="tab active">
-                         <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                        <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                         <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
+                        <div class="table-responsive">
+                            <div class="col-sm-4">
+                                <input class="form-control" id="search-user-account" type="text" name="keyword" placeholder="Search"><br>
+                            </div>
+                        </div>
                         <div id="update-published-organism" class="insert-box">
                             <label class="close-button">x</label>
                             <div class="content">
@@ -238,7 +243,7 @@
                     </div>
                     <div id="tab2" class="tab">
                         <p>Press the <span class="icon-plus"></span> To publish to the website </p>
-                         <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                        <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                         <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>					
                         <div id="update-queue-organism" class="insert-box">
                             <label class="close-button">x</label>
@@ -393,7 +398,7 @@
                                             <div class="col-sm-4">
                                                 <textarea rows="3" class="form-control" id="food-description-queue" name="organism-food-description" pattern="[^()[\]{}*^$<>#]+$"></textarea>
                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case</span>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -436,12 +441,13 @@
                     </div>
                     <div id="tab4" class="tab">
                         <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
+                        
                         <div class="table-responsive">
                             <table class="table table-striped" id="subscriber-table"></table>
                         </div>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
-        </body>
+    </body>
 </html>
