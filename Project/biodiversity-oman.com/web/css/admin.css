@@ -360,9 +360,7 @@ li.active a, li.active a:hover {
 .tab.active {
     display:block;
 }
-
 /* Loader */
-
 @-webkit-keyframes spinner {
     0% {
         -webkit-transform: rotate(0deg);

@@ -605,34 +605,32 @@ $(document).ready(function () {
     });
     
     //function for update season
-      $('#update-season-form').submit(function (e) {
-	  
+    $('#update-season-form').submit(function (e) {
+
 	var $message = $('#update-season-message');
-        $message.show();
+	$message.show();
 	$.ajax({
 	    url: 'UpdateSeason',
 	    type: 'POST',
 	    dataType: 'text',
-	    data: $('#update-season-form').serialize(),
-	    complete: function (data) {
-		var response = data.responseText;
-		if (response === 'succes') {
-		    $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season was updated successfully. This screen closes automatically</div>');
-		} else if (response === 'error') {
-		    $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season not updated</div>');
-		}
-	    }, error: function (error) {
-		console.log(error);
+	    data: $('#update-season-form').serialize()
+	})
+	.done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season was updated successfully. This screen closes automatically</div>');
+	    } else if (data === 'error') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season not updated</div>');
 	    }
-	}).done(function () {
-	    loadSeasons();
 	    setTimeout(function () {
 		$message.fadeOut('slow');
-                $('.insert-box').hide();
+		$('.insert-box').hide();
 		document.getElementById('fade').style.display = 'none';
-                $("#update-season-form")[0].reset();
+		$("#update-season-form")[0].reset();
+		$message.empty();
 	    }, 2800);
-	    $message.empty();
+	})
+	.always(function () {
+	    loadSeasons();
 	});
 	e.preventDefault();
     });
@@ -941,7 +939,6 @@ $(document).ready(function () {
 	    cache: false,
 	    async: true
 	}).done(function (data) {
-             console.log(data);
 	     $('#organism-id-queue').val(id);
              $('#scientific-name-queue').val(data.scientificName);
              $('#common-name-queue').val(data.commonName);
@@ -988,7 +985,6 @@ $(document).ready(function () {
 	    cache: false,
 	    async: true
 	}).done(function (data) {
-             console.log(data);
 	     $('#organism-id-published').val(id);
              $('#scientific-name-published').val(data.scientificName);
              $('#common-name-published').val(data.commonName);
@@ -1034,7 +1030,6 @@ $(document).ready(function () {
 	    cache: false,
 	    async: true
 	}).done(function (data) {
-             console.log(data);
 	     $('#organism-id').val(id);
              $('#scientific-name').val(data.scientificName);
              $('#common-name').val(data.commonName);
