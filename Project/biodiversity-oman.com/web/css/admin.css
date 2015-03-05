@@ -32,7 +32,15 @@ h2 {
     border-radius: 0.3em 0.3em 0.3em 0.3em;
     color: #ffffff;
 }
+table {
+	table-layout:fixed;
+}
 
+.table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 /*--------------------------------------------------------*/
 /* -------------- header & navigation --------------*/
