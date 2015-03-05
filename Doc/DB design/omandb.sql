@@ -266,7 +266,7 @@ INSERT INTO `season` (`season_id`, `season_name`, `season_description`) VALUES
 
 CREATE TABLE IF NOT EXISTS `subfamily` (
   `subfamily_id` int(11) NOT NULL AUTO_INCREMENT,
-  `family_id` int(11) NOT NULL,
+  `family_id` int(11) DEFAULT NULL,
   `subfamily_name` varchar(50) NOT NULL,
   `subfamily_description` varchar(2000) NOT NULL,
   PRIMARY KEY (`subfamily_id`),
