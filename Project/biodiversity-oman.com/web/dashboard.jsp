@@ -220,7 +220,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Submit</button>
+						<button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -269,7 +269,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Insert</button>
+						<button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -312,7 +312,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Update</button>
+						<button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -367,7 +367,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Insert</button>
+						<button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -416,7 +416,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Update</button>
+						<button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -471,7 +471,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Insert</button>
+						<button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -520,7 +520,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Update</button>
+						<button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -569,7 +569,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Insert</button>
+						<button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -612,7 +612,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Update</button>
+						<button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -660,7 +660,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Insert</button>
+						<button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -703,7 +703,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Update</button>
+						<button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
 						<button class="button-grey" type="reset">Reset</button>
 					    </div>
 					</div>
@@ -761,7 +761,7 @@
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
 					    <div class="col-sm-4">
-						<button class="button-grey" type="submit">Insert</button>
+						<button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
 						<button class="button-grey" type="reset" id="geolocation-reset1">Reset</button>
 					    </div>
 					</div>
@@ -811,8 +811,8 @@
 					</div>
 					<div class="form-group">
 					    <label class="col-sm-2 control-label"></label>
-					    <div class="col-sm-2">
-						<button class="button-grey" type="submit">Update</button>
+					    <div class="col-sm-4">
+						<button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
 						<button class="button-grey" type="reset" id="geolocation-reset2">Reset</button>
 					    </div>
 					</div>
@@ -1006,7 +1006,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
-                                                <button class="button-grey" type="submit">Update</button>
+                                                <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
                                             </div>
                                         </div>
                                     </form>

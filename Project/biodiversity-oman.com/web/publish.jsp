@@ -202,7 +202,6 @@
                                             <div class="col-sm-4">
                                                 <textarea rows="3" class="form-control" id="food-description-published" name="organism-food-description" pattern="[^()[\]{}*^$<>#]+$"></textarea>
                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case</span>
-                                                
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -225,8 +224,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
-                                            <div class="col-sm-2">
-                                                <button class="button-grey" id="organism-id" type="submit">Update</button>
+                                            <div class="col-sm-4">
+                                                <button class="button-grey" id="organism-id" type="submit"><span class="icon-pencil2-button"></span>Update</button>
                                             </div>
                                         </div>
                                     </form>
@@ -319,7 +318,6 @@
                                                 <input type="file" id="photo-queue"  name="upfileOrganism" >
                                             </div>
                                         </div>
-
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-indigenous">Indigenous</label>
                                             <div class="col-sm-4">
@@ -419,7 +417,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
-                                                <button class="button-grey" id="organism-id" type="submit">Update</button>
+                                                <button class="button-grey" id="organism-id" type="submit"><span class="icon-pencil2-button"></span>Update</button>
                                             </div>
                                         </div>
                                     </form>
