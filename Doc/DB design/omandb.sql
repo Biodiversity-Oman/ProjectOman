@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `organism` (
   `links` varchar(2000) DEFAULT NULL,
   `food_name` varchar(50) DEFAULT NULL,
   `food_description` varchar(10000) DEFAULT NULL,
-  `isvalidated` tinyint(1) NOT NULL,
+  `isvalidated` tinyint(1) NOT NULL DEFAULT '0',
   `inserted_on` date NOT NULL,
   `updated_on` date DEFAULT NULL,
   PRIMARY KEY (`organism_id`),
