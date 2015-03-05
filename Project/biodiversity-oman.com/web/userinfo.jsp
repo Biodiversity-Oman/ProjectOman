@@ -134,18 +134,18 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label"></label>
 					<a href = "javascript:void(0)" onclick = "document.getElementById('delete').style.display = 'block';
-                                                    document.getElementById('fade2').style.display = 'block'"><button class="button-grey"><span class="icon-cross"></span>Delete Account</button></a>
+                                                    document.getElementById('fade2').style.display = 'block'"><button style="margin-left: 0.3em;" class="button-grey"><span class="icon-cross-button"></span>Delete Account</button></a>
 					<div id="delete" class="whiteboxdialog"><a href = "javascript:void(0)" onclick = "document.getElementById('delete').style.display = 'none';
                                                     document.getElementById('fade2').style.display = 'none'"><label class="close-button">x</label></a>
 						<div class="content">
-							<p>Are you sure you want to delete your account?</p>
-							<a href="DeleteUserAccount?username=<%=username%>"><input class="btn btn-primary" type="button" value="Yes" /></a>
+						    <p>Are you sure you want to delete your account?</p><br>
+							<a href="DeleteUserAccount?username=<%=username%>"><input class="button-grey" type="button" value="Yes" /></a>
 							<a href = "javascript:void(0)" onclick = "document.getElementById('delete').style.display = 'none';
-                                                                    document.getElementById('fade2').style.display = 'none'"><button class="btn btn-primary">No</button></a>
+                                                                    document.getElementById('fade2').style.display = 'none'"><button class="button-grey">No</button></a>
 						</div>
 					</div>
 					<a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'block';
-                                                    document.getElementById('fade').style.display = 'block'"><button class="button-grey"><span class="icon-pencil2"></span>Change password</button></a>
+                                                    document.getElementById('fade').style.display = 'block'"><button class="button-grey"><span class="icon-pencil2-button"></span>Change Password</button></a>
 					<div id="changepassword" class="whitebox"><a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'none';
                                                     document.getElementById('fade').style.display = 'none'"><label class="close-button">x</label></a>
 						<div class="content">
@@ -177,11 +177,11 @@
 								</div>
 								<div class="form-group">
 									<label class="col-sm-4 control-label"></label>
-									<div class="col-sm-6">
+									<div class="col-lg-8">
 										<a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'block';
-                                                                                            document.getElementById('fade').style.display = 'block'"><input id="wijzig" class="btn btn-primary" type="submit" value="Change" ></a>
+                                                                                            document.getElementById('fade').style.display = 'block'"><input id="wijzig" class="button-grey" type="submit" value="Change" ></a>
 										<a href = "javascript:void(0)" onclick = "document.getElementById('changepassword').style.display = 'none';
-                                                                                            document.getElementById('fade').style.display = 'none'"><input class="btn btn-primary" type="reset" value="Cancel" ></a>
+                                                                                            document.getElementById('fade').style.display = 'none'"><input class="button-grey" type="reset" value="Cancel" ></a>
 									</div>
 								</div>
 							</form>

@@ -61,6 +61,11 @@
     margin-right: 1em;
     color: #FF6666;
 }
+.icon-cross-button:before {
+    content: "\ea0f";
+    margin-right: 0.5em;
+    color: #FF6666;
+}
 
 .icon-home:before {
     content: "\e900";

@@ -424,7 +424,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="table-responsive">
                             <table class="table table-striped" id="tovalidate-table"></table>
                         </div>
