@@ -226,7 +226,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
-                                                <button class="btn btn-default" id="organism-id" type="submit">Update</button>
+                                                <button class="button-grey" id="organism-id" type="submit">Update</button>
                                             </div>
                                         </div>
                                     </form>
@@ -241,7 +241,6 @@
                         <p>Press the <span class="icon-plus"></span> To publish to the website </p>
                          <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                         <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>					
-
                         <div id="update-queue-organism" class="insert-box">
                             <label class="close-button">x</label>
                             <div class="content">
@@ -420,7 +419,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-2">
-                                                <button class="btn btn-default" id="organism-id" type="submit">Update</button>
+                                                <button class="button-grey" id="organism-id" type="submit">Update</button>
                                             </div>
                                         </div>
                                     </form>
