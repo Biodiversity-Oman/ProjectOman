@@ -61,21 +61,21 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$" required/> 
+                                                                                                <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
                                                                                         </div>    
                                                                                         <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                 </div> 
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$" required/> 
+                                                                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
                                                                                         </div>
                                                                                         <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="organism-local-name" maxlength="50" data-delay="1200" required/> 
+                                                                                                <input class="form-control" type="text" name="organism-local-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
                                                                                         </div>
                                                                                         <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                 </div>
@@ -94,13 +94,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-population">Population</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" id="organism-population" maxlength="50" data-delay="1200" name="organism-population" />
+                                                                                                <input class="form-control" type="text" id="organism-population" maxlength="50" data-delay="1200" name="organism-population" pattern="[^()[\]{}*^$<>#]+$" />
+                                                                                                <span class="help-block with-errors">Up to 50 characters upper/lower case. Use of < or > not allowed</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea class="form-control" rows="3" name="organism-description"></textarea>
+                                                                                                <textarea class="form-control" rows="3" name="organism-description" pattern="[^()[\]{}*^$<>#]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 9000 characters upper/lower case.</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -153,44 +155,50 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control"  name="organism-benefits"></textarea>
+                                                                                                <textarea rows="3" class="form-control"  name="organism-benefits" pattern="[^()[\]{}*^$<>#]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control"  name="organism-dangerous"></textarea>
+                                                                                                <textarea rows="3" class="form-control"  name="organism-dangerous" pattern="[^()[\]{}*^$<>#]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="organism-threats"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="organism-threats" pattern="[^()[\]{}*^$<>#]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="organism-opportunities"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="organism-opportunities" pattern="[^()[\]{}*^$<>#]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="organism-links"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="organism-links" pattern="[^[\]{}*^<>]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="organism-food-name" maxlength="50" data-delay="1200" required/> 
+                                                                                                <input class="form-control" type="text" name="organism-food-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
                                                                                         </div>
                                                                                         <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="organism-food-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="organism-food-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -243,14 +251,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="world-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="world-name" maxlength="50" data-delay="1200" pattern="^([A-z\s ]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="world-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="world-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control"  name="world-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control"  name="world-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -285,14 +294,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="world-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="world-name" id="world-name" maxlength="50" data-delay="1200" pattern="^([A-z\s ]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="world-name" id="world-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="world-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="world-description" name="world-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="world-description" name="world-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -333,14 +343,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="family-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="family-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="family-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="family-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="family-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="family-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>                                                           
                                                                                 <div class="form-group">
@@ -381,14 +392,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="family-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="family-name" id="family-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="family-name" id="family-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="family-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="family-description" id="family-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="family-description" id="family-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -435,14 +447,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="subfamily-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="subfamily-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="subfamily-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="submfamily-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="subfamily-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="subfamily-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>                                                            
                                                                                 <div class="form-group">
@@ -483,14 +496,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="subfamily-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="subfamily-name" id="subfamily-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="subfamily-name" id="subfamily-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="subfamily-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="subfamily-description" id="subfamily-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="subfamily-description" id="subfamily-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -538,14 +552,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="season-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control"type="text" name="season-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                                                                <input class="form-control"type="text" name="season-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="season-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="season-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="season-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -580,14 +595,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="season-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="season-name" id="season-name" maxlength="50" data-delay="1200" pattern="^([A-z\s ]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="season-name" id="season-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="season-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="season-description" name="season-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="season-description" name="season-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -627,14 +643,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="habitat-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="habitat-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="habitat-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="habitat-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="habitat-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="habitat-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea
+                                                                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -669,14 +686,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="habitat-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="habitat-name" id="habitat-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="habitat-name" id="habitat-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="habitat-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="habitat-description" name="habitat-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="habitat-description" name="habitat-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -718,14 +736,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="area-name">Area name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="area-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="area-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="area-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="area-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="area-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
+                                                                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -768,14 +787,15 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="area-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="area-name" id="area-name" maxlength="50" data-delay="1200" pattern="^([A-z\s ]){1,}$" required/>
+                                                                                                <input class="form-control" type="text" name="area-name" id="area-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="area-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="area-description" name="area-description"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="area-description" name="area-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea
+                                                                                                 <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -809,189 +829,204 @@
                                         </div>
                                         <div id="tab8" class="tab">
                                             <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
-                                                <div id="update-pending-organism" class="insert-box">
-                                                        <label class="close-button">x</label>
-                                                        <div class="content">
-                                                                <div id="update-pending-organism">
-                                                                        <form class="form form-horizontal" id="update-pending-organism-form" data-toggle="validator" enctype="multipart/form-data">
-                                                                                <input type="hidden" id="organism-id" name="organism-id">
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <h2 class="h2">Update this organism before validation</h2>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <!--<form class="form-group"> -->                                           
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input class="form-control" id="scientific-name" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/> 
-                                                                                        </div>    
-                                                                                        <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
-                                                                                </div> 
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input class="form-control" id="common-name" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="^([A-z\s]){1,}$" required/> 
-                                                                                        </div>
-                                                                                        <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input class="form-control" id="local-name" type="text" name="organism-local-name" maxlength="50" data-delay="1200" required/> 
-                                                                                        </div>
-                                                                                        <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-family">Family</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <select class="form-control" id="family-ddl-pending" name="organism-family-id"></select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <select class="form-control" id="subfamily-ddl-pending" name="organism-subfamily-id"></select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-population">Population</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" id="population" maxlength="50" data-delay="1200" name="organism-population" />
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <textarea class="form-control" rows="3" id="description" name="organism-description"></textarea>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label">Choose Habitat</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <select class="chosen-select form-control" id="habitat-ddl-pending" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label">Choose World</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <select class="form-control" id="world-ddl-pending" name="organism-world-id" data-placeholder="Choose World"></select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-photo">Add Photo</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input type="file" id="photo"  name="upfileOrganism" >
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-indigenous">Indigenous</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input style="width: 1em;"   type="radio" id="organismIndigenousTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
-                                                                                                <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" required> <label>No</label>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input style="width: 1em;"   type="radio" id="organismCultivateTrue"  name="organism-cultivated" value="true" required> <label>Yes</label><br>
-                                                                                                <input style="width: 1em;"  type="radio" id="organismCultivateFalse" name="organism-cultivated" value="false" required> <label>No</label>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-endangered">Endangered</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input style="width: 1em;"   type="radio" id="organismEndangeredTrue"  name="organism-endangered" value="true" required> <label>Yes</label><br>
-                                                                                                <input style="width: 1em;"  type="radio" id="organismEndangeredFalse" name="organism-endangered" value="false" required> <label>No</label>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-medicinal">Medicinal</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input style="width: 1em;"   type="radio" id="organismMedicinalTrue"  name="organism-medicinal" value="true" required> <label>Yes</label><br>
-                                                                                                <input style="width: 1em;"  type="radio" id="organismMedicinalFalse" name="organism-medicinal" value="false" required> <label>No</label>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="benefits"  name="organism-benefits"></textarea>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="dangerous"  name="organism-dangerous"></textarea>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="threats" name="organism-threats"></textarea>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="opportunities" name="organism-opportunities"></textarea>
-                                                                                        </div>
-                                                                                </div>
-
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="links" name="organism-links"></textarea>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" id="food-name" name="organism-food-name" maxlength="50" data-delay="1200" required/> 
-                                                                                        </div>
-                                                                                        <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="food-description" name="organism-food-description"></textarea>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label">Choose season</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <select class="chosen-select form-control" id="season-ddl-pending" name="organism-season-id" multiple data-placeholder="Choose Season"></select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label">Choose geolocations</label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <select class="chosen-select form-control" id="geolocation-ddl-pending" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations"></select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-4">
-                                                                                                <div id="update-pending-organism-message"></div>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label"></label>
-                                                                                        <div class="col-sm-2">
-                                                                                                <button class="btn btn-default" type="submit">Approve and submit</button>
-                                                                                        </div>
-                                                                                </div>
-                                                                        </form>
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                                <div class="table-responsive">
-                                                        <table class="table table-striped" id="pending-table"></table>
-                                                </div>
+                                            <div id="update-pending-organism" class="insert-box">
+                            <label class="close-button">x</label>
+                            <div class="content">
+                                <div id="update-pending-organism">
+                                    <form class="form form-horizontal" id="update-pending-organism-form" data-toggle="validator" enctype="multipart/form-data">
+                                        <input type="hidden" id="organism-id-pending" name="organism-id">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <h2 class="h2">Update this organism before validation</h2>
+                                            </div>
                                         </div>
+                                        <!--<form class="form-group"> -->                                           
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" id="scientific-name-pending" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
+                                            </div>    
+                                            <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                        </div> 
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" id="common-name-pending" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
+                                            </div>
+                                            <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" id="local-name-pending" type="text" name="organism-local-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
+                                            </div>
+                                            <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="family">Family</label>
+                                            <div class="col-sm-4">
+                                                <select class="form-control" id="family-ddl-pending" name="organism-family-id"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
+                                            <div class="col-sm-4">
+                                                <select class="form-control" id="subfamily-ddl-pending" name="organism-subfamily-id"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-population">Population</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" type="text" id="population-pending" maxlength="50" data-delay="1200" pattern="[^()[\]{}*^$<>#@]+$" name="organism-population" />
+                                                <span class="help-block with-errors">Up to 50 characters. Use of < or > not allowed</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
+                                            <div class="col-sm-4">
+                                                <textarea class="form-control" rows="3" id="description-pending" name="organism-description" pattern="[^()[\]{}*^%$<>#0-9@]+$"></textarea>
+                                                <span class="help-block with-errors">Up to 9000 characters upper/lower case(no digits)</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Choose Habitat</label>
+                                            <div class="col-sm-4">
+                                                <select class="chosen-select form-control" id="habitat-ddl-pending" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Choose World</label>
+                                            <div class="col-sm-4">
+                                                <select class="form-control" id="world-ddl-pending" name="organism-world-id" data-placeholder="Choose World"></select>
+                                            </div>
+                                        </div>
+                                        <label class="col-sm-2 control-label" for="organism-photo-old">Current Photo</label>
+                                            <div class="col-sm-4">
+                                                <img src="loadPhoto()" alt="">
+                                            </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-photo">Add Photo</label>
+                                            <div class="col-sm-4">
+                                                <input type="file" id="photo-pending"  name="upfileOrganism" >
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-indigenous">Indigenous</label>
+                                            <div class="col-sm-4">
+                                                <input style="width: 1em;"   type="radio" id="organismIndigenousTrue-pending"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
+                                                <input style="width: 1em;"  type="radio" id="organismIndigenousFalse-pending" name="organism-indigenous" value="false" required> <label>No</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
+                                            <div class="col-sm-4">
+                                                <input style="width: 1em;"   type="radio" id="organismCultivateTrue-pending"  name="organism-cultivated" value="true" required> <label>Yes</label><br>
+                                                <input style="width: 1em;"  type="radio" id="organismCultivateFalse-pending" name="organism-cultivated" value="false" required> <label>No</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-endangered">Endangered</label>
+                                            <div class="col-sm-4">
+                                                <input style="width: 1em;"   type="radio" id="organismEndangeredTrue-pending"  name="organism-endangered" value="true" required> <label>Yes</label><br>
+                                                <input style="width: 1em;"  type="radio" id="organismEndangeredFalse-pending" name="organism-endangered" value="false" required> <label>No</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-medicinal">Medicinal</label>
+                                            <div class="col-sm-4">
+                                                <input style="width: 1em;"   type="radio" id="organismMedicinalTrue-pending"  name="organism-medicinal" value="true" required> <label>Yes</label><br>
+                                                <input style="width: 1em;"  type="radio" id="organismMedicinalFalse-pending" name="organism-medicinal" value="false" required> <label>No</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" id="benefits-pending"  name="organism-benefits" pattern="[^()[\]{}*^$<>#@]+$"></textarea>
+                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" id="dangerous-pending"  name="organism-dangerous" pattern="[^()[\]{}*&^%$<>#@]+$"></textarea>
+                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" id="threats-pending" name="organism-threats" pattern="[^()[\]{}*^$<>#@]+$"></textarea>
+                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" id="opportunities-pending" name="organism-opportunities" pattern="[^()[\]{}*^$<>#]+$"></textarea>
+                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" id="links-pending" name="organism-links" pattern="[^()[\]{}*^$<>#]+$" ></textarea>
+                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" type="text" id="food-name-pending" name="organism-food-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*^$<>#]+$" required/> 
+                                            </div>
+                                            <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
+                                            <div class="col-sm-4">
+                                                <textarea rows="3" class="form-control" id="food-description-pending" name="organism-food-description" pattern="[^()[\]{}*^$<>#]+$"></textarea>
+                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case</span>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Choose season</label>
+                                            <div class="col-sm-4">
+                                                <select class="chosen-select form-control" id="season-ddl-pending" name="organism-season-id" multiple data-placeholder="Choose Season"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Choose geolocations</label>
+                                            <div class="col-sm-4">
+                                                <select class="chosen-select form-control" id="geolocation-ddl-pending" name="organism-geolocation-id" multiple data-placeholder="Choose Geolocations"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <div id="update-pending-organism-message"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-2">
+                                                <button class="btn btn-default" type="submit">Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="pending-table"></table>
+                        </div>
+                    </div>
+                                          
+    </div>
                                 </div>
                         </div>
-                </div>
-        </body>
+</body>
 </html>
 

@@ -48,27 +48,28 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="firstname">Firstname</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="firstname" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$" 	   									<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                                                            <input class="form-control" type="text" name="firstname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required>
+                                                                            <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="lastname">Lastname</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="lastname" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$" required>
+										<input class="form-control" type="text" name="lastname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required>
 										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="Country">Country</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="country" maxlength="50" data-delay="1200" pattern="^([ A-z\s]){1,}$"  required>
+										<input class="form-control" type="text" name="country" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required>
 										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="City">City</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="city" data-delay="1200" maxlength="50" pattern="^([ A-z\s]){1,}$"  required>
+										<input class="form-control" type="text" name="city" data-delay="1200" maxlength="50" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required>
 										<span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 									</div>
 								</div>
@@ -82,14 +83,14 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="email">E-mail</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="email" data-delay="1200" name="email" data-error="That email address is invalid" required>
+										<input class="form-control" type="email" data-delay="1200" name="email" pattern="\b[A-Z0-9._+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,4}\b$)" data-error="E-mail address is invalid" required>
 										<span class="help-block with-errors">Valid e-mail address required</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="username">Username</label>
 									<div class="col-sm-4">
-										<input class="form-control" type="text" name="username" data-delay="1200" pattern="^([-_A-z0-9]){1,}$" maxlength="20" data-minlength="5" required>
+										<input class="form-control" type="text" name="username" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" maxlength="20" data-minlength="5" required>
 										<span class="help-block with-errors">Up to 20 characters and symbols "- _"  (min length 5 characters)</span>
 									</div>
 								</div>

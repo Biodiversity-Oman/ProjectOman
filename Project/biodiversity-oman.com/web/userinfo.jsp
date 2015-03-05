@@ -9,6 +9,7 @@
 	<header>
 		<script src="js/ajax.js"></script>
 		<script src="js/loaders.js"></script>
+                <script src="js/validator.js"></script>
 	</header>
 	<script>
                 // deze javascript functie zorgt ervoor dat de edit button naar update veranderd en dat de velden hun input enabled worden.
@@ -77,37 +78,42 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="firstname">Firstname</label>
 						<div class="col-sm-4">
-							<input class="form-control" id="firstname" name="firstname" disabled  >
+                                                    <input class="form-control" id="firstname" name="firstname" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" disabled required >
+                                                        <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="lastname">Lastname</label>
 						<div class="col-sm-4">
-							<input class="form-control" id="lastname" name="lastname" disabled >
+							<input class="form-control" id="lastname" name="lastname" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" disabled required >
+                                                        <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="city">City</label>
 						<div class="col-sm-4">
-							<input class="form-control" id="city" name="city" disabled >
+                                                    <input class="form-control" id="city" name="city" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" disabled required >
+                                                    <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="country">Country</label>
 						<div class="col-sm-4">
-							<input class="form-control" id="country" name="country" disabled >
+                                                    <input class="form-control" id="country" name="country" pattern="[^()[\]{}*&^%$=~+<>#0-9@!]+$" disabled required >
+                                                    <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits and special symbols)</span>
 						</div>
 					</div>
 					<div class="form-group" >
 						<label class="col-sm-2 control-label"  for="phone">Phone</label>
 						<div class="col-sm-4">
-							<input class="form-control" id="phone" name="phone" disabled >
+                                                    <input class="form-control" id="phone" name="phone" pattern="^[0-9./()-]+$" disabled required >
+                                                    <span class="help-block with-errors">Up to 20 digits between 0-9 and symbols "- / . ()"</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="email">E-mail</label>
 						<div class="col-sm-4">
-							<input class="form-control" type="email" id="email" name="email" disabled >
+							<input class="form-control" type="email" id="email" pattern="\b[A-Z0-9._+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,4}\b$)" name="email" disabled required >
 						</div>
                                         </div>
 					<div class="form-group">
