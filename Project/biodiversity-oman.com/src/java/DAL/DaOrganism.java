@@ -913,7 +913,7 @@ public class DaOrganism {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE organism set isvalidate= '1' WHERE organism_id=" + organismId);
+			stmt = conn.prepareStatement("UPDATE organism set isvalidated= '1' WHERE organism_id=" + organismId);
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {

@@ -183,6 +183,6 @@ public class ServOrganism {
 
     public static void PublishFromQueue(int organismId) throws SQLException {
 
-        return DaOrganism.publishFromQue(organismId);
+       DaOrganism.publishFromQue(organismId);
     }
 }

@@ -5,12 +5,8 @@
         <group>
             <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/web/js/ajax.js</file>
             <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/web/js/loaders.js</file>
-            <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/web/publish.jsp</file>
-            <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/src/java/Controllers/DeleteSeason.java</file>
-            <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/src/java/Controllers/SelectOneOrganismById.java</file>
-            <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/src/java/Service/ServSeason.java</file>
-            <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/web/js/validator.js</file>
-            <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/src/java/BLL/Organism.java</file>
+            <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/src/java/DAL/DaOrganism.java</file>
+            <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/src/java/Controllers/QueueAddToPublished.java</file>
             <file>file:/C:/Users/Tom/Documents/GitBioDiversity_Oman/ProjectOman/Project/biodiversity-oman.com/src/java/Service/ServOrganism.java</file>
         </group>

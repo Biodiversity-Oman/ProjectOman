@@ -808,7 +808,7 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-   
+
 //---------------------------------------------------------------------------------------------------------------------
 // SelectOne functions (buttons)
 //---------------------------------------------------------------------------------------------------------------------
@@ -1073,7 +1073,7 @@ $(document).ready(function () {
     });
 
 // update queue-publish-button published.jsp - queue tab
-    $(document).on('click', 'table #queue-publish-btn', function () {      
+    $(document).on('click', 'table #queue-publish-btn', function () {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'QueueAddToPublished?id=' + id,
@@ -1087,7 +1087,7 @@ $(document).ready(function () {
             loadToValidateOrganisms();
             loadPendingOrganisms();
         });
-       
+
     });
 
 
@@ -1097,161 +1097,161 @@ $(document).ready(function () {
 
 
 // functie voor delete button in list users tabel in usermanagement.jsp
-$(document).on('click', '.table #make-admin-btn', function () {
+    $(document).on('click', '.table #make-admin-btn', function () {
 
-    var username = ($(this).attr("value"));
-    $.ajax({
-        url: 'SetSuperUser?username=' + username,
-        type: 'POST',
-        dataType: 'text',
-        cache: false,
-        async: true
-    }).done(function () {
-        loadUsers();
-    });
-});
-
-
-
-// functie voor delete world btn in dashboard.jsp
-$(document).on('click', '.table #delete-world-btn', function () {
-
-    var id = ($(this).attr("value"));
-    $.ajax({
-        url: 'DeleteWorld?id=' + id,
-        type: 'POST',
-        dataType: 'text',
-        cache: false,
-        async: true
-    }).done(function () {
-        loadWorlds();
-    });
-});
-
-// functie voor delete season btn in dashboard.jsp
-$(document).on('click', '.table #delete-season-btn', function () {
-
-    var id = ($(this).attr("value"));
-    $.ajax({
-        url: 'DeleteSeason?id=' + id,
-        type: 'POST',
-        dataType: 'text',
-        cache: false,
-        async: true
-    }).done(function () {
-        loadSeasons();
-    });
-});
-
-// functie voor delete family btn in dashboard.jsp
-$(document).on('click', '.table #delete-family-btn', function () {
-
-    var id = ($(this).attr("value"));
-    $.ajax({
-        url: 'DeleteFamily?id=' + id,
-        type: 'POST',
-        dataType: 'text',
-        cache: false,
-        async: true
-    }).done(function () {
-        loadFamilies();
-    });
-});
-
-// functie voor delete habitat btn in dashboard.jsp
-$(document).on('click', '.table #delete-habitat-btn', function () {
-
-    var id = ($(this).attr("value"));
-    $.ajax({
-        url: 'DeleteHabitat?id=' + id,
-        type: 'POST',
-        dataType: 'text',
-        cache: false,
-        async: true
-    }).done(function () {
-        loadHabitats();
-    });
-});
-
-// functie voor delete subfamily btn in dashboard.jsp
-$(document).on('click', '.table #delete-subfamily-btn', function () {
-
-    var id = ($(this).attr("value"));
-    $.ajax({
-        url: 'DeleteSubFamily?id=' + id,
-        type: 'POST',
-        dataType: 'text',
-        cache: false,
-        async: true
-    }).done(function () {
-        loadSubFamilies();
-    });
-});
-
-// functie voor delete geolocation btn in dashboard.jsp
-$(document).on('click', '.table #delete-geolocation-btn', function () {
-
-    var id = ($(this).attr("value"));
-    $.ajax({
-        url: 'DeleteGeolocation?id=' + id,
-        type: 'POST',
-        dataType: 'text',
-        cache: false,
-        async: true
-    }).done(function () {
-        loadGeolocations();
-    });
-});
-
-// functie voor delete organism btn in dashboard.jsp
-$(document).on('click', '.table #delete-organism-btn', function () {
-
-    var id = ($(this).attr("value"));
-    $.ajax({
-        url: 'DeleteOrganism?id=' + id,
-        type: 'POST',
-        dataType: 'text',
-        cache: false,
-        async: true
-    }).done(function () {
-        loadOrganisms();
-        loadPendingOrganisms();
-        loadPublishedOrganisms();
-        loadToValidateOrganisms();
-    });
-});
-
-// functie voor delete organism/published btn in published.jsp
-$(document).on('click', '.table #delete-organism-published-btn', function () {
-
-    var id = ($(this).attr("value"));
-    $.ajax({
-        url: 'DeleteOrganism?id=' + id,
-        type: 'POST',
-        dataType: 'text',
-        cache: false,
-        async: true
-    }).done(function () {
-        loadOrganisms();
-        loadPendingOrganisms();
-        loadPublishedOrganisms();
-        loadToValidateOrganisms();
-    });
-});
-
-// functie voor delete organism/queue btn in published.jsp
-$(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
-
-    var id = ($(this).attr("value"));
-    $.ajax({
-    url: 'DeleteOrganism?id=' + id,
+        var username = ($(this).attr("value"));
+        $.ajax({
+            url: 'SetSuperUser?username=' + username,
             type: 'POST',
             dataType: 'text',
             cache: false,
             async: true
-    }).done(function () {
-        loadPendingOrganisms();
-        loadToValidateOrganisms();
+        }).done(function () {
+            loadUsers();
+        });
     });
+
+
+
+// functie voor delete world btn in dashboard.jsp
+    $(document).on('click', '.table #delete-world-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteWorld?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadWorlds();
+        });
+    });
+
+// functie voor delete season btn in dashboard.jsp
+    $(document).on('click', '.table #delete-season-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteSeason?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadSeasons();
+        });
+    });
+
+// functie voor delete family btn in dashboard.jsp
+    $(document).on('click', '.table #delete-family-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteFamily?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadFamilies();
+        });
+    });
+
+// functie voor delete habitat btn in dashboard.jsp
+    $(document).on('click', '.table #delete-habitat-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteHabitat?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadHabitats();
+        });
+    });
+
+// functie voor delete subfamily btn in dashboard.jsp
+    $(document).on('click', '.table #delete-subfamily-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteSubFamily?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadSubFamilies();
+        });
+    });
+
+// functie voor delete geolocation btn in dashboard.jsp
+    $(document).on('click', '.table #delete-geolocation-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteGeolocation?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadGeolocations();
+        });
+    });
+
+// functie voor delete organism btn in dashboard.jsp
+    $(document).on('click', '.table #delete-organism-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteOrganism?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadOrganisms();
+            loadPendingOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+        });
+    });
+
+// functie voor delete organism/published btn in published.jsp
+    $(document).on('click', '.table #delete-organism-published-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteOrganism?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadOrganisms();
+            loadPendingOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+        });
+    });
+
+// functie voor delete organism/queue btn in published.jsp
+    $(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
+
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteOrganism?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadPendingOrganisms();
+            loadToValidateOrganisms();
+        });
     });
 });
