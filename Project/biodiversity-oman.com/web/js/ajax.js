@@ -1000,6 +1000,7 @@ $(document).ready(function () {
 	    async: true
 	}).done(function () {
 	    loadWorlds();
+                    loadFamilies();
 	});
     });
 
@@ -1030,6 +1031,7 @@ $(document).ready(function () {
 	    async: true
 	}).done(function () {
 	    loadFamilies();
+                    loadSubFamilies();
 	});
     });
 
