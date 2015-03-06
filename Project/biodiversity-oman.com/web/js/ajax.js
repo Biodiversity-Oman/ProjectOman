@@ -991,7 +991,6 @@ $(document).ready(function () {
     });
 
     // update select-organism-button/validate publish.jsp - queue tab
-<<<<<<< HEAD
     $(document).on('click', 'table #update-queue-organism-btn', function() {
 	document.getElementById('update-queue-organism').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
@@ -1036,7 +1035,7 @@ $(document).ready(function () {
              });
              $(".chosen-select").trigger("chosen:updated");
 	});
-=======
+    });
     $(document).on('click', 'table #update-queue-organism-btn', function () {
         document.getElementById('update-queue-organism').style.display = 'block';
         document.getElementById('fade').style.display = 'block';
@@ -1080,12 +1079,11 @@ $(document).ready(function () {
             });
             $(".chosen-select").trigger("chosen:updated");
         });
->>>>>>> origin/master
     });
 
     // update select-organism-button/published publish.jsp - published tab
-<<<<<<< HEAD
     $(document).on('click', 'table #update-published-organism-btn', function() {
+        
 	document.getElementById('update-published-organism').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
 	var id = ($(this).attr("value"));
@@ -1132,6 +1130,8 @@ $(document).ready(function () {
 
     // update select-pending-button dashboard.jsp - pending tab
     $(document).on('click', 'table #update-pending-organism-btn', function() {
+        
+    
 	document.getElementById('update-pending-organism').style.display = 'block';
 	document.getElementById('fade').style.display = 'block';
 	var id = ($(this).attr("value"));
@@ -1175,53 +1175,11 @@ $(document).ready(function () {
              });
              $(".chosen-select").trigger("chosen:updated");             
 	});
-=======
-    $(document).on('click', 'table #update-published-organism-btn', function () {
-        document.getElementById('update-published-organism').style.display = 'block';
-        document.getElementById('fade').style.display = 'block';
-        var id = ($(this).attr("value"));
-        $.ajax({
-            url: 'SelectOneOrganismById?id=' + id,
-            type: 'GET',
-            dataType: 'JSON',
-            cache: false,
-            async: true
-        }).done(function (data) {
-            $('#organism-id-published').val(id);
-            $('#scientific-name-published').val(data.scientificName);
-            $('#common-name-published').val(data.commonName);
-            $('#local-name-published').val(data.localName);
-            $('#description-published').val(data.description);
-            $('#benefits-published').val(data.benefits);
-            $('#dangerous-published').val(data.dangerous);
-            $('#threats-published').val(data.threats);
-            $('#opportunities-published').val(data.opportunities);
-            $('#links-published').val(data.links);
-            $('#food-name-published').val(data.foodName);
-            $('#food-description-published').val(data.foodDescription);
-            $('#population-published').val(data.population);
-            $("#family-ddl-published option[value='" + data.family.familyId + "']").attr("selected", "selected");
-            $("#subfamily-ddl-published option[value='" + data.subFamily.subFamilyId + "']").attr("selected", "selected");
-            $("#world-ddl-published option[value='" + data.world.worldId + "']").attr("selected", "selected");
-            $("input[name=organism-indigenous][value='" + data.indigenous + "']").attr('checked', 'checked');
-            $("input[name=organism-cultivated][value='" + data.cultivated + "']").attr('checked', 'checked');
-            $("input[name=organism-endangered][value='" + data.endangered + "']").attr('checked', 'checked');
-            $("input[name=organism-medicinal][value='" + data.medicinal + "']").attr('checked', 'checked');
-            data.habitat.forEach(function (habitat) {
-                $('#habitat-ddl-published option[value=' + habitat.habitatId + ']').prop('selected', true);
-            });
-            data.geolocations.forEach(function (geolocation) {
-                $('#geolocation-ddl-published option[value=' + geolocation.geolocationId + ']').prop('selected', true);
-            });
-            data.season.forEach(function (season) {
-                $('#season-ddl-published option[value=' + season.seasonId + ']').prop('selected', true);
-            });
-            $(".chosen-select").trigger("chosen:updated");
-        });
     });
-
+    
     // update select-pending-button dashboard.jsp - pending tab
     $(document).on('click', 'table #update-pending-organism-btn', function () {
+        
         document.getElementById('update-pending-organism').style.display = 'block';
         document.getElementById('fade').style.display = 'block';
         var id = ($(this).attr("value"));
@@ -1264,7 +1222,6 @@ $(document).ready(function () {
             });
             $(".chosen-select").trigger("chosen:updated");
         });
->>>>>>> origin/master
     });
 
     $(document).on('click', 'table #detail-organism-btn', function () {
@@ -1277,16 +1234,9 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'JSON',
             cache: false,
-<<<<<<< HEAD
 	    async: true
-	}).done(function (data) {
-                         
-            $('#img-detail').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');            
-=======
-            async: true
         }).done(function (data) {
-
->>>>>>> origin/master
+            $('#img-detail').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
             $('#scientific-name-detail').html(data.scientificName);
             $('#common-name-detail').html(data.commonName);
             $('#local-name-detail').html(data.localName);
