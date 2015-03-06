@@ -453,7 +453,7 @@ function loadPosts() {
 
 function loadEaten() {
 
-    var $ddl = $('#eatenby-ddl, #geteatenby-ddl');
+    var $ddl = $('#eatenby-ddl, #geteatenby-ddl, #eatenby-ddl-update, #geteatenby-ddl-update');
     $.ajax({
         url: 'SelectEaten',
         type: 'GET',
