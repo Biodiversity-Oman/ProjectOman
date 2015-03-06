@@ -48,7 +48,7 @@
                         <div class="table-responsive">
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism-published" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)"><br>
-                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                                <p>Press the<span class="icon-pencil2"></span> To edit</p>
                                 <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p><br>
                             </div>
                         </div> 
@@ -124,6 +124,13 @@
                                                 <select class="form-control" id="world-ddl-published" name="organism-world-id" data-placeholder="Choose World"></select>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-2 control-label">Current Photo</label>
+                                                <div class="col-sm-4">
+                                                    <div id="img-published">                                                   
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-photo">Add Photo</label>
                                             <div class="col-sm-4">
@@ -244,7 +251,7 @@
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on name (minimal 3 characters)"><br>
                                 <p>Press the <span class="icon-plus"></span> To publish to the website </p>
-                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                                <p>Press the<span class="icon-pencil2"></span>To edit</p>
                                 <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
                             </div>
 
@@ -321,6 +328,13 @@
                                                 <select class="form-control" id="world-ddl-queue" name="organism-world-id" data-placeholder="Choose World"></select>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-2 control-label">Current Photo</label>
+                                                <div class="col-sm-4">
+                                                    <div id="img-queue">                                                   
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-photo">Add Photo</label>
                                             <div class="col-sm-4">

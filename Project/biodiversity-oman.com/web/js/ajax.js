@@ -993,6 +993,7 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
 	     $('#organism-id-queue').val(id);
+             $('#img-queue').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
              $('#scientific-name-queue').val(data.scientificName);
              $('#common-name-queue').val(data.commonName);
              $('#local-name-queue').val(data.localName);
@@ -1039,6 +1040,7 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
 	     $('#organism-id-published').val(id);
+             $('#img-published').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
              $('#scientific-name-published').val(data.scientificName);
              $('#common-name-published').val(data.commonName);
              $('#local-name-published').val(data.localName);
@@ -1084,6 +1086,7 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
              $('#organism-id-pending').val(id);
+             $('#img-pending').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
              $('#scientific-name-pending').val(data.scientificName);
              $('#common-name-pending').val(data.commonName);
              $('#local-name-pending').val(data.localName);
@@ -1129,7 +1132,8 @@ $(document).ready(function () {
             cache: false,
 	    async: true
 	}).done(function (data) {
-            
+                         
+            $('#img-detail').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');            
             $('#scientific-name-detail').html(data.scientificName);
             $('#common-name-detail').html(data.commonName);
             $('#local-name-detail').html(data.localName);

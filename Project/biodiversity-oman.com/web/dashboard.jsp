@@ -237,6 +237,9 @@
                             <div id="detail-organism" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div id="detail-content" class="content">
+                                <label for="current-photo">Current photo:</label>
+                                                    <div id="img-detail">                                                   
+                                                    </div>
                                         <label for="scientific-name">Scientific Name:</label>
                                         <label id="scientific-name-detail"></label><br>
                                         <label for="common-name">Common name:</label>
@@ -961,7 +964,8 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Current Photo</label>
                                                 <div class="col-sm-4">
-                                                    <img src="SelectPhotoById?id=2" alt="">
+                                                    <div id="img-pending">                                                   
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
