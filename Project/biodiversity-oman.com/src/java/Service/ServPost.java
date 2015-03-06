@@ -5,6 +5,9 @@
  */
 package Service;
 
+import DAL.DaPost;
+import java.sql.SQLException;
+
 /**
  *
  * @author bert
@@ -15,4 +18,9 @@ public class ServPost {
     {
         return DAL.DaPost.selectAllPost();
     }
+    
+    public static void deletePost(int id) throws SQLException {
+
+		DaPost.deletePost(id);
+	}
 }

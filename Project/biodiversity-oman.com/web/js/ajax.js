@@ -1417,4 +1417,21 @@ var r = confirm("Delete this subscriber?");
         });
     }
     });
+    
+    // functie voor delete post btn in published.jsp
+    $(document).on('click', '.table #delete-post-btn', function () {
+var r = confirm("Delete this post?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeletePost?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+                loadPosts();
+        });
+    }
+    });
 });

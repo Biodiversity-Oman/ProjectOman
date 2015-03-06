@@ -33,6 +33,7 @@ public class ServSeason {
 
 		DaSeason.deleteSeason(id);
 	}
+        
           public static void updateSeason(String seasonName, String seasonDescription, int seasonId) throws SQLException {
 
 		Season s =new Season();
