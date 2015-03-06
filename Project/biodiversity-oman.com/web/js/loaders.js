@@ -311,7 +311,8 @@ function loadPendingOrganisms() {
         $table.append('<tr>\n\
                        <th>Common name</th>\n\
                        <th>Scientific name</th>\n\
-                       <th>Submitted on</th>\n\
+                       <th>Submitted on</th>\n\\n\
+                        <th>Updated on</th>\n\
                        <th>Action</th>\n\
                        </tr>');
         data.forEach(function (o) {
@@ -319,6 +320,7 @@ function loadPendingOrganisms() {
                            <td>' + o.commonName + '</td>\n\
                            <td>' + o.scientificName + '</td>\n\
                            <td>' + o.insertedOn + '</td>\n\
+                           <td>' + o.updatedOn +'</td>\n\
                            <td>\n\
                            <button class="no-button-user" id="update-pending-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
                            </td>\n\
