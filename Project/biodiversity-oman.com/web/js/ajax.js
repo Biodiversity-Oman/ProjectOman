@@ -16,7 +16,6 @@ $(document).ready(function () {
 	$('.insert-box').hide();
 	document.getElementById('fade').style.display = 'none';
     });
-    
 
     //functie voor de zoekbalk in usermanagement.jsp
     $('#search-user-account').keyup(function (e) {
@@ -57,7 +56,10 @@ $(document).ready(function () {
 					    <td>' + user.email + '</td>\n\
 					    <td>' + user.phone + '</td>\n\
 					    <td>' + user.isAdmin + '</td>\n\
-					    <td><button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button><button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button></td>\n\
+					    <td>\n\
+                                            <button class="no-button" id="delete-user-btn" type="submit" value="' + user.userName + '"><span class="icon-cross"></span></button><button class="no-button" id="make-admin-btn" type="submit" value="' + user.userName + '"><span class="icon-plus"></span></button></span></button>\n\
+                                            <button class="no-button" id="make-normal-btn" type="submit" value="' + user.userName + '"><span class="icon-minus"></span></button>\n\
+                                            </td>\n\
 					    </tr>');
 		    });
 	    });
