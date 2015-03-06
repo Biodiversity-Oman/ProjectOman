@@ -453,7 +453,7 @@ function loadPosts() {
 
 function loadEaten() {
 
-    var $ddl = $('#eatenby-ddl, #geteatenby-ddl, #eatenby-ddl-update, #geteatenby-ddl-update, #eatenby-ddl-pending, #geteatenby-ddl-pending, #eatenby-ddl-queue, #geteatenby-ddl-queue');
+    var $ddl = $('#eatenby-ddl, #geteatenby-ddl, #eatenby-ddl-published, #geteatenby-ddl-published, #eatenby-ddl-pending, #geteatenby-ddl-pending, #eatenby-ddl-queue, #geteatenby-ddl-queue');
     $.ajax({
         url: 'SelectEaten',
         type: 'GET',

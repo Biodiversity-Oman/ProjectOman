@@ -195,13 +195,13 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Eats the following</label>
                                                 <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="eatenby-ddl" name="organism-eatingOrganisms" multiple data-placeholder="Choose Organism"></select>
+                                                    <select class="chosen-select form-control" id="eatenby-ddl" name="eating-organism-id" multiple data-placeholder="Choose Organism"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Gets eaten by</label>
                                                 <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="geteatenby-ddl" name="organism-eatenbyorganism" multiple data-placeholder="Choose Organism"></select>
+                                                    <select class="chosen-select form-control" id="geteatenby-ddl" name="eaten-by-organism-id" multiple data-placeholder="Choose Organism"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -1052,13 +1052,13 @@
                                              <div class="form-group">
                                                 <label class="col-sm-2 control-label">Eats the following</label>
                                                 <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="eatenby-ddl-pending" name="organism-eatingOrganisms-pending" multiple data-placeholder="Choose Organism"></select>
+                                                    <select class="chosen-select form-control" id="eatenby-ddl-pending" name="eating-organism-id" multiple data-placeholder="Choose Organism"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Gets eaten by</label>
                                                 <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="geteatenby-ddl-pending" name="organism-eatenbyorganism-pending" multiple data-placeholder="Choose Organism"></select>
+                                                    <select class="chosen-select form-control" id="geteatenby-ddl-pending" name="eaten-by-organism-id" multiple data-placeholder="Choose Organism"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
