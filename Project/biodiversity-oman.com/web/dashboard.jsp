@@ -247,58 +247,57 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="detail-organism" class="insert-box">
-                                <label class="close-button">x</label>
-                                <div id="detail-content" class="content">
-                                <label for="current-photo">Current photo:</label>
-                                                    <div id="img-detail">                                                   
-                                                    </div>
-                                        <label for="scientific-name">Scientific Name:</label>
+                                <div id="detail-organism" class="insert-box">
+                                        <label class="close-button">x</label>
+                                        <div class="content">
+                                        <div class="col-xs-2"><label for="current-photo">Current photo:</label></div>
+                                        <div id="img-detail"></div><br>
+                                        <div class="col-xs-2"><label for="scientific-name">Scientific Name:</label></div>
                                         <label id="scientific-name-detail"></label><br>
-                                        <label for="common-name">Common name:</label>
+                                        <div class="col-xs-2"><label for="common-name">Common name:</label></div>
                                         <label id="common-name-detail"></label><br>
-                                        <label for="local-name">Local name:</label>
+                                        <div class="col-xs-2"><label for="local-name">Local name:</label></div>
                                         <label id="local-name-detail"></label><br>
-                                        <label for="description">Description:</label>
+                                        <div class="col-xs-2"><label for="description">Description:</label></div>
                                         <label id="description-detail"></label><br>
-                                        <label for="benefits">Benefits:</label>
+                                        <div class="col-xs-2"><label for="benefits">Benefits:</label></div>
                                         <label id="benefits-detail"></label><br>
-                                        <label for="dangerous">Dangerous:</label>
+                                        <div class="col-xs-2"><label for="dangerous">Dangerous:</label></div>
                                         <label id="dangerous-detail"></label><br>
-                                        <label for="threats">Threats:</label>
+                                        <div class="col-xs-2"><label for="threats">Threats:</label></div>
                                         <label id="threats-detail"></label><br>
-                                        <label for="opportunities">Opportunities:</label>
+                                        <div class="col-xs-2"><label for="opportunities">Opportunities:</label></div>
                                         <label id="opportunities-detail"></label><br>
-                                        <label for="links">Links:</label>
+                                        <div class="col-xs-2"><label for="links">Links:</label></div>
                                         <label id="links-detail"></label><br>
-                                        <label for="food-name">Food name:</label>
+                                        <div class="col-xs-2"><label for="food-name">Food name:</label></div>
                                         <label id="food-name-detail"></label><br>
-                                        <label for="food-description">Food Description:</label>
+                                        <div class="col-xs-2"><label for="food-description">Food Description:</label></div>
                                         <label id="food-description-detail"></label><br>
-                                        <label for="population">Population:</label>
+                                        <div class="col-xs-2"><label for="population">Population:</label></div>
                                         <label id="population-detail"></label><br>
-                                        <label for="family">Family:</label>
+                                        <div class="col-xs-2"><label for="family">Family:</label></div>
                                         <label id="family-detail"></label><br>
-                                        <label for="subfamily">Subfamily:</label>
+                                        <div class="col-xs-2"><label for="subfamily">Subfamily:</label></div>
                                         <label id="subfamily-detail"></label><br>
-                                        <label for="world">World:</label>
+                                        <div class="col-xs-2"><label for="world">World:</label></div>
                                         <label id="world-detail"></label><br>
-                                        <label for="indigenous">Indigenous:</label>
+                                        <div class="col-xs-2"><label for="indigenous">Indigenous:</label></div>
                                         <label id="indigenous-detail"></label><br>
-                                        <label for="cultivated">Cultivated:</label>
+                                        <div class="col-xs-2"><label for="cultivated">Cultivated:</label></div>
                                         <label id="cultivated-detail"></label><br>
-                                        <label for="endangered">Endangered:</label>
+                                        <div class="col-xs-2"><label for="endangered">Endangered:</label></div>
                                         <label id="endangered-detail"></label><br>
-                                        <label for="medicinal">Medicinal:</label>
+                                        <div class="col-xs-2"><label for="medicinal">Medicinal:</label></div>
                                         <label id="medicinal-detail"></label><br>
-                                        <label for="habitat">Habitat:</label>
+                                        <div class="col-xs-2"><label for="habitat">Habitat:</label></div>
                                         <label id="habitat-detail"></label><br>
-                                        <label for="geolocation">Geolocation:</label>
+                                        <div class="col-xs-2"><label for="geolocation">Geolocation:</label></div>
                                         <label id="geolocation-detail"></label><br>
-                                        <label for="season">Season:</label>
+                                        <div class="col-xs-2"><label for="season">Season:</label></div>
                                         <label id="season-detail"></label><br>
                                 </div>
-                            </div>
+                        </div>
                             <div class="table-responsive">
                                 <table class="table table-striped" id="organisms-table"></table>
                             </div>
