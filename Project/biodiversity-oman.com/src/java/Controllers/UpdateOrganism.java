@@ -78,22 +78,18 @@ public class UpdateOrganism extends HttpServlet {
         for (int i=0; i < request.getParameterValues("organism-season-id").length; i++) {
         seasonIds[i] = Integer.parseInt(request.getParameterValues("organism-season-id")[i]);}
 
-//        int[] eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
-//        for (int i=0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
-//        eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);}
-//
-//        int[] eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
-//        for (int i=0; i < request.getParameterValues("eating-organism-id").length; i++) {
-//        eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);}
+        int[] eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
+        for (int i=0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
+        eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);}
+
+        int[] eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
+        for (int i=0; i < request.getParameterValues("eating-organism-id").length; i++) {
+        eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);}
 
         int[] geolocationIds = new int[request.getParameterValues("organism-geolocation-id").length];
         for (int i=0; i < request.getParameterValues("organism-geolocation-id").length; i++) {
         geolocationIds[i] = Integer.parseInt(request.getParameterValues("organism-geolocation-id")[i]);}
         
-	int[] eatenByOrganismIds = { 1, 2 };
-
-        int[] eatingOrganismIds = { 1, 2 };
-	
         byte[] bytes = null;
         int id= Integer.parseInt(request.getParameter("organism-id"));
         try{

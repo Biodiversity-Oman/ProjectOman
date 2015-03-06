@@ -1045,7 +1045,13 @@ var r = confirm("Make this user an admin?");
              $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
              $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
              $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
-             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked');             
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); 
+             data.eatenByOrganism.forEach(function(organism) {
+                 $('#eatenby-ddl-queue option[value='+ organism.organismId + ']').prop('selected', true);
+             });
+             data.eatingOrganisms.forEach(function(organism) {
+                 $('#geteatenby-ddl-queue option[value='+ organism.organismId + ']').prop('selected', true);
+             });
              data.habitat.forEach(function(habitat) {
                  $('#habitat-ddl-queue option[value='+ habitat.habitatId + ']').prop('selected', true);
              });
@@ -1092,7 +1098,13 @@ var r = confirm("Make this user an admin?");
              $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
              $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
              $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
-             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked');               
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked');
+             data.eatenByOrganism.forEach(function(organism) {
+                 $('#eatenby-ddl-published option[value='+ organism.organismId + ']').prop('selected', true);
+             });
+             data.eatingOrganisms.forEach(function(organism) {
+                 $('#geteatenby-ddl-published option[value='+ organism.organismId + ']').prop('selected', true);
+             });
              data.habitat.forEach(function(habitat) {
                  $('#habitat-ddl-published option[value='+ habitat.habitatId + ']').prop('selected', true);
              });
@@ -1141,7 +1153,13 @@ var r = confirm("Make this user an admin?");
              $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
              $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
              $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
-             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked');              
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); 
+              data.eatenByOrganism.forEach(function(organism) {
+                 $('#eatenby-ddl-pending option[value='+ organism.organismId + ']').prop('selected', true);
+             });
+             data.eatingOrganisms.forEach(function(organism) {
+                 $('#geteatenby-ddl-pending option[value='+ organism.organismId + ']').prop('selected', true);
+             });
              data.habitat.forEach(function(habitat) {
                  $('#habitat-ddl-pending option[value='+ habitat.habitatId + ']').prop('selected', true);
              });
