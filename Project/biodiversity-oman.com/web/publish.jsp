@@ -29,6 +29,7 @@
                 loadSubFamilies();
                 loadHabitats();
                 loadGeolocations();
+                loadEaten();
                 $(".chosen-select").chosen({width: "100%"});
             });
         </script>
@@ -200,6 +201,18 @@
                                                 <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                             </div>
                                         </div>
+                                         <div class="form-group">
+                                                <label class="col-sm-2 control-label">Eats the following</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="eatenby-ddl-update" name="organism-eatingOrganisms-update" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Gets eaten by</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="geteatenby-ddl-update" name="organism-eatenbyorganism-update" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
                                             <div class="col-sm-4">
@@ -404,6 +417,18 @@
                                                 <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                             </div>
                                         </div>
+                                         <div class="form-group">
+                                                <label class="col-sm-2 control-label">Eats the following</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="eatenby-ddl-queue" name="organism-eatingOrganisms-update" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Gets eaten by</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="geteatenby-ddl-queue" name="organism-eatenbyorganism-update" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
                                             <div class="col-sm-4">
