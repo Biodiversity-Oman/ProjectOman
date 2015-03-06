@@ -46,14 +46,16 @@
                 </ul>
                 <div class="tab-content">  
                     <div id="tab1" class="tab active">
-                        <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
-                        <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
-                         <div class="table-responsive">
+
+                        <div class="table-responsive">
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on any name"><br>
+                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                                <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p><br>
                             </div>
                             <table class="table table-striped" id="published-table"></table>
-                        </div>                   
+                        </div> 
+
                         <div id="update-published-organism" class="insert-box">
                             <label class="close-button">x</label>
                             <div class="content">
@@ -242,13 +244,13 @@
                             <table class="table table-striped" id="published-table"></table>
                         </div>
                     </div>
-                    <div id="tab2" class="tab">
-                        <p>Press the <span class="icon-plus"></span> To publish to the website </p>
-                        <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
-                        <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
-                         <div class="table-responsive">
+                    <div id="tab2" class="tab">                        
+                        <div class="table-responsive">
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on any name"><br>
+                                <p>Press the <span class="icon-plus"></span> To publish to the website </p>
+                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                                <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
                             </div>
                             <table class="table table-striped" id="published-table"></table>
                         </div> 
