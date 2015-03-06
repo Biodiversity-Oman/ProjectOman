@@ -79,13 +79,12 @@ public class DaWorld {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(true);
-            String updatefamily = "UPDATE family SET world_id=null WHERE world_id=" + worldId;
-            stmt.addBatch(updatefamily);
-            String updatedownload = "UPDATE download SET world_id=null WHERE world_id=" + worldId;
-            stmt.addBatch(updatedownload);
-            String delete = "DELETE FROM world WHERE world_id=" + worldId;
-            stmt.addBatch(delete);
-            stmt.executeBatch();
+            stmt = conn.prepareStatement("UPDATE family SET world_id=null WHERE world_id=" + worldId);
+            stmt.executeUpdate();
+            stmt = conn.prepareStatement("UPDATE download SET world_id=null WHERE world_id=" + worldId);
+            stmt.executeUpdate();
+            stmt = conn.prepareStatement("DELETE FROM world WHERE world_id=" + worldId);
+            stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
             conn.rollback();

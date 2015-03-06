@@ -81,11 +81,10 @@ public class DaFamily {
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
-            String updatesubfamily = "UPDATE subfamily SET family_id=null WHERE family_id=" + familyId;
-            stmt.addBatch(updatesubfamily);
-            String delete = "DELETE FROM family WHERE family_id=" + familyId;
-            stmt.addBatch(delete);
-            stmt.executeBatch();
+            stmt = conn.prepareStatement("UPDATE subfamily SET family_id=null WHERE family_id=" + familyId);
+            stmt.executeUpdate();
+            stmt = conn.prepareStatement("DELETE FROM family WHERE family_id=" + familyId);
+            stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
             conn.rollback();

@@ -149,8 +149,8 @@ INSERT INTO `habitat` (`habitat_id`, `habitat_name`, `habitat_description`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `habitat_organism` (
-  `habitat_id` int(11) DEFAULT NULL,
-  `organism_id` int(11) DEFAULT NULL,
+  `habitat_id` int(11) NOT NULL,
+  `organism_id` int(11) NOT NULL,
   KEY `habitat_id` (`habitat_id`),
   KEY `organism_id` (`organism_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -206,8 +206,8 @@ INSERT INTO `organism` (`organism_id`, `scientific_name`, `common_name`, `local_
 --
 
 CREATE TABLE IF NOT EXISTS `organism_season` (
-  `organism_id` int(11) DEFAULT NULL,
-  `season_id` int(11) DEFAULT NULL,
+  `organism_id` int(11) NOT NULL,
+  `season_id` int(11) NOT NULL,
   KEY `living_organism_id` (`organism_id`),
   KEY `season_id` (`season_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -368,28 +368,28 @@ ALTER TABLE `download`
 -- Beperkingen voor tabel `family`
 --
 ALTER TABLE `family`
-  ADD CONSTRAINT `fk_family_world` FOREIGN KEY (`world_id`) REFERENCES `world` (`world_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_family_world` FOREIGN KEY (`world_id`) REFERENCES `world` (`world_id`);
 
 --
 -- Beperkingen voor tabel `food`
 --
 ALTER TABLE `food`
-  ADD CONSTRAINT `fk_eating_eatenby` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `fk_eatenby_eating` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`);
+  ADD CONSTRAINT `fk_eating_eatenby` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_eatenby_eating` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE;
 
 --
 -- Beperkingen voor tabel `geolocation_organism`
 --
 ALTER TABLE `geolocation_organism`
-  ADD CONSTRAINT `fk_organism_geolocation` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `fk_geolocation_organism` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`);
+  ADD CONSTRAINT `fk_organism_geolocation` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_geolocation_organism` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`) ON DELETE CASCADE;
 
 --
 -- Beperkingen voor tabel `habitat_organism`
 --
 ALTER TABLE `habitat_organism`
-  ADD CONSTRAINT `fk_habitat_organism` FOREIGN KEY (`habitat_id`) REFERENCES `habitat` (`habitat_id`),
-  ADD CONSTRAINT `fk_organism_habitat` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`);
+  ADD CONSTRAINT `fk_habitat_organism` FOREIGN KEY (`habitat_id`) REFERENCES `habitat` (`habitat_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_organism_habitat` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE;
 
 --
 -- Beperkingen voor tabel `organism`
@@ -401,8 +401,8 @@ ALTER TABLE `organism`
 -- Beperkingen voor tabel `organism_season`
 --
 ALTER TABLE `organism_season`
-  ADD CONSTRAINT `fk_organism_season` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`),
-  ADD CONSTRAINT `fk_season_organism` FOREIGN KEY (`season_id`) REFERENCES `season` (`season_id`);
+  ADD CONSTRAINT `fk_organism_season` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_season_organism` FOREIGN KEY (`season_id`) REFERENCES `season` (`season_id`) ON DELETE CASCADE;
 
 --
 -- Beperkingen voor tabel `post`
