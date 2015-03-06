@@ -409,13 +409,15 @@ function loadPublishedOrganisms() {
         $table.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\
-                                    <th>Last updated on</th>\n\
+                                    <th>Inserted on</th>\n\
+                                    <th>Updated on</th>\n\
                                     <th>Action</th>\n\
                                 </tr>');
         data.forEach(function (org) {
             $table.append('<tr>\n\
-                                        <td>' + org.commonName + '</td>\n\\n\
+                                        <td>' + org.commonName + '</td>\n\
                                         <td>' + org.scientificName + '</td>\n\
+                                        <td>'+ org.insertedOn +'</td>\n\
                                         <td>' + org.updatedOn + '</td>\n\\n\
                                         <td><button class="no-button" id="update-published-organism-btn" type="submit" value="' + org.organismId + '"><span class="icon-pencil2"></span></button>\n\
                                             <button class="no-button" id="delete-organism-published-btn" type="submit" value="' + org.organismId + '"><span class="icon-cross"></span></button>\n\
@@ -467,7 +469,7 @@ function loadOrganisms() {
     var $table = $('#organisms-table');
     var $content = $('.content');
     $.ajax({
-        url: 'SelectAllOrganism',
+        url: 'SelectAllPublishedOrganisms',
         type: 'GET',
         dataType: 'json',
         cache: false,
@@ -481,12 +483,14 @@ function loadOrganisms() {
         $table.html('');
         $table.append('<tr>\n\
                                     <th>Common name</th>\n\
-                                    <th>Inserted on</th>\n\\n\
-                                    <th>Updated on</th>\n\\n\
+                                    <th>Scientific name</th>\n\
+                                    <th>Inserted on</th>\n\
+                                    <th>Updated on</th>\n\
                                 </tr>');
         data.forEach(function (organism) {
             $table.append('<tr>\n\
-                                        <td>' + organism.commonName + '</td>\n\
+                                        <td>' + organism.commonName + '</td>\n\\n\
+                                        <td>'+  organism.scientificName +'</td>\n\
                                         <td>' + organism.insertedOn + '</td>\n\\n\
                                         <td>' + organism.updatedOn + '</td>\n\
                                     </tr>');
