@@ -186,4 +186,9 @@ public class ServOrganism {
                 
         return DaOrganism.searchOrganism(keyword);
     }
+    
+    public static List SearchOrganismPending(String keyword) throws SQLException {
+                
+        return DaOrganism.searchOrganismPending(keyword);
+    }
 }

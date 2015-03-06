@@ -943,4 +943,23 @@ public class DaOrganism {
 		}
 		return result;
 	}
+        
+        public static List searchOrganismPending(String keyword) throws SQLException {
+
+		List<Organism> result = new ArrayList();
+		conn = DataSource.getConnection();
+		stmt = conn.prepareStatement("SELECT organism_id, common_name, scientific_name, inserted_on, updated_on\n"
+			+ "FROM organism \n"
+			+ "WHERE (CONCAT(common_name, scientific_name) LIKE '%" + keyword + "%') AND isvalidated = '0'");
+		ResultSet rs = stmt.executeQuery();
+		while (rs.next()) {
+			Organism o = new Organism();
+			o.setCommonName(rs.getString("common_name"));
+			o.setScientificName(rs.getString("scientific_name"));
+			o.setInsertedOn(rs.getDate("inserted_on"));
+			o.setUpdatedOn(rs.getDate("updated_on"));
+			result.add(o);
+		}
+		return result;
+	}
 }

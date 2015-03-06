@@ -277,6 +277,7 @@ function loadToValidateOrganisms() {
                        <th>Common name</th>\n\
                        <th>Scientific name</th>\n\
                        <th>Submitted on</th>\n\
+                       <th>Updated on</th>\n\
                        <th>Action</th>\n\
                        </tr>');
         data.forEach(function (o) {
@@ -284,6 +285,7 @@ function loadToValidateOrganisms() {
                            <td>' + o.commonName + '</td>\n\\n\
                            <td>' + o.scientificName + '</td>\n\
                            <td>' + o.insertedOn + '</td>\n\
+                           <td>' + o.updatedOn + '</td>\n\
                            <td>\n\
                            <button class="no-button" id="queue-publish-btn" type="submit" value="' + o.organismId + '"><span class="icon-plus"></span></button></span></button>\n\
                            <button class="no-button" id="update-queue-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
