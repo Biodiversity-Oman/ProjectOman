@@ -49,8 +49,8 @@
                         <div class="table-responsive">
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism-published" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)"><br>
-                                <p>Press the<span class="icon-pencil2"></span> To edit</p>
-                                <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p><br>
+                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                                <p>Press the <span class="icon-cross"></span> To delete </p><br>
                             </div>
                         </div> 
                         <div id="update-published-organism" class="insert-box">
@@ -264,8 +264,8 @@
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on name (minimal 3 characters)"><br>
                                 <p>Press the <span class="icon-plus"></span> To publish to the website </p>
-                                <p>Press the<span class="icon-pencil2"></span>To edit</p>
-                                <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
+                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                                <p>Press the <span class="icon-cross"></span> To delete </p>
                             </div>
 
                         </div> 
@@ -477,13 +477,13 @@
                         </div>
                     </div>
                     <div id="tab3" class="tab">
-                        <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
+                        <p>Press the <span class="icon-cross"></span> To delete </p>
                         <div class="table-responsive">
                             <table class="table table-striped" id="posts-table"></table>
                         </div>
                     </div>
                     <div id="tab4" class="tab">
-                        <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
+                        <p>Press the <span class="icon-cross"></span> To delete </p>
 
                         <div class="table-responsive">
                             <table class="table table-striped" id="subscriber-table"></table>
