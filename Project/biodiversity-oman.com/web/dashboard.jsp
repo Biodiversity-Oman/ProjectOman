@@ -23,6 +23,7 @@
                 loadHabitats();
                 loadGeolocations();
                 loadPendingOrganisms();
+                loadEaten();
                 $(".chosen-select").chosen({width: "100%"});
             });
         </script>
@@ -200,7 +201,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Gets eaten by</label>
                                                 <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="eatenby-ddl" name="organism-eatenbyorganism" multiple data-placeholder="Choose Organism"></select>
+                                                    <select class="chosen-select form-control" id="geteatenby-ddl" name="organism-eatenbyorganism" multiple data-placeholder="Choose Organism"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">

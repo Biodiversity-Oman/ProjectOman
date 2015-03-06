@@ -453,9 +453,9 @@ function loadPosts() {
 
 function loadEaten() {
 
-    var $ddl = $('#eatenby-ddl'); //, #habitat-ddl-published, #habitat-ddl-pending, #habitat-ddl-queue
+    var $ddl = $('#eatenby-ddl, #geteatenby-ddl');
     $.ajax({
-        url: 'SelectAllHabitats',
+        url: 'SelectEaten',
         type: 'GET',
         dataType: 'json',
         cache: false,
