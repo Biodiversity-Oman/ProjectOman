@@ -1003,7 +1003,7 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
 	     $('#organism-id-queue').val(id);
-             $('#img-queue').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
+             $('#img-queue').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
              $('#scientific-name-queue').val(data.scientificName);
              $('#common-name-queue').val(data.commonName);
              $('#local-name-queue').val(data.localName);
@@ -1036,51 +1036,7 @@ $(document).ready(function () {
              $(".chosen-select").trigger("chosen:updated");
 	});
     });
-    $(document).on('click', 'table #update-queue-organism-btn', function () {
-        document.getElementById('update-queue-organism').style.display = 'block';
-        document.getElementById('fade').style.display = 'block';
-        var id = ($(this).attr("value"));
-        $.ajax({
-            url: 'SelectOneOrganismById?id=' + id,
-            type: 'GET',
-            dataType: 'JSON',
-            cache: false,
-            async: true
-        }).done(function (data) {
-            $('#organism-id-queue').val(id);
-            $('#scientific-name-queue').val(data.scientificName);
-            $('#common-name-queue').val(data.commonName);
-            $('#local-name-queue').val(data.localName);
-            $('#description-queue').val(data.description);
-            $('#benefits-queue').val(data.benefits);
-            $('#dangerous-queue').val(data.dangerous);
-            $('#threats-queue').val(data.threats);
-            $('#opportunities-queue').val(data.opportunities);
-            $('#links-queue').val(data.links);
-            $('#food-name-queue').val(data.foodName);
-            $('#food-description-queue').val(data.foodDescription);
-            $('#population-queue').val(data.population);
-            $("#family-ddl-queue option[value='" + data.family.familyId + "']").attr("selected", "selected");
-            $("#subfamily-ddl-queue option[value='" + data.subFamily.subFamilyId + "']").attr("selected", "selected");
-            $("#habitat-ddl-queue option[value='" + data.habitat.habitatId + "']").attr("selected", "selected");
-            $("#world-ddl-queue option[value='" + data.world.worldId + "']").attr("selected", "selected");
-            $("input[name=organism-indigenous][value='" + data.indigenous + "']").attr('checked', 'checked');
-            $("input[name=organism-cultivated][value='" + data.cultivated + "']").attr('checked', 'checked');
-            $("input[name=organism-endangered][value='" + data.endangered + "']").attr('checked', 'checked');
-            $("input[name=organism-medicinal][value='" + data.medicinal + "']").attr('checked', 'checked');
-            data.habitat.forEach(function (habitat) {
-                $('#habitat-ddl-queue option[value=' + habitat.habitatId + ']').prop('selected', true);
-            });
-            data.geolocations.forEach(function (geolocation) {
-                $('#geolocation-ddl-queue option[value=' + geolocation.geolocationId + ']').prop('selected', true);
-            });
-            data.season.forEach(function (season) {
-                $('#season-ddl-queue option[value=' + season.seasonId + ']').prop('selected', true);
-            });
-            $(".chosen-select").trigger("chosen:updated");
-        });
-    });
-
+    
     // update select-organism-button/published publish.jsp - published tab
     $(document).on('click', 'table #update-published-organism-btn', function() {
         
@@ -1095,7 +1051,7 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
 	     $('#organism-id-published').val(id);
-             $('#img-published').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
+             $('#img-published').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
              $('#scientific-name-published').val(data.scientificName);
              $('#common-name-published').val(data.commonName);
              $('#local-name-published').val(data.localName);
@@ -1143,7 +1099,7 @@ $(document).ready(function () {
 	    async: true
 	}).done(function (data) {
              $('#organism-id-pending').val(id);
-             $('#img-pending').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
+             $('#img-pending').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
              $('#scientific-name-pending').val(data.scientificName);
              $('#common-name-pending').val(data.commonName);
              $('#local-name-pending').val(data.localName);
@@ -1177,53 +1133,6 @@ $(document).ready(function () {
 	});
     });
     
-    // update select-pending-button dashboard.jsp - pending tab
-    $(document).on('click', 'table #update-pending-organism-btn', function () {
-        
-        document.getElementById('update-pending-organism').style.display = 'block';
-        document.getElementById('fade').style.display = 'block';
-        var id = ($(this).attr("value"));
-        $.ajax({
-            url: 'SelectOneOrganismById?id=' + id,
-            type: 'GET',
-            dataType: 'JSON',
-            cache: false,
-            async: true
-        }).done(function (data) {
-            $('#organism-id-pending').val(id);
-            $('#scientific-name-pending').val(data.scientificName);
-            $('#common-name-pending').val(data.commonName);
-            $('#local-name-pending').val(data.localName);
-            $('#description-pending').val(data.description);
-            $('#benefits-pending').val(data.benefits);
-            $('#dangerous-pending').val(data.dangerous);
-            $('#threats-pending').val(data.threats);
-            $('#opportunities-pending').val(data.opportunities);
-            $('#links-pending').val(data.links);
-            $('#food-name-pending').val(data.foodName);
-            $('#food-description-pending').val(data.foodDescription);
-            $('#population-pending').val(data.population);
-            $("#family-ddl-pending option[value='" + data.family.familyId + "']").attr("selected", "selected");
-            $("#subfamily-ddl-pending option[value='" + data.subFamily.subFamilyId + "']").attr("selected", "selected");
-            $("#habitat-ddl-pending option[value='" + data.habitat.habitatId + "']").attr("selected", "selected");
-            $("#world-ddl-pending option[value='" + data.world.worldId + "']").attr("selected", "selected");
-            $("input[name=organism-indigenous][value='" + data.indigenous + "']").attr('checked', 'checked');
-            $("input[name=organism-cultivated][value='" + data.cultivated + "']").attr('checked', 'checked');
-            $("input[name=organism-endangered][value='" + data.endangered + "']").attr('checked', 'checked');
-            $("input[name=organism-medicinal][value='" + data.medicinal + "']").attr('checked', 'checked');
-            data.habitat.forEach(function (habitat) {
-                $('#habitat-ddl-pending option[value=' + habitat.habitatId + ']').prop('selected', true);
-            });
-            data.geolocations.forEach(function (geolocation) {
-                $('#geolocation-ddl-pending option[value=' + geolocation.geolocationId + ']').prop('selected', true);
-            });
-            data.season.forEach(function (season) {
-                $('#season-ddl-pending option[value=' + season.seasonId + ']').prop('selected', true);
-            });
-            $(".chosen-select").trigger("chosen:updated");
-        });
-    });
-
     $(document).on('click', 'table #detail-organism-btn', function () {
 
         document.getElementById('detail-organism').style.display = 'block';
