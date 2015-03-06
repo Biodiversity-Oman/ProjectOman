@@ -194,7 +194,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
+                                            <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                             <div class="col-sm-4">
                                                 <textarea rows="3" class="form-control" id="links-published" name="organism-links" pattern="[^()[\]{}*^$<>#]+$" ></textarea>
                                                 <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
@@ -398,7 +398,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
+                                            <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                             <div class="col-sm-4">
                                                 <textarea rows="3" class="form-control" id="links-queue" name="organism-links" pattern="[^()[\]{}*^$<>#]+$" ></textarea>
                                                 <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>

@@ -185,10 +185,22 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
+                                                <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                                 <div class="col-sm-4">
                                                     <textarea rows="3" class="form-control" name="organism-links" pattern="[^[\]{}*^<>]+$"></textarea>
                                                     <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Eats the following</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="eatenby-ddl" name="organism-eatingOrganisms" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Gets eaten by</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="eatenby-ddl" name="organism-eatenbyorganism" multiple data-placeholder="Choose Organism"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -1031,10 +1043,22 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="organism-links">Usefull links</label>
+                                                <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                                 <div class="col-sm-4">
                                                     <textarea rows="3" class="form-control" id="links-pending" name="organism-links" pattern="[^()[\]{}*^$<>#]+$" ></textarea>
                                                     <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
+                                                </div>
+                                            </div>
+                                             <div class="form-group">
+                                                <label class="col-sm-2 control-label">Eats the following</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="eatenby-ddl" name="organism-eatingOrganisms-update" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Gets eaten by</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="eatenby-ddl" name="organism-eatenbyorganism-update" multiple data-placeholder="Choose Organism"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
