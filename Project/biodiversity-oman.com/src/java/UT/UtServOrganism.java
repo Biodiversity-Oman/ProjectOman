@@ -23,7 +23,7 @@ public class UtServOrganism {
         byte[] photo = new byte[10];
         
         String message = ServOrganism.insert("scientificnamenewserv", "commonnamenewserv", "localnamenewserv", "descriptionnewserv", 
-                1, 1, 1, habitatid, "populationnewserv", seasonid, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE,
+                1, habitatid, "populationnewserv", seasonid, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE,
                 "benefitsnewserv", "dangerousnewserv", "threatsnewserv", "opportunitiesnewserv", photo, "linksnewserv",
                 eatenbyorganismid, eatingorganismid, "foodnamenewserv", "fooddescriptionnewserv", geolocationid);
         
@@ -33,9 +33,9 @@ public class UtServOrganism {
 //        });
         
         message = ServOrganism.update(1, "scientificnameupdateserv", "commonnameupdateserv", "localnameupdateserv", "descriptionupdateserv", 
-                2, 2, 2, habitatid, "populationupdateserv", seasonid, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE,
+                2, habitatid, "populationupdateserv", seasonid, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE,
                 "benefitsupdateserv", "dangerousupdateserv", "threatsupdateserv", "opportunitiesupdateserv", photo, "linksupdateserv",
-                eatenbyorganismid, eatingorganismid, "foodnameupdateserv", "fooddescriptionupdateserv", geolocationid);
+                eatenbyorganismid, eatingorganismid, "foodnameupdateserv", "fooddescriptionupdateserv", geolocationid, Boolean.TRUE);
         
         System.out.println(message);
 //        ServOrganism.selectAll().stream().forEach((o) -> {
