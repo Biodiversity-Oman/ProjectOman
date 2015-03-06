@@ -37,7 +37,7 @@ public class SearchOrganism extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-       String keyword = request.getParameter("organismKey");
+       String keyword = request.getParameter("organismkey");
 		try {
 			List result = ServOrganism.SearchOrganism(keyword);
 			response.getWriter().write(new Gson().toJson(result));
