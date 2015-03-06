@@ -242,6 +242,7 @@ $(document).ready(function () {
         }
         ;
     });
+    
 //---------------------------------------------------------------------------------------------------------------------
 // User management functions
 //---------------------------------------------------------------------------------------------------------------------
@@ -283,9 +284,10 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    // functie voor make-admin button in list users tabel in usermanagement.jsp
+    // functie voor delete user in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
-
+var r = confirm("Delete this user?");
+    if (r === true) {
         var username = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteUserAccount?username=' + username,
@@ -296,11 +298,13 @@ $(document).ready(function () {
         }).done(function () {
             loadUsers();
         });
+    }
     });
 
     // functie voor demoten van een user in usermanagement.jsp
     $(document).on('click', '.table #make-normal-btn', function () {
-
+var r = confirm("Demote this user?");
+    if (r === true) {
         var username = ($(this).attr("value"));
         $.ajax({
             url: 'SetNormalUser?username=' + username,
@@ -311,6 +315,24 @@ $(document).ready(function () {
         }).done(function () {
             loadUsers();
         });
+    }
+    });
+    
+    // functie voor make admin in list users tabel in usermanagement.jsp
+    $(document).on('click', '.table #make-admin-btn', function () {
+var r = confirm("Make this user an admin?");
+    if (r === true) {
+        var username = ($(this).attr("value"));
+        $.ajax({
+            url: 'SetSuperUser?username=' + username,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadUsers();
+        });
+    }
     });
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -1215,24 +1237,11 @@ $(document).ready(function () {
 // Delete functions
 //---------------------------------------------------------------------------------------------------------------------
 
-    // functie voor delete button in list users tabel in usermanagement.jsp
-    $(document).on('click', '.table #make-admin-btn', function () {
-
-        var username = ($(this).attr("value"));
-        $.ajax({
-            url: 'SetSuperUser?username=' + username,
-            type: 'POST',
-            dataType: 'text',
-            cache: false,
-            async: true
-        }).done(function () {
-            loadUsers();
-        });
-    });
-
     // functie voor delete world btn in dashboard.jsp
     $(document).on('click', '.table #delete-world-btn', function () {
 
+    var r = confirm("Delete this world?");
+    if (r === true) {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteWorld?id=' + id,
@@ -1244,11 +1253,14 @@ $(document).ready(function () {
             loadWorlds();
             loadFamilies();
         });
+    }
     });
+    
 
     // functie voor delete season btn in dashboard.jsp
     $(document).on('click', '.table #delete-season-btn', function () {
-
+var r = confirm("Delete this season?");
+    if (r === true) {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteSeason?id=' + id,
@@ -1259,11 +1271,13 @@ $(document).ready(function () {
         }).done(function () {
             loadSeasons();
         });
+    }
     });
 
     // functie voor delete family btn in dashboard.jsp
     $(document).on('click', '.table #delete-family-btn', function () {
-
+var r = confirm("Delete this family?");
+    if (r === true) {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteFamily?id=' + id,
@@ -1275,11 +1289,13 @@ $(document).ready(function () {
             loadFamilies();
             loadSubFamilies();
         });
+    }
     });
 
     // functie voor delete habitat btn in dashboard.jsp
     $(document).on('click', '.table #delete-habitat-btn', function () {
-
+var r = confirm("Delete this habitat?");
+    if (r === true) {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteHabitat?id=' + id,
@@ -1290,11 +1306,13 @@ $(document).ready(function () {
         }).done(function () {
             loadHabitats();
         });
+    }
     });
 
     // functie voor delete subfamily btn in dashboard.jsp
     $(document).on('click', '.table #delete-subfamily-btn', function () {
-
+var r = confirm("Delete this breed?");
+    if (r === true) {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteSubFamily?id=' + id,
@@ -1305,11 +1323,13 @@ $(document).ready(function () {
         }).done(function () {
             loadSubFamilies();
         });
+    }
     });
 
     // functie voor delete geolocation btn in dashboard.jsp
     $(document).on('click', '.table #delete-geolocation-btn', function () {
-
+var r = confirm("Delete this geolocation?");
+    if (r === true) {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteGeolocation?id=' + id,
@@ -1320,11 +1340,13 @@ $(document).ready(function () {
         }).done(function () {
             loadGeolocations();
         });
+    }
     });
 
     // functie voor delete organism btn in dashboard.jsp
     $(document).on('click', '.table #delete-organism-btn', function () {
-
+var r = confirm("Delete this organism?");
+    if (r === true) {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteOrganism?id=' + id,
@@ -1338,11 +1360,13 @@ $(document).ready(function () {
             loadPublishedOrganisms();
             loadToValidateOrganisms();
         });
+    }
     });
 
     // functie voor delete organism/published btn in published.jsp
     $(document).on('click', '.table #delete-organism-published-btn', function () {
-
+var r = confirm("Delete this organism?");
+    if (r === true) {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteOrganism?id=' + id,
@@ -1356,11 +1380,13 @@ $(document).ready(function () {
             loadPublishedOrganisms();
             loadToValidateOrganisms();
         });
+    }
     });
 
     // functie voor delete organism/queue btn in published.jsp
     $(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
-
+var r = confirm("Delete this organism?");
+    if (r === true) {
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'DeleteOrganism?id=' + id,
@@ -1372,5 +1398,23 @@ $(document).ready(function () {
             loadPendingOrganisms();
             loadToValidateOrganisms();
         });
+    }
+    });
+    
+    // functie voor delete subscriber btn in published.jsp
+    $(document).on('click', '.table #delete-subscriber-btn', function () {
+var r = confirm("Delete this subscriber?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteSubscriber?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+                loadSubscriber();
+        });
+    }
     });
 });

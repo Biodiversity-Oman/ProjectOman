@@ -546,23 +546,6 @@ public class DaOrganism {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
 
-            stmt = conn.prepareStatement("DELETE FROM organism_season WHERE organism_season.organism_id=?");
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-
-            stmt = conn.prepareStatement("DELETE FROM habitat_organism WHERE habitat_organism.organism_id=?");
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-
-            stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism_id=? OR food.eating_organism_id=?");
-            stmt.setInt(1, id);
-            stmt.setInt(2, id);
-            stmt.executeUpdate();
-
-            stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id=?");
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-
             stmt = conn.prepareStatement("DELETE FROM post WHERE post.organism_id=?");
             stmt.setInt(1, id);
             stmt.executeUpdate();

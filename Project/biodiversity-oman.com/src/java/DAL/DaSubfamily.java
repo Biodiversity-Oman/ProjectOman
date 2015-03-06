@@ -110,6 +110,8 @@ public class DaSubfamily {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
+                                                stmt = conn.prepareStatement("UPDATE organism SET subfamily_id=null WHERE subfamily_id=" + id);
+                                                stmt.executeUpdate();
 			stmt = conn.prepareStatement("DELETE FROM subfamily WHERE subfamily_id=" + id);
 			stmt.executeUpdate();
 			conn.commit();
