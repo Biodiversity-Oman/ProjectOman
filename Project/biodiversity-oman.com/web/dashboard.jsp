@@ -85,12 +85,12 @@
                                                 </div>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
-                                            <div class="form-group">
+                                            <!--<div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-family">Family</label>
                                                 <div class="col-sm-4">
                                                     <select class="form-control" id="family-ddl-insert-organism" name="organism-family-id"></select>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                                 <div class="col-sm-4">
@@ -117,12 +117,12 @@
                                                     <select class="chosen-select form-control" id="habitat-ddl-insert-organism" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <!--<div class="form-group">
                                                 <label class="col-sm-2 control-label">Choose World</label>
                                                 <div class="col-sm-4">
                                                     <select class="form-control" id="world-ddl-insert-organism" name="organism-world-id" data-placeholder="Choose World"></select>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
                                                 <div class="col-sm-4">
@@ -935,12 +935,12 @@
                                                 </div>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
-                                            <div class="form-group">
+                                            <!--<div class="form-group">
                                                 <label class="col-sm-2 control-label" for="family">Family</label>
                                                 <div class="col-sm-4">
                                                     <select class="form-control" id="family-ddl-pending" name="organism-family-id"></select>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                                 <div class="col-sm-4">
@@ -967,12 +967,12 @@
                                                     <select class="chosen-select form-control" id="habitat-ddl-pending" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <!--<div class="form-group">
                                                 <label class="col-sm-2 control-label">Choose World</label>
                                                 <div class="col-sm-4">
                                                     <select class="form-control" id="world-ddl-pending" name="organism-world-id" data-placeholder="Choose World"></select>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Current Photo</label>
                                                 <div class="col-sm-4">
