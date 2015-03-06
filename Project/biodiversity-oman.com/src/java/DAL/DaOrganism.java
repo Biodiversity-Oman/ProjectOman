@@ -617,7 +617,7 @@ public class DaOrganism {
             stmt = conn.prepareStatement(
                     "UPDATE organism SET scientific_name = ?, common_name = ?, local_name = ?, subfamily_id = ?, " +
                     "organism_description = ?, population = ?, indigenous = ?, cultivated = ?, endangered = ?, medicinal = ?, benefits = ?, dangerous = ?, " +
-                    "threats = ?, opportunities = ?, photo = ?, links = ?, food_name = ?, food_description = ?, updated_on = ?\n" +
+                    "threats = ?, opportunities = ?, photo = ?, links = ?, food_name = ?, food_description = ?, updated_on = ?, isvalidated=?\n" +
                     "WHERE organism.organism_id="+Integer.toString(organism.getOrganismId()));
                     
             stmt.setString(1, organism.getScientificName());
@@ -647,6 +647,7 @@ public class DaOrganism {
             java.util.Calendar cal = java.util.Calendar.getInstance();
             // !Date methode retourneerd een datum zonder tijd!
             stmt.setDate(19, new java.sql.Date(cal.getTimeInMillis()));
+            stmt.setBoolean(20, true);
             
             // Resultaat in de database opvragen en controleren.
             if ((result = stmt.executeUpdate()) == 0)  {throw new java.sql.SQLException("Update failed on organism id=" +  Integer.toString(organism.getOrganismId()));}
@@ -733,7 +734,8 @@ public class DaOrganism {
         return result;
     }
     
-    public static int UpdatePendingOrganism(BLL.Organism organism)
+    
+    public static int updatePendingOrganism(BLL.Organism organism)
     {
         int result;
         try 
@@ -746,7 +748,7 @@ public class DaOrganism {
             stmt = conn.prepareStatement(
                     "UPDATE organism SET scientific_name = ?, common_name = ?, local_name = ?, subfamily_id = ?, " +
                     "organism_description = ?, population = ?, indigenous = ?, cultivated = ?, endangered = ?, medicinal = ?, benefits = ?, dangerous = ?, " +
-                    "threats = ?, opportunities = ?, photo = ?, links = ?, food_name = ?, food_description = ?, updated_on = ?\n" +
+                    "threats = ?, opportunities = ?, photo = ?, links = ?, food_name = ?, food_description = ?, updated_on = ?, isvalidated=?\n" +
                     "WHERE organism.organism_id="+Integer.toString(organism.getOrganismId()));
                     
             stmt.setString(1, organism.getScientificName());
@@ -776,6 +778,7 @@ public class DaOrganism {
             java.util.Calendar cal = java.util.Calendar.getInstance();
             // !Date methode retourneerd een datum zonder tijd!
             stmt.setDate(19, new java.sql.Date(cal.getTimeInMillis()));
+            stmt.setBoolean(20, false);
             
             // Resultaat in de database opvragen en controleren.
             if ((result = stmt.executeUpdate()) == 0)  {throw new java.sql.SQLException("Update failed on organism id=" +  Integer.toString(organism.getOrganismId()));}
@@ -861,6 +864,7 @@ public class DaOrganism {
         }
         return result;
     }
+    
 
     public static java.util.List<BLL.Organism> selectAllForValidation()
     {

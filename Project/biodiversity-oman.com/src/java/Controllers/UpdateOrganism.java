@@ -20,7 +20,7 @@ import org.apache.commons.io.IOUtils;
 
 /**
  *
- * @author bert
+ * @author Eric
  */
 @WebServlet(name = "UpdateOrganism", urlPatterns = {"/UpdateOrganism"})
 @MultipartConfig
@@ -136,7 +136,8 @@ public class UpdateOrganism extends HttpServlet {
                                                                 eatingOrganismIds, 
                                                                 request.getParameter("organism-food-name"), 
                                                                 request.getParameter("organism-food-description"), 
-                                                                geolocationIds));
+                                                                geolocationIds,
+                                                                true));
     }
 
     /**

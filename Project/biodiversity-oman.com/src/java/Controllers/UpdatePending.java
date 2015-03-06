@@ -107,7 +107,7 @@ public class UpdatePending extends HttpServlet {
         }
 
 
-        response.getWriter().write(Service.ServOrganism.UpdatePending(Integer.parseInt(request.getParameter("organism-id")),
+        response.getWriter().write(Service.ServOrganism.updatePending(Integer.parseInt(request.getParameter("organism-id")),
                                                                 request.getParameter("organism-scientific-name"), 
                                                                 request.getParameter("organism-common-name"), 
                                                                 request.getParameter("organism-local-name"), 
@@ -132,7 +132,8 @@ public class UpdatePending extends HttpServlet {
                                                                 eatingOrganismIds, 
                                                                 request.getParameter("organism-food-name"), 
                                                                 request.getParameter("organism-food-description"), 
-                                                                geolocationIds));
+                                                                geolocationIds,
+                                                                false));
     }
 
     /**
