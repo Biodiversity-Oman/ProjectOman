@@ -52,6 +52,11 @@ public class Organism {
             this.organismId = organismId;
         }
 
+	@Override
+	public String toString() {
+		return "Organism{" + "scientificName=" + scientificName + ", commonName=" + commonName + ", insertedOn=" + insertedOn + ", updatedOn=" + updatedOn + '}';
+	}
+
         // Insert constructor
         public Organism(String scientificName, String commonName, String localName, String description, 
                 Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, 
