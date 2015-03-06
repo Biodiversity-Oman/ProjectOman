@@ -408,13 +408,15 @@ function loadOrganisms() {
                        <th>Scientific name</th>\n\
                        <th>Inserted on</th>\n\
                        <th>Updated on</th>\n\
+                       <th>Action</th>\n\
                        </tr>');
         data.forEach(function (organism) {
             $table.append('<tr>\n\
                            <td>' + organism.commonName + '</td>\n\\n\
                            <td>'+  organism.scientificName +'</td>\n\
                            <td>' + organism.insertedOn + '</td>\n\\n\
-                           <td>' + organism.updatedOn + '</td>\n\
+                           <td>' + organism.updatedOn + '</td>\n\\n\
+                           <td><button class="no-button" id="delete-subscriber-btn" type="submit" value="' + organism.organismId + '"><span class="icon-search"></span></button></td>\n\
                            </tr>');
         });
         adminCheck();
