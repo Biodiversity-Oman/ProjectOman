@@ -1236,7 +1236,7 @@ $(document).ready(function () {
             cache: false,
 	    async: true
         }).done(function (data) {
-            $('#img-detail').html('<img src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
+            $('#img-detail').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
             $('#scientific-name-detail').html(data.scientificName);
             $('#common-name-detail').html(data.commonName);
             $('#local-name-detail').html(data.localName);
