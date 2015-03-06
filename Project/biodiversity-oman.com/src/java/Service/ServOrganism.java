@@ -192,4 +192,9 @@ public class ServOrganism {
                 
         return DaOrganism.searchOrganismPending(keyword);
     }
+    
+    public static List SelectEaten() throws SQLException {
+                
+        return DaOrganism.selectEaten();
+    }
 }

@@ -450,3 +450,20 @@ function loadPosts() {
         });
     });
 };
+
+function loadEaten() {
+
+    var $ddl = $('#eatenby-ddl'); //, #habitat-ddl-published, #habitat-ddl-pending, #habitat-ddl-queue
+    $.ajax({
+        url: 'SelectAllHabitats',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        async: true
+    }).done(function (data) {
+        data.forEach(function (organism) {
+            $ddl.append('<option value="' + organism.organismId + '">' + organism.commonName + '</option>');
+            $(".chosen-select").trigger("chosen:updated");
+        });
+    });
+};

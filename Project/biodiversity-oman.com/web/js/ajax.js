@@ -542,6 +542,7 @@ $(document).ready(function () {
             loadOrganisms();
             loadToValidateOrganisms();
             loadPendingOrganisms();
+            loadEaten();
         });
         e.preventDefault();
     });
