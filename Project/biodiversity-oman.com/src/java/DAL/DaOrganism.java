@@ -891,7 +891,7 @@ public class DaOrganism {
         java.util.List<BLL.Organism> orgb = new java.util.ArrayList();
         try {
                 conn = DataSource.getConnection();
-                stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on LIMIT 100");
+                stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on, inserted_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on LIMIT 100");
 
                 java.sql.ResultSet rs = stmt.executeQuery();
 
@@ -900,6 +900,7 @@ public class DaOrganism {
                         o.setCommonName(rs.getString("common_name"));
                         o.setScientificName(rs.getString("scientific_name"));
                         o.setUpdatedOn(rs.getDate("updated_on"));
+			o.setInsertedOn(rs.getDate(("inserted_on")));
                         o.setOrganismId(rs.getInt("organism_id"));
                         orgb.add(o);
                 }
@@ -930,7 +931,7 @@ public class DaOrganism {
 		conn = DataSource.getConnection();
 		stmt = conn.prepareStatement("SELECT organism_id, common_name, scientific_name, inserted_on, updated_on\n"
 			+ "FROM organism \n"
-			+ "WHERE (CONCAT(common_name, scientific_name) LIKE '%" + keyword + "%')");
+			+ "WHERE (CONCAT(common_name, scientific_name) LIKE '%" + keyword + "%') AND isvalidated = '1'");
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			Organism o = new Organism();

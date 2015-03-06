@@ -335,16 +335,16 @@ public class DaOrganismTest {
 //		// TODO review the generated test code and remove the default call to fail.
 //		fail("The test case is a prototype.");
 //	}
-//
-//	/**
-//	 * Test of searchOrganism method, of class DaOrganism.
-//	 */
-//	@Test
-//	public void testSearchOrganism() throws Exception {
-//		System.out.println("searchOrganism");
-//		String keyword = "Dho";
-//		List result = DaOrganism.searchOrganism(keyword);
-//		System.out.println(result);
-//	}
+
+	/**
+	 * Test of searchOrganism method, of class DaOrganism.
+	 */
+	@Test
+	public void testSearchOrganism() throws Exception {
+		System.out.println("searchOrganism");
+		String keyword = "klepper";
+		List result = DaOrganism.searchOrganism(keyword);
+		System.out.println(result);
+	}
     
 }
