@@ -155,7 +155,7 @@ $(document).ready(function () {
 	var keyword = $(this).val();
 	if (keyword.length >= 3) {
 	    $.ajax({
-		url: 'SearchOrganism',
+		url: 'SearchOrganismPending', 
 		type: 'GET',
 		dataType: 'json',
 		cache: false,
