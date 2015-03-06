@@ -47,7 +47,7 @@
                     <div id="tab1" class="tab active">
                         <div class="table-responsive">
                             <div class="col-sm-4">
-                                <input class="form-control" id="search-organism-published" type="text" name="organismkey" placeholder="Search on any name"><br>
+                                <input class="form-control" id="search-organism-published" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)"><br>
                                 <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                                 <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p><br>
                             </div>
@@ -242,7 +242,7 @@
                     <div id="tab2" class="tab">                        
                         <div class="table-responsive">
                             <div class="col-sm-4">
-                                <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on any name"><br>
+                                <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on name (minimal 3 characters)"><br>
                                 <p>Press the <span class="icon-plus"></span> To publish to the website </p>
                                 <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                                 <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p>
