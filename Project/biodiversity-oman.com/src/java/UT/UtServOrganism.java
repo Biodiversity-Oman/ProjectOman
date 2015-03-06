@@ -28,9 +28,9 @@ public class UtServOrganism {
                 eatenbyorganismid, eatingorganismid, "foodnamenewserv", "fooddescriptionnewserv", geolocationid);
         
         System.out.println(message);
-        ServOrganism.selectAll().stream().forEach((o) -> {
-            System.out.println(o.getCommonName());
-        });
+//        ServOrganism.selectAll().stream().forEach((o) -> {
+//            System.out.println(o.getCommonName());
+//        });
         
         message = ServOrganism.update(1, "scientificnameupdateserv", "commonnameupdateserv", "localnameupdateserv", "descriptionupdateserv", 
                 2, 2, 2, habitatid, "populationupdateserv", seasonid, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE,
@@ -38,15 +38,15 @@ public class UtServOrganism {
                 eatenbyorganismid, eatingorganismid, "foodnameupdateserv", "fooddescriptionupdateserv", geolocationid);
         
         System.out.println(message);
-        ServOrganism.selectAll().stream().forEach((o) -> {
-            System.out.println(o.getCommonName());
-        });
+//        ServOrganism.selectAll().stream().forEach((o) -> {
+//            System.out.println(o.getCommonName());
+//        });
         
         message = ServOrganism.delete(4);
         System.out.println(message);
-        ServOrganism.selectAll().stream().forEach((o) -> {
-            System.out.println(o.getCommonName());
-        });
+//        ServOrganism.selectAll().stream().forEach((o) -> {
+//            System.out.println(o.getCommonName());
+//        });
 
     }
 }
