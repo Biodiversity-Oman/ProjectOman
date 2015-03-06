@@ -27,13 +27,13 @@ public class ServOrganism {
     // Anders dan bij de dal methodes worden hier de parameters als primitive types meegegeven. Geen Lists of objecten maar variables
     // en arrays. In deze methode worden ze in objecten gestoken om naar de DAL te sturen.
     public static String insert(String scientificname, String commonname, String localname, String description,
-            int subfamilyid, int familyid, int worldid, int[] habitatid, String population,
-            int[] seasonid, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
+            int subfamilyid, int[] habitatid, String population, int[] seasonid,
+            Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
             String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
             int[] eatenbyorganismid, int[] eatingorganismid, String foodname,
             String fooddescription, int[] geolocationid) {
-        int result;
-        if (!DaOrganism.checkOrganismExist(scientificname)) {
+            int result;
+            if (!DaOrganism.checkOrganismExist(scientificname)) {
             java.util.List<BLL.Habitat> habitat = new java.util.ArrayList<>();
             java.util.List<BLL.Season> season = new java.util.ArrayList<>();
             java.util.List<BLL.Organism> eatenbyorganism = new java.util.ArrayList<>();
@@ -57,8 +57,8 @@ public class ServOrganism {
             }
 
             result = DaOrganism.insertOrganism(new BLL.Organism(scientificname, commonname, localname, description,
-                    new BLL.Subfamily(subfamilyid), new BLL.Family(familyid), new BLL.World(worldid), habitat,
-                    population, season, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats,
+                    new BLL.Subfamily(subfamilyid), habitat, population, season,
+                     indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats,
                     opportunities, photo, links, eatenbyorganism, eatingorganism, foodname,
                     fooddescription, geolocation));
         } else {
@@ -72,8 +72,8 @@ public class ServOrganism {
 
     // Anders dan bij de dal methodes worden hier de parameters als primitive types meegegeven. Geen Lists of objecten maar variables
     // en arrays. In deze methode worden ze in objecten gestoken om naar de DAL te sturen.
-    public static String update(int id, String scientificname, String commonname, String localname, String description,
-            int subfamilyid, int familyid, int worldid, int[] habitatid, String population,
+    public static String update(int id, String scientificname, String commonname, String localname, 
+            String description, int subfamilyid, int[] habitatid, String population,
             int[] seasonid, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
             String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
             int[] eatenbyorganismid, int[] eatingorganismid, String foodname,
@@ -102,9 +102,9 @@ public class ServOrganism {
                 geolocation.add(new BLL.Geolocation(java.lang.reflect.Array.getInt(geolocationid, i)));
             }
 
-            result = DaOrganism.updateOrganism(new BLL.Organism(id, scientificname, commonname, localname, description,
-                    new BLL.Subfamily(subfamilyid), new BLL.Family(familyid), new BLL.World(worldid), habitat,
-                    population, season, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats,
+            result = DaOrganism.updateOrganism(new BLL.Organism(id, scientificname, commonname, localname, 
+                    description, new BLL.Subfamily(subfamilyid),  habitat, population,
+                    season, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats,
                     opportunities, photo, links, eatenbyorganism, eatingorganism, foodname,
                     fooddescription, geolocation, validated));
         } else {
@@ -117,7 +117,7 @@ public class ServOrganism {
     }
 
     public static String updatePending(int id, String scientificname, String commonname, String localname, String description,
-            int subfamilyid, int familyid, int worldid, int[] habitatid, String population,
+            int subfamilyid, int[] habitatid, String population,
             int[] seasonid, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
             String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
             int[] eatenbyorganismid, int[] eatingorganismid, String foodname,
@@ -146,9 +146,9 @@ public class ServOrganism {
                 geolocation.add(new BLL.Geolocation(java.lang.reflect.Array.getInt(geolocationid, i)));
             }
 
-            result = DaOrganism.updatePendingOrganism(new BLL.Organism(id, scientificname, commonname, localname, description,
-                    new BLL.Subfamily(subfamilyid), new BLL.Family(familyid), new BLL.World(worldid), habitat,
-                    population, season, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats,
+            result = DaOrganism.updatePendingOrganism(new BLL.Organism(id, scientificname, commonname, localname,
+                    description, new BLL.Subfamily(subfamilyid), habitat, population,
+                    season, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats,
                     opportunities, photo, links, eatenbyorganism, eatingorganism, foodname,
                     fooddescription, geolocation, validated));
         } else {

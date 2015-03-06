@@ -59,19 +59,17 @@ public class Organism {
 
         // Insert constructor
         public Organism(String scientificName, String commonName, String localName, String description, 
-                Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, 
-                List<Season> season, Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, 
+                Subfamily subFamily, List<Habitat> habitat, String population, List<Season> season,
+                Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, 
                 String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links, 
                 List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, String foodName, 
-                String foodDescription, List<Geolocation> geolocations) 
+                String foodDescription, List<Geolocation> geolocations)
         {
             this.scientificName = scientificName;
             this.commonName = commonName;
             this.localName = localName;
             this.description = description;
             this.subFamily = subFamily;
-            this.family = family;
-            this.world = world;
             this.habitat = habitat;
             this.population = population;
             this.season = season;
@@ -94,7 +92,7 @@ public class Organism {
 
         // Update constructor
         public Organism(int organismId, String scientificName, String commonName, String localName, String description,
-                Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, List<Season> season,
+                Subfamily subFamily, List<Habitat> habitat, String population, List<Season> season,
                 Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous,
                 String threats, String opportunities, byte[] photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, 
                 String foodName, String foodDescription, List<Geolocation> geolocations, Boolean validated) 
@@ -106,8 +104,6 @@ public class Organism {
             this.localName = localName;
             this.description = description;
             this.subFamily = subFamily;
-            this.family = family;
-            this.world = world;
             this.habitat = habitat;
             this.population = population;
             this.season = season;
