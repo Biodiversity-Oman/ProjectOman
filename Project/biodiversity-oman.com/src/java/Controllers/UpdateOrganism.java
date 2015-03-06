@@ -117,8 +117,6 @@ public class UpdateOrganism extends HttpServlet {
                                                                 request.getParameter("organism-local-name"), 
                                                                 request.getParameter("organism-description"), 
                                                                 Integer.parseInt(request.getParameter("organism-subfamily-id")), 
-                                                                Integer.parseInt(request.getParameter("organism-family-id")), 
-                                                                Integer.parseInt(request.getParameter("organism-world-id")), 
                                                                 habitatIds, 
                                                                 request.getParameter("organism-population"), 
                                                                 seasonIds, 

@@ -78,8 +78,8 @@ public class ServOrganism {
             String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
             int[] eatenbyorganismid, int[] eatingorganismid, String foodname,
             String fooddescription, int[] geolocationid, Boolean validated) {
-        int result;
-        if (!DaOrganism.checkOrganismExist(scientificname, id)) {
+            int result;
+            if (!DaOrganism.checkOrganismExist(scientificname, id)) {
             java.util.List<BLL.Habitat> habitat = new java.util.ArrayList<>();
             java.util.List<BLL.Season> season = new java.util.ArrayList<>();
             java.util.List<BLL.Organism> eatenbyorganism = new java.util.ArrayList<>();

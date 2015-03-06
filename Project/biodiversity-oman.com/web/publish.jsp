@@ -29,6 +29,7 @@
                 loadSubFamilies();
                 loadHabitats();
                 loadGeolocations();
+                loadEaten();
                 $(".chosen-select").chosen({width: "100%"});
             });
         </script>
@@ -86,12 +87,12 @@
                                             </div>
                                             <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                         </div>
-                                        <div class="form-group">
+                                        <!--<div class="form-group">
                                             <label class="col-sm-2 control-label" for="family">Family</label>
                                             <div class="col-sm-4">
                                                 <select class="form-control" id="family-ddl-published" name="organism-family-id"></select>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                             <div class="col-sm-4">
@@ -118,12 +119,12 @@
                                                 <select class="chosen-select form-control" id="habitat-ddl-published" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!--<div class="form-group">
                                             <label class="col-sm-2 control-label">Choose World</label>
                                             <div class="col-sm-4">
                                                 <select class="form-control" id="world-ddl-published" name="organism-world-id" data-placeholder="Choose World"></select>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-group">
                                                 <label class="col-sm-2 control-label">Current Photo</label>
                                                 <div class="col-sm-4">
@@ -200,6 +201,18 @@
                                                 <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                             </div>
                                         </div>
+                                         <div class="form-group">
+                                                <label class="col-sm-2 control-label">Eats the following</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="eatenby-ddl-update" name="organism-eatingOrganisms-update" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Gets eaten by</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="geteatenby-ddl-update" name="organism-eatenbyorganism-update" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
                                             <div class="col-sm-4">
@@ -290,12 +303,12 @@
                                             </div>
                                             <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                         </div>
-                                        <div class="form-group">
+                                        <!--<div class="form-group">
                                             <label class="col-sm-2 control-label" for="family">Family</label>
                                             <div class="col-sm-4">
                                                 <select class="form-control" id="family-ddl-queue" name="organism-family-id"></select>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                             <div class="col-sm-4">
@@ -322,12 +335,12 @@
                                                 <select class="chosen-select form-control" id="habitat-ddl-queue" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!--<div class="form-group">
                                             <label class="col-sm-2 control-label">Choose World</label>
                                             <div class="col-sm-4">
                                                 <select class="form-control" id="world-ddl-queue" name="organism-world-id" data-placeholder="Choose World"></select>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-group">
                                                 <label class="col-sm-2 control-label">Current Photo</label>
                                                 <div class="col-sm-4">
@@ -404,6 +417,18 @@
                                                 <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                             </div>
                                         </div>
+                                         <div class="form-group">
+                                                <label class="col-sm-2 control-label">Eats the following</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="eatenby-ddl-queue" name="organism-eatingOrganisms-update" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Gets eaten by</label>
+                                                <div class="col-sm-4">
+                                                    <select class="chosen-select form-control" id="geteatenby-ddl-queue" name="organism-eatenbyorganism-update" multiple data-placeholder="Choose Organism"></select>
+                                                </div>
+                                            </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
                                             <div class="col-sm-4">
