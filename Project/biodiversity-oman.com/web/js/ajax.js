@@ -66,7 +66,7 @@ $(document).ready(function () {
 	};
     });
     
-    //functie voor de zoekbalk in organism published
+    //functie voor de zoekbalk in organism dashboard
     $('#search-organism').keyup(function (e) {
 	
 	var $table = $('#organisms-table');
@@ -80,14 +80,8 @@ $(document).ready(function () {
 		async: true,
 		data: 'organismkey=' + keyword
 	    }).done(function (data) {
-<<<<<<< HEAD
-		$table.html('');
+		$('#organisms-table').html('');
 		$table.append('<tr>\n\
-=======
-		$('#published-table').html('');
-                $('#organisms-table').html('');
-		$.searchTable.append('<tr>\n\
->>>>>>> origin/master
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\
                                     <th>Inserted on</th>\n\
@@ -100,43 +94,7 @@ $(document).ready(function () {
 			$table.append('<tr>\n\
 					    <td>' + organism.commonName + '</td>\n\
 					    <td>' + organism.scientificName + '</td>\n\
-                                            <td>'+ organism.insertedOn+'</td>\n\
-					    <td>' + organism.updatedOn + '</td>\n\
-					    </tr>');
-		    });
-	    });
-	} else {
-	    loadOrganisms();
-	};
-    });
-    
-    //functie voor de zoekbalk in organism dashboard
-    $('#search-organism').keyup(function (e) {
-	
-	var $searchTable = $('#organisms-table');
-	var keyword = $(this).val();
-	if (keyword.length >= 3) {
-	    $.ajax({
-		url: 'SearchOrganism',
-		type: 'GET',
-		dataType: 'json',
-		cache: false,
-		async: true,
-		data: 'organismkey=' + keyword
-	    }).done(function (data) {
-		$('#organisms-table').html('');
-		$.searchTable.append('<tr>\n\
-                                    <th>Common name</th>\n\
-                                    <th>Scientific name</th>\n\
-                                    <th>Last updated on</th>\n\
-				    </tr>');
-		    if (data.length === 0) {
-			$searchTable.append('<tr><td>Organism not found</td></tr>');
-		    };
-		    data.forEach(function (organism) {
-			$userstable.append('<tr>\n\
-					    <td>' + organism.commonName + '</td>\n\
-					    <td>' + organism.scientificName + '</td>\n\
+                                            <td>'+ organism.insertedOn + '</td>\n\
 					    <td>' + organism.updatedOn + '</td>\n\
 					    </tr>');
 		    });

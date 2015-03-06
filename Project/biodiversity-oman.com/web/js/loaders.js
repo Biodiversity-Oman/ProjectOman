@@ -482,7 +482,6 @@ function loadOrganisms() {
     }).done(function (data) {
         $table.html('');
         $table.append('<tr>\n\
-<<<<<<< HEAD
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\
                                     <th>Inserted on</th>\n\
@@ -495,24 +494,11 @@ function loadOrganisms() {
                                         <td>' + organism.insertedOn + '</td>\n\\n\
                                         <td>' + organism.updatedOn + '</td>\n\
                                     </tr>');
-=======
-                                     <th>Common name</th>\n\
-                                    <th>Scientific name</th>\n\
-                                    <th>Last updated on</th>\n\
-                                </tr>');
-        data.forEach(function (organism) {
-            $table.append('<tr>\n\
-                                        <td>' + organism.commonName + '</td>\n\
-					    <td>' + organism.scientificName + '</td>\n\
-					    <td>' + organism.updatedOn + '</td>\n\
-					    </tr>');
->>>>>>> origin/master
-        });
-        adminCheck();
+        
+    });
+    adminCheck();
     });
 }
-;
-
 
 function loadPosts() {
 

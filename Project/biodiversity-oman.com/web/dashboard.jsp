@@ -50,10 +50,6 @@
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on any name"><br>
                             </div>
-<<<<<<< HEAD
-=======
-                         <table class="table table-striped" id="organisms-table"></table> 
->>>>>>> origin/master
                         </div>
 			<div id="insert-organism" class="insert-box">
 			    <label class="close-button">x</label>
