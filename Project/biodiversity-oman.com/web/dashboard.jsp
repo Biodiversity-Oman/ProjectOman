@@ -234,6 +234,55 @@
                                     </div>
                                 </div>
                             </div>
+                            <div id="detail-organism" class="insert-box">
+                                <label class="close-button">x</label>
+                                <div id="detail-content" class="content">
+                                        <label for="scientific-name">Scientific Name:</label>
+                                        <label id="scientific-name-detail"></label><br>
+                                        <label for="common-name">Common name:</label>
+                                        <label id="common-name-detail"></label><br>
+                                        <label for="local-name">Local name:</label>
+                                        <label id="local-name-detail"></label><br>
+                                        <label for="description">Description:</label>
+                                        <label id="description-detail"></label><br>
+                                        <label for="benefits">Benefits:</label>
+                                        <label id="benefits-detail"></label><br>
+                                        <label for="dangerous">Dangerous:</label>
+                                        <label id="dangerous-detail"></label><br>
+                                        <label for="threats">Threats:</label>
+                                        <label id="threats-detail"></label><br>
+                                        <label for="opportunities">Opportunities:</label>
+                                        <label id="opportunities-detail"></label><br>
+                                        <label for="links">Links:</label>
+                                        <label id="links-detail"></label><br>
+                                        <label for="food-name">Food name:</label>
+                                        <label id="food-name-detail"></label><br>
+                                        <label for="food-description">Food Description:</label>
+                                        <label id="food-description-detail"></label><br>
+                                        <label for="population">Population:</label>
+                                        <label id="population-detail"></label><br>
+                                        <label for="family">Family:</label>
+                                        <label id="family-detail"></label><br>
+                                        <label for="subfamily">Subfamily:</label>
+                                        <label id="subfamily-detail"></label><br>
+                                        <label for="world">World:</label>
+                                        <label id="world-detail"></label><br>
+                                        <label for="indigenous">Indigenous:</label>
+                                        <label id="indigenous-detail"></label><br>
+                                        <label for="cultivated">Cultivated:</label>
+                                        <label id="cultivated-detail"></label><br>
+                                        <label for="endangered">Endangered:</label>
+                                        <label id="endangered-detail"></label><br>
+                                        <label for="medicinal">Medicinal:</label>
+                                        <label id="medicinal-detail"></label><br>
+                                        <label for="habitat">Habitat:</label>
+                                        <label id="habitat-detail"></label><br>
+                                        <label for="geolocation">Geolocation:</label>
+                                        <label id="geolocation-detail"></label><br>
+                                        <label for="season">Season:</label>
+                                        <label id="season-detail"></label><br>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-striped" id="organisms-table"></table>
                             </div>

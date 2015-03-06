@@ -416,7 +416,7 @@ function loadOrganisms() {
                            <td>'+  organism.scientificName +'</td>\n\
                            <td>' + organism.insertedOn + '</td>\n\\n\
                            <td>' + organism.updatedOn + '</td>\n\\n\
-                           <td><button class="no-button" id="delete-subscriber-btn" type="submit" value="' + organism.organismId + '"><span class="icon-search"></span></button></td>\n\
+                           <td><button class="no-button" id="detail-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-search"></span></button></td>\n\
                            </tr>');
         });
         adminCheck();

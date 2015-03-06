@@ -1117,6 +1117,66 @@ $(document).ready(function () {
 	});
     });
     
+    $(document).on('click', 'table #detail-organism-btn', function() {
+        
+	document.getElementById('detail-organism').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectOneOrganismById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+            cache: false,
+	    async: true
+	}).done(function (data) {
+            
+            $('#scientific-name-detail').html(data.scientificName);
+            $('#common-name-detail').html(data.commonName);
+            $('#local-name-detail').html(data.localName);
+            $('#description-detail').html(data.description);
+            $('#benefits-detail').html(data.benefits);
+            $('#dangerous-detail').html(data.dangerous);
+            $('#threats-detail').html(data.threats);
+            $('#opportunities-detail').html(data.opportunities);
+            $('#links-detail').html(data.links);
+            $('#food-name-detail').html(data.foodName);
+            $('#food-description-detail').html(data.foodDescription);
+            $('#population-detail').html(data.population);
+            $("#family-detail").html(data.family.familyName);
+            $("#subfamily-detail").html(data.subFamily.subFamilyName);
+            $("#world-detail").html(data.world.worldName);
+            if(data.indigenous === true){
+                $("#indigenous-detail").html('Yes');
+            } else {
+                $("#indigenous-detail").html('No');
+            }
+            if(data.cultivated === true){
+                $("#cultivated-detail").html('Yes');
+            } else {
+                $("#cultivated-detail").html('No');
+            }
+            if(data.endangered === true) {
+                $("#endangered-detail").html('Yes');
+            } else {
+                $("#endangered-detail").html('No');
+            }
+            if(data.medicinal === true) {
+                $("#medicinal-detail").html('Yes');
+            } else {
+                $("#medicinal-detail").html('No');
+            }
+            data.habitat.forEach(function (habitat) {
+                $('#habitat-detail').html(habitat.habitatName + ', ');
+            });
+            data.geolocations.forEach(function (geolocation) {
+                $('#geolocation-detail').html(geolocation.areaName + ', ');
+            });
+            data.season.forEach(function (season) {
+                $('#season-detail').html(season.seasonName + ', ');
+            });
+	});
+    });
+    
     // update queue-publish-button published.jsp - queue tab
     $(document).on('click', 'table #queue-publish-btn', function () {
         var id = ($(this).attr("value"));
