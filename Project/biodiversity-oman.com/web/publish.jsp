@@ -53,7 +53,6 @@
                                 <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
                                 <p>Press the <span class="icon-cross"></span> To delete (Caution! no confirmation screen)</p><br>
                             </div>
-                            <table class="table table-striped" id="published-table"></table>
                         </div> 
 
                         <div id="update-published-organism" class="insert-box">
@@ -241,7 +240,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-striped" id="published-table"></table>
+                            <table class="table table-striped" id="organisms-table"></table>
                         </div>
                     </div>
                     <div id="tab2" class="tab">                        

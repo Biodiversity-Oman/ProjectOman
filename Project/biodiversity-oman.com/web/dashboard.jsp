@@ -46,7 +46,7 @@
                         <div id="tab1" class="tab active">
                             <div class="table-responsive">
                                 <div class="col-sm-4">
-                                    <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on any name"><br>
+                                    <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)"><br>
                                 </div>
                             </div>
                                <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
