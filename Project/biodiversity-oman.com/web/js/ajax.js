@@ -106,6 +106,7 @@ $(document).ready(function () {
 	};
     });
     
+    //functie voor de zoekbalk in organism in published
     $('#search-organism-published').keyup(function (e) {
 	
 	var $table = $('#published-table');
@@ -121,7 +122,7 @@ $(document).ready(function () {
 	    }).done(function (data) {
 		$('#published-table').html('');
 		$table.append('<tr>\n\
-                                    <th>Common name</th>\n\
+                                    <th>Common oooo name</th>\n\
                                     <th>Scientific name</th>\n\
                                     <th>Inserted on</th>\n\
                                     <th>Last updated on</th>\n\\n\
@@ -192,6 +193,45 @@ $(document).ready(function () {
 	};
     });
     
+     //functie voor de zoekbalk in pending dashboard
+    $('#search-organism-pending').keyup(function (e) {
+	
+	var $table = $('#pending-table');
+	var keyword = $(this).val();
+	if (keyword.length >= 3) {
+	    $.ajax({
+		url: 'SearchOrganismPending', 
+		type: 'GET',
+		dataType: 'json',
+		cache: false,
+		async: true,
+		data: 'organismkeypending=' + keyword
+	    }).done(function (data) {
+		$('#pending-table').html('');
+		$table.append('<tr>\n\
+                                    <th>Common name</th>\n\
+                                    <th>Scientific name</th>\n\
+                                    <th>Submitted on</th>\n\
+                                    <th>Action</th>\n\
+                                </tr>');
+		    if (data.length === 0) {
+			$table.append('<tr><td>Organism not found</td></tr>');
+		    };
+		    data.forEach(function (organism) {
+			$table.append('<tr>\n\
+					<td>' + organism.commonName + '</td>\n\
+                                        <td>' + organism.scientificName + '</td>\n\
+                                        <td>' + organism.insertedOn + '</td>\n\
+                                        <td>\n\
+                                        <button class="no-button-user" id="update-pending-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-pencil2"></span>\n\
+                                        </td>\n\
+                                       </tr>');
+		    });
+	    });
+	} else {
+	   loadPendingOrganisms();
+	};
+    });
 //---------------------------------------------------------------------------------------------------------------------
 // User management functions
 //---------------------------------------------------------------------------------------------------------------------

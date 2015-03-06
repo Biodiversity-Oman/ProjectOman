@@ -831,12 +831,12 @@
                             </div>
                         </div>
                         <div id="tab8" class="tab">			
-                            <div class="table-responsive">
-                                <div class="col-sm-4">
-                                    <input class="form-control" id="search-organism" type="text" name="organism-key" placeholder="Search on any name"><br>
-                                </div>                            
+                               <div class="table-responsive">
+                            <div class="col-sm-4">
+                                <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on any name"><br>
+                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p><br>
                             </div>
-                            <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p><br>
+                        </div>
                             <div id="update-pending-organism" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div class="content">
