@@ -49,7 +49,7 @@ public class SelectPhotoById extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        byte[] pic = ServOrganism.selectPhotoById(Integer.parseInt(request.getParameter("organism-photo")));
+        byte[] pic = ServOrganism.selectPhotoById(2);
         
         if (pic.length > 2) {
             
