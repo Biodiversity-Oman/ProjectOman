@@ -50,11 +50,10 @@
                                 <div class="col-sm-4">
                                     <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)"><br>                                   
                                 </div>
-
                             </div>
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
                                     document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
-                            <p>Press the &nbsp;&nbsp;<span class="icon-search"></span>&nbsp; for details </p><br>
+                            <p>Press the<span class="icon-search"></span> for details </p><br>
                             <div id="insert-organism" class="insert-box-organism">
                                 <label class="close-button">x</label>
                                 <div class="content">
@@ -240,52 +239,87 @@
                             <div id="detail-organism" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div class="content">
-                                    <div class="col-xs-2">
-                                    <div id="img-detail"></div>
-                                    <div class="col-xs-2"><label for="scientific-name">Scientific Name:</label></div>
-                                    <label id="scientific-name-detail"></label><br>
-                                    <div class="col-xs-2"><label for="common-name">Common name:</label></div>
-                                    <label id="common-name-detail"></label><br>
-                                    <div class="col-xs-2"><label for="local-name">Local name:</label></div>
-                                    <label id="local-name-detail"></label><br>
-                                    <div class="col-xs-2"><label for="description">Description:</label></div>
-                                    <label id="description-detail"></label><br>
-                                    <div class="col-xs-2"><label for="benefits">Benefits:</label></div>
-                                    <label id="benefits-detail"></label><br>
-                                    <div class="col-xs-2"><label for="dangerous">Dangerous:</label></div>
-                                    <label id="dangerous-detail"></label><br>
-                                    <div class="col-xs-2"><label for="threats">Threats:</label></div>
-                                    <label id="threats-detail"></label><br>
-                                    <div class="col-xs-2"><label for="opportunities">Opportunities:</label></div>
-                                    <label id="opportunities-detail"></label><br>
-                                    <div class="col-xs-2"><label for="links">Links:</label></div>
-                                    <label id="links-detail"></label><br>
-                                    <div class="col-xs-2"><label for="food-name">Food name:</label></div>
-                                    <label id="food-name-detail"></label><br>
-                                    <div class="col-xs-2"><label for="food-description">Food Description:</label></div>
-                                    <label id="food-description-detail"></label><br>
-                                    <div class="col-xs-2"><label for="population">Population:</label></div>
-                                    <label id="population-detail"></label><br>
-                                    <div class="col-xs-2"><label for="family">Family:</label></div>
-                                    <label id="family-detail"></label><br>
-                                    <div class="col-xs-2"><label for="subfamily">Subfamily:</label></div>
-                                    <label id="subfamily-detail"></label><br>
-                                    <div class="col-xs-2"><label for="world">World:</label></div>
-                                    <label id="world-detail"></label><br>
-                                    <div class="col-xs-2"><label for="indigenous">Indigenous:</label></div>
-                                    <label id="indigenous-detail"></label><br>
-                                    <div class="col-xs-2"><label for="cultivated">Cultivated:</label></div>
-                                    <label id="cultivated-detail"></label><br>
-                                    <div class="col-xs-2"><label for="endangered">Endangered:</label></div>
-                                    <label id="endangered-detail"></label><br>
-                                    <div class="col-xs-2"><label for="medicinal">Medicinal:</label></div>
-                                    <label id="medicinal-detail"></label><br>
-                                    <div class="col-xs-2"><label for="habitat">Habitat:</label></div>
-                                    <label id="habitat-detail"></label><br>
-                                    <div class="col-xs-2"><label for="geolocation">Geolocation:</label></div>
-                                    <label id="geolocation-detail"></label><br>
-                                    <div class="col-xs-2"><label for="season">Season:</label></div>
-                                    <label id="season-detail"></label><br>
+                                                <div class="col-sm-2">
+                                                    <div id="img-detail"></div>
+                                                </div>
+                                    <div class="col-sm-10" style="text-align: left;">
+                                                <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
+                                                
+                                                    <label id="scientific-name-detail"></label>
+                                                
+                                                <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
+                                                
+                                                    <label id="common-name-detail"></label>
+                                                
+                                                <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
+                                                
+                                                    <label id="local-name-detail"></label>
+                                                
+                                                <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
+                                                
+                                                    <label id="subfamily-detail"></label>
+                                                
+                                                <label class="col-sm-2 control-label">Habitat</label>
+                                                
+                                                    <label id="habitat-detail"></label>
+                                                
+                                                <label class="col-sm-2 control-label">Season</label>                                                
+                                                    <label id="season-detail"></label>
+                                                </div>
+                                                
+                                                
+                                                
+                                                <label class="col-sm-2 control-label" for="organism-population">Population</label>
+                                                <div class="col-sm-8">
+                                                    <label id="population-detail"></label>
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
+                                                <div class="col-sm-8">
+                                                    <label id="description-detail"></label>
+                                                </div>
+                                                
+                                                
+                                                <label class="col-sm-2 control-label" for="organism-indigenous">Indigenous</label>
+                                                <div class="col-sm-4">
+                                                    <label id="indigenous-detail"></label>
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
+                                                <div class="col-sm-4">
+                                                    <label id="cultivated-detail"></label>
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="organism-endangered">Endangered</label>
+                                                <div class="col-sm-4">
+                                                    <label id="endangered-detail"></label>
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="organism-medicinal">Medicinal</label>
+                                                <div class="col-sm-4">
+                                                    <label id="medicinal-detail"></label>
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
+                                                <div class="col-sm-4">
+                                                    <label id="benefits-detail"></label>
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="organism-dangerous">Dangerous</label>
+                                                <div class="col-sm-4">
+                                                    <label id="dangerous-detail"></label>
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
+                                                <div class="col-sm-4">
+                                                    <label id="threats-detail"></label>
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
+                                                <div class="col-sm-4">
+                                                    <label id="opportunities-detail"></label>
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
+                                                <div class="col-sm-4">
+                                                    <label id="links-detail"></label>
+                                                </div>
+                                                
+                                                <label class="col-sm-2 control-label">Geolocation</label>
+                                                <div class="col-sm-4">
+                                                    <label id="geolocation-detail"></label>
+                                                </div>           
                                 </div>
                             </div>
                             <div class="table-responsive">
@@ -888,7 +922,7 @@
                             <div class="table-responsive">
                                 <div class="col-sm-4">
                                     <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on name (minimal 3 characters)"><br>
-                                    <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p><br>
+                                    <p>Press the<span class="icon-pencil2"></span> To edit</p><br>
                                 </div>
                             </div>
                             <div id="update-pending-organism" class="insert-box">
