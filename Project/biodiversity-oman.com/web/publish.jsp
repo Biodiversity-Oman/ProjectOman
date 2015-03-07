@@ -17,6 +17,7 @@
         <script src="js/loaders.js"></script>
         <script src="js/chosen.jquery.min.js"></script>
         <script src="js/validator.js"></script>
+        <script src="js/bootbox.js"></script>
         <script>
             $(document).ready(function () {
                 loadToValidateOrganisms();
