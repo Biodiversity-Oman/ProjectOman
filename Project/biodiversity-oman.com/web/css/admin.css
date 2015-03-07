@@ -202,7 +202,7 @@ nav ul ul ul {
 }
 .insert-box {
     display: none;
-    position: absolute;
+    position: fixed;
     top:5%;
     left: 12.5%;
     right: 12.5%;
@@ -212,6 +212,20 @@ nav ul ul ul {
     border-radius: 0.2em 0.2em 0.2em 0.2em;
     background-color: #ffffff;
     z-index:1002;
+}
+.insert-box-organism {
+    display: none;
+    position: fixed;
+    top:5%;
+    left: 12.5%;
+    right: 12.5%;
+    width: 75%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    background-color: #ffffff;
+    z-index:1002;
+    overflow-y: scroll;
 }
 .whitebox .content {
     margin-top: 2em;

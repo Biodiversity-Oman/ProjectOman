@@ -55,7 +55,7 @@
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
                                     document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
                             <p>Press the &nbsp;&nbsp;<span class="icon-search"></span>&nbsp; for details </p><br>
-                            <div id="insert-organism" class="insert-box">
+                            <div id="insert-organism" class="insert-box-organism">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="create-organism">
