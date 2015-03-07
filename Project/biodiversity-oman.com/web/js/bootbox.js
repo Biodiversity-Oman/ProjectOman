@@ -599,10 +599,6 @@
 
     body.find(".bootbox-body").html(options.message);
 
-    if (options.animate === true) {
-      dialog.addClass("fade");
-    }
-
     if (options.className) {
       dialog.addClass(options.className);
     }

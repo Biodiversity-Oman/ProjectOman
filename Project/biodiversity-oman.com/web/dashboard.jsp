@@ -833,7 +833,7 @@
                                                 <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
                                                         document.getElementById('fade').style.display = 'block';
                                                         loadScript();"><button class="no-button-user"><span class="icon-plus-insert"></span></button></a></p>
-                                                <div id="insert-geolocation" class="pop-up">
+                                                <div id="insert-geolocation" class="pop-up-scroll">
                                                         <label id="geolocation-close1" class="close-button">x</label>
                                                         <div class="content">
                                                                 <div id="create-geolocation">
