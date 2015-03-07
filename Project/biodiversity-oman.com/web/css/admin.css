@@ -200,7 +200,7 @@ nav ul ul ul {
     z-index:1002;
     overflow: hidden;
 }
-.insert-box {
+.pop-up {
     display: none;
     position: fixed;
     top:5%;
@@ -213,7 +213,7 @@ nav ul ul ul {
     background-color: #ffffff;
     z-index:1002;
 }
-.insert-box-organism {
+.pop-up-scroll {
     display: none;
     position: fixed;
     top:5%;

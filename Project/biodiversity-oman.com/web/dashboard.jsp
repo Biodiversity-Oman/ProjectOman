@@ -49,11 +49,12 @@
                             <div class="table-responsive">
                                
                             </div>
-                                <p>Press the<span class="icon-search"></span> for details </p><br>
-                            <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
-                                    document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
+                                <p>Press the<span class="icon-search"></span> for details </p>
+                                <p>Press the <span class="icon-plus"></span> to insert an organism</p>
+                                <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
+                                    document.getElementById('fade').style.display = 'block'"><p><button class="no-button-user"><span class="icon-plus"></span></button></a></p>
                             
-                            <div id="insert-organism" class="insert-box-organism">
+                            <div id="insert-organism" class="pop-up-scroll">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="create-organism">
@@ -235,7 +236,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="detail-organism" class="insert-box">
+                            <div id="detail-organism" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                                 <div class="col-sm-2">
@@ -321,17 +322,19 @@
                                                 </div>           
                                 </div>
                             </div>
-                            <div class="table-responsive">
+                                <div class="table-responsive">
                                 <div class="col-sm-4">
                                         <input class="form-control action-button" id="search-organism" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)">
                                 </div>
+                                </div>
+                            <div class="table-responsive">
                                 <table class="table table-striped" id="organisms-table"></table>
                             </div>
                         </div>
                         <div id="tab2" class="tab">
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';
                                     document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                            <div id="insert-world" class="insert-box">
+                            <div id="insert-world" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="create-world">
@@ -373,7 +376,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="update-world" class="insert-box">
+                            <div id="update-world" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="update-world">
@@ -423,7 +426,7 @@
                         <div id="tab3" class="tab">
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'block';
                                     document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                            <div id="insert-family" class="insert-box">
+                            <div id="insert-family" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="create-family">
@@ -471,7 +474,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="update-family" class="insert-box">
+                            <div id="update-family" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="update-family">
@@ -527,7 +530,7 @@
                         <div id="tab4" class="tab">
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'block';
                                     document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                            <div id="insert-subfamily" class="insert-box">
+                            <div id="insert-subfamily" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="create-subfamily">
@@ -575,7 +578,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="update-subfamily" class="insert-box">
+                            <div id="update-subfamily" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="update-subfamily">
@@ -631,7 +634,7 @@
                         <div id="tab5" class="tab">
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'block';
                                     document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                            <div id="insert-season" class="insert-box">
+                            <div id="insert-season" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="create-season">
@@ -673,7 +676,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="update-season" class="insert-box">
+                            <div id="update-season" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="update-season">
@@ -723,7 +726,7 @@
                         <div id="tab6" class="tab">
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'block';
                                     document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
-                            <div id="insert-habitat" class="insert-box"><label class="close-button">x</label>
+                            <div id="insert-habitat" class="pop-up"><label class="close-button">x</label>
                                 <div class="content">
                                     <div id="create-habitat">
                                         <form class="form form-horizontal" id="create-habitat-form" data-toggle="validator">
@@ -764,7 +767,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="update-habitat" class="insert-box">
+                            <div id="update-habitat" class="pop-up">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="update-habitat">
@@ -814,8 +817,8 @@
                         <div id="tab7" class="tab">
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
                                     document.getElementById('fade').style.display = 'block';
-                                    loadScript();"><button class="action-button" ><span class="icon-plus"></button></a>
-                            <div id="insert-geolocation" class="insert-box">
+                                    loadScript();"><button><span class="icon-plus"></span></button></a>
+                            <div id="insert-geolocation" class="pop-up">
                                 <label id="geolocation-close1" class="close-button">x</label>
                                 <div class="content">
                                     <div id="create-geolocation">
@@ -865,7 +868,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="update-geolocation" class="insert-box">
+                            <div id="update-geolocation" class="pop-up">
                                 <label id="geolocation-close2" class="close-button">x</label>
                                 <div class="content">
                                     <div id="update-geolocation-test">
@@ -923,7 +926,7 @@
                         <div id="tab8" class="tab">
                                 <p>Press the<span class="icon-pencil2"></span> To edit</p><br>
                             
-                            <div id="update-pending-organism" class="insert-box">
+                            <div id="update-pending-organism" class="pop-up-scroll">
                                 <label class="close-button">x</label>
                                 <div class="content">
                                     <div id="update-pending-organism">

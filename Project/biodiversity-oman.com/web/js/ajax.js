@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     // general close-button function to close pop-ups dashboard.jsp
     $(document).on('click', '.close-button', function () {
-        $('.insert-box, .insert-box-organism').hide();
+        $('.pop-up, .pop-up-scroll').hide();
         document.getElementById('fade').style.display = 'none';
     });
 

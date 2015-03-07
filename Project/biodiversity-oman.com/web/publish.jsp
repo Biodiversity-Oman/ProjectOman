@@ -53,7 +53,7 @@
                                 <p>Press the <span class="icon-cross"></span> To delete </p><br>
                             </div>
                         </div> 
-                        <div id="update-published-organism" class="insert-box">
+                        <div id="update-published-organism" class="pop-up-scroll">
                             <label class="close-button">x</label>
                             <div class="content">
                                 <div id="update-published-organism">
@@ -257,7 +257,7 @@
                             </div>
 
                         </div> 
-                        <div id="update-queue-organism" class="insert-box">
+                        <div id="update-queue-organism" class="pop-up-scroll">
                             <label class="close-button">x</label>
                             <div class="content">
                                 <div id="update-queue-organism">
