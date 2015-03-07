@@ -97,12 +97,12 @@
     content: "\e972";
     margin-right: 0.5em;
 }
-
-.icon-user-plus:before {
-    content: "\e973";
-}
 .icon-plus-insert:before {
-    
+    content: "\ea0a";
+    font-size: 1.5em;
+    color: #8AE65C;
+    margin-bottom: 1em;
+   
 }
 .icon-minus:before {
     content: "\ea0b";

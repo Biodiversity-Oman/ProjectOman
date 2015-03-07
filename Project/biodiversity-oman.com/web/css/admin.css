@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : lenny
 */
 /*--------------------------------------------------------*/
-/* -------------- Every Page -------------- */
+/* -------------- General -------------- */
 /*--------------------------------------------------------*/
 body, html {
     margin: 0 auto;
@@ -32,6 +32,10 @@ h2 {
     font-size: 1.7em;
     margin-left: 20%;
     margin-right: auto;
+}
+.search-bar-table {
+    max-width: 25em;
+    margin-bottom: 0.5em;
 }
 /*--------------------------------------------------------*/
 /* -------------- adminlogin -------------- */
