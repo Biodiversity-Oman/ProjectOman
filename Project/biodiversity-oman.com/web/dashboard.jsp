@@ -13,6 +13,7 @@
         <script src="js/maps.js"></script>
         <script src="js/validator.js"></script>
         <script src="js/chosen.jquery.min.js"></script>
+        <script src="js/bootbox.js"></script>
         <script>
             $(document).ready(function () {
                 loadOrganisms();

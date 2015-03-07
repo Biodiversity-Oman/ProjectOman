@@ -1277,19 +1277,18 @@ var r = confirm("Make this user an admin?");
 
     // functie voor delete season btn in dashboard.jsp
     $(document).on('click', '.table #delete-season-btn', function () {
-var r = confirm("Delete this season?");
-    if (r === true) {
         var id = ($(this).attr("value"));
-        $.ajax({
-            url: 'DeleteSeason?id=' + id,
-            type: 'POST',
-            dataType: 'text',
-            cache: false,
-            async: true
-        }).done(function () {
-            loadSeasons();
+        bootbox.confirm("Are you sure?", function(result){
+            $.ajax({
+                url: 'DeleteSeason?id=' + id,
+                type: 'POST',
+                dataType: 'text',
+                cache: false,
+                async: true
+            }).done(function () {
+                loadSeasons();
+            });
         });
-    }
     });
 
     // functie voor delete family btn in dashboard.jsp
