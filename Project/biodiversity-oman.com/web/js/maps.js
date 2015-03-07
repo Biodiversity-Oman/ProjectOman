@@ -89,17 +89,19 @@ function getCoordinates() {
     var minLat = 500.0;
     var maxLng = 0.0;
     var minLng = 500.0;
-    for (var i = 0; i < split.length; i++) {
-        var part = split[i].split(",");
-        var latitude = part[0].slice(1, part[0].length);
-        maxLat = ((maxLat > parseFloat(latitude)) ? maxLat : parseFloat(latitude));
-        minLat = ((minLat < parseFloat(latitude)) ? minLat : parseFloat(latitude));
-        var longitude = part[1].slice(0, -1);
-        maxLng = ((maxLng > parseFloat(longitude)) ? maxLng : parseFloat(longitude));
-        minLng = ((minLng < parseFloat(longitude)) ? minLng : parseFloat(longitude));
-        settings.area.push({lat: parseFloat(latitude), lng: parseFloat(longitude)});
+    if (input.length > 0) {
+        for (var i = 0; i < split.length; i++) {
+            var part = split[i].split(",");
+            var latitude = part[0].slice(1, part[0].length);
+            maxLat = ((maxLat > parseFloat(latitude)) ? maxLat : parseFloat(latitude));
+            minLat = ((minLat < parseFloat(latitude)) ? minLat : parseFloat(latitude));
+            var longitude = part[1].slice(0, -1);
+            maxLng = ((maxLng > parseFloat(longitude)) ? maxLng : parseFloat(longitude));
+            minLng = ((minLng < parseFloat(longitude)) ? minLng : parseFloat(longitude));
+            settings.area.push({lat: parseFloat(latitude), lng: parseFloat(longitude)});
+        }
+        settings.mapOptions.center = {lat: (maxLat + minLat) / 2, lng: (maxLng + minLng) / 2};
     }
-    settings.mapOptions.center = {lat: (maxLat + minLat) / 2, lng: (maxLng + minLng) / 2};
 }
 
 $(document).ready(function () {
