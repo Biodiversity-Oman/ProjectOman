@@ -1403,61 +1403,66 @@ $(document).ready(function () {
 
     // functie voor delete organism btn in dashboard.jsp
     $(document).on('click', '.table #delete-organism-btn', function () {
-        var r = confirm("Delete this organism?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteOrganism?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadOrganisms();
-                loadPendingOrganisms();
-                loadPublishedOrganisms();
-                loadToValidateOrganisms();
-            });
-        }
+        var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete the selected organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
+                $.ajax({
+                    url: 'DeleteOrganism?id=' + id,
+                    type: 'POST',
+                    dataType: 'text',
+                    cache: false,
+                    async: true
+                }).done(function () {
+                    loadOrganisms();
+                    loadPendingOrganisms();
+                    loadPublishedOrganisms();
+                    loadToValidateOrganisms();
+                });
+            }
+        });
     });
 
     // functie voor delete organism/published btn in published.jsp
     $(document).on('click', '.table #delete-organism-published-btn', function () {
-        var r = confirm("Delete this organism?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteOrganism?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadOrganisms();
-                loadPendingOrganisms();
-                loadPublishedOrganisms();
-                loadToValidateOrganisms();
-            });
-        }
+        var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete the selected organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
+                $.ajax({
+                    url: 'DeleteOrganism?id=' + id,
+                    type: 'POST',
+                    dataType: 'text',
+                    cache: false,
+                    async: true
+                }).done(function () {
+                    loadOrganisms();
+                    loadPendingOrganisms();
+                    loadPublishedOrganisms();
+                    loadToValidateOrganisms();
+                    loadToValidateOrganisms();
+                });
+            }
+        });
     });
 
     // functie voor delete organism/queue btn in published.jsp
     $(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
-        var r = confirm("Delete this organism?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteOrganism?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadPendingOrganisms();
-                loadToValidateOrganisms();
-            });
-        }
+        var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete the selected organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
+                $.ajax({
+                    url: 'DeleteOrganism?id=' + id,
+                    type: 'POST',
+                    dataType: 'text',
+                    cache: false,
+                    async: true
+                }).done(function () {
+                    loadPendingOrganisms();
+                    loadToValidateOrganisms();
+                });
+            }
+        });
     });
+
 
     // functie voor delete subscriber btn in published.jsp
     $(document).on('click', '.table #delete-subscriber-btn', function () {
