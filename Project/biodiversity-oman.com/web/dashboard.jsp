@@ -47,13 +47,12 @@
                     <div id="tab1" class="tab active">			
                         <div id="tab1" class="tab active">
                             <div class="table-responsive">
-                                <div class="col-sm-4">
-                                    <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)"><br>                                   
-                                </div>
+                               
                             </div>
+                                <p>Press the<span class="icon-search"></span> for details </p><br>
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
                                     document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
-                            <p>Press the<span class="icon-search"></span> for details </p><br>
+                            
                             <div id="insert-organism" class="insert-box-organism">
                                 <label class="close-button">x</label>
                                 <div class="content">
@@ -323,6 +322,9 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
+                                <div class="col-sm-4">
+                                        <input class="form-control action-button" id="search-organism" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)">
+                                </div>
                                 <table class="table table-striped" id="organisms-table"></table>
                             </div>
                         </div>
@@ -918,13 +920,9 @@
                                 <table class="table table-striped" id="geolocations-table"></table>
                             </div>
                         </div>
-                        <div id="tab8" class="tab">			
-                            <div class="table-responsive">
-                                <div class="col-sm-4">
-                                    <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on name (minimal 3 characters)"><br>
-                                    <p>Press the<span class="icon-pencil2"></span> To edit</p><br>
-                                </div>
-                            </div>
+                        <div id="tab8" class="tab">
+                                <p>Press the<span class="icon-pencil2"></span> To edit</p><br>
+                            
                             <div id="update-pending-organism" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div class="content">
@@ -1116,6 +1114,9 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
+                                <div class="col-sm-4">
+                                    <input class="form-control action-button" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on name (minimal 3 characters)">
+                                </div>
                                 <table class="table table-striped" id="pending-table"></table>
                             </div>
                         </div>

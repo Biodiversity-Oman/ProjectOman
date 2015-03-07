@@ -79,6 +79,7 @@
 .icon-pencil2-button:before {
     content: "\e906";
     margin-right: 0.5em;
+    margin-left: 0.5em;
 }
 
 .icon-book:before {
@@ -114,7 +115,8 @@
 
 .icon-search:before {
     content: "\e986";
-    margin-right: 0.3em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
 }
 
 
