@@ -1,14 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 4.0.4.2
--- http://www.phpmyadmin.net
---
--- Machine: localhost
--- Genereertijd: 07 mrt 2015 om 16:12
--- Serverversie: 5.6.13
--- PHP-versie: 5.4.17
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "+04:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -83,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `food` (
   `eating_organism_id` int(11) NOT NULL,
   KEY `Eaten_Organism_ID` (`eaten_by_organism_id`),
   KEY `Eating_organism_ID` (`eating_organism_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
@@ -137,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `habitat` (
   `habitat_name` varchar(50) DEFAULT NULL,
   `habitat_description` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`habitat_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `habitat`
@@ -147,10 +138,7 @@ INSERT INTO `habitat` (`habitat_id`, `habitat_name`, `habitat_description`) VALU
 (1, 'Mountains', 'kijk omhoog'),
 (2, 'Dessert', 'Wreed goe weer'),
 (3, 'Reef', 'Was ik maar aan t duiken'),
-(4, 'Wetlands', 'das is goeie zomer in Belgie'),
-(5, 'updatetesttestvier', ''),
-(6, 'habitatUpdate', ''),
-(7, 'updatetesttestdrie', '');
+(4, 'Wetlands', 'das is goeie zomer in Belgie');
 
 -- --------------------------------------------------------
 
@@ -178,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `organism` (
   `local_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `subfamily_id` int(11) DEFAULT NULL,
   `organism_description` varchar(9000) CHARACTER SET utf8 DEFAULT NULL,
-  `population` varchar(100) DEFAULT NULL,
+  `population` varchar(50) DEFAULT NULL,
   `indigenous` tinyint(1) DEFAULT NULL,
   `cultivated` tinyint(1) DEFAULT NULL,
   `endangered` tinyint(1) DEFAULT NULL,
@@ -197,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `organism` (
   PRIMARY KEY (`organism_id`),
   UNIQUE KEY `SCIENTIFICNAME` (`scientific_name`),
   KEY `subfamily_id` (`subfamily_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `organism`
@@ -240,16 +228,11 @@ CREATE TABLE IF NOT EXISTS `post` (
   `post_latitude` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`post_id`),
   KEY `LivingOrganismID` (`organism_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Gegevens worden uitgevoerd voor tabel `post`
---
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 INSERT INTO `post` (`post_id`, `organism_id`, `post_first_name`, `post_last_name`, `post_email`, `post_description`, `post_photo`, `post_longitude`, `post_latitude`) VALUES
 (1, 1, 'Bert', 'Cortois', 'bert.cortois@outlook.be', 'Goat eating gras high in the mountains of oman', NULL, '22.957370', '57.675238'),
 (2, 3, 'Bert', 'Cortois', 'bert.cortois@outlook.be', 'Birds singing', NULL, '23.546790', '58.655102');
-
 -- --------------------------------------------------------
 
 --
@@ -258,7 +241,7 @@ INSERT INTO `post` (`post_id`, `organism_id`, `post_first_name`, `post_last_name
 
 CREATE TABLE IF NOT EXISTS `season` (
   `season_id` int(11) NOT NULL AUTO_INCREMENT,
-  `season_name` varchar(50) NOT NULL,
+  `season_name` varchar(10) NOT NULL,
   `season_description` varchar(10000) NOT NULL,
   PRIMARY KEY (`season_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
@@ -286,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `subfamily` (
   `subfamily_description` varchar(2000) NOT NULL,
   PRIMARY KEY (`subfamily_id`),
   KEY `family_id` (`family_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `subfamily`
@@ -297,10 +280,7 @@ INSERT INTO `subfamily` (`subfamily_id`, `family_id`, `subfamily_name`, `subfami
 (2, 1, 'Cow', ''),
 (3, 2, 'Chicken', ''),
 (4, 1, 'Oryx', ''),
-(5, 1, 'Camel', ''),
-(6, 1, 'insert slang', ''),
-(7, 2, 'insert', ''),
-(11, 1, 'insert slang', '');
+(5, 1, 'Camel', '');
 
 -- --------------------------------------------------------
 
@@ -364,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `world` (
   `world_name` varchar(50) NOT NULL,
   `world_description` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`world_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `world`
@@ -375,10 +355,6 @@ INSERT INTO `world` (`world_id`, `world_name`, `world_description`) VALUES
 (2, 'Animal world', 'All the animals of oman'),
 (3, 'Marine world', 'All the water creatures of oman'),
 (4, 'Microbial world', 'All the microscopic organisms of Oman');
-
---
--- Beperkingen voor gedumpte tabellen
---
 
 --
 -- Beperkingen voor tabel `download`
@@ -396,15 +372,15 @@ ALTER TABLE `family`
 -- Beperkingen voor tabel `food`
 --
 ALTER TABLE `food`
-  ADD CONSTRAINT `fk_eatenby_eating` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_eating_eatenby` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_eating_eatenby` FOREIGN KEY (`eating_organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_eatenby_eating` FOREIGN KEY (`eaten_by_organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE;
 
 --
 -- Beperkingen voor tabel `geolocation_organism`
 --
 ALTER TABLE `geolocation_organism`
-  ADD CONSTRAINT `fk_geolocation_organism` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_organism_geolocation` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_organism_geolocation` FOREIGN KEY (`organism_id`) REFERENCES `organism` (`organism_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_geolocation_organism` FOREIGN KEY (`geolocation_id`) REFERENCES `geolocation` (`geolocation_id`) ON DELETE CASCADE;
 
 --
 -- Beperkingen voor tabel `habitat_organism`
