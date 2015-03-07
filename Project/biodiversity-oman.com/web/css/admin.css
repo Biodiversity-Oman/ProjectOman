@@ -203,9 +203,9 @@ nav ul ul ul {
     z-index:1002;
     overflow: hidden;
 }
-.insert-box {
+.pop-up {
     display: none;
-    position: absolute;
+    position: fixed;
     top:5%;
     left: 12.5%;
     right: 12.5%;
@@ -215,6 +215,20 @@ nav ul ul ul {
     border-radius: 0.2em 0.2em 0.2em 0.2em;
     background-color: #ffffff;
     z-index:1002;
+}
+.pop-up-scroll {
+    display: none;
+    position: fixed;
+    top:5%;
+    left: 12.5%;
+    right: 12.5%;
+    width: 75%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    background-color: #ffffff;
+    z-index:1002;
+    overflow-y: scroll;
 }
 .whitebox .content {
     margin-top: 2em;
@@ -288,7 +302,7 @@ nav ul ul ul {
     padding: 0;
     font-size: 1.4em;
     margin-bottom: 0.5em;
-    margin-left: -0.8em;
+    margin-left: -0.9em;
     border: none;
     background: none;
     outline: none;

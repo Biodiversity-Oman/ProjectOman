@@ -139,4 +139,16 @@ public class DaSeason {
 			conn.setAutoCommit(true);
 		}
 	}
+        
+        public static boolean checkSeasonExist(String seasonName) throws SQLException {
+
+        boolean match;
+        conn = DataSource.getConnection();
+        stmt = conn.prepareStatement("SELECT COUNT(*) season_name FROM season WHERE season_name = ?");
+        stmt.setString(1, seasonName);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        match = rs.getInt(1) == 1;
+        return match;
+    }
 }

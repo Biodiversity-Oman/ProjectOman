@@ -15,6 +15,11 @@ import java.util.List;
  * @author lennyasus
  */
 public class ServSeason {
+    
+    public static boolean checkSeasosExist(String seasonName) throws SQLException {
+
+		return DaSeason.checkSeasonExist(seasonName);
+	}
 
 	public static List selectAllSeasons() throws SQLException {
 

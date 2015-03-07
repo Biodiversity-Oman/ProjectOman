@@ -133,4 +133,16 @@ public class DaFamily {
             conn.setAutoCommit(true);
         }
     }
+    
+    public static boolean checkFamilyExist(String familyName) throws SQLException {
+
+        boolean match;
+        conn = DataSource.getConnection();
+        stmt = conn.prepareStatement("SELECT COUNT(*) family_name FROM family WHERE family_name = ?");
+        stmt.setString(1, familyName);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        match = rs.getInt(1) == 1;
+        return match;
+    }
 }

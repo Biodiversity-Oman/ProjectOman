@@ -16,31 +16,36 @@ import java.util.List;
  */
 public class ServHabitat {
 
-	public static List selectAllHabitats() throws SQLException {
+    public static boolean checkHbitatExist(String habitatName) throws SQLException {
 
-		return DaHabitat.selectAll();
-	}
+        return DaHabitat.checkHbitatExist(habitatName);
+    }
 
-	public static void insertHabitat(String name, String description) throws SQLException {
+    public static List selectAllHabitats() throws SQLException {
 
-		Habitat habitat = new Habitat();
-		habitat.setHabitatName(name);
-		habitat.setHabitatDescription(description);
-		DaHabitat.insertHabitat(habitat);
-	}
+        return DaHabitat.selectAll();
+    }
 
-	public static void deleteHabitat(int id) throws SQLException {
+    public static void insertHabitat(String name, String description) throws SQLException {
 
-		DaHabitat.deleteHabitat(id);
-	}
-        
-        public static void updateHabitat(String habitatName, String habitatdescription, int habitatId) throws SQLException {
+        Habitat habitat = new Habitat();
+        habitat.setHabitatName(name);
+        habitat.setHabitatDescription(description);
+        DaHabitat.insertHabitat(habitat);
+    }
 
-            Habitat h = new Habitat();
-            h.setHabitatName(habitatName);
-            h.setHabitatDescription(habitatdescription);
-            h.setHabitatId(habitatId);
-            DaHabitat.updateHabitat(h);
+    public static void deleteHabitat(int id) throws SQLException {
+
+        DaHabitat.deleteHabitat(id);
+    }
+
+    public static void updateHabitat(String habitatName, String habitatdescription, int habitatId) throws SQLException {
+
+        Habitat h = new Habitat();
+        h.setHabitatName(habitatName);
+        h.setHabitatDescription(habitatdescription);
+        h.setHabitatId(habitatId);
+        DaHabitat.updateHabitat(h);
 
     }
 
