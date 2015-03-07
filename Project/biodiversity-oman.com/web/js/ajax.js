@@ -1485,9 +1485,9 @@ $(document).ready(function () {
 
     // functie voor delete post btn in published.jsp
     $(document).on('click', '.table #delete-post-btn', function () {
-        var r = confirm("Delete this post?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
+         var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete the selected post! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
             $.ajax({
                 url: 'DeletePost?id=' + id,
                 type: 'POST',
@@ -1497,6 +1497,7 @@ $(document).ready(function () {
             }).done(function () {
                 loadPosts();
             });
-        }
+            }
+        });
     });
 });
