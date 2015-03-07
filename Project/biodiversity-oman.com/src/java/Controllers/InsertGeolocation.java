@@ -32,12 +32,17 @@ public class InsertGeolocation extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
+        String check = request.getParameter("area-name");
         try {
-            ServGeolocation.insert(request.getParameter("area-name"), request.getParameter("area-description"), request.getParameter("area-coordinates"));
-            response.getWriter().write("succes");
-        } catch (Exception e) {
-            response.getWriter().write("error");
+            if (ServGeolocation.checkGeolocationExist(check) == false) {
+                ServGeolocation.insert(check, request.getParameter("area-description"), request.getParameter("area-coordinates"));
+                response.getWriter().write("succes");
+            } else {
+                response.getWriter().write("error1");
+            }
+        } catch (Exception ex) {
+            response.getWriter().write("error2");
         }
     }
 
