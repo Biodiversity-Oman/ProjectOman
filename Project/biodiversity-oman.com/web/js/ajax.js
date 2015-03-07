@@ -1385,19 +1385,20 @@ $(document).ready(function () {
 
     // functie voor delete geolocation btn in dashboard.jsp
     $(document).on('click', '.table #delete-geolocation-btn', function () {
-        var r = confirm("Delete this geolocation?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteGeolocation?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadGeolocations();
-            });
-        }
+        var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete the geolocation in all linked organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
+                $.ajax({
+                    url: 'DeleteGeolocation?id=' + id,
+                    type: 'POST',
+                    dataType: 'text',
+                    cache: false,
+                    async: true
+                }).done(function () {
+                    loadGeolocations();
+                });
+            }
+        });
     });
 
     // functie voor delete organism btn in dashboard.jsp
