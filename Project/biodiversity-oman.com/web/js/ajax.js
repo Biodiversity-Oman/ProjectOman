@@ -1363,19 +1363,24 @@ $(document).ready(function () {
 
     // functie voor delete subfamily btn in dashboard.jsp
     $(document).on('click', '.table #delete-subfamily-btn', function () {
-        var r = confirm("Delete this breed?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteSubFamily?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadSubFamilies();
-            });
-        }
+        var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete ALL organisms that are linked to this breed! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
+                bootbox.confirm("<center><b>ARE YOU VERY SURE?</b><br><br>This will delete ALL organisms that are linked to this breed! </center>  ", function (result) {
+                    if (result === true) {
+                        $.ajax({
+                            url: 'DeleteSubFamily?id=' + id,
+                            type: 'POST',
+                            dataType: 'text',
+                            cache: false,
+                            async: true
+                        }).done(function () {
+                            loadSubFamilies();
+                        });
+                    }
+                });
+            }
+        });
     });
 
     // functie voor delete geolocation btn in dashboard.jsp
