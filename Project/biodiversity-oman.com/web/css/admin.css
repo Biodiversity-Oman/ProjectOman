@@ -33,6 +33,9 @@ h2 {
     margin-left: 20%;
     margin-right: auto;
 }
+.detail{
+    font-weight: 500;
+}
 /*--------------------------------------------------------*/
 /* -------------- adminlogin -------------- */
 /*--------------------------------------------------------*/
@@ -369,6 +372,12 @@ table {
 }
 .modal-content{
     margin-top: 20em;
+}
+.img-thumbnail{
+    max-height: 200px;
+    max-width: 200px;
+    min-height: 100px;
+    min-width: 100px;
 }
 /*--------------------------------------------------------*/
 /* -------------- Chosen Overrides-------------- */
