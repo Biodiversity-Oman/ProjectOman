@@ -15,6 +15,11 @@ import java.util.List;
  * @author Eric
  */
 public class ServFamily {
+    
+    public static boolean checkFamilyExist(String familyName) throws SQLException {
+
+		return DaFamily.checkFamilyExist(familyName);
+	}
 
     public static List selectAllFamily() throws SQLException {
 

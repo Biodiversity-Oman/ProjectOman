@@ -34,13 +34,19 @@ public class InsertFamily extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        String check = request.getParameter("family-name");
         try {
+            if(ServFamily.checkFamilyExist(check)==false){
             ServFamily.insertFamily(request.getParameter("family-name"), request.getParameter("family-description"),
                                 Integer.parseInt(request.getParameter("world-id")));
             response.getWriter().write("succes");
+            }
+            else {
+                response.getWriter().write("error1");
+            }
             
             } catch (Exception ex) {
-			response.getWriter().write("error");
+			response.getWriter().write("error2");
 		}
     }
 
