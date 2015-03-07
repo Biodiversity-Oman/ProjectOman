@@ -1184,9 +1184,9 @@ $(document).ready(function () {
             $(".chosen-select").trigger("chosen:updated");
         });
     });
-    
+
     // select detail from organism
- $(document).on('click', 'table #detail-organism-btn', function () {
+    $(document).on('click', 'table #detail-organism-btn', function () {
         document.getElementById('detail-organism').style.display = 'block';
         document.getElementById('fade').style.display = 'block';
         
@@ -1217,7 +1217,7 @@ $(document).ready(function () {
             $("#family-detail").html(data.family.familyName);
             $("#subfamily-detail").html(data.subFamily.subFamilyName);
             $("#world-detail").html(data.world.worldName);
-            
+
             if (data.indigenous === true) {
                 $("#indigenous-detail").html('Yes');
             } else {
@@ -1281,39 +1281,44 @@ $(document).ready(function () {
 
     // functie voor delete world btn in dashboard.jsp
     $(document).on('click', '.table #delete-world-btn', function () {
-
-        var r = confirm("Delete this world?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteWorld?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadWorlds();
-                loadFamilies();
-            });
-        }
+        var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will ALL organisms, families and breeds that are linked to this world! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
+                bootbox.confirm("<center><b>ARE YOU VERY SURE?</b><br><br>This will ALL organisms, families and breeds that are linked to this world!</center>  ", function (result) {
+                    var id = ($(this).attr("value"));
+                    if (result === true) {
+                        $.ajax({
+                            url: 'DeleteWorld?id=' + id,
+                            type: 'POST',
+                            dataType: 'text',
+                            cache: false,
+                            async: true
+                        }).done(function () {
+                            loadWorlds();
+                            loadFamilies();
+                        });
+                    }
+                });
+            }
+        });
     });
 
 
     // functie voor delete season btn in dashboard.jsp
     $(document).on('click', '.table #delete-season-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("This will delete season in all organisms! <br> <b>Are you sure?</b>  ", function (result) {
-            if(result===true){
-            $.ajax({
-                url: 'DeleteSeason?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadSeasons();
-            });
-        }
+        bootbox.confirm("<center>This will delete season in all organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
+                $.ajax({
+                    url: 'DeleteSeason?id=' + id,
+                    type: 'POST',
+                    dataType: 'text',
+                    cache: false,
+                    async: true
+                }).done(function () {
+                    loadSeasons();
+                });
+            }
         });
     });
 
