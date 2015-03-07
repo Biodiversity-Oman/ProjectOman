@@ -1306,7 +1306,7 @@ $(document).ready(function () {
     // functie voor delete season btn in dashboard.jsp
     $(document).on('click', '.table #delete-season-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete season in all organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete season in all organisms linked organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
                 $.ajax({
                     url: 'DeleteSeason?id=' + id,
@@ -1345,19 +1345,20 @@ $(document).ready(function () {
     });
     // functie voor delete habitat btn in dashboard.jsp
     $(document).on('click', '.table #delete-habitat-btn', function () {
-        var r = confirm("Delete this habitat?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteHabitat?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadHabitats();
-            });
-        }
+        var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete habitat in all linked organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
+                $.ajax({
+                    url: 'DeleteHabitat?id=' + id,
+                    type: 'POST',
+                    dataType: 'text',
+                    cache: false,
+                    async: true
+                }).done(function () {
+                    loadHabitats();
+                });
+            }
+        });
     });
 
     // functie voor delete subfamily btn in dashboard.jsp
