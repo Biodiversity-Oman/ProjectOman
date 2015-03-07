@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package BLL;
+
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,560 +14,555 @@ import java.util.List;
  */
 public class Organism {
 
-	private int organismId;
-	private String scientificName;
-	private String commonName;
-	private String localName;
-	private String description;
-	private Subfamily subFamily;
-	private Family family;
-	private World world;
-	private List<Habitat> habitat;
-	private String population;
-	private List<Season> season;
-	private Boolean indigenous;
-	private Boolean cultivated;
-	private Boolean endangered;
-	private Boolean medicinal;
-	private String benefits;
-	private String dangerous;
-	private String threats;
-	private String opportunities;
-	private byte[] photo;
-	private String links;
-	private List<Organism> eatenByOrganism;
-	private List<Organism> eatingOrganisms;
-	private List<Post> post;
-	private Boolean validated;
-	private String foodName;
-	private String foodDescription;
-        private java.util.Date insertedOn;
-        private java.util.Date updatedOn;
-        private List<Geolocation> geolocations;
-        
-        // Algemene constructor
-        public Organism() {
-        }
-        
-        // Constructor voor relaties vast te leggen (eatenby/eating)
-        public Organism(int organismId) {
-            this.organismId = organismId;
-        }
+    private int organismId;
+    private String scientificName;
+    private String commonName;
+    private String localName;
+    private String description;
+    private Subfamily subFamily;
+    private Family family;
+    private World world;
+    private List<Habitat> habitat;
+    private String population;
+    private List<Season> season;
+    private Boolean indigenous;
+    private Boolean cultivated;
+    private Boolean endangered;
+    private Boolean medicinal;
+    private String benefits;
+    private String dangerous;
+    private String threats;
+    private String opportunities;
+    private byte[] photo;
+    private String links;
+    private List<Organism> eatenByOrganism;
+    private List<Organism> eatingOrganisms;
+    private List<Post> post;
+    private Boolean validated;
+    private String foodName;
+    private String foodDescription;
+    private Date insertedOn;
+    private Date updatedOn;
+    private List<Geolocation> geolocations;
 
-	@Override
-	public String toString() {
-		return "Organism{" + "scientificName=" + scientificName + ", commonName=" + commonName + ", insertedOn=" + insertedOn + ", updatedOn=" + updatedOn + '}';
-	}
+    // Algemene constructor
+    public Organism() {
+    }
 
-        // Insert constructor
-        public Organism(String scientificName, String commonName, String localName, String description, 
-                Subfamily subFamily, List<Habitat> habitat, String population, List<Season> season,
-                Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, 
-                String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links, 
-                List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, String foodName, 
-                String foodDescription, List<Geolocation> geolocations)
-        {
-            this.scientificName = scientificName;
-            this.commonName = commonName;
-            this.localName = localName;
-            this.description = description;
-            this.subFamily = subFamily;
-            this.habitat = habitat;
-            this.population = population;
-            this.season = season;
-            this.indigenous = indigenous;
-            this.cultivated = cultivated;
-            this.endangered = endangered;
-            this.medicinal = medicinal;
-            this.benefits = benefits;
-            this.dangerous = dangerous;
-            this.threats = threats;
-            this.opportunities = opportunities;
-            this.photo = photo;
-            this.links = links;
-            this.eatenByOrganism = eatenByOrganism;
-            this.eatingOrganisms = eatingOrganisms;
-            this.foodName = foodName;
-            this.foodDescription = foodDescription;
-            this.geolocations = geolocations;
-        }
+    // Constructor voor relaties vast te leggen (eatenby/eating)
+    public Organism(int organismId) {
+        this.organismId = organismId;
+    }
 
-        // Update constructor
-        public Organism(int organismId, String scientificName, String commonName, String localName, String description,
-                Subfamily subFamily, List<Habitat> habitat, String population, List<Season> season,
-                Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous,
-                String threats, String opportunities, byte[] photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, 
-                String foodName, String foodDescription, List<Geolocation> geolocations, Boolean validated) 
-                
-        {
-            this.organismId = organismId;
-            this.scientificName = scientificName;
-            this.commonName = commonName;
-            this.localName = localName;
-            this.description = description;
-            this.subFamily = subFamily;
-            this.habitat = habitat;
-            this.population = population;
-            this.season = season;
-            this.indigenous = indigenous;
-            this.cultivated = cultivated;
-            this.endangered = endangered;
-            this.medicinal = medicinal;
-            this.benefits = benefits;
-            this.dangerous = dangerous;
-            this.threats = threats;
-            this.opportunities = opportunities;
-            this.photo = photo;
-            this.links = links;
-            this.eatenByOrganism = eatenByOrganism;
-            this.eatingOrganisms = eatingOrganisms;
-            this.validated = validated;
-            this.foodName = foodName;
-            this.foodDescription = foodDescription;
-            this.geolocations = geolocations;
-        }
+    @Override
+    public String toString() {
+        return "Organism{" + "scientificName=" + scientificName + ", commonName=" + commonName + ", insertedOn=" + insertedOn + ", updatedOn=" + updatedOn + '}';
+    }
 
-        // Select one detailed (Voor op de beozkers site, m.a.w. bevat het geen insertedOn/updatedOn params)
-        public Organism(int organismId, String scientificName, String commonName, String localName, String description, 
-                Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, List<Season> season, 
-                Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous, 
-                String threats, String opportunities, byte[] photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, 
-                List<Post> post, Boolean validated, String foodName, String foodDescription, List<Geolocation> geolocations) 
-        {
-            this.organismId = organismId;
-            this.scientificName = scientificName;
-            this.commonName = commonName;
-            this.localName = localName;
-            this.description = description;
-            this.subFamily = subFamily;
-            this.family = family;
-            this.world = world;
-            this.habitat = habitat;
-            this.population = population;
-            this.season = season;
-            this.indigenous = indigenous;
-            this.cultivated = cultivated;
-            this.endangered = endangered;
-            this.medicinal = medicinal;
-            this.benefits = benefits;
-            this.dangerous = dangerous;
-            this.threats = threats;
-            this.opportunities = opportunities;
-            this.photo = photo;
-            this.links = links;
-            this.eatenByOrganism = eatenByOrganism;
-            this.eatingOrganisms = eatingOrganisms;
-            this.post = post;
-            this.validated = validated;
-            this.foodName = foodName;
-            this.foodDescription = foodDescription;
-            this.geolocations = geolocations;
-        }
+    // Insert constructor
+    public Organism(String scientificName, String commonName, String localName, String description,
+            Subfamily subFamily, List<Habitat> habitat, String population, List<Season> season,
+            Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal,
+            String benefits, String dangerous, String threats, String opportunities, byte[] photo, String links,
+            List<Organism> eatenByOrganism, List<Organism> eatingOrganisms, String foodName,
+            String foodDescription, List<Geolocation> geolocations) {
+        this.scientificName = scientificName;
+        this.commonName = commonName;
+        this.localName = localName;
+        this.description = description;
+        this.subFamily = subFamily;
+        this.habitat = habitat;
+        this.population = population;
+        this.season = season;
+        this.indigenous = indigenous;
+        this.cultivated = cultivated;
+        this.endangered = endangered;
+        this.medicinal = medicinal;
+        this.benefits = benefits;
+        this.dangerous = dangerous;
+        this.threats = threats;
+        this.opportunities = opportunities;
+        this.photo = photo;
+        this.links = links;
+        this.eatenByOrganism = eatenByOrganism;
+        this.eatingOrganisms = eatingOrganisms;
+        this.foodName = foodName;
+        this.foodDescription = foodDescription;
+        this.geolocations = geolocations;
+    }
 
-        
-	/**
-	 * @return the organismId
-	 */
-	public int getOrganismId() {
-		return organismId;
-	}
+    // Update constructor
+    public Organism(int organismId, String scientificName, String commonName, String localName, String description,
+            Subfamily subFamily, List<Habitat> habitat, String population, List<Season> season,
+            Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous,
+            String threats, String opportunities, byte[] photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms,
+            String foodName, String foodDescription, List<Geolocation> geolocations, Boolean validated) {
+        this.organismId = organismId;
+        this.scientificName = scientificName;
+        this.commonName = commonName;
+        this.localName = localName;
+        this.description = description;
+        this.subFamily = subFamily;
+        this.habitat = habitat;
+        this.population = population;
+        this.season = season;
+        this.indigenous = indigenous;
+        this.cultivated = cultivated;
+        this.endangered = endangered;
+        this.medicinal = medicinal;
+        this.benefits = benefits;
+        this.dangerous = dangerous;
+        this.threats = threats;
+        this.opportunities = opportunities;
+        this.photo = photo;
+        this.links = links;
+        this.eatenByOrganism = eatenByOrganism;
+        this.eatingOrganisms = eatingOrganisms;
+        this.validated = validated;
+        this.foodName = foodName;
+        this.foodDescription = foodDescription;
+        this.geolocations = geolocations;
+    }
 
-	/**
-	 * @param organismId the organismId to set
-	 */
-	public void setOrganismId(int organismId) {
-		this.organismId = organismId;
-	}
+    // Select one detailed (Voor op de beozkers site, m.a.w. bevat het geen insertedOn/updatedOn params)
+    public Organism(int organismId, String scientificName, String commonName, String localName, String description,
+            Subfamily subFamily, Family family, World world, List<Habitat> habitat, String population, List<Season> season,
+            Boolean indigenous, Boolean cultivated, Boolean endangered, Boolean medicinal, String benefits, String dangerous,
+            String threats, String opportunities, byte[] photo, String links, List<Organism> eatenByOrganism, List<Organism> eatingOrganisms,
+            List<Post> post, Boolean validated, String foodName, String foodDescription, List<Geolocation> geolocations) {
+        this.organismId = organismId;
+        this.scientificName = scientificName;
+        this.commonName = commonName;
+        this.localName = localName;
+        this.description = description;
+        this.subFamily = subFamily;
+        this.family = family;
+        this.world = world;
+        this.habitat = habitat;
+        this.population = population;
+        this.season = season;
+        this.indigenous = indigenous;
+        this.cultivated = cultivated;
+        this.endangered = endangered;
+        this.medicinal = medicinal;
+        this.benefits = benefits;
+        this.dangerous = dangerous;
+        this.threats = threats;
+        this.opportunities = opportunities;
+        this.photo = photo;
+        this.links = links;
+        this.eatenByOrganism = eatenByOrganism;
+        this.eatingOrganisms = eatingOrganisms;
+        this.post = post;
+        this.validated = validated;
+        this.foodName = foodName;
+        this.foodDescription = foodDescription;
+        this.geolocations = geolocations;
+    }
 
-	/**
-	 * @return the scientificName
-	 */
-	public String getScientificName() {
-		return scientificName;
-	}
+    /**
+     * @return the organismId
+     */
+    public int getOrganismId() {
+        return organismId;
+    }
 
-	/**
-	 * @param scientificName the scientificName to set
-	 */
-	public void setScientificName(String scientificName) {
-		this.scientificName = scientificName;
-	}
+    /**
+     * @param organismId the organismId to set
+     */
+    public void setOrganismId(int organismId) {
+        this.organismId = organismId;
+    }
 
-	/**
-	 * @return the commonName
-	 */
-	public String getCommonName() {
-		return commonName;
-	}
+    /**
+     * @return the scientificName
+     */
+    public String getScientificName() {
+        return scientificName;
+    }
 
-	/**
-	 * @param commonName the commonName to set
-	 */
-	public void setCommonName(String commonName) {
-		this.commonName = commonName;
-	}
+    /**
+     * @param scientificName the scientificName to set
+     */
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
+    }
 
-	/**
-	 * @return the localName
-	 */
-	public String getLocalName() {
-		return localName;
-	}
+    /**
+     * @return the commonName
+     */
+    public String getCommonName() {
+        return commonName;
+    }
 
-	/**
-	 * @param localName the localName to set
-	 */
-	public void setLocalName(String localName) {
-		this.localName = localName;
-	}
+    /**
+     * @param commonName the commonName to set
+     */
+    public void setCommonName(String commonName) {
+        this.commonName = commonName;
+    }
 
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
+    /**
+     * @return the localName
+     */
+    public String getLocalName() {
+        return localName;
+    }
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    /**
+     * @param localName the localName to set
+     */
+    public void setLocalName(String localName) {
+        this.localName = localName;
+    }
 
-	/**
-	 * @return the subFamily
-	 */
-	public Subfamily getSubfamily() {
-		return subFamily;
-	}
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
 
-	/**
-	 * @param subFamily the subFamily to set
-	 */
-	public void setSubfamily(Subfamily subFamily) {
-		this.subFamily = subFamily;
-	}
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	/**
-	 * @return the family
-	 */
-	public Family getFamily() {
-		return family;
-	}
+    /**
+     * @return the subFamily
+     */
+    public Subfamily getSubfamily() {
+        return subFamily;
+    }
 
-	/**
-	 * @param family the family to set
-	 */
-	public void setFamily(Family family) {
-		this.family = family;
-	}
+    /**
+     * @param subFamily the subFamily to set
+     */
+    public void setSubfamily(Subfamily subFamily) {
+        this.subFamily = subFamily;
+    }
 
-	/**
-	 * @return the world
-	 */
-	public World getWorld() {
-		return world;
-	}
+    /**
+     * @return the family
+     */
+    public Family getFamily() {
+        return family;
+    }
 
-	/**
-	 * @param world the world to set
-	 */
-	public void setWorld(World world) {
-		this.world = world;
-	}
+    /**
+     * @param family the family to set
+     */
+    public void setFamily(Family family) {
+        this.family = family;
+    }
 
-	/**
-	 * @return the habitat
-	 */
-	public List<Habitat> getHabitat() {
-		return habitat;
-	}
+    /**
+     * @return the world
+     */
+    public World getWorld() {
+        return world;
+    }
 
-	/**
-	 * @param habitat the habitat to set
-	 */
-	public void setHabitat(List<Habitat> habitat) {
-		this.habitat = habitat;
-	}
+    /**
+     * @param world the world to set
+     */
+    public void setWorld(World world) {
+        this.world = world;
+    }
 
-	/**
-	 * @return the population
-	 */
-	public String getPopulation() {
-		return population;
-	}
+    /**
+     * @return the habitat
+     */
+    public List<Habitat> getHabitat() {
+        return habitat;
+    }
 
-	/**
-	 * @param population the population to set
-	 */
-	public void setPopulation(String population) {
-		this.population = population;
-	}
+    /**
+     * @param habitat the habitat to set
+     */
+    public void setHabitat(List<Habitat> habitat) {
+        this.habitat = habitat;
+    }
 
-	/**
-	 * @return the season
-	 */
-	public List<Season> getSeason() {
-		return season;
-	}
+    /**
+     * @return the population
+     */
+    public String getPopulation() {
+        return population;
+    }
 
-	/**
-	 * @param season the season to set
-	 */
-	public void setSeason(List<Season> season) {
-		this.season = season;
-	}
+    /**
+     * @param population the population to set
+     */
+    public void setPopulation(String population) {
+        this.population = population;
+    }
 
-	/**
-	 * @return the indigenous
-	 */
-	public Boolean getIndigenous() {
-		return indigenous;
-	}
+    /**
+     * @return the season
+     */
+    public List<Season> getSeason() {
+        return season;
+    }
 
-	/**
-	 * @param indigenous the indigenous to set
-	 */
-	public void setIndigenous(Boolean indigenous) {
-		this.indigenous = indigenous;
-	}
+    /**
+     * @param season the season to set
+     */
+    public void setSeason(List<Season> season) {
+        this.season = season;
+    }
 
-	/**
-	 * @return the cultivated
-	 */
-	public Boolean getCultivated() {
-		return cultivated;
-	}
+    /**
+     * @return the indigenous
+     */
+    public Boolean getIndigenous() {
+        return indigenous;
+    }
 
-	/**
-	 * @param cultivated the cultivated to set
-	 */
-	public void setCultivated(Boolean cultivated) {
-		this.cultivated = cultivated;
-	}
+    /**
+     * @param indigenous the indigenous to set
+     */
+    public void setIndigenous(Boolean indigenous) {
+        this.indigenous = indigenous;
+    }
 
-	/**
-	 * @return the endangered
-	 */
-	public Boolean getEndangered() {
-		return endangered;
-	}
+    /**
+     * @return the cultivated
+     */
+    public Boolean getCultivated() {
+        return cultivated;
+    }
 
-	/**
-	 * @param endangered the endangered to set
-	 */
-	public void setEndangered(Boolean endangered) {
-		this.endangered = endangered;
-	}
+    /**
+     * @param cultivated the cultivated to set
+     */
+    public void setCultivated(Boolean cultivated) {
+        this.cultivated = cultivated;
+    }
 
-	/**
-	 * @return the medicinal
-	 */
-	public Boolean getMedicinal() {
-		return medicinal;
-	}
+    /**
+     * @return the endangered
+     */
+    public Boolean getEndangered() {
+        return endangered;
+    }
 
-	/**
-	 * @param medicinal the medicinal to set
-	 */
-	public void setMedicinal(Boolean medicinal) {
-		this.medicinal = medicinal;
-	}
+    /**
+     * @param endangered the endangered to set
+     */
+    public void setEndangered(Boolean endangered) {
+        this.endangered = endangered;
+    }
 
-	/**
-	 * @return the benefits
-	 */
-	public String getBenefits() {
-		return benefits;
-	}
+    /**
+     * @return the medicinal
+     */
+    public Boolean getMedicinal() {
+        return medicinal;
+    }
 
-	/**
-	 * @param benefits the benefits to set
-	 */
-	public void setBenefits(String benefits) {
-		this.benefits = benefits;
-	}
+    /**
+     * @param medicinal the medicinal to set
+     */
+    public void setMedicinal(Boolean medicinal) {
+        this.medicinal = medicinal;
+    }
 
-	/**
-	 * @return the dangerous
-	 */
-	public String getDangerous() {
-		return dangerous;
-	}
+    /**
+     * @return the benefits
+     */
+    public String getBenefits() {
+        return benefits;
+    }
 
-	/**
-	 * @param dangerous the dangerous to set
-	 */
-	public void setDangerous(String dangerous) {
-		this.dangerous = dangerous;
-	}
+    /**
+     * @param benefits the benefits to set
+     */
+    public void setBenefits(String benefits) {
+        this.benefits = benefits;
+    }
 
-	/**
-	 * @return the threats
-	 */
-	public String getThreats() {
-		return threats;
-	}
+    /**
+     * @return the dangerous
+     */
+    public String getDangerous() {
+        return dangerous;
+    }
 
-	/**
-	 * @param threats the threats to set
-	 */
-	public void setThreats(String threats) {
-		this.threats = threats;
-	}
+    /**
+     * @param dangerous the dangerous to set
+     */
+    public void setDangerous(String dangerous) {
+        this.dangerous = dangerous;
+    }
 
-	/**
-	 * @return the opportunities
-	 */
-	public String getOpportunities() {
-		return opportunities;
-	}
+    /**
+     * @return the threats
+     */
+    public String getThreats() {
+        return threats;
+    }
 
-	/**
-	 * @param opportunities the opportunities to set
-	 */
-	public void setOpportunities(String opportunities) {
-		this.opportunities = opportunities;
-	}
+    /**
+     * @param threats the threats to set
+     */
+    public void setThreats(String threats) {
+        this.threats = threats;
+    }
 
-	/**
-	 * @return the photo
-	 */
-	public byte[] getPhoto() {
-		return photo;
-	}
+    /**
+     * @return the opportunities
+     */
+    public String getOpportunities() {
+        return opportunities;
+    }
 
-	/**
-	 * @param photo the photo to set
-	 */
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
-	}
+    /**
+     * @param opportunities the opportunities to set
+     */
+    public void setOpportunities(String opportunities) {
+        this.opportunities = opportunities;
+    }
 
-	/**
-	 * @return the links
-	 */
-	public String getLinks() {
-		return links;
-	}
+    /**
+     * @return the photo
+     */
+    public byte[] getPhoto() {
+        return photo;
+    }
 
-	/**
-	 * @param links the links to set
-	 */
-	public void setLinks(String links) {
-		this.links = links;
-	}
+    /**
+     * @param photo the photo to set
+     */
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
 
-	/**
-	 * @return the eatenByOrganism
-	 */
-	public List<Organism> getEatenByOrganism() {
-		return eatenByOrganism;
-	}
+    /**
+     * @return the links
+     */
+    public String getLinks() {
+        return links;
+    }
 
-	/**
-	 * @param eatenByOrganism the eatenByOrganism to set
-	 */
-	public void setEatenByOrganism(List<Organism> eatenByOrganism) {
-		this.eatenByOrganism = eatenByOrganism;
-	}
+    /**
+     * @param links the links to set
+     */
+    public void setLinks(String links) {
+        this.links = links;
+    }
 
-	/**
-	 * @return the eatingOrganisms
-	 */
-	public List<Organism> getEatingOrganisms() {
-		return eatingOrganisms;
-	}
+    /**
+     * @return the eatenByOrganism
+     */
+    public List<Organism> getEatenByOrganism() {
+        return eatenByOrganism;
+    }
 
-	/**
-	 * @param eatingOrganisms the eatingOrganisms to set
-	 */
-	public void setEatingOrganisms(List<Organism> eatingOrganisms) {
-		this.eatingOrganisms = eatingOrganisms;
-	}
+    /**
+     * @param eatenByOrganism the eatenByOrganism to set
+     */
+    public void setEatenByOrganism(List<Organism> eatenByOrganism) {
+        this.eatenByOrganism = eatenByOrganism;
+    }
 
-	/**
-	 * @return the post
-	 */
-	public List<Post> getPost() {
-		return post;
-	}
+    /**
+     * @return the eatingOrganisms
+     */
+    public List<Organism> getEatingOrganisms() {
+        return eatingOrganisms;
+    }
 
-	/**
-	 * @param post the post to set
-	 */
-	public void setPost(List<Post> post) {
-		this.post = post;
-	}
+    /**
+     * @param eatingOrganisms the eatingOrganisms to set
+     */
+    public void setEatingOrganisms(List<Organism> eatingOrganisms) {
+        this.eatingOrganisms = eatingOrganisms;
+    }
 
-	/**
-	 * @return the validated
-	 */
-	public Boolean getValidated() {
-		return validated;
-	}
+    /**
+     * @return the post
+     */
+    public List<Post> getPost() {
+        return post;
+    }
 
-	/**
-	 * @param validated the validated to set
-	 */
-	public void setValidated(Boolean validated) {
-		this.validated = validated;
-	}
+    /**
+     * @param post the post to set
+     */
+    public void setPost(List<Post> post) {
+        this.post = post;
+    }
 
-	/**
-	 * @return the foodName
-	 */
-	public String getFoodName() {
-		return foodName;
-	}
+    /**
+     * @return the validated
+     */
+    public Boolean getValidated() {
+        return validated;
+    }
 
-	/**
-	 * @param foodName the foodName to set
-	 */
-	public void setFoodName(String foodName) {
-		this.foodName = foodName;
-	}
+    /**
+     * @param validated the validated to set
+     */
+    public void setValidated(Boolean validated) {
+        this.validated = validated;
+    }
 
-	/**
-	 * @return the foodDescription
-	 */
-	public String getFoodDescription() {
-		return foodDescription;
-	}
+    /**
+     * @return the foodName
+     */
+    public String getFoodName() {
+        return foodName;
+    }
 
-	/**
-	 * @param foodDescription the foodDescription to set
-	 */
-	public void setFoodDescription(String foodDescription) {
-		this.foodDescription = foodDescription;
-	}
+    /**
+     * @param foodName the foodName to set
+     */
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
+    }
+
+    /**
+     * @return the foodDescription
+     */
+    public String getFoodDescription() {
+        return foodDescription;
+    }
+
+    /**
+     * @param foodDescription the foodDescription to set
+     */
+    public void setFoodDescription(String foodDescription) {
+        this.foodDescription = foodDescription;
+    }
 
     /**
      * @return the insertedOn
      */
-    public java.util.Date getInsertedOn() {
+    public Date getInsertedOn() {
         return insertedOn;
     }
 
     /**
      * @param insertedOn the insertedOn to set
      */
-    public void setInsertedOn(java.util.Date insertedOn) {
+    public void setInsertedOn(Date insertedOn) {
         this.insertedOn = insertedOn;
     }
 
     /**
      * @return the updatedOn
      */
-    public java.util.Date getUpdatedOn() {
+    public Date getUpdatedOn() {
         return updatedOn;
     }
 
     /**
      * @param updatedOn the updatedOn to set
      */
-    public void setUpdatedOn(java.util.Date updatedOn) {
+    public void setUpdatedOn(Date updatedOn) {
         this.updatedOn = updatedOn;
     }
 
@@ -583,10 +580,4 @@ public class Organism {
         this.geolocations = geolocations;
     }
 
-	
-	
-	
-	
-	
-	
 }

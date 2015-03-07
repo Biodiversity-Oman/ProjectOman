@@ -1,16 +1,22 @@
 /*
  * DAL class for ins and outs with organism table in the database.
- * This DAL Class can be used for the basic CRUD operations of the BLL.Organism class.
+ * This DAL Class can be used for the basic CRUD operations of the Organism class.
  * Aside for the CRUD there are functions to select organism based on various fields inside and outside the organism table.
  */
 package DAL;
 
-import BLL.Organism;
-import BLL.UserAccount;
+import BLL.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import javax.sql.rowset.serial.SerialBlob;
 
 /**
  *
@@ -20,14 +26,14 @@ import java.util.List;
  */
 public class DaOrganism {
 
-    private static java.sql.PreparedStatement stmt;
-    private static java.sql.Connection conn;
+    private static PreparedStatement stmt;
+    private static Connection conn;
 
     // Nagaan voor doubles op alle records buiten 1. (update)
     public static boolean checkOrganismExist(String scientificname, Integer id) {
         try {
             conn = DataSource.getConnection();
-        } catch (java.sql.SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
@@ -38,11 +44,11 @@ public class DaOrganism {
             stmt.setString(1, scientificname);
             stmt.setInt(2, id);
 
-            java.sql.ResultSet rsExists = stmt.executeQuery();
+            ResultSet rsExists = stmt.executeQuery();
             if (rsExists.next()) {
                 return true;
             }
-        } catch (java.sql.SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return false;
@@ -52,7 +58,7 @@ public class DaOrganism {
     public static boolean checkOrganismExist(String scientificname) {
         try {
             conn = DataSource.getConnection();
-        } catch (java.sql.SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
@@ -61,17 +67,17 @@ public class DaOrganism {
                     + "WHERE organism.scientific_name = ?");
             stmt.setString(1, scientificname);
 
-            java.sql.ResultSet rsExists = stmt.executeQuery();
+            ResultSet rsExists = stmt.executeQuery();
             if (rsExists.next()) {
                 return true;
             }
-        } catch (java.sql.SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return false;
     }
 
-    public static java.util.List<BLL.Organism> selectAll() {
+    public static List<Organism> selectAll() {
         /*  Deze methode selecteert de volgende properties van alle organisme:
          organism_id, common_name, subfamily_id, family_id en world_id.
          Deze methode is bedoelt om een snel overzicht te bieden van alle organisme in de databank.
@@ -80,7 +86,7 @@ public class DaOrganism {
          om hetzelfde resultaat te bekomen. Met deze select heb je alle informatie om alle organismen weer 
          te geven onderverdeeld in wereld, family en subfamily.*/
 
-        java.util.List<BLL.Organism> organisms = new java.util.ArrayList<>();
+        List<Organism> organisms = new ArrayList<>();
 
         try {
             conn = DataSource.getConnection();
@@ -96,13 +102,13 @@ public class DaOrganism {
                     + "LEFT JOIN world ON family.world_id = world.world_id \n"
                     + "WHERE isvalidated = 1 LIMIT 100");
 
-            java.sql.ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                BLL.Organism o = new BLL.Organism();
-                BLL.Subfamily sf = new BLL.Subfamily();
-                BLL.Family f = new BLL.Family();
-                BLL.World w = new BLL.World();
+                Organism o = new Organism();
+                Subfamily sf = new Subfamily();
+                Family f = new Family();
+                World w = new World();
 
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setCommonName(rs.getString("common_name"));
@@ -124,14 +130,14 @@ public class DaOrganism {
                 organisms.add(o);
             }
 
-        } catch (java.sql.SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return organisms;
     }
 
     public static byte[] selectPhotoById(int id) {
-        java.sql.ResultSet rsPhoto;
+        ResultSet rsPhoto;
         byte[] photo = null;
         try {
             conn = DataSource.getConnection();
@@ -140,31 +146,31 @@ public class DaOrganism {
                     + "WHERE organism.organism_id=" + Integer.toString(id));
 
             if ((rsPhoto = stmt.executeQuery()) == null) {
-                throw new java.sql.SQLException("Photo select failed for organismId=" + Integer.toString(id));
+                throw new SQLException("Photo select failed for organismId=" + Integer.toString(id));
             }
 
             while (rsPhoto.next()) {
                 photo = rsPhoto.getBytes("photo");
             }
-        } catch (java.sql.SQLException e) {
+        } catch (SQLException e) {
             photo = null;
             System.out.println(e.getMessage());
         }
         return photo;
     }
 
-    public static BLL.Organism selectOneById(int id) {
+    public static Organism selectOneById(int id) {
         // Dit object zal geretourneerd worden.
-        BLL.Organism organism = new BLL.Organism();
+        Organism organism = new Organism();
         try {
             // Deze lists vangen de objecten op die in een many to many relatie staan met het organisme object.
             // Eens gevuld worden ze toegekend aan de list attributen van Organism.
-            java.util.List<BLL.Organism> eatingOrganisms = new java.util.ArrayList();
-            java.util.List<BLL.Organism> eatenByOrganisms = new java.util.ArrayList();
-            java.util.List<BLL.Habitat> habitats = new java.util.ArrayList();
-            java.util.List<BLL.Season> seasons = new java.util.ArrayList();
-            java.util.List<BLL.Geolocation> geolocations = new java.util.ArrayList<>();
-            java.util.List<BLL.Post> posts = new java.util.ArrayList();
+            List<Organism> eatingOrganisms = new ArrayList();
+            List<Organism> eatenByOrganisms = new ArrayList();
+            List<Habitat> habitats = new ArrayList();
+            List<Season> seasons = new ArrayList();
+            List<Geolocation> geolocations = new ArrayList<>();
+            List<Post> posts = new ArrayList();
             conn = DataSource.getConnection();
 
             // Statement welke een organische object opvraagd met al zijn columns en one to many relaties.
@@ -178,7 +184,7 @@ public class DaOrganism {
                     + "LEFT JOIN world ON family.world_id = world.world_id \n"
                     + "WHERE organism.organism_id=" + Integer.toString(id));
 
-            java.sql.ResultSet rsOrganism = stmt.executeQuery();
+            ResultSet rsOrganism = stmt.executeQuery();
 
             // De volgende statements worden gebruikt om de many to many relaties van organism uit te lezen 
             //en de relationele objecten uit de databank te halen.
@@ -187,38 +193,38 @@ public class DaOrganism {
                     + "FROM food\n"
                     + "INNER JOIN organism ON food.eaten_by_organism_id = organism.organism_id\n"
                     + "WHERE food.eating_organism_id =" + Integer.toString(id));
-            java.sql.ResultSet rsEatingOrganism = stmt.executeQuery();
+            ResultSet rsEatingOrganism = stmt.executeQuery();
             // SQL Werkt
             stmt = conn.prepareStatement("SELECT food.eating_organism_id, organism.common_name\n"
                     + "FROM food\n"
                     + "INNER JOIN organism ON food.eating_organism_id = organism.organism_id\n"
                     + "WHERE food.eaten_by_organism_id =" + Integer.toString(id));
-            java.sql.ResultSet rsEatenByOrganism = stmt.executeQuery();
+            ResultSet rsEatenByOrganism = stmt.executeQuery();
             // SQL Werkt
             stmt = conn.prepareStatement("SELECT habitat_organism.habitat_id, habitat.habitat_name\n"
                     + "FROM habitat_organism\n"
                     + "INNER JOIN habitat ON habitat_organism.habitat_id = habitat.habitat_id\n"
                     + "WHERE habitat_organism.organism_id =" + Integer.toString(id));
-            java.sql.ResultSet rsHabitat = stmt.executeQuery();
+            ResultSet rsHabitat = stmt.executeQuery();
             // SQL Werkt
             stmt = conn.prepareStatement("SELECT organism_season.season_id, season.season_name\n"
                     + "FROM organism_season\n"
                     + "INNER JOIN season ON organism_season.season_id = season.season_id\n"
                     + "WHERE organism_season.organism_id =" + Integer.toString(id));
-            java.sql.ResultSet rsSeason = stmt.executeQuery();
+            ResultSet rsSeason = stmt.executeQuery();
             // SQL Werkt
             stmt = conn.prepareStatement("SELECT geolocation_organism.geolocation_id, geolocation.area_name\n"
                     + "FROM geolocation_organism\n"
                     + "INNER JOIN geolocation ON geolocation_organism.geolocation_id = geolocation.geolocation_id\n"
                     + "WHERE geolocation_organism.organism_id =" + Integer.toString(id));
-            java.sql.ResultSet rsGeolocation = stmt.executeQuery();
+            ResultSet rsGeolocation = stmt.executeQuery();
 
             while (rsOrganism.next()) {
 
                 // De objecten voor de One to many relaties.
-                BLL.Subfamily sf = new BLL.Subfamily();
-                BLL.Family f = new BLL.Family();
-                BLL.World w = new BLL.World();
+                Subfamily sf = new Subfamily();
+                Family f = new Family();
+                World w = new World();
 
                 // algemene properties
                 organism.setOrganismId(rsOrganism.getInt("organism_id"));
@@ -262,31 +268,31 @@ public class DaOrganism {
 
             // Many to Many objecten
             while (rsEatingOrganism.next()) {
-                BLL.Organism o = new BLL.Organism();
+                Organism o = new Organism();
                 o.setOrganismId(rsEatingOrganism.getInt("eaten_by_organism_id"));
                 o.setCommonName(rsEatingOrganism.getString("common_name"));
                 eatingOrganisms.add(o);
             }
             while (rsEatenByOrganism.next()) {
-                BLL.Organism o = new BLL.Organism();
+                Organism o = new Organism();
                 o.setOrganismId(rsEatenByOrganism.getInt("eating_organism_id"));
                 o.setCommonName(rsEatenByOrganism.getString("common_name"));
                 eatenByOrganisms.add(o);
             }
             while (rsHabitat.next()) {
-                BLL.Habitat h = new BLL.Habitat();
+                Habitat h = new Habitat();
                 h.setHabitatId(rsHabitat.getInt("habitat_id"));
                 h.setHabitatName(rsHabitat.getString("habitat_name"));
                 habitats.add(h);
             }
             while (rsSeason.next()) {
-                BLL.Season s = new BLL.Season();
+                Season s = new Season();
                 s.setSeasonId(rsSeason.getInt("season_id"));
                 s.setSeasonName(rsSeason.getString("season_name"));
                 seasons.add(s);
             }
             while (rsGeolocation.next()) {
-                BLL.Geolocation g = new BLL.Geolocation();
+                Geolocation g = new Geolocation();
                 g.setGeolocationId(rsGeolocation.getInt("geolocation_id"));
                 g.setAreaName(rsGeolocation.getString("area_name"));
                 geolocations.add(g);
@@ -300,15 +306,15 @@ public class DaOrganism {
             organism.setSeason(seasons);
             organism.setGeolocations(geolocations);
 
-        } catch (java.sql.SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return organism;
     }
 
-    public static java.util.List<BLL.Organism> selectAllByNameLike(String name) {
+    public static List<Organism> selectAllByNameLike(String name) {
 
-        java.util.List<BLL.Organism> organisms = new java.util.ArrayList<>();
+        List<Organism> organisms = new ArrayList<>();
 
         try {
             conn = DataSource.getConnection();
@@ -331,13 +337,13 @@ public class DaOrganism {
             stmt.setString(1, name);
             stmt.setString(2, name);
             stmt.setString(3, name);
-            java.sql.ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                BLL.Organism o = new BLL.Organism();
-                BLL.Subfamily sf = new BLL.Subfamily();
-                BLL.Family f = new BLL.Family();
-                BLL.World w = new BLL.World();
+                Organism o = new Organism();
+                Subfamily sf = new Subfamily();
+                Family f = new Family();
+                World w = new World();
 
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setCommonName(rs.getString("common_name"));
@@ -359,48 +365,48 @@ public class DaOrganism {
                 organisms.add(o);
             }
 
-        } catch (java.sql.SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return organisms;
     }
 
-    public static java.util.List<BLL.Organism> selectAllBySubfamily(int id) {
+    public static List<Organism> selectAllBySubfamily(int id) {
         /*
          Deze methode zoekt door de databank naar organismes die behoren tot een bepaalde subfamily.
          */
-        return new java.util.ArrayList<>();
+        return new ArrayList<>();
     }
 
-    public static java.util.List<BLL.Organism> selectAllByFamily(int id) {
+    public static List<Organism> selectAllByFamily(int id) {
         /*
          Deze methode zoekt door de databank naar organismes die behoren tot een bepaalde family.
          */
-        return new java.util.ArrayList<>();
+        return new ArrayList<>();
     }
 
-    public static java.util.List<BLL.Organism> selectAllByWorld(int id) {
+    public static List<Organism> selectAllByWorld(int id) {
         /*
          Deze methode zoekt door de databank naar organismes die behoren tot een bepaalde family.
          */
-        return new java.util.ArrayList<>();
+        return new ArrayList<>();
     }
 
-    public static java.util.List<BLL.Organism> selectAllByHabitat(int id) {
+    public static List<Organism> selectAllByHabitat(int id) {
         /*
          Deze methode zoekt door de databank naar organismes die behoren tot een bepaald habitat.
          */
-        return new java.util.ArrayList<>();
+        return new ArrayList<>();
     }
 
-    public static java.util.List<BLL.Organism> selectAllBySeason(int id) {
+    public static List<Organism> selectAllBySeason(int id) {
         /*
          Deze methode zoekt door de databank naar organismes die behoren tot een bepaald seizoen.
          */
-        return new java.util.ArrayList<>();
+        return new ArrayList<>();
     }
 
-    public static int insertOrganism(BLL.Organism organism) {
+    public static int insertOrganism(Organism organism) {
         // Return variabel. Hier wordt het id van de geïnserted organism in opgeslaan.
         int result = 0;
 
@@ -414,7 +420,7 @@ public class DaOrganism {
             stmt = conn.prepareStatement("INSERT INTO organism (scientific_name, common_name, local_name, subfamily_id, organism_description,"
                     + "population, indigenous, cultivated, endangered, medicinal, benefits, dangerous, threats, opportunities, photo, links,"
                     + "food_name, food_description, inserted_on)\n"
-                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", java.sql.Statement.RETURN_GENERATED_KEYS);
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
             stmt.setString(1, organism.getScientificName());
             stmt.setString(2, organism.getCommonName());
@@ -423,22 +429,22 @@ public class DaOrganism {
             stmt.setString(5, organism.getDescription());
             stmt.setString(6, organism.getPopulation());
             if (organism.getIndigenous() == (null)) {
-                stmt.setNull(7, java.sql.Types.BIT);
+                stmt.setNull(7, Types.BIT);
             } else {
                 stmt.setBoolean(7, organism.getIndigenous());
             }
             if (organism.getCultivated() == (null)) {
-                stmt.setNull(8, java.sql.Types.BIT);
+                stmt.setNull(8, Types.BIT);
             } else {
                 stmt.setBoolean(8, organism.getCultivated());
             }
             if (organism.getEndangered() == (null)) {
-                stmt.setNull(9, java.sql.Types.BIT);
+                stmt.setNull(9, Types.BIT);
             } else {
                 stmt.setBoolean(9, organism.getEndangered());
             }
             if (organism.getMedicinal() == (null)) {
-                stmt.setNull(10, java.sql.Types.BIT);
+                stmt.setNull(10, Types.BIT);
             } else {
                 stmt.setBoolean(10, organism.getMedicinal());
             }
@@ -450,26 +456,26 @@ public class DaOrganism {
             if (organism.getPhoto() == null) {
                 stmt.setBytes(15, bytes);
             } else {
-                stmt.setBlob(15, new javax.sql.rowset.serial.SerialBlob(organism.getPhoto()));
+                stmt.setBlob(15, new SerialBlob(organism.getPhoto()));
             }
             stmt.setString(16, organism.getLinks());
             stmt.setString(17, organism.getFoodName());
             stmt.setString(18, organism.getFoodDescription());
-            java.util.Calendar cal = java.util.Calendar.getInstance();
+            Calendar cal = Calendar.getInstance();
             // !Date methode retourneerd een datum zonder tijd!
-            stmt.setDate(19, new java.sql.Date(cal.getTimeInMillis()));
+            stmt.setDate(19, new Date(cal.getTimeInMillis()));
 
             // Resultaat in de database opvragen en controleren.
             if ((result = stmt.executeUpdate()) == 0) {
-                throw new java.sql.SQLException("Creating organism failed, no rows affected.");
+                throw new SQLException("Creating organism failed, no rows affected.");
             }
 
             // Het id dat gegenereerd werd voor het nieuwe organisme wordt opgehaald
-            try (java.sql.ResultSet generatedKeys = stmt.getGeneratedKeys();) {
+            try (ResultSet generatedKeys = stmt.getGeneratedKeys();) {
                 if (generatedKeys.next()) {
                     result = (int) generatedKeys.getLong(1);
                 } else {
-                    throw new java.sql.SQLException("Creating organism failed, no ID obtained.");
+                    throw new SQLException("Creating organism failed, no ID obtained.");
                 }
             }
 
@@ -477,7 +483,7 @@ public class DaOrganism {
             // season
             if (organism.getSeason() != null) {
                 stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
-                for (BLL.Season s : organism.getSeason()) {
+                for (Season s : organism.getSeason()) {
                     stmt.setInt(1, result);
                     stmt.setInt(2, s.getSeasonId());
                     stmt.executeUpdate();
@@ -486,7 +492,7 @@ public class DaOrganism {
             // habitat
             if (organism.getHabitat() != null) {
                 stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
-                for (BLL.Habitat h : organism.getHabitat()) {
+                for (Habitat h : organism.getHabitat()) {
                     stmt.setInt(1, h.getHabitatId());
                     stmt.setInt(2, result);
                     stmt.executeUpdate();
@@ -495,7 +501,7 @@ public class DaOrganism {
             // EatenBy
             if (organism.getEatenByOrganism() != null) {
                 stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-                for (BLL.Organism o : organism.getEatenByOrganism()) {
+                for (Organism o : organism.getEatenByOrganism()) {
                     stmt.setInt(1, result);
                     stmt.setInt(2, o.getOrganismId());
                     stmt.executeUpdate();
@@ -503,7 +509,7 @@ public class DaOrganism {
             }
             // Eating
             if (organism.getEatingOrganisms() != null) {
-                for (BLL.Organism o : organism.getEatingOrganisms()) {
+                for (Organism o : organism.getEatingOrganisms()) {
                     stmt.setInt(1, o.getOrganismId());
                     stmt.setInt(2, result);
                     stmt.executeUpdate();
@@ -512,7 +518,7 @@ public class DaOrganism {
             // Geolocation
             if (organism.getGeolocations() != null) {
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
-                for (BLL.Geolocation g : organism.getGeolocations()) {
+                for (Geolocation g : organism.getGeolocations()) {
                     stmt.setInt(1, result);
                     stmt.setInt(2, g.getGeolocationId());
                     stmt.executeUpdate();
@@ -520,19 +526,19 @@ public class DaOrganism {
             }
 
             conn.commit();
-        } catch (java.sql.SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             result = -1;
             try {
                 conn.rollback();
-            } catch (java.sql.SQLException ex2) {
+            } catch (SQLException ex2) {
                 System.out.println(ex.getMessage());
             }
 
         } finally {
             try {
                 conn.setAutoCommit(true);
-            } catch (java.sql.SQLException ex) {
+            } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
         }
@@ -554,7 +560,7 @@ public class DaOrganism {
             stmt.setInt(1, id);
             result = stmt.executeUpdate();
             conn.commit();
-        } catch (java.sql.SQLException ex) {
+        } catch (SQLException ex) {
             result = -1;
             System.out.println(ex.getMessage());
             System.out.println("Failed to delete organism with id=" + Integer.toString(id));
@@ -567,14 +573,14 @@ public class DaOrganism {
                 if (conn != null) {
                     conn.close();
                 }
-            } catch (java.sql.SQLException e) {
+            } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
         }
         return result;
     }
 
-    public static int updateOrganism(BLL.Organism organism) {
+    public static int updateOrganism(Organism organism) {
         int result;
         try {
             // Setup variabelen
@@ -595,22 +601,22 @@ public class DaOrganism {
             stmt.setString(5, organism.getDescription());
             stmt.setString(6, organism.getPopulation());
             if (organism.getIndigenous() == (null)) {
-                stmt.setNull(7, java.sql.Types.BIT);
+                stmt.setNull(7, Types.BIT);
             } else {
                 stmt.setBoolean(7, organism.getIndigenous());
             }
             if (organism.getCultivated() == (null)) {
-                stmt.setNull(8, java.sql.Types.BIT);
+                stmt.setNull(8, Types.BIT);
             } else {
                 stmt.setBoolean(8, organism.getCultivated());
             }
             if (organism.getEndangered() == (null)) {
-                stmt.setNull(9, java.sql.Types.BIT);
+                stmt.setNull(9, Types.BIT);
             } else {
                 stmt.setBoolean(9, organism.getEndangered());
             }
             if (organism.getMedicinal() == (null)) {
-                stmt.setNull(10, java.sql.Types.BIT);
+                stmt.setNull(10, Types.BIT);
             } else {
                 stmt.setBoolean(10, organism.getMedicinal());
             }
@@ -618,20 +624,20 @@ public class DaOrganism {
             stmt.setString(12, organism.getDangerous());
             stmt.setString(13, organism.getThreats());
             stmt.setString(14, organism.getOpportunities());
-            //stmt.setBlob(15, new javax.sql.rowset.serial.SerialBlob(organism.getPhoto()));
-            // if (organism.getPhoto().length == 0) {stmt.setNull(15, java.sql.Types.BLOB);}
-            stmt.setBlob(15, new javax.sql.rowset.serial.SerialBlob(organism.getPhoto()));
+            //stmt.setBlob(15, new SerialBlob(organism.getPhoto()));
+            // if (organism.getPhoto().length == 0) {stmt.setNull(15, Types.BLOB);}
+            stmt.setBlob(15, new SerialBlob(organism.getPhoto()));
             stmt.setString(16, organism.getLinks());
             stmt.setString(17, organism.getFoodName());
             stmt.setString(18, organism.getFoodDescription());
-            java.util.Calendar cal = java.util.Calendar.getInstance();
+            Calendar cal = Calendar.getInstance();
             // !Date methode retourneerd een datum zonder tijd!
-            stmt.setDate(19, new java.sql.Date(cal.getTimeInMillis()));
+            stmt.setDate(19, new Date(cal.getTimeInMillis()));
             stmt.setBoolean(20, true);
 
             // Resultaat in de database opvragen en controleren.
             if ((result = stmt.executeUpdate()) == 0) {
-                throw new java.sql.SQLException("Update failed on organism id=" + Integer.toString(organism.getOrganismId()));
+                throw new SQLException("Update failed on organism id=" + Integer.toString(organism.getOrganismId()));
             }
 
             // volgende statements zijn voor de Many To Many relaties up te daten.
@@ -640,7 +646,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM organism_season WHERE organism_season.organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
-                for (BLL.Season s : organism.getSeason()) {
+                for (Season s : organism.getSeason()) {
                     stmt.setInt(1, organism.getOrganismId());
                     stmt.setInt(2, s.getSeasonId());
                     stmt.executeUpdate();
@@ -651,7 +657,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM habitat_organism WHERE habitat_organism.organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
-                for (BLL.Habitat h : organism.getHabitat()) {
+                for (Habitat h : organism.getHabitat()) {
                     stmt.setInt(1, h.getHabitatId());
                     stmt.setInt(2, organism.getOrganismId());
                     stmt.executeUpdate();
@@ -662,7 +668,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-                for (BLL.Organism o : organism.getEatenByOrganism()) {
+                for (Organism o : organism.getEatenByOrganism()) {
                     stmt.setInt(1, organism.getOrganismId());
                     stmt.setInt(2, o.getOrganismId());
                     stmt.executeUpdate();
@@ -673,7 +679,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM food WHERE food.eating_organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-                for (BLL.Organism o : organism.getEatingOrganisms()) {
+                for (Organism o : organism.getEatingOrganisms()) {
                     stmt.setInt(1, o.getOrganismId());
                     stmt.setInt(2, organism.getOrganismId());
                     stmt.executeUpdate();
@@ -684,7 +690,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
-                for (BLL.Geolocation g : organism.getGeolocations()) {
+                for (Geolocation g : organism.getGeolocations()) {
                     stmt.setInt(1, organism.getOrganismId());
                     stmt.setInt(2, g.getGeolocationId());
                     stmt.executeUpdate();
@@ -692,26 +698,26 @@ public class DaOrganism {
             }
 
             conn.commit();
-        } catch (java.sql.SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println("---Update failed on organism id=" + Integer.toString(organism.getOrganismId()) + "---");
             System.out.println(ex.getMessage());
             result = -1;
             try {
                 conn.rollback();
-            } catch (java.sql.SQLException ex2) {
+            } catch (SQLException ex2) {
                 System.out.println(ex2.getMessage());
             }
         } finally {
             try {
                 conn.setAutoCommit(true);
-            } catch (java.sql.SQLException ex) {
+            } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
         }
         return result;
     }
 
-    public static int updatePendingOrganism(BLL.Organism organism) {
+    public static int updatePendingOrganism(Organism organism) {
         int result;
         try {
             // Setup variabelen
@@ -732,22 +738,22 @@ public class DaOrganism {
             stmt.setString(5, organism.getDescription());
             stmt.setString(6, organism.getPopulation());
             if (organism.getIndigenous() == (null)) {
-                stmt.setNull(7, java.sql.Types.BIT);
+                stmt.setNull(7, Types.BIT);
             } else {
                 stmt.setBoolean(7, organism.getIndigenous());
             }
             if (organism.getCultivated() == (null)) {
-                stmt.setNull(8, java.sql.Types.BIT);
+                stmt.setNull(8, Types.BIT);
             } else {
                 stmt.setBoolean(8, organism.getCultivated());
             }
             if (organism.getEndangered() == (null)) {
-                stmt.setNull(9, java.sql.Types.BIT);
+                stmt.setNull(9, Types.BIT);
             } else {
                 stmt.setBoolean(9, organism.getEndangered());
             }
             if (organism.getMedicinal() == (null)) {
-                stmt.setNull(10, java.sql.Types.BIT);
+                stmt.setNull(10, Types.BIT);
             } else {
                 stmt.setBoolean(10, organism.getMedicinal());
             }
@@ -755,20 +761,20 @@ public class DaOrganism {
             stmt.setString(12, organism.getDangerous());
             stmt.setString(13, organism.getThreats());
             stmt.setString(14, organism.getOpportunities());
-            //stmt.setBlob(15, new javax.sql.rowset.serial.SerialBlob(organism.getPhoto()));
-            // if (organism.getPhoto().length == 0) {stmt.setNull(15, java.sql.Types.BLOB);}
-            stmt.setBlob(15, new javax.sql.rowset.serial.SerialBlob(organism.getPhoto()));
+            //stmt.setBlob(15, new SerialBlob(organism.getPhoto()));
+            // if (organism.getPhoto().length == 0) {stmt.setNull(15, Types.BLOB);}
+            stmt.setBlob(15, new SerialBlob(organism.getPhoto()));
             stmt.setString(16, organism.getLinks());
             stmt.setString(17, organism.getFoodName());
             stmt.setString(18, organism.getFoodDescription());
-            java.util.Calendar cal = java.util.Calendar.getInstance();
+            Calendar cal = Calendar.getInstance();
             // !Date methode retourneerd een datum zonder tijd!
-            stmt.setDate(19, new java.sql.Date(cal.getTimeInMillis()));
+            stmt.setDate(19, new Date(cal.getTimeInMillis()));
             stmt.setBoolean(20, false);
 
             // Resultaat in de database opvragen en controleren.
             if ((result = stmt.executeUpdate()) == 0) {
-                throw new java.sql.SQLException("Update failed on organism id=" + Integer.toString(organism.getOrganismId()));
+                throw new SQLException("Update failed on organism id=" + Integer.toString(organism.getOrganismId()));
             }
 
             // volgende statements zijn voor de Many To Many relaties up te daten.
@@ -777,7 +783,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM organism_season WHERE organism_season.organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
-                for (BLL.Season s : organism.getSeason()) {
+                for (Season s : organism.getSeason()) {
                     stmt.setInt(1, organism.getOrganismId());
                     stmt.setInt(2, s.getSeasonId());
                     stmt.executeUpdate();
@@ -788,7 +794,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM habitat_organism WHERE habitat_organism.organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
-                for (BLL.Habitat h : organism.getHabitat()) {
+                for (Habitat h : organism.getHabitat()) {
                     stmt.setInt(1, h.getHabitatId());
                     stmt.setInt(2, organism.getOrganismId());
                     stmt.executeUpdate();
@@ -799,7 +805,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-                for (BLL.Organism o : organism.getEatenByOrganism()) {
+                for (Organism o : organism.getEatenByOrganism()) {
                     stmt.setInt(1, organism.getOrganismId());
                     stmt.setInt(2, o.getOrganismId());
                     stmt.executeUpdate();
@@ -810,7 +816,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM food WHERE food.eating_organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-                for (BLL.Organism o : organism.getEatingOrganisms()) {
+                for (Organism o : organism.getEatingOrganisms()) {
                     stmt.setInt(1, o.getOrganismId());
                     stmt.setInt(2, organism.getOrganismId());
                     stmt.executeUpdate();
@@ -821,7 +827,7 @@ public class DaOrganism {
                 stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id=" + Integer.toString(organism.getOrganismId()));
                 stmt.executeUpdate();
                 stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
-                for (BLL.Geolocation g : organism.getGeolocations()) {
+                for (Geolocation g : organism.getGeolocations()) {
                     stmt.setInt(1, organism.getOrganismId());
                     stmt.setInt(2, g.getGeolocationId());
                     stmt.executeUpdate();
@@ -829,36 +835,36 @@ public class DaOrganism {
             }
 
             conn.commit();
-        } catch (java.sql.SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println("---Update failed on organism id=" + Integer.toString(organism.getOrganismId()) + "---");
             System.out.println(ex.getMessage());
             result = -1;
             try {
                 conn.rollback();
-            } catch (java.sql.SQLException ex2) {
+            } catch (SQLException ex2) {
                 System.out.println(ex2.getMessage());
             }
         } finally {
             try {
                 conn.setAutoCommit(true);
-            } catch (java.sql.SQLException ex) {
+            } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
         }
         return result;
     }
 
-    public static java.util.List<BLL.Organism> selectAllForValidation() {
-        java.util.List<BLL.Organism> orga = new java.util.ArrayList();
+    public static List<Organism> selectAllForValidation() {
+        List<Organism> orga = new ArrayList();
 
         try {
             conn = DataSource.getConnection();
             stmt = conn.prepareStatement("SELECT common_name, organism_id, scientific_name, inserted_on FROM organism WHERE isvalidated = 0 ORDER BY inserted_on");
 
-            java.sql.ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                BLL.Organism o = new BLL.Organism();
+                Organism o = new Organism();
                 o.setCommonName(rs.getString("common_name"));
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setScientificName(rs.getString("scientific_name"));
@@ -872,16 +878,16 @@ public class DaOrganism {
         return orga;
     }
 
-    public static java.util.List<BLL.Organism> selectAllPublished() {
-        java.util.List<BLL.Organism> orgb = new java.util.ArrayList();
+    public static List<Organism> selectAllPublished() {
+        List<Organism> orgb = new ArrayList();
         try {
             conn = DataSource.getConnection();
             stmt = conn.prepareStatement("SELECT common_name, scientific_name, organism_id, updated_on, inserted_on FROM organism WHERE isvalidated = 1 ORDER BY updated_on LIMIT 100");
 
-            java.sql.ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                BLL.Organism o = new BLL.Organism();
+                Organism o = new Organism();
                 o.setCommonName(rs.getString("common_name"));
                 o.setScientificName(rs.getString("scientific_name"));
                 o.setUpdatedOn(rs.getDate("updated_on"));
@@ -895,7 +901,7 @@ public class DaOrganism {
         return orgb;
     }
 
-    public static void publishFromQue(int organismId) throws SQLException {
+    public static void publishFromQueue(int organismId) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
@@ -921,7 +927,7 @@ public class DaOrganism {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Organism o = new Organism();
-	    o.setOrganismId(rs.getInt("organism_id"));
+            o.setOrganismId(rs.getInt("organism_id"));
             o.setCommonName(rs.getString("common_name"));
             o.setScientificName(rs.getString("scientific_name"));
             o.setInsertedOn(rs.getDate("inserted_on"));
@@ -941,7 +947,7 @@ public class DaOrganism {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Organism o = new Organism();
-	    o.setOrganismId(rs.getInt("organism_id"));
+            o.setOrganismId(rs.getInt("organism_id"));
             o.setCommonName(rs.getString("common_name"));
             o.setScientificName(rs.getString("scientific_name"));
             o.setInsertedOn(rs.getDate("inserted_on"));
@@ -951,16 +957,16 @@ public class DaOrganism {
         return result;
     }
 
-    public static java.util.List<BLL.Organism> selectEaten() {
-        java.util.List<BLL.Organism> eats = new java.util.ArrayList();
+    public static List<Organism> selectEaten() {
+        List<Organism> eats = new ArrayList();
         try {
             conn = DataSource.getConnection();
             stmt = conn.prepareStatement("SELECT organism_id, common_name FROM organism ORDER BY common_name ");
 
-            java.sql.ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                BLL.Organism o = new BLL.Organism();
+                Organism o = new Organism();
                 o.setOrganismId(rs.getInt("organism_id"));
                 o.setCommonName(rs.getString("common_name"));
                 eats.add(o);
