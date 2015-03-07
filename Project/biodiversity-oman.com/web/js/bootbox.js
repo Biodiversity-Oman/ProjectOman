@@ -175,9 +175,9 @@
       if (!button.className) {
         if (total <= 2 && index === total-1) {
           // always add a primary to the main option in a two-button dialog
-          button.className = "btn-primary";
+          button.className = "button-grey";
         } else {
-          button.className = "btn-default";
+          button.className = "button-grey";
         }
       }
     });
@@ -662,10 +662,6 @@
       }
     });
     */
-
-    dialog.on("shown.bs.modal", function() {
-      dialog.find(".btn-primary:first").focus();
-    });
 
     /**
      * Bootbox event listeners; experimental and may not last
