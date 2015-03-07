@@ -25,7 +25,7 @@ function loadUsers() {
                        <th>Email</th>\n\
                        <th>Phone</th>\n\
                        <th>Admin</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (user) {
             $table.append('<tr>\n\
@@ -65,7 +65,7 @@ function loadWorlds() {
         $table.append('<tr>\n\
                        <th>Name</th>\n\
                        <th>Description</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (world) {
             $ddl.append('<option value="' + world.worldId + '">' + world.worldName + '</option>');
@@ -99,7 +99,7 @@ function loadSeasons() {
         $table.append('<tr>\n\
                        <th>Name</th>\n\
                        <th>Description</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (season) {
             $ddl.append('<option value="' + season.seasonId + '">' + season.seasonName + '</option>');
@@ -134,7 +134,7 @@ function loadHabitats() {
         $table.append('<tr>\n\
                        <th>Name</th>\n\
                        <th>Description</th>\n\\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (habitat) {
             $ddl.append('<option value="' + habitat.habitatId + '">' + habitat.habitatName + '</option>');
@@ -171,7 +171,7 @@ function loadFamilies() {
                        <th>Name</th>\n\
                        <th>Description</th>\n\
                        <th>World</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (family) {
             $ddl.append('<option value="' + family.familyId + '">' + family.familyName + '</option>');
@@ -208,7 +208,7 @@ function loadSubFamilies() {
                        <th>Name</th>\n\
                        <th>Description</th>\n\
                        <th>Family</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (subfamily) {
             $ddl.append('<option value="' + subfamily.subFamilyId + '">' + subfamily.subFamilyName + '</option>');
@@ -243,7 +243,7 @@ function loadGeolocations() {
         $table.append('<tr>\n\
                        <th>Area name</th>\n\
                        <th>Description</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (geolocation) {
             $ddl.append('<option value="' + geolocation.geolocationId + '">' + geolocation.areaName + '</option>');
@@ -278,7 +278,7 @@ function loadToValidateOrganisms() {
                        <th>Scientific name</th>\n\
                        <th>Submitted on</th>\n\
                        <th>Updated on</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (o) {
             $table.append('<tr>\n\
@@ -309,18 +309,20 @@ function loadPendingOrganisms() {
     }).done(function (data) {
         $table.html('');
         $table.append('<tr>\n\
-                       <th>Common name</th>\n\
-                       <th>Scientific name</th>\n\
-                       <th>Submitted on</th>\n\
-                       <th>Action</th>\n\
+                            <th>Common name</th>\n\
+                           <th>Scientific name</th>\n\
+                           <th>Submitted on</th>\n\
+                           <th>Updated on</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (o) {
             $table.append('<tr>\n\
-                           <td>' + o.commonName + '</td>\n\
-                           <td>' + o.scientificName + '</td>\n\
-                           <td>' + o.insertedOn + '</td>\n\
-                           <td>\n\
-                           <button class="no-button-user" id="update-pending-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
+                                <td>' + o.commonName + '</td>\n\
+                               <td>' + o.scientificName + '</td>\n\
+                               <td>' + o.insertedOn + '</td>\n\
+                               <td>' + o.updatedOn + '</td>\n\
+                               <td>\n\
+                               <button class="no-button-user" id="update-pending-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
                            </td>\n\
                            </tr>');
         });
@@ -344,7 +346,7 @@ function loadPublishedOrganisms() {
                        <th>Scientific name</th>\n\
                        <th>Inserted on</th>\n\
                        <th>Updated on</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (org) {
             $table.append('<tr>\n\
@@ -377,7 +379,7 @@ function loadSubscriber() {
                        <th>First name</th>\n\
                        <th>Family name</th>\n\
                        <th>Email</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (s) {
             $table.append('<tr>\n\
@@ -408,7 +410,7 @@ function loadOrganisms() {
                        <th>Scientific name</th>\n\
                        <th>Inserted on</th>\n\
                        <th>Updated on</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (organism) {
             $table.append('<tr>\n\
@@ -416,7 +418,7 @@ function loadOrganisms() {
                            <td>'+  organism.scientificName +'</td>\n\
                            <td>' + organism.insertedOn + '</td>\n\\n\
                            <td>' + organism.updatedOn + '</td>\n\\n\
-                           <td><button class="no-button" id="detail-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-search"></span></button></td>\n\
+                           <td><button class="no-button-user" id="detail-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-search"></span></button></td>\n\
                            </tr>');
         });
         adminCheck();
@@ -437,7 +439,7 @@ function loadPosts() {
         $table.append('<tr>\n\
                        <th>Email</th>\n\
                        <th>Organism</th>\n\
-                       <th>Action</th>\n\
+                       <th></th>\n\
                        </tr>');
         data.forEach(function (post) {
             $table.append('<tr>\n\
