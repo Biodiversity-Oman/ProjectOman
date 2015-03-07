@@ -84,7 +84,7 @@ $(document).ready(function () {
                 async: true,
                 data: 'organismkey=' + keyword
             }).done(function (data) {
-                $('#organisms-table').html('');
+                $table.html('');
                 $table.append('<tr>\n\
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\
@@ -1189,13 +1189,17 @@ $(document).ready(function () {
  $(document).on('click', 'table #detail-organism-btn', function () {
         document.getElementById('detail-organism').style.display = 'block';
         document.getElementById('fade').style.display = 'block';
+        
         var id = ($(this).attr("value"));
         $.ajax({
             url: 'SelectOneOrganismById?id=' + id,
             type: 'GET',
             dataType: 'JSON',
             cache: false,
-            async: true
+            async: true,
+            beforesend: function(){
+                $('#detail-organism').html('');
+            }
         }).done(function (data) {
             $('#img-detail').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id=' + id + '" height="200px" width="200px">');
             $('#scientific-name-detail').html(data.scientificName);
@@ -1250,6 +1254,7 @@ $(document).ready(function () {
                 $('#eats-detail').html(organism.commonName + ', ');
             });
         });
+        
     });
 
     // update queue-publish-button published.jsp - queue tab

@@ -921,6 +921,7 @@ public class DaOrganism {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Organism o = new Organism();
+	    o.setOrganismId(rs.getInt("organism_id"));
             o.setCommonName(rs.getString("common_name"));
             o.setScientificName(rs.getString("scientific_name"));
             o.setInsertedOn(rs.getDate("inserted_on"));
@@ -940,6 +941,7 @@ public class DaOrganism {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Organism o = new Organism();
+	    o.setOrganismId(rs.getInt("organism_id"));
             o.setCommonName(rs.getString("common_name"));
             o.setScientificName(rs.getString("scientific_name"));
             o.setInsertedOn(rs.getDate("inserted_on"));
