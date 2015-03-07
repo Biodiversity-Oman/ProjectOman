@@ -5,9 +5,8 @@
  */
 package Service;
 
-import BLL.Subfamily;
-import DAL.DaFamily;
-import DAL.DaSubfamily;
+import BLL.*;
+import DAL.*;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -16,6 +15,11 @@ import java.util.List;
  * @author Eric
  */
 public class ServSubFamily {
+    
+    public static boolean checkSubFamilyExist(String subFamilyName) throws SQLException {
+
+		return DaSubfamily.checkSubFamilyExist(subFamilyName);
+	}
 
 	public static List selectAllSubFamily() throws SQLException {
 

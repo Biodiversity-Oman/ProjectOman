@@ -383,8 +383,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created.</div>');
-            } else if (data === 'error') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
+            } else if (data === 'error1') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season already exists</div>');
+            } else if (data === 'error2') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -410,8 +412,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created.</div>');
-            } else if (data === 'error') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
+            } else if (data === 'error1') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat already exists</div>');
+            } else if (data === 'error2') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -494,7 +498,9 @@ $(document).ready(function () {
             data: $('#create-subfamily-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>SubFamily was succesfully created.</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed was succesfully created.</div>');
+            } else if (data === 'error1') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed already exist!</div>');
             } else if (data === 'error2') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
             }

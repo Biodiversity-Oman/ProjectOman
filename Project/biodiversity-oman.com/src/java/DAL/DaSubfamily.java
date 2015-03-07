@@ -143,4 +143,16 @@ public class DaSubfamily {
 			conn.setAutoCommit(true);
 		}
 	}
+        
+         public static boolean checkSubFamilyExist(String subFamilyName) throws SQLException {
+
+        boolean match;
+        conn = DataSource.getConnection();
+        stmt = conn.prepareStatement("SELECT COUNT(*) subfamily_name FROM subfamily WHERE subfamily_name = ?");
+        stmt.setString(1, subFamilyName);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        match = rs.getInt(1) == 1;
+        return match;
+    }
 }
