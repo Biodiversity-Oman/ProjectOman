@@ -1466,8 +1466,9 @@ $(document).ready(function () {
 
     // functie voor delete subscriber btn in published.jsp
     $(document).on('click', '.table #delete-subscriber-btn', function () {
-        var r = confirm("Delete this subscriber?");
-        if (r === true) {
+       var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete the selected subscriber! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+            if (result === true) {
             var id = ($(this).attr("value"));
             $.ajax({
                 url: 'DeleteSubscriber?id=' + id,
@@ -1477,8 +1478,9 @@ $(document).ready(function () {
                 async: true
             }).done(function () {
                 loadSubscriber();
-            });
-        }
+              });
+            }
+        });
     });
 
     // functie voor delete post btn in published.jsp
