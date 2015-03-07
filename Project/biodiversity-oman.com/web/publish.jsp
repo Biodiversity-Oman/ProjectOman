@@ -87,12 +87,6 @@
                                             </div>
                                             <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                         </div>
-                                        <!--<div class="form-group">
-                                            <label class="col-sm-2 control-label" for="family">Family</label>
-                                            <div class="col-sm-4">
-                                                <select class="form-control" id="family-ddl-published" name="organism-family-id"></select>
-                                            </div>
-                                        </div>-->
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                             <div class="col-sm-4">
@@ -119,12 +113,6 @@
                                                 <select class="chosen-select form-control" id="habitat-ddl-published" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
                                             </div>
                                         </div>
-                                        <!--<div class="form-group">
-                                            <label class="col-sm-2 control-label">Choose World</label>
-                                            <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl-published" name="organism-world-id" data-placeholder="Choose World"></select>
-                                            </div>
-                                        </div>-->
                                         <div class="form-group">
                                                 <label class="col-sm-2 control-label">Current Photo</label>
                                                 <div class="col-sm-4">
@@ -303,12 +291,6 @@
                                             </div>
                                             <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                         </div>
-                                        <!--<div class="form-group">
-                                            <label class="col-sm-2 control-label" for="family">Family</label>
-                                            <div class="col-sm-4">
-                                                <select class="form-control" id="family-ddl-queue" name="organism-family-id"></select>
-                                            </div>
-                                        </div>-->
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                             <div class="col-sm-4">
@@ -335,12 +317,6 @@
                                                 <select class="chosen-select form-control" id="habitat-ddl-queue" name="organism-habitat-id" multiple data-placeholder="Choose Habitat"></select>
                                             </div>
                                         </div>
-                                        <!--<div class="form-group">
-                                            <label class="col-sm-2 control-label">Choose World</label>
-                                            <div class="col-sm-4">
-                                                <select class="form-control" id="world-ddl-queue" name="organism-world-id" data-placeholder="Choose World"></select>
-                                            </div>
-                                        </div>-->
                                         <div class="form-group">
                                                 <label class="col-sm-2 control-label">Current Photo</label>
                                                 <div class="col-sm-4">
