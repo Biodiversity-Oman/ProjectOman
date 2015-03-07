@@ -412,8 +412,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created.</div>');
-            } else if (data === 'error') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
+            } else if (data === 'error1') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat already exists</div>');
+            } else if (data === 'error2') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');

@@ -108,4 +108,16 @@ public class DaHabitat {
 			conn.setAutoCommit(true);
 		}
 	}
+        
+        public static boolean checkHbitatExist(String habitatName) throws SQLException {
+
+        boolean match;
+        conn = DataSource.getConnection();
+        stmt = conn.prepareStatement("SELECT COUNT(*) habitat_name FROM habitat WHERE habitat_name = ?");
+        stmt.setString(1, habitatName);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        match = rs.getInt(1) == 1;
+        return match;
+    }
 }
