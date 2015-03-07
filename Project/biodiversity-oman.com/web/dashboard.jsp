@@ -234,78 +234,117 @@
                                                 <div id="detail-organism" class="pop-up">
                                                         <label class="close-button">x</label>
                                                         <div class="content">
-                                                                <div class="col-sm-2">
-                                                                        <div id="img-detail"></div>
-                                                                </div>
-                                                                <div class="col-sm-10" style="text-align: left;">
-                                                                        <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
-                                                                        <label id="scientific-name-detail"></label>
-                                                                        <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
-                                                                        <label id="common-name-detail"></label>
-                                                                        <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
-                                                                        <label id="local-name-detail"></label>
-                                                                        <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
-                                                                        <label id="subfamily-detail"></label>
-                                                                        <label class="col-sm-2 control-label">Habitat</label>
-                                                                        <label id="habitat-detail"></label>
-                                                                        <label class="col-sm-2 control-label">Season</label>                                                
-                                                                        <label id="season-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-population">Population</label>
-                                                                <div class="col-sm-8">
-                                                                        <label id="population-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
-                                                                <div class="col-sm-8">
-                                                                        <label id="description-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-indigenous">Indigenous</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="indigenous-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="cultivated-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-endangered">Endangered</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="endangered-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-medicinal">Medicinal</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="medicinal-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="benefits-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-dangerous">Dangerous</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="dangerous-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="threats-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="opportunities-detail"></label>
-                                                                </div>
-                                                                <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="links-detail"></label>
-                                                                </div>
+                                                            <div class="col-sm-2">
+                                                    <div id="img-detail"></div>
+                                                </div>
 
-                                                                <label class="col-sm-2 control-label">Geolocation</label>
-                                                                <div class="col-sm-4">
-                                                                        <label id="geolocation-detail"></label>
-                                                                </div>           
-                                                        </div>
-                                                </div>
-                                                <div class="table-responsive">
-                                                        <input class="search-bar-table form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)">
-                                                        <table class="table table-striped" id="organisms-table"></table>
-                                                </div>
+                                        <div class="col-sm-3" style="text-align: left;">
+                                    <fieldset>
+                                        <legend>Naming info</legend>
+                                    
+                                        <div>
+                                            <label>Scientific name:</label>                                                
+                                                    <label class="detail" id="scientific-name-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Common name:</label>                                                
+                                                    <label class="detail" id="common-name-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Local name:</label>                                                
+                                                    <label class="detail" id="local-name-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Description:</label>                                                
+                                                    <label class="detail" id="description-detail"></label>
+                                        </div>                                    
+                                        </fieldset>
+                                        </div>                
+                                        <div class="col-sm-3" style="text-align: left;">
+                                    <fieldset>
+                                        <legend>Geneology</legend>
+                                    
+                                        <div>
+                                        <label>Population:</label>
+                                                    <label class="detail" id="population-detail"></label>
+                                        </div>
+                                        <div>
+                                        <label>Geolocation(s):</label>
+                                                    <label class="detail" id="geolocation-detail"></label>
+                                        </div>
+                                        <div>
+                                        <label>World:</label>
+                                                    <label class="detail" id="world-detail"></label>
+                                        </div>
+                                        <div>
+                                        <label>Family:</label>
+                                                    <label class="detail" id="family-detail"></label>
+                                        </div>                                                                               
+                                        <div>
+                                            <label>Breed:</label>                                                
+                                                    <label class="detail" id="subfamily-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Habitat:</label>                                                
+                                                    <label class="detail" id="habitat-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Season:</label>                                                
+                                                    <label class="detail" id="season-detail"></label>
+                                        </div> 
+                                        </fieldset>
+                                        </div>
+                                        <div class="col-sm-3" style="text-align: left;">
+                                    <fieldset>
+                                        <legend>Background info</legend>
+                                        <div>
+                                            <label>Indigenous:</label>
+                                                    <label class="detail" id="indigenous-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Cultivated:</label>                                                
+                                                    <label class="detail" id="cultivated-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Endangered:</label>                                                
+                                                    <label class="detail" id="endangered-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Medicinal:</label>                                                
+                                                    <label class="detail" id="medicinal-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Eats:</label>                                                
+                                                    <label class="detail" id="eats-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Gets eaten by:</label>                                                
+                                                    <label class="detail" id="eatenby-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Threats:</label>                                                
+                                                    <label class="detail" id="threats-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Opportunities:</label>                                                
+                                                    <label class="detail" id="opportunities-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Benefits:</label>                                                
+                                                    <label class="detail" id="benefits-detail"></label>
+                                        </div>
+                                        <div>
+                                            <label>Links:</label>                                                
+                                                    <label class="detail" id="links-detail"></label>
+                                        </div>
+                                    </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                             <div class="table-responsive">
+                                <input class="search-bar-table form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)">
+                                <table class="table table-striped" id="organisms-table"></table>
+                             </div>
                                         </div>
                                         <div id="tab2" class="tab">
                                                 <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';

@@ -89,7 +89,8 @@ $(document).ready(function () {
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\
                                     <th>Inserted on</th>\n\
-                                    <th>Last updated on</th>\n\
+                                    <th>Last updated on</th>\n\\n\
+                                    <th></th>\n\
 				    </tr>');
                 if (data.length === 0) {
                     $table.append('<tr><td>Organism not found</td></tr>');
@@ -101,6 +102,7 @@ $(document).ready(function () {
 					    <td>' + organism.scientificName + '</td>\n\
                                             <td>' + organism.insertedOn + '</td>\n\
 					    <td>' + organism.updatedOn + '</td>\n\
+                                            <td><button class="no-button-user" id="detail-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-search"></span></button></td>\n\
 					    </tr>');
                 });
             });
@@ -1182,9 +1184,9 @@ $(document).ready(function () {
             $(".chosen-select").trigger("chosen:updated");
         });
     });
-
-    $(document).on('click', 'table #detail-organism-btn', function () {
-
+    
+    // select detail from organism
+ $(document).on('click', 'table #detail-organism-btn', function () {
         document.getElementById('detail-organism').style.display = 'block';
         document.getElementById('fade').style.display = 'block';
         var id = ($(this).attr("value"));
@@ -1195,7 +1197,7 @@ $(document).ready(function () {
             cache: false,
             async: true
         }).done(function (data) {
-            $('#img-detail').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id=' + id + '" height="100px" width="100px">');
+            $('#img-detail').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id=' + id + '" height="200px" width="200px">');
             $('#scientific-name-detail').html(data.scientificName);
             $('#common-name-detail').html(data.commonName);
             $('#local-name-detail').html(data.localName);
@@ -1211,6 +1213,7 @@ $(document).ready(function () {
             $("#family-detail").html(data.family.familyName);
             $("#subfamily-detail").html(data.subFamily.subFamilyName);
             $("#world-detail").html(data.world.worldName);
+            
             if (data.indigenous === true) {
                 $("#indigenous-detail").html('Yes');
             } else {
@@ -1239,6 +1242,12 @@ $(document).ready(function () {
             });
             data.season.forEach(function (season) {
                 $('#season-detail').html(season.seasonName + ', ');
+            });
+            data.eatenByOrganism.forEach(function (organism) {
+                $('#eatenby-detail').html(organism.commonName + ', ');
+            });
+            data.eatingOrganisms.forEach(function (organism) {
+                $('#eats-detail').html(organism.commonName + ', ');
             });
         });
     });
