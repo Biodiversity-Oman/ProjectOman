@@ -1184,8 +1184,9 @@ var r = confirm("Make this user an admin?");
             dataType: 'JSON',
             cache: false,
 	    async: true
+            //class="img-responsive "
         }).done(function (data) {
-            $('#img-detail').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
+            $('#img-detail').html('<img class="img-thumbnail" src="SelectPhotoById?id='+id+'" height="200px" width="200px">');
             $('#scientific-name-detail').html(data.scientificName);
             $('#common-name-detail').html(data.commonName);
             $('#local-name-detail').html(data.localName);
@@ -1201,6 +1202,7 @@ var r = confirm("Make this user an admin?");
             $("#family-detail").html(data.family.familyName);
             $("#subfamily-detail").html(data.subFamily.subFamilyName);
             $("#world-detail").html(data.world.worldName);
+            
             if (data.indigenous === true) {
                 $("#indigenous-detail").html('Yes');
             } else {
@@ -1229,6 +1231,12 @@ var r = confirm("Make this user an admin?");
             });
             data.season.forEach(function (season) {
                 $('#season-detail').html(season.seasonName + ', ');
+            });
+            data.eatenByOrganism.forEach(function (organism) {
+                $('#eatenby-detail').html(organism.commonName + ', ');
+            });
+            data.eatingOrganisms.forEach(function (organism) {
+                $('#eats-detail').html(organism.commonName + ', ');
             });
         });
     });
