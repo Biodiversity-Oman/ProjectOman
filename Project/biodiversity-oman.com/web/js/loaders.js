@@ -309,20 +309,20 @@ function loadPendingOrganisms() {
     }).done(function (data) {
         $table.html('');
         $table.append('<tr>\n\
-                        <th>Common name</th>\n\
-                       <th>Scientific name</th>\n\
-                       <th>Submitted on</th>\n\
-                       <th>Updated on</th>\n\
+                            <th>Common name</th>\n\
+                           <th>Scientific name</th>\n\
+                           <th>Submitted on</th>\n\
+                           <th>Updated on</th>\n\
                        <th></th>\n\
                        </tr>');
         data.forEach(function (o) {
             $table.append('<tr>\n\
-                            <td>' + o.commonName + '</td>\n\\n\
-                           <td>' + o.scientificName + '</td>\n\
-                           <td>' + o.insertedOn + '</td>\n\
-                           <td>' + o.updatedOn + '</td>\n\
-                           <td>\n\
-                           <button class="no-button-user" id="update-pending-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
+                                <td>' + o.commonName + '</td>\n\
+                               <td>' + o.scientificName + '</td>\n\
+                               <td>' + o.insertedOn + '</td>\n\
+                               <td>' + o.updatedOn + '</td>\n\
+                               <td>\n\
+                               <button class="no-button-user" id="update-pending-organism-btn" type="submit" value="' + o.organismId + '"><span class="icon-pencil2"></span>\n\
                            </td>\n\
                            </tr>');
         });
@@ -418,7 +418,7 @@ function loadOrganisms() {
                            <td>'+  organism.scientificName +'</td>\n\
                            <td>' + organism.insertedOn + '</td>\n\\n\
                            <td>' + organism.updatedOn + '</td>\n\\n\
-                           <td><button class="no-button" id="detail-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-search"></span></button></td>\n\
+                           <td><button class="no-button-user" id="detail-organism-btn" type="submit" value="' + organism.organismId + '"><span class="icon-search"></span></button></td>\n\
                            </tr>');
         });
         adminCheck();

@@ -47,11 +47,13 @@
                         <div id="tab1" class="tab active">
                             <div class="table-responsive">
                                 <div class="col-sm-4">
-                                    <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)"><br>
+                                    <input class="form-control" id="search-organism" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)"><br>                                   
                                 </div>
+
                             </div>
-                               <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
-                                            document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
+                            <a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
+                                    document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></span></button></a>
+                            <p>Press the &nbsp;&nbsp;<span class="icon-search"></span>&nbsp; for details </p><br>
                             <div id="insert-organism" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div class="content">
@@ -246,64 +248,64 @@
                                     </div>
                                 </div>
                             </div>
-                                <div id="detail-organism" class="insert-box">
-                                        <label class="close-button">x</label>
-                                        <div class="content">
-                                        <div class="col-xs-2"><label for="current-photo">Current photo:</label></div>
-                                        <div id="img-detail"></div><br>
-                                        <div class="col-xs-2"><label for="scientific-name">Scientific Name:</label></div>
-                                        <label id="scientific-name-detail"></label><br>
-                                        <div class="col-xs-2"><label for="common-name">Common name:</label></div>
-                                        <label id="common-name-detail"></label><br>
-                                        <div class="col-xs-2"><label for="local-name">Local name:</label></div>
-                                        <label id="local-name-detail"></label><br>
-                                        <div class="col-xs-2"><label for="description">Description:</label></div>
-                                        <label id="description-detail"></label><br>
-                                        <div class="col-xs-2"><label for="benefits">Benefits:</label></div>
-                                        <label id="benefits-detail"></label><br>
-                                        <div class="col-xs-2"><label for="dangerous">Dangerous:</label></div>
-                                        <label id="dangerous-detail"></label><br>
-                                        <div class="col-xs-2"><label for="threats">Threats:</label></div>
-                                        <label id="threats-detail"></label><br>
-                                        <div class="col-xs-2"><label for="opportunities">Opportunities:</label></div>
-                                        <label id="opportunities-detail"></label><br>
-                                        <div class="col-xs-2"><label for="links">Links:</label></div>
-                                        <label id="links-detail"></label><br>
-                                        <div class="col-xs-2"><label for="food-name">Food name:</label></div>
-                                        <label id="food-name-detail"></label><br>
-                                        <div class="col-xs-2"><label for="food-description">Food Description:</label></div>
-                                        <label id="food-description-detail"></label><br>
-                                        <div class="col-xs-2"><label for="population">Population:</label></div>
-                                        <label id="population-detail"></label><br>
-                                        <div class="col-xs-2"><label for="family">Family:</label></div>
-                                        <label id="family-detail"></label><br>
-                                        <div class="col-xs-2"><label for="subfamily">Subfamily:</label></div>
-                                        <label id="subfamily-detail"></label><br>
-                                        <div class="col-xs-2"><label for="world">World:</label></div>
-                                        <label id="world-detail"></label><br>
-                                        <div class="col-xs-2"><label for="indigenous">Indigenous:</label></div>
-                                        <label id="indigenous-detail"></label><br>
-                                        <div class="col-xs-2"><label for="cultivated">Cultivated:</label></div>
-                                        <label id="cultivated-detail"></label><br>
-                                        <div class="col-xs-2"><label for="endangered">Endangered:</label></div>
-                                        <label id="endangered-detail"></label><br>
-                                        <div class="col-xs-2"><label for="medicinal">Medicinal:</label></div>
-                                        <label id="medicinal-detail"></label><br>
-                                        <div class="col-xs-2"><label for="habitat">Habitat:</label></div>
-                                        <label id="habitat-detail"></label><br>
-                                        <div class="col-xs-2"><label for="geolocation">Geolocation:</label></div>
-                                        <label id="geolocation-detail"></label><br>
-                                        <div class="col-xs-2"><label for="season">Season:</label></div>
-                                        <label id="season-detail"></label><br>
+                            <div id="detail-organism" class="insert-box">
+                                <label class="close-button">x</label>
+                                <div class="content">
+                                    <div class="col-xs-2"><label for="current-photo">Current photo:</label></div>
+                                    <div id="img-detail"></div><br>
+                                    <div class="col-xs-2"><label for="scientific-name">Scientific Name:</label></div>
+                                    <label id="scientific-name-detail"></label><br>
+                                    <div class="col-xs-2"><label for="common-name">Common name:</label></div>
+                                    <label id="common-name-detail"></label><br>
+                                    <div class="col-xs-2"><label for="local-name">Local name:</label></div>
+                                    <label id="local-name-detail"></label><br>
+                                    <div class="col-xs-2"><label for="description">Description:</label></div>
+                                    <label id="description-detail"></label><br>
+                                    <div class="col-xs-2"><label for="benefits">Benefits:</label></div>
+                                    <label id="benefits-detail"></label><br>
+                                    <div class="col-xs-2"><label for="dangerous">Dangerous:</label></div>
+                                    <label id="dangerous-detail"></label><br>
+                                    <div class="col-xs-2"><label for="threats">Threats:</label></div>
+                                    <label id="threats-detail"></label><br>
+                                    <div class="col-xs-2"><label for="opportunities">Opportunities:</label></div>
+                                    <label id="opportunities-detail"></label><br>
+                                    <div class="col-xs-2"><label for="links">Links:</label></div>
+                                    <label id="links-detail"></label><br>
+                                    <div class="col-xs-2"><label for="food-name">Food name:</label></div>
+                                    <label id="food-name-detail"></label><br>
+                                    <div class="col-xs-2"><label for="food-description">Food Description:</label></div>
+                                    <label id="food-description-detail"></label><br>
+                                    <div class="col-xs-2"><label for="population">Population:</label></div>
+                                    <label id="population-detail"></label><br>
+                                    <div class="col-xs-2"><label for="family">Family:</label></div>
+                                    <label id="family-detail"></label><br>
+                                    <div class="col-xs-2"><label for="subfamily">Subfamily:</label></div>
+                                    <label id="subfamily-detail"></label><br>
+                                    <div class="col-xs-2"><label for="world">World:</label></div>
+                                    <label id="world-detail"></label><br>
+                                    <div class="col-xs-2"><label for="indigenous">Indigenous:</label></div>
+                                    <label id="indigenous-detail"></label><br>
+                                    <div class="col-xs-2"><label for="cultivated">Cultivated:</label></div>
+                                    <label id="cultivated-detail"></label><br>
+                                    <div class="col-xs-2"><label for="endangered">Endangered:</label></div>
+                                    <label id="endangered-detail"></label><br>
+                                    <div class="col-xs-2"><label for="medicinal">Medicinal:</label></div>
+                                    <label id="medicinal-detail"></label><br>
+                                    <div class="col-xs-2"><label for="habitat">Habitat:</label></div>
+                                    <label id="habitat-detail"></label><br>
+                                    <div class="col-xs-2"><label for="geolocation">Geolocation:</label></div>
+                                    <label id="geolocation-detail"></label><br>
+                                    <div class="col-xs-2"><label for="season">Season:</label></div>
+                                    <label id="season-detail"></label><br>
                                 </div>
-                        </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-striped" id="organisms-table"></table>
                             </div>
                         </div>
                         <div id="tab2" class="tab">
-                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';
-                                document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                            <a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';
+                                    document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
                             <div id="insert-world" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div class="content">
@@ -394,8 +396,8 @@
                             </div>
                         </div>
                         <div id="tab3" class="tab">
-                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'block';
-                                document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                            <a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'block';
+                                    document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
                             <div id="insert-family" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div class="content">
@@ -498,8 +500,8 @@
                             </div>
                         </div>
                         <div id="tab4" class="tab">
-                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'block';
-                                document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                            <a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'block';
+                                    document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
                             <div id="insert-subfamily" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div class="content">
@@ -602,8 +604,8 @@
                             </div>
                         </div>
                         <div id="tab5" class="tab">
-                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'block';
-                                document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                            <a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'block';
+                                    document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
                             <div id="insert-season" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div class="content">
@@ -694,8 +696,8 @@
                             </div>
                         </div>
                         <div id="tab6" class="tab">
-                           <a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'block';
-                                document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
+                            <a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'block';
+                                    document.getElementById('fade').style.display = 'block'"><button class="action-button"><span class="icon-plus"></button></a>
                             <div id="insert-habitat" class="insert-box"><label class="close-button">x</label>
                                 <div class="content">
                                     <div id="create-habitat">
@@ -786,8 +788,8 @@
                         </div>
                         <div id="tab7" class="tab">
                             <a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
-                                document.getElementById('fade').style.display = 'block';
-                                loadScript();"><button class="action-button" ><span class="icon-plus"></button></a>
+                                    document.getElementById('fade').style.display = 'block';
+                                    loadScript();"><button class="action-button" ><span class="icon-plus"></button></a>
                             <div id="insert-geolocation" class="insert-box">
                                 <label id="geolocation-close1" class="close-button">x</label>
                                 <div class="content">
@@ -894,12 +896,12 @@
                             </div>
                         </div>
                         <div id="tab8" class="tab">			
-                               <div class="table-responsive">
-                            <div class="col-sm-4">
-                                <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on name (minimal 3 characters)"><br>
-                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p><br>
+                            <div class="table-responsive">
+                                <div class="col-sm-4">
+                                    <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on name (minimal 3 characters)"><br>
+                                    <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p><br>
+                                </div>
                             </div>
-                        </div>
                             <div id="update-pending-organism" class="insert-box">
                                 <label class="close-button">x</label>
                                 <div class="content">
@@ -1048,7 +1050,7 @@
                                                     <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                 </div>
                                             </div>
-                                             <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="col-sm-2 control-label">Eats the following</label>
                                                 <div class="col-sm-4">
                                                     <select class="chosen-select form-control" id="eatenby-ddl-pending" name="eating-organism-id" multiple data-placeholder="Choose Organism"></select>
