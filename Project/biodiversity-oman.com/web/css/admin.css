@@ -33,7 +33,6 @@ h2 {
     margin-left: 20%;
     margin-right: auto;
 }
-
 .search-bar-table {
     max-width: 25em;
     margin-bottom: 0.5em;
@@ -109,13 +108,11 @@ nav ul ul li {
 nav ul ul li a {
     padding: 13px 20px;
     color: black;
-
     outline: 0;
     text-decoration: none;
 }   
 nav ul ul li a:hover {
     background: #909090;
-
     outline: 0;
 }
 nav ul ul ul {
@@ -429,7 +426,6 @@ select.form-control + .chosen-container .chosen-drop {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     background-clip: padding-box;
     margin: 2px 0 0;
-
 }
 select.form-control + .chosen-container .chosen-search input[type=text] {
     display: block;

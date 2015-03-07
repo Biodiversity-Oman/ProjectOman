@@ -6,7 +6,6 @@
 <%@include file="/adminheader.jsp" %>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
         <head>
                 <link rel="StyleSheet" type="text/css" href="css/chosen.css">
                 <script src="js/ajax.js"></script>
@@ -240,25 +239,15 @@
                                                                 </div>
                                                                 <div class="col-sm-10" style="text-align: left;">
                                                                         <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
-
                                                                         <label id="scientific-name-detail"></label>
-
                                                                         <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
-
                                                                         <label id="common-name-detail"></label>
-
                                                                         <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
-
                                                                         <label id="local-name-detail"></label>
-
                                                                         <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
-
                                                                         <label id="subfamily-detail"></label>
-
                                                                         <label class="col-sm-2 control-label">Habitat</label>
-
                                                                         <label id="habitat-detail"></label>
-
                                                                         <label class="col-sm-2 control-label">Season</label>                                                
                                                                         <label id="season-detail"></label>
                                                                 </div>
@@ -320,7 +309,7 @@
                                         </div>
                                         <div id="tab2" class="tab">
                                                 <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';
-                                                    document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                                                 <div id="insert-world" class="pop-up">
                                                         <label class="close-button">x</label>
                                                         <div class="content">
@@ -412,7 +401,7 @@
                                         </div>
                                         <div id="tab3" class="tab">
                                                 <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'block';
-                                                    document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                                                 <div id="insert-family" class="pop-up">
                                                         <label class="close-button">x</label>
                                                         <div class="content">
@@ -516,7 +505,7 @@
                                         </div>
                                         <div id="tab4" class="tab">
                                                 <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'block';
-                                                    document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                                                 <div id="insert-subfamily" class="pop-up">
                                                         <label class="close-button">x</label>
                                                         <div class="content">
@@ -620,7 +609,7 @@
                                         </div>
                                         <div id="tab5" class="tab">
                                                 <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'block';
-                                                    document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                                                 <div id="insert-season" class="pop-up">
                                                         <label class="close-button">x</label>
                                                         <div class="content">
@@ -712,7 +701,7 @@
                                         </div>
                                         <div id="tab6" class="tab">
                                                 <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'block';
-                                                    document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                                                 <div id="insert-habitat" class="pop-up"><label class="close-button">x</label>
                                                         <div class="content">
                                                                 <div id="create-habitat">
