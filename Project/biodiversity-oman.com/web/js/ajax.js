@@ -41,7 +41,7 @@ $(document).ready(function () {
                                     <th>Email</th>\n\
                                     <th>Phone</th>\n\
                                     <th>Admin</th>\n\
-                                    <th>Action</th>\n\
+                                    <th></th>\n\
 				    </tr>');
                 if (data.length === 0) {
                     $userstable.append('<tr><td>User not found</td></tr>');
@@ -130,7 +130,7 @@ $(document).ready(function () {
                                     <th>Scientific name</th>\n\
                                     <th>Inserted on</th>\n\
                                     <th>Last updated on</th>\n\\n\
-                                    <th>Action</th>\n\
+                                    <th></th>\n\
 				    </tr>');
                 if (data.length === 0) {
                     $table.append('<tr><td>Organism not found</td></tr>');
@@ -175,7 +175,7 @@ $(document).ready(function () {
                                     <th>Scientific name</th>\n\
                                     <th>Submitted on</th>\n\
                                     <th>Updated on</th>\n\
-                                    <th>Action</th>\n\
+                                    <th></th>\n\
                                 </tr>');
                 if (data.length === 0) {
                     $table.append('<tr><td>Organism not found</td></tr>');
@@ -220,7 +220,7 @@ $(document).ready(function () {
                                     <th>Common name</th>\n\
                                     <th>Scientific name</th>\n\
                                     <th>Submitted on</th>\n\
-                                    <th>Action</th>\n\
+                                    <th></th>\n\
                                 </tr>');
                 if (data.length === 0) {
                     $table.append('<tr><td>Organism not found</td></tr>');
