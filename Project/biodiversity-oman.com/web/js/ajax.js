@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     // general close-button function to close pop-ups dashboard.jsp
     $(document).on('click', '.close-button', function () {
-        $('.pop-up, .pop-up-scroll').hide();
+        $('.insert-box').hide();
         document.getElementById('fade').style.display = 'none';
     });
 
@@ -242,7 +242,7 @@ $(document).ready(function () {
         }
         ;
     });
-
+    
 //---------------------------------------------------------------------------------------------------------------------
 // User management functions
 //---------------------------------------------------------------------------------------------------------------------
@@ -286,53 +286,53 @@ $(document).ready(function () {
 
     // functie voor delete user in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
-        var r = confirm("Delete this user?");
-        if (r === true) {
-            var username = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteUserAccount?username=' + username,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadUsers();
-            });
-        }
+var r = confirm("Delete this user?");
+    if (r === true) {
+        var username = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteUserAccount?username=' + username,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadUsers();
+        });
+    }
     });
 
     // functie voor demoten van een user in usermanagement.jsp
     $(document).on('click', '.table #make-normal-btn', function () {
-        var r = confirm("Demote this user?");
-        if (r === true) {
-            var username = ($(this).attr("value"));
-            $.ajax({
-                url: 'SetNormalUser?username=' + username,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadUsers();
-            });
-        }
+var r = confirm("Demote this user?");
+    if (r === true) {
+        var username = ($(this).attr("value"));
+        $.ajax({
+            url: 'SetNormalUser?username=' + username,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadUsers();
+        });
+    }
     });
-
+    
     // functie voor make admin in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #make-admin-btn', function () {
-        var r = confirm("Make this user an admin?");
-        if (r === true) {
-            var username = ($(this).attr("value"));
-            $.ajax({
-                url: 'SetSuperUser?username=' + username,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadUsers();
-            });
-        }
+var r = confirm("Make this user an admin?");
+    if (r === true) {
+        var username = ($(this).attr("value"));
+        $.ajax({
+            url: 'SetSuperUser?username=' + username,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadUsers();
+        });
+    }
     });
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -383,10 +383,8 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created.</div>');
-            } else if (data === 'error1') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season already exists</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+            } else if (data === 'error') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -412,10 +410,8 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created.</div>');
-            } else if (data === 'error1') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat already exists</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+            } else if (data === 'error') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -470,8 +466,6 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created.</div>');
-            } else if (data === 'error1') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family already exist!</div>');
             } else if (data === 'error2') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
             }
@@ -498,9 +492,7 @@ $(document).ready(function () {
             data: $('#create-subfamily-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed was succesfully created.</div>');
-            } else if (data === 'error1') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed already exist!</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>SubFamily was succesfully created.</div>');
             } else if (data === 'error2') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
             }
@@ -1021,166 +1013,166 @@ $(document).ready(function () {
     });
 
     // update select-organism-button/validate publish.jsp - queue tab
-    $(document).on('click', 'table #update-queue-organism-btn', function () {
-        document.getElementById('update-queue-organism').style.display = 'block';
-        document.getElementById('fade').style.display = 'block';
-        var id = ($(this).attr("value"));
-        $.ajax({
-            url: 'SelectOneOrganismById?id=' + id,
-            type: 'GET',
-            dataType: 'JSON',
-            cache: false,
-            async: true
-        }).done(function (data) {
-            $('#organism-id-queue').val(id);
-            $('#img-queue').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id=' + id + '" height="100px" width="100px">');
-            $('#scientific-name-queue').val(data.scientificName);
-            $('#common-name-queue').val(data.commonName);
-            $('#local-name-queue').val(data.localName);
-            $('#description-queue').val(data.description);
-            $('#benefits-queue').val(data.benefits);
-            $('#dangerous-queue').val(data.dangerous);
-            $('#threats-queue').val(data.threats);
-            $('#opportunities-queue').val(data.opportunities);
-            $('#links-queue').val(data.links);
-            $('#food-name-queue').val(data.foodName);
-            $('#food-description-queue').val(data.foodDescription);
-            $('#population-queue').val(data.population);
-            $("#family-ddl-queue option[value='" + data.family.familyId + "']").attr("selected", "selected");
-            $("#subfamily-ddl-queue option[value='" + data.subFamily.subFamilyId + "']").attr("selected", "selected");
-            $("#habitat-ddl-queue option[value='" + data.habitat.habitatId + "']").attr("selected", "selected");
-            $("#world-ddl-queue option[value='" + data.world.worldId + "']").attr("selected", "selected");
-            $("input[name=organism-indigenous][value='" + data.indigenous + "']").attr('checked', 'checked');
-            $("input[name=organism-cultivated][value='" + data.cultivated + "']").attr('checked', 'checked');
-            $("input[name=organism-endangered][value='" + data.endangered + "']").attr('checked', 'checked');
-            $("input[name=organism-medicinal][value='" + data.medicinal + "']").attr('checked', 'checked');
-            data.eatenByOrganism.forEach(function (organism) {
-                $('#eatenby-ddl-queue option[value=' + organism.organismId + ']').prop('selected', true);
-            });
-            data.eatingOrganisms.forEach(function (organism) {
-                $('#geteatenby-ddl-queue option[value=' + organism.organismId + ']').prop('selected', true);
-            });
-            data.habitat.forEach(function (habitat) {
-                $('#habitat-ddl-queue option[value=' + habitat.habitatId + ']').prop('selected', true);
-            });
-            data.geolocations.forEach(function (geolocation) {
-                $('#geolocation-ddl-queue option[value=' + geolocation.geolocationId + ']').prop('selected', true);
-            });
-            data.season.forEach(function (season) {
-                $('#season-ddl-queue option[value=' + season.seasonId + ']').prop('selected', true);
-            });
-            $(".chosen-select").trigger("chosen:updated");
-        });
+    $(document).on('click', 'table #update-queue-organism-btn', function() {
+	document.getElementById('update-queue-organism').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectOneOrganismById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+	     $('#organism-id-queue').val(id);
+             $('#img-queue').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
+             $('#scientific-name-queue').val(data.scientificName);
+             $('#common-name-queue').val(data.commonName);
+             $('#local-name-queue').val(data.localName);
+             $('#description-queue').val(data.description);
+             $('#benefits-queue').val(data.benefits);
+             $('#dangerous-queue').val(data.dangerous);
+             $('#threats-queue').val(data.threats);
+             $('#opportunities-queue').val(data.opportunities);
+             $('#links-queue').val(data.links);
+             $('#food-name-queue').val(data.foodName);
+             $('#food-description-queue').val(data.foodDescription); 
+             $('#population-queue').val(data.population);
+             $("#family-ddl-queue option[value='" + data.family.familyId + "']").attr("selected","selected"); 
+             $("#subfamily-ddl-queue option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); 
+             $("#habitat-ddl-queue option[value='" + data.habitat.habitatId + "']").attr("selected","selected");             
+             $("#world-ddl-queue option[value='" + data.world.worldId + "']").attr("selected","selected"); 
+             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
+             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
+             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); 
+             data.eatenByOrganism.forEach(function(organism) {
+                 $('#eatenby-ddl-queue option[value='+ organism.organismId + ']').prop('selected', true);
+             });
+             data.eatingOrganisms.forEach(function(organism) {
+                 $('#geteatenby-ddl-queue option[value='+ organism.organismId + ']').prop('selected', true);
+             });
+             data.habitat.forEach(function(habitat) {
+                 $('#habitat-ddl-queue option[value='+ habitat.habitatId + ']').prop('selected', true);
+             });
+             data.geolocations.forEach(function(geolocation) {
+                $('#geolocation-ddl-queue option[value='+ geolocation.geolocationId + ']').prop('selected', true);
+             });
+             data.season.forEach(function (season) {
+                 $('#season-ddl-queue option[value='+ season.seasonId + ']').prop('selected', true);
+             });
+             $(".chosen-select").trigger("chosen:updated");
+	});
     });
-
+    
     // update select-organism-button/published publish.jsp - published tab
-    $(document).on('click', 'table #update-published-organism-btn', function () {
-
-        document.getElementById('update-published-organism').style.display = 'block';
-        document.getElementById('fade').style.display = 'block';
-        var id = ($(this).attr("value"));
-        $.ajax({
-            url: 'SelectOneOrganismById?id=' + id,
-            type: 'GET',
-            dataType: 'JSON',
-            cache: false,
-            async: true
-        }).done(function (data) {
-            $('#organism-id-published').val(id);
-            $('#img-published').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id=' + id + '" height="100px" width="100px">');
-            $('#scientific-name-published').val(data.scientificName);
-            $('#common-name-published').val(data.commonName);
-            $('#local-name-published').val(data.localName);
-            $('#description-published').val(data.description);
-            $('#benefits-published').val(data.benefits);
-            $('#dangerous-published').val(data.dangerous);
-            $('#threats-published').val(data.threats);
-            $('#opportunities-published').val(data.opportunities);
-            $('#links-published').val(data.links);
-            $('#food-name-published').val(data.foodName);
-            $('#food-description-published').val(data.foodDescription);
-            $('#population-published').val(data.population);
-            $("#family-ddl-published option[value='" + data.family.familyId + "']").attr("selected", "selected");
-            $("#subfamily-ddl-published option[value='" + data.subFamily.subFamilyId + "']").attr("selected", "selected");
-            $("#world-ddl-published option[value='" + data.world.worldId + "']").attr("selected", "selected");
-            $("input[name=organism-indigenous][value='" + data.indigenous + "']").attr('checked', 'checked');
-            $("input[name=organism-cultivated][value='" + data.cultivated + "']").attr('checked', 'checked');
-            $("input[name=organism-endangered][value='" + data.endangered + "']").attr('checked', 'checked');
-            $("input[name=organism-medicinal][value='" + data.medicinal + "']").attr('checked', 'checked');
-            data.eatenByOrganism.forEach(function (organism) {
-                $('#eatenby-ddl-published option[value=' + organism.organismId + ']').prop('selected', true);
-            });
-            data.eatingOrganisms.forEach(function (organism) {
-                $('#geteatenby-ddl-published option[value=' + organism.organismId + ']').prop('selected', true);
-            });
-            data.habitat.forEach(function (habitat) {
-                $('#habitat-ddl-published option[value=' + habitat.habitatId + ']').prop('selected', true);
-            });
-            data.geolocations.forEach(function (geolocation) {
-                $('#geolocation-ddl-published option[value=' + geolocation.geolocationId + ']').prop('selected', true);
-            });
-            data.season.forEach(function (season) {
-                $('#season-ddl-published option[value=' + season.seasonId + ']').prop('selected', true);
-            });
-            $(".chosen-select").trigger("chosen:updated");
-        });
+    $(document).on('click', 'table #update-published-organism-btn', function() {
+        
+	document.getElementById('update-published-organism').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectOneOrganismById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+	     $('#organism-id-published').val(id);
+             $('#img-published').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
+             $('#scientific-name-published').val(data.scientificName);
+             $('#common-name-published').val(data.commonName);
+             $('#local-name-published').val(data.localName);
+             $('#description-published').val(data.description);
+             $('#benefits-published').val(data.benefits);
+             $('#dangerous-published').val(data.dangerous);
+             $('#threats-published').val(data.threats);
+             $('#opportunities-published').val(data.opportunities);
+             $('#links-published').val(data.links);
+             $('#food-name-published').val(data.foodName);
+             $('#food-description-published').val(data.foodDescription); 
+             $('#population-published').val(data.population);
+             $("#family-ddl-published option[value='" + data.family.familyId + "']").attr("selected","selected");
+             $("#subfamily-ddl-published option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected"); 
+             $("#world-ddl-published option[value='" + data.world.worldId + "']").attr("selected","selected"); 
+             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
+             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
+             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked');
+             data.eatenByOrganism.forEach(function(organism) {
+                 $('#eatenby-ddl-published option[value='+ organism.organismId + ']').prop('selected', true);
+             });
+             data.eatingOrganisms.forEach(function(organism) {
+                 $('#geteatenby-ddl-published option[value='+ organism.organismId + ']').prop('selected', true);
+             });
+             data.habitat.forEach(function(habitat) {
+                 $('#habitat-ddl-published option[value='+ habitat.habitatId + ']').prop('selected', true);
+             });
+             data.geolocations.forEach(function(geolocation) {
+                $('#geolocation-ddl-published option[value='+ geolocation.geolocationId + ']').prop('selected', true);
+             });
+             data.season.forEach(function (season) {
+                 $('#season-ddl-published option[value='+ season.seasonId + ']').prop('selected', true);
+             });
+             $(".chosen-select").trigger("chosen:updated");
+	});
     });
 
     // update select-pending-button dashboard.jsp - pending tab
-    $(document).on('click', 'table #update-pending-organism-btn', function () {
-
-
-        document.getElementById('update-pending-organism').style.display = 'block';
-        document.getElementById('fade').style.display = 'block';
-        var id = ($(this).attr("value"));
-        $.ajax({
-            url: 'SelectOneOrganismById?id=' + id,
-            type: 'GET',
-            dataType: 'JSON',
-            cache: false,
-            async: true
-        }).done(function (data) {
-            $('#organism-id-pending').val(id);
-            $('#img-pending').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id=' + id + '" height="100px" width="100px">');
-            $('#scientific-name-pending').val(data.scientificName);
-            $('#common-name-pending').val(data.commonName);
-            $('#local-name-pending').val(data.localName);
-            $('#description-pending').val(data.description);
-            $('#benefits-pending').val(data.benefits);
-            $('#dangerous-pending').val(data.dangerous);
-            $('#threats-pending').val(data.threats);
-            $('#opportunities-pending').val(data.opportunities);
-            $('#links-pending').val(data.links);
-            $('#food-name-pending').val(data.foodName);
-            $('#food-description-pending').val(data.foodDescription);
-            $('#population-pending').val(data.population);
-            $("#family-ddl-pending option[value='" + data.family.familyId + "']").attr("selected", "selected");
-            $("#subfamily-ddl-pending option[value='" + data.subFamily.subFamilyId + "']").attr("selected", "selected");
-            $("#habitat-ddl-pending option[value='" + data.habitat.habitatId + "']").attr("selected", "selected");
-            $("#world-ddl-pending option[value='" + data.world.worldId + "']").attr("selected", "selected");
-            $("input[name=organism-indigenous][value='" + data.indigenous + "']").attr('checked', 'checked');
-            $("input[name=organism-cultivated][value='" + data.cultivated + "']").attr('checked', 'checked');
-            $("input[name=organism-endangered][value='" + data.endangered + "']").attr('checked', 'checked');
-            $("input[name=organism-medicinal][value='" + data.medicinal + "']").attr('checked', 'checked');
-            data.eatenByOrganism.forEach(function (organism) {
-                $('#eatenby-ddl-pending option[value=' + organism.organismId + ']').prop('selected', true);
-            });
-            data.eatingOrganisms.forEach(function (organism) {
-                $('#geteatenby-ddl-pending option[value=' + organism.organismId + ']').prop('selected', true);
-            });
-            data.habitat.forEach(function (habitat) {
-                $('#habitat-ddl-pending option[value=' + habitat.habitatId + ']').prop('selected', true);
-            });
-            data.geolocations.forEach(function (geolocation) {
-                $('#geolocation-ddl-pending option[value=' + geolocation.geolocationId + ']').prop('selected', true);
-            });
-            data.season.forEach(function (season) {
-                $('#season-ddl-pending option[value=' + season.seasonId + ']').prop('selected', true);
-            });
-            $(".chosen-select").trigger("chosen:updated");
-        });
+    $(document).on('click', 'table #update-pending-organism-btn', function() {
+        
+    
+	document.getElementById('update-pending-organism').style.display = 'block';
+	document.getElementById('fade').style.display = 'block';
+	var id = ($(this).attr("value"));
+	$.ajax({
+	    url: 'SelectOneOrganismById?id=' + id,
+	    type: 'GET',
+	    dataType: 'JSON',
+	    cache: false,
+	    async: true
+	}).done(function (data) {
+             $('#organism-id-pending').val(id);
+             $('#img-pending').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id='+id+'" height="100px" width="100px">');
+             $('#scientific-name-pending').val(data.scientificName);
+             $('#common-name-pending').val(data.commonName);
+             $('#local-name-pending').val(data.localName);
+             $('#description-pending').val(data.description);
+             $('#benefits-pending').val(data.benefits);
+             $('#dangerous-pending').val(data.dangerous);
+             $('#threats-pending').val(data.threats);
+             $('#opportunities-pending').val(data.opportunities);
+             $('#links-pending').val(data.links);
+             $('#food-name-pending').val(data.foodName);
+             $('#food-description-pending').val(data.foodDescription); 
+             $('#population-pending').val(data.population);
+             $("#family-ddl-pending option[value='" + data.family.familyId + "']").attr("selected","selected"); 
+             $("#subfamily-ddl-pending option[value='" + data.subFamily.subFamilyId + "']").attr("selected","selected");
+             $("#habitat-ddl-pending option[value='" + data.habitat.habitatId + "']").attr("selected","selected");
+             $("#world-ddl-pending option[value='" + data.world.worldId + "']").attr("selected","selected"); 
+             $("input[name=organism-indigenous][value='"+ data.indigenous+"']").attr('checked','checked'); 
+             $("input[name=organism-cultivated][value='"+ data.cultivated+"']").attr('checked','checked'); 
+             $("input[name=organism-endangered][value='"+ data.endangered+"']").attr('checked','checked'); 
+             $("input[name=organism-medicinal][value='"+ data.medicinal+"']").attr('checked','checked'); 
+              data.eatenByOrganism.forEach(function(organism) {
+                 $('#eatenby-ddl-pending option[value='+ organism.organismId + ']').prop('selected', true);
+             });
+             data.eatingOrganisms.forEach(function(organism) {
+                 $('#geteatenby-ddl-pending option[value='+ organism.organismId + ']').prop('selected', true);
+             });
+             data.habitat.forEach(function(habitat) {
+                 $('#habitat-ddl-pending option[value='+ habitat.habitatId + ']').prop('selected', true);
+             });
+             data.geolocations.forEach(function(geolocation) {
+                $('#geolocation-ddl-pending option[value='+ geolocation.geolocationId + ']').prop('selected', true);
+             });
+             data.season.forEach(function (season) {
+                 $('#season-ddl-pending option[value='+ season.seasonId + ']').prop('selected', true);
+             });
+             $(".chosen-select").trigger("chosen:updated");             
+	});
     });
-
+    
     $(document).on('click', 'table #detail-organism-btn', function () {
 
         document.getElementById('detail-organism').style.display = 'block';
@@ -1191,9 +1183,10 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'JSON',
             cache: false,
-            async: true
+	    async: true
+            //class="img-responsive "
         }).done(function (data) {
-            $('#img-detail').html('<img class="img-responsive img-thumbnail" src="SelectPhotoById?id=' + id + '" height="100px" width="100px">');
+            $('#img-detail').html('<img class="img-thumbnail" src="SelectPhotoById?id='+id+'" height="200px" width="200px">');
             $('#scientific-name-detail').html(data.scientificName);
             $('#common-name-detail').html(data.commonName);
             $('#local-name-detail').html(data.localName);
@@ -1209,6 +1202,7 @@ $(document).ready(function () {
             $("#family-detail").html(data.family.familyName);
             $("#subfamily-detail").html(data.subFamily.subFamilyName);
             $("#world-detail").html(data.world.worldName);
+            
             if (data.indigenous === true) {
                 $("#indigenous-detail").html('Yes');
             } else {
@@ -1238,6 +1232,12 @@ $(document).ready(function () {
             data.season.forEach(function (season) {
                 $('#season-detail').html(season.seasonName + ', ');
             });
+            data.eatenByOrganism.forEach(function (organism) {
+                $('#eatenby-detail').html(organism.commonName + ', ');
+            });
+            data.eatingOrganisms.forEach(function (organism) {
+                $('#eats-detail').html(organism.commonName + ', ');
+            });
         });
     });
 
@@ -1266,27 +1266,27 @@ $(document).ready(function () {
     // functie voor delete world btn in dashboard.jsp
     $(document).on('click', '.table #delete-world-btn', function () {
 
-        var r = confirm("Delete this world?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteWorld?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadWorlds();
-                loadFamilies();
-            });
-        }
+    var r = confirm("Delete this world?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteWorld?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadWorlds();
+            loadFamilies();
+        });
+    }
     });
-
+    
 
     // functie voor delete season btn in dashboard.jsp
     $(document).on('click', '.table #delete-season-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("Are you sure?", function (result) {
+        bootbox.confirm("Are you sure?", function(result){
             $.ajax({
                 url: 'DeleteSeason?id=' + id,
                 type: 'POST',
@@ -1301,162 +1301,162 @@ $(document).ready(function () {
 
     // functie voor delete family btn in dashboard.jsp
     $(document).on('click', '.table #delete-family-btn', function () {
-        var r = confirm("Delete this family?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteFamily?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadFamilies();
-                loadSubFamilies();
-            });
-        }
+var r = confirm("Delete this family?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteFamily?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadFamilies();
+            loadSubFamilies();
+        });
+    }
     });
 
     // functie voor delete habitat btn in dashboard.jsp
     $(document).on('click', '.table #delete-habitat-btn', function () {
-        var r = confirm("Delete this habitat?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteHabitat?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadHabitats();
-            });
-        }
+var r = confirm("Delete this habitat?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteHabitat?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadHabitats();
+        });
+    }
     });
 
     // functie voor delete subfamily btn in dashboard.jsp
     $(document).on('click', '.table #delete-subfamily-btn', function () {
-        var r = confirm("Delete this breed?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteSubFamily?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadSubFamilies();
-            });
-        }
+var r = confirm("Delete this breed?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteSubFamily?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadSubFamilies();
+        });
+    }
     });
 
     // functie voor delete geolocation btn in dashboard.jsp
     $(document).on('click', '.table #delete-geolocation-btn', function () {
-        var r = confirm("Delete this geolocation?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteGeolocation?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadGeolocations();
-            });
-        }
+var r = confirm("Delete this geolocation?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteGeolocation?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadGeolocations();
+        });
+    }
     });
 
     // functie voor delete organism btn in dashboard.jsp
     $(document).on('click', '.table #delete-organism-btn', function () {
-        var r = confirm("Delete this organism?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteOrganism?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadOrganisms();
-                loadPendingOrganisms();
-                loadPublishedOrganisms();
-                loadToValidateOrganisms();
-            });
-        }
+var r = confirm("Delete this organism?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteOrganism?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadOrganisms();
+            loadPendingOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+        });
+    }
     });
 
     // functie voor delete organism/published btn in published.jsp
     $(document).on('click', '.table #delete-organism-published-btn', function () {
-        var r = confirm("Delete this organism?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteOrganism?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadOrganisms();
-                loadPendingOrganisms();
-                loadPublishedOrganisms();
-                loadToValidateOrganisms();
-            });
-        }
+var r = confirm("Delete this organism?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteOrganism?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadOrganisms();
+            loadPendingOrganisms();
+            loadPublishedOrganisms();
+            loadToValidateOrganisms();
+        });
+    }
     });
 
     // functie voor delete organism/queue btn in published.jsp
     $(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
-        var r = confirm("Delete this organism?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteOrganism?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadPendingOrganisms();
-                loadToValidateOrganisms();
-            });
-        }
+var r = confirm("Delete this organism?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteOrganism?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
+            loadPendingOrganisms();
+            loadToValidateOrganisms();
+        });
+    }
     });
-
+    
     // functie voor delete subscriber btn in published.jsp
     $(document).on('click', '.table #delete-subscriber-btn', function () {
-        var r = confirm("Delete this subscriber?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeleteSubscriber?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
+var r = confirm("Delete this subscriber?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeleteSubscriber?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
                 loadSubscriber();
-            });
-        }
+        });
+    }
     });
-
+    
     // functie voor delete post btn in published.jsp
     $(document).on('click', '.table #delete-post-btn', function () {
-        var r = confirm("Delete this post?");
-        if (r === true) {
-            var id = ($(this).attr("value"));
-            $.ajax({
-                url: 'DeletePost?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
+var r = confirm("Delete this post?");
+    if (r === true) {
+        var id = ($(this).attr("value"));
+        $.ajax({
+            url: 'DeletePost?id=' + id,
+            type: 'POST',
+            dataType: 'text',
+            cache: false,
+            async: true
+        }).done(function () {
                 loadPosts();
-            });
-        }
+        });
+    }
     });
 });

@@ -18,18 +18,18 @@ import java.util.List;
  * @author Oualid
  */
 public class DaGeolocation {
-	
+
     private static Connection conn;
     private static PreparedStatement stmt;
 
     public static List<Geolocation> selectAll() throws SQLException {
-	    
+
         List<Geolocation> geolocations = new ArrayList();
         try {
             conn = DataSource.getConnection();
             stmt = conn.prepareStatement("SELECT * FROM geolocation");
             ResultSet rs = stmt.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Geolocation geolocation = new Geolocation();
                 geolocation.setGeolocationId(rs.getInt("geolocation_id"));
                 geolocation.setAreaName(rs.getString("area_name"));
@@ -38,13 +38,13 @@ public class DaGeolocation {
                 geolocations.add(geolocation);
             }
         } catch (SQLException ex) {
-           System.out.println(ex.getMessage());
-        } 
+            System.out.println(ex.getMessage());
+        }
         return geolocations;
     }
-    
+
     public static Geolocation selectOneByID(int id) throws SQLException {
-	    
+
         Geolocation geolocation = new Geolocation();
         try {
             conn = DataSource.getConnection();
@@ -57,12 +57,12 @@ public class DaGeolocation {
             geolocation.setCoordinates(rs.getString("coordinates"));
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-        } 
+        }
         return geolocation;
     }
-    
+
     public static List<Geolocation> selectAllByOrganism(int organismId) throws SQLException {
-	    
+
         List<Geolocation> geolocations = new ArrayList();
         try {
             conn = DataSource.getConnection();
@@ -71,7 +71,7 @@ public class DaGeolocation {
                     + "INNER JOIN organism ON organism.organism_id = geolocation_organism.organism_id "
                     + "WHERE organism.organism_id=" + organismId);
             ResultSet rs = stmt.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Geolocation geolocation = new Geolocation();
                 geolocation.setGeolocationId(rs.getInt("geolocation_id"));
                 geolocation.setAreaName(rs.getString("area_name"));
@@ -80,13 +80,13 @@ public class DaGeolocation {
                 geolocations.add(geolocation);
             }
         } catch (SQLException ex) {
-           System.out.println(ex.getMessage());
-        } 
+            System.out.println(ex.getMessage());
+        }
         return geolocations;
     }
-    
+
     public static void insert(Geolocation geolocation) throws SQLException {
-	    
+
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
@@ -98,15 +98,15 @@ public class DaGeolocation {
             stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
-	    System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage());
             conn.rollback();
         } finally {
             conn.setAutoCommit(true);
         }
     }
-    
+
     public static void delete(int id) throws SQLException {
-	    
+
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
@@ -114,15 +114,15 @@ public class DaGeolocation {
             stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
-	    System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage());
             conn.rollback();
         } finally {
             conn.setAutoCommit(true);
         }
     }
-    
+
     public static void update(Geolocation geolocation) throws SQLException {
-	    
+
         try {
             conn = DataSource.getConnection();
             conn.setAutoCommit(false);
@@ -135,10 +135,22 @@ public class DaGeolocation {
             stmt.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
-	    System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage());
             conn.rollback();
         } finally {
             conn.setAutoCommit(true);
         }
+    }
+
+    public static boolean checkGeoExist(String areaName) throws SQLException {
+
+        boolean match;
+        conn = DataSource.getConnection();
+        stmt = conn.prepareStatement("SELECT COUNT(*) area_name FROM geolocation WHERE area_name = ?");
+        stmt.setString(1, areaName);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        match = rs.getInt(1) == 1;
+        return match;
     }
 }

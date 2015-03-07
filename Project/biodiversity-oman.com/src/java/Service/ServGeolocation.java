@@ -16,6 +16,11 @@ import java.util.List;
  */
 public class ServGeolocation {
 
+    public static boolean checkGeolocationExist(String habitatName) throws SQLException {
+
+        return DaGeolocation.checkGeoExist(habitatName);
+    }
+
     public static Geolocation selectOneByID(int id) throws SQLException {
 
         return DaGeolocation.selectOneByID(id);
