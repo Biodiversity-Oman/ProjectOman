@@ -1288,7 +1288,8 @@ $(document).ready(function () {
     // functie voor delete season btn in dashboard.jsp
     $(document).on('click', '.table #delete-season-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("Are you sure?", function (result) {
+        bootbox.confirm("This will delete season in all organisms! <br> <b>Are you sure?</b>  ", function (result) {
+            if(result===true){
             $.ajax({
                 url: 'DeleteSeason?id=' + id,
                 type: 'POST',
@@ -1298,6 +1299,7 @@ $(document).ready(function () {
             }).done(function () {
                 loadSeasons();
             });
+        }
         });
     });
 
