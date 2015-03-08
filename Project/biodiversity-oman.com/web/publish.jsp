@@ -208,6 +208,7 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="food-description-published" name="organism-food-description" pattern="[^()[\]{}*^$<>#]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -405,6 +406,7 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="food-description-queue" name="organism-food-description" pattern="[^()[\]{}*^$<>#]+$"></textarea>
+                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
