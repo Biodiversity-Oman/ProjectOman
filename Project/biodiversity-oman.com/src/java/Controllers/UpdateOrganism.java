@@ -74,7 +74,7 @@ public class UpdateOrganism extends HttpServlet {
 
         if (request.getParameterValues("organism-habitat-id") != null) {
             habitatIds = new int[request.getParameterValues("organism-habitat-id").length];
-            for (int i = 0; i < request.getParameterValues("organsm-habitat-id").length; i++) {
+            for (int i = 0; i < request.getParameterValues("organism-habitat-id").length; i++) {
                 habitatIds[i] = Integer.parseInt(request.getParameterValues("organism-habitat-id")[i]);
             }
         }

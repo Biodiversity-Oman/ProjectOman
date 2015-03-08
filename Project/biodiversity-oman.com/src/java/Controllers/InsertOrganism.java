@@ -78,7 +78,7 @@ public class InsertOrganism extends HttpServlet {
 
         if (request.getParameterValues("organism-habitat-id") != null) {
             habitatIds = new int[request.getParameterValues("organism-habitat-id").length];
-            for (int i = 0; i < request.getParameterValues("organsm-habitat-id").length; i++) {
+            for (int i = 0; i < request.getParameterValues("organism-habitat-id").length; i++) {
                 habitatIds[i] = Integer.parseInt(request.getParameterValues("organism-habitat-id")[i]);
             }
         }
@@ -116,28 +116,28 @@ public class InsertOrganism extends HttpServlet {
             bytes = b.toByteArray();
         }
         response.getWriter().write(Service.ServOrganism.insert(request.getParameter("organism-scientific-name"),
-                request.getParameter("organism-common-name"),
-                request.getParameter("organism-local-name"),
-                request.getParameter("organism-description"),
-                Integer.parseInt(request.getParameter("organism-subfamily-id")),
-                habitatIds,
-                request.getParameter("organism-population"),
-                seasonIds,
-                Boolean.parseBoolean(request.getParameter("organism-indigenous")),
-                Boolean.parseBoolean(request.getParameter("organism-cultivated")),
-                Boolean.parseBoolean(request.getParameter("organism-endangered")),
-                Boolean.parseBoolean(request.getParameter("organism-medicinal")),
-                request.getParameter("organism-benefits"),
-                request.getParameter("organism-dangerous"),
-                request.getParameter("organism-threats"),
-                request.getParameter("organism-opportunities"),
-                bytes,
-                request.getParameter("organism-links"),
-                eatenByOrganismIds,
-                eatingOrganismIds,
-                request.getParameter("organism-food-name"),
-                request.getParameter("organism-food-description"),
-                geolocationIds));
+					request.getParameter("organism-common-name"),
+					request.getParameter("organism-local-name"),
+					request.getParameter("organism-description"),
+					Integer.parseInt(request.getParameter("organism-subfamily-id")),
+					habitatIds,
+					request.getParameter("organism-population"),
+					seasonIds,
+					Boolean.parseBoolean(request.getParameter("organism-indigenous")),
+					Boolean.parseBoolean(request.getParameter("organism-cultivated")),
+					Boolean.parseBoolean(request.getParameter("organism-endangered")),
+					Boolean.parseBoolean(request.getParameter("organism-medicinal")),
+					request.getParameter("organism-benefits"),
+					request.getParameter("organism-dangerous"),
+					request.getParameter("organism-threats"),
+					request.getParameter("organism-opportunities"),
+					bytes,
+					request.getParameter("organism-links"),
+					eatenByOrganismIds,
+					eatingOrganismIds,
+					request.getParameter("organism-food-name"),
+					request.getParameter("organism-food-description"),
+					geolocationIds));
     }
 
     /**
