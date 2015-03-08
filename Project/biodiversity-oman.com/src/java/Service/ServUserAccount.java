@@ -102,4 +102,9 @@ public class ServUserAccount {
 
 		return DaUserAccount.searchUserAccount(keyword);
 	}
+        
+        public static boolean isLastUser() throws SQLException
+        {
+            return DaUserAccount.isLastUser();
+        }
 }

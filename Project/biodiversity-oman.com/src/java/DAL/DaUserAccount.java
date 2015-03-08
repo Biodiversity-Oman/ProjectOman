@@ -252,4 +252,19 @@ public class DaUserAccount {
 		return result;
 	}
 
+        public static boolean isLastUser() throws SQLException
+        {
+            boolean result = false;
+            conn = DataSource.getConnection();
+            stmt = conn.prepareStatement("SELECT COUNT(username)\n" +
+                                        "FROM user_account\n" +
+                                        "WHERE isadmin = 1");
+            java.sql.ResultSet count = stmt.executeQuery();
+            count.next();
+            if (count.getInt(1) <= 1)
+            {
+                result = true;
+            }
+            return result;
+        }
 }

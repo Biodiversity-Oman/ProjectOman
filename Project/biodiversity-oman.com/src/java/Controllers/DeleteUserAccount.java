@@ -34,16 +34,29 @@ public class DeleteUserAccount extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		try (PrintWriter out = response.getWriter()) {
-
-			String user = request.getParameter("username");
-			try {
-				ServUserAccount.deleteUserAccount(user);
-				//response.sendRedirect("redirect.jsp");
-			} catch (SQLException ex) {
-				System.out.println("problem");
-			}
-		}
+                
+                String user = request.getParameter("username");
+                try{
+                    if (ServUserAccount.isAdmin(user))
+                    {
+                        if (!ServUserAccount.isLastUser())
+                        {
+                            ServUserAccount.deleteUserAccount(user);
+                        }
+                        else
+                        {
+                            //response.getWriter().write("error");
+                        }
+                    }
+                    else
+                    {
+                        ServUserAccount.deleteUserAccount(user);
+                    }
+                }
+                catch (java.sql.SQLException ex)
+                {
+                    System.out.println(ex.getMessage());
+                }
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
