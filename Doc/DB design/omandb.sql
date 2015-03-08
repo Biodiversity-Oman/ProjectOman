@@ -79,8 +79,8 @@ INSERT INTO `family` (`family_id`, `family_name`, `family_description`, `world_i
 --
 
 CREATE TABLE IF NOT EXISTS `food` (
-  `eaten_by_organism_id` int(11) DEFAULT NULL,
-  `eating_organism_id` int(11) DEFAULT NULL,
+  `eaten_by_organism_id` int(11) NOT NULL,
+  `eating_organism_id` int(11) NOT NULL,
   KEY `Eaten_Organism_ID` (`eaten_by_organism_id`),
   KEY `Eating_organism_ID` (`eating_organism_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
