@@ -109,7 +109,7 @@ public class UpdateOrganism extends HttpServlet {
         Part filePart = request.getPart("upfileOrganism"); 
         InputStream fileContent = filePart.getInputStream();
         bytes = IOUtils.toByteArray(fileContent);
-        if(bytes.length < 3){
+        if(bytes.length == 0){
             bytes = Service.ServOrganism.selectPhotoById(id);  
         } 
 	    response.getWriter().write(Service.ServOrganism.update(id,

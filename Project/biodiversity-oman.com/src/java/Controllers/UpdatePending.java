@@ -103,11 +103,12 @@ public class UpdatePending extends HttpServlet {
 			}
 		}
         byte[] bytes = null;
+        int id= Integer.parseInt(request.getParameter("organism-id"));
         Part filePart = request.getPart("upfileOrganism"); 
         InputStream fileContent = filePart.getInputStream();
         bytes = IOUtils.toByteArray(fileContent);
         if(bytes.length == 0){
-            bytes = Service.ServOrganism.selectPhotoById(Integer.parseInt(request.getParameter("organism-id")));  
+            bytes = Service.ServOrganism.selectPhotoById(id);  
         }
 	    response.getWriter().write(Service.ServOrganism.updatePending(Integer.parseInt(request.getParameter("organism-id")),
 																	  request.getParameter("organism-scientific-name"),
