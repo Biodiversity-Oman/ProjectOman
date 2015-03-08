@@ -48,8 +48,8 @@ $(document).ready(function () {
                            <td>' + subfamily.subFamilyDescription + '</td>\n\
                            <td>' + subfamily.subFamilyFamilyName + '</td>\n\
                            <td>\n\
-                           <button class="no-button" id="update-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button>\n\
-                           <button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button>\n\
+                           <button class="no-button-user" id="update-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button>\n\
+                           <button class="no-button-user" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button>\n\
                            </td>\n\
                            </tr>');
                 });
