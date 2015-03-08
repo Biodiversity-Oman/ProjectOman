@@ -356,7 +356,7 @@ public class DaOrganism {
 			stmt.setString(1, organism.getScientificName());
 			stmt.setString(2, organism.getCommonName());
 			stmt.setString(3, organism.getLocalName());
-			stmt.setInt(4, organism.getSubfamily().getSubfamilyId());
+			stmt.setObject(4, organism.getSubfamily().getSubfamilyId());
 			stmt.setString(5, organism.getDescription());
 			stmt.setString(6, organism.getPopulation());
 			stmt.setBoolean(7, organism.getIndigenous());
@@ -382,38 +382,48 @@ public class DaOrganism {
 
 			// volgende statements zijn voor de Many To Many relaties vast te leggen.
 			// season
-			stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
-			for (Season s : organism.getSeason()) {
+			if(!organism.getSeason().isEmpty()){
+				stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
+				for (Season s : organism.getSeason()) {
 				stmt.setInt(1, orgId);
 				stmt.setInt(2, s.getSeasonId());
 				stmt.executeUpdate();
+				}
 			}
 			// habitat
-			stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
-			for (Habitat h : organism.getHabitat()) {
+			if(!organism.getHabitat().isEmpty()) {
+				stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
+				for (Habitat h : organism.getHabitat()) {
 				stmt.setInt(1, h.getHabitatId());
 				stmt.setInt(2, orgId);
 				stmt.executeUpdate();
+				}
 			}
 			// EatenBy
-			stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-			for (Organism o : organism.getEatenByOrganism()) {
+			if(!organism.getEatenByOrganism().isEmpty()) {
+				stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
+				for (Organism o : organism.getEatenByOrganism()) {
 				stmt.setInt(1, orgId);
 				stmt.setInt(2, o.getOrganismId());
 				stmt.executeUpdate();
+				}
 			}
 			// Eating
-			for (Organism o : organism.getEatingOrganisms()) {
+			if(!organism.getEatenByOrganism().isEmpty()) {
+				for (Organism o : organism.getEatingOrganisms()) {
 				stmt.setInt(1, o.getOrganismId());
 				stmt.setInt(2, orgId);
 				stmt.executeUpdate();
+				}
 			}
 			// Geolocation
-			stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
-			for (Geolocation g : organism.getGeolocations()) {
+			if(!organism.getGeolocations().isEmpty()){
+				stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
+				for (Geolocation g : organism.getGeolocations()) {
 				stmt.setInt(1, orgId);
 				stmt.setInt(2, g.getGeolocationId());
 				stmt.executeUpdate();
+				}
 			}
 			conn.commit();
 		} catch (SQLException ex) {

@@ -7,6 +7,7 @@ package Controllers;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -67,30 +68,45 @@ public class InsertOrganism extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        int[] habitatIds = new int[request.getParameterValues("organism-habitat-id").length];
-        for (int i=0; i < request.getParameterValues("organism-habitat-id").length; i++) {
-        habitatIds[i] = Integer.parseInt(request.getParameterValues("organism-habitat-id")[i]);}
+		int[] habitatIds = null;
+		int[] seasonIds = null;
+		int[] eatenByOrganismIds = null;
+		int[] eatingOrganismIds = null;
+		int[] geolocationIds = null;
 
-        int[] seasonIds = new int[request.getParameterValues("organism-season-id").length];
-        for (int i=0; i < request.getParameterValues("organism-season-id").length; i++) {
-        seasonIds[i] = Integer.parseInt(request.getParameterValues("organism-season-id")[i]);}
-
-        int[] eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
-        for (int i=0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
-        eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);}
-
-        int[] eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
-        for (int i=0; i < request.getParameterValues("eating-organism-id").length; i++) {
-        eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);}
-
-        int[] geolocationIds = new int[request.getParameterValues("organism-geolocation-id").length];
-        for (int i=0; i < request.getParameterValues("organism-geolocation-id").length; i++) {
-         geolocationIds[i] = Integer.parseInt(request.getParameterValues("organism-geolocation-id")[i]);}
-
+		if (request.getParameterValues("organism-habitat-id") != null) {
+			habitatIds = new int[request.getParameterValues("organism-habitat-id").length];
+			for (int i = 0; i < request.getParameterValues("organsm-habitat-id").length; i++) {
+				habitatIds[i] = Integer.parseInt(request.getParameterValues("organism-habitat-id")[i]);
+			}
+		}
+		if (request.getParameterValues("organism-season-id") != null) {
+			seasonIds = new int[request.getParameterValues("organism-season-id").length];
+			for (int i = 0; i < request.getParameterValues("organism-season-id").length; i++) {
+				seasonIds[i] = Integer.parseInt(request.getParameterValues("organism-season-id")[i]);
+			}
+		}
+		if (request.getParameterValues("eaten-by-organism-id") != null) {
+			eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
+			for (int i = 0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
+				eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);
+			}
+		}
+		if (request.getParameterValues("eating-organism-id") != null) {
+			eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
+			for (int i = 0; i < request.getParameterValues("eating-organism-id").length; i++) {
+				eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);
+			}
+		}
+		if (request.getParameterValues("organism-geolocation-id") != null) {
+			geolocationIds = new int[request.getParameterValues("organism-geolocation-id").length];
+			for (int i = 0; i < request.getParameterValues("organism-geolocation-id").length; i++) {
+				geolocationIds[i] = Integer.parseInt(request.getParameterValues("organism-geolocation-id")[i]);
+			}
+		}
         Part filePart = request.getPart("upfileOrganism"); 
         InputStream fileContent = filePart.getInputStream();
         byte[] bytes = IOUtils.toByteArray(fileContent);
-        
         if (bytes.length == 0) {
             bytes = new byte[2];
         }
@@ -117,7 +133,6 @@ public class InsertOrganism extends HttpServlet {
 															   request.getParameter("organism-food-name"),
 															   request.getParameter("organism-food-description"),
 															   geolocationIds));
-	
     }
 
     /**

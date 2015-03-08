@@ -64,27 +64,29 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
+                                                                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>    
-                                                                                        <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                                                                        
                                                                                 </div> 
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
+                                                                                                <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
+                                                                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
-                                                                                        <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                                                                        
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" type="text" name="organism-local-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"/> 
+                                                                                                <input class="form-control" type="text" name="organism-local-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"/>
+                                                                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
-                                                                                        <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-subfamily">Breed</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <select class="form-control" id="subfamily-ddl-insert-organism" name="organism-subfamily-id"></select>
+                                                                                                <select class="form-control" id="subfamily-ddl-insert-organism" name="organism-subfamily-id" required></select>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -110,35 +112,35 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-opportunities">Add Photo</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input type="file"  name="upfileOrganism" >
+                                                                                                <input type="file"  name="upfileOrganism">
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-indigenous">Indigenous</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input style="width: 1em;"   type="radio" id="organismIndigenousTrue"  name="organism-indigenous" value="true" required> <label>Yes</label><br>
-                                                                                                <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" required> <label>No</label>
+                                                                                                <input style="width: 1em;"   type="radio" id="organismIndigenousTrue"  name="organism-indigenous" value="true" > <label>Yes</label><br>
+                                                                                                <input style="width: 1em;"  type="radio" id="organismIndigenousFalse" name="organism-indigenous" value="false" > <label>No</label>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-cultivated">Cultivated</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input style="width: 1em;"   type="radio" id="organismCultivateTrue"  name="organism-cultivated" value="true" required> <label>Yes</label><br>
-                                                                                                <input style="width: 1em;"  type="radio" id="organismCultivateFalse" name="organism-cultivated" value="false" required> <label>No</label>
+                                                                                                <input style="width: 1em;"   type="radio" id="organismCultivateTrue"  name="organism-cultivated" value="true" > <label>Yes</label><br>
+                                                                                                <input style="width: 1em;"  type="radio" id="organismCultivateFalse" name="organism-cultivated" value="false" > <label>No</label>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-endangered">Endangered</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input style="width: 1em;"   type="radio" id="organismEndangeredTrue"  name="organism-endangered" value="true" required> <label>Yes</label><br>
-                                                                                                <input style="width: 1em;"  type="radio" id="organismEndangeredFalse" name="organism-endangered" value="false" required> <label>No</label>
+                                                                                                <input style="width: 1em;"   type="radio" id="organismEndangeredTrue"  name="organism-endangered" value="true" > <label>Yes</label><br>
+                                                                                                <input style="width: 1em;"  type="radio" id="organismEndangeredFalse" name="organism-endangered" value="false" > <label>No</label>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-medicinal">Medicinal</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input style="width: 1em;"   type="radio" id="organismMedicinalTrue"  name="organism-medicinal" value="true" required> <label>Yes</label><br>
-                                                                                                <input style="width: 1em;"  type="radio" id="organismMedicinalFalse" name="organism-medicinal" value="false" required> <label>No</label>
+                                                                                                <input style="width: 1em;"   type="radio" id="organismMedicinalTrue"  name="organism-medicinal" value="true" > <label>Yes</label><br>
+                                                                                                <input style="width: 1em;"  type="radio" id="organismMedicinalFalse" name="organism-medicinal" value="false" > <label>No</label>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
