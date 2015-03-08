@@ -44,12 +44,14 @@ $(document).ready(function () {
                 ;
                 data.forEach(function (subfamily) {
                     $table.append('<tr>\n\
-					    <td>' + subfamily.subFamilyName + '</td>\n\
-					    <td>' + subfamily.subFamilyDescription + '</td>\n\
-                                            <td>' + subfamily.subFamilyFamilyName+ '</td>\n\
-                                           <button class="no-button" id="update-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button>\n\
-                                           <button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button>\n\
-					    </tr>');
+                           <td>' + subfamily.subFamilyName + '</td>\n\
+                           <td>' + subfamily.subFamilyDescription + '</td>\n\
+                           <td>' + subfamily.subFamilyFamilyName + '</td>\n\
+                           <td>\n\
+                           <button class="no-button" id="update-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button>\n\
+                           <button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button>\n\
+                           </td>\n\
+                           </tr>');
                 });
             });
         } else {
