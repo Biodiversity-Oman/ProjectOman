@@ -1181,7 +1181,6 @@ $(document).ready(function () {
     // update select-pending-button dashboard.jsp - pending tab
     $(document).on('click', 'table #update-pending-organism-btn', function () {
 
-
         document.getElementById('update-pending-organism').style.display = 'block';
         document.getElementById('fade').style.display = 'block';
         var id = ($(this).attr("value"));
@@ -1218,6 +1217,7 @@ $(document).ready(function () {
                 $('#eatenby-ddl-pending option[value=' + organism.organismId + ']').prop('selected', true);
             });
             data.eatingOrganisms.forEach(function (organism) {
+                console.log(organism.organismId);
                 $('#geteatenby-ddl-pending option[value=' + organism.organismId + ']').prop('selected', true);
             });
             data.habitat.forEach(function (habitat) {

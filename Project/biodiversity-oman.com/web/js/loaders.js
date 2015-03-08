@@ -463,6 +463,7 @@ function loadEaten() {
         cache: false,
         async: true
     }).done(function (data) {
+        $ddl.html('');
         data.forEach(function (organism) {
             $ddl.append('<option value="' + organism.organismId + '">' + organism.commonName + '</option>');
             $(".chosen-select").trigger("chosen:updated");

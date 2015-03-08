@@ -6,6 +6,7 @@
 package Service;
 
 import DAL.DaOrganism;
+import java.lang.reflect.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,20 +49,30 @@ public class ServOrganism {
 				List<BLL.Organism> eatenbyorganism = new ArrayList<>();
 				List<BLL.Organism> eatingorganism = new ArrayList<>();
 				List<BLL.Geolocation> geolocation = new ArrayList<>();
-				for (int i = 0; i < habitatid.length; i++) {
-					habitat.add(new BLL.Habitat(java.lang.reflect.Array.getInt(habitatid, i)));
+				if (habitatid != null) {
+					for (int i = 0; i < habitatid.length; i++) {
+						habitat.add(new BLL.Habitat(Array.getInt(habitatid, i)));
+					}
 				}
-				for (int i = 0; i < seasonid.length; i++) {
-					season.add(new BLL.Season(java.lang.reflect.Array.getInt(seasonid, i)));
+				if (seasonid != null) {
+					for (int i = 0; i < seasonid.length; i++) {
+						season.add(new BLL.Season(Array.getInt(seasonid, i)));
+					}
 				}
-				for (int i = 0; i < eatenbyorganismid.length; i++) {
-					eatenbyorganism.add(new BLL.Organism(java.lang.reflect.Array.getInt(eatenbyorganismid, i)));
+				if (eatenbyorganismid != null) {
+					for (int i = 0; i < eatenbyorganismid.length; i++) {
+						eatenbyorganism.add(new BLL.Organism(Array.getInt(eatenbyorganismid, i)));
+					}
 				}
-				for (int i = 0; i < eatingorganismid.length; i++) {
-					eatingorganism.add(new BLL.Organism(java.lang.reflect.Array.getInt(eatingorganismid, i)));
+				if (eatingorganismid != null) {
+					for (int i = 0; i < eatingorganismid.length; i++) {
+						eatingorganism.add(new BLL.Organism(Array.getInt(eatingorganismid, i)));
+					}
 				}
-				for (int i = 0; i < geolocationid.length; i++) {
-					geolocation.add(new BLL.Geolocation(java.lang.reflect.Array.getInt(geolocationid, i)));
+				if (geolocationid != null) {
+					for (int i = 0; i < geolocationid.length; i++) {
+						geolocation.add(new BLL.Geolocation(Array.getInt(geolocationid, i)));
+					}
 				}
 				DaOrganism.insert(new BLL.Organism(scientificname, commonname, localname, description,
 						new BLL.Subfamily(subfamilyid), habitat, population, season,
@@ -93,20 +104,30 @@ public class ServOrganism {
 				List<BLL.Organism> eatenbyorganism = new ArrayList<>();
 				List<BLL.Organism> eatingorganism = new ArrayList<>();
 				List<BLL.Geolocation> geolocation = new ArrayList<>();
-				for (int i = 0; i < habitatid.length; i++) {
-					habitat.add(new BLL.Habitat(java.lang.reflect.Array.getInt(habitatid, i)));
+				if (habitatid != null) {
+					for (int i = 0; i < habitatid.length; i++) {
+						habitat.add(new BLL.Habitat(Array.getInt(habitatid, i)));
+					}
 				}
-				for (int i = 0; i < seasonid.length; i++) {
-					season.add(new BLL.Season(java.lang.reflect.Array.getInt(seasonid, i)));
+				if (seasonid != null) {
+					for (int i = 0; i < seasonid.length; i++) {
+						season.add(new BLL.Season(Array.getInt(seasonid, i)));
+					}
 				}
-				for (int i = 0; i < eatenbyorganismid.length; i++) {
-					eatenbyorganism.add(new BLL.Organism(java.lang.reflect.Array.getInt(eatenbyorganismid, i)));
+				if (eatenbyorganismid != null) {
+					for (int i = 0; i < eatenbyorganismid.length; i++) {
+						eatenbyorganism.add(new BLL.Organism(Array.getInt(eatenbyorganismid, i)));
+					}
 				}
-				for (int i = 0; i < eatingorganismid.length; i++) {
-					eatingorganism.add(new BLL.Organism(java.lang.reflect.Array.getInt(eatingorganismid, i)));
+				if (eatingorganismid != null) {
+					for (int i = 0; i < eatingorganismid.length; i++) {
+						eatingorganism.add(new BLL.Organism(Array.getInt(eatingorganismid, i)));
+					}
 				}
-				for (int i = 0; i < geolocationid.length; i++) {
-					geolocation.add(new BLL.Geolocation(java.lang.reflect.Array.getInt(geolocationid, i)));
+				if (geolocationid != null) {
+					for (int i = 0; i < geolocationid.length; i++) {
+						geolocation.add(new BLL.Geolocation(Array.getInt(geolocationid, i)));
+					}
 				}
 				DaOrganism.update(new BLL.Organism(id, scientificname, commonname, localname,
 						description, new BLL.Subfamily(subfamilyid),  habitat, population,
@@ -136,20 +157,30 @@ public class ServOrganism {
 				List<BLL.Organism> eatenbyorganism = new ArrayList<>();
 				List<BLL.Organism> eatingorganism = new ArrayList<>();
 				List<BLL.Geolocation> geolocation = new ArrayList<>();
-				for (int i = 0; i < habitatid.length; i++) {
-					habitat.add(new BLL.Habitat(java.lang.reflect.Array.getInt(habitatid, i)));
+				if (habitatid != null) {
+					for (int i = 0; i < habitatid.length; i++) {
+						habitat.add(new BLL.Habitat(Array.getInt(habitatid, i)));
+					}
 				}
-				for (int i = 0; i < seasonid.length; i++) {
-					season.add(new BLL.Season(java.lang.reflect.Array.getInt(seasonid, i)));
+				if (seasonid != null) {
+					for (int i = 0; i < seasonid.length; i++) {
+						season.add(new BLL.Season(Array.getInt(seasonid, i)));
+					}
 				}
-				for (int i = 0; i < eatenbyorganismid.length; i++) {
-					eatenbyorganism.add(new BLL.Organism(java.lang.reflect.Array.getInt(eatenbyorganismid, i)));
+				if (eatenbyorganismid != null) {
+					for (int i = 0; i < eatenbyorganismid.length; i++) {
+						eatenbyorganism.add(new BLL.Organism(Array.getInt(eatenbyorganismid, i)));
+					}
 				}
-				for (int i = 0; i < eatingorganismid.length; i++) {
-					eatingorganism.add(new BLL.Organism(java.lang.reflect.Array.getInt(eatingorganismid, i)));
+				if (eatingorganismid != null) {
+					for (int i = 0; i < eatingorganismid.length; i++) {
+						eatingorganism.add(new BLL.Organism(Array.getInt(eatingorganismid, i)));
+					}
 				}
-				for (int i = 0; i < geolocationid.length; i++) {
-					geolocation.add(new BLL.Geolocation(java.lang.reflect.Array.getInt(geolocationid, i)));
+				if (geolocationid != null) {
+					for (int i = 0; i < geolocationid.length; i++) {
+						geolocation.add(new BLL.Geolocation(Array.getInt(geolocationid, i)));
+					}
 				}
 				DaOrganism.updatePending(new BLL.Organism(id, scientificname, commonname, localname,
 						description, new BLL.Subfamily(subfamilyid), habitat, population,
