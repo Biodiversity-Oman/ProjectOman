@@ -288,8 +288,8 @@ $(document).ready(function () {
 
     // functie voor delete user in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
-        var r = confirm("Delete this user?");
-        if (r === true) {
+        bootbox.confirm("<center>Delete this user?", function (result) {
+            if (result === true) {
             var username = ($(this).attr("value"));
             $.ajax({
                 url: 'DeleteUserAccount?username=' + username,
@@ -302,11 +302,12 @@ $(document).ready(function () {
             });
         }
     });
+    });
 
     // functie voor demoten van een user in usermanagement.jsp
     $(document).on('click', '.table #make-normal-btn', function () {
-        var r = confirm("Demote this user?");
-        if (r === true) {
+        bootbox.confirm("Demote this admin to a normal user?", function (result) {
+            if (result === true) {
             var username = ($(this).attr("value"));
             $.ajax({
                 url: 'SetNormalUser?username=' + username,
@@ -319,11 +320,12 @@ $(document).ready(function () {
             });
         }
     });
+    });
 
     // functie voor make admin in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #make-admin-btn', function () {
-        var r = confirm("Make this user an admin?");
-        if (r === true) {
+        bootbox.confirm("Make this user an admin?", function (result) {
+            if (result === true) {
             var username = ($(this).attr("value"));
             $.ajax({
                 url: 'SetSuperUser?username=' + username,
@@ -335,6 +337,7 @@ $(document).ready(function () {
                 loadUsers();
             });
         }
+    });
     });
 
 //---------------------------------------------------------------------------------------------------------------------

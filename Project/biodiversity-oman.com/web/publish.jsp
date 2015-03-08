@@ -409,7 +409,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control" type="text" id="food-name-queue" name="organism-food-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*^$<>#]+$" required/> 
+                                                <input class="form-control" type="text" id="food-name-queue" name="organism-food-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*^$<>#]+$"/> 
                                             </div>
                                             <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                         </div>
