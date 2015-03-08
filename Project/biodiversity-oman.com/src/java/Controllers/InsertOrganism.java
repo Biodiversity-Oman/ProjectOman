@@ -9,11 +9,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-<<<<<<< HEAD
 import java.net.URI;
 import javax.imageio.ImageIO;
-=======
->>>>>>> origin/master
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
