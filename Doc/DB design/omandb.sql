@@ -196,10 +196,10 @@ INSERT INTO `habitat_organism` (`habitat_id`, `organism_id`) VALUES
 
 CREATE TABLE IF NOT EXISTS `organism` (
   `organism_id` int(11) NOT NULL AUTO_INCREMENT,
-  `scientific_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `scientific_name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `common_name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `local_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `subfamily_id` int(11) DEFAULT NULL,
+  `subfamily_id` int(11) NOT NULL,
   `organism_description` varchar(9000) CHARACTER SET utf8 DEFAULT NULL,
   `population` varchar(100) DEFAULT NULL,
   `indigenous` tinyint(1) DEFAULT NULL,
