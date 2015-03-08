@@ -1214,11 +1214,10 @@ $(document).ready(function () {
             $("input[name=organism-endangered][value='" + data.endangered + "']").attr('checked', 'checked');
             $("input[name=organism-medicinal][value='" + data.medicinal + "']").attr('checked', 'checked');
             data.eatenByOrganism.forEach(function (organism) {
-                $('#eatenby-ddl-pending option[value=' + organism.organismId + ']').prop('selected', true);
+                $('#geteatenby-ddl-pending option[value=' + organism.organismId + ']').prop('selected', true);
             });
             data.eatingOrganisms.forEach(function (organism) {
-                console.log(organism.organismId);
-                $('#geteatenby-ddl-pending option[value=' + organism.organismId + ']').prop('selected', true);
+                $('#eatenby-ddl-pending option[value=' + organism.organismId + ']').prop('selected', true);
             });
             data.habitat.forEach(function (habitat) {
                 $('#habitat-ddl-pending option[value=' + habitat.habitatId + ']').prop('selected', true);
