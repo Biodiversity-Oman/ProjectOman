@@ -432,6 +432,12 @@ public class DaOrganism {
 			stmt = conn.prepareStatement("DELETE FROM post WHERE post.organism_id=?");
 			stmt.setInt(1, id);
 			stmt.executeUpdate();
+                        stmt = conn.prepareStatement("UPDATE food SET eaten_by_organism_id= null WHERE eaten_by_organism_id=?");
+			stmt.setInt(1, id);
+			stmt.executeUpdate();
+                        stmt = conn.prepareStatement("UPDATE food SET eating_organism_id = null WHERE eating_organism_id=?");
+			stmt.setInt(1, id);
+			stmt.executeUpdate();
 			stmt = conn.prepareStatement("DELETE FROM organism WHERE organism.organism_id=?");
 			stmt.setInt(1, id);
 			stmt.executeUpdate();
