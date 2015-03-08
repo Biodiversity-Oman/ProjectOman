@@ -5,9 +5,12 @@
  */
 package Controllers;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.net.URI;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -108,7 +111,10 @@ public class InsertOrganism extends HttpServlet {
         InputStream fileContent = filePart.getInputStream();
         byte[] bytes = IOUtils.toByteArray(fileContent);
         if (bytes.length == 0) {
-            bytes = new byte[2];
+            BufferedImage image = ImageIO.read(URI.create("http://fuengirolapoolleague.com/bar_images//no-image-available-icon-303.jpg").toURL());
+            ByteArrayOutputStream b = new ByteArrayOutputStream();
+            ImageIO.write(image, "jpg", b);
+            bytes = b.toByteArray();
         }
 	    response.getWriter().write(Service.ServOrganism.insert(request.getParameter("organism-scientific-name"),
 															   request.getParameter("organism-common-name"),
