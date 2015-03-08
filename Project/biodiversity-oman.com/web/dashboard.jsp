@@ -201,7 +201,6 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" name="organism-food-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -373,7 +372,6 @@
                                                                                         <label class="col-sm-2 control-label" for="world-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control"  name="world-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -416,7 +414,6 @@
                                                                                         <label class="col-sm-2 control-label" for="world-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="world-description" name="world-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -465,7 +462,6 @@
                                                                                         <label class="col-sm-2 control-label" for="family-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" name="family-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>                                                           
                                                                                 <div class="form-group">
@@ -514,7 +510,6 @@
                                                                                         <label class="col-sm-2 control-label" for="family-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" name="family-description" id="family-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -569,7 +564,6 @@
                                                                                         <label class="col-sm-2 control-label" for="submfamily-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" name="subfamily-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>                                                            
                                                                                 <div class="form-group">
@@ -618,7 +612,6 @@
                                                                                         <label class="col-sm-2 control-label" for="subfamily-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" name="subfamily-description" id="subfamily-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -674,7 +667,6 @@
                                                                                         <label class="col-sm-2 control-label" for="season-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" name="season-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -717,7 +709,6 @@
                                                                                         <label class="col-sm-2 control-label" for="season-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="season-description" name="season-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -765,7 +756,6 @@
                                                                                         <label class="col-sm-2 control-label" for="habitat-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" name="habitat-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -808,7 +798,6 @@
                                                                                         <label class="col-sm-2 control-label" for="habitat-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="habitat-description" name="habitat-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -858,7 +847,6 @@
                                                                                         <label class="col-sm-2 control-label" for="area-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" name="area-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -909,7 +897,6 @@
                                                                                         <label class="col-sm-2 control-label" for="area-description">Description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="area-description" name="area-description" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"></textarea
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -1102,7 +1089,6 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="food-description-pending" name="organism-food-description" pattern="[^()[\]{}*^$<>#]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 10000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
