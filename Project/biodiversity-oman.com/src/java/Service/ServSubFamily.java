@@ -60,5 +60,10 @@ public class ServSubFamily {
 
 		DaSubfamily.delete(id);
 	}
+        
+        public static List SearchSubFamily(String keyword) throws SQLException {
+                
+        return DaSubfamily.searchSubfamily(keyword);
+    }
 
 }

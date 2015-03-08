@@ -155,4 +155,25 @@ public class DaSubfamily {
         match = rs.getInt(1) == 1;
         return match;
     }
+         
+         public static List searchSubfamily(String keyword) throws SQLException {
+
+        List<Subfamily> result = new ArrayList();
+        conn = DataSource.getConnection();
+        stmt = conn.prepareStatement("SELECT subfamily.subfamily_id, subfamily.subfamily_name, subfamily.subfamily_description, family.family_name, family.family_id\n"
+                + "FROM subfamily \n"
+                + "LEFT JOIN family on family.family_id = subfamily.family_id\n"
+                + "WHERE (CONCAT(subfamily.subfamily_name, family.family_name) LIKE '%" + keyword + "%') AND subfamily.isvalidated = '1'");
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Subfamily s = new Subfamily();
+            s.setSubfamilyId(rs.getInt("subfamily_id"));
+            s.setSubFamilyDescription(rs.getString("subfamily_description"));
+            s.setSubfamilyName(rs.getString("subfamily_name"));
+            s.setSubFamilyFamilyName(rs.getString("family_name"));        
+
+            result.add(s);
+        }
+        return result;
+    }
 }

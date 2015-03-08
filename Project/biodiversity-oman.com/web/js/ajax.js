@@ -17,6 +17,47 @@ $(document).ready(function () {
         document.getElementById('fade').style.display = 'none';
     });
 
+//functie voor de zoekbalk in breed dashboard
+    $('#search-breed').keyup(function (e) {
+
+        var $table = $('#subfamily-table');
+        var keyword = $(this).val();
+        if (keyword.length >= 3) {
+            $.ajax({
+                url: 'SearchSubFamily',
+                type: 'GET',
+                dataType: 'json',
+                cache: false,
+                async: true,
+                data: 'subfamilykey=' + keyword
+            }).done(function (data) {
+                $table.html('');
+                $table.append('<tr>\n\
+                                    <th>Name</th>\n\
+                                    <th>Description</th>\n\
+                                    <th>Family</th>\n\
+                                    <th></th>\n\
+				    </tr>');
+                if (data.length === 0) {
+                    $table.append('<tr><td>Breed not found</td></tr>');
+                }
+                ;
+                data.forEach(function (subfamily) {
+                    $table.append('<tr>\n\
+					    <td>' + subfamily.subFamilyName + '</td>\n\
+					    <td>' + subfamily.subFamilyDescription + '</td>\n\
+                                            <td>' + subfamily.subFamilyFamilyName+ '</td>\n\
+                                           <button class="no-button" id="update-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-pencil2"></span></button>\n\
+                                           <button class="no-button" id="delete-subfamily-btn" type="submit" value="' + subfamily.subFamilyId + '"><span class="icon-cross"></span></button>\n\
+					    </tr>');
+                });
+            });
+        } else {
+            loadSubFamilies()();
+        }
+        ;
+    });
+    
     //functie voor de zoekbalk in usermanagement.jsp
     $('#search-user-account').keyup(function (e) {
 
