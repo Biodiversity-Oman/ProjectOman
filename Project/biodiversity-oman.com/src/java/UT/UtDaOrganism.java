@@ -109,7 +109,7 @@ public class UtDaOrganism {
         {
             System.out.println("---- organismNew exists: false ----");
             System.out.println("---- insert succeeded ----");
-            organismIdNew = DaOrganism.insert(organismNew);
+//            organismIdNew = DaOrganism.insert(organismNew);
             
             // Resultaten van de selectAll() methode worden afgeprint in de console.
             System.out.println("-----Select All organisms-----");

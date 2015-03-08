@@ -884,7 +884,7 @@
                                                                 </div>
                                                         </div>
                                                 </div>
-                                                <div id="update-geolocation" class="pop-up">
+                                                <div id="update-geolocation" class="pop-up-scroll">
                                                         <label id="geolocation-close2" class="close-button">x</label>
                                                         <div class="content">
                                                                 <div id="update-geolocation-test">
