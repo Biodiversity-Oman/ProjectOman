@@ -180,7 +180,7 @@ public class ServOrganism {
 
     public static void PublishFromQueue(int organismId) throws SQLException {
 
-       DaOrganism.publishFromQue(organismId);
+       DaOrganism.publishFromQueue(organismId);
     }
     
     public static List SearchOrganism(String keyword) throws SQLException {
