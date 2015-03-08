@@ -50,7 +50,7 @@
                         <div class="table-responsive">
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism-published" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)"><br>
-                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                                <p>Press the <span class="icon-pencil2"></span> To edit</p>
                                 <p>Press the <span class="icon-cross"></span> To delete </p><br>
                             </div>
                         </div> 
@@ -115,12 +115,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                                <label class="col-sm-2 control-label">Current Photo</label>
-                                                <div class="col-sm-4">
-                                                    <div id="img-published">                                                   
-                                                    </div>
+                                            <label class="col-sm-2 control-label">Current Photo</label>
+                                            <div class="col-sm-4">
+                                                <div id="img-published">                                                   
                                                 </div>
                                             </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-photo">Add Photo</label>
                                             <div class="col-sm-4">
@@ -190,18 +190,18 @@
                                                 <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                             </div>
                                         </div>
-                                         <div class="form-group">
-                                                <label class="col-sm-2 control-label">Eats the following</label>
-                                                <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="eatenby-ddl-published" name="eating-organism-id" multiple data-placeholder="Choose Organism"></select>
-                                                </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Eats the following</label>
+                                            <div class="col-sm-4">
+                                                <select class="chosen-select form-control" id="eatenby-ddl-published" name="eating-organism-id" multiple data-placeholder="Choose Organism"></select>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Gets eaten by</label>
-                                                <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="geteatenby-ddl-published" name="eaten-by-organism-id" multiple data-placeholder="Choose Organism"></select>
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Gets eaten by</label>
+                                            <div class="col-sm-4">
+                                                <select class="chosen-select form-control" id="geteatenby-ddl-published" name="eaten-by-organism-id" multiple data-placeholder="Choose Organism"></select>
                                             </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
                                             <div class="col-sm-4">
@@ -253,7 +253,7 @@
                             <div class="col-sm-4">
                                 <input class="form-control" id="search-organism-pending" type="text" name="organismkeypending" placeholder="Search on name (minimal 3 characters)"><br>
                                 <p>Press the <span class="icon-plus"></span> To publish to the website </p>
-                                <p>Press the &nbsp;&nbsp;&nbsp;<span class="icon-pencil2"></span> &nbsp;&nbsp; To edit</p>
+                                <p>Press the<span class="icon-pencil2"></span> To edit</p>
                                 <p>Press the <span class="icon-cross"></span> To delete </p>
                             </div>
 
@@ -319,12 +319,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                                <label class="col-sm-2 control-label">Current Photo</label>
-                                                <div class="col-sm-4">
-                                                    <div id="img-queue">                                                   
-                                                    </div>
+                                            <label class="col-sm-2 control-label">Current Photo</label>
+                                            <div class="col-sm-4">
+                                                <div id="img-queue">                                                   
                                                 </div>
                                             </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-photo">Add Photo</label>
                                             <div class="col-sm-4">
@@ -394,18 +394,18 @@
                                                 <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                             </div>
                                         </div>
-                                         <div class="form-group">
-                                                <label class="col-sm-2 control-label">Eats the following</label>
-                                                <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="eatenby-ddl-queue" name="eating-organism-id" multiple data-placeholder="Choose Organism"></select>
-                                                </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Eats the following</label>
+                                            <div class="col-sm-4">
+                                                <select class="chosen-select form-control" id="eatenby-ddl-queue" name="eating-organism-id" multiple data-placeholder="Choose Organism"></select>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Gets eaten by</label>
-                                                <div class="col-sm-4">
-                                                    <select class="chosen-select form-control" id="geteatenby-ddl-queue" name="eaten-by-organism-id" multiple data-placeholder="Choose Organism"></select>
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Gets eaten by</label>
+                                            <div class="col-sm-4">
+                                                <select class="chosen-select form-control" id="geteatenby-ddl-queue" name="eaten-by-organism-id" multiple data-placeholder="Choose Organism"></select>
                                             </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-food-name">Food name if this organism is not yet present</label>
                                             <div class="col-sm-4">
