@@ -643,6 +643,7 @@
                                                         </div>
                                                 </div>
                                                 <div class="table-responsive">
+                                                    <input class="search-bar-table form-control" id="search-subfamily" type="text" name="subfamilykey" placeholder="Search on name (minimal 3 characters)">
                                                         <table class="table table-striped" id="subfamilies-table"></table>
                                                 </div>
                                         </div>
