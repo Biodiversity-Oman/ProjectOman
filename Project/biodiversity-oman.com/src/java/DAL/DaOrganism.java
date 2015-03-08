@@ -356,7 +356,7 @@ public class DaOrganism {
 			stmt.setString(1, organism.getScientificName());
 			stmt.setString(2, organism.getCommonName());
 			stmt.setString(3, organism.getLocalName());
-			stmt.setObject(4, organism.getSubfamily().getSubfamilyId());
+			stmt.setInt(4, organism.getSubfamily().getSubfamilyId());
 			stmt.setString(5, organism.getDescription());
 			stmt.setString(6, organism.getPopulation());
 			stmt.setBoolean(7, organism.getIndigenous());
@@ -471,11 +471,8 @@ public class DaOrganism {
 			stmt.setString(5, organism.getDescription());
 			stmt.setString(6, organism.getPopulation());
 			stmt.setBoolean(7, organism.getIndigenous());
-			stmt.setNull(8, Types.BIT);
 			stmt.setBoolean(8, organism.getCultivated());
-			stmt.setNull(9, Types.BIT);
 			stmt.setBoolean(9, organism.getEndangered());
-			stmt.setNull(10, Types.BIT);
 			stmt.setBoolean(10, organism.getMedicinal());
 			stmt.setString(11, organism.getBenefits());
 			stmt.setString(12, organism.getDangerous());
@@ -492,49 +489,59 @@ public class DaOrganism {
 
 			// volgende statements zijn voor de Many To Many relaties up te daten.
 			// season
-			stmt = conn.prepareStatement("DELETE FROM organism_season WHERE organism_season.organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
-			for (Season s : organism.getSeason()) {
-				stmt.setInt(1, organism.getOrganismId());
-				stmt.setInt(2, s.getSeasonId());
+			if(!organism.getSeason().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM organism_season WHERE organism_season.organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
+				for (Season s : organism.getSeason()) {
+					stmt.setInt(1, organism.getOrganismId());
+					stmt.setInt(2, s.getSeasonId());
+					stmt.executeUpdate();
+				}
 			}
 			// habitat
-			stmt = conn.prepareStatement("DELETE FROM habitat_organism WHERE habitat_organism.organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
-			for (Habitat h : organism.getHabitat()) {
-				stmt.setInt(1, h.getHabitatId());
-				stmt.setInt(2, organism.getOrganismId());
+			if(!organism.getHabitat().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM habitat_organism WHERE habitat_organism.organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
+				for (Habitat h : organism.getHabitat()) {
+					stmt.setInt(1, h.getHabitatId());
+					stmt.setInt(2, organism.getOrganismId());
+					stmt.executeUpdate();
+				}
 			}
 			// EatenBy
-			stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-			for (Organism o : organism.getEatenByOrganism()) {
-				stmt.setInt(1, organism.getOrganismId());
-				stmt.setInt(2, o.getOrganismId());
+			if(!organism.getEatenByOrganism().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
+				for (Organism o : organism.getEatenByOrganism()) {
+					stmt.setInt(1, organism.getOrganismId());
+					stmt.setInt(2, o.getOrganismId());
+					stmt.executeUpdate();
+				}
 			}
 			// Eating
-			stmt = conn.prepareStatement("DELETE FROM food WHERE food.eating_organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-			for (Organism o : organism.getEatingOrganisms()) {
-				stmt.setInt(1, o.getOrganismId());
-				stmt.setInt(2, organism.getOrganismId());
+			if(!organism.getEatingOrganisms().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM food WHERE food.eating_organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
+				for (Organism o : organism.getEatingOrganisms()) {
+					stmt.setInt(1, o.getOrganismId());
+					stmt.setInt(2, organism.getOrganismId());
+					stmt.executeUpdate();
+				}
 			}
 			// Geolocation
-			stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
-			for (Geolocation g : organism.getGeolocations()) {
-				stmt.setInt(1, organism.getOrganismId());
-				stmt.setInt(2, g.getGeolocationId());
+			if(!organism.getGeolocations().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
+				for (Geolocation g : organism.getGeolocations()) {
+					stmt.setInt(1, organism.getOrganismId());
+					stmt.setInt(2, g.getGeolocationId());
+					stmt.executeUpdate();
+				}
 			}
 			conn.commit();
 		} catch (SQLException ex) {
@@ -580,49 +587,59 @@ public class DaOrganism {
 
 			// volgende statements zijn voor de Many To Many relaties up te daten.
 			// season
-			stmt = conn.prepareStatement("DELETE FROM organism_season WHERE organism_season.organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
-			for (Season s : organism.getSeason()) {
-				stmt.setInt(1, organism.getOrganismId());
-				stmt.setInt(2, s.getSeasonId());
+			if(!organism.getSeason().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM organism_season WHERE organism_season.organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO organism_season (organism_id, season_id) VALUES(?,?)");
+				for (Season s : organism.getSeason()) {
+					stmt.setInt(1, organism.getOrganismId());
+					stmt.setInt(2, s.getSeasonId());
+					stmt.executeUpdate();
+				}
 			}
 			// habitat
-			stmt = conn.prepareStatement("DELETE FROM habitat_organism WHERE habitat_organism.organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
-			for (Habitat h : organism.getHabitat()) {
-				stmt.setInt(1, h.getHabitatId());
-				stmt.setInt(2, organism.getOrganismId());
+			if(!organism.getHabitat().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM habitat_organism WHERE habitat_organism.organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO habitat_organism (habitat_id, organism_id) VALUES(?,?)");
+				for (Habitat h : organism.getHabitat()) {
+					stmt.setInt(1, h.getHabitatId());
+					stmt.setInt(2, organism.getOrganismId());
+					stmt.executeUpdate();
+				}
 			}
 			// EatenBy
-			stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-			for (Organism o : organism.getEatenByOrganism()) {
-				stmt.setInt(1, organism.getOrganismId());
-				stmt.setInt(2, o.getOrganismId());
+			if(!organism.getEatenByOrganism().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM food WHERE food.eaten_by_organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
+				for (Organism o : organism.getEatenByOrganism()) {
+					stmt.setInt(1, organism.getOrganismId());
+					stmt.setInt(2, o.getOrganismId());
+					stmt.executeUpdate();
+				}
 			}
 			// Eating
-			stmt = conn.prepareStatement("DELETE FROM food WHERE food.eating_organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
-			for (Organism o : organism.getEatingOrganisms()) {
-				stmt.setInt(1, o.getOrganismId());
-				stmt.setInt(2, organism.getOrganismId());
+			if(!organism.getEatingOrganisms().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM food WHERE food.eating_organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO food (eaten_by_organism_id, eating_organism_id) VALUES(?,?)");
+				for (Organism o : organism.getEatingOrganisms()) {
+					stmt.setInt(1, o.getOrganismId());
+					stmt.setInt(2, organism.getOrganismId());
+					stmt.executeUpdate();
+				}
 			}
 			// Geolocation
-			stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id=" + organism.getOrganismId());
-			stmt.executeUpdate();
-			stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
-			for (Geolocation g : organism.getGeolocations()) {
-				stmt.setInt(1, organism.getOrganismId());
-				stmt.setInt(2, g.getGeolocationId());
+			if(!organism.getGeolocations().isEmpty()){
+				stmt = conn.prepareStatement("DELETE FROM geolocation_organism WHERE geolocation_organism.organism_id=" + organism.getOrganismId());
 				stmt.executeUpdate();
+				stmt = conn.prepareStatement("INSERT INTO geolocation_organism (organism_id, geolocation_id) VALUES(?,?)");
+				for (Geolocation g : organism.getGeolocations()) {
+					stmt.setInt(1, organism.getOrganismId());
+					stmt.setInt(2, g.getGeolocationId());
+					stmt.executeUpdate();
+				}
 			}
 			conn.commit();
 		} catch (SQLException ex) {
