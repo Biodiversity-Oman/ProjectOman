@@ -6,7 +6,10 @@
 package DAL;
 
 import BLL.Subscriber;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,17 +47,21 @@ public class DaSubscriberTest {
      */
     @Test
     public void testSelectAllSubscriber() {
-        System.out.println("selectAllSubscriber");
-       
-        List<Subscriber> result = DaSubscriber.selectAll(); 
-        
-        for (Subscriber s : result) {
-            System.out.println(s.getSubscriberFirstName());
-            System.out.println(s.getSubscriberLastName());
-            System.out.println(s.getSubscriberEmail());
+        try {
+            System.out.println("selectAllSubscriber");
             
+            List<Subscriber> result = DaSubscriber.selectAll();
+            
+            for (Subscriber s : result) {
+                System.out.println(s.getSubscriberFirstName());
+                System.out.println(s.getSubscriberLastName());
+                System.out.println(s.getSubscriberEmail());
+                
+            }
+            System.out.println(result.toString());
+        } catch (SQLException ex) {
+            Logger.getLogger(DaSubscriberTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(result.toString());
     }
 
 //    /**

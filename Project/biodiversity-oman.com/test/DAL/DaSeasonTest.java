@@ -6,7 +6,10 @@
 package DAL;
 
 import BLL.Season;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -57,13 +60,17 @@ public class DaSeasonTest {
      */
     @Test
     public void testSelectOneByIdSeason() {
-        System.out.println("selectOneByIdSeason");
-        int seasonId = 0;
-        Season expResult = null;
-        Season result = DaSeason.selectOneByID(seasonId);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            System.out.println("selectOneByIdSeason");
+            int seasonId = 0;
+            Season expResult = null;
+            Season result = DaSeason.selectOneByID(seasonId);
+            assertEquals(expResult, result);
+            // TODO review the generated test code and remove the default call to fail.
+            fail("The test case is a prototype.");
+        } catch (SQLException ex) {
+            Logger.getLogger(DaSeasonTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
