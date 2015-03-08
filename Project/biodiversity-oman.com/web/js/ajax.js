@@ -1329,9 +1329,9 @@ $(document).ready(function () {
     // functie voor delete world btn in dashboard.jsp
     $(document).on('click', '.table #delete-world-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete ALL organisms, families and breeds that are linked to this world! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete all references to this world in families & linked organisms.<br><br> <b>Are you sure?</b></center>", function (result) {
             if (result === true) {
-                bootbox.confirm("<center><b>ARE YOU VERY SURE?</b><br><br>This will delete ALL organisms, families and breeds that are linked to this world!</center>  ", function (result) {
+                bootbox.confirm("<center><b>ARE YOU VERY SURE?</b><br><br>This will delete all references to this world in families & linked organisms.</center>", function (result) {
                     if (result === true) {
                         $.ajax({
                             url: 'DeleteWorld?id=' + id,
@@ -1353,7 +1353,7 @@ $(document).ready(function () {
     // functie voor delete season btn in dashboard.jsp
     $(document).on('click', '.table #delete-season-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete season in all organisms linked organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete all references to this season in linked organisms.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
                 $.ajax({
                     url: 'DeleteSeason?id=' + id,
@@ -1371,9 +1371,9 @@ $(document).ready(function () {
     // functie voor delete family btn in dashboard.jsp
     $(document).on('click', '.table #delete-family-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete ALL organisms and breeds that are linked to this family! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete all references to this family in breeds & linked organisms.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
-                bootbox.confirm("<center><b>ARE YOU VERY SURE?</b><br><br>This will delete ALL organisms and breeds that are linked to this family!</center>  ", function (result) {
+                bootbox.confirm("<center><b>ARE YOU VERY SURE?</b><br><br>This will delete all references to this family in breeds & linked organisms.</center>  ", function (result) {
                     if (result === true) {
                         $.ajax({
                             url: 'DeleteFamily?id=' + id,
@@ -1393,7 +1393,7 @@ $(document).ready(function () {
     // functie voor delete habitat btn in dashboard.jsp
     $(document).on('click', '.table #delete-habitat-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete habitat in all linked organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete all references to this habitat in linked organisms.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
                 $.ajax({
                     url: 'DeleteHabitat?id=' + id,
@@ -1411,9 +1411,9 @@ $(document).ready(function () {
     // functie voor delete subfamily btn in dashboard.jsp
     $(document).on('click', '.table #delete-subfamily-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete ALL organisms that are linked to this breed! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete all references to this breed in linked organisms.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
-                bootbox.confirm("<center><b>ARE YOU VERY SURE?</b><br><br>This will delete ALL organisms that are linked to this breed! </center>  ", function (result) {
+                bootbox.confirm("<center><b>ARE YOU VERY SURE?</b><br><br>This will delete all references to this breed in linked organisms.</center>  ", function (result) {
                     if (result === true) {
                         $.ajax({
                             url: 'DeleteSubFamily?id=' + id,
@@ -1433,7 +1433,7 @@ $(document).ready(function () {
     // functie voor delete geolocation btn in dashboard.jsp
     $(document).on('click', '.table #delete-geolocation-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete the geolocation in all linked organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete all references to this geolocation in linked organisms.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
                 $.ajax({
                     url: 'DeleteGeolocation?id=' + id,
@@ -1451,7 +1451,7 @@ $(document).ready(function () {
     // functie voor delete organism btn in dashboard.jsp
     $(document).on('click', '.table #delete-organism-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete the selected organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete the selected organisms and remove all their references.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
                 $.ajax({
                     url: 'DeleteOrganism?id=' + id,
@@ -1472,7 +1472,7 @@ $(document).ready(function () {
     // functie voor delete organism/published btn in published.jsp
     $(document).on('click', '.table #delete-organism-published-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete the selected organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete the selected organisms and remove all their references.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
                 $.ajax({
                     url: 'DeleteOrganism?id=' + id,
@@ -1494,7 +1494,7 @@ $(document).ready(function () {
     // functie voor delete organism/queue btn in published.jsp
     $(document).on('click', '.table #delete-organism-tovalidate-btn', function () {
         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete the selected organisms! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        bootbox.confirm("<center>This will delete the selected organisms and remove all their references.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
                 $.ajax({
                     url: 'DeleteOrganism?id=' + id,
@@ -1513,36 +1513,36 @@ $(document).ready(function () {
 
     // functie voor delete subscriber btn in published.jsp
     $(document).on('click', '.table #delete-subscriber-btn', function () {
-       var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete the selected subscriber! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete the selected subscriber.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
-            $.ajax({
-                url: 'DeleteSubscriber?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadSubscriber();
-              });
+                $.ajax({
+                    url: 'DeleteSubscriber?id=' + id,
+                    type: 'POST',
+                    dataType: 'text',
+                    cache: false,
+                    async: true
+                }).done(function () {
+                    loadSubscriber();
+                });
             }
         });
     });
 
     // functie voor delete post btn in published.jsp
     $(document).on('click', '.table #delete-post-btn', function () {
-         var id = ($(this).attr("value"));
-        bootbox.confirm("<center>This will delete the selected post! <br><br> <b>Are you sure?</b></center>  ", function (result) {
+        var id = ($(this).attr("value"));
+        bootbox.confirm("<center>This will delete the selected post.<br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
-            $.ajax({
-                url: 'DeletePost?id=' + id,
-                type: 'POST',
-                dataType: 'text',
-                cache: false,
-                async: true
-            }).done(function () {
-                loadPosts();
-            });
+                $.ajax({
+                    url: 'DeletePost?id=' + id,
+                    type: 'POST',
+                    dataType: 'text',
+                    cache: false,
+                    async: true
+                }).done(function () {
+                    loadPosts();
+                });
             }
         });
     });
