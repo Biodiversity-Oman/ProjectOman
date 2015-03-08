@@ -46,7 +46,7 @@ public class ServUserAccount {
 		user.setCountry(country);
 		user.setPhone(phone);
 		user.setEmail(email);
-		DaUserAccount.updateUserAccount(user);
+		DaUserAccount.update(user);
 	}
 
 	public static void updatePassword(String password, String username) throws SQLException {
@@ -56,7 +56,7 @@ public class ServUserAccount {
 
 	public static void deleteUserAccount(String username) throws SQLException {
 
-		DaUserAccount.deleteUserAccount(username);
+		DaUserAccount.delete(username);
 	}
 
 	public static List<UserAccount> selectAll() throws SQLException {
@@ -85,7 +85,7 @@ public class ServUserAccount {
 		} else if (isadmin.equals("false")) {
 			user.setIsAdmin(false);
 		}
-		DaUserAccount.insertUserAccount(user);
+		DaUserAccount.insert(user);
 	}
 
 	public static boolean checkUsername(String username) throws SQLException {
@@ -100,7 +100,7 @@ public class ServUserAccount {
 
 	public static List<UserAccount> searchUserAccount(String keyword) throws SQLException {
 
-		return DaUserAccount.searchUserAccount(keyword);
+		return DaUserAccount.search(keyword);
 	}
         
         public static boolean isLastUser() throws SQLException

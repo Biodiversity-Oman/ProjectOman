@@ -60,7 +60,7 @@ public class DaSeasonTest {
         System.out.println("selectOneByIdSeason");
         int seasonId = 0;
         Season expResult = null;
-        Season result = DaSeason.selectOneByIdSeason(seasonId);
+        Season result = DaSeason.selectOneByID(seasonId);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -74,7 +74,7 @@ public class DaSeasonTest {
         System.out.println("selectAllByOrganismSeason");
         int organismId = 0;
         List<Season> expResult = null;
-        List<Season> result = DaSeason.selectAllByOrganismSeason(organismId);
+        List<Season> result = DaSeason.selectAllByOrganism(organismId);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -88,7 +88,7 @@ public class DaSeasonTest {
         System.out.println("updateSeason");
         Season seas = null;
         int seasonId = 0;
-        DaSeason.updateSeason(seas);
+        DaSeason.update(seas);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -100,7 +100,7 @@ public class DaSeasonTest {
     public void testDeleteSeason() throws Exception {
         System.out.println("deleteSeason");
         int id = 1;
-        DaSeason.deleteSeason(id);
+        DaSeason.delete(id);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -114,7 +114,7 @@ public class DaSeasonTest {
         Season s = new Season();
         s.setSeasonName("test");
         s.setSeasonDescription("test");
-        DaSeason.insertSeason(s);
+        DaSeason.insert(s);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

@@ -45,7 +45,7 @@ public class DaFamilyTest {
     @Test
     public void testSelectAllfamily() throws Exception {
         System.out.println("selectAllfamily");
-        List<Family> result = DaFamily.selectAllfamily();
+        List<Family> result = DaFamily.selectAll();
         System.out.println(result.toString());
     }
 
@@ -56,7 +56,7 @@ public class DaFamilyTest {
     public void testSelectOneByIDfamily() throws Exception {
         System.out.println("selectOneByIDfamily");
         int id = 3;
-        Family result = DaFamily.selectOneByIDfamily(id);
+        Family result = DaFamily.selectOneByID(id);
         System.out.println(result);
     }
 //
@@ -67,7 +67,7 @@ public class DaFamilyTest {
     public void testSelectAllFamilyByWorld() throws Exception {
         System.out.println("selectAllFamilyByWorld");
         int id = 2;
-        Family result = DaFamily.selectAllFamilyByWorld(id);
+        Family result = DaFamily.selectAllByWorld(id);
         System.out.println(result);
     }
 //
@@ -84,7 +84,7 @@ public class DaFamilyTest {
         fami.setFamilyName("testing");
         fami.setWorldId(2);
         try{
-        DaFamily.insertFamily(fami);
+        DaFamily.insert(fami);
             System.out.println("gelukt");
         }catch(Exception e){System.out.println("niet gelukt"+e);}
     }
@@ -102,7 +102,7 @@ public class DaFamilyTest {
         fam.setWorldId(2);
         int familyId = 7;
         try{
-	DaFamily.updateFamily(fam);
+	DaFamily.update(fam);
     
             System.out.println("gelukt");
     }catch(Exception e)
@@ -116,7 +116,7 @@ public class DaFamilyTest {
     public void testDeleteFamily() throws Exception {
         System.out.println("deleteFamily");
         int familyId = 8;
-        DaFamily.deleteFamily(familyId);
+        DaFamily.delete(familyId);
     }
     
 }

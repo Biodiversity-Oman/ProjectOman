@@ -94,7 +94,7 @@ public class DaHabitatTest {
         h.setHabitatId(19);
         
         try{
-            DaHabitat.updateHabitat(h);
+            DaHabitat.update(h);
             System.out.println("update gelukt");
             
         }

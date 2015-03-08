@@ -18,7 +18,7 @@ public class ServWorld {
 
 	public static boolean checkWorld(String worldName) throws SQLException {
 
-		return DaWorld.checkWorldExist(worldName);
+		return DaWorld.checkIfExists(worldName);
 	}
 
 	public static void insertWorld(String worldName, String worldDescription) throws SQLException {
@@ -26,7 +26,7 @@ public class ServWorld {
 		World world = new World();
 		world.setWorldName(worldName);
 		world.setDescription(worldDescription);
-		DaWorld.insertWorld(world);
+		DaWorld.insert(world);
 	}
 
 	public static List selectAll() {
@@ -36,7 +36,7 @@ public class ServWorld {
 
 	public static void deleteWorld(int id) throws SQLException {
 
-		DaWorld.deleteWorld(id);
+		DaWorld.delete(id);
 	}
 
 	public static void updateWorld(String worldName, String description, int worldid) throws SQLException {
@@ -45,12 +45,12 @@ public class ServWorld {
 		w.setWorldId(worldid);
 		w.setWorldName(worldName);
 		w.setDescription(description);
-		DaWorld.updateWorld(w);
+		DaWorld.update(w);
 	}
 
 	public static BLL.World selectOneById(int id) {
 
-		return DaWorld.selectOneByIdWorld(id);
+		return DaWorld.selectOneByID(id);
 	}
 
 }

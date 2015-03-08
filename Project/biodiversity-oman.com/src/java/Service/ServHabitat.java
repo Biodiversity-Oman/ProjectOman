@@ -18,7 +18,7 @@ public class ServHabitat {
 
     public static boolean checkHbitatExist(String habitatName) throws SQLException {
 
-        return DaHabitat.checkHbitatExist(habitatName);
+        return DaHabitat.checkIfExists(habitatName);
     }
 
     public static List selectAllHabitats() throws SQLException {
@@ -31,12 +31,12 @@ public class ServHabitat {
         Habitat habitat = new Habitat();
         habitat.setHabitatName(name);
         habitat.setHabitatDescription(description);
-        DaHabitat.insertHabitat(habitat);
+        DaHabitat.insert(habitat);
     }
 
     public static void deleteHabitat(int id) throws SQLException {
 
-        DaHabitat.deleteHabitat(id);
+        DaHabitat.delete(id);
     }
 
     public static void updateHabitat(String habitatName, String habitatdescription, int habitatId) throws SQLException {
@@ -45,12 +45,12 @@ public class ServHabitat {
         h.setHabitatName(habitatName);
         h.setHabitatDescription(habitatdescription);
         h.setHabitatId(habitatId);
-        DaHabitat.updateHabitat(h);
+        DaHabitat.update(h);
 
     }
 
     public static BLL.Habitat selectOneById(int id) throws SQLException {
 
-        return DaHabitat.selectOneByIDHabitat(id);
+        return DaHabitat.selectOneByID(id);
     }
 }

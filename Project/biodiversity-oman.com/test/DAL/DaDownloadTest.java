@@ -35,7 +35,7 @@ public class DaDownloadTest {
     @Test
     public void testSelectAllDownload() throws Exception {
         System.out.println("selectAllDownload");
-        List<Download> results = DaDownload.selectAllDownload();
+        List<Download> results = DaDownload.selectAll();
         
         for (Download result : results) {
             System.out.println(result.getDownloadFunStuff());
@@ -49,8 +49,8 @@ public class DaDownloadTest {
     @Test
     public void testSelectOneByIDDownload() throws Exception {
         System.out.println("selectOneByIDDownload");
-        int id = DaDownload.selectAllDownload().get(0).getDownloadId();
-        Download result = DaDownload.selectOneByIDDownload(id);
+        int id = DaDownload.selectAll().get(0).getDownloadId();
+        Download result = DaDownload.selectOneByID(id);
         
         System.out.println(result.getDownloadFunStuff());
     }
@@ -62,8 +62,8 @@ public class DaDownloadTest {
     @Test
     public void testSelectAllByWorldDownload() throws Exception {
         System.out.println("selectAllByWorldDownload");
-        int id = DaDownload.selectAllDownload().get(0).getWorldId();
-        List<Download> results = DaDownload.selectAllByWorldDownload(id);
+        int id = DaDownload.selectAll().get(0).getWorldId();
+        List<Download> results = DaDownload.selectAllByWorld(id);
         
         for (Download result : results) {
             System.out.println("Download voor world " + id + ": " + result.getDownloadFunStuff());
@@ -81,7 +81,7 @@ public class DaDownloadTest {
         Download download = new Download();
         download.setWorldId(worlds[(int) (Math.random() * (4 - 0))]);
         download.setDownloadFunStuff("insert test");
-        DaDownload.insertDownload(download);
+        DaDownload.insert(download);
     }
 
     /**
@@ -91,8 +91,8 @@ public class DaDownloadTest {
     @Test
     public void testDeleteDownload() throws Exception {
         System.out.println("deleteDownload");
-        int id = DaDownload.selectAllDownload().get(0).getDownloadId();
-        DaDownload.deleteDownload(id);
+        int id = DaDownload.selectAll().get(0).getDownloadId();
+        DaDownload.delete(id);
     }
 
     /**
@@ -102,9 +102,9 @@ public class DaDownloadTest {
     @Test
     public void testUpdateDownload() throws Exception {
         System.out.println("updateDownload");
-        Download download = DaDownload.selectAllDownload().get(0);
+        Download download = DaDownload.selectAll().get(0);
         download.setDownloadFunStuff("update worked");
-        DaDownload.updateDownload(download);
+        DaDownload.update(download);
     }
     
 }

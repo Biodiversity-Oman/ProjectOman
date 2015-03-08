@@ -18,17 +18,17 @@ public class ServSubFamily {
     
     public static boolean checkSubFamilyExist(String subFamilyName) throws SQLException {
 
-		return DaSubfamily.checkSubFamilyExist(subFamilyName);
+		return DaSubfamily.checkIfExists(subFamilyName);
 	}
 
 	public static List selectAllSubFamily() throws SQLException {
 
-		return DaSubfamily.selectAllSubfamily();
+		return DaSubfamily.selectAll();
 	}
         
          public static BLL.Subfamily selectOneById(int id) throws SQLException {
 
-                return DaSubfamily.selectOneByIDSubfamily(id);
+                return DaSubfamily.selectOneByID(id);
          
          }
         
@@ -40,7 +40,7 @@ public class ServSubFamily {
 		subfam.setSubfamilyName(name);
 		subfam.setFamilyId(familyId);
 
-		DaSubfamily.insertSubfamily(subfam);
+		DaSubfamily.insert(subfam);
 	}
         
         public static void updateSubFamily(String name, String description, int familyId,int subFamilyId) throws SQLException {
@@ -51,14 +51,14 @@ public class ServSubFamily {
 		subfam.setFamilyId(familyId);
                 subfam.setSubfamilyId(subFamilyId);
 
-		DaSubfamily.updateSubfamily(subfam);
+		DaSubfamily.update(subfam);
 	}
         
         
 
 	public static void deleteSubFamily(int id) throws SQLException {
 
-		DaSubfamily.deleteSubfamily(id);
+		DaSubfamily.delete(id);
 	}
 
 }

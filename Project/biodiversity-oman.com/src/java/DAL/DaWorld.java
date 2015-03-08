@@ -5,7 +5,7 @@
  */
 package DAL;
 
-import BLL.*;
+import BLL.World;
 import java.sql.*;
 import java.util.*;
 
@@ -38,7 +38,7 @@ public class DaWorld {
         return worlds;
     }
 
-    public static World selectOneByIdWorld(int worldId) {
+    public static World selectOneByID(int worldId) {
 
         World w = new World();
         try {
@@ -55,7 +55,7 @@ public class DaWorld {
         return w;
     }
 
-    public static void insertWorld(World world) throws SQLException {
+    public static void insert(World world) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
@@ -74,7 +74,7 @@ public class DaWorld {
         }
     }
 
-    public static void deleteWorld(int worldId) throws SQLException {
+    public static void delete(int worldId) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
@@ -94,7 +94,7 @@ public class DaWorld {
         }
     }
 
-    public static void updateWorld(World world) throws SQLException {
+    public static void update(World world) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
@@ -112,7 +112,7 @@ public class DaWorld {
         }
     }
 
-    public static boolean checkWorldExist(String worldName) throws SQLException {
+    public static boolean checkIfExists(String worldName) throws SQLException {
 
         boolean match;
         conn = DataSource.getConnection();

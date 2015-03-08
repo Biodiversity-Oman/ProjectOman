@@ -16,11 +16,11 @@ public class ServPost {
     
     public static java.util.List<BLL.Post> selectAll()
     {
-        return DAL.DaPost.selectAllPost();
+        return DAL.DaPost.selectAll();
     }
     
     public static void deletePost(int id) throws SQLException {
 
-		DaPost.deletePost(id);
+		DaPost.delete(id);
 	}
 }

@@ -22,7 +22,7 @@ public class DaSubfamily {
 	private static Connection conn;
 	private static PreparedStatement stmt;
 
-	public static List<Subfamily> selectAllSubfamily() throws SQLException {
+	public static List<Subfamily> selectAll() throws SQLException {
 
 		List<Subfamily> subfamilies = new ArrayList();
 		try {
@@ -46,7 +46,7 @@ public class DaSubfamily {
 		return subfamilies;
 	}
 
-	public static Subfamily selectOneByIDSubfamily(int id) throws SQLException {
+	public static Subfamily selectOneByID(int id) throws SQLException {
 
 		Subfamily subfamily = new Subfamily();
 		try {
@@ -64,7 +64,7 @@ public class DaSubfamily {
 		return subfamily;
 	}
 
-	public static List<Subfamily> selectAllByFamilySubfamily(int id) throws SQLException {
+	public static List<Subfamily> selectAllByFamily(int id) throws SQLException {
 
 		List<Subfamily> subfamilies = new ArrayList();
 		try {
@@ -85,7 +85,7 @@ public class DaSubfamily {
 		return subfamilies;
 	}
 
-	public static void insertSubfamily(Subfamily subfamily) throws SQLException {
+	public static void insert(Subfamily subfamily) throws SQLException {
 
 		try {
 			conn = DataSource.getConnection();
@@ -105,7 +105,7 @@ public class DaSubfamily {
 		}
 	}
 
-	public static void deleteSubfamily(int id) throws SQLException {
+	public static void delete(int id) throws SQLException {
 
 		try {
 			conn = DataSource.getConnection();
@@ -123,7 +123,7 @@ public class DaSubfamily {
 		}
 	}
 
-	public static void updateSubfamily(Subfamily subfamily) throws SQLException {
+	public static void update(Subfamily subfamily) throws SQLException {
 
 		try {
 			conn = DataSource.getConnection();
@@ -144,7 +144,7 @@ public class DaSubfamily {
 		}
 	}
         
-         public static boolean checkSubFamilyExist(String subFamilyName) throws SQLException {
+         public static boolean checkIfExists(String subFamilyName) throws SQLException {
 
         boolean match;
         conn = DataSource.getConnection();

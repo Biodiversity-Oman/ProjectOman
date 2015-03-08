@@ -18,12 +18,12 @@ public class ServFamily {
 
     public static boolean checkFamilyExist(String familyName) throws SQLException {
 
-        return DaFamily.checkFamilyExist(familyName);
+        return DaFamily.checkIfExists(familyName);
     }
 
     public static List selectAllFamily() throws SQLException {
 
-        return DaFamily.selectAllfamily();
+        return DaFamily.selectAll();
     }
 
     public static void insertFamily(String name, String description, int worldId) throws SQLException {
@@ -32,12 +32,12 @@ public class ServFamily {
         fam.setFamilyDescription(description);
         fam.setFamilyName(name);
         fam.setWorldId(worldId);
-        DaFamily.insertFamily(fam);
+        DaFamily.insert(fam);
     }
 
     public static void deleteFamily(int id) throws SQLException {
 
-        DaFamily.deleteFamily(id);
+        DaFamily.delete(id);
     }
 
     public static void updateFamily(String familyName, String familydescription, int familyWorldId, int familyId) throws SQLException {
@@ -48,12 +48,12 @@ public class ServFamily {
         f.setFamilyWorldName(familyName);
         f.setWorldId(familyWorldId);
         f.setFamilyId(familyId);
-        DaFamily.updateFamily(f);
+        DaFamily.update(f);
     }
 
     public static BLL.Family selectOneById(int id) throws SQLException {
 
-        return DaFamily.selectOneByIDfamily(id);
+        return DaFamily.selectOneByID(id);
     }
 
 }

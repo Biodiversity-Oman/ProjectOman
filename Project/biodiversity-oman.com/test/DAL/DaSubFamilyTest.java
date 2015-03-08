@@ -46,7 +46,7 @@ public class DaSubFamilyTest {
     public void testSelectAllSubfamily() throws Exception {
         System.out.println("selectAllSubfamily");
        
-        List<Subfamily> result = DaSubfamily.selectAllSubfamily();
+        List<Subfamily> result = DaSubfamily.selectAll();
         System.out.println(result);
     }
 
@@ -57,7 +57,7 @@ public class DaSubFamilyTest {
     public void testSelectOneByIDSubfamily() throws Exception {
         System.out.println("selectOneByIDSubfamily");
         int id = 1;
-        Subfamily result = DaSubfamily.selectOneByIDSubfamily(id);
+        Subfamily result = DaSubfamily.selectOneByID(id);
         System.out.println(result);
     }
 //
@@ -68,7 +68,7 @@ public class DaSubFamilyTest {
     public void testSelectAllByFamilySubfamily() throws Exception {
         System.out.println("selectAllByFamilySubfamily");
         int id = 4;
-        List<Subfamily> result = DaSubfamily.selectAllByFamilySubfamily(id);
+        List<Subfamily> result = DaSubfamily.selectAllByFamily(id);
         System.out.println(result);
         
     }
@@ -84,7 +84,7 @@ public class DaSubFamilyTest {
         subfamily.setSubFamilyDescription("insert");
         subfamily.setSubfamilyName("insert");
         try{
-        DaSubfamily.insertSubfamily(subfamily);
+        DaSubfamily.insert(subfamily);
             System.out.println("gelukt");
     }catch(Exception e){System.out.println("niet gelukt"+e);}
     }
@@ -101,7 +101,7 @@ public class DaSubFamilyTest {
         subfamily.setSubFamilyDescription("insert");
         subfamily.setSubfamilyName("insert");
         try{
-        DaSubfamily.insertSubfamily(subfamily);
+        DaSubfamily.insert(subfamily);
             System.out.println("gelukt");
     }catch(Exception e){System.out.println("niet gelukt"+e);}
     }
@@ -112,7 +112,7 @@ public class DaSubFamilyTest {
     public void testDeleteSubfamily() throws Exception {
         System.out.println("deleteSubfamily");
         int id = 6;
-        DaSubfamily.deleteSubfamily(id);
+        DaSubfamily.delete(id);
         
     }
     

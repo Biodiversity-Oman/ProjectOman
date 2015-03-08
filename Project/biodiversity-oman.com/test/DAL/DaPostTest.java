@@ -94,7 +94,7 @@ public class DaPostTest {
         p.setPostDescription("dit is een test");
         p.setPostLongitude("125468");
         p.setPostLatitude("987412");
-        DaPost.insertPost(p);
+        DaPost.insert(p);
         
     }
 

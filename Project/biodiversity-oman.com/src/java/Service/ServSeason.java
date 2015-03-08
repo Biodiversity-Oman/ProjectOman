@@ -18,7 +18,7 @@ public class ServSeason {
     
     public static boolean checkSeasosExist(String seasonName) throws SQLException {
 
-		return DaSeason.checkSeasonExist(seasonName);
+		return DaSeason.checkIfExists(seasonName);
 	}
 
 	public static List selectAllSeasons() throws SQLException {
@@ -31,12 +31,12 @@ public class ServSeason {
 		Season season = new Season();
 		season.setSeasonName(name);
 		season.setSeasonDescription(description);
-		DaSeason.insertSeason(season);
+		DaSeason.insert(season);
 	}
 
 	public static void deleteSeason(int id) throws SQLException {
 
-		DaSeason.deleteSeason(id);
+		DaSeason.delete(id);
 	}
         
           public static void updateSeason(String seasonName, String seasonDescription, int seasonId) throws SQLException {
@@ -45,10 +45,10 @@ public class ServSeason {
                 s.setSeasonName(seasonName);
                 s.setSeasonDescription(seasonDescription);
                 s.setSeasonId(seasonId);
-                DaSeason.updateSeason(s);
+                DaSeason.update(s);
 	}
                  
           public static BLL.Season selectOneById(int id){
-             return DaSeason.selectOneByIdSeason(id);
+             return DaSeason.selectOneByID(id);
           }
 }

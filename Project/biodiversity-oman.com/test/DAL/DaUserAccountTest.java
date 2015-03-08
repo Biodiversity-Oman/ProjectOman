@@ -181,7 +181,7 @@ public class DaUserAccountTest {
 		System.out.println("searchByUserNameFirstNameLastName");
 		String keyword = "lenny donnez";
 		
-		List result = DaUserAccount.searchUserAccount(keyword);
+		List result = DaUserAccount.search(keyword);
 		System.out.println(result);
 		
 	}

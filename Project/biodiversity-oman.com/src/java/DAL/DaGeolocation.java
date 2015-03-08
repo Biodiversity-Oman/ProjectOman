@@ -6,12 +6,8 @@
 package DAL;
 
 import BLL.Geolocation;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -142,7 +138,7 @@ public class DaGeolocation {
         }
     }
 
-    public static boolean checkGeoExist(String areaName) throws SQLException {
+    public static boolean checkIfExists(String areaName) throws SQLException {
 
         boolean match;
         conn = DataSource.getConnection();

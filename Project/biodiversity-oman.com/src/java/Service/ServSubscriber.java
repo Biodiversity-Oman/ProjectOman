@@ -17,7 +17,7 @@ public class ServSubscriber {
 
 	public static List selectAllSubsriber() throws SQLException {
 
-		return DaSubscriber.selectAllSubscriber();
+		return DaSubscriber.selectAll();
 	}
 
 	public static void insertSubscriber(String firstName, String lastName, String email) throws SQLException {
@@ -27,7 +27,7 @@ public class ServSubscriber {
 
 	public static void deleteSubsriber(int id) throws SQLException {
 
-		DaSubscriber.deleteSubscriber(id);
+		DaSubscriber.delete(id);
 	}
 
 }

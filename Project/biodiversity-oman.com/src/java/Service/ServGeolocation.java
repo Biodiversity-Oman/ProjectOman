@@ -18,7 +18,7 @@ public class ServGeolocation {
 
     public static boolean checkGeolocationExist(String habitatName) throws SQLException {
 
-        return DaGeolocation.checkGeoExist(habitatName);
+        return DaGeolocation.checkIfExists(habitatName);
     }
 
     public static Geolocation selectOneByID(int id) throws SQLException {

@@ -46,7 +46,7 @@ public class DaSubscriberTest {
     public void testSelectAllSubscriber() {
         System.out.println("selectAllSubscriber");
        
-        List<Subscriber> result = DaSubscriber.selectAllSubscriber(); 
+        List<Subscriber> result = DaSubscriber.selectAll(); 
         
         for (Subscriber s : result) {
             System.out.println(s.getSubscriberFirstName());

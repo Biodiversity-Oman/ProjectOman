@@ -6,12 +6,8 @@
 package DAL;
 
 import BLL.Download;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -19,117 +15,117 @@ import java.util.List;
  */
 public class DaDownload {
 
-	private static Connection conn;
-	private static PreparedStatement stmt;
+    private static Connection conn;
+    private static PreparedStatement stmt;
 
-	public static List<Download> selectAllDownload() throws SQLException {
+    public static List<Download> selectAll() throws SQLException {
 
-		List<Download> downloads = new ArrayList();
-		try {
-			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("SELECT * FROM download");
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				Download download = new Download();
-				download.setDownloadId(rs.getInt("download_id"));
-				download.setWorldId(rs.getInt("world_id"));
-				download.setDownloadFunStuff(rs.getString("download_funstuff"));
-				downloads.add(download);
-			}
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-		return downloads;
-	}
+        List<Download> downloads = new ArrayList();
+        try {
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("SELECT * FROM download");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Download download = new Download();
+                download.setDownloadId(rs.getInt("download_id"));
+                download.setWorldId(rs.getInt("world_id"));
+                download.setDownloadFunStuff(rs.getString("download_funstuff"));
+                downloads.add(download);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return downloads;
+    }
 
-	public static Download selectOneByIDDownload(int id) throws SQLException {
+    public static Download selectOneByID(int id) throws SQLException {
 
-		Download download = new Download();
-		try {
-			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM download WHERE download_id=" + id);
-			ResultSet rs = stmt.executeQuery();
-			rs.next();
-			download.setDownloadId(id);
-			download.setWorldId(rs.getInt("world_id"));
-			download.setDownloadFunStuff(rs.getString("download_funstuff"));
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-		return download;
-	}
+        Download download = new Download();
+        try {
+            conn = DataSource.getConnection();
+            stmt = conn.prepareStatement("SELECT * FROM download WHERE download_id=" + id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            download.setDownloadId(id);
+            download.setWorldId(rs.getInt("world_id"));
+            download.setDownloadFunStuff(rs.getString("download_funstuff"));
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return download;
+    }
 
-	public static List<Download> selectAllByWorldDownload(int id) throws SQLException {
+    public static List<Download> selectAllByWorld(int id) throws SQLException {
 
-		List<Download> downloads = new ArrayList();
-		try {
-			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM download WHERE world_id=" + id);
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				Download download = new Download();
-				download.setDownloadId(rs.getInt("download_id"));
-				download.setWorldId(rs.getInt("world_id"));
-				download.setDownloadFunStuff(rs.getString("download_funstuff"));
-				downloads.add(download);
-			}
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-		return downloads;
-	}
+        List<Download> downloads = new ArrayList();
+        try {
+            conn = DataSource.getConnection();
+            stmt = conn.prepareStatement("SELECT * FROM download WHERE world_id=" + id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Download download = new Download();
+                download.setDownloadId(rs.getInt("download_id"));
+                download.setWorldId(rs.getInt("world_id"));
+                download.setDownloadFunStuff(rs.getString("download_funstuff"));
+                downloads.add(download);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return downloads;
+    }
 
-	public static void insertDownload(Download download) throws SQLException {
+    public static void insert(Download download) throws SQLException {
 
-		try {
-			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("INSERT INTO download"
-				+ "(world_id, download_funstuff) VALUES(?, ?)");
-			stmt.setInt(1, download.getWorldId());
-			stmt.setString(2, download.getDownloadFunStuff());
-			stmt.executeUpdate();
-			conn.commit();
-		} catch (Exception e) {
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);
-		}
-	}
+        try {
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("INSERT INTO download"
+                    + "(world_id, download_funstuff) VALUES(?, ?)");
+            stmt.setInt(1, download.getWorldId());
+            stmt.setString(2, download.getDownloadFunStuff());
+            stmt.executeUpdate();
+            conn.commit();
+        } catch (Exception e) {
+            conn.rollback();
+        } finally {
+            conn.setAutoCommit(true);
+        }
+    }
 
-	public static void deleteDownload(int id) throws SQLException {
+    public static void delete(int id) throws SQLException {
 
-		try {
-			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("DELETE FROM download WHERE download_id=" + id);
-			stmt.executeUpdate();
-			conn.commit();
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);
-		}
-	}
+        try {
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("DELETE FROM download WHERE download_id=" + id);
+            stmt.executeUpdate();
+            conn.commit();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            conn.rollback();
+        } finally {
+            conn.setAutoCommit(true);
+        }
+    }
 
-	public static void updateDownload(Download download) throws SQLException {
+    public static void update(Download download) throws SQLException {
 
-		try {
-			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE download SET world_id=?, "
-				+ "download_funstuff=? WHERE download_id=?");
-			stmt.setInt(1, download.getWorldId());
-			stmt.setString(2, download.getDownloadFunStuff());
-			stmt.setInt(3, download.getDownloadId());
-			stmt.executeUpdate();
-			conn.commit();
-		} catch (Exception e) {
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);    
-		}
-	}
+        try {
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("UPDATE download SET world_id=?, "
+                    + "download_funstuff=? WHERE download_id=?");
+            stmt.setInt(1, download.getWorldId());
+            stmt.setString(2, download.getDownloadFunStuff());
+            stmt.setInt(3, download.getDownloadId());
+            stmt.executeUpdate();
+            conn.commit();
+        } catch (Exception e) {
+            conn.rollback();
+        } finally {
+            conn.setAutoCommit(true);
+        }
+    }
 }

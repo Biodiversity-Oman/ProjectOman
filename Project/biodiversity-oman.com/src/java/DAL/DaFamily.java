@@ -5,7 +5,7 @@
  */
 package DAL;
 
-import BLL.*;
+import BLL.Family;
 import java.sql.*;
 import java.util.*;
 
@@ -18,7 +18,7 @@ public class DaFamily {
     private static Connection conn;
     private static PreparedStatement stmt;
 
-    public static List<Family> selectAllfamily() throws SQLException {
+    public static List<Family> selectAll() throws SQLException {
 
         List<Family> families = new ArrayList();
         try {
@@ -41,7 +41,7 @@ public class DaFamily {
         return families;
     }
 
-    public static Family selectOneByIDfamily(int id) throws SQLException {
+    public static Family selectOneByID(int id) throws SQLException {
 
         Family f = new Family();
         try {
@@ -59,7 +59,7 @@ public class DaFamily {
         return f;
     }
 
-    public static Family selectAllFamilyByWorld(int id) throws SQLException {
+    public static Family selectAllByWorld(int id) throws SQLException {
 
         Family f = new Family();
         try {
@@ -76,7 +76,7 @@ public class DaFamily {
         return f;
     }
 
-    public static void deleteFamily(int familyId) throws SQLException {
+    public static void delete(int familyId) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
@@ -94,7 +94,7 @@ public class DaFamily {
         }
     }
 
-    public static void updateFamily(Family fam) throws SQLException {
+    public static void update(Family fam) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
@@ -114,7 +114,7 @@ public class DaFamily {
         }
     }
 
-    public static void insertFamily(Family fami) throws SQLException {
+    public static void insert(Family fami) throws SQLException {
 
         try {
             conn = DataSource.getConnection();
@@ -133,8 +133,8 @@ public class DaFamily {
             conn.setAutoCommit(true);
         }
     }
-    
-    public static boolean checkFamilyExist(String familyName) throws SQLException {
+
+    public static boolean checkIfExists(String familyName) throws SQLException {
 
         boolean match;
         conn = DataSource.getConnection();

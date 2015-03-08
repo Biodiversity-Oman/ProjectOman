@@ -6,12 +6,8 @@
 package DAL;
 
 import BLL.Season;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -19,128 +15,128 @@ import java.util.List;
  */
 public class DaSeason {
 
-	private static Connection conn;
-	private static PreparedStatement stmt;
+    private static Connection conn;
+    private static PreparedStatement stmt;
 
-	public static List<Season> selectAll() throws SQLException {
+    public static List<Season> selectAll() throws SQLException {
 
-		List<Season> seasons = new ArrayList();
-		try {
-			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM season");
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				Season s = new Season();
-				s.setSeasonId(rs.getInt("season_id"));
-				s.setSeasonName(rs.getString("season_name"));
-				s.setSeasonDescription(rs.getString("season_description"));
-				seasons.add(s);
-			}
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-		return seasons;
-	}
+        List<Season> seasons = new ArrayList();
+        try {
+            conn = DataSource.getConnection();
+            stmt = conn.prepareStatement("SELECT * FROM season");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Season s = new Season();
+                s.setSeasonId(rs.getInt("season_id"));
+                s.setSeasonName(rs.getString("season_name"));
+                s.setSeasonDescription(rs.getString("season_description"));
+                seasons.add(s);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return seasons;
+    }
 
-	public static Season selectOneByIdSeason(int seasonId) {
+    public static Season selectOneByID(int seasonId) {
 
-		Season s = new Season();
-		try {
-			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT season.season_id, season.season_name, season.season_description \n" +
-                                                    "FROM season \n" +
-                                                    "WHERE season_id=?");
-                        stmt.setInt(1, seasonId);
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				s.setSeasonId(rs.getInt("season_id"));
-				s.setSeasonName(rs.getString("season_name"));
-				s.setSeasonDescription(rs.getString("season_description"));
-			}
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-		return s;
-	}
+        Season s = new Season();
+        try {
+            conn = DataSource.getConnection();
+            stmt = conn.prepareStatement("SELECT season.season_id, season.season_name, season.season_description \n"
+                    + "FROM season \n"
+                    + "WHERE season_id=?");
+            stmt.setInt(1, seasonId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                s.setSeasonId(rs.getInt("season_id"));
+                s.setSeasonName(rs.getString("season_name"));
+                s.setSeasonDescription(rs.getString("season_description"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return s;
+    }
 
-	public static List<Season> selectAllByOrganismSeason(int organismId) throws SQLException {
+    public static List<Season> selectAllByOrganism(int organismId) throws SQLException {
 
-		List<Season> seasons = new ArrayList();
-		try {
-			conn = DataSource.getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM organism_season "
-				+ "INNER JOIN season ON season.season_id = organism_season.season_id "
-				+ "WHERE organism_id=" + organismId);
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				Season season = new Season();
-				season.setSeasonId(rs.getInt("season_id"));
-				season.setSeasonName(rs.getString("name"));
-				season.setSeasonDescription(rs.getString("description"));
-				seasons.add(season);
-			}
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-		return seasons;
-	}
+        List<Season> seasons = new ArrayList();
+        try {
+            conn = DataSource.getConnection();
+            stmt = conn.prepareStatement("SELECT * FROM organism_season "
+                    + "INNER JOIN season ON season.season_id = organism_season.season_id "
+                    + "WHERE organism_id=" + organismId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Season season = new Season();
+                season.setSeasonId(rs.getInt("season_id"));
+                season.setSeasonName(rs.getString("name"));
+                season.setSeasonDescription(rs.getString("description"));
+                seasons.add(season);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return seasons;
+    }
 
-	public static void updateSeason(Season seas) throws SQLException {
+    public static void update(Season seas) throws SQLException {
 
-		try {
-			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE season "
-				+ "SET season_name=?, season_description=? WHERE season_id=" + seas.getSeasonId() + "");
-			stmt.setString(1, seas.getSeasonName());
-			stmt.setString(2, seas.getSeasonDescription());
-			stmt.executeUpdate();
-			conn.commit();
-		} catch (SQLException ex) {
-			conn.rollback();
-			System.out.println(ex.getMessage());
-		} finally {
-			conn.setAutoCommit(true);
-		}
-	}
+        try {
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("UPDATE season "
+                    + "SET season_name=?, season_description=? WHERE season_id=" + seas.getSeasonId() + "");
+            stmt.setString(1, seas.getSeasonName());
+            stmt.setString(2, seas.getSeasonDescription());
+            stmt.executeUpdate();
+            conn.commit();
+        } catch (SQLException ex) {
+            conn.rollback();
+            System.out.println(ex.getMessage());
+        } finally {
+            conn.setAutoCommit(true);
+        }
+    }
 
-	public static void deleteSeason(int id) throws SQLException {
+    public static void delete(int id) throws SQLException {
 
-		try {
-			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("DELETE FROM season WHERE season_id=" + id + "");
-			stmt.executeUpdate();
-			conn.commit();
+        try {
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("DELETE FROM season WHERE season_id=" + id + "");
+            stmt.executeUpdate();
+            conn.commit();
 
-		} catch (SQLException ex) {
-			conn.rollback();
-			System.out.println(ex.getMessage());
-		} finally {
-			conn.setAutoCommit(true);
-		}
-	}
+        } catch (SQLException ex) {
+            conn.rollback();
+            System.out.println(ex.getMessage());
+        } finally {
+            conn.setAutoCommit(true);
+        }
+    }
 
-	public static void insertSeason(Season s) throws SQLException {
+    public static void insert(Season s) throws SQLException {
 
-		try {
-			conn = DataSource.getConnection();
-			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("INSERT INTO season "
-				+ "(season_name, season_description) VALUES (?,?)");
-			stmt.setString(1, s.getSeasonName());
-			stmt.setString(2, s.getSeasonDescription());
-			stmt.executeUpdate();
-			conn.commit();
-		} catch (SQLException ex) {
-			System.out.println(ex);
-			conn.rollback();
-		} finally {
-			conn.setAutoCommit(true);
-		}
-	}
-        
-        public static boolean checkSeasonExist(String seasonName) throws SQLException {
+        try {
+            conn = DataSource.getConnection();
+            conn.setAutoCommit(false);
+            stmt = conn.prepareStatement("INSERT INTO season "
+                    + "(season_name, season_description) VALUES (?,?)");
+            stmt.setString(1, s.getSeasonName());
+            stmt.setString(2, s.getSeasonDescription());
+            stmt.executeUpdate();
+            conn.commit();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            conn.rollback();
+        } finally {
+            conn.setAutoCommit(true);
+        }
+    }
+
+    public static boolean checkIfExists(String seasonName) throws SQLException {
 
         boolean match;
         conn = DataSource.getConnection();
