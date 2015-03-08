@@ -42,7 +42,7 @@ public class SelectAllHabitats extends HttpServlet {
 			List habitats = ServHabitat.selectAllHabitats();
 			response.getWriter().write(new Gson().toJson(habitats));
 		} catch (SQLException ex) {
-			Logger.getLogger(SelectAllSeasons.class.getName()).log(Level.SEVERE, null, ex);
+			System.out.println(ex.getMessage());
 		}
 	}
 

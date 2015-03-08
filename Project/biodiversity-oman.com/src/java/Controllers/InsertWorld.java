@@ -7,6 +7,9 @@ package Controllers;
 
 import Service.ServWorld;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,18 +38,7 @@ public class InsertWorld extends HttpServlet {
 
 		String worldName = request.getParameter("world-name");
 		String worldDescription = request.getParameter("world-description");
-
-		try {
-			if (ServWorld.checkWorld(worldName) == false) {
-				ServWorld.insertWorld(worldName, worldDescription);
-				response.getWriter().write("succes");
-			} else {
-				response.getWriter().write("error1");
-			}
-		} catch (Exception ex) {
-			response.getWriter().write("error2");
-		}
-
+		response.getWriter().write(ServWorld.insertWorld(worldName, worldDescription));
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -34,32 +34,16 @@ public class InsertUserAccount extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 
 		String password = request.getParameter("password");
-		String check = request.getParameter("check");
 		String username = request.getParameter("username");
-
-		if (password.equals(check)) {
-			try {
-				if (ServUserAccount.checkUsername(username) == false) {
-					
-					ServUserAccount.insertUserAccount(request.getParameter("username"),
-									  request.getParameter("firstname"),
-									  request.getParameter("lastname"),
-									  request.getParameter("city"),
-									  request.getParameter("country"),
-									  request.getParameter("phone"),
-									  request.getParameter("email"),
-									  request.getParameter("isadmin"),
-									  request.getParameter("password"));
-					response.getWriter().write("succes");
-				} else {
-					response.getWriter().write("error1");
-				}
-			} catch (Exception ex) {
-				response.getWriter().write("error2");
-			}
-		} else {
-			response.getWriter().write("error3");
-		}
+		response.getWriter().write(ServUserAccount.insertUserAccount(request.getParameter("username"),
+																     request.getParameter("firstname"),
+																     request.getParameter("lastname"),
+																     request.getParameter("city"),
+																     request.getParameter("country"),
+																     request.getParameter("phone"),
+																     request.getParameter("email"),
+																     request.getParameter("isadmin"),
+																     request.getParameter("password")));
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

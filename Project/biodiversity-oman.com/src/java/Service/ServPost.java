@@ -14,8 +14,8 @@ import java.sql.SQLException;
  */
 public class ServPost {
     
-    public static java.util.List<BLL.Post> selectAll()
-    {
+    public static java.util.List<BLL.Post> selectAll() throws SQLException {
+		
         return DAL.DaPost.selectAll();
     }
     

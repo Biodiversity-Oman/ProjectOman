@@ -16,54 +16,56 @@ import java.util.List;
  */
 public class ServSubFamily {
     
-    public static boolean checkSubFamilyExist(String subFamilyName) throws SQLException {
-
-		return DaSubfamily.checkIfExists(subFamilyName);
-	}
-
 	public static List selectAllSubFamily() throws SQLException {
 
 		return DaSubfamily.selectAll();
 	}
         
-         public static BLL.Subfamily selectOneById(int id) throws SQLException {
+    public static BLL.Subfamily selectOneById(int id) throws SQLException {
 
-                return DaSubfamily.selectOneByID(id);
-         
-         }
+        return DaSubfamily.selectOneByID(id);
+    }
         
+	public static String insertSubFamily(String name, String description, int familyId) {
 
-	public static void insertSubFamily(String name, String description, int familyId) throws SQLException {
-
-		Subfamily subfam = new Subfamily();
-		subfam.setSubFamilyDescription(description);
-		subfam.setSubfamilyName(name);
-		subfam.setFamilyId(familyId);
-
-		DaSubfamily.insert(subfam);
+		try {
+			if(DaSubfamily.checkIfExists(name)==false) {
+				Subfamily subfam = new Subfamily();
+				subfam.setSubFamilyDescription(description);
+				subfam.setSubfamilyName(name);
+				subfam.setFamilyId(familyId);
+				DaSubfamily.insert(subfam);
+				return "succes";
+			} else {
+				return "exists";
+			}
+		} catch(SQLException ex) {
+			return "sql";
+		}
 	}
         
-        public static void updateSubFamily(String name, String description, int familyId,int subFamilyId) throws SQLException {
+    public static String updateSubFamily(String name, String description, int familyId,int subFamilyId) {
 
-		Subfamily subfam = new Subfamily();
-		subfam.setSubFamilyDescription(description);
-		subfam.setSubfamilyName(name);
-		subfam.setFamilyId(familyId);
-                subfam.setSubfamilyId(subFamilyId);
-
-		DaSubfamily.update(subfam);
+		try {
+			Subfamily subfam = new Subfamily();
+			subfam.setSubFamilyDescription(description);
+			subfam.setSubfamilyName(name);
+			subfam.setFamilyId(familyId);
+			subfam.setSubfamilyId(subFamilyId);
+			DaSubfamily.update(subfam);
+			return "succes";
+		} catch (SQLException ex) {
+			return "sql";
+		}
 	}
-        
-        
-
+	
 	public static void deleteSubFamily(int id) throws SQLException {
 
 		DaSubfamily.delete(id);
 	}
         
-        public static List SearchSubFamily(String keyword) throws SQLException {
+	public static List SearchSubFamily(String keyword) throws SQLException {
                 
         return DaSubfamily.searchSubfamily(keyword);
     }
-
 }

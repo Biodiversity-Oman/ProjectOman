@@ -41,7 +41,7 @@ public class DeleteWorld extends HttpServlet {
 		try {
 			ServWorld.deleteWorld(id);
 		} catch (SQLException ex) {
-			Logger.getLogger(DeleteWorld.class.getName()).log(Level.SEVERE, null, ex);
+			System.out.println(ex.getMessage());
 		}
 	}
 

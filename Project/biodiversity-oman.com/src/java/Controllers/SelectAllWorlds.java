@@ -8,6 +8,7 @@ package Controllers;
 import Service.ServWorld;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,8 +36,12 @@ public class SelectAllWorlds extends HttpServlet {
 		throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 
-		List worlds = ServWorld.selectAll();
-		response.getWriter().write(new Gson().toJson(worlds));
+		try {
+			List worlds = ServWorld.selectAll();
+			response.getWriter().write(new Gson().toJson(worlds));
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

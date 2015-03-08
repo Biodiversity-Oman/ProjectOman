@@ -8,7 +8,6 @@ package Controllers;
 import Service.ServGeolocation;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,14 +35,10 @@ public class UpdateGeolocation extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         int id = parseInt(request.getParameter("geolocation-id"));
+        response.getWriter().write(ServGeolocation.update(request.getParameter("area-name"), request.getParameter("area-description"), 
+														  request.getParameter("update-coordinates"), id));
+           
         
-        try {
-            ServGeolocation.update(request.getParameter("area-name"), request.getParameter("area-description"), 
-                    request.getParameter("update-coordinates"), id);
-            response.getWriter().write("succes");
-        } catch (SQLException ex) {
-            response.getWriter().write("error");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

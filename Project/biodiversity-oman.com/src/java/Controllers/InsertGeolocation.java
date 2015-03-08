@@ -34,16 +34,7 @@ public class InsertGeolocation extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String check = request.getParameter("area-name");
-        try {
-            if (ServGeolocation.checkGeolocationExist(check) == false) {
-                ServGeolocation.insert(check, request.getParameter("area-description"), request.getParameter("area-coordinates"));
-                response.getWriter().write("succes");
-            } else {
-                response.getWriter().write("error1");
-            }
-        } catch (Exception ex) {
-            response.getWriter().write("error2");
-        }
+        response.getWriter().write(ServGeolocation.insert(check, request.getParameter("area-description"), request.getParameter("area-coordinates")));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

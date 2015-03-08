@@ -7,6 +7,7 @@ package Controllers;
 
 import Service.ServGeolocation;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -36,11 +37,10 @@ public class SelectGeolocationById extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         int id = Integer.parseInt(request.getParameter("id"));
-        
         try {
             response.getWriter().write(new com.google.gson.Gson().toJson(ServGeolocation.selectOneByID(id)));
-        } catch (Exception ex) {
-            Logger.getLogger(SelectWorldById.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 

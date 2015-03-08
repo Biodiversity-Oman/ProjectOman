@@ -34,17 +34,7 @@ public class InsertHabitat extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String check = request.getParameter("habitat-name");
-
-        try {
-            if (ServHabitat.checkHbitatExist(check) == false) {
-                ServHabitat.insertHabitat(check, request.getParameter("habitat-description"));
-                response.getWriter().write("succes");
-            } else {
-                response.getWriter().write("error1");
-            }
-        } catch (Exception ex) {
-            response.getWriter().write("error2");
-        }
+        response.getWriter().write(ServHabitat.insertHabitat(check, request.getParameter("habitat-description")));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

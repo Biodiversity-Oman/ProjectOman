@@ -7,9 +7,7 @@ package Controllers;
 
 import Service.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,18 +33,11 @@ public class UpdateHabitat extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+		
         int id = parseInt(request.getParameter("habitat-id"));
-        try {
-            
-			ServHabitat.updateHabitat(request.getParameter("habitat-name"),
-                                request.getParameter("habitat-description"),
-                                id);
-                        	  
-							  
-			response.getWriter().write("succes");
-		} catch (SQLException ex) {
-			response.getWriter().write("error");
-		}
+		response.getWriter().write(ServHabitat.updateHabitat(request.getParameter("habitat-name"),
+															 request.getParameter("habitat-description"),
+															 id));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

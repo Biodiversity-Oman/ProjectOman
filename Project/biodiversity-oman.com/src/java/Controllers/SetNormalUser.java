@@ -38,7 +38,7 @@ public class SetNormalUser extends HttpServlet {
 		try {
 			ServUserAccount.setNormalUser(user);
 		} catch (SQLException ex) {
-
+			System.out.println(ex.getMessage());
 		}
 	}
 

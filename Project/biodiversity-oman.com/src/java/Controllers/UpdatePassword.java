@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 public class UpdatePassword extends HttpServlet {
 
 	/**
-	 * Processes requests for both HTTP <code>GET</code> and
-	 * <code>POST</code> methods.
+	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+	 * methods.
 	 *
 	 * @param request servlet request
 	 * @param response servlet response
@@ -31,31 +31,23 @@ public class UpdatePassword extends HttpServlet {
 	 * @throws IOException if an I/O error occurs
 	 */
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException {
+			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		
 		String username = request.getParameter("username");
 		String oldpassword = request.getParameter("oldpassword");
-		String check = request.getParameter("check");
 		String newpassword = request.getParameter("newpassword");
-
-		if (newpassword.equals(check) == true) {
-			try {
-				if (ServUserAccount.checkPassword(username, oldpassword) == true) {
-					ServUserAccount.updatePassword(newpassword, username);
-					String msg = "succes";
-					response.getWriter().write(msg);
-				} else {
-					String msg = "error1";
-					response.getWriter().write(msg);
-				}
-			} catch (SQLException ex) {
-				
+		
+		try {
+			if (ServUserAccount.checkPassword(username, oldpassword) == true) {
+				response.getWriter().write(ServUserAccount.updatePassword(newpassword, username));
+			} else {
+				response.getWriter().write("incorrect");
 			}
-		} else {
-			String msg = "error2";
-			response.getWriter().write(msg);
+		} catch (SQLException ex) {
+			response.getWriter().write("sql");
 		}
+		
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -69,7 +61,7 @@ public class UpdatePassword extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException {
+			throws ServletException, IOException {
 		processRequest(request, response);
 	}
 
@@ -83,7 +75,7 @@ public class UpdatePassword extends HttpServlet {
 	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException {
+			throws ServletException, IOException {
 		processRequest(request, response);
 	}
 

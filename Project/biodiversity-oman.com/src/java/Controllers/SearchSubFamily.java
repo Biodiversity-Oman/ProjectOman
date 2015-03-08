@@ -8,6 +8,7 @@ package Controllers;
 import Service.ServSubFamily;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,8 +40,8 @@ public class SearchSubFamily extends HttpServlet {
 		try {
 			List result = ServSubFamily.SearchSubFamily(keyword);
 			response.getWriter().write(new Gson().toJson(result));
-		} catch (Exception ex) {
-			System.out.println(ex);
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
 		}
     }
 

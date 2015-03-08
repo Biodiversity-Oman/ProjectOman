@@ -430,7 +430,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
                                                                                         <div class="col-sm-2">
-                                                                                                <button class="button-grey" id="organism-id" type="submit"><span class="icon-pencil2-button"></span>Update</button>
+                                                                                                <button class="button-grey" id="organism-id" type="submit"><span class="icon-pencil2-button"></span>Update & Publish</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
@@ -450,7 +450,6 @@
                                         </div>
                                         <div id="tab4" class="tab">
                                                 <p>Press the <span class="icon-cross"></span> To delete </p>
-
                                                 <div class="table-responsive">
                                                         <table class="table table-striped" id="subscriber-table"></table>
                                                 </div>

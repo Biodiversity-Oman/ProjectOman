@@ -21,15 +21,24 @@ public class ServWorld {
 		return DaWorld.checkIfExists(worldName);
 	}
 
-	public static void insertWorld(String worldName, String worldDescription) throws SQLException {
+	public static String insertWorld(String worldName, String worldDescription) {
 
-		World world = new World();
-		world.setWorldName(worldName);
-		world.setDescription(worldDescription);
-		DaWorld.insert(world);
+		try {
+			if (DaWorld.checkIfExists(worldName) == false) {
+				World world = new World();
+				world.setWorldName(worldName);
+				world.setDescription(worldDescription);
+				DaWorld.insert(world);
+				return "succes";
+			} else {
+				return "exists";
+			}
+		} catch (SQLException ex) {
+			return "sql";
+		}
 	}
 
-	public static List selectAll() {
+	public static List selectAll() throws SQLException {
 
 		return DaWorld.selectAll();
 	}
@@ -39,18 +48,22 @@ public class ServWorld {
 		DaWorld.delete(id);
 	}
 
-	public static void updateWorld(String worldName, String description, int worldid) throws SQLException {
-
-		World w = new World();
-		w.setWorldId(worldid);
-		w.setWorldName(worldName);
-		w.setDescription(description);
-		DaWorld.update(w);
+	public static String updateWorld(String worldName, String description, int worldid) {
+		
+		try {
+			World w = new World();
+			w.setWorldId(worldid);
+			w.setWorldName(worldName);
+			w.setDescription(description);
+			DaWorld.update(w);
+			return "succes";
+		} catch(SQLException ex) {
+			return "sql";
+		}
 	}
 
-	public static BLL.World selectOneById(int id) {
+	public static BLL.World selectOneById(int id) throws SQLException {
 
 		return DaWorld.selectOneByID(id);
 	}
-
 }

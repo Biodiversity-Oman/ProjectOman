@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     // general close-button function to close pop-ups dashboard.jsp
     $(document).on('click', '.close-button', function () {
-        $('.pop-up, .pop-up-scroll').hide()
+        $('.pop-up, .pop-up-scroll').hide();
         document.getElementById('fade').style.display = 'none';
     });
 
@@ -307,17 +307,18 @@ $(document).ready(function () {
                 wijzigbtn.val('updating').attr('disabled', 'disabled');
             }
         }).done(function (data) {
-            if (data === 'error1') {
+            if (data === 'succes') {
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password succesfully changed. This screen closes automatically</div>');
+            } else if (data === 'incorrect') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your password is not valid</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your passwords do not match</div>');
-            } else if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password is changed succesfully. This screen closes automatically</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
                 $('.whitebox').hide();
                 document.getElementById('fade').style.display = 'none';
+                $message.empty();
             }, 2800);
         }).always(function () {
             loadUserInfo();
@@ -329,9 +330,9 @@ $(document).ready(function () {
 
     // functie voor delete user in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #delete-user-btn', function () {
+        var username = ($(this).attr("value"));
         bootbox.confirm("<center>Delete this user?", function (result) {
             if (result === true) {
-            var username = ($(this).attr("value"));
             $.ajax({
                 url: 'DeleteUserAccount?username=' + username,
                 type: 'POST',
@@ -347,9 +348,9 @@ $(document).ready(function () {
 
     // functie voor demoten van een user in usermanagement.jsp
     $(document).on('click', '.table #make-normal-btn', function () {
+        var username = ($(this).attr("value"));
         bootbox.confirm("Demote this admin to a normal user?", function (result) {
             if (result === true) {
-            var username = ($(this).attr("value"));
             $.ajax({
                 url: 'SetNormalUser?username=' + username,
                 type: 'POST',
@@ -365,9 +366,9 @@ $(document).ready(function () {
 
     // functie voor make admin in list users tabel in usermanagement.jsp
     $(document).on('click', '.table #make-admin-btn', function () {
+        var username = ($(this).attr("value"));
         bootbox.confirm("Make this user an admin?", function (result) {
             if (result === true) {
-            var username = ($(this).attr("value"));
             $.ajax({
                 url: 'SetSuperUser?username=' + username,
                 type: 'POST',
@@ -398,12 +399,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User succesfully created</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Username already exists</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all required fields</div>');
-            } else if (data === 'error3') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Passwords do not match</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -429,10 +428,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created.</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season name already exists</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -458,10 +457,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created.</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat name already exists</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -485,12 +484,13 @@ $(document).ready(function () {
             dataType: 'text',
             data: $('#create-world-form').serialize()
         }).done(function (data) {
+            console.log(data);
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created.</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World name already exists</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             -setTimeout(function () {
                 $message.fadeOut('slow');
@@ -514,12 +514,13 @@ $(document).ready(function () {
             dataType: 'text',
             data: $('#create-family-form').serialize()
         }).done(function (data) {
+            console.log(data);
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created.</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family name already exist!</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -545,10 +546,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed was succesfully created.</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed name already exist!</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -574,10 +575,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was succesfully created.</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area name already exist!</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in all fields!</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -606,10 +607,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Organism was added successfully.</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -647,6 +648,8 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated succesfully.</div>');
+            } else if(data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -673,8 +676,8 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World was updated successfully. This screen closes automatically</div>');
-            } else if (data === 'error') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World not updated</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -702,8 +705,8 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat was updated successfully. This screen closes automatically</div>');
-            } else if (data === 'error') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat not updated</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -731,8 +734,8 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family was successfully updated. This screen closes automatically</div>');
-            } else if (data === 'error') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family not updated</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -760,8 +763,8 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Subfamily was successfully updated. This screen closes automatically</div>');
-            } else if (data === 'error') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Subfamily not updated</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!/div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -790,8 +793,8 @@ $(document).ready(function () {
                 .done(function (data) {
                     if (data === 'succes') {
                         $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season was updated successfully. This screen closes automatically</div>');
-                    } else if (data === 'error') {
-                        $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season not updated</div>');
+                    } else if (data === 'sql') {
+                        $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
                     }
                     setTimeout(function () {
                         $message.fadeOut('slow');
@@ -820,8 +823,8 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was successfully updated. This screen closes automatically</div>');
-            } else if (data === 'error') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area not updated</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -835,8 +838,6 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
-
-
 
     // function for update of Organism/published in publish.jsp
     $('#update-published-organism-form').submit(function (e) {
@@ -854,10 +855,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism was validated and updated successfully. This screen closes automatically</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -891,10 +892,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -928,10 +929,10 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
-            } else if (data === 'error1') {
+            } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
-            } else if (data === 'error2') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not available. Please contact an administrator if the problem persists.</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not unavailable!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -1513,7 +1514,6 @@ $(document).ready(function () {
        var id = ($(this).attr("value"));
         bootbox.confirm("<center>This will delete the selected subscriber! <br><br> <b>Are you sure?</b></center>  ", function (result) {
             if (result === true) {
-            var id = ($(this).attr("value"));
             $.ajax({
                 url: 'DeleteSubscriber?id=' + id,
                 type: 'POST',

@@ -7,7 +7,6 @@ package Controllers;
 
 import Service.ServSubFamily;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,17 +34,8 @@ public class InsertSubFamily extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String check = request.getParameter("subfamily-name");
-        try {
-            if (ServSubFamily.checkSubFamilyExist(check) == false) {
-                ServSubFamily.insertSubFamily(check, request.getParameter("subfamily-description"),
-                        Integer.parseInt(request.getParameter("family-id")));
-                response.getWriter().write("succes");
-            } else {
-                response.getWriter().write("error1");
-            }
-        } catch (Exception ex) {
-            response.getWriter().write("error2");
-        }
+        response.getWriter().write(ServSubFamily.insertSubFamily(check, request.getParameter("subfamily-description"),
+								   Integer.parseInt(request.getParameter("family-id"))));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

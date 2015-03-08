@@ -8,6 +8,9 @@ package Controllers;
 import Service.ServOrganism;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -49,16 +52,13 @@ public class SelectPhotoById extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        byte[] pic = ServOrganism.selectPhotoById(Integer.parseInt(request.getParameter("id")));
-        
-        if (pic.length > 2) {
-            
+			byte[] pic = ServOrganism.selectPhotoById(Integer.parseInt(request.getParameter("id")));
+			if (pic.length > 2) {
             response.reset();
                     response.setContentType("image/jpeg");
                     response.setContentLength(pic.length);
-        
                     response.getOutputStream().write(pic);
-        }
+			}
     }
 
     /**

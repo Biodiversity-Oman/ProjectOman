@@ -7,7 +7,6 @@ package Controllers;
 
 import Service.ServUserAccount;
 import java.io.IOException;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,19 +33,13 @@ public class UpdateUserAccount extends HttpServlet {
 		throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		
-		try {
-			ServUserAccount.updateUserAccount(request.getParameter("username"),
-							  request.getParameter("firstname"),
-							  request.getParameter("lastname"),
-							  request.getParameter("city"),
-							  request.getParameter("country"),
-							  request.getParameter("phone"),
-							  request.getParameter("email"));
-							  
-			response.getWriter().write("succes");
-		} catch (SQLException ex) {
-			response.getWriter().write("Info not updated, there may be something wrong");
-		}
+			response.getWriter().write(ServUserAccount.updateUserAccount(request.getParameter("username"),
+																	     request.getParameter("firstname"),
+																	     request.getParameter("lastname"),
+																	     request.getParameter("city"),
+																	     request.getParameter("country"),
+																	     request.getParameter("phone"),
+																	     request.getParameter("email")));
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -7,9 +7,6 @@ package Controllers;
 
 import Service.ServSubFamily;
 import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.Integer.parseInt;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,17 +32,13 @@ public class UpdateSubfamily extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try {
-			ServSubFamily.updateSubFamily(request.getParameter("subfamily-name"),
-                                request.getParameter("subfamily-description"), 
-                                Integer.parseInt(request.getParameter("family-id")), 
-                                        Integer.parseInt(request.getParameter("subfamily-id")));
+        
+			response.getWriter().write(ServSubFamily.updateSubFamily(request.getParameter("subfamily-name"),
+																	 request.getParameter("subfamily-description"), 
+																	 Integer.parseInt(request.getParameter("family-id")), 
+																	 Integer.parseInt(request.getParameter("subfamily-id"))));
                         	  
-							  
-			response.getWriter().write("succes");
-		} catch (SQLException ex) {
-			response.getWriter().write("error");
-		}
+		
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

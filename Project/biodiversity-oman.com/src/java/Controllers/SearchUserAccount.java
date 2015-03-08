@@ -41,7 +41,7 @@ public class SearchUserAccount extends HttpServlet {
 			List result = ServUserAccount.searchUserAccount(keyword);
 			response.getWriter().write(new Gson().toJson(result));
 		} catch (SQLException ex) {
-			System.out.println(ex);
+			System.out.println(ex.getMessage());
 		}
 	}
 

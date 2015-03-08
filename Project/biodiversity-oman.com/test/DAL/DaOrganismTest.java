@@ -6,6 +6,7 @@
 package DAL;
 
 import BLL.Organism;
+import java.sql.SQLException;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -180,12 +181,12 @@ public class DaOrganismTest {
 //    }
 //
 //    /**
-//     * Test of insertOrganism method, of class DaOrganism.
+//     * Test of insert method, of class DaOrganism.
 //     */
 //    @Test
 //    public void testInsertOrganism() {
 //        try{
-//        System.out.println("insertOrganism");
+//        System.out.println("insert");
 //        Organism organism = new Organism();
 //        organism.setBenefits("test");
 //        organism.setCommonName("test");
@@ -224,30 +225,27 @@ public class DaOrganismTest {
 //        
 //        
 //    }
+
+    /**
+     * Test of deleteOrganism method, of class DaOrganism.
+     */
+    @Test
+    public void testDeleteOrganism() throws SQLException {
+        System.out.println("deleteOrganism");
+        int id = 21;
+        DaOrganism.deleteOrganism(id);
+       
+    }
 //
 //    /**
-//     * Test of deleteOrganism method, of class DaOrganism.
-//     */
-//    @Test
-//    public void testDeleteOrganism() {
-//        System.out.println("deleteOrganism");
-//        int id = 0;
-//        int expResult = 0;
-//        int result = DaOrganism.deleteOrganism(id);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of updateOrganism method, of class DaOrganism.
+//     * Test of update method, of class DaOrganism.
 //     */
 //    @Test
 //    public void testUpdateOrganism() {
-//        System.out.println("updateOrganism");
+//        System.out.println("update");
 //        Organism organism = null;
 //        int expResult = 0;
-//        int result = DaOrganism.updateOrganism(organism);
+//        int result = DaOrganism.update(organism);
 //        assertEquals(expResult, result);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
@@ -339,12 +337,12 @@ public class DaOrganismTest {
 	/**
 	 * Test of searchOrganism method, of class DaOrganism.
 	 */
-	@Test
-	public void testSearchOrganism() throws Exception {
-		System.out.println("searchOrganism");
-		String keyword = "klepper";
-		List result = DaOrganism.searchOrganism(keyword);
-		System.out.println(result);
-	}
+//	@Test
+//	public void testSearchOrganism() throws Exception {
+//		System.out.println("searchOrganismTable");
+//		String keyword = "klepper";
+//		List result = DaOrganism.searchOrganismTable(keyword);
+//		System.out.println(result);
+//	}
     
 }

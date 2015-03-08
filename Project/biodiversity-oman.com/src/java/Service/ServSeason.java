@@ -16,22 +16,26 @@ import java.util.List;
  */
 public class ServSeason {
     
-    public static boolean checkSeasosExist(String seasonName) throws SQLException {
-
-		return DaSeason.checkIfExists(seasonName);
-	}
-
 	public static List selectAllSeasons() throws SQLException {
 
 		return DaSeason.selectAll();
 	}
 
-	public static void insertSeason(String name, String description) throws SQLException {
+	public static String insertSeason(String name, String description) {
 
-		Season season = new Season();
-		season.setSeasonName(name);
-		season.setSeasonDescription(description);
-		DaSeason.insert(season);
+		try {
+			if(DaSeason.checkIfExists(name)== false){
+				Season season = new Season();
+				season.setSeasonName(name);
+				season.setSeasonDescription(description);
+				DaSeason.insert(season);
+				return "succes";
+			} else {
+				return "exists";
+			}
+		} catch (SQLException ex){
+			return "sql";
+		}
 	}
 
 	public static void deleteSeason(int id) throws SQLException {
@@ -39,16 +43,21 @@ public class ServSeason {
 		DaSeason.delete(id);
 	}
         
-          public static void updateSeason(String seasonName, String seasonDescription, int seasonId) throws SQLException {
+    public static String updateSeason(String seasonName, String seasonDescription, int seasonId) {
 
-		Season s =new Season();
-                s.setSeasonName(seasonName);
-                s.setSeasonDescription(seasonDescription);
-                s.setSeasonId(seasonId);
-                DaSeason.update(s);
+		try {
+			Season s = new Season();
+			s.setSeasonName(seasonName);
+			s.setSeasonDescription(seasonDescription);
+			s.setSeasonId(seasonId);
+			DaSeason.update(s);
+			return "succes";
+		} catch (SQLException ex) {
+			return "sql";
+		}
 	}
-                 
-          public static BLL.Season selectOneById(int id){
-             return DaSeason.selectOneByID(id);
-          }
+
+	public static BLL.Season selectOneById(int id) throws SQLException {
+		return DaSeason.selectOneByID(id);
+	}
 }

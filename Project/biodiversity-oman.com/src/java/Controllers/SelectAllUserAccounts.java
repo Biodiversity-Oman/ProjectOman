@@ -36,15 +36,13 @@ public class SelectAllUserAccounts extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		try (PrintWriter out = response.getWriter()) {
-			
+		
 			try {
 				List users = ServUserAccount.selectAll();
 				response.getWriter().write(new Gson().toJson(users));
 			} catch (SQLException ex) {
-				System.out.println(ex);
+				System.out.println(ex.getMessage());
 			}
-		}	
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

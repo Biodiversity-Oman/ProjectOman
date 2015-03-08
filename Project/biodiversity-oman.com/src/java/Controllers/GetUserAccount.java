@@ -37,14 +37,11 @@ public class GetUserAccount extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		
 		try {
-                    UserAccount user = ServUserAccount.selectUserAccountByUsername(request.getParameter("user"));
-                    response.getWriter().write(new Gson().toJson(user));
-               
-                } catch (SQLException ex) {
-                    System.out.println("probleem met verbinding");
-                }  
-		
-		
+			UserAccount user = ServUserAccount.selectUserAccountByUsername(request.getParameter("user"));
+			response.getWriter().write(new Gson().toJson(user));
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -36,22 +36,34 @@ public class ServUserAccount {
 		return user;
 	}
 
-	public static void updateUserAccount(String username, String firstname, String lastname, String city, String country, String phone, String email) throws SQLException {
+	public static String updateUserAccount(String username, String firstname, String lastname, String city, String country, String phone, String email) {
 
-		UserAccount user = new UserAccount();
-		user.setUserName(username);
-		user.setFirstName(firstname);
-		user.setLastName(lastname);
-		user.setCity(city);
-		user.setCountry(country);
-		user.setPhone(phone);
-		user.setEmail(email);
-		DaUserAccount.update(user);
+		try {
+			UserAccount user = new UserAccount();
+			user.setUserName(username);
+			user.setFirstName(firstname);
+			user.setLastName(lastname);
+			user.setCity(city);
+			user.setCountry(country);
+			user.setPhone(phone);
+			user.setEmail(email);
+			DaUserAccount.update(user);
+			return "succes";
+		} catch (SQLException ex) {
+			return "sql";
+		}
+
 	}
 
-	public static void updatePassword(String password, String username) throws SQLException {
+	public static String updatePassword(String password, String username) {
 
-		DaUserAccount.updatePassword(password, username);
+		try {
+			DaUserAccount.updatePassword(password, username);
+			return "succes";
+		} catch (SQLException ex ){
+			return "sql";
+		}
+		
 	}
 
 	public static void deleteUserAccount(String username) throws SQLException {
@@ -69,23 +81,32 @@ public class ServUserAccount {
 		DaUserAccount.setSuperUser(username);
 	}
 
-	public static void insertUserAccount(String username, String firstname, String lastname, String city, String country, String phone, String email, String isadmin, String password) throws SQLException {
+	public static String insertUserAccount(String username, String firstname, String lastname, String city, String country, String phone, String email, String isadmin, String password) {
 
-		UserAccount user = new UserAccount();
-		user.setUserName(username);
-		user.setFirstName(firstname);
-		user.setLastName(lastname);
-		user.setCity(city);
-		user.setCountry(country);
-		user.setPhone(phone);
-		user.setEmail(email);
-		user.setPassword(password);
-		if (isadmin.equals("true")) {
-			user.setIsAdmin(true);
-		} else if (isadmin.equals("false")) {
-			user.setIsAdmin(false);
+		try {
+			if (DaUserAccount.checkUsername(username) == false) {
+				UserAccount user = new UserAccount();
+				user.setUserName(username);
+				user.setFirstName(firstname);
+				user.setLastName(lastname);
+				user.setCity(city);
+				user.setCountry(country);
+				user.setPhone(phone);
+				user.setEmail(email);
+				user.setPassword(password);
+				if (isadmin.equals("true")) {
+					user.setIsAdmin(true);
+				} else if (isadmin.equals("false")) {
+					user.setIsAdmin(false);
+				}
+				DaUserAccount.insert(user);
+				return "succes";
+			} else {
+				return "exists";
+			}
+		} catch (SQLException ex) {
+			return "sql";
 		}
-		DaUserAccount.insert(user);
 	}
 
 	public static boolean checkUsername(String username) throws SQLException {
@@ -102,9 +123,9 @@ public class ServUserAccount {
 
 		return DaUserAccount.search(keyword);
 	}
-        
-        public static boolean isLastUser() throws SQLException
-        {
-            return DaUserAccount.isLastUser();
-        }
+
+	public static boolean isLastUser() throws SQLException {
+
+		return DaUserAccount.isLastUser();
+	}
 }

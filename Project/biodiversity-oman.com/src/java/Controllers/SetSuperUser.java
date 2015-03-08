@@ -38,7 +38,7 @@ public class SetSuperUser extends HttpServlet {
 		try {
 			ServUserAccount.setSuperUser(user);
 		} catch (SQLException ex) {
-
+			System.out.println(ex.getMessage());
 		}
 	}
 

@@ -8,7 +8,6 @@ package Controllers;
 import Service.*;
 import java.io.*;
 import static java.lang.Integer.parseInt;
-import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,16 +33,10 @@ public class UpdateWorld extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+		
         int id = parseInt(request.getParameter("world-id"));
-        try {
-            
-			ServWorld.updateWorld(request.getParameter("world-name"),
-                        request.getParameter("world-description"),id);		  
-							  
-			response.getWriter().write("succes");
-		} catch (SQLException ex) {
-			response.getWriter().write("error");
-		}
+		response.getWriter().write(ServWorld.updateWorld(request.getParameter("world-name"),
+														 request.getParameter("world-description"),id));		  
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -8,7 +8,6 @@ package Controllers;
 import Service.*;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -38,11 +37,12 @@ public class SelectEaten extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+		
         try {
             List eats = ServOrganism.SelectEaten();
             response.getWriter().write(new Gson().toJson(eats));
         } catch (SQLException ex) {
-            Logger.getLogger(SelectEaten.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
     }
 

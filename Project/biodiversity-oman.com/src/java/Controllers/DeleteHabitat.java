@@ -7,7 +7,6 @@ package Controllers;
 
 import Service.ServHabitat;
 import java.io.IOException;
-import static java.lang.Integer.parseInt;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

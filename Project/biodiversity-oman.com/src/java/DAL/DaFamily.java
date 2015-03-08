@@ -15,134 +15,129 @@ import java.util.*;
  */
 public class DaFamily {
 
-    private static Connection conn;
-    private static PreparedStatement stmt;
+	private static Connection conn;
+	private static PreparedStatement stmt;
 
-    public static List<Family> selectAll() throws SQLException {
+	public static List<Family> selectAll() throws SQLException {
 
-        List<Family> families = new ArrayList();
-        try {
-            conn = DataSource.getConnection();
-            stmt = conn.prepareStatement("SELECT family_id, family_name, family_description, world_name \n"
-                    + "FROM family \n "
-                    + "LEFT JOIN world ON family.world_id = world.world_id");
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                Family f = new Family();
-                f.setFamilyId(rs.getInt("family_id"));
-                f.setFamilyName(rs.getString("family_name"));
-                f.setFamilyDescription(rs.getString("family_description"));
-                f.setFamilyWorldName(rs.getString("world_name"));
-                families.add(f);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return families;
-    }
+		List<Family> families = new ArrayList();
+		conn = DataSource.getConnection();
+		stmt = conn.prepareStatement("SELECT family_id, family_name, family_description, world_name \n"
+				+ "FROM family \n "
+				+ "LEFT JOIN world ON family.world_id = world.world_id");
+		ResultSet rs = stmt.executeQuery();
+		while (rs.next()) {
+			Family f = new Family();
+			f.setFamilyId(rs.getInt("family_id"));
+			f.setFamilyName(rs.getString("family_name"));
+			f.setFamilyDescription(rs.getString("family_description"));
+			f.setFamilyWorldName(rs.getString("world_name"));
+			families.add(f);
+		}
+		conn.close();
+		return families;
+	}
 
-    public static Family selectOneByID(int id) throws SQLException {
+	public static Family selectOneByID(int id) throws SQLException {
 
-        Family f = new Family();
-        try {
-            conn = DataSource.getConnection();
-            stmt = conn.prepareStatement("SELECT * FROM family WHERE family_id=" + id);
-            ResultSet rs = stmt.executeQuery();
-            rs.next();
-            f.setFamilyId(rs.getInt("family_id"));
-            f.setFamilyName(rs.getString("family_name"));
-            f.setFamilyDescription(rs.getString("family_description"));
-            f.setWorldId(rs.getInt("world_id"));
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return f;
-    }
+		Family f = new Family();
+		conn = DataSource.getConnection();
+		stmt = conn.prepareStatement("SELECT * FROM family WHERE family_id=" + id);
+		ResultSet rs = stmt.executeQuery();
+		rs.next();
+		f.setFamilyId(rs.getInt("family_id"));
+		f.setFamilyName(rs.getString("family_name"));
+		f.setFamilyDescription(rs.getString("family_description"));
+		f.setWorldId(rs.getInt("world_id"));
+		conn.close();
+		return f;
+	}
 
-    public static Family selectAllByWorld(int id) throws SQLException {
+	public static Family selectAllByWorld(int id) throws SQLException {
 
-        Family f = new Family();
-        try {
-            conn = DataSource.getConnection();
-            stmt = conn.prepareStatement("SELECT * FROM family WHERE world_id=" + id);
-            ResultSet rs = stmt.executeQuery();
-            rs.next();
-            f.setFamilyId(rs.getInt("family_id"));
-            f.setFamilyName(rs.getString("family_name"));
-            f.setFamilyDescription(rs.getString("family_description"));
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return f;
-    }
+		Family f = new Family();
+		conn = DataSource.getConnection();
+		stmt = conn.prepareStatement("SELECT * FROM family WHERE world_id=" + id);
+		ResultSet rs = stmt.executeQuery();
+		rs.next();
+		f.setFamilyId(rs.getInt("family_id"));
+		f.setFamilyName(rs.getString("family_name"));
+		f.setFamilyDescription(rs.getString("family_description"));
+		conn.close();
+		return f;
+	}
 
-    public static void delete(int familyId) throws SQLException {
+	public static void delete(int familyId) throws SQLException {
 
-        try {
-            conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE subfamily SET family_id=null WHERE family_id=" + familyId);
-            stmt.executeUpdate();
-            stmt = conn.prepareStatement("DELETE FROM family WHERE family_id=" + familyId);
-            stmt.executeUpdate();
-            conn.commit();
-        } catch (SQLException ex) {
-            conn.rollback();
-            System.out.println(ex.getMessage());
-        } finally {
-            conn.setAutoCommit(true);
-        }
-    }
+		try {
+			conn = DataSource.getConnection();
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement("UPDATE subfamily SET family_id=null WHERE family_id=" + familyId);
+			stmt.executeUpdate();
+			stmt = conn.prepareStatement("DELETE FROM family WHERE family_id=" + familyId);
+			stmt.executeUpdate();
+			conn.commit();
+		} catch (SQLException ex) {
+			conn.rollback();
+			System.out.println(ex.getMessage());
+		} finally {
+			conn.setAutoCommit(true);
+			conn.close();
+		}
+	}
 
-    public static void update(Family fam) throws SQLException {
+	public static void update(Family fam) throws SQLException {
 
-        try {
-            conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("UPDATE family "
-                    + "SET family_name=?, family_description=?, world_id=? WHERE family_id=" + fam.getFamilyId() + "");
-            stmt.setString(1, fam.getFamilyName());
-            stmt.setString(2, fam.getFamilyDescription());
-            stmt.setInt(3, fam.getWorldId());
-            stmt.executeUpdate();
-            conn.commit();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(false);
-        }
-    }
+		try {
+			conn = DataSource.getConnection();
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement("UPDATE family "
+					+ "SET family_name=?, family_description=?, world_id=? WHERE family_id=" + fam.getFamilyId() + "");
+			stmt.setString(1, fam.getFamilyName());
+			stmt.setString(2, fam.getFamilyDescription());
+			stmt.setInt(3, fam.getWorldId());
+			stmt.executeUpdate();
+			conn.commit();
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			conn.rollback();
+		} finally {
+			conn.setAutoCommit(true);
+			conn.close();
+		}
+	}
 
-    public static void insert(Family fami) throws SQLException {
+	public static void insert(Family fami) throws SQLException {
 
-        try {
-            conn = DataSource.getConnection();
-            conn.setAutoCommit(false);
-            stmt = conn.prepareStatement("INSERT INTO family "
-                    + "(family_name, family_description, world_id) VALUES (?,?,?)");
-            stmt.setString(1, fami.getFamilyName());
-            stmt.setString(2, fami.getFamilyDescription());
-            stmt.setInt(3, fami.getWorldId());
-            stmt.executeUpdate();
-            conn.commit();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            conn.rollback();
-        } finally {
-            conn.setAutoCommit(true);
-        }
-    }
+		try {
+			conn = DataSource.getConnection();
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement("INSERT INTO family "
+					+ "(family_name, family_description, world_id) VALUES (?,?,?)");
+			stmt.setString(1, fami.getFamilyName());
+			stmt.setString(2, fami.getFamilyDescription());
+			stmt.setInt(3, fami.getWorldId());
+			stmt.executeUpdate();
+			conn.commit();
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			conn.rollback();
+		} finally {
+			conn.setAutoCommit(true);
+			conn.close();
+		}
+	}
 
-    public static boolean checkIfExists(String familyName) throws SQLException {
+	public static boolean checkIfExists(String familyName) throws SQLException {
 
-        boolean match;
-        conn = DataSource.getConnection();
-        stmt = conn.prepareStatement("SELECT COUNT(*) family_name FROM family WHERE family_name = ?");
-        stmt.setString(1, familyName);
-        ResultSet rs = stmt.executeQuery();
-        rs.next();
-        match = rs.getInt(1) == 1;
-        return match;
-    }
+		boolean match;
+		conn = DataSource.getConnection();
+		stmt = conn.prepareStatement("SELECT COUNT(*) family_name FROM family WHERE family_name = ?");
+		stmt.setString(1, familyName);
+		ResultSet rs = stmt.executeQuery();
+		rs.next();
+		match = rs.getInt(1) == 1;
+		conn.close();
+		return match;
+	}
 }

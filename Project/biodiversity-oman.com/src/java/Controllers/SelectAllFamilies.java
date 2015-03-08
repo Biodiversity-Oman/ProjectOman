@@ -6,10 +6,8 @@
 package Controllers;
 
 import Service.ServFamily;
-import Service.ServHabitat;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -43,9 +41,8 @@ public class SelectAllFamilies extends HttpServlet {
         try {
             List families = ServFamily.selectAllFamily();
             response.getWriter().write(new Gson().toJson(families));
-            
             } catch (SQLException ex) {
-			Logger.getLogger(SelectAllFamilies.class.getName()).log(Level.SEVERE, null, ex);
+			System.out.println(ex.getMessage());
 		}
     }
 

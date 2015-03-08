@@ -38,12 +38,11 @@ public class SelectAllSeasons extends HttpServlet {
 		throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		
-		
 		try {
 			List seasons = ServSeason.selectAllSeasons();
 			response.getWriter().write(new Gson().toJson(seasons));
 		} catch (SQLException ex) {
-			Logger.getLogger(SelectAllSeasons.class.getName()).log(Level.SEVERE, null, ex);
+			System.out.println(ex.getMessage());
 		}
 		
 	}

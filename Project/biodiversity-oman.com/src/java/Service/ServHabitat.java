@@ -16,22 +16,27 @@ import java.util.List;
  */
 public class ServHabitat {
 
-    public static boolean checkHbitatExist(String habitatName) throws SQLException {
-
-        return DaHabitat.checkIfExists(habitatName);
-    }
-
     public static List selectAllHabitats() throws SQLException {
 
         return DaHabitat.selectAll();
     }
 
-    public static void insertHabitat(String name, String description) throws SQLException {
+    public static String insertHabitat(String name, String description) {
 
-        Habitat habitat = new Habitat();
-        habitat.setHabitatName(name);
-        habitat.setHabitatDescription(description);
-        DaHabitat.insert(habitat);
+		try {
+			if(DaHabitat.checkIfExists(name) == false){
+				Habitat habitat = new Habitat();
+				habitat.setHabitatName(name);
+				habitat.setHabitatDescription(description);
+				DaHabitat.insert(habitat);
+				return "succes";
+			} else {
+				return "exists";
+			}
+		} catch (SQLException ex) {
+			return "sql";
+		}
+        
     }
 
     public static void deleteHabitat(int id) throws SQLException {
@@ -39,13 +44,19 @@ public class ServHabitat {
         DaHabitat.delete(id);
     }
 
-    public static void updateHabitat(String habitatName, String habitatdescription, int habitatId) throws SQLException {
+    public static String updateHabitat(String habitatName, String habitatdescription, int habitatId) {
 
-        Habitat h = new Habitat();
-        h.setHabitatName(habitatName);
-        h.setHabitatDescription(habitatdescription);
-        h.setHabitatId(habitatId);
-        DaHabitat.update(h);
+		try {
+			Habitat h = new Habitat();
+			h.setHabitatName(habitatName);
+			h.setHabitatDescription(habitatdescription);
+			h.setHabitatId(habitatId);
+			DaHabitat.update(h);
+			return "succes";
+		} catch (SQLException ex) {
+			return "sql";
+		}
+        
 
     }
 

@@ -34,20 +34,9 @@ public class InsertFamily extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String check = request.getParameter("family-name");
-        try {
-            if(ServFamily.checkFamilyExist(check)==false){
-            ServFamily.insertFamily(check, request.getParameter("family-description"),
-                                Integer.parseInt(request.getParameter("world-id")));
-            response.getWriter().write("succes");
-            }
-            else {
-                response.getWriter().write("error1");
-            }
-            
-            } catch (Exception ex) {
-			response.getWriter().write("error2");
-		}
+			String name = request.getParameter("family-name");
+            response.getWriter().write(ServFamily.insertFamily(name, request.getParameter("family-description"),
+															   Integer.parseInt(request.getParameter("world-id"))));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -16,41 +16,51 @@ import java.util.List;
  */
 public class ServGeolocation {
 
-    public static boolean checkGeolocationExist(String habitatName) throws SQLException {
+	public static Geolocation selectOneByID(int id) throws SQLException {
 
-        return DaGeolocation.checkIfExists(habitatName);
-    }
+		return DaGeolocation.selectOneByID(id);
+	}
 
-    public static Geolocation selectOneByID(int id) throws SQLException {
+	public static List selectAll() throws SQLException {
 
-        return DaGeolocation.selectOneByID(id);
-    }
+		return DaGeolocation.selectAll();
+	}
 
-    public static List selectAll() throws SQLException {
+	public static String insert(String name, String description, String coordinates) {
 
-        return DaGeolocation.selectAll();
-    }
+		try {
+			if (DaGeolocation.checkIfExists(name) == false) {
+				Geolocation geolocation = new Geolocation();
+				geolocation.setAreaName(name);
+				geolocation.setAreaDescription(description);
+				geolocation.setCoordinates(coordinates);
+				DaGeolocation.insert(geolocation);
+				return "succes";
+			} else {
+				return "exists";
+			}
+		} catch (SQLException ex) {
+			return "sql";
+		}
+	}
 
-    public static void insert(String name, String description, String coordinates) throws SQLException {
+	public static void delete(int id) throws SQLException {
 
-        Geolocation geolocation = new Geolocation();
-        geolocation.setAreaName(name);
-        geolocation.setAreaDescription(description);
-        geolocation.setCoordinates(coordinates);
-        DaGeolocation.insert(geolocation);
-    }
+		DaGeolocation.delete(id);
+	}
 
-    public static void delete(int id) throws SQLException {
+	public static String update(String name, String description, String coordinates, int id) {
 
-        DaGeolocation.delete(id);
-    }
-
-    public static void update(String name, String description, String coordinates, int id) throws SQLException {
-        Geolocation geolocation = new Geolocation();
-        geolocation.setAreaName(name);
-        geolocation.setAreaDescription(description);
-        geolocation.setCoordinates(coordinates);
-        geolocation.setGeolocationId(id);
-        DaGeolocation.update(geolocation);
-    }
+		try {
+			Geolocation geolocation = new Geolocation();
+			geolocation.setAreaName(name);
+			geolocation.setAreaDescription(description);
+			geolocation.setCoordinates(coordinates);
+			geolocation.setGeolocationId(id);
+			DaGeolocation.update(geolocation);
+			return "succes";
+		} catch (SQLException ex) {
+			return "sql";
+		}
+	}
 }

@@ -7,7 +7,6 @@ package Controllers;
 
 import Service.ServSeason;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,8 +24,8 @@ import javax.servlet.http.HttpServletResponse;
 public class DeleteSeason extends HttpServlet {
 
 	/**
-	 * Processes requests for both HTTP <code>GET</code> and
-	 * <code>POST</code> methods.
+	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+	 * methods.
 	 *
 	 * @param request servlet request
 	 * @param response servlet response
@@ -34,16 +33,16 @@ public class DeleteSeason extends HttpServlet {
 	 * @throws IOException if an I/O error occurs
 	 */
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException {
+			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-			
-			int id = Integer.parseInt(request.getParameter("id"));
-			try {
-				ServSeason.deleteSeason(id);
-			} catch (SQLException ex) {
-				Logger.getLogger(DeleteSeason.class.getName()).log(Level.SEVERE, null, ex);
-			}
+
+		int id = Integer.parseInt(request.getParameter("id"));
+		try {
+			ServSeason.deleteSeason(id);
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
 		}
+	}
 
 	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 	/**
@@ -56,7 +55,7 @@ public class DeleteSeason extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException {
+			throws ServletException, IOException {
 		processRequest(request, response);
 	}
 
@@ -70,7 +69,7 @@ public class DeleteSeason extends HttpServlet {
 	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException {
+			throws ServletException, IOException {
 		processRequest(request, response);
 	}
 

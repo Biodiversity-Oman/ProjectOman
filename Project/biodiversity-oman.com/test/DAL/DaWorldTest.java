@@ -43,13 +43,13 @@ public class DaWorldTest {
     /**
      * Test of selectAllWold method, of class DaWorld.
      */
-    @Test
-    public void testSelectAll() {
-       System.out.println("selectAll");
-        List<World> worlds = DaWorld.selectAll();
-        System.out.println(worlds);
-        
-    }
+//    @Test
+//    public void testSelectAll() {
+//       System.out.println("selectAll");
+//        List<World> worlds = DaWorld.selectAll();
+//        System.out.println(worlds);
+//        
+//    }
 //
 //    /**
 //     * Test of selectOneByIdWorld method, of class DaWorld.
@@ -64,18 +64,18 @@ public class DaWorldTest {
 //
 //    }
 //
-//    /**
-//     * Test of insertWorld method, of class DaWorld.
-//     */
-//    @Test
-//    public void testInsertWorld() throws Exception {
-//        System.out.println("insertWorld");
-//        World w = new World();
-//        w.setWorldName("micro");
-//        w.setDescription("dit is een test");
-//        DaWorld.insertWorld(w);
-//
-//    }
+    /**
+     * Test of insertWorld method, of class DaWorld.
+     */
+    @Test
+    public void testInsertWorld() throws Exception {
+        System.out.println("insertWorld");
+        World w = new World();
+        w.setWorldName("zerereerr");
+        w.setDescription("zzzzz");
+        DaWorld.insert(w);
+
+    }
 //
 //    /**
 //     * Test of deleteWorld method, of class DaWorld.

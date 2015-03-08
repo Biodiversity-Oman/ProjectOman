@@ -8,7 +8,6 @@ package Controllers;
 import Service.ServSubFamily;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -38,12 +37,12 @@ public class SelectAllSubFamilies extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+		
         try {
             List subfamilies = ServSubFamily.selectAllSubFamily();
             response.getWriter().write(new Gson().toJson(subfamilies));
-            
             } catch (SQLException ex) {
-			Logger.getLogger(SelectAllSubFamilies.class.getName()).log(Level.SEVERE, null, ex);
+			System.out.println(ex.getMessage());
 		}
     }
 

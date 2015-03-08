@@ -7,7 +7,6 @@ package Controllers;
 
 import Service.ServSeason;
 import java.io.IOException;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,16 +35,7 @@ public class InsertSeason extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String check = request.getParameter("season-name");
-        try {
-            if (ServSeason.checkSeasosExist(check) == false) {
-                ServSeason.insertSeason(check, request.getParameter("season-description"));
-                response.getWriter().write("succes");
-            } else {
-                response.getWriter().write("error1");
-            }
-        } catch (Exception ex) {
-            response.getWriter().write("error2");
-        }
+        response.getWriter().write(ServSeason.insertSeason(check, request.getParameter("season-description")));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
