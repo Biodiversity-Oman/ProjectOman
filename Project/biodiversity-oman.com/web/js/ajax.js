@@ -13,14 +13,14 @@ $(document).ready(function () {
 
     // general close-button function to close pop-ups dashboard.jsp
     $(document).on('click', '.close-button', function () {
-        $('.pop-up, .pop-up-scroll').hide()
+        $('.pop-up, .pop-up-scroll').hide();
         document.getElementById('fade').style.display = 'none';
     });
 
 //functie voor de zoekbalk in breed dashboard
-    $('#search-breed').keyup(function (e) {
+    $('#search-subfamily').keyup(function (e) {
 
-        var $table = $('#subfamily-table');
+        var $table = $('#subfamilies-table');
         var keyword = $(this).val();
         if (keyword.length >= 3) {
             $.ajax({
@@ -53,7 +53,7 @@ $(document).ready(function () {
                 });
             });
         } else {
-            loadSubFamilies()();
+            loadSubFamilies();
         }
         ;
     });

@@ -163,7 +163,7 @@ public class DaSubfamily {
         stmt = conn.prepareStatement("SELECT subfamily.subfamily_id, subfamily.subfamily_name, subfamily.subfamily_description, family.family_name, family.family_id\n"
                 + "FROM subfamily \n"
                 + "LEFT JOIN family on family.family_id = subfamily.family_id\n"
-                + "WHERE (CONCAT(subfamily.subfamily_name, family.family_name) LIKE '%" + keyword + "%') AND subfamily.isvalidated = '1'");
+                + "WHERE (CONCAT(subfamily.subfamily_name, family.family_name) LIKE '%" + keyword + "%')");
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Subfamily s = new Subfamily();
