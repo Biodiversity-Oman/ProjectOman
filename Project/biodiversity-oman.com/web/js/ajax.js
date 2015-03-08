@@ -637,7 +637,7 @@ $(document).ready(function () {
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.insert-box').hide();
+                $('.pop-up').hide();
                 document.getElementById('fade').style.display = 'none';
                 $("#update-world-form")[0].reset();
                 $message.empty();
@@ -666,7 +666,7 @@ $(document).ready(function () {
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.insert-box').hide();
+                $('.pop-up').hide();
                 document.getElementById('fade').style.display = 'none';
                 $("#update-habitat-form")[0].reset();
                 $message.empty();
@@ -695,7 +695,7 @@ $(document).ready(function () {
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.insert-box').hide();
+                $('.pop-up').hide();
                 document.getElementById('fade').style.display = 'none';
                 $("#update-family-form")[0].reset();
                 $message.empty();
@@ -724,7 +724,7 @@ $(document).ready(function () {
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.insert-box').hide();
+                $('.pop-up').hide();
                 document.getElementById('fade').style.display = 'none';
                 $("#update-subfamily-form")[0].reset();
                 $message.empty();
@@ -754,7 +754,7 @@ $(document).ready(function () {
                     }
                     setTimeout(function () {
                         $message.fadeOut('slow');
-                        $('.insert-box').hide();
+                        $('.pop-up').hide();
                         document.getElementById('fade').style.display = 'none';
                         $("#update-season-form")[0].reset();
                         $message.empty();
@@ -784,7 +784,7 @@ $(document).ready(function () {
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.insert-box').hide();
+                $('.pop-up').hide();
                 document.getElementById('fade').style.display = 'none';
                 $("#update-geolocation-form")[0].reset();
                 $message.empty();
