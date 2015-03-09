@@ -416,7 +416,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
                                                                                         <div class="col-sm-2">
-                                                                                                <button class="button-grey" id="organism-id" type="submit"><span class="icon-pencil2-button"></span>Update & Publish</button>
+                                                                                                <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update & Publish</button>
                                                                                         </div>
                                                                                 </div>
                                                                         </form>
