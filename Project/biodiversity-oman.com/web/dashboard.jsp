@@ -226,7 +226,7 @@
                                                                 </div>
                                                         </div>
                                                 </div>
-                                                <div id="detail-organism" class="pop-up">
+                                                <div id="detail-organism" class="pop-up-scroll">
                                                         <label class="close-button">x</label>
                                                         <div class="content">
                                                                 <div class="col-sm-2">
