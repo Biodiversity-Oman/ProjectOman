@@ -40,6 +40,7 @@ public class DeleteUserAccount extends HttpServlet {
                         if (!ServUserAccount.isLastUser())
                         {
                             ServUserAccount.deleteUserAccount(user);
+							response.sendRedirect("redirect.jsp");
                         }
                         else
                         {
@@ -49,6 +50,7 @@ public class DeleteUserAccount extends HttpServlet {
                     else
                     {
                         ServUserAccount.deleteUserAccount(user);
+						response.sendRedirect("redirect.jsp");
                     }
                 }
                 catch (java.sql.SQLException ex)

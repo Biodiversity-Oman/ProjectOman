@@ -17,7 +17,7 @@
         // wanneer er geen us.Object is aangemaakt redirect de server terug naar adminlogin.jsp. dit is om te voorkomen dat de gebruiker in de browser wwww.domain.com/welcome.jsp kan gebruike om	  // login te omzeilen.
         String message = "You are not logged in";
         session.setAttribute("error", message);
-        response.sendRedirect("adminlogin.jsp");
+        response.sendRedirect("login.jsp");
         return;
     }
 %>

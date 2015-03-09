@@ -4,12 +4,12 @@
     Author     : lenny
 --%>
 <%
-    response.setHeader("Refresh", "5; URL=adminlogin.jsp");
+    response.setHeader("Refresh", "5; URL=login.jsp");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <body>
-        <label>You will be redirected in 5 seconds.</label>
+        <label>Account succesfully Deleted, You will be redirected in 5 seconds.</label>
     </body>
 </html>
