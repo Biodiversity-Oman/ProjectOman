@@ -100,7 +100,6 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea class="form-control" rows="3" id="description-published" name="organism-description" pattern="[^()[\]{}*^%$<>#0-9@]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 9000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -154,35 +153,30 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="benefits-published"  name="organism-benefits" pattern="[^()[\]{}*^$<>#@]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="dangerous-published"  name="organism-dangerous" pattern="[^()[\]{}*&^%$<>#@]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="threats-published" name="organism-threats" pattern="[^()[\]{}*^$<>#@]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="opportunities-published" name="organism-opportunities" pattern="[^()[\]{}*^$<>#]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="links-published" name="organism-links" pattern="[^()[\]{}*^$<>#]+$" ></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -298,7 +292,6 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea class="form-control" rows="3" id="description-queue" name="organism-description" pattern="[^()[\]{}*^%$<>#0-9@]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 9000 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -351,35 +344,30 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="benefits-queue"  name="organism-benefits" pattern="[^()[\]{}*^$<>#@]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="dangerous-queue"  name="organism-dangerous" pattern="[^()[\]{}*&^%$<>#@]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="threats-queue" name="organism-threats" pattern="[^()[\]{}*^$<>#@]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="opportunities-queue" name="organism-opportunities" pattern="[^()[\]{}*^$<>#]+$"></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" id="links-queue" name="organism-links" pattern="[^()[\]{}*^$<>#]+$" ></textarea>
-                                                                                                <span class="help-block with-errors">Up to 2000 characters upper/lower case</span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
