@@ -391,36 +391,39 @@ $(document).ready(function () {
 
     // create user form usermanagement.jsp
     $('#create-user-form').submit(function (e) {
+	
+	if ($('#create-user-form').find('.has-error').length) return;
+	var $message = $('#create-user-message');
+	$message.show();
+	$.ajax({
+	    url: 'InsertUserAccount',
+	    type: 'POST',
+	    dataType: 'text',
+	    data: $('#create-user-form').serialize()
+	}).done(function (data) {
+	    if (data === 'succes') {
+		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User succesfully created</div>');
+	    } else if (data === 'exists') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Username already exists</div>');
+	    } else if (data === 'sql') {
+		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+	    }
+	    setTimeout(function () {
+		$message.fadeOut('slow');
+		$message.empty();
+	    }, 2800);
+	    $("#create-user-form")[0].reset();
+	}).always(function () {
+	    loadUsers();
+	});
+	e.preventDefault();
 
-        var $message = $('#create-user-message');
-        $message.show();
-        $.ajax({
-            url: 'InsertUserAccount',
-            type: 'POST',
-            dataType: 'text',
-            data: $('#create-user-form').serialize()
-        }).done(function (data) {
-            if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User succesfully created</div>');
-            } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Username already exists</div>');
-            } else if (data === 'sql') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
-            }
-            setTimeout(function () {
-                $message.fadeOut('slow');
-                $message.empty();
-            }, 2800);
-            $("#create-user-form")[0].reset();
-        }).always(function () {
-            loadUsers();
-        });
-        e.preventDefault();
     });
 
     // create season form usermanagement.jsp
     $('#create-season-form').submit(function (e) {
 
+	if ($('#create-season-form').find('.has-error').length) return;
         var $message = $('#create-season-message');
         $message.show();
         $.ajax({
@@ -450,6 +453,7 @@ $(document).ready(function () {
     // create habitat form usermanagement.jsp
     $('#create-habitat-form').submit(function (e) {
 
+	if ($('#create-habitat-form').find('.has-error').length) return;
         var $message = $('#create-habitat-message');
         $message.show();
         $.ajax({
@@ -478,7 +482,8 @@ $(document).ready(function () {
 
     // functie inserten van world. dashboard.jsp
     $('#create-world-form').submit(function (e) {
-
+	
+	if ($('#create-world-form').find('.has-error').length) return;
         var $message = $('#create-world-message');
         $message.show();
         $.ajax({
@@ -509,6 +514,7 @@ $(document).ready(function () {
     // functie inserten van family. dashboard.jsp
     $('#create-family-form').submit(function (e) {
 
+	if ($('#create-family-form').find('.has-error').length) return;
         var $message = $('#create-family-message');
         $message.show();
         $.ajax({
@@ -539,6 +545,7 @@ $(document).ready(function () {
     // functie inserten van subfamily. dashboard.jsp
     $('#create-subfamily-form').submit(function (e) {
 
+	if ($('#create-subfamily-form').find('.has-error').length) return;
         var $message = $('#create-subfamily-message');
         $message.show();
         $.ajax({
@@ -568,6 +575,7 @@ $(document).ready(function () {
     // functie inserten van geolocation. dashboard.jsp
     $('#create-geolocation-form').submit(function (e) {
 
+	if ($('#create-geolocation-form').find('.has-error').length) return;
         var $message = $('#create-geolocation-message');
         $message.show();
         $.ajax({
@@ -597,6 +605,7 @@ $(document).ready(function () {
     // functie inserten van Organism. dashboard.jsp
     $('#create-organism-form').submit(function (e) {
 
+	if ($('#create-organism-form').find('.has-error').length) return;
         var $message = $('#create-organism-message');
         $message.show();
         var formData = new FormData($(this)[0]);
@@ -635,6 +644,7 @@ $(document).ready(function () {
     //Update user in userinfo.jsp
     $('#update-user-form').submit(function (e) {
 
+	if ($('#update-user-form').find('.has-error').length) return;
         var $message = $('#update-user-message');
         $message.show();
         var updatebtn = $('#update');
@@ -669,6 +679,7 @@ $(document).ready(function () {
     //function for update world
     $('#update-world-form').submit(function (e) {
 
+	if ($('#update-world-form').find('.has-error').length) return;
         var $message = $('#update-world-message');
         $message.show();
         $.ajax({
@@ -698,6 +709,7 @@ $(document).ready(function () {
     // function for update habitat
     $('#update-habitat-form').submit(function (e) {
 
+	if ($('#update-habitat-form').find('.has-error').length) return;
         var $message = $('#update-habitat-message');
         $message.show();
         $.ajax({
@@ -727,6 +739,7 @@ $(document).ready(function () {
     // functie update van family
     $('#update-family-form').submit(function (e) {
 
+	if ($('#update-family-form').find('.has-error').length) return;
         var $message = $('#update-family-message');
         $message.show();
         $.ajax({
@@ -756,6 +769,7 @@ $(document).ready(function () {
     // functie update van subfamily
     $('#update-subfamily-form').submit(function (e) {
 
+	if ($('#update-subfamily-form').find('.has-error').length) return;
         var $message = $('#update-subfamily-message');
         $message.show();
         $.ajax({
@@ -785,6 +799,7 @@ $(document).ready(function () {
     //function for update season
     $('#update-season-form').submit(function (e) {
 
+	if ($('#update-season-form').find('.has-error').length) return;
         var $message = $('#update-season-message');
         $message.show();
         $.ajax({
@@ -816,6 +831,7 @@ $(document).ready(function () {
     // functie update van geolocation
     $('#update-geolocation-form').submit(function (e) {
 
+	if ($('#update-geolocation-form').find('.has-error').length) return;
         var $message = $('#update-geolocation-message');
         $message.show();
         $.ajax({
@@ -845,6 +861,7 @@ $(document).ready(function () {
     // function for update of Organism/published in publish.jsp
     $('#update-published-organism-form').submit(function (e) {
 
+	if ($('#update-published-organism-form').find('.has-error').length) return;
         var $message = $('#update-published-organism-message');
         $message.show();
         var formData = new FormData($(this)[0]);
@@ -882,6 +899,7 @@ $(document).ready(function () {
     // function for update of Organism/pending. in dashboard.jsp
     $('#update-pending-organism-form').submit(function (e) {
 
+	if ($('#update-pending-organism-form').find('.has-error').length) return;
         var $message = $('#update-pending-organism-message');
         $message.show();
         var formData = new FormData($(this)[0]);
@@ -919,6 +937,7 @@ $(document).ready(function () {
     // function for update of Organism/queue. in publish.jsp
     $('#update-queue-organism-form').submit(function (e) {
 
+	if ($('#update-queue-organism-form').find('.has-error').length) return;
         var $message = $('#update-queue-organism-message');
         $message.show();
         var formData = new FormData($(this)[0]);
