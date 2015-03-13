@@ -730,7 +730,8 @@ public class DaOrganism {
 		conn = DataSource.getConnection();
 		stmt = conn.prepareStatement("SELECT organism_id, common_name, scientific_name, inserted_on, updated_on\n"
 				+ "FROM organism \n"
-				+ "WHERE (CONCAT(common_name, scientific_name) LIKE '%" + keyword + "%') AND isvalidated = '1'");
+				+ "WHERE (CONCAT(common_name, scientific_name) LIKE '%' ? '%') AND isvalidated = '1'");
+                stmt.setString(1, keyword);
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			Organism o = new Organism();
@@ -751,7 +752,8 @@ public class DaOrganism {
 		conn = DataSource.getConnection();
 		stmt = conn.prepareStatement("SELECT organism_id, common_name, scientific_name, inserted_on, updated_on\n"
 				+ "FROM organism \n"
-				+ "WHERE (CONCAT(common_name, scientific_name) LIKE '%" + keyword + "%') AND isvalidated = '0'");
+				+ "WHERE (CONCAT(common_name, scientific_name) LIKE '%' ? '%') AND isvalidated = '0'");
+                 stmt.setString(1, keyword);
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			Organism o = new Organism();
