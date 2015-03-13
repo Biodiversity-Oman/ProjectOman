@@ -61,7 +61,8 @@ public class DaSubscriber {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("DELETE FROM subscriber WHERE subscriber_id=" + subScriberId + "");
+			stmt = conn.prepareStatement("DELETE FROM subscriber WHERE subscriber_id=?");
+                        stmt.setInt(1, subScriberId);
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
