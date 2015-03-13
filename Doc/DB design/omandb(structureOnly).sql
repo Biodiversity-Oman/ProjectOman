@@ -239,6 +239,14 @@ CREATE TABLE IF NOT EXISTS `user_account` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 -- --------------------------------------------------------
+--
+-- Gegevens worden uitgevoerd voor tabel `user_account`
+--
+
+INSERT INTO `user_account` (`username`, `password`, `first_name`, `last_name`, `email`, `city`, `country`, `isadmin`, `phone`) VALUES
+('admin', '$2a$10$RAt.PEEQXHnV/sCj2VIwNOUige9631BllsXqUITcJK3kpcp0/SAB2', 'admin', 'admin', 'admin@admin.com', 'admin', 'admin', 0, '0123456789'),
+('admin1', '$2a$10$1jvdazlPQRKLFD7qkjMGFeOkY6shhl3GVtf27DHPTX5/Hdr9rMDLK', 'admin1', 'admin1', 'admin1@admin.com', 'admin1', 'admin1', 0, '0123456789'),
+('user', '$2a$10$MK7bYaL2mun7kD4vza6BEO.n1eUypaAjs/zuxYuXkxOfOe853doDa', 'user', 'user', 'user@admin.com', 'user', 'user', 1, '0123456789');
 
 --
 -- Tabelstructuur voor tabel `world`
