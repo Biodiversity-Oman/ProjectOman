@@ -39,7 +39,8 @@ public class DaWorld {
 
 		World w = new World();
 		conn = DataSource.getConnection();
-		stmt = conn.prepareStatement("SELECT world_name, world_description FROM world WHERE world_id=" + worldId + "");
+		stmt = conn.prepareStatement("SELECT world_name, world_description FROM world WHERE world_id=?");
+                stmt.setString(1, Integer.toString(worldId));
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			w.setWorldName(rs.getString("world_name"));
@@ -72,11 +73,14 @@ public class DaWorld {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(true);
-			stmt = conn.prepareStatement("UPDATE family SET world_id=null WHERE world_id=" + worldId);
+			stmt = conn.prepareStatement("UPDATE family SET world_id=null WHERE world_id=?");
+                        stmt.setString(1, Integer.toString(worldId));
 			stmt.executeUpdate();
-			stmt = conn.prepareStatement("UPDATE download SET world_id=null WHERE world_id=" + worldId);
+			stmt = conn.prepareStatement("UPDATE download SET world_id=null WHERE world_id=?");
+                        stmt.setString(1, Integer.toString(worldId));
 			stmt.executeUpdate();
-			stmt = conn.prepareStatement("DELETE FROM world WHERE world_id=" + worldId);
+			stmt = conn.prepareStatement("DELETE FROM world WHERE world_id=?");
+                        stmt.setString(1, Integer.toString(worldId));
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
@@ -93,9 +97,10 @@ public class DaWorld {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE world set world_name = ?, world_description = ? WHERE world_id=" + world.getWorldId());
+			stmt = conn.prepareStatement("UPDATE world set world_name = ?, world_description = ? WHERE world_id=?");
 			stmt.setString(1, world.getWorldName());
 			stmt.setString(2, world.getDescription());
+                        stmt.setString(3, Integer.toString(world.getWorldId()));
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
