@@ -1,0 +1,211 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 12, 2015, 1:59:52 PM
+    Author     : lenny
+*/
+/*--------------------------------------------------------*/
+/* -------------- General -------------- */
+/*--------------------------------------------------------*/
+body, html {
+    margin: 0 auto;
+    background-color: #F5F5FF;
+    font-size: 100%;
+    opacity: 1;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    min-width: 100%;
+}
+a {
+    outline: none;
+    text-decoration: none;
+}
+.button {
+    border-style: none;
+    border-radius: 2px;
+    font-family: 'Montser', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 15px 40px;
+}
+.btn-material-yellow {
+    background-color: #ffc107;
+    color: #ffffff;
+    
+    margin-top: 6em;
+}
+/*--------------------------------------------------------*/
+/* -------------- header & navigation --------------*/
+/*--------------------------------------------------------*/
+nav ul {
+    background: #ffffff;
+    box-shadow: 1px  1px 1px #ffffff ;
+    padding: 0em;
+    opacity: 0.9;
+    margin: 0 auto;
+    list-style: none;
+    position: fixed;
+    display: block;
+    top: 0;
+    min-width: 100%;
+    width: 100%;
+    z-index:1000;
+    font-size: 1.1em;
+    height: 4em;
+    font-family: 'Montserrat', sans-serif;
+}
+nav ul:after {
+    content: ""; clear: both; display: block;
+}
+nav ul li {
+    float: left;
+    margin: auto;
+    color: black;
+    height: auto;
+}
+nav ul li:hover a {
+    color: #282828;
+}
+nav ul li a {
+    display: block; 
+    padding: 17px 27px;
+    color: #212121; 
+    font-size: 1.1em;
+}
+nav ul ul {
+    background: white; border-radius: 0px; padding: 0;
+    position: absolute; top: 100%;
+    width: 17em;
+    font-size: 2em;
+}
+nav ul ul li {
+    float: none; 
+    border-bottom: 1px solid #A00000;
+    position: relative;
+}
+nav ul ul li a {
+    padding: 13px 20px;
+    color: black;
+}   
+nav ul ul ul {
+    position: absolute; left: 100%; top:0;
+    width: 16em;
+}
+.right {
+    float: right;
+    margin-right: 2em;
+}
+.left {
+    float: left;
+}
+/*--------------------------------------------------------*/
+/* -------------- Wrapper -------------- */
+/*--------------------------------------------------------*/
+.wrapper {
+    background-color: #ffffff; /*#ffffff*/
+    width: 100%;
+    height: auto;
+    float: left;
+}
+/*--------------------------------------------------------*/
+/* -------------- Event-Container -------------- */
+/*--------------------------------------------------------*/
+.event-container {
+    width: 100%;
+    height: auto;
+    margin-top: 4.5em;
+    float: left;
+    position: relative;
+    font-family: museo300;
+    color: #ffffff;
+    background-color: #00bcd4;
+    padding-bottom: 5em;
+    padding-top: 5em;
+}
+/*--------------------------------------------------------*/
+/* -------------- Calendar-Container -------------- */
+/*--------------------------------------------------------*/
+.calendar-container {
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+    font-family: museo300;
+    color: #212121;
+    background-color: #ffffff;
+    padding-bottom: 5em;
+    padding-top: 3em;
+    position: relative;
+}
+.calendar-container p {
+    color: #B6B6B6;
+}
+.calendar-container h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+/*--------------------------------------------------------*/
+/* -------------- Worlds-Container -------------- */
+/*--------------------------------------------------------*/
+.worlds-container {
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+    font-family: museo300;
+    color: #212121;
+    background-color: #ffc107;
+    padding-bottom: 5em;
+    padding-top: 3em;
+    position: relative;
+}
+.world {
+    height: 9em;
+    margin-top: 0.5em;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+.world h2 {
+    padding-top: 1em;
+}
+.marine-world {
+    background-color: #03a9f4;
+}
+.animal-world {
+    background-color: #f44336;
+}
+.plant-world {
+    background-color: #009688;
+}
+.microbial-world {
+    background-color: #ffeb3b;
+}
+/*--------------------------------------------------------*/
+/* -------------- HowTo-Container -------------- */
+/*--------------------------------------------------------*/
+.howto-container {
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+    font-family: museo300;
+    color: #212121;
+    background-color: #ffffff;
+    padding-bottom: 5em;
+    padding-top: 3em;
+    position: relative;
+}
+/*--------------------------------------------------------*/
+/* -------------- Footer-Container -------------- */
+/*--------------------------------------------------------*/
+.footer-container {
+    width: 100%;
+    height: auto;
+    float: left;
+    font-family: museo300;
+    color: #212121;
+    background-color: #727272;
+    padding-bottom: 5em;
+    padding-top: 3em;
+    position: relative;
+}

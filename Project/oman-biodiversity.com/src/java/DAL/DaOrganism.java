@@ -144,7 +144,8 @@ public class DaOrganism {
 				+ "LEFT JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"
 				+ "LEFT JOIN family ON subfamily.family_id = family.family_id \n"
 				+ "LEFT JOIN world ON family.world_id = world.world_id \n"
-				+ "WHERE organism.organism_id=" + id);
+				+ "WHERE organism.organism_id= ?");
+		stmt.setInt(1, id);
 		ResultSet rsOrganism = stmt.executeQuery();
 
 		// De volgende statements worden gebruikt om de many to many relaties van organism uit te lezen 
