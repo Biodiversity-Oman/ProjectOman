@@ -39,7 +39,8 @@ public class DaHabitat {
 
 		Habitat h = new Habitat();
 		conn = DataSource.getConnection();
-		stmt = conn.prepareStatement("SELECT * FROM habitat WHERE habitat_id=" + id);
+		stmt = conn.prepareStatement("SELECT * FROM habitat WHERE habitat_id=?");
+                stmt.setInt(1, id);
 		ResultSet rs = stmt.executeQuery();
 		rs.next();
 		h.setHabitatId(rs.getInt("habitat_id"));
@@ -54,7 +55,8 @@ public class DaHabitat {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("DELETE FROM habitat WHERE HABITAT_ID=" + id + "");
+			stmt = conn.prepareStatement("DELETE FROM habitat WHERE HABITAT_ID=?");
+                        stmt.setInt(1, id);
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
@@ -71,9 +73,10 @@ public class DaHabitat {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE habitat SET habitat_name=?, habitat_description=? WHERE habitat_id=" + h.getHabitatId());
+			stmt = conn.prepareStatement("UPDATE habitat SET habitat_name=?, habitat_description=? WHERE habitat_id=?");
 			stmt.setString(1, h.getHabitatName());
 			stmt.setString(2, h.getHabitatDescription());
+                        stmt.setInt(3, h.getHabitatId());
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {

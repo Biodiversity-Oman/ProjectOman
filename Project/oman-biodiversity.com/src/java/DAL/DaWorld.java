@@ -100,7 +100,7 @@ public class DaWorld {
 			stmt = conn.prepareStatement("UPDATE world set world_name = ?, world_description = ? WHERE world_id=?");
 			stmt.setString(1, world.getWorldName());
 			stmt.setString(2, world.getDescription());
-                        stmt.setString(3, Integer.toString(world.getWorldId()));
+                        stmt.setInt(3, world.getWorldId());
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
