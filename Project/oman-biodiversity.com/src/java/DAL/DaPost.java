@@ -60,7 +60,8 @@ public class DaPost {
 
 		Post p = new Post();
 		conn = DataSource.getConnection();
-		stmt = conn.prepareStatement("SELECT * FROM post WHERE post_id=" + id);
+		stmt = conn.prepareStatement("SELECT * FROM post WHERE post_id=?");
+                stmt.setInt(1, id);
 		ResultSet rs = stmt.executeQuery();
 		rs.next();
 		p.setOrganismId(rs.getInt("organism_id"));
@@ -78,7 +79,8 @@ public class DaPost {
 
 		List<Post> posts = new ArrayList();
 		conn = DataSource.getConnection();
-		stmt = conn.prepareStatement("SELECT * FROM post WHERE organism_id=" + organismId);
+		stmt = conn.prepareStatement("SELECT * FROM post WHERE organism_id=?");
+                stmt.setInt(1, organismId);
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			Post p = new Post();
@@ -142,7 +144,8 @@ public class DaPost {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("DELETE FROM post WHERE post_id=" + id);
+			stmt = conn.prepareStatement("DELETE FROM post WHERE post_id=?");
+                        stmt.setInt(1, id);
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
@@ -160,7 +163,7 @@ public class DaPost {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("UPDATE post SET (organism_id=?, post_first_name=?, "
-					+ "post_last_name=?, post_email=?, post_description=?,  post_longitude=?, post_latitude=? WHERE post_id=" + p.getPostId());
+					+ "post_last_name=?, post_email=?, post_description=?,  post_longitude=?, post_latitude=? WHERE post_id=?");
 			stmt.setInt(1, p.getOrganismId());
 			stmt.setString(2, p.getPostFirstName());
 			stmt.setString(3, p.getPostLastName());
@@ -168,6 +171,7 @@ public class DaPost {
 			stmt.setString(5, p.getPostDescription());
 			stmt.setString(6, p.getPostLongitude());
 			stmt.setString(7, p.getPostLatitude());
+                        stmt.setInt(1, p.getPostId());
 			conn.commit();
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
