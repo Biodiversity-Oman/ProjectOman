@@ -40,7 +40,7 @@ public class DaDownload {
 		Download download = new Download();
 		conn = DataSource.getConnection();
 		stmt = conn.prepareStatement("SELECT * FROM download WHERE download_id=?");
-                stmt.setString(1, Integer.toString(id));
+                stmt.setInt(1, id);
 		ResultSet rs = stmt.executeQuery();
 		rs.next();
 		download.setDownloadId(id);
@@ -55,7 +55,7 @@ public class DaDownload {
 		List<Download> downloads = new ArrayList();
 		conn = DataSource.getConnection();
 		stmt = conn.prepareStatement("SELECT * FROM download WHERE world_id=?");
-                stmt.setString(1, Integer.toString(id));
+                stmt.setInt(1, id);
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			Download download = new Download();
@@ -93,7 +93,7 @@ public class DaDownload {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("DELETE FROM download WHERE download_id=?");
-                        stmt.setString(1, Integer.toString(id));
+                        stmt.setInt(1, id);
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {

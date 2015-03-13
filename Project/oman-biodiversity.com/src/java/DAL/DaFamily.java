@@ -42,7 +42,8 @@ public class DaFamily {
 
 		Family f = new Family();
 		conn = DataSource.getConnection();
-		stmt = conn.prepareStatement("SELECT * FROM family WHERE family_id=" + id);
+		stmt = conn.prepareStatement("SELECT * FROM family WHERE family_id=?");
+                stmt.setString(1, Integer.toString(id));
 		ResultSet rs = stmt.executeQuery();
 		rs.next();
 		f.setFamilyId(rs.getInt("family_id"));
@@ -57,7 +58,8 @@ public class DaFamily {
 
 		Family f = new Family();
 		conn = DataSource.getConnection();
-		stmt = conn.prepareStatement("SELECT * FROM family WHERE world_id=" + id);
+		stmt = conn.prepareStatement("SELECT * FROM family WHERE world_id=?");
+                stmt.setString(1, Integer.toString(id));
 		ResultSet rs = stmt.executeQuery();
 		rs.next();
 		f.setFamilyId(rs.getInt("family_id"));
@@ -72,9 +74,11 @@ public class DaFamily {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("UPDATE subfamily SET family_id=null WHERE family_id=" + familyId);
+			stmt = conn.prepareStatement("UPDATE subfamily SET family_id=null WHERE family_id=?");
+                        stmt.setString(1, Integer.toString(familyId));
 			stmt.executeUpdate();
-			stmt = conn.prepareStatement("DELETE FROM family WHERE family_id=" + familyId);
+			stmt = conn.prepareStatement("DELETE FROM family WHERE family_id=?");
+                        stmt.setString(1, Integer.toString(familyId));
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
@@ -92,10 +96,11 @@ public class DaFamily {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("UPDATE family "
-					+ "SET family_name=?, family_description=?, world_id=? WHERE family_id=" + fam.getFamilyId() + "");
+					+ "SET family_name=?, family_description=?, world_id=? WHERE family_id=?");
 			stmt.setString(1, fam.getFamilyName());
 			stmt.setString(2, fam.getFamilyDescription());
 			stmt.setInt(3, fam.getWorldId());
+                        stmt.setInt(4, fam.getFamilyId());
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {

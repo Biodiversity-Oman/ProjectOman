@@ -40,7 +40,7 @@ public class DaWorld {
 		World w = new World();
 		conn = DataSource.getConnection();
 		stmt = conn.prepareStatement("SELECT world_name, world_description FROM world WHERE world_id=?");
-                stmt.setString(1, Integer.toString(worldId));
+                stmt.setInt(1, worldId);
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			w.setWorldName(rs.getString("world_name"));
@@ -77,10 +77,10 @@ public class DaWorld {
                         stmt.setString(1, Integer.toString(worldId));
 			stmt.executeUpdate();
 			stmt = conn.prepareStatement("UPDATE download SET world_id=null WHERE world_id=?");
-                        stmt.setString(1, Integer.toString(worldId));
+                        stmt.setInt(1, worldId);
 			stmt.executeUpdate();
 			stmt = conn.prepareStatement("DELETE FROM world WHERE world_id=?");
-                        stmt.setString(1, Integer.toString(worldId));
+                        stmt.setInt(1, worldId);
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
