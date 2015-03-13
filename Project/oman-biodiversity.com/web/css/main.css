@@ -95,6 +95,9 @@ nav ul ul ul {
     position: absolute; left: 100%; top:0;
     width: 16em;
 }
+.slicknav_menu {
+	display:none;
+}
 .right {
     float: right;
     margin-right: 2em;
@@ -208,4 +211,19 @@ nav ul ul ul {
     padding-bottom: 5em;
     padding-top: 3em;
     position: relative;
+}
+/*--------------------------------------------------------*/
+/* -------------- Media Queries -------------- */
+/*--------------------------------------------------------*/
+@media screen and (max-width: 465px) {
+	/* #menu is the original menu */
+	 #menu {
+		display:none;
+	}
+	.slicknav_menu {
+		display:block;
+	}
+    .event-container {
+        margin-top: 0;
+    }
 }
