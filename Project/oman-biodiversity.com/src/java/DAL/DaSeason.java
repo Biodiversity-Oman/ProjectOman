@@ -61,7 +61,8 @@ public class DaSeason {
 		conn = DataSource.getConnection();
 		stmt = conn.prepareStatement("SELECT * FROM organism_season "
 				+ "INNER JOIN season ON season.season_id = organism_season.season_id "
-				+ "WHERE organism_id=" + organismId);
+				+ "WHERE organism_id=?");
+                stmt.setInt(1, organismId);
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			Season season = new Season();
@@ -80,9 +81,10 @@ public class DaSeason {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("UPDATE season "
-					+ "SET season_name=?, season_description=? WHERE season_id=" + seas.getSeasonId() + "");
+					+ "SET season_name=?, season_description=? WHERE season_id=?");
 			stmt.setString(1, seas.getSeasonName());
 			stmt.setString(2, seas.getSeasonDescription());
+                        stmt.setInt(1, seas.getSeasonId());
 			stmt.executeUpdate();
 			conn.commit();
 		} catch (SQLException ex) {
@@ -99,7 +101,8 @@ public class DaSeason {
 		try {
 			conn = DataSource.getConnection();
 			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement("DELETE FROM season WHERE season_id=" + id + "");
+			stmt = conn.prepareStatement("DELETE FROM season WHERE season_id=?");
+                        stmt.setInt(1, id);
 			stmt.executeUpdate();
 			conn.commit();
 
