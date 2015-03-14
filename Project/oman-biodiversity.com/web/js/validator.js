@@ -76,6 +76,11 @@
       return !$el.val() || $el.val().length >= minlength
     }
   }
+  
+  Validator.VALIDATORS.pattern = function ($el) {
+        var patternRegExp = $el.data('pattern');
+        return $el.val().match(eval(patternRegExp));
+    };
 
   Validator.prototype.validateInput = function (e) {
     var $el        = $(e.target)
