@@ -21,10 +21,6 @@ body, html {
     min-width: 100%;
     max-width: 100%;
 }
-a {
-    outline: none;
-    text-decoration: none;
-}
 .button {
     border-style: none;
     border-radius: 2px;
@@ -64,23 +60,30 @@ nav ul {
     height: 4em;
     font-family: 'Montserrat', sans-serif;
 }
-nav ul:after {
-    content: ""; clear: both; display: block;
-}
 nav ul li {
     float: left;
     margin: auto;
     color: black;
     height: auto;
 }
+nav ul li a:focus {
+    outline: none;
+    color: #00bcd4;
+    text-decoration-line: none;
+}
 nav ul li:hover a {
     color: #282828;
+    text-decoration: none;
+    outline: none;
 }
+
 nav ul li a {
     display: block; 
-    padding: 24px 20px;
+    padding: 24px 40px;
     color: #212121; 
     font-size: 1.1em;
+    text-decoration-color: red;
+    outline: none;
 }
   
 .slicknav_menu {
@@ -114,7 +117,7 @@ nav ul li a {
     font-family: museo300;
     color: #ffffff;
     background-color: #00bcd4;
-    padding-top: 5em;
+    padding-top: 3em;
 }
 /*--------------------------------------------------------*/
 /* -------------- Calendar-Container -------------- */
