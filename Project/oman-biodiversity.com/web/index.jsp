@@ -28,8 +28,8 @@
         <body>
                 <div class="wrapper">
                         <section class="event-container" id="event">
-                                <div class="col-md-12 col-md-offset-1">
-                                        <div class="col-md-12">
+                                <div class="col-md-11 col-md-offset-1">
+                                        <div class="col-md-11">
                                                 <h1>Lorem Ipsum</h1>
                                                 <p class="lead">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
                                         </div>
@@ -42,20 +42,18 @@
                                                 <h3>blabla</h3>
                                                 <p class="text-left">In hac habitasse platea dictumst. Ut posuere non ligula a dignissim. Duis pharetra ex vel nibh vestibulum, sed ultricies urna feugiat. Nam lacus risus, gravida at bibendum sed, convallis ut neque. Morbi sed scelerisque mi. Nulla quis erat et tortor mattis ornare ac eget elit. Duis eget sapien mollis, faucibus nisi vitae, tempus massa. Pellentesque et vulputate velit. Nulla arcu nisi, volutpat sed porta nec, congue sed ligula. Nunc vulputate metus eu orci imperdiet, in blandit massa scelerisque. Duis est turpis, posuere a molestie sit amet, ullamcorper nec orci. </p>
                                         </div>
-                                        <div class="col-md-4">
-                                                <div class="col-xs-12">
-                                                        <div class="col-md-12">
+                                        <div class="col-md-4"  >
+                                                <div class="col-xs-12 col-md-offset-3" >
+                                                        
                                                                 <a href="#worlds"><button class="button btn-material-yellow"><strong>Find out more about Organisms!</strong></button></a>
-                                                        </div>
-                                                        <div class="col-md-9">
-                                                        </div>
+                                                        
                                                 </div>
                                         </div>
                                        
                                 </div>
                         </section>
                         <section class="menu calendar-container" id="event-calendar">
-                                <div class="col-lg-12 col-md-offset-1">
+                                <div class="col-lg-11 col-md-offset-1">
                                         <div class="col-lg-10">
                                                 <h1><u>Event Calendar</u></h1>
                                                 <p class="lead">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
@@ -66,7 +64,7 @@
                                 </div>
                         </section>
                         <section class="worlds-container" id="worlds">
-                                <div class="col-lg-10 col-md-offset-1">
+                                <div class="col-lg-11 col-md-offset-1">
                                         <div class="col-lg-7">
                                                 <h1><u>Choose a World</u></h1>
                                                 <p class="lead">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
