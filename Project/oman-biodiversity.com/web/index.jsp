@@ -36,7 +36,7 @@
                                         <div class="col-md-4">
                                                 <h3>DNA</h3>
                                                 <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra, est eu scelerisque placerat, erat dolor consectetur tellus, id elementum urna tortor nec massa. Donec eros tellus, commodo at nibh at, dapibus faucibus nisl. Sed pellentesque mi id scelerisque ultricies. Ut facilisis egestas varius. Pellentesque suscipit leo nec leo posuere, in auctor ante ornare. Sed tempus nunc diam, ut rhoncus eros pulvinar ac. In non nisl auctor, ornare augue ut, luctus odio. Vestibulum ut vulputate quam. Etiam in leo risus. Aenean luctus eget nisi quis rutrum. Nulla facilisi.</p>
-                                                <img src="img/oman-logo.png" width="400" height="287">
+                                                <img class="event-image" src="img/oman-logo.png" width="400" height="287">
                                         </div>
                                         <div class="col-md-2">
                                                 <h3>blabla</h3>
