@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="js/jquery.imagemapster.js"></script>
+<title>Untitled Document</title>
+</head>
+
+<body>
+<img src="images/home world.png" id="shape1" usemap="#shape1" class="responsive" />
+<map name="shape1">
+  <area shape="rect" color="blue" coords="42,44,857,516" href="#animal_world" alt="animal" >
+  <area shape="rect" color="purple" coords="41,620,866,1207" href="#microbial_world" alt="micro">
+  <area shape="rect" color="red" coords="898,622,1685,1227" href="#plant_world" alt="Plant">
+<area shape="rect" color="green" coords="885,52,1681,517" href="#plant_world" alt="plant">
+<area shape="default" nohref>
+</map>
+<script>
+$(document).ready(function ()
+{
+	$('#shape1').mapster({
+	singleSelect : true,
+	clickNavigate : true,
+     mapKey: 'color',
+	 fade: true,
+	 fadeDuration: 150,
+	fillOpacity: 0.2,
+});
+});
+</script>
+</body>
+</html>
