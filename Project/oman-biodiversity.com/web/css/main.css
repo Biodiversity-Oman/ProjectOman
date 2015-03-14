@@ -32,8 +32,10 @@ body, html {
 .btn-material-yellow {
     background-color: #ffc107;
     color: #ffffff;
-    margin-top: 12em;
+    margin-top: 0em;
     margin-bottom: 1em;
+    width: 100%;
+    font-size: 1.4em;
 }
 /*--------------------------------------------------------*/
 /* -------------- header & navigation --------------*/
@@ -124,6 +126,7 @@ nav ul li a {
     width:  400px; 
     height: 287px;
 }
+
 /*--------------------------------------------------------*/
 /* -------------- Calendar-Container -------------- */
 /*--------------------------------------------------------*/
@@ -153,7 +156,7 @@ nav ul li a {
     float: left;
     font-family: museo300;
     color: #212121;
-    background-color: #ffc107;
+    background-color: #ffeb3b;
     padding-bottom: 5em;
     padding-top: 3em;
     position: relative;
@@ -172,8 +175,10 @@ nav ul li a {
 }
 .slide-panel {
     display:none;
-    height: 10em;
+    height: auto;
     margin-top: 0.3em;
+    padding: 1em 1em 1em 1em;
+    color: #ffffff;
 }
 .animal-world {
     background-color: #f44336;
@@ -182,7 +187,7 @@ nav ul li a {
     background-color: #009688;
 }
 .microbial-world {
-    background-color: #ffeb3b;
+    background-color: #ffc107;
 }
 /*--------------------------------------------------------*/
 /* -------------- HowTo-Container -------------- */
@@ -229,7 +234,6 @@ nav ul li a {
     .btn-material-yellow {
         background-color: #ffc107;
         color: #ffffff;
-        margin-top: 1em;
         margin-bottom: 1em;
     }
     .event-image {
@@ -242,7 +246,5 @@ nav ul li a {
     }
     .world h2 {
         padding-top: 0.3em;
-        
     }
-
 }
