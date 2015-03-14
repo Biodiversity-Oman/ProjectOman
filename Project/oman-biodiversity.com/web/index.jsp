@@ -9,15 +9,22 @@
 <html>
         <script>
             $(document).ready(function () {
-
-                // page is now ready, initialize the calendar...
-
                 $('#calendar').fullCalendar({
-                    // put your options and callbacks here
+                   
                 });
-
+                $("#slide-marine-world").click(function () {
+                    $("#marine-world-panel").slideToggle("slow");
+                });
+                $("#slide-animal-world").click(function () {
+                    $("#animal-world-panel").slideToggle("slow");
+                });
+                $("#slide-plant-world").click(function () {
+                    $("#plant-world-panel").slideToggle("slow");
+                });
+                $("#slide-microbial-world").click(function () {
+                    $("#microbial-world-panel").slideToggle("slow");
+                });
             });
-
             $('a').click(function () {
                 $('html, body').animate({
                     scrollTop: $($(this).attr('href')).offset().top
@@ -36,7 +43,7 @@
                                         <div class="col-md-4">
                                                 <h3>DNA</h3>
                                                 <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra, est eu scelerisque placerat, erat dolor consectetur tellus, id elementum urna tortor nec massa. Donec eros tellus, commodo at nibh at, dapibus faucibus nisl. Sed pellentesque mi id scelerisque ultricies. Ut facilisis egestas varius. Pellentesque suscipit leo nec leo posuere, in auctor ante ornare. Sed tempus nunc diam, ut rhoncus eros pulvinar ac. In non nisl auctor, ornare augue ut, luctus odio. Vestibulum ut vulputate quam. Etiam in leo risus. Aenean luctus eget nisi quis rutrum. Nulla facilisi.</p>
-                                                <img class="event-image" src="img/oman-logo.png" width="400" height="287">
+                                                <img class="event-image" src="img/oman-logo.png" >
                                         </div>
                                         <div class="col-md-2">
                                                 <h3>blabla</h3>
@@ -44,12 +51,12 @@
                                         </div>
                                         <div class="col-md-4"  >
                                                 <div class="col-xs-12 col-md-offset-3" >
-                                                        
-                                                                <a href="#worlds"><button class="button btn-material-yellow"><strong>Find out more about Organisms!</strong></button></a>
-                                                        
+
+                                                        <a href="#worlds"><button class="button btn-material-yellow"><strong>Find out more about Organisms!</strong></button></a>
+
                                                 </div>
                                         </div>
-                                       
+
                                 </div>
                         </section>
                         <section class="menu calendar-container" id="event-calendar">
@@ -70,28 +77,32 @@
                                                 <p class="lead">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
                                         </div>
                                         <div class="col-lg-7">
-                                                <div class="world marine-world">
+                                                <div id="slide-marine-world" class="world marine-world">
                                                         <h2 class="text-center">The Marine World</h2>
                                                         <p class="text-center">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
                                                 </div>
+                                                <div class="slide-panel marine-world" id="marine-world-panel"></div>
                                         </div>
                                         <div class="col-lg-7">
-                                                <div class="world animal-world">
+                                                <div id="slide-animal-world" class="world animal-world">
                                                         <h2 class="text-center">The Animal World</h2>
                                                         <p class="text-center">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
                                                 </div>
+                                                <div class="slide-panel animal-world" id="animal-world-panel"></div>
                                         </div>
                                         <div class="col-lg-7">
-                                                <div class="world plant-world">
+                                                <div id="slide-plant-world" class="world plant-world">
                                                         <h2 class="text-center">The Plant World</h2>
                                                         <p class="text-center">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
                                                 </div>
+                                                <div class="slide-panel plant-world" id="plant-world-panel"></div>
                                         </div>
                                         <div class="col-lg-7">
-                                                <div class="world microbial-world">
+                                                <div id="slide-microbial-world" class="world microbial-world">
                                                         <h2 class="text-center">The Microbial World</h2>
                                                         <p class="text-center">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
                                                 </div>
+                                                <div class="slide-panel microbial-world" id="microbial-world-panel"></div>
                                         </div>
                                 </div>
                         </section>

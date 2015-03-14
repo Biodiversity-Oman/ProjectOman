@@ -170,6 +170,11 @@ nav ul li a {
 .marine-world {
     background-color: #03a9f4;
 }
+.slide-panel {
+    display:none;
+    height: 10em;
+    margin-top: 0.3em;
+}
 .animal-world {
     background-color: #f44336;
 }
