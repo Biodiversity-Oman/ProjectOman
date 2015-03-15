@@ -61,7 +61,6 @@
                                                                                                 <h2 class="h2">Update this organism</h2>
                                                                                         </div>
                                                                                 </div>
-                                                                                <!--<form class="form-group"> -->                                           
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
                                                                                         <div class="col-sm-4">
