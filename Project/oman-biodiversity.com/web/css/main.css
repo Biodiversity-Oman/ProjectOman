@@ -71,7 +71,7 @@ nav ul li {
 }
 nav ul li a:focus {
     outline: none;
-    color: #00bcd4;
+    color: #212121;
     text-decoration-line: none;
 }
 nav ul li:hover a {

@@ -86,7 +86,7 @@
                                                 <div id="slide-marine-world" class="world marine-world">
                                                         
                                                         <h2 class="text-center">The Marine World</h2>
-                                                        <p class="text-center">Think blue!</p>
+                                                        <h4 class="text-center">Think blue!</h4>
                                                 </div>
                                                 <div class="slide-panel marine-world" id="marine-world-panel"><p>
                                                                 Oman with its long coastline, has a treasure chest of marine life, with over 20 marine mammals, more than 1000 fish species, over 250 coral species and 5 turtle species. 
@@ -98,7 +98,7 @@
                                         <div class="col-lg-7">
                                                 <div id="slide-animal-world" class="world animal-world">
                                                         <h2 class="text-center">The Animal World</h2>
-                                                        <p class="text-center">Extinction is forever</p>
+                                                        <h4 class="text-center">Extinction is forever</h4>
                                                 </div>
                                                 <div class="slide-panel animal-world" id="animal-world-panel">
                                                         <p>Oman is blessed with over 47 species of land mammals, 10 livestock species and over a hundred types of birds.  Although we know a lot about Oman’s biodiversity, little is known about their genetic diversity.
@@ -114,7 +114,7 @@
                                         <div class="col-lg-7">
                                                 <div id="slide-plant-world" class="world plant-world">
                                                         <h2 class="text-center">The Plant World</h2>
-                                                        <p class="text-center">Planting for tomorrow</p>
+                                                        <h4 class="text-center">Planting for tomorrow</h4>
                                                 </div>
                                                 <div class="slide-panel plant-world" id="plant-world-panel"><p>plant genetic resources are important to Oman, whether they are for agriculture or for things like medicine. 
                                                                 Oman is blessed with so many species of plants – more than 1,200! This biodiversity is because Oman sits between two regions – Asia and Africa. The plants in the north of Oman are more like those of Asia and those in the south are more like those you can find in Africa and some plants you can only find in Oman. 
@@ -126,7 +126,7 @@
                                         <div class="col-lg-7">
                                                 <div id="slide-microbial-world" class="world microbial-world">
                                                         <h2 class="text-center">The Microbial World</h2>
-                                                        <p class="text-center">Look into my world!</p>
+                                                        <h4 class="text-center">Look into my world!</h4>
                                                 </div>
                                                 <div class="slide-panel microbial-world" id="microbial-world-panel"><p>
                                                                 Microorganisms, or microbes, are tiny creatures that usually can only be seen with the help of a microscope. They are mostly just a single cell or made up of a cluster of cells. 

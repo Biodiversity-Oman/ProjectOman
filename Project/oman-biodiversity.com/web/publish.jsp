@@ -238,6 +238,7 @@
                                                                         </form>
                                                                 </div>
                                                         </div>
+
                                                 </div>
                                                 <div class="table-responsive">
                                                         <input class="search-bar-table form-control" id="search-organism-published" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)">
@@ -358,9 +359,10 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
                                                                                         <div class="col-sm-4">
-                                                                                            <textarea rows="3" class="form-control" id="dangerous-queue"  name="organism-dangerous" pattern="[^()[\]{}*&^%$<>#@]+$"data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
-                                                                                            <span class="help-block with-errors"></span>
+                                                                                                <textarea rows="3" class="form-control" id="dangerous-queue"  name="organism-dangerous" pattern="[^()[\]{}*&^%$<>#@]+$"data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <span class="help-block with-errors"></span>
                                                                                         </div>
+                                                                                </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
                                                                                         <div class="col-sm-4">
@@ -441,20 +443,21 @@
                                                         <table class="table table-striped" id="tovalidate-table"></table>
                                                 </div>
                                         </div>
-                                        <div id="tab3" class="tab">
-                                                <p>Press the <span class="icon-cross"></span> To delete </p>
-                                                <div class="table-responsive">
-                                                        <table class="table table-striped" id="posts-table"></table>
-                                                </div>
+                                </div>
+                                <div id="tab3" class="tab">
+                                        <p>Press the <span class="icon-cross"></span> To delete </p>
+                                        <div class="table-responsive">
+                                                <table class="table table-striped" id="posts-table"></table>
                                         </div>
-                                        <div id="tab4" class="tab">
-                                                <p>Press the <span class="icon-cross"></span> To delete </p>
-                                                <div class="table-responsive">
-                                                        <table class="table table-striped" id="subscriber-table"></table>
-                                                </div>
+                                </div>
+                                <div id="tab4" class="tab">
+                                        <p>Press the <span class="icon-cross"></span> To delete </p>
+                                        <div class="table-responsive">
+                                                <table class="table table-striped" id="subscriber-table"></table>
                                         </div>
                                 </div>
                         </div>
                 </div>
-        </body>
+        </div>
+</body>
 </html>
