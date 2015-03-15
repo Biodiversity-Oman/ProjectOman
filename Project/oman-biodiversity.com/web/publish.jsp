@@ -443,21 +443,21 @@
                                                         <table class="table table-striped" id="tovalidate-table"></table>
                                                 </div>
                                         </div>
-                                </div>
-                                <div id="tab3" class="tab">
-                                        <p>Press the <span class="icon-cross"></span> To delete </p>
-                                        <div class="table-responsive">
-                                                <table class="table table-striped" id="posts-table"></table>
+
+                                        <div id="tab3" class="tab">
+                                                <p>Press the <span class="icon-cross"></span> To delete </p>
+                                                <div class="table-responsive">
+                                                        <table class="table table-striped" id="posts-table"></table>
+                                                </div>
                                         </div>
-                                </div>
-                                <div id="tab4" class="tab">
-                                        <p>Press the <span class="icon-cross"></span> To delete </p>
-                                        <div class="table-responsive">
-                                                <table class="table table-striped" id="subscriber-table"></table>
+                                        <div id="tab4" class="tab">
+                                                <p>Press the <span class="icon-cross"></span> To delete </p>
+                                                <div class="table-responsive">
+                                                        <table class="table table-striped" id="subscriber-table"></table>
+                                                </div>
                                         </div>
                                 </div>
                         </div>
                 </div>
-        </div>
-</body>
+        </body>
 </html>
