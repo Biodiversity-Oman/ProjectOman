@@ -40,7 +40,8 @@
                 get: 'tagged',
                 tagName: 'iranwildlife',
                 clientId: '795b3c3858144130b2a7ce7f41f3b20a',
-                limit: 5
+                limit: 4,
+                template: '<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>'
             });
             feed.run();
         </script>
