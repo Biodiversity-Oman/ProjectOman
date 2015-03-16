@@ -98,7 +98,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea class="form-control" rows="3" id="description-published" name="organism-description" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea class="form-control" rows="3" id="description-published" name="organism-description" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
@@ -152,35 +152,35 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="benefits-published"  name="organism-benefits" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="benefits-published"  name="organism-benefits" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="dangerous-published"  name="organism-dangerous" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="dangerous-published"  name="organism-dangerous" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="threats-published" name="organism-threats" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="threats-published" name="organism-threats" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="opportunities-published" name="organism-opportunities" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="opportunities-published" name="organism-opportunities" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="links-published" name="organism-links" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed" ></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="links-published" name="organism-links" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed" ></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
@@ -206,7 +206,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="food-description-published" name="organism-food-description" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="food-description-published" name="organism-food-description" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
@@ -298,7 +298,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-description">Organism description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea class="form-control" rows="3" id="description-queue" name="organism-description" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea class="form-control" rows="3" id="description-queue" name="organism-description" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
@@ -351,35 +351,35 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-benefits">Benefits</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="benefits-queue"  name="organism-benefits" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="benefits-queue"  name="organism-benefits" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-dangerous">Dangers</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="dangerous-queue"  name="organism-dangerous" pattern="[^()[\]{}*&^%$<>#@]+$"data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="dangerous-queue"  name="organism-dangerous" pattern="[^()[\]{}*&^%$<>#@]+$"data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-threats">Threats</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="threats-queue" name="organism-threats" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed" ></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="threats-queue" name="organism-threats" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed" ></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-opportunities">Opportunities</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="opportunities-queue" name="organism-opportunities" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="opportunities-queue" name="organism-opportunities" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="links-queue" name="organism-links" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed" ></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="links-queue" name="organism-links" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed" ></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
@@ -405,7 +405,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-food-description">Food description if this organism is not yet present</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="food-description-queue" name="organism-food-description" data-error="error" data-pattern="/^$|[^[\]{}*^<>#]+$/g" data-pattern-error="Use of special keys: [\]{}*^<># is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="food-description-queue" name="organism-food-description" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
