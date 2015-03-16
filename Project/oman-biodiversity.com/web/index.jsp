@@ -171,7 +171,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-offset-3" >
                                                 <h2></h2><br>
-                                                <p><img src="img/logo-aopgrc.png" width="120" height="111"></p>
+                                                <p><img src="img/logo-aopgrc.png" width="120" height="110"></p>
                                         </div>
                                 </div>
                         </section>

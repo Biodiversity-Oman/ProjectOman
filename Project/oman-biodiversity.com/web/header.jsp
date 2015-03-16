@@ -34,7 +34,7 @@
         </script>
         <nav>
                 <ul id="menu">
-                        <li><img src="img/logo-roadshow.jpg" height="60" width="103"></li>
+                        <li><img src="img/logo-roadshow.jpg" height="58" width="103"></li>
                         <li><a href="#event">Event</a></li>
                         <li ><a href="#event-calendar">Calendar</a></li>
                         <li><a href="#worlds">Worlds</a></li>
