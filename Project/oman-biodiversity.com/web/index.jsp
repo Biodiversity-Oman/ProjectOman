@@ -35,6 +35,15 @@
                 return false;
             });
         </script>
+        <script type="text/javascript">
+            var feed = new Instafeed({
+                get: 'tagged',
+                tagName: 'iranwildlife',
+                clientId: '795b3c3858144130b2a7ce7f41f3b20a',
+                limit: 5
+            });
+            feed.run();
+        </script>
         <body>
                 <div class="wrapper">
                         <section class="event-container" id="event">
@@ -77,6 +86,7 @@
                                         <div class="col-lg-8">
                                                 <div id='calendar'></div>
                                         </div>
+                                    <div id="instafeed" class="col-lg-2"></div>
                                 </div>
                         </section>
                         <section class="worlds-container" id="worlds">
