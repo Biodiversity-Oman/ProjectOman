@@ -10,6 +10,10 @@
         <script>
             $(document).ready(function () {
                 $('#calendar').fullCalendar({
+                    googleCalendarApiKey: 'AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ',
+                        events: {
+                            googleCalendarId: 'developersteam.belgium@gmail.com'
+                    }
                 });
                 $("#slide-marine-world").click(function () {
                     $("#marine-world-panel").slideToggle("slow");

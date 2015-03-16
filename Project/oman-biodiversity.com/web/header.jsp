@@ -18,6 +18,7 @@
                 <script src='js/jquery.min.js'></script>
                 <script src='js/moment.min.js'></script>
                 <script src='js/fullcalendar.min.js'></script>
+                <script src='js/gcal.js'></script>
                 <script src="js/jquery.slicknav.min.js"></script>
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
