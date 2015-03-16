@@ -18,6 +18,7 @@
                 <script src='js/jquery.min.js'></script>
                 <script src='js/moment.min.js'></script>
                 <script src='js/fullcalendar.min.js'></script>
+                <script src='js/gcal.js'></script>
                 <script src="js/jquery.slicknav.min.js"></script>
                 <script type="text/javascript" src="js/instafeed.min.js"></script>
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -34,7 +35,7 @@
         </script>
         <nav>
                 <ul id="menu">
-                        <li><img src="img/logo-roadshow.jpg" height="60" width="103"></li>
+                        <li><img src="img/logo-roadshow.jpg" height="58" width="103"></li>
                         <li><a href="#event">Event</a></li>
                         <li ><a href="#event-calendar">Calendar</a></li>
                         <li><a href="#worlds">Worlds</a></li>
