@@ -174,7 +174,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="organism-links" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="organism-links" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}]+(\r\n)?)$/g" data-pattern-error="Use of special keys: []{}<> is not allowed"></textarea>
                                                                                         <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
@@ -1075,7 +1075,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" id="links-pending" name="organism-links" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed" ></textarea>
+                                                                                                <textarea rows="3" class="form-control" id="links-pending" name="organism-links" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}]+(\r\n)?)$/g" data-pattern-error="Use of special keys: []{}<> is not allowed" ></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
