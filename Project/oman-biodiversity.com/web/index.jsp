@@ -141,7 +141,7 @@
                                                                 It is important that we protect our marine ecosystems, biodiversity and genetic diversity and make sure that we use them responsably so they are still there for generations to come.
                                                     </p>
                                                         <img class="img-responsive center-block" src="img/marine-dio.JPG" alt="marine diorama" width="90%" height="90%" />                                                       
-                                                        <ul id="marine-organisms">Organisms</ul>
+                                                        <ul class="organism-list" id="marine-organisms">Organisms</ul>
                                                 </div>
                                         </div>
                                         <div class="col-lg-7">
@@ -160,7 +160,7 @@
                                                                 Animal genetic resources face a lot of threats from the environment as well as humans. Animals are important to us for our food and for our environment. We need to protect them.</p>
                                                         
                                                         <img class="img-responsive center-block" src="img/animal-dio.jpg" alt="marine diorama" width="90%" height="90%"  />
-                                                        <ul id="animal-organisms">Organisms</ul>
+                                                        <ul class="organism-list" id="animal-organisms">Organisms</ul>
                                                 </div>
                                         </div>
                                         <div class="col-lg-7">
@@ -174,7 +174,7 @@
                                                                 The Oman Animal and plant Genetic Resources Center is now collecting all the information about the plants of Oman and storing it in a database so researchers can use thi information to turn our genetic resources into value.. 
                                                                 Like all genetic resources, our plants are under threat from us humans and the environment! 
                                                                 We need to protect and preserve our plants!</p>
-                                                <ul id="plant-organisms">Organisms</ul>
+                                                <ul class="organism-list" id="plant-organisms">Organisms</ul>
                                                 </div>
                                         </div>
                                         <div class="col-lg-7">
@@ -191,7 +191,7 @@
                                                                 BUT some microbes are harmful! They can cause diseases to humans and other genetic resources.  Lucky the good microbes give us medicine!
                                                                 Microbial genetic resources are becoming more and more important because of all the help they can give us. Because of this we need to identify them and protect them…  just like all our other genetic resources.
                                                         </p>
-                                                <ul id="microbial-organisms">Organisms</ul>
+                                                <ul class="organism-list" id="microbial-organisms">Organisms</ul>
                                                 </div>
                                         </div>
                                 </div>

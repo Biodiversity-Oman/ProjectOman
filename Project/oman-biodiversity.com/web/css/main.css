@@ -198,6 +198,12 @@ nav ul li a {
 .microbial-world {
     background-color: #ffc107;
 }
+.organism-list {
+    line-height: 1em;
+    list-style-type: square;
+    padding-top: 1em;
+    //margin: 0;
+}
 /*--------------------------------------------------------*/
 /* -------------- funn-stuff-container-Container -------------- */
 /*--------------------------------------------------------*/
