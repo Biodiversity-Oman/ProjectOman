@@ -21,6 +21,7 @@ public class UserAccount {
 	private String userName;
 	private String phone;
 	private Boolean isAdmin;
+        private Boolean language;
 
 	@Override
 	public String toString() {
@@ -152,4 +153,18 @@ public class UserAccount {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+    /**
+     * @return the language
+     */
+    public Boolean getLanguage() {
+        return language;
+    }
+
+    /**
+     * @param language the language to set
+     */
+    public void setLanguage(Boolean language) {
+        this.language = language;
+    }
 }
