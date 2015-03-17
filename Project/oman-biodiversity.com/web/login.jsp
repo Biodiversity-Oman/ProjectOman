@@ -46,10 +46,10 @@
                     <label class="col-sm-3 control-label">Language</label>
                     <div class="col-sm-7" >
                         <label class="radio-inline">
-                            <input type="radio" name="language" checked="true" id="language" value="1" />English
+                            <input type="radio" name="language" checked="true" id="language" value="0" />English
                         </label>
                         <label class="radio-inline" >
-                            <input type="radio" name="language" id="language" value="0" />Arabic
+                            <input type="radio" name="language" id="language" value="1" />Arabic
                         </label>
                     </div>
                 </div>
