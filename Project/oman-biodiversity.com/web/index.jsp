@@ -7,31 +7,34 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-        <script>
+        <body>
+          <script>
             $(document).ready(function () {
                 $('#calendar').fullCalendar({
                     googleCalendarApiKey: 'AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ',
                         events: {
                             googleCalendarId: 'developersteam.belgium@gmail.com'
-
                             },
-                            eventAfterRender: function (event, element, view) {
-                                $(element).css({"background-color": "#4DB6AC", "font-size": "1.2em", "font-family": "'Montser', sans-serif", "padding": "1.5em"});
-                            },
-                            eventColor: '#26A69A'
-                        });
-                $("#slide-marine-world").click(function () {
-                    $("#marine-world-panel").slideToggle("slow");
-                });
-                $("#slide-animal-world").click(function () {
-                    $("#animal-world-panel").slideToggle("slow");
-                });
-                $("#slide-plant-world").click(function () {
-                    $("#plant-world-panel").slideToggle("slow");
-                });
-                $("#slide-microbial-world").click(function () {
-                    $("#microbial-world-panel").slideToggle("slow");
-                });
+                        eventAfterRender: function (event, element, view) {
+                            $(element).css({"background-color": "#4DB6AC", "font-size": "1.2em", "font-family": "'Montser', sans-serif", "padding": "1.5em"});
+                        },
+                        eventColor: '#26A69A'
+                    });
+                    $("#slide-marine-world").click(function () {
+                        $("#marine-world-panel").slideToggle("slow");
+                    });
+                    $("#slide-animal-world").click(function () {
+                        $("#animal-world-panel").slideToggle("slow");
+                    });
+                    $("#slide-plant-world").click(function () {
+                        $("#plant-world-panel").slideToggle("slow");
+                    });
+                    $("#slide-microbial-world").click(function () {
+                        $("#microbial-world-panel").slideToggle("slow");
+                    });
+                   
+                    loadOrganisms();
+                 
             });
             $('a').click(function () {
                 $('html, body').animate({
@@ -39,8 +42,6 @@
                 }, 500);
                 return false;
             });
-        </script>
-        <script type="text/javascript">
             var feed = new Instafeed({
                 get: 'tagged',
                 tagName: 'iranwildlife',
@@ -51,22 +52,16 @@
             });
             feed.run();
         </script>
+        <div id="fb-root"></div>
         <script>
-                    $(document).ready(function () {
-                        loadOrganisms();
-                    });
+            (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=878087015554008&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         </script>
-        <body>
-                <div id="fb-root"></div>
-                <script>
-                    (function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (d.getElementById(id)) return;
-                  js = d.createElement(s); js.id = id;
-                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=878087015554008&version=v2.0";
-                  fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));
-                </script>
                 <div class="wrapper">
                         <section class="event-container" id="event">
                                 <div class="col-md-11 col-md-offset-1">
