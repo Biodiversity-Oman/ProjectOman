@@ -7,20 +7,6 @@
 <!DOCTYPE html>
 <html>
         <body>
-                <script>
-                    $(document).ready(function () {
-                        //$(".chosen-select").chosen({width: "100%"});
-                        loadOrganisms();
-                        loadWorlds();
-                        loadSeasons();
-                        loadFamilies();
-                        loadSubFamilies();
-                        loadHabitats();
-                        loadGeolocations();
-                        loadPendingOrganisms();
-                        loadEaten();
-                    });
-                </script>
                 <div class="wrapper">
                         <div id="fade" class="black_overlay"></div>
                         <div class="tabs">
@@ -57,7 +43,7 @@
                                                                                                 <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>    
-                                                                                        
+
                                                                                 </div> 
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
@@ -65,7 +51,7 @@
                                                                                                 <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
-                                                                                        
+
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
@@ -166,7 +152,7 @@
                                                                                         <label class="col-sm-2 control-label" for="organism-links">Useful links</label>
                                                                                         <div class="col-sm-4">
                                                                                                 <textarea rows="3" class="form-control" name="organism-links" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}]+(\r\n)?)$/g" data-pattern-error="Use of special keys: []{}<> is not allowed"></textarea>
-                                                                                        <span class="help-block with-errors"></span>
+                                                                                                <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -636,7 +622,7 @@
                                                         </div>
                                                 </div>
                                                 <div class="table-responsive">
-                                                    <input class="search-bar-table form-control" id="search-subfamily" type="text" name="subfamilykey" placeholder="Search on name (minimal 3 characters)">
+                                                        <input class="search-bar-table form-control" id="search-subfamily" type="text" name="subfamilykey" placeholder="Search on name (minimal 3 characters)">
                                                         <table class="table table-striped" id="subfamilies-table"></table>
                                                 </div>
                                         </div>
@@ -755,8 +741,8 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="habitat-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                            <textarea rows="3" class="form-control" name="habitat-description" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
-                                                                                            <span class="help-block with-errors"></span>
+                                                                                                <textarea rows="3" class="form-control" name="habitat-description" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
+                                                                                                <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -899,8 +885,8 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="area-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                            <textarea rows="3" class="form-control" id="area-description" name="area-description" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
-                                                                                            <span class="help-block with-errors"></span>
+                                                                                                <textarea rows="3" class="form-control" id="area-description" name="area-description" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
+                                                                                                <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="form-group">
@@ -1132,6 +1118,20 @@
                                 </div>
                         </div>
                 </div>
+                <script>
+                    $(document).ready(function () {
+                        $(".chosen-select").chosen({width: "100%"});
+                        loadOrganisms();
+                        loadWorlds();
+                        loadSeasons();
+                        loadFamilies();
+                        loadSubFamilies();
+                        loadHabitats();
+                        loadGeolocations();
+                        loadPendingOrganisms();
+                        loadEaten();
+                    });
+                </script>
         </body>
 </html>
 
