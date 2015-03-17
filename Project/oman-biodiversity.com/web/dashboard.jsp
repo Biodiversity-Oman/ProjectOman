@@ -9,6 +9,7 @@
         <body>
                 <script>
                     $(document).ready(function () {
+                        //$(".chosen-select").chosen({width: "100%"});
                         loadOrganisms();
                         loadWorlds();
                         loadSeasons();
@@ -18,7 +19,6 @@
                         loadGeolocations();
                         loadPendingOrganisms();
                         loadEaten();
-                        $(".chosen-select").chosen({width: "100%"});
                     });
                 </script>
                 <div class="wrapper">
