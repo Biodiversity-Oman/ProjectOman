@@ -13,8 +13,13 @@
                     googleCalendarApiKey: 'AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ',
                         events: {
                             googleCalendarId: 'developersteam.belgium@gmail.com'
-                    }
-                });
+
+                            },
+                            eventAfterRender: function (event, element, view) {
+                                $(element).css({"background-color": "#4DB6AC", "font-size": "1.2em", "font-family": "'Montser', sans-serif", "padding": "1.5em"});
+                            },
+                            eventColor: '#26A69A'
+                        });
                 $("#slide-marine-world").click(function () {
                     $("#marine-world-panel").slideToggle("slow");
                 });
@@ -41,11 +46,22 @@
                 tagName: 'iranwildlife',
                 clientId: '795b3c3858144130b2a7ce7f41f3b20a',
                 limit: 4,
-                template: '<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>'
+                template: '<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',
+                sortBy: 'most-recent'
             });
             feed.run();
         </script>
         <body>
+                <div id="fb-root"></div>
+                <script>
+                    (function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=878087015554008&version=v2.0";
+                  fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>
                 <div class="wrapper">
                         <section class="event-container" id="event">
                                 <div class="col-md-11 col-md-offset-1">
@@ -59,7 +75,7 @@
                                         <div class="col-md-4" >
                                                 <h3><u>DNA</u></h3>
                                                 <p class="text-left">There is also another way of organizing living things, one that all these five kingdoms have in common.</p><p> Scientists have discovered that every living organism has a special unique code. And that code describes every bit of every organism. It shows us how one thing is different from another. This code is called DNA</p><p> DNA describes all the ingredients and characteristics needed to make every living organism.</p>
-                                                <img class="event-image" src="img/oman-logo.png" >
+                                                <div class="col-md-4"><img class="event-image" src="img/oman-logo.png" ></div>
                                         </div>
                                         <div class="col-md-2">
                                                 <h3><u>Taxonomy</u></h3>
@@ -70,9 +86,7 @@
                                                         <center><img src="img/oman-boy.png" widt="97" height="114" style="margin-top: 5em;"><center>     
                                                 </div>
                                                 <div class="col-md-10">
-
                                                         <a href="#worlds"><button class="button btn-material-yellow"><strong>Find out more about Organisms!</strong></button></a>
-
                                                 </div>
                                         </div>
 
@@ -80,26 +94,38 @@
                         </section>
                         <section class="menu calendar-container" id="event-calendar">
                                 <div class="col-lg-11 col-md-offset-1">
-                                        <div class="col-lg-10">
-                                                <h1><u>Event Calendar</u></h1>
-                                                <p class="lead">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
-                                        </div>
                                         <div class="col-lg-8">
+                                                <h1><u>Event Calendar</u></h1>
+                                                <p class="lead">Find out when and where the event is taking place!</p>
+                                        </div>
+                                        
+                                        <div class="col-lg-7">
                                                 <div id='calendar'></div>
                                         </div>
-                                    <div id="instafeed" class="col-lg-2"></div>
+                                        <div class="col-lg-3 col-md-offset-1 social-container">
+                                                <div class="row">
+                                                <h1 class="text-center"><u>What is Happening?</u></h1>
+                                                <p class="lead text-center">Find us on Instagram & Facebook!</p>
+                                                </div>
+                                                <div class="social-border">
+                                                    <div class="row"><h3 class="text-center"><span class="icon-instagram"></span>Instagram</h3></div>
+                                                    <div class="row"><div class="text-center" id="instafeed"></div></div><br>
+                                                </div>
+                                                <div class="social-border">
+                                                        <div class="row"><h3 class="text-center"><span class="icon-facebook3"></span>Facebook</h3></div>
+                                                        <div class="row"><div class="fb-like-box" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-width="450"></div></div>
+                                                </div>
+                                        </div>
                                 </div>
                         </section>
                         <section class="worlds-container" id="worlds">
                                 <div class="col-lg-11 col-md-offset-1">
                                         <div class="col-lg-7">
                                                 <h1><u>Choose a World</u></h1>
-                                                <p class="lead">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
+                                                <p class="lead">Every animal lives in his desired world. Click on a world to find out more!</p>
                                         </div>
                                         <div class="col-lg-7">
-                                                
                                                 <div id="slide-marine-world" class="world marine-world">
-                                                        
                                                         <h2 class="text-center">The Marine World</h2>
                                                         <h4 class="text-center">Think blue!</h4>
                                                 </div>
@@ -155,30 +181,34 @@
                                         </div>
                                 </div>
                         </section>
-                        <section class="footer-container" id="credits">
-                                <div class="col-lg-12">
+                        <section class="fun-stuff-container" id="fun-stuff">
+                                <div class="col-lg-11 col-md-offset-1">
+                                        <div class="col-lg-10">
+                                            <h1><u>Lets have some fun!</u></h1>
+                                            <p class="lead">Cool stories, facts & games!</p>
+                                        </div>
+                                        <div class="col-lg-5">
+                                                <h2>Coming Soon!</h2>
+                                        </div>
+                                </div>
+                                
+                        </section>
+                        <section class="footer-container" id="about-us">
+                                <div class="col-lg-11 col-md-offset-1">
                                         <div class="col-lg-12">
-                                                <h1><u>Credits</u></h1>
+                                                <h1><u>About us</u></h1>
                                         </div>
                                         <div class="col-lg-2">
                                                 <h2>Developers</h2>
-                                                <p>name</p>
-                                                <p>name</p>
-                                                <p>name</p>
-                                                <p>name</p>
-                                                <p>name</p>
+                                                <p>Tom Adriaens</p>
+                                                <p>Lenny Donnez</p>
+                                                <p>Eric Michiels</p>
+                                                <p>Bert Cortois</p>
+                                                <p>Oualid Yousfi</p>
                                         </div>
                                         <div class="col-lg-2">
                                                 <h2>Project Leader</h2>
-                                                <p>Philippe </p>
-                                        </div>
-                                        <div class="col-lg-2">
-                                                <h2>Scientists</h2>
-                                                <p>name</p>
-                                                <p>name</p>
-                                                <p>name</p>
-                                                <p>name</p>
-                                                <p>name</p>
+                                                <p>Philippe Keunen</p>
                                         </div>
                                         <div class="col-lg-3 col-md-offset-3" >
                                                 <h2></h2><br>

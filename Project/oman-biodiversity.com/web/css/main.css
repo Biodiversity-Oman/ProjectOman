@@ -79,7 +79,6 @@ nav ul li:hover a {
     text-decoration: none;
     outline: none;
 }
-
 nav ul li a {
     display: block; 
     padding: 24px 40px;
@@ -88,16 +87,8 @@ nav ul li a {
     text-decoration-color: red;
     outline: none;
 }
-
 .slicknav_menu {
     display:none;
-}
-.right {
-    float: right;
-    margin-right: 2em;
-}
-.left {
-    float: left;
 }
 /*--------------------------------------------------------*/
 /* -------------- Wrapper -------------- */
@@ -126,7 +117,6 @@ nav ul li a {
     width:  400px; 
     height: 287px;
 }
-
 /*--------------------------------------------------------*/
 /* -------------- Calendar-Container -------------- */
 /*--------------------------------------------------------*/
@@ -148,6 +138,25 @@ nav ul li a {
     font-family: 'Montserrat', sans-serif;
 }
 /*--------------------------------------------------------*/
+/* -------------- Social-Container -------------- */
+/*--------------------------------------------------------*/
+.social-container {
+    max-width: 100%;
+}
+.social-border {
+    border-color: #BDBDBD;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px 10px 10px;
+    margin-top: 0.5em;
+    border-radius: 2px;
+}
+
+/* To make the fb-like-box Responsive */
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+    width: 100% !important;
+}
+/*--------------------------------------------------------*/
 /* -------------- Worlds-Container -------------- */
 /*--------------------------------------------------------*/
 .worlds-container {
@@ -156,10 +165,17 @@ nav ul li a {
     float: left;
     font-family: museo300;
     color: #212121;
-    background-color: #ffeb3b;
+    background-color: #FFEE58;
     padding-bottom: 5em;
     padding-top: 3em;
     position: relative;
+}
+.slide-panel {
+    display:none;
+    height: auto;
+    margin-top: 0.3em;
+    padding: 1em 1em 1em 1em;
+    color: #ffffff;
 }
 .world {
     height: 9em;
@@ -173,26 +189,19 @@ nav ul li a {
 .marine-world {
     background-color: #03a9f4;
 }
-.slide-panel {
-    display:none;
-    height: auto;
-    margin-top: 0.3em;
-    padding: 1em 1em 1em 1em;
-    color: #ffffff;
-}
 .animal-world {
     background-color: #f44336;
 }
 .plant-world {
-    background-color: #009688;
+    background-color: #4caf50;
 }
 .microbial-world {
     background-color: #ffc107;
 }
 /*--------------------------------------------------------*/
-/* -------------- HowTo-Container -------------- */
+/* -------------- funn-stuff-container-Container -------------- */
 /*--------------------------------------------------------*/
-.howto-container {
+.fun-stuff-container {
     width: 100%;
     min-height: 100vh;
     float: left;
@@ -212,7 +221,7 @@ nav ul li a {
     float: left;
     font-family: museo300;
     color: #212121;
-    background-color: #727272;
+    background-color: #9E9E9E;
     padding-bottom: 5em;
     padding-top: 3em;
     position: relative;
@@ -220,7 +229,12 @@ nav ul li a {
 /*--------------------------------------------------------*/
 /* -------------- Media Queries -------------- */
 /*--------------------------------------------------------*/
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 910px) {
+    nav ul li a {
+        padding: 24px 20px;
+    }
+}
+@media screen and (max-width: 705px) {
     /* #menu is the original menu */
     #menu {
         display:none;
@@ -246,5 +260,9 @@ nav ul li a {
     }
     .world h2 {
         padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
+    .world h4 {
+        padding-bottom: 0.5em;
     }
 }

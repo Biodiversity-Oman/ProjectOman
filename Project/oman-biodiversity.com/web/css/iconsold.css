@@ -1,40 +1,39 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-8fgs84');
-	src:url('fonts/icomoon.eot?#iefix-8fgs84') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-8fgs84') format('woff'),
-		url('fonts/icomoon.ttf?-8fgs84') format('truetype'),
-		url('fonts/icomoon.svg?-8fgs84#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'icomoon';
+    src:url('fonts/icomoon.eot?7u1y5a');
+    src:url('fonts/icomoon.eot?#iefix7u1y5a') format('embedded-opentype'),
+        url('fonts/icomoon.woff?7u1y5a') format('woff'),
+        url('fonts/icomoon.ttf?7u1y5a') format('truetype'),
+        url('fonts/icomoon.svg?7u1y5a#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
-
 .icon-file-text:before {
-	content: "\e922";
-        margin-right: 0.3em;
+    content: "\e922";
+    margin-right: 0.3em;
 }
 
 .icon-user:before {
-	content: "\e971";
+    content: "\e971";
 }
 
 .icon-list:before {
-	content: "\e9ba";
+    content: "\e9ba";
+    margin-right: 0.3em;
 }
 
 .icon-menu:before {
@@ -47,15 +46,24 @@
 
 .icon-plus:before {
     content: "\ea0a";
-    margin-left: 1em;
-    margin-right: 1em;
-    color: #5CADFF;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    color: #8AE65C;
 }
-
+.icon-plus-button:before {
+    content: "\ea0a";
+    color: #FFFFFF;
+    margin-right: 0.5em;
+}
 .icon-cross:before {
     content: "\ea0f";
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    color: #FF6666;
+}
+.icon-cross-button:before {
+    content: "\ea0f";
+    margin-right: 0.5em;
     color: #FF6666;
 }
 
@@ -67,6 +75,12 @@
 .icon-pencil2:before {
     content: "\e906";
     margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+.icon-pencil2-button:before {
+    content: "\e906";
+    margin-right: 0.5em;
+    
 }
 
 .icon-book:before {
@@ -83,13 +97,18 @@
     content: "\e972";
     margin-right: 0.5em;
 }
-
-.icon-user-plus:before {
-    content: "\e973";
+.icon-plus-insert:before {
+    content: "\ea0a";
+    font-size: 1.5em;
+    color: #8AE65C;
+    margin-bottom: 1em;
+   
 }
-
 .icon-minus:before {
     content: "\ea0b";
+    color: #5CADFF;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 .icon-exit:before {
@@ -97,6 +116,11 @@
     margin-right: 0.5em;
 }
 
+.icon-search:before {
+    content: "\e986";
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
 
 
 

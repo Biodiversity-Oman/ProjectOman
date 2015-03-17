@@ -8,6 +8,7 @@
 .fc {
 	direction: ltr;
 	text-align: left;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .fc-rtl {
@@ -1045,7 +1046,7 @@ be a descendant of the grid when it is being dragged.
 	overflow: hidden;
 	line-height: 8px;
 	font-size: 11px;
-	font-family: monospace;
+	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 	cursor: s-resize;
 }

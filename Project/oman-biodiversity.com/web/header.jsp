@@ -12,6 +12,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <link rel="StyleSheet" type="text/css" href="css/main.css">
                 <link rel="StyleSheet" type="text/css" href="css/fonts/stylesheet.css">
+                <link rel="StyleSheet" type="text/css" href="css/icons.css">
                 <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
                 <link rel='stylesheet' href='css/fullcalendar.css' />
                 <link rel="stylesheet" href="css/slicknav.css" />
@@ -35,10 +36,12 @@
         </script>
         <nav>
                 <ul id="menu">
-                        <li><img src="img/logo-roadshow.jpg" height="58" width="103"></li>
+                        <li><img src="img/logo-roadshow.png" height="58" width="103"></li>
                         <li><a href="#event">Event</a></li>
                         <li ><a href="#event-calendar">Calendar</a></li>
                         <li><a href="#worlds">Worlds</a></li>
+                        <li><a href="#fun-stuff">Fun stuff</a></li>
+                        <li><a href="#about-us">About us</a></li>
                 </ul>
         </nav>
 </html>
