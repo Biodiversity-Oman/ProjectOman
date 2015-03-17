@@ -134,7 +134,9 @@
                                                                 How many things that live in the sea can you name?
                                                                 A lot of work is currently going on to study the marine diversity in Oman. 
                                                                 It is important that we protect our marine ecosystems, biodiversity and genetic diversity and make sure that we use them responsably so they are still there for generations to come.
-                                                        </p></div>
+                                                        </p>
+                                                        <img class="img-responsive center-block" src="img/marine-dio.JPG" alt="marine diorama" width="90%" height="90%" />                                                       
+                                                </div>
                                         </div>
                                         <div class="col-lg-7">
                                                 <div id="slide-animal-world" class="world animal-world">
@@ -150,6 +152,7 @@
                                                                 Cattle are the main source of manure in the country followed by goats, then sheep and poultry!
                                                                 Animals play an important role in society.  They are a source of energy, fertilizers and income. They are also valued as pets.
                                                                 Animal genetic resources face a lot of threats from the environment as well as humans. Animals are important to us for our food and for our environment. We need to protect them.</p>
+                                                        <img class="img-responsive center-block" src="img/animal-dio.jpg" alt="marine diorama" width="90%" height="90%"  />
                                                 </div>
                                         </div>
                                         <div class="col-lg-7">
