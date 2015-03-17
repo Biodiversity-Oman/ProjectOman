@@ -30,8 +30,8 @@
                 <link rel="StyleSheet" type="text/css" href="css/icons.css">
                 <link rel="StyleSheet" type="text/css" href="css/chosen.css">
                 <script src="js/jquery.min.js"></script>
-                <script src="js/ajax.js" async></script>
                 <script src="js/loaders.js"></script>
+                <script src="js/ajax.js" async></script>
                 <script src="js/maps.js" async></script>
                 <script src="js/validator.js" async></script>
                 <script src="js/chosen.jquery.min.js" async></script>

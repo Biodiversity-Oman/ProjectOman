@@ -1,26 +1,26 @@
 @font-face {
-    font-family: 'icomoon';
-    src:url('fonts/icomoon.eot?7u1y5a');
-    src:url('fonts/icomoon.eot?#iefix7u1y5a') format('embedded-opentype'),
-        url('fonts/icomoon.woff?7u1y5a') format('woff'),
-        url('fonts/icomoon.ttf?7u1y5a') format('truetype'),
-        url('fonts/icomoon.svg?7u1y5a#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?8p1wjy');
+	src:url('fonts/icomoon.eot?#iefix8p1wjy') format('embedded-opentype'),
+		url('fonts/icomoon.woff?8p1wjy') format('woff'),
+		url('fonts/icomoon.ttf?8p1wjy') format('truetype'),
+		url('fonts/icomoon.svg?8p1wjy#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-    font-family: 'icomoon';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 .icon-file-text:before {
     content: "\e922";
@@ -80,14 +80,11 @@
 .icon-pencil2-button:before {
     content: "\e906";
     margin-right: 0.5em;
-    
 }
-
 .icon-book:before {
     content: "\e91f";
     margin-right: 0.5em;
 }
-
 .icon-user:before {
     content: "\e971";
     margin-right: 0.5em;
@@ -121,6 +118,25 @@
     margin-right: 0.5em;
     margin-left: 0.5em;
 }
+.icon-facebook3:before {
+	content: "\ea8e";
+    font-size: 1.6em;
+    margin-right: 0.3em;
+    color: #337AB7;
+}
 
+.icon-instagram:before {
+	content: "\ea90";
+    font-size: 1.6em;
+    margin-right: 0.3em;
+    color: #337AB7;
+}
+
+.icon-twitter:before {
+	content: "\ea91";
+}
+.icon-uniE987:before {
+    content: "\e987";
+}
 
 
