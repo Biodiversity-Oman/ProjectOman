@@ -330,11 +330,32 @@ public class DaOrganism {
 		return new ArrayList<>();
 	}
 
-	public static List<Organism> selectAllByWorld(int id) {
-		/*
-		 Deze methode zoekt door de databank naar organismes die behoren tot een bepaalde family.
-		 */
-		return new ArrayList<>();
+	public static List<Organism> selectAllByWorld() throws SQLException {
+                
+            List<Organism> organisms = new ArrayList<>();
+            conn = DataSource.getConnection();
+            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.common_name, world.world_id \n"
+                            + "FROM organism \n"
+                            + "INNER JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"
+                            + "INNER JOIN family ON subfamily.family_id = family.family_id \n"
+                            + "INNER JOIN world ON family.world_id = world.world_id;");
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                    Organism o = new Organism();
+                    World w = new World();
+
+                    o.setOrganismId(rs.getInt("organism_id"));
+                    o.setCommonName(rs.getString("common_name"));
+                    
+                    w.setWorldId(rs.getInt("world_id"));
+                    o.setWorld(w);
+                    
+                    organisms.add(o);
+            }
+            conn.close();
+            return organisms;
 	}
 
 	public static List<Organism> selectAllByHabitat(int id) {

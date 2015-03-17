@@ -230,4 +230,8 @@ public class ServOrganism {
 
         return DaOrganism.selectEaten();
     }
+    
+    public static List<BLL.Organism> selectAllByWorld() throws SQLException {
+        return DaOrganism.selectAllByWorld();
+    }
 }

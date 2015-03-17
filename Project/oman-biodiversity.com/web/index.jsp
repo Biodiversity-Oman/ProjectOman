@@ -51,6 +51,11 @@
             });
             feed.run();
         </script>
+        <script>
+                    $(document).ready(function () {
+                        loadOrganisms();
+                    });
+        </script>
         <body>
                 <div id="fb-root"></div>
                 <script>
@@ -134,7 +139,9 @@
                                                                 How many things that live in the sea can you name?
                                                                 A lot of work is currently going on to study the marine diversity in Oman. 
                                                                 It is important that we protect our marine ecosystems, biodiversity and genetic diversity and make sure that we use them responsably so they are still there for generations to come.
-                                                        </p></div>
+                                                        </p>
+                                                        <ul id="marine-organisms">Organisms</ul>
+                                                </div>
                                         </div>
                                         <div class="col-lg-7">
                                                 <div id="slide-animal-world" class="world animal-world">
@@ -150,6 +157,7 @@
                                                                 Cattle are the main source of manure in the country followed by goats, then sheep and poultry!
                                                                 Animals play an important role in society.  They are a source of energy, fertilizers and income. They are also valued as pets.
                                                                 Animal genetic resources face a lot of threats from the environment as well as humans. Animals are important to us for our food and for our environment. We need to protect them.</p>
+                                                <ul id="animal-organisms">Organisms</ul>
                                                 </div>
                                         </div>
                                         <div class="col-lg-7">
@@ -162,7 +170,9 @@
                                                                 Because of this combination, Oman has been able to develop a big diversity of plant genetic resources. That’s why we have so many different kinds of fruits – from mangoes and bananas to pomegranates, plums and peaches. We have vegetables too and plants that animals like to eat. 
                                                                 The Oman Animal and plant Genetic Resources Center is now collecting all the information about the plants of Oman and storing it in a database so researchers can use thi information to turn our genetic resources into value.. 
                                                                 Like all genetic resources, our plants are under threat from us humans and the environment! 
-                                                                We need to protect and preserve our plants!</p></div>
+                                                                We need to protect and preserve our plants!</p>
+                                                <ul id="plant-organisms">Organisms</ul>
+                                                </div>
                                         </div>
                                         <div class="col-lg-7">
                                                 <div id="slide-microbial-world" class="world microbial-world">
@@ -177,7 +187,9 @@
                                                                 Microbes play an important role in maintaining our environment and some are useful in our daily lives. They help us make our food, grow our plants and give us medicine. Scientists are even finding ways to use them in industry. 
                                                                 BUT some microbes are harmful! They can cause diseases to humans and other genetic resources.  Lucky the good microbes give us medicine!
                                                                 Microbial genetic resources are becoming more and more important because of all the help they can give us. Because of this we need to identify them and protect them…  just like all our other genetic resources.
-                                                        </p></div>
+                                                        </p>
+                                                <ul id="microbial-organisms">Organisms</ul>
+                                                </div>
                                         </div>
                                 </div>
                         </section>
