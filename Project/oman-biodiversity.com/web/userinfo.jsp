@@ -6,15 +6,10 @@
 <%@include file="/adminheader.jsp" %>
 <!DOCTYPE html>
 <html>
-        <header>
-                <script src="js/ajax.js"></script>
-                <script src="js/loaders.js"></script>
-                <script src="js/validator.js"></script>
-        </header>
+        <body>
         <script>
-            // deze javascript functie zorgt ervoor dat de edit button naar update veranderd en dat de velden hun input enabled worden.
-            function enableInput() {
-                if (document.getElementById("update").type === "submit") {
+           function enableInput(){
+               if (document.getElementById("update").type === "submit") {
                     document.getElementById("update").type = "button";
                     document.getElementById("update").value = "Update";
                     document.getElementById("firstname").disabled = false;
@@ -26,47 +21,36 @@
                 } else if (document.getElementById("update").type === "button") {
                     document.getElementById("update").type = "submit";
                 }
-            }
-            ;
-
-            // deze functie zorgt ervoor dat deze na de update terug disabled worden.
+            };
             function disableInput() {
-                document.getElementById("firstname").disabled = true;
-                document.getElementById("lastname").disabled = true;
-                document.getElementById("city").disabled = true;
-                document.getElementById("country").disabled = true;
-                document.getElementById("email").disabled = true;
-                document.getElementById("phone").disabled = true;
-            }
-            ;
-
-            // ajax functie om userinfo uit de controller getUserInfo te halen. deze word in de <body> tag opgeroepen.
+                        document.getElementById("firstname").disabled = true;
+                        document.getElementById("lastname").disabled = true;
+                        document.getElementById("city").disabled = true;
+                        document.getElementById("country").disabled = true;
+                        document.getElementById("email").disabled = true;
+                        document.getElementById("phone").disabled = true;
+            };
             function loadUserInfo() {
-
                 $.ajax({
                     url: 'GetUserAccount?user=<%=username%>',
                     type: 'GET',
                     dataType: 'json',
                     cache: false,
                     async: true,
-                    complete: function (data) {
-                        var user = data.responseJSON;
-                        $('#firstname').val(user.firstName);
-                        $('#lastname').val(user.lastName);
-                        $('#city').val(user.city);
-                        $('#country').val(user.country);
-                        $('#phone').val(user.phone);
-                        $('#email').val(user.email);
-                        $('#isadmin').val(user.isAdmin);
-                    }
-                }).done(function () {
-                    $("#change-password-form")[0].reset();
+                }).done(function (data) {
+                    $('#firstname').val(data.firstName);
+                    $('#lastname').val(data.lastName);
+                    $('#city').val(data.city);
+                    $('#country').val(data.country);
+                    $('#phone').val(data.phone);
+                    $('#email').val(data.email);
+                    $('#isadmin').val(data.isAdmin);
                 });
-                return false;
-            }
-            ;
+            };
+            $(document).ready(function (){
+                loadUserInfo();
+            });
         </script>
-        <body onload="loadUserInfo()">
                 <div class="wrapper">
                         <h1 class="field-title">User Information:</h1>
                         <div class="user-box">

@@ -11,13 +11,7 @@
 %>
 <!DOCTYPE html>
 <html>
-        <head>
-                <link rel="StyleSheet" type="text/css" href="css/chosen.css">
-                <script src="js/ajax.js"></script>
-                <script src="js/loaders.js"></script>
-                <script src="js/chosen.jquery.min.js"></script>
-                <script src="js/validator.js"></script>
-                <script src="js/bootbox.js"></script>
+        <body>
                 <script>
                     $(document).ready(function () {
                         loadToValidateOrganisms();
@@ -34,8 +28,6 @@
                         $(".chosen-select").chosen({width: "100%"});
                     });
                 </script>
-        </head>
-        <body>
                 <div class="wrapper">
                         <div id="fade" class="black_overlay"></div>
                         <div class="tabs">

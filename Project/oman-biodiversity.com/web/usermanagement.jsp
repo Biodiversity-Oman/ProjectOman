@@ -11,18 +11,12 @@
 %>
 <!DOCTYPE html>
 <html>
-        <head>
-                <script src="js/ajax.js"></script>
-                <script src="js/validator.js"></script>
-                <script src="js/loaders.js"></script>
-                <script src="js/bootbox.js"></script>
-                <script>
-                    $(document).ready(function () {
-                        loadUsers();
-                    });
-                </script>
-        </head>
         <body>
+            <script>
+                $(document).ready(function () {
+                    loadUsers();
+                });
+            </script>
                 <div class="wrapper">
                         <div class="tabs">
                                 <ul class="tab-links">
