@@ -338,7 +338,9 @@ public class DaOrganism {
                             + "FROM organism \n"
                             + "INNER JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"
                             + "INNER JOIN family ON subfamily.family_id = family.family_id \n"
-                            + "INNER JOIN world ON family.world_id = world.world_id;");
+                            + "INNER JOIN world ON family.world_id = world.world_id \n"
+                            + "WHERE organism.isvalidated = 1 \n"
+                            + "ORDER BY organism.common_name LIMIT 100;");
             
             ResultSet rs = stmt.executeQuery();
             
