@@ -29,7 +29,7 @@
                 <link rel="StyleSheet" type="text/css" href="css/admin.css">
                 <link rel="StyleSheet" type="text/css" href="css/icons.css">
                 <link rel="StyleSheet" type="text/css" href="css/chosen.css">
-                <script src="js/jquery.js"></script>
+                <script src="js/jquery.min.js"></script>
                 <script src="js/ajax.js" async></script>
                 <script src="js/loaders.js" async></script>
                 <script src="js/maps.js" async></script>
