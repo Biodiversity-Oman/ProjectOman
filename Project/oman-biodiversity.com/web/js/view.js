@@ -11,7 +11,6 @@ function loadOrganisms() {
         cache: false,
         async: true
     }).done(function (data) {
-        $marineOrganisms.html('');
         data.forEach(function (o) {
             if (o.world.worldId === 1)
             {$plantOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');}
