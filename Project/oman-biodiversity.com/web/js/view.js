@@ -30,3 +30,31 @@ function loadOrganisms() {
         });
     });
 };
+
+//search function in index.jsp
+
+    $('#form-search-organism').submit(function (e){
+        document.getElementById('#search-organism-published').style.display ='block';
+
+        var keyword = $(this).val();
+        $.ajax({
+            url: 'SearchOrganism',
+            type: 'GET',
+            dataType: 'json',
+            cache: false,
+            async: true,
+            data: 'organismkey=' + keyword,
+            beforesend: function(){
+                $('#search-result').html('');      
+            }
+        }).done(function (data){
+             if (data.length === 0) {
+                        $('#search-result').append('<p>Organism not found</p>');
+                    };
+            data.forEach(function (o){           
+                $('#search-result').append('<p>' + o.commonName + '</p>');
+                
+            });
+        });
+
+    });

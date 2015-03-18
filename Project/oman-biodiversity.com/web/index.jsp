@@ -125,11 +125,12 @@
                                             <div class="col-lg-7">
                                                 <h1><u>Choose a World</u></h1>
                                                 <p class="lead">Every animal lives in his desired world. Click on a world to find out more!</p>
-                                                <form class="form-search">
+                                                <form class="form-search" id="form-search-organism">
                                                     <div class="input-append">
                                                         <input type="text" class="col-sm-4 search-query" id="search-organism-published" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)">
                                                         <button type="submit" class="btn btn-info">Search</button>
                                                     </div>
+                                                    <div id="search-result" ></div>
                                             </div>
                                             <div class="col-lg-7">
                                                 <div id="slide-marine-world" class="world marine-world">
