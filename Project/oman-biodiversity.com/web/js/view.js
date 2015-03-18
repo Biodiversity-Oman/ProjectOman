@@ -13,13 +13,13 @@ function loadOrganisms() {
     }).done(function (data) {
         data.forEach(function (o) {
             if (o.world.worldId === 1)
-            {$plantOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');}
+            {$plantOrganisms.append('<li><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></li>');}
             else if (o.world.worldId === 2)
-            {$animalOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');}
+            {$animalOrganisms.append('<li><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></li>');}
             else if (o.world.worldId === 3)
-            {$marineOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');}
+            {$marineOrganisms.append('<li><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></li>');}
             else if (o.world.worldId === 4)
-            {$microbialOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');}
+            {$microbialOrganisms.append('<li><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></li>');}
             else
             {
                 $plantOrganisms.append('<li>No organisms yet</li>');
