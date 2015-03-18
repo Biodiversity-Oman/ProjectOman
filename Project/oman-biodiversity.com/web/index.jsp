@@ -126,15 +126,15 @@
                                                 <h1><u>Choose a World</u></h1>
                                                 <p class="lead">Every animal lives in his desired world. Click on a world to find out more!</p>
                                                 <form class="form" id="form-search-organism">
-                                                        <div class="form-group">
-                                                                <div class="col-lg-6">
-                                                                <input class="form-control search-input" type="text" type="text" name="organismkey" placeholder="Search for an organism!">
-                                                                </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-6">
+                                                            <input class="form-control search-input" type="text" name="organismkey" placeholder="Search for an organism!">
                                                         </div>
-                                                        <button type="submit" class="button btn-material-orange">Search</button>
+                                                    </div>
+                                                    <button type="submit" class="button btn-material-orange">Search</button>
                                                 </form>
                                                 <div class="search-result col-lg-6" id="search-result" ></div>
-                                              
+
                                             </div>
                                             <div class="col-lg-7">
                                                 <div id="slide-marine-world" class="world marine-world">
@@ -238,7 +238,7 @@
                                             </div>
                                             <div class="col-lg-2">
                                                 <h2>Project Leader</h2>
-                                                <p>Philippe Keunen</p>
+                                                <p>Filip Keunen</p>
                                             </div>
                                             <div class="col-lg-3 col-md-offset-3" >
                                                 <h2></h2><br>

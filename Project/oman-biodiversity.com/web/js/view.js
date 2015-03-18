@@ -52,7 +52,7 @@ $(document).ready(function () {
                 $('#search-result').append('<p>Organism not found</p>');
             };
             data.forEach(function (o) {
-                $('#search-result').append('<p>' + o.commonName + '</p>');
+                $('#search-result').append('<p><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></p>');
             });
             setTimeout(function () {
                 $('#search-result').html('');

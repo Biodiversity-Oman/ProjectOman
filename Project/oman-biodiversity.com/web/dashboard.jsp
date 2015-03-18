@@ -7,6 +7,9 @@
 <!DOCTYPE html>
 <html>
         <body>
+	    <script>
+                    $(document).ready(function(){$(".chosen-select").chosen({width:"100%"}),loadOrganisms(),loadWorlds(),loadSeasons(),loadFamilies(),loadSubFamilies(),loadHabitats(),loadGeolocations(),loadPendingOrganisms(),loadEaten()});
+            </script>
                 <div class="wrapper">
                         <div id="fade" class="black_overlay"></div>
                         <div class="tabs">
@@ -1118,20 +1121,6 @@
                                 </div>
                         </div>
                 </div>
-                <script>
-                    $(document).ready(function () {
-                        $(".chosen-select").chosen({width: "100%"});
-                        loadOrganisms();
-                        loadWorlds();
-                        loadSeasons();
-                        loadFamilies();
-                        loadSubFamilies();
-                        loadHabitats();
-                        loadGeolocations();
-                        loadPendingOrganisms();
-                        loadEaten();
-                    });
-                </script>
         </body>
 </html>
 

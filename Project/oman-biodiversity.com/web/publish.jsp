@@ -12,6 +12,9 @@
 <!DOCTYPE html>
 <html>
         <body>
+	    <script>
+                    $(document).ready(function(){loadToValidateOrganisms(),loadPublishedOrganisms(),loadPosts(),loadSubscriber(),loadWorlds(),loadSeasons(),loadFamilies(),loadSubFamilies(),loadHabitats(),loadGeolocations(),loadEaten(),$(".chosen-select").chosen({width:"100%"})});
+            </script>
                 <div class="wrapper">
                         <div id="fade" class="black_overlay"></div>
                         <div class="tabs">
@@ -434,8 +437,5 @@
                                 </div>
                         </div>
                 </div>
-                <script>
-                    $(document).ready(function(){loadToValidateOrganisms(),loadPublishedOrganisms(),loadPosts(),loadSubscriber(),loadWorlds(),loadSeasons(),loadFamilies(),loadSubFamilies(),loadHabitats(),loadGeolocations(),loadEaten(),$(".chosen-select").chosen({width:"100%"})});
-                </script>
         </body>
 </html>
