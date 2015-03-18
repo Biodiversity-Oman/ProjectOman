@@ -8,48 +8,7 @@
 <html>
         <body>
         <script>
-           function enableInput(){
-               if (document.getElementById("update").type === "submit") {
-                    document.getElementById("update").type = "button";
-                    document.getElementById("update").value = "Update";
-                    document.getElementById("firstname").disabled = false;
-                    document.getElementById("lastname").disabled = false;
-                    document.getElementById("city").disabled = false;
-                    document.getElementById("country").disabled = false;
-                    document.getElementById("phone").disabled = false;
-                    document.getElementById("email").disabled = false;
-                } else if (document.getElementById("update").type === "button") {
-                    document.getElementById("update").type = "submit";
-                }
-            };
-            function disableInput() {
-                        document.getElementById("firstname").disabled = true;
-                        document.getElementById("lastname").disabled = true;
-                        document.getElementById("city").disabled = true;
-                        document.getElementById("country").disabled = true;
-                        document.getElementById("email").disabled = true;
-                        document.getElementById("phone").disabled = true;
-            };
-            function loadUserInfo() {
-                $.ajax({
-                    url: 'GetUserAccount?user=<%=username%>',
-                    type: 'GET',
-                    dataType: 'json',
-                    cache: false,
-                    async: true,
-                }).done(function (data) {
-                    $('#firstname').val(data.firstName);
-                    $('#lastname').val(data.lastName);
-                    $('#city').val(data.city);
-                    $('#country').val(data.country);
-                    $('#phone').val(data.phone);
-                    $('#email').val(data.email);
-                    $('#isadmin').val(data.isAdmin);
-                });
-            };
-            $(document).ready(function (){
-                loadUserInfo();
-            });
+           function enableInput(){"submit"===document.getElementById("update").type?(document.getElementById("update").type="button",document.getElementById("update").value="Update",document.getElementById("firstname").disabled=!1,document.getElementById("lastname").disabled=!1,document.getElementById("city").disabled=!1,document.getElementById("country").disabled=!1,document.getElementById("phone").disabled=!1,document.getElementById("email").disabled=!1):"button"===document.getElementById("update").type&&(document.getElementById("update").type="submit")}function disableInput(){document.getElementById("firstname").disabled=!0,document.getElementById("lastname").disabled=!0,document.getElementById("city").disabled=!0,document.getElementById("country").disabled=!0,document.getElementById("email").disabled=!0,document.getElementById("phone").disabled=!0}function loadUserInfo(){$.ajax({url:"GetUserAccount?user=<%=username%>",type:"GET",dataType:"json",cache:!1,async:!0}).done(function(e){$("#firstname").val(e.firstName),$("#lastname").val(e.lastName),$("#city").val(e.city),$("#country").val(e.country),$("#phone").val(e.phone),$("#email").val(e.email),$("#isadmin").val(e.isAdmin)})}$(document).ready(function(){loadUserInfo()});
         </script>
                 <div class="wrapper">
                         <h1 class="field-title">User Information:</h1>

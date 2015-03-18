@@ -13,9 +13,7 @@
 <html>
         <body>
             <script>
-                $(document).ready(function () {
-                    loadUsers();
-                });
+            $(document).ready(function(){loadUsers()});
             </script>
                 <div class="wrapper">
                         <div class="tabs">

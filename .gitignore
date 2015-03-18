@@ -10,7 +10,6 @@ Project/biodiversity-oman.com/nbproject/project.properties
 Project/biodiversity-oman.com/nbproject/private/private.properties
 Project/biodiversity-oman.com/nbproject/project.properties
 *.properties
-*.xml
 Project/biodiversity-oman.com/nbproject/private/private.properties
 Project/biodiversity-oman.com/nbproject/private/private.xml
 Project/biodiversity-oman.com/nbproject/private/private.properties
@@ -28,8 +27,6 @@ Project/biodiversity-oman.com/nbproject/private/private.properties
 Project/biodiversity-oman.com/nbproject/private/private.xml
 Project/biodiversity-oman.com/nbproject/private/private.xml
 *.properties
-
-*.xml
 Project/biodiversity-oman.com/nbproject/private/private.properties
 *.properties
 Project/biodiversity-oman.com/nbproject/private/private.properties

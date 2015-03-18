@@ -435,20 +435,7 @@
                         </div>
                 </div>
                 <script>
-                    $(document).ready(function () {
-                        loadToValidateOrganisms();
-                        loadPublishedOrganisms();
-                        loadPosts();
-                        loadSubscriber();
-                        loadWorlds();
-                        loadSeasons();
-                        loadFamilies();
-                        loadSubFamilies();
-                        loadHabitats();
-                        loadGeolocations();
-                        loadEaten();
-                        $(".chosen-select").chosen({width: "100%"});
-                    });
+                    $(document).ready(function(){loadToValidateOrganisms(),loadPublishedOrganisms(),loadPosts(),loadSubscriber(),loadWorlds(),loadSeasons(),loadFamilies(),loadSubFamilies(),loadHabitats(),loadGeolocations(),loadEaten(),$(".chosen-select").chosen({width:"100%"})});
                 </script>
         </body>
 </html>

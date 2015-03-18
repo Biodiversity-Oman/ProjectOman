@@ -37,6 +37,13 @@ body, html {
     width: 100%;
     font-size: 1.4em;
 }
+.btn-material-orange {
+    background-color: #F57C00;
+    color: #ffffff;
+    margin-top: 0em;
+    font-size: 1em;
+    padding: 7px 20px;
+}
 /*--------------------------------------------------------*/
 /* -------------- header & navigation --------------*/
 /*--------------------------------------------------------*/
@@ -204,10 +211,15 @@ nav ul li a {
     padding-top: 1em;
     //margin: 0;
 }
+.search-result {
+    display: none;
+    height: auto;
+    margin-top: 0.5em;
+}
 input[type="text"] {
-    height:auto;
-    padding:5px 0;
-    background-color: #FFEE58;
+    border-style: none;
+    border-radius: 2px;
+    background-color: #ffffff;
 }
 /*--------------------------------------------------------*/
 /* -------------- funn-stuff-container-Container -------------- */
