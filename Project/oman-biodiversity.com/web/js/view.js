@@ -1,3 +1,5 @@
+
+// functie om organisme te laden per wereld in index.jsp
 function loadOrganisms() {
 
     var $marineOrganisms = $('#marine-organisms');
@@ -13,13 +15,21 @@ function loadOrganisms() {
     }).done(function (data) {
         data.forEach(function (o) {
             if (o.world.worldId === 1)
-            {$plantOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');}
+            {
+                $plantOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');
+            }
             else if (o.world.worldId === 2)
-            {$animalOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');}
+            {
+                $animalOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');
+            }
             else if (o.world.worldId === 3)
-            {$marineOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');}
+            {
+                $marineOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');
+            }
             else if (o.world.worldId === 4)
-            {$microbialOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');}
+            {
+                $microbialOrganisms.append('<li><a href="http://www.biodiversity-oman.com/kwartetkaart?id=' + o.organismId + '" target="_blank">' + o.commonName + '</a></li>');
+            }
             else
             {
                 $plantOrganisms.append('<li>No organisms yet</li>');
@@ -32,29 +42,30 @@ function loadOrganisms() {
 };
 
 //search function in index.jsp
+$(document).ready(function () {
 
-    $('#form-search-organism').submit(function (e){
-        document.getElementById('#search-organism-published').style.display ='block';
-
-        var keyword = $(this).val();
+    $('#form-search-organism').submit(function (e) {
+        $('#search-result').html('');
         $.ajax({
             url: 'SearchOrganism',
             type: 'GET',
             dataType: 'json',
             cache: false,
             async: true,
-            data: 'organismkey=' + keyword,
-            beforesend: function(){
-                $('#search-result').html('');      
-            }
-        }).done(function (data){
-             if (data.length === 0) {
-                        $('#search-result').append('<p>Organism not found</p>');
-                    };
-            data.forEach(function (o){           
+            data: $('#form-search-organism').serialize()
+        }).done(function (data) {
+            document.getElementById('search-result').style.display = 'block';
+            if (data.length === 0) {
+                $('#search-result').append('<p>Organism not found</p>');
+            };
+            data.forEach(function (o) {
                 $('#search-result').append('<p>' + o.commonName + '</p>');
-                
             });
+            setTimeout(function () {
+                $('#search-result').html('');
+                $('#form-search-organism')[0].reset();
+            }, 15000);
         });
-
+        e.preventDefault();
     });
+});

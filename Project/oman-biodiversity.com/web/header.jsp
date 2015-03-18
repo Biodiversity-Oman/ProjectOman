@@ -11,15 +11,15 @@
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <link rel="StyleSheet" type="text/css" href="css/main.css">
-                <link rel="StyleSheet" type="text/css" href="css/fonts/stylesheet.css">
-                <link rel="StyleSheet" type="text/css" href="css/icons.css">
+                <link rel="StyleSheet" type="text/css" href="css/fonts/fonts.min.css">
+                <link rel="StyleSheet" type="text/css" href="css/icons.min.css">
                 <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-                <link rel='stylesheet' href='css/fullcalendar.css' />
-                <link rel="stylesheet" href="css/slicknav.css" />
+                <link rel='stylesheet' href='css/fullcalendar.min.css' />
+                <link rel="stylesheet" href="css/slicknav.min.css" />
                 <script src='js/jquery.min.js'></script>
                 <script src='js/moment.min.js'></script>
                 <script src='js/fullcalendar.min.js'></script>
-                <script src='js/gcal.js'></script>
+                <script src='js/gcal.min.js'></script>
                 <script src="js/jquery.slicknav.min.js"></script>
                 <script type="text/javascript" src="js/instafeed.min.js"></script>
                 <script src='js/view.js'></script>
@@ -29,11 +29,7 @@
                 <title>Oman-Biodiversity</title>
         </head>
         <script>
-            $(function () {
-                $('#menu').slicknav({
-                    label: ''
-                });
-            });
+            $(function(){$("#menu").slicknav({label:""})});
         </script>
         <nav>
                 <ul id="menu">
