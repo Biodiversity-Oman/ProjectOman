@@ -23,16 +23,16 @@
 <html>
         <head>
                 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+		<script src="js/jquery.min.js"></script>
+                <script src="js/loaders.js"></script>
+                <script src="js/ajax.js"></script>
+                <script src="js/maps.js"></script>
+                <script src="js/validator.js"></script>
+                <script src="js/chosen.jquery.min.js"></script>
+                <script src="js/bootbox.min.js"></script>
                 <link rel="StyleSheet" type="text/css" href="css/admin.min.css">
                 <link rel="StyleSheet" type="text/css" href="css/icons.min.css">
                 <link rel="StyleSheet" type="text/css" href="css/chosen.min.css">
-                <script src="js/jquery.min.js"></script>
-                <script src="js/loaders.js"></script>
-                <script src="js/ajax.js" async></script>
-                <script src="js/maps.js" async></script>
-                <script src="js/validator.js" async></script>
-                <script src="js/chosen.jquery.min.js" async></script>
-                <script src="js/bootbox.min.js" async></script>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
