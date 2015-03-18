@@ -21,6 +21,23 @@ body, html {
     min-width: 100%;
     max-width: 100%;
 }
+.detail-text{
+    font-weight: 500;
+    color:black;
+}
+#img{
+    width:90%;
+    height: 90%;  
+}
+#detail-header{
+    height:5em;
+    margin-bottom: 1em;
+    color:white;
+}
+.detail-container{
+    font-family: museo300;
+    color: black;
+}
 .button {
     border-style: none;
     border-radius: 2px;

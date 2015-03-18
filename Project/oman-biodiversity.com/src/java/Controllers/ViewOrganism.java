@@ -54,18 +54,26 @@ public class ViewOrganism extends HttpServlet {
         processRequest(request, response);
         
         int id = Integer.parseInt(request.getParameter("id"));
-        
-        Organism o = null;
+        String color="";        
+        Organism o;
         try {
             o = ServOrganism.selectOneById(id);
             ArrayList<Organism> org = new ArrayList<>();
             org.add(o);
             
+            String world = o.getWorld().getWorldName();
+            if (world.toLowerCase().contains("animal")) {color = "#f44336";}
+            else if (world.toLowerCase().contains("plant")) {color = "#4caf50";}
+            else if (world.toLowerCase().contains("micro")) {color = "#ffc107";}
+            else if (world.toLowerCase().contains("marine")) {color = "#03a9f4";}          
+            
             request.getSession().setAttribute("view", org);
+            request.getSession().setAttribute("colorscheme", color);
             RequestDispatcher dispatcher = request.getRequestDispatcher("organismdetail.jsp");
             dispatcher.forward(request, response);
+            
         } catch (SQLException ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "");
         }
         
         
