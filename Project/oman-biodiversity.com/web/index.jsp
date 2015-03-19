@@ -10,15 +10,27 @@
     <body>
         <script>
             $(document).ready(function () {
+		//function to calculate window height
+		function get_calendar_height() {
+		      return $(window).height() - 30;
+		}
+
+		//attacht resize event to window and set fullcalendar height property
+		
+		$(window).resize(function() {
+		    $('#calendar').fullCalendar('option', 'height', get_calendar_height());
+		});
+
                 $('#calendar').fullCalendar({
                     googleCalendarApiKey: 'AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ',
                     events: {
                         googleCalendarId: 'developersteam.belgium@gmail.com'
                     },
                     eventAfterRender: function (event, element, view) {
-                        $(element).css({"background-color": "#4DB6AC", "font-size": "1.2em", "font-family": "'Montser', sans-serif", "padding": "1.5em"});
+                        $(element).css({"background-color": "#4DB6AC", "font-size": "1.2em", "font-family": "'Montser', sans-serif", "padding": "1em"});
                     },
                     eventColor: '#26A69A'
+		   
                 });
                 $("#slide-marine-world").click(function () {
                     $("#marine-world-panel").slideToggle("slow");
