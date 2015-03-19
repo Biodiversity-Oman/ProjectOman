@@ -101,7 +101,7 @@
 			<div id='calendar'></div>
 		    </div>
 		    <aside class="social-container">
-			<div class="col-lg-3 col-md-offset-1">
+			<div class="col-lg-4 col-md-offset-1">
 			    <div class="row">
 				<h1 class="text-center"><u>What is Happening?</u></h1>
 				<p class="lead text-center">Find us on Instagram & Facebook!</p>
