@@ -48,7 +48,6 @@
                 <%}%>
             };
         </script>
-</head>
 <nav>
         <ul>
                 <li><a href="dashboard.jsp" ><span class="icon-home"></span><Strong>Dashboard</strong></a></li>

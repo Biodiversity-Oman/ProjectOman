@@ -493,7 +493,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="family-description">Description</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <textarea rows="3" class="form-control" name="family-description" id="family-description"data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
+                                                                                                <textarea rows="3" class="form-control" name="family-description" id="family-description" data-error="error" data-pattern="/^$|^(\w[^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
                                                                                                 <span class="help-block with-errors"></span>
                                                                                         </div>
                                                                                 </div>
@@ -646,7 +646,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="season-name">Name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control"type="text" name="season-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
+                                                                                                <input class="form-control" type="text" name="season-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
                                                                                 </div>
