@@ -4,8 +4,12 @@
     Author     : lennyasus
 --%>
 <%@include file="/adminheader.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        </head>
         <body>
 	    <script>
                     $(document).ready(function(){$(".chosen-select").chosen({width:"100%"}),loadOrganisms(),loadWorlds(),loadSeasons(),loadFamilies(),loadSubFamilies(),loadHabitats(),loadGeolocations(),loadPendingOrganisms(),loadEaten()});

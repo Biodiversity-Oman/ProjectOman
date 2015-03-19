@@ -23,7 +23,7 @@
 <html>
         <head>
                 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-		<script src="js/jquery.min.js"></script>
+                <script src="js/jquery.min.js"></script>
                 <script src="js/loaders.js"></script>
                 <script src="js/ajax.js"></script>
                 <script src="js/maps.js"></script>
