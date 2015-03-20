@@ -20,9 +20,9 @@ public class DataSource {
     public static java.sql.Connection getConnection() throws SQLException {
        
         if (!isLanguage()) {
-            return (DriverManager.getConnection("jdbc:mysql://localhost:3306/omandb", "oman", "0manDiversity"));
+            return (DriverManager.getConnection("jdbc:mysql://localhost:3306/omandb?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8", "oman", "0manDiversity"));
         } else {
-            return null; //(DriverManager.getConnection("jdbc:mysql://localhost:3306/omandbarabic", "", "0manDiversity"));
+            return null; //(DriverManager.getConnection("jdbc:mysql://localhost:3306/omandbarabic?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8", "", "0manDiversity"));
         }
 
     

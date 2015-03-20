@@ -36,7 +36,7 @@ public class SelectOrganismToValidate extends HttpServlet {
 	 */
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("application/json");
+		response.setContentType("text/html;charset=UTF-8");
 		try {
 			List orgs = ServOrganism.selectOrganismsToValidate();
 			response.getWriter().write(new Gson().toJson(orgs));

@@ -7,11 +7,15 @@ package Controllers;
 
 import Service.ServSeason;
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.IOUtils;
 
 /**
  *
@@ -19,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "InsertSeason", urlPatterns = {"/InsertSeason"})
 public class InsertSeason extends HttpServlet {
+	private Object original;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,8 +38,8 @@ public class InsertSeason extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String check = request.getParameter("season-name");
+		
+        String check = (request.getParameter("season-name"));
         response.getWriter().write(ServSeason.insertSeason(check, request.getParameter("season-description")));
     }
 

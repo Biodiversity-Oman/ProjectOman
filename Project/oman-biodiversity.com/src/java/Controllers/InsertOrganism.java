@@ -39,38 +39,9 @@ public class InsertOrganism extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-
-        int[] habitatIds = null;
+		response.setContentType("text/html;charset=UTF-8");
+		
+		int[] habitatIds = null;
         int[] seasonIds = null;
         int[] eatenByOrganismIds = null;
         int[] eatingOrganismIds = null;
@@ -115,29 +86,63 @@ public class InsertOrganism extends HttpServlet {
             ImageIO.write(image, "jpg", b);
             bytes = b.toByteArray();
         }
-        response.getWriter().write(Service.ServOrganism.insert(request.getParameter("organism-scientific-name"),
-					request.getParameter("organism-common-name"),
-					request.getParameter("organism-local-name"),
-					request.getParameter("organism-description"),
+		
+        response.getWriter().write(Service.ServOrganism.insert(new String (request.getParameter("organism-scientific-name").getBytes ("iso-8859-1"), "UTF-8"),
+					new String (request.getParameter("organism-common-name").getBytes("iso-8859-1"),"UTF-8"),
+					new String (request.getParameter("organism-local-name").getBytes("iso-8859-1"),"UTF-8"),
+					new String (request.getParameter("organism-description").getBytes("iso-8859-1"),"UTF-8"),
 					Integer.parseInt(request.getParameter("organism-subfamily-id")),
 					habitatIds,
-					request.getParameter("organism-population"),
+					new String (request.getParameter("organism-population").getBytes("iso-8859-1"),"UTF-8"),
 					seasonIds,
 					Boolean.parseBoolean(request.getParameter("organism-indigenous")),
 					Boolean.parseBoolean(request.getParameter("organism-cultivated")),
 					Boolean.parseBoolean(request.getParameter("organism-endangered")),
 					Boolean.parseBoolean(request.getParameter("organism-medicinal")),
-					request.getParameter("organism-benefits"),
-					request.getParameter("organism-dangerous"),
-					request.getParameter("organism-threats"),
-					request.getParameter("organism-opportunities"),
+					new String (request.getParameter("organism-benefits").getBytes("iso-8859-1"),"UTF-8"),
+					new String (request.getParameter("organism-dangerous").getBytes("iso-8859-1"),"UTF-8"),
+					new String (request.getParameter("organism-threats").getBytes("iso-8859-1"),"UTF-8"),
+					new String (request.getParameter("organism-opportunities").getBytes("iso-8859-1"),"UTF-8"),
 					bytes,
-					request.getParameter("organism-links"),
+					new String (request.getParameter("organism-links").getBytes("iso-8859-1"),"UTF-8"),
 					eatenByOrganismIds,
 					eatingOrganismIds,
-					request.getParameter("organism-food-name"),
-					request.getParameter("organism-food-description"),
+					new String (request.getParameter("organism-food-name").getBytes("iso-8859-1"),"UTF-8"),
+					new String (request.getParameter("organism-food-description").getBytes("iso-8859-1"),"UTF-8"),
 					geolocationIds));
+
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+		response.setContentType("text/html;charset=UTF-8");
+
+      
     }
 
     /**

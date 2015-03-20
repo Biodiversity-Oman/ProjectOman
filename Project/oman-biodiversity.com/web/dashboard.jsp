@@ -4,8 +4,12 @@
     Author     : lennyasus
 --%>
 <%@include file="/adminheader.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        </head>
         <body>
 	    <script>
                     $(document).ready(function(){$(".chosen-select").chosen({width:"100%"}),loadOrganisms(),loadWorlds(),loadSeasons(),loadFamilies(),loadSubFamilies(),loadHabitats(),loadGeolocations(),loadPendingOrganisms(),loadEaten()});
@@ -33,7 +37,7 @@
                                                         <label class="close-button">x</label>
                                                         <div class="content">
                                                                 <div id="create-organism">
-                                                                        <form class="form form-horizontal" id="create-organism-form" data-toggle="validator" enctype="multipart/form-data">
+                                                                        <form class="form form-horizontal" id="create-organism-form" data-toggle="validator" enctype="multipart/form-data" >
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label"></label>
                                                                                         <div class="col-sm-4">
