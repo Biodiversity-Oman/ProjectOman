@@ -5,8 +5,12 @@
  */
 package Controllers;
 
+import BLL.Organism;
+import Service.ServOrganism;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,13 +36,16 @@ public class SelectAllOrganismByWorld extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-		try {
-			java.util.List result = Service.ServOrganism.selectAllByWorld();
-			response.getWriter().write(new com.google.gson.Gson().toJson(result));
-		} catch (java.sql.SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-        
+
+
+        try {
+
+            ArrayList<Organism> org = (ArrayList<Organism>) ServOrganism.selectAllByWorld();
+            response.getWriter().write(new Gson().toJson(org));
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

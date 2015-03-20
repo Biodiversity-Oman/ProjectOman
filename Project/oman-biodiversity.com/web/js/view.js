@@ -6,6 +6,7 @@ function loadOrganisms() {
     var $animalOrganisms = $('#animal-organisms');
     var $plantOrganisms = $('#plant-organisms');
     var $microbialOrganisms = $('#microbial-organisms');
+    var world;
     $.ajax({
         url: 'SelectAllOrganismByWorld',
         type: 'GET',
@@ -14,15 +15,25 @@ function loadOrganisms() {
         async: true
     }).done(function (data) {
         data.forEach(function (o) {
-            if (o.world.worldId === 1)
-            {$plantOrganisms.append('<li><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></li>');}
-            else if (o.world.worldId === 2)
-            {$animalOrganisms.append('<li><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></li>');}
-            else if (o.world.worldId === 3)
-            {$marineOrganisms.append('<li><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></li>');}
-            else if (o.world.worldId === 4)
-            {$microbialOrganisms.append('<li><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></li>');}
-            
+            world = o.world.worldName;
+            console.log(world);
+            if (world.toLowerCase().contains("plant"))
+            {
+                $plantOrganisms.append('<li><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
+            }
+            else if (world.toLowerCase().contains("animal"))
+            {
+                $animalOrganisms.append('<li><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
+            }
+            else if (world.toLowerCase().contains("marine"))
+            {
+                $marineOrganisms.append('<li><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
+            }
+            else if (world.toLowerCase().contains("micro"))
+            {
+                $microbialOrganisms.append('<li><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
+            }
+
             else
             {
                 $plantOrganisms.append('<li>No organisms yet</li>');
@@ -32,7 +43,8 @@ function loadOrganisms() {
             }
         });
     });
-};
+}
+;
 
 //search function in index.jsp
 $(document).ready(function () {
@@ -50,9 +62,10 @@ $(document).ready(function () {
             document.getElementById('search-result').style.display = 'block';
             if (data.length === 0) {
                 $('#search-result').append('<p>Organism not found</p>');
-            };
+            }
+            ;
             data.forEach(function (o) {
-                $('#search-result').append('<p><a href="ViewOrganism?id='+ o.organismId +'" >' + o.commonName + '</a></p>');
+                $('#search-result').append('<p><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></p>');
             });
             setTimeout(function () {
                 $('#search-result').html('');

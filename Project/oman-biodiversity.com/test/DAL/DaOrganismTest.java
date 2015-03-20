@@ -6,7 +6,6 @@
 package DAL;
 
 import BLL.Organism;
-import java.sql.SQLException;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -17,7 +16,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Eric
+ * @author Tom
  */
 public class DaOrganismTest {
     
@@ -44,7 +43,7 @@ public class DaOrganismTest {
      * Test of checkOrganismExist method, of class DaOrganism.
      */
 //    @Test
-//    public void testCheckOrganismExist_String_Integer() {
+//    public void testCheckOrganismExist_String_Integer() throws Exception {
 //        System.out.println("checkOrganismExist");
 //        String scientificname = "";
 //        Integer id = null;
@@ -59,7 +58,7 @@ public class DaOrganismTest {
 //     * Test of checkOrganismExist method, of class DaOrganism.
 //     */
 //    @Test
-//    public void testCheckOrganismExist_String() {
+//    public void testCheckOrganismExist_String() throws Exception {
 //        System.out.println("checkOrganismExist");
 //        String scientificname = "";
 //        boolean expResult = false;
@@ -73,7 +72,7 @@ public class DaOrganismTest {
 //     * Test of selectAll method, of class DaOrganism.
 //     */
 //    @Test
-//    public void testSellectAll() {
+//    public void testSelectAll() throws Exception {
 //        System.out.println("selectAll");
 //        List<Organism> expResult = null;
 //        List<Organism> result = DaOrganism.selectAll();
@@ -83,10 +82,24 @@ public class DaOrganismTest {
 //    }
 //
 //    /**
+//     * Test of selectPhotoById method, of class DaOrganism.
+//     */
+//    @Test
+//    public void testSelectPhotoById() throws Exception {
+//        System.out.println("selectPhotoById");
+//        int id = 0;
+//        byte[] expResult = null;
+//        byte[] result = DaOrganism.selectPhotoById(id);
+//        assertArrayEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
 //     * Test of selectOneById method, of class DaOrganism.
 //     */
 //    @Test
-//    public void testSelectOneById() {
+//    public void testSelectOneById() throws Exception {
 //        System.out.println("selectOneById");
 //        int id = 0;
 //        Organism expResult = null;
@@ -100,7 +113,7 @@ public class DaOrganismTest {
 //     * Test of selectAllByNameLike method, of class DaOrganism.
 //     */
 //    @Test
-//    public void testSelectAllByNameLike() {
+//    public void testSelectAllByNameLike() throws Exception {
 //        System.out.println("selectAllByNameLike");
 //        String name = "";
 //        List<Organism> expResult = null;
@@ -137,21 +150,19 @@ public class DaOrganismTest {
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
 //    }
-//
-//    /**
-//     * Test of selectAllByWorld method, of class DaOrganism.
-//     */
-//    @Test
-//    public void testSelectAllByWorld() {
-//        System.out.println("selectAllByWorld");
-//        int id = 0;
-//        List<Organism> expResult = null;
-//        List<Organism> result = DaOrganism.selectAllByWorld(id);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
+
+    /**
+     * Test of selectAllByWorld method, of class DaOrganism.
+     */
+    @Test
+    public void testSelectAllByWorld() throws Exception {
+        System.out.println("selectAllByWorld");
+        List<Organism> expResult = null;
+        List<Organism> result = DaOrganism.selectAllByWorld();
+        System.out.println(result);
+
+    }
+
 //    /**
 //     * Test of selectAllByHabitat method, of class DaOrganism.
 //     */
@@ -184,69 +195,46 @@ public class DaOrganismTest {
 //     * Test of insert method, of class DaOrganism.
 //     */
 //    @Test
-//    public void testInsertOrganism() {
-//        try{
+//    public void testInsert() throws Exception {
 //        System.out.println("insert");
-//        Organism organism = new Organism();
-//        organism.setBenefits("test");
-//        organism.setCommonName("test");
-//        organism.setCultivated(Boolean.TRUE);
-//        organism.setDangerous("test");
-//        organism.setDescription("test");
-//        organism.setEatenByOrganism(null);
-//        organism.setEatingOrganisms(null);
-//        organism.setEndangered(Boolean.TRUE);
-//        organism.setFamily(null);
-//        organism.setFoodDescription("test");
-//        organism.setFoodName("test");
-//        organism.setGeolocations(null);
-//        organism.setHabitat(null);
-//        organism.setIndigenous(Boolean.TRUE);
-//        organism.setInsertedOn(null);
-//        organism.setLinks(null);
-//        organism.setLinks("test");
-//        organism.setLocalName("test");
-//        organism.setMedicinal(Boolean.TRUE);
-//        organism.setOpportunities("test");
-//        organism.setPhoto(null);
-//        organism.setPopulation("test");
-//        organism.setScientificName("test");
-//        organism.setSeason(null);
-//        organism.setSubfamily(null);
-//        organism.setThreats("test");
-//        organism.setUpdatedOn(null);
-//        organism.setValidated(Boolean.TRUE);
-//        organism.setWorld(null);
-//            System.out.println("gelukt");
-//        }
-//        catch(Exception e){System.out.println("niet gelukt"+e);}
-//        
-//        
-//        
-//        
+//        Organism organism = null;
+//        DaOrganism.insert(organism);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
 //    }
-
-    /**
-     * Test of deleteOrganism method, of class DaOrganism.
-     */
-    @Test
-    public void testDeleteOrganism() throws SQLException {
-        System.out.println("deleteOrganism");
-        int id = 21;
-        DaOrganism.deleteOrganism(id);
-       
-    }
+//
+//    /**
+//     * Test of deleteOrganism method, of class DaOrganism.
+//     */
+//    @Test
+//    public void testDeleteOrganism() throws Exception {
+//        System.out.println("deleteOrganism");
+//        int id = 0;
+//        DaOrganism.deleteOrganism(id);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 //
 //    /**
 //     * Test of update method, of class DaOrganism.
 //     */
 //    @Test
-//    public void testUpdateOrganism() {
+//    public void testUpdate() throws Exception {
 //        System.out.println("update");
 //        Organism organism = null;
-//        int expResult = 0;
-//        int result = DaOrganism.update(organism);
-//        assertEquals(expResult, result);
+//        DaOrganism.update(organism);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of updatePending method, of class DaOrganism.
+//     */
+//    @Test
+//    public void testUpdatePending() throws Exception {
+//        System.out.println("updatePending");
+//        Organism organism = null;
+//        DaOrganism.updatePending(organism);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
 //    }
@@ -257,15 +245,12 @@ public class DaOrganismTest {
 //    @Test
 //    public void testSelectAllForValidation() throws Exception {
 //        System.out.println("selectAllForValidation");
+//        List<Organism> expResult = null;
 //        List<Organism> result = DaOrganism.selectAllForValidation();
-//            for (Organism o : result) {
-//            
-//            System.out.println(o.getUpdatedOn());
-//            System.out.println(o.getCommonName());
-//            System.out.println(o.getScientificName());
-//        }
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
 //    }
-//    
 //
 //    /**
 //     * Test of selectAllPublished method, of class DaOrganism.
@@ -273,76 +258,64 @@ public class DaOrganismTest {
 //    @Test
 //    public void testSelectAllPublished() throws Exception {
 //        System.out.println("selectAllPublished");
+//        List<Organism> expResult = null;
 //        List<Organism> result = DaOrganism.selectAllPublished();
-//        for (Organism o : result) {
-//            System.out.println(o.getUpdatedOn());
-//            System.out.println(o.getCommonName());
-//            System.out.println(o.getScientificName());
-//        }
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
 //    }
 //
-//	/**
-//	 * Test of selectAll method, of class DaOrganism.
-//	 */
-//	@Test
-//	public void testSelectAll() {
-//		System.out.println("selectAll");
-//		List<Organism> expResult = null;
-//		List<Organism> result = DaOrganism.selectAll();
-//		assertEquals(expResult, result);
-//		// TODO review the generated test code and remove the default call to fail.
-//		fail("The test case is a prototype.");
-//	}
+//    /**
+//     * Test of publishFromQueue method, of class DaOrganism.
+//     */
+//    @Test
+//    public void testPublishFromQueue() throws Exception {
+//        System.out.println("publishFromQueue");
+//        int organismId = 0;
+//        DaOrganism.publishFromQueue(organismId);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 //
-//	/**
-//	 * Test of selectPhotoById method, of class DaOrganism.
-//	 */
-//	@Test
-//	public void testSelectPhotoById() {
-//		System.out.println("selectPhotoById");
-//		int id = 0;
-//		byte[] expResult = null;
-//		byte[] result = DaOrganism.selectPhotoById(id);
-//		assertArrayEquals(expResult, result);
-//		// TODO review the generated test code and remove the default call to fail.
-//		fail("The test case is a prototype.");
-//	}
+//    /**
+//     * Test of searchOrganismTable method, of class DaOrganism.
+//     */
+//    @Test
+//    public void testSearchOrganismTable() throws Exception {
+//        System.out.println("searchOrganismTable");
+//        String keyword = "";
+//        List expResult = null;
+//        List result = DaOrganism.searchOrganismTable(keyword);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 //
-//	/**
-//	 * Test of UpdatePendingOrganism method, of class DaOrganism.
-//	 */
-//	@Test
-//	public void testUpdatePendingOrganism() {
-//		System.out.println("UpdatePendingOrganism");
-//		Organism organism = null;
-//		int expResult = 0;
-//		int result = DaOrganism.UpdatePendingOrganism(organism);
-//		assertEquals(expResult, result);
-//		// TODO review the generated test code and remove the default call to fail.
-//		fail("The test case is a prototype.");
-//	}
+//    /**
+//     * Test of searchOrganismPendingTable method, of class DaOrganism.
+//     */
+//    @Test
+//    public void testSearchOrganismPendingTable() throws Exception {
+//        System.out.println("searchOrganismPendingTable");
+//        String keyword = "";
+//        List expResult = null;
+//        List result = DaOrganism.searchOrganismPendingTable(keyword);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 //
-//	/**
-//	 * Test of publishFromQue method, of class DaOrganism.
-//	 */
-//	@Test
-//	public void testPublishFromQue() throws Exception {
-//		System.out.println("publishFromQue");
-//		int organismId = 0;
-//		DaOrganism.publishFromQue(organismId);
-//		// TODO review the generated test code and remove the default call to fail.
-//		fail("The test case is a prototype.");
-//	}
-
-	/**
-	 * Test of searchOrganism method, of class DaOrganism.
-	 */
-//	@Test
-//	public void testSearchOrganism() throws Exception {
-//		System.out.println("searchOrganismTable");
-//		String keyword = "klepper";
-//		List result = DaOrganism.searchOrganismTable(keyword);
-//		System.out.println(result);
-//	}
+//    /**
+//     * Test of selectEaten method, of class DaOrganism.
+//     */
+//    @Test
+//    public void testSelectEaten() throws Exception {
+//        System.out.println("selectEaten");
+//        List<Organism> expResult = null;
+//        List<Organism> result = DaOrganism.selectEaten();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     
 }

@@ -334,7 +334,7 @@ public class DaOrganism {
                 
             List<Organism> organisms = new ArrayList<>();
             conn = DataSource.getConnection();
-            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.common_name, world.world_id \n"
+            stmt = conn.prepareStatement("SELECT organism.organism_id, organism.common_name, world.world_id, world.world_name \n"
                             + "FROM organism \n"
                             + "INNER JOIN subfamily ON organism.subfamily_id = subfamily.subfamily_id \n"
                             + "INNER JOIN family ON subfamily.family_id = family.family_id \n"
@@ -352,7 +352,8 @@ public class DaOrganism {
                     o.setCommonName(rs.getString("common_name"));
                     
                     w.setWorldId(rs.getInt("world_id"));
-                    o.setWorld(w);
+                    w.setWorldName(rs.getString("world_name"));
+                    o.setWorld(w); 
                     
                     organisms.add(o);
             }

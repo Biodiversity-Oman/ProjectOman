@@ -282,7 +282,7 @@ function loadToValidateOrganisms() {
                        </tr>');
         data.forEach(function (o) {
             $table.append('<tr>\n\
-                           <td>' + o.commonName + '</td>\n\\n\
+                           <td>' + o.commonName + '</td>\n\
                            <td>' + o.scientificName + '</td>\n\
                            <td>' + o.insertedOn + '</td>\n\
                            <td>' + o.updatedOn + '</td>\n\
