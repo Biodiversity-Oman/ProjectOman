@@ -51,27 +51,33 @@ $(document).ready(function () {
 
     $('#form-search-organism').submit(function (e) {
         $('#search-result').html('');
-        $.ajax({
-            url: 'SearchOrganism',
-            type: 'GET',
-            dataType: 'json',
-            cache: false,
-            async: true,
-            data: $('#form-search-organism').serialize()
-        }).done(function (data) {
-            document.getElementById('search-result').style.display = 'block';
-            if (data.length === 0) {
-                $('#search-result').append('<p>Organism not found</p>');
-            }
-            ;
-            data.forEach(function (o) {
-                $('#search-result').append('<p><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></p>');
+        var keyword = $('#keyword').val();
+        if (keyword.length >= 3) {
+            $.ajax({
+                url: 'SearchOrganism',
+                type: 'GET',
+                dataType: 'json',
+                cache: false,
+                async: true,
+                data: $('#form-search-organism').serialize()
+            }).done(function (data) {
+                document.getElementById('search-result').style.display = 'block';
+                if (data.length === 0) {
+                    $('#search-result').append('<p>Organism not found</p>');
+                }
+                ;
+                data.forEach(function (o) {
+                    $('#search-result').append('<p><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></p>');
+                });
+                setTimeout(function () {
+                    $('#search-result').html('');
+                    $('#form-search-organism')[0].reset();
+                }, 15000);
             });
-            setTimeout(function () {
-                $('#search-result').html('');
-                $('#form-search-organism')[0].reset();
-            }, 15000);
-        });
+        } else {
+            document.getElementById('search-result').style.display = 'block';
+            $('#search-result').append('<p>More characters required</p>');
+        }
         e.preventDefault();
     });
 });
