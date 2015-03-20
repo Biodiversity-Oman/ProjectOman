@@ -23,7 +23,7 @@ function loadOrganisms() {
             }
             else if (world.toLowerCase().contains("animal"))
             {
-                $animalOrganisms.append('<li class="pull-left list-group-item list-group-item-danger" ><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
+                $animalOrganisms.append('<li class="pull-left list-group-item-animal" ><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
             }
             else if (world.toLowerCase().contains("marine"))
             {

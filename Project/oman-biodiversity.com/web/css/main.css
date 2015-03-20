@@ -267,9 +267,20 @@ input[type="text"] {
 }
 
 ol li{
-  width: 33%;
+  width: 33.333%;
   overflow: hidden;
   padding:  0.1em;
+  white-space: nowrap;
+}
+
+ol li a{
+    text-decoration: none;
+    color: #F5F5FF;
+}
+
+ol li a:hover {
+    text-decoration: none;
+    color: gold;
 }
 
 .world-text{
@@ -277,6 +288,10 @@ ol li{
     position: relative;
 }
 
+.list-group-item-animal{
+    background-color: #B43128;
+    border: solid 0.5px #F5F5FF;
+}
 /*--------------------------------------------------------*/
 /* -------------- funn-stuff-container-Container -------------- */
 /*--------------------------------------------------------*/
