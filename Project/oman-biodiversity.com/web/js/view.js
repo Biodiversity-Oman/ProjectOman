@@ -19,19 +19,19 @@ function loadOrganisms() {
             console.log(world);
             if (world.toLowerCase().contains("plant"))
             {
-                $plantOrganisms.append('<li><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
+                $plantOrganisms.append('<li class="list-group-item list-group-item-success"><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
             }
             else if (world.toLowerCase().contains("animal"))
             {
-                $animalOrganisms.append('<li><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
+                $animalOrganisms.append('<li class="pull-left list-group-item list-group-item-danger" ><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
             }
             else if (world.toLowerCase().contains("marine"))
             {
-                $marineOrganisms.append('<li><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
+                $marineOrganisms.append('<li class="list-group-item list-group-item-info"><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
             }
             else if (world.toLowerCase().contains("micro"))
             {
-                $microbialOrganisms.append('<li><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
+                $microbialOrganisms.append('<li  class="list-group-item list-group-item-warning"><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></li>');
             }
 
             else

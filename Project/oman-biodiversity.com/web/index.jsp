@@ -150,7 +150,7 @@
                             </p>
 
                             <div class="organism-box center-block">
-                                <ul class="organism-list" id="marine-organisms"><p class="organism-list">Organisms</p></ul>
+                                <ul class="list-group" id="marine-organisms"></ul>
                             </div>
                         </div>
                     </div>
@@ -160,19 +160,23 @@
                             <h4 class="text-center">Extinction is forever</h4>
                         </div>
                         <div class="slide-panel animal-world" id="animal-world-panel">
-                            <img class="img-responsive center-block" src="img/animal-dio.jpg" alt="marine diorama" width="90%" height="90%"  />
-                            <p>Oman is blessed with over 47 species of land mammals, 10 livestock species and over a hundred types of birds.  Although we know a lot about Oman’s biodiversity, little is known about their genetic diversity.
-                                What is genetic diversity? 
-                                In every species, each individual animal has a unique genetic code – this is what gives them their own special characteristics, like big feet, short feathers or a bright colour. We need to understand these variations so we can look after our animal world properly and make the best use of it. 
-                                Humans have been domesticating wild animals for thousands of years.  The main types of animals that people in Oman farm and eat are cattle, sheep, goats, camels and poultry. The great majority of these are local but foreign breeds are used too, for example, as dairy cattle and on commercial chicken farms.  
-                                Meat and milk are the most important products from cattle, while meat is the most important product from sheep and goats. Poultry is used for its meat and eggs.  
-                                Cattle are the main source of manure in the country followed by goats, then sheep and poultry!
-                                Animals play an important role in society.  They are a source of energy, fertilizers and income. They are also valued as pets.
-                                Animal genetic resources face a lot of threats from the environment as well as humans. Animals are important to us for our food and for our environment. We need to protect them.</p>
-
-                            <div class="organism-box center-block">
-                                <ul class="organism-list" id="animal-organisms"><p class="organism-list">Organisms</p></ul>
+                            <img class="img-responsive center-block" src="img/animal-dio.jpg" alt="marine diorama" width="90%" height="90%" />
+                            <div class="row">
+                                <div class="organism-box center-block">
+                                    <ol class="list-group list-inline visible-sm-* text-center" id="animal-organisms"></ol>
+                                </div>
                             </div>
+                            <div class="row world-text" >
+                                <p>Oman is blessed with over 47 species of land mammals, 10 livestock species and over a hundred types of birds.  Although we know a lot about Oman’s biodiversity, little is known about their genetic diversity.
+                                    What is genetic diversity? 
+                                    In every species, each individual animal has a unique genetic code – this is what gives them their own special characteristics, like big feet, short feathers or a bright colour. We need to understand these variations so we can look after our animal world properly and make the best use of it. 
+                                    Humans have been domesticating wild animals for thousands of years.  The main types of animals that people in Oman farm and eat are cattle, sheep, goats, camels and poultry. The great majority of these are local but foreign breeds are used too, for example, as dairy cattle and on commercial chicken farms.  
+                                    Meat and milk are the most important products from cattle, while meat is the most important product from sheep and goats. Poultry is used for its meat and eggs.  
+                                    Cattle are the main source of manure in the country followed by goats, then sheep and poultry!
+                                    Animals play an important role in society.  They are a source of energy, fertilizers and income. They are also valued as pets.
+                                    Animal genetic resources face a lot of threats from the environment as well as humans. Animals are important to us for our food and for our environment. We need to protect them.</p>
+                            </div>
+
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -187,7 +191,7 @@
                                 Like all genetic resources, our plants are under threat from us humans and the environment! 
                                 We need to protect and preserve our plants!</p>
                             <div class="organism-box center-block">
-                                <ul class="organism-list" id="plant-organisms"><p class="organism-list">Organisms</p></ul>
+                                <ul class="list-group" id="plant-organisms"></ul>
                             </div>
                         </div>
                     </div>
@@ -197,7 +201,7 @@
                             <h4 class="text-center">Look into my world!</h4>
                         </div>
                         <div class="slide-panel microbial-world" id="microbial-world-panel"><p>
-                                Microorganisms, or microbes, are tiny creatures that usually can only be seen with the help of a microscope. They are mostly just a single cell or made up of a cluster of cells. 
+                                Micro-organisms, or microbes, are tiny creatures that usually can only be seen with the help of a microscope. They are mostly just a single cell or made up of a cluster of cells. 
                                 There are lots of different types of microbes. They include fungi and bacteria, as well as microscopic plants and animals.
                                 You can find microbes in every place that has water such as soil, the atmosphere, the ocean floor… even on your hand!
 
@@ -206,7 +210,7 @@
                                 Microbial genetic resources are becoming more and more important because of all the help they can give us. Because of this we need to identify them and protect them…  just like all our other genetic resources.
                             </p>
                             <div class="organism-box center-block">
-                                <ul class="organism-list" id="microbial-organisms"><p class="organism-list">Organisms</p></ul>
+                                <ul class="list-group" id="microbial-organisms"></ul>
                             </div>
                         </div>
                     </div>

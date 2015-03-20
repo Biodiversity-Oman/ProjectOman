@@ -62,9 +62,7 @@ body, html {
     padding: 7px 20px;
 }
 
-p {
-    margin:0.2em;
-}
+
 /*--------------------------------------------------------*/
 /* -------------- header & navigation --------------*/
 /*--------------------------------------------------------*/
@@ -231,7 +229,7 @@ nav ul li a {
     //background-color: #ffffff;
     //opacity: 0.4;
     //filter: alpha(opacity=40);
-    background-color:rgba(0,0,0,0.2);
+   // background-color:rgba(0,0,0,0.2);
     margin-top: 1em;
     width: 90%;
 }
@@ -264,6 +262,18 @@ input[type="text"] {
     border-radius: 2px;
     background-color: #ffffff;
 }
+
+ol li{
+  width: 33%;
+  overflow: hidden;
+  padding:  0.1em;
+}
+
+.world-text{
+    padding: 0.3em;
+    position: relative;
+}
+
 /*--------------------------------------------------------*/
 /* -------------- funn-stuff-container-Container -------------- */
 /*--------------------------------------------------------*/
