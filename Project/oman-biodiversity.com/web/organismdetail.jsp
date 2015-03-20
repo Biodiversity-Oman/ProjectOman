@@ -19,6 +19,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel="StyleSheet" type="text/css" href="css/main.css">
@@ -187,7 +188,7 @@
                     <br>
                     <fieldset>
                         <div id="slide-info">
-                            <legend>Click or tap here for more info</legend>
+                            <legend><span class="glyphicon glyphicon-collapse-down"></span> Learn more</legend>
                         </div>
                         <div class="slide-panel detail-container" id="info-panel">
                             <div>
