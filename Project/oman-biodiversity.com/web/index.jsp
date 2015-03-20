@@ -196,7 +196,7 @@
                             <h2 class="text-center">The Microbial World</h2>
                             <h4 class="text-center">Look into my world!</h4>
                         </div>
-                        <div class="slide-panel microbial-world" id="microbial-world-panel"><p>
+                        <div class="slide-panel microbial-world" id="microbial-world-panel"><p id="microbial-world-text">
                                 Microorganisms, or microbes, are tiny creatures that usually can only be seen with the help of a microscope. They are mostly just a single cell or made up of a cluster of cells. 
                                 There are lots of different types of microbes. They include fungi and bacteria, as well as microscopic plants and animals.
                                 You can find microbes in every place that has water such as soil, the atmosphere, the ocean floor… even on your hand!

@@ -226,6 +226,9 @@ nav ul li a {
 .microbial-world {
     background-color: #ffc107;
 }
+#microbial-world-text {
+    color:black;
+}
 .organism-box {
     color: #000066;
     //background-color: #ffffff;
