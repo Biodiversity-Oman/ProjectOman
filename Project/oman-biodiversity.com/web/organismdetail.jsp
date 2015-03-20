@@ -37,6 +37,28 @@
                     $("#info-panel").slideToggle("slow");
                 });
             });
+            $(function () {
+            var minimized_elements = $('p.minimize');
+            minimized_elements.each(function () {
+                var t = $(this).text();
+                if (t.length < 200)
+                    return;
+                $(this).html(
+                        t.slice(0, 200) + '<span>... </span><a href="#" class="more">more</a>' +
+                        '<span style="display:none;">' + t.slice(200, t.length) + ' <a href="#" class="less">less</a></span>'
+                        );
+            });
+            $('a.more', minimized_elements).click(function (event) {
+                event.preventDefault();
+                $(this).hide().prev().hide();
+                $(this).next().show();
+            });
+            $('a.less', minimized_elements).click(function (event) {
+                event.preventDefault();
+                $(this).parent().hide().prev().show().prev().show();
+            });
+        });
+            
         </script>
         <%for (Organism o : organism) {
         %>
@@ -193,19 +215,19 @@
                         <div class="slide-panel detail-container" id="info-panel">
                             <div>
                                 <label class="detail-container">Description:</label>                                                
-                                <p class="detail-text"><%= o.getDescription()%></p>
+                                <p class="detail-text minimize"><%= o.getDescription()%></p>
                             </div>
                             <div>
                                 <label class="detail-container">Threats:</label>                                                
-                                <p class="detail-text"><%= o.getThreats()%></p>
+                                <p class="detail-text minimize"><%= o.getThreats()%></p>
                             </div>
                             <div>
                                 <label class="detail-container">Opportunities:</label>                                                
-                                <p class="detail-text"><%= o.getOpportunities()%></p>
+                                <p class="detail-text minimize"><%= o.getOpportunities()%></p>
                             </div>
                             <div>
                                 <label class="detail-container">Benefits:</label>                                                
-                                <p class="detail-text"><%= o.getBenefits()%></p>
+                                <p class="detail-text minimize"><%= o.getBenefits()%></p>
                             </div>
                             <div>
                                 <label class="detail-container">Links:</label>
