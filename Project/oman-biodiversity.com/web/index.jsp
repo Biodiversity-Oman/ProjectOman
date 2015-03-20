@@ -176,7 +176,6 @@
                                     Animals play an important role in society.  They are a source of energy, fertilizers and income. They are also valued as pets.
                                     Animal genetic resources face a lot of threats from the environment as well as humans. Animals are important to us for our food and for our environment. We need to protect them.</p>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-lg-7">
