@@ -50,7 +50,6 @@
                                                                                                 <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>    
-
                                                                                 </div> 
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
@@ -58,7 +57,6 @@
                                                                                                 <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                         </div>
-
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
