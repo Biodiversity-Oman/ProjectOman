@@ -6,7 +6,7 @@ function loadOrganisms() {
     var $animalOrganisms = $('#animal-organisms');
     var $plantOrganisms = $('#plant-organisms');
     var $microbialOrganisms = $('#microbial-organisms');
-  
+    var world;
     $.ajax({
         url: 'SelectAllOrganismByWorld',
         type: 'GET',
@@ -15,6 +15,7 @@ function loadOrganisms() {
         async: true
     }).done(function (data) {
         data.forEach(function (o) {
+<<<<<<< HEAD
             if (o.world.worldName.toLowerCase().indexOf('plant') > -1)
             {
                 $plantOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-plant-world"><li>' + o.commonName + '</li></div></a>');
@@ -28,6 +29,23 @@ function loadOrganisms() {
                 $marineOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-marine-world"><li>' + o.commonName + '</li></div></a>');
             }
             else if (o.world.worldName.toLowerCase().indexOf('microbial') > -1)
+=======
+            world = o.world.worldName;
+            console.log(world);
+            if (world.toLowerCase().contains("plant"))
+            {
+                $plantOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-plant-world"><li>' + o.commonName + '</li></div></a>');
+            }
+            else if (world.toLowerCase().contains("animal"))
+            {
+                $animalOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-animal-world"><li>' + o.commonName + '</li></div></a>');
+            }
+            else if (world.toLowerCase().contains("marine"))
+            {
+                $marineOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-marine-world"><li>' + o.commonName + '</li></div></a>');
+            }
+            else if (world.toLowerCase().contains("micro"))
+>>>>>>> origin/master
             {
                 $microbialOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-microbial-world"><li>' + o.commonName + '</li></div></a>');
             }
