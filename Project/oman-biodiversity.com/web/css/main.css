@@ -21,23 +21,6 @@ body, html {
     min-width: 100%;
     max-width: 100%;
 }
-.detail-text{
-    font-weight: 500;
-    color:black;
-}
-#img{
-    width:90%;
-    height: 90%;  
-}
-#detail-header{
-    height:5em;
-    margin-bottom: 1em;
-    color:white;
-}
-.detail-container{
-    font-family: museo300;
-    color: black;
-}
 .button {
     border-style: none;
     border-radius: 2px;
@@ -302,6 +285,23 @@ input[type="text"] {
     padding-bottom: 5em;
     padding-top: 3em;
     position: relative;
+}
+
+/*--------------------------------------------------------*/
+/* -------------- Organism Detail -------------- */
+/*--------------------------------------------------------*/
+.detail-text{
+    font-weight: 500;
+    color:black;
+}
+#detail-header{
+    height:5em;
+    margin-bottom: 1em;
+    color:white;
+}
+.detail-container{
+    font-family: museo300;
+    color: black;
 }
 /*--------------------------------------------------------*/
 /* -------------- Footer-Container -------------- */
