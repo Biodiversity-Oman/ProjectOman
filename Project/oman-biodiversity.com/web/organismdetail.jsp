@@ -70,7 +70,7 @@
                 <br>
                 <br>
                 <div class="col-lg-3 col-md-offset-2 text-left">
-                    <img id="img" src="${pageContext.request.contextPath}/SelectPhotoById?id=<%=o.getOrganismId()%>">
+                    <img class="img-responsive" src="${pageContext.request.contextPath}/SelectPhotoById?id=<%=o.getOrganismId()%>">
                 </div> 
                 <div class="col-lg-2 col-md-offset-1 text-left">
                     <br>
