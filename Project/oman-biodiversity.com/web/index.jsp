@@ -146,10 +146,11 @@
                                 <div class="organism-box center-block" id="marine-organisms"></div>
                             </div>
                             <p class="minimize">
-                                Oman with its long coastline, has a treasure chest of marine life, with over 20 marine mammals, more than 1000 fish species, over 250 coral species and 5 turtle species. 
-                                How many things that live in the sea can you name?
+                                Oman, with its long coastline, harbours a treasure of marine life with over 20 marine mammals, more than 1000 fish species, over 250 coral species and 5 turtle species. 
+                                How many things that live in the sea, can you name?
                                 A lot of work is currently going on to study the marine diversity in Oman. 
-                                It is important that we protect our marine ecosystems, biodiversity and genetic diversity and make sure that we use them responsably so they are still there for generations to come.
+                                It is important that we protect our marine ecosystems, biodiversity, genetic diversity, and make sure that we use them responsibly so they are still there for generations to come.
+
                             </p>
                         </div>
                     </div>
@@ -166,12 +167,13 @@
                             <div class="world-text" >
                                 <p class="minimize">Oman is blessed with over 47 species of land mammals, 10 livestock species and over a hundred types of birds.  Although we know a lot about Oman’s biodiversity, little is known about their genetic diversity.
                                     What is genetic diversity? 
-                                    In every species, each individual animal has a unique genetic code – this is what gives them their own special characteristics, like big feet, short feathers or a bright colour. We need to understand these variations so we can look after our animal world properly and make the best use of it. 
-                                    Humans have been domesticating wild animals for thousands of years.  The main types of animals that people in Oman farm and eat are cattle, sheep, goats, camels and poultry. The great majority of these are local but foreign breeds are used too, for example, as dairy cattle and on commercial chicken farms.  
+                                    In every species each individual animal has a unique genetic code. This is what gives them their own special characteristics, like big feet, short feathers or a bright colour. We need to understand these variations so we can look after our animal world properly and make the best use of it. 
+                                    Humans have been domesticating wild animals for thousands of years.  The main type of animals that people in Oman farm and eat are: cattle, sheep, goats, camels and poultry. The great majority of these are local. But foreign breeds are used too, for example: dairy cattle and on commercial chicken farms.  
                                     Meat and milk are the most important products from cattle, while meat is the most important product from sheep and goats. Poultry is used for its meat and eggs.  
-                                    Cattle are the main source of manure in the country followed by goats, then sheep and poultry!
+                                    Cattle are the main source of manure in the country followed by goats, sheep and poultry.
                                     Animals play an important role in society.  They are a source of energy, fertilizers and income. They are also valued as pets.
-                                    Animal genetic resources face a lot of threats from the environment as well as humans. Animals are important to us for our food and for our environment. We need to protect them.</p>
+                                    Animal genetic resources face a lot of threats from the environment as well as humans. Animals are important to us for our food and for our environment. We need to protect them.
+</p>
                             </div>
                         </div>
                     </div>
@@ -185,10 +187,10 @@
                                 <div class="row">
                                 <div class="organism-box center-block" id="plant-organisms"></div>
                             </div>
-                                <p class="minimize">plant genetic resources are important to Oman, whether they are for agriculture or for things like medicine. 
-                                Oman is blessed with so many species of plants – more than 1,200! This biodiversity is because Oman sits between two regions – Asia and Africa. The plants in the north of Oman are more like those of Asia and those in the south are more like those you can find in Africa and some plants you can only find in Oman. 
-                                Because of this combination, Oman has been able to develop a big diversity of plant genetic resources. That’s why we have so many different kinds of fruits – from mangoes and bananas to pomegranates, plums and peaches. We have vegetables too and plants that animals like to eat. 
-                                The Oman Animal and plant Genetic Resources Center is now collecting all the information about the plants of Oman and storing it in a database so researchers can use thi information to turn our genetic resources into value.. 
+                                <p class="minimize">Plant genetic resources are important to Oman, whether they are for agriculture or for things like medicine. 
+                                Oman is blessed with so many species of plants – more than 1,200! This biodiversity is because Oman is located between two continents:  Asia and Africa. The plants in the north of Oman are more like those of Asia and those in the south are more like those you can find in Africa and some plants can only be found in Oman. 
+                                Because of this combination, Oman has been able to develop a vast diversity of plant genetic resources. That’s why we have so many different kinds of fruits – from mangoes and bananas to pomegranates, plums and peaches. We also have vegetables and plants that animals like to eat as well. 
+                                The Oman Animal and Plant Genetic Resources Centre is now gathering all the information about the plants of Oman and storing it in a database so that researchers can use this information to turn our genetic resources into more valuable assets.  
                                 Like all genetic resources, our plants are under threat from us humans and the environment! 
                                 We need to protect and preserve our plants!</p>
                         </div>
@@ -204,13 +206,13 @@
                                 <div class="organism-box center-block" id="microbial-organisms"></div>
                             </div>
                                 <p class="minimize">
-                                Micro-organisms, or microbes, are tiny creatures that usually can only be seen with the help of a microscope. They are mostly just a single cell or made up of a cluster of cells. 
+                                Micro-organisms - or microbes -  are tiny creatures that usually can only be seen with the help of a microscope. They are mostly just a single cell or made up of a cluster of cells. 
                                 There are lots of different types of microbes. They include fungi and bacteria, as well as microscopic plants and animals.
-                                You can find microbes in every place that has water such as soil, the atmosphere, the ocean floor… even on your hand!
+                                You can find microbes in every place that has water such as: soil, the atmosphere, the ocean floor, and even on your hand!
 
-                                Microbes play an important role in maintaining our environment and some are useful in our daily lives. They help us make our food, grow our plants and give us medicine. Scientists are even finding ways to use them in industry. 
-                                BUT some microbes are harmful! They can cause diseases to humans and other genetic resources.  Lucky the good microbes give us medicine!
-                                Microbial genetic resources are becoming more and more important because of all the help they can give us. Because of this we need to identify them and protect them…  just like all our other genetic resources.
+                                Microbes play an important role in maintaining our environment and some are useful in our daily lives. They help us prepare our food, grow our plants and give us medicine. Scientists are even finding ways to use them in an industrial environment. 
+                                BUT some microbes are harmful! They can cause diseases to humans and other genetic resources.  Luckily the good microbes give us medicine!
+                                Microbial genetic resources are becoming more and more important because of all the help they can give us. Because of this we need to identify them and protect them… just like all our other genetic resources.
                             </p>
                             <div class="organism-box center-block">
                                 <ul class="list-group" id="microbial-organisms"></ul>
