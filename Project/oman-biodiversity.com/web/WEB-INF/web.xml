@@ -30,5 +30,7 @@
     <url-pattern>/publish.jsp</url-pattern>
     <url-pattern>/usermanagement.jsp</url-pattern>
     <url-pattern>/header.jsp</url-pattern>
+    <url-pattern>*.jpg</url-pattern>
+    <url-pattern>*.png</url-pattern>
 </filter-mapping>
 </web-app>
