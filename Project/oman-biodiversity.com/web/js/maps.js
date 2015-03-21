@@ -44,6 +44,10 @@ var settings = {area: [], areaPath: null, canvas: 'map-canvas', map: null,
 
 function resetArea() {
     settings.areaPath.setMap(null);
+    settings.area = [];
+    settings.areaPath = null;
+    var coord = document.getElementById(settings.place);
+    coord.value = "";
 }
 
 function showArea() {

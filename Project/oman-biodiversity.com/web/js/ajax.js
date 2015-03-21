@@ -574,7 +574,7 @@ $(document).ready(function () {
 
     // functie inserten van geolocation. dashboard.jsp
     $('#create-geolocation-form').submit(function (e) {
-
+        
 	if ($('#create-geolocation-form').find('.has-error').length) return;
         var $message = $('#create-geolocation-message');
         $message.show();
@@ -590,11 +590,13 @@ $(document).ready(function () {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area name already exist!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'map'){
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Create an area on the map! Make a triangle by clicking 3 times and modify the shape to your requirements.</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
                 $message.empty();
-            }, 2800);
+            }, 4000);
             $("#create-geolocation-form")[0].reset();
         }).always(function () {
             loadGeolocations();
@@ -841,9 +843,13 @@ $(document).ready(function () {
             data: $('#update-geolocation-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was successfully updated. This screen closes automatically</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was successfully updated.</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area name is already taken!</div>');
+            } else if (data === 'map'){
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Create an area on the map! Make a triangle by clicking 3 times and modify the shape to your requirements.</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
@@ -851,7 +857,7 @@ $(document).ready(function () {
                 document.getElementById('fade').style.display = 'none';
                 $("#update-geolocation-form")[0].reset();
                 $message.empty();
-            }, 2800);
+            }, 4000);
         }).always(function () {
             loadGeolocations();
         });

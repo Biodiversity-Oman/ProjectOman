@@ -29,7 +29,9 @@ public class ServGeolocation {
 	public static String insert(String name, String description, String coordinates) {
 
 		try {
-			if (DaGeolocation.checkIfExists(name) == false) {
+                                                if(coordinates.length() < 5){
+                                                    return "map";
+                                                } else if (DaGeolocation.checkIfExists(name) == false) {
 				Geolocation geolocation = new Geolocation();
 				geolocation.setAreaName(name);
 				geolocation.setAreaDescription(description);
@@ -52,13 +54,20 @@ public class ServGeolocation {
 	public static String update(String name, String description, String coordinates, int id) {
 
 		try {
-			Geolocation geolocation = new Geolocation();
+                                            if(coordinates.length() < 5){
+                                                return "map";
+                                            } else if (DaGeolocation.checkIfExists(name) == false){
+                                                Geolocation geolocation = new Geolocation();
 			geolocation.setAreaName(name);
 			geolocation.setAreaDescription(description);
 			geolocation.setCoordinates(coordinates);
 			geolocation.setGeolocationId(id);
 			DaGeolocation.update(geolocation);
 			return "succes";
+                                            } else {
+                                                return "exists";
+                                            }
+			
 		} catch (SQLException ex) {
 			return "sql";
 		}
