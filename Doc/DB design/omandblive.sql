@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 21 mrt 2015 om 15:28
+-- Genereertijd: 21 mrt 2015 om 16:02
 -- Serverversie: 5.5.41-0ubuntu0.14.04.1
 -- PHP-versie: 5.5.9-1ubuntu4.6
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Databank: `omandb`
 --
+CREATE DATABASE IF NOT EXISTS `omandb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `omandb`;
 
 -- --------------------------------------------------------
 

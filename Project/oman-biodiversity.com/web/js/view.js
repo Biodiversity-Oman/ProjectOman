@@ -28,7 +28,7 @@ function loadOrganisms() {
             }
             else if (o.world.worldName.toLowerCase().indexOf('microbial') > -1)
             {
-                $microbialOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-marine-world"><li>' + o.commonName + '</li></div></a>');
+                $microbialOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-microbial-world"><li>' + o.commonName + '</li></div></a>');
             }
             else
             {
