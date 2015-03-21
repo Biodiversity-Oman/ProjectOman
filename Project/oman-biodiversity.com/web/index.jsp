@@ -181,6 +181,7 @@
                             <h4 class="text-center">Planting for tomorrow</h4>
                         </div>
                         <div class="slide-panel plant-world" id="plant-world-panel">
+                            <img class="img-responsive center-block" src="img/plant.JPG" alt="plant diorama" />
                                 <div class="row">
                                 <div class="organism-box center-block" id="plant-organisms"></div>
                             </div>
@@ -198,6 +199,7 @@
                             <h4 class="text-center">Look into my world!</h4>
                         </div>
                         <div class="slide-panel microbial-world" id="microbial-world-panel">
+                            <img class="img-responsive center-block" src="img/microbial.JPG" alt="Microbial diorama" />
                                 <div class="row">
                                 <div class="organism-box center-block" id="microbial-organisms"></div>
                             </div>
