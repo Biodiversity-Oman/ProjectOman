@@ -39,35 +39,35 @@
                 });
             });
             $(function () {
-            var minimized_elements = $('p.minimize');
-            minimized_elements.each(function () {
-                var t = $(this).text();
-                if (t.length < 200)
-                    return;
-                $(this).html(
-                        t.slice(0, 200) + '<span>... </span><a href="#" class="more">more</a>' +
-                        '<span style="display:none;">' + t.slice(200, t.length) + ' <a href="#" class="less">less</a></span>'
-                        );
+                var minimized_elements = $('p.minimize');
+                minimized_elements.each(function () {
+                    var t = $(this).text();
+                    if (t.length < 200)
+                        return;
+                    $(this).html(
+                            t.slice(0, 200) + '<span>... </span><a href="#" class="more">more</a>' +
+                            '<span style="display:none;">' + t.slice(200, t.length) + ' <a href="#" class="less">less</a></span>'
+                            );
+                });
+                $('a.more', minimized_elements).click(function (event) {
+                    event.preventDefault();
+                    $(this).hide().prev().hide();
+                    $(this).next().show();
+                });
+                $('a.less', minimized_elements).click(function (event) {
+                    event.preventDefault();
+                    $(this).parent().hide().prev().show().prev().show();
+                });
             });
-            $('a.more', minimized_elements).click(function (event) {
-                event.preventDefault();
-                $(this).hide().prev().hide();
-                $(this).next().show();
-            });
-            $('a.less', minimized_elements).click(function (event) {
-                event.preventDefault();
-                $(this).parent().hide().prev().show().prev().show();
-            });
-        });
-            
+
         </script>
         <%for (Organism o : organism) {
         %>
         <div class="col-lg-12 detail-back">
-            <div class="col-lg-8 col-md-offset-2 detail-header" style="background-color: <%= headcolor %>">               
-                    <h2 class="text-center"> <%= o.getCommonName()%></h2>
+            <div class="col-lg-8 col-md-offset-2 detail-header" style="background-color: <%= headcolor%>">               
+                <h2 class="text-center"> <%= o.getCommonName()%></h2>
             </div>
-            <div class="col-lg-8 col-md-offset-2 detail-container" style="background-color: <%= bgcolor %>"> 
+            <div class="col-lg-8 col-md-offset-2 detail-container rsp" style="background-color: <%= bgcolor%>"> 
                 <br>
                 <br>
                 <div class="col-lg-3 col-md-offset-1 text-left">
@@ -77,129 +77,129 @@
                     <fieldset>
                         <legend>Taxonomy</legend>
                         <div class="detail-container">
-                        <div>
-                            <label>Scientific name:</label>                                                
-                            <label class="detail-text"><%= o.getScientificName()%></label>
+                            <div>
+                                <label>Scientific name:</label>                                                
+                                <label class="detail-text"><%= o.getScientificName()%></label>
+                            </div>
+                            <div>
+                                <label>Local name:</label>                                                
+                                <label class="detail-text"><%= o.getLocalName()%></label>
+                            </div>                                                        
+                            <div>
+                                <label>Population:</label>
+                                <label class="detail-text"><%= o.getPopulation()%></label>
+                            </div>
+                            <div>
+                                <label>Geolocation(s):</label>
+                                <%
+                                    for (Geolocation g : o.getGeolocations()) {%>
+                                <label class="detail-text">
+                                    <%= g.getAreaName() + ", "%>
+                                </label>
+                                <%}
+                                %>
+                            </div>
+                            <div>
+                                <label>World:</label>
+                                <label class="detail-text"><%= o.getWorld().getWorldName()%></label>
+                            </div>
+                            <div>
+                                <label>Family:</label>
+                                <label class="detail-text"><%= o.getFamily().getFamilyName()%></label>
+                            </div>                                                                               
+                            <div>
+                                <label>Breed:</label>                                                
+                                <label class="detail-text"><%= o.getSubfamily().getSubfamilyName()%></label>
+                            </div>
+                            <div>
+                                <label>Habitat:</label>                                                
+                                <%
+                                    for (Habitat h : o.getHabitat()) {%>
+                                <label class="detail-text">
+                                    <%= h.getHabitatName() + ", "%>
+                                </label>                                
+                                <%}
+                                %>
+                            </div>
+                            <div>
+                                <label>Season:</label>                                                
+                                <%
+                                    for (Season s : o.getSeason()) {%>
+                                <label class="detail-text">
+                                    <%= s.getSeasonName() + ", "%>
+                                </label>                                
+                                <%}
+                                %>
+                            </div> 
                         </div>
-                        <div>
-                            <label>Local name:</label>                                                
-                            <label class="detail-text"><%= o.getLocalName()%></label>
-                        </div>                                                        
-                        <div>
-                            <label>Population:</label>
-                            <label class="detail-text"><%= o.getPopulation()%></label>
-                        </div>
-                        <div>
-                            <label>Geolocation(s):</label>
-                            <%
-                            for (Geolocation g : o.getGeolocations()) {%>
-                            <label class="detail-text">
-                                <%= g.getAreaName()+", "%>
-                            </label>
-                            <%}
-                            %>
-                        </div>
-                        <div>
-                            <label>World:</label>
-                            <label class="detail-text"><%= o.getWorld().getWorldName()%></label>
-                        </div>
-                        <div>
-                            <label>Family:</label>
-                            <label class="detail-text"><%= o.getFamily().getFamilyName()%></label>
-                        </div>                                                                               
-                        <div>
-                            <label>Breed:</label>                                                
-                            <label class="detail-text"><%= o.getSubfamily().getSubfamilyName()%></label>
-                        </div>
-                        <div>
-                            <label>Habitat:</label>                                                
-                            <%
-                            for (Habitat h : o.getHabitat()) {%>
-                            <label class="detail-text">
-                                <%= h.getHabitatName() + ", "%>
-                            </label>                                
-                            <%}
-                            %>
-                        </div>
-                        <div>
-                            <label>Season:</label>                                                
-                            <%
-                            for (Season s : o.getSeason()) {%>
-                            <label class="detail-text">
-                                <%= s.getSeasonName() + ", "%>
-                            </label>                                
-                            <%}
-                            %>
-                        </div> 
-                </div>
                     </fieldset>
                 </div>                    
                 <div class="col-lg-3">
                     <fieldset>                        
                         <legend>Interesting Facts</legend>
                         <div class="detail-container">
-                        <div>
-                            <label>Indigenous:</label>
-                            <label class="detail-text"><%
-                                Boolean bI = o.getIndigenous();
-                                if (bI) {
-                                %>Yes<%
-                            } else {%> No <%}
+                            <div>
+                                <label>Indigenous:</label>
+                                <label class="detail-text"><%
+                                    Boolean bI = o.getIndigenous();
+                                    if (bI) {
+                                    %>Yes<%
+                                    } else {%> No <%}
 
-                                %></label>
-                        </div>
-                        <div>
-                            <label>Cultivated:</label>                                                
-                            <label class="detail-text">
-                                <%                                Boolean bC = o.getCultivated();
-                                    if (bC) {
-                                %>Yes<%
-                            } else {%> No <%}
+                                    %></label>
+                            </div>
+                            <div>
+                                <label>Cultivated:</label>                                                
+                                <label class="detail-text">
+                                    <%                                Boolean bC = o.getCultivated();
+                                        if (bC) {
+                                    %>Yes<%
+                                    } else {%> No <%}
 
+                                    %>
+                                </label>
+                            </div>
+                            <div>
+                                <label>Endangered:</label>                                                
+                                <label class="detail-text">
+                                    <%                                Boolean bE = o.getEndangered();
+                                        if (bE) {
+                                    %>Yes<%
+                                    } else {%> No <%}
+
+                                    %>
+                                </label>
+                            </div>
+                            <div>
+                                <label>Medicinal:</label>                                                
+                                <label class="detail-text">
+                                    <%                                Boolean bM = o.getMedicinal();
+                                        if (bM) {
+                                    %>Yes<%
+                                    } else {%> No <%}
+
+                                    %>
+                                </label>
+                            </div>
+                            <div>
+                                <label>Eats:</label>                                                
+                                <%                                for (Organism or : o.getEatingOrganisms()) {%>
+                                <label class="detail-text">
+                                    <%= or.getCommonName() + ", "%>
+                                </label>                                
+                                <%}
                                 %>
-                            </label>
-                        </div>
-                        <div>
-                            <label>Endangered:</label>                                                
-                            <label class="detail-text">
-                                <%                                Boolean bE = o.getEndangered();
-                                    if (bE) {
-                                %>Yes<%
-                            } else {%> No <%}
-
+                            </div>
+                            <div>
+                                <label>Gets eaten by:</label>                                                
+                                <%
+                                    for (Organism or : o.getEatingOrganisms()) {%>
+                                <label class="detail-text">
+                                    <%= or.getCommonName() + ", "%>
+                                </label>                                
+                                <%}
                                 %>
-                            </label>
-                        </div>
-                        <div>
-                            <label>Medicinal:</label>                                                
-                            <label class="detail-text">
-                                <%                                Boolean bM = o.getMedicinal();
-                                    if (bM) {
-                                %>Yes<%
-                            } else {%> No <%}
-
-                                %>
-                            </label>
-                        </div>
-                        <div>
-                            <label>Eats:</label>                                                
-                            <%                                for (Organism or : o.getEatingOrganisms()) {%>
-                            <label class="detail-text">
-                                <%= or.getCommonName() + ", "%>
-                            </label>                                
-                            <%}
-                            %>
-                        </div>
-                        <div>
-                            <label>Gets eaten by:</label>                                                
-                            <%
-                            for (Organism or : o.getEatingOrganisms()) {%>
-                            <label class="detail-text">
-                                <%= or.getCommonName() + ", "%>
-                            </label>                                
-                            <%}
-                            %>
-                        </div>
+                            </div>
                         </div>
                     </fieldset>
                 </div>  
@@ -210,7 +210,7 @@
                         <div id="slide-info">
                             <legend><span class="glyphicon glyphicon-collapse-down"></span> Learn more</legend>
                         </div>
-                        <div class="slide-panel detail-container" style="background-color: <%= bgcolor %>" id="info-panel">
+                        <div class="slide-panel detail-container" style="background-color: <%= bgcolor%>" id="info-panel">
                             <div>
                                 <label class="detail-container">Description:</label>                                                
                                 <p class="detail-text minimize"><%= o.getDescription()%></p>
@@ -234,8 +234,28 @@
                         </div>
                     </fieldset>
                 </div>
-        <%}%>
-        </div>
+                <%}%>                
+            </div>
+            <div class="col-lg-8 col-md-offset-2 footer-detail">
+                <div class="col-lg-8 col-md-offset-1">
+                    <h1><u>About us</u></h1>
+                </div>                
+                <div class="col-lg-3 col-md-offset-1">                    
+                    <h2>Developers</h2>
+                    <p>Tom Adriaens</p>
+                    <p>Lenny Donnez</p>
+                    <p>Eric Michiels</p>
+                    <p>Bert Cortois</p>
+                    <p>Oualid Yousfi</p>
+                </div>
+                <div class="col-lg-3">
+                    <h2>Project Leader</h2>
+                    <p>Filip Keunen</p>
+                </div>
+                <div class="col-lg-3 col-md-offset-2" >
+                    <p><img src="img/logo-aopgrc.png" width="120" height="110"></p>
+                </div>
+            </div>
         </div>
     </body>
 </html>

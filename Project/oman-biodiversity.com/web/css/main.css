@@ -303,7 +303,18 @@ input[type="text"] {
     color: black;
 }
 .detail-back{
-    background-color: #FFEE58;    
+    background-color: #FFEE58; 
+    min-height: 100vh;
+    height: 100%;
+}
+.rsp {
+    min-height: 59vh;
+}
+.footer-detail {
+    height: auto;
+    font-family: museo300;
+    color: #212121;
+    background-color: #9E9E9E;
 }
 /*--------------------------------------------------------*/
 /* -------------- Footer-Container -------------- */
