@@ -224,24 +224,13 @@ nav ul li a {
 .microbial-world {
     background-color: #ffc107;
 }
-#microbial-world-text {
-    color:black;
+.microbial-world p {
+    color: black;
 }
 .organism-box {
     color: #000066;
-    //background-color: #ffffff;
-    //opacity: 0.4;
-    //filter: alpha(opacity=40);
-   // background-color:rgba(0,0,0,0.2);
     margin-top: 1em;
     width: 90%;
-}
-.organism-list p {
-    font-size: 1.5em;
-    color: #000099;
-    padding-top: 0.3em;
-    padding-bottom: 0;
-    margin-bottom: 0;
 }
 .organism-list {
     line-height: 1.5em;
@@ -265,32 +254,40 @@ input[type="text"] {
     border-radius: 2px;
     background-color: #ffffff;
 }
-
-ol li{
-  width: 33.333%;
-  overflow: hidden;
-  padding:  0.1em;
-  white-space: nowrap;
-}
-
-ol li a{
-    text-decoration: none;
-    color: #F5F5FF;
-}
-
-ol li a:hover {
-    text-decoration: none;
-    color: gold;
-}
-
 .world-text{
     padding: 0.3em;
     position: relative;
 }
-
-.list-group-item-animal{
-    background-color: #B43128;
-    border: solid 0.5px #F5F5FF;
+.organisms-list {
+     padding: 0.4em;
+     border-radius: 2px;
+     list-style: none;
+     text-align: center;
+     text-decoration: none;
+     color: #ffffff;
+     border-style: solid;
+     border-width: 1px;
+}
+.organisms-animal-world {
+    background-color: #EF5350;
+    border-color: #E53935;
+}
+.organisms-plant-world {
+    background-color: #9CCC65;
+    border-color: #388E3C;
+}
+.organisms-microbial-world {
+    background-color: #FFF176;
+    border-color: #F9A825;
+    color: black;
+}
+.organisms-marine-world {
+    background-color: #29B6F6;
+    border-color: #1976D2;
+}
+.organisms-list:hover {
+    text-decoration: none;
+    opacity: 0.7;
 }
 /*--------------------------------------------------------*/
 /* -------------- funn-stuff-container-Container -------------- */
