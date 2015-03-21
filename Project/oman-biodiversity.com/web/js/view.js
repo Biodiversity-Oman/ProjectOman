@@ -6,7 +6,7 @@ function loadOrganisms() {
     var $animalOrganisms = $('#animal-organisms');
     var $plantOrganisms = $('#plant-organisms');
     var $microbialOrganisms = $('#microbial-organisms');
-  
+    var world;
     $.ajax({
         url: 'SelectAllOrganismByWorld',
         type: 'GET',
@@ -14,22 +14,22 @@ function loadOrganisms() {
         cache: false,
         async: true
     }).done(function (data) {
-        
         data.forEach(function (o) {
-           var world = o.world.worldName;
-            if (o.world.worldName.toLowerCase().search('plant') > -1)
+            world = o.world.worldName;
+            console.log(world);
+            if (world.toLowerCase().contains("plant"))
             {
                 $plantOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-plant-world"><li>' + o.commonName + '</li></div></a>');
             }
-            else if (o.world.worldName.toLowerCase().search('animal') > -1)
+            else if (world.toLowerCase().contains("animal"))
             {
                 $animalOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-animal-world"><li>' + o.commonName + '</li></div></a>');
             }
-            else if (o.world.worldName.toLowerCase().search('marine') > -1)
+            else if (world.toLowerCase().contains("marine"))
             {
                 $marineOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-marine-world"><li>' + o.commonName + '</li></div></a>');
             }
-            else if (o.world.worldName.toLowerCase().search('microbial') > -1)
+            else if (world.toLowerCase().contains("micro"))
             {
                 $microbialOrganisms.append('<a href="ViewOrganism?id=' + o.organismId + '" ><div class="col-lg-3 organisms-list organisms-microbial-world"><li>' + o.commonName + '</li></div></a>');
             }
