@@ -141,7 +141,7 @@
                             <h4 class="text-center">Think blue!</h4>
                         </div>
                         <div class="slide-panel marine-world" id="marine-world-panel">
-                            <img class="img-responsive center-block" src="img/marine-dio.JPG" alt="marine diorama">
+                            <img class="img-responsive center-block" src="img/marine-dio.JPG" alt="marine diorama" />
                             <div class="row">
                                 <div class="organism-box center-block" id="marine-organisms"></div>
                             </div>
@@ -160,10 +160,11 @@
                             <h4 class="text-center">Extinction is forever</h4>
                         </div>
                         <div class="slide-panel animal-world" id="animal-world-panel">
-                            <img class="img-responsive center-block" src="img/animal-dio.jpg" alt="marine diorama">
+                            <img class="img-responsive center-block" src="img/animal-dio.jpg" alt="marine diorama" />
                             <div class="row">
                                 <div class="organism-box center-block" id="animal-organisms"></div>
                             </div>
+                            <div class="world-text" >
                                 <p class="minimize">Oman is blessed with over 47 species of land mammals, 10 livestock species and over a hundred types of birds.  Although we know a lot about Oman’s biodiversity, little is known about their genetic diversity.
                                     What is genetic diversity? 
                                     In every species each individual animal has a unique genetic code. This is what gives them their own special characteristics, like big feet, short feathers or a bright colour. We need to understand these variations so we can look after our animal world properly and make the best use of it. 
@@ -172,7 +173,8 @@
                                     Cattle are the main source of manure in the country followed by goats, sheep and poultry.
                                     Animals play an important role in society.  They are a source of energy, fertilizers and income. They are also valued as pets.
                                     Animal genetic resources face a lot of threats from the environment as well as humans. Animals are important to us for our food and for our environment. We need to protect them.
-                                </p>
+</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -181,7 +183,7 @@
                             <h4 class="text-center">Planting for tomorrow</h4>
                         </div>
                         <div class="slide-panel plant-world" id="plant-world-panel">
-                            <img class="img-responsive center-block" src="img/plant.JPG" alt="plant diorama">
+                            <img class="img-responsive center-block" src="img/plant.JPG" alt="plant diorama" />
                                 <div class="row">
                                 <div class="organism-box center-block" id="plant-organisms"></div>
                             </div>
@@ -199,7 +201,7 @@
                             <h4 class="text-center">Look into my world!</h4>
                         </div>
                         <div class="slide-panel microbial-world" id="microbial-world-panel">
-                            <img class="img-responsive center-block" src="img/microbial.JPG" alt="Microbial diorama">
+                            <img class="img-responsive center-block" src="img/microbial.JPG" alt="Microbial diorama" />
                                 <div class="row">
                                 <div class="organism-box center-block" id="microbial-organisms"></div>
                             </div>
