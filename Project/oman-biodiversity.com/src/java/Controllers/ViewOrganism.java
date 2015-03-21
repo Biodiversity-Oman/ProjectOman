@@ -54,7 +54,8 @@ public class ViewOrganism extends HttpServlet {
         processRequest(request, response);
         
         int id = Integer.parseInt(request.getParameter("id"));
-        String color="";        
+        String color=""; 
+        String bgcolor="";
         Organism o;
         try {
             o = ServOrganism.selectOneById(id);
@@ -62,13 +63,14 @@ public class ViewOrganism extends HttpServlet {
             org.add(o);
             
             String world = o.getWorld().getWorldName();
-            if (world.toLowerCase().contains("animal")) {color = "#f44336";}
-            else if (world.toLowerCase().contains("plant")) {color = "#4caf50";}
-            else if (world.toLowerCase().contains("micro")) {color = "#ffc107";}
-            else if (world.toLowerCase().contains("marine")) {color = "#03a9f4";}          
+            if (world.toLowerCase().contains("animal")) {color = "#f44336"; bgcolor = "#EF5350";}
+            else if (world.toLowerCase().contains("plant")) {color = "#4caf50"; bgcolor = "#9CCC65";}
+            else if (world.toLowerCase().contains("micro")) {color = "#ffc107"; bgcolor = "#FFF176";}
+            else if (world.toLowerCase().contains("marine")) {color = "#03a9f4"; bgcolor = "#29B6F6";}          
             
             request.getSession().setAttribute("view", org);
             request.getSession().setAttribute("colorscheme", color);
+            request.getSession().setAttribute("bgcolorscheme", bgcolor);
             RequestDispatcher dispatcher = request.getRequestDispatcher("organismdetail.jsp");
             dispatcher.forward(request, response);
             

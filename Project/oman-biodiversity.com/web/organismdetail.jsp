@@ -13,7 +13,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     ArrayList<Organism> organism = (ArrayList<Organism>) session.getAttribute("view");
-    String bgcolor = session.getAttribute("colorscheme").toString();
+    String headcolor = session.getAttribute("colorscheme").toString();
+    String bgcolor = session.getAttribute("bgcolorscheme").toString();
 %>
 <!DOCTYPE html>
 <html>
@@ -62,17 +63,17 @@
         </script>
         <%for (Organism o : organism) {
         %>
-        <div class="wrapper">
-            <div class="col-lg-8 col-md-offset-2" id="detail-header" style="background-color: <%= bgcolor %>">               
+        <div class="col-lg-12 detail-back">
+            <div class="col-lg-8 col-md-offset-2 detail-header" style="background-color: <%= headcolor %>">               
                     <h2 class="text-center"> <%= o.getCommonName()%></h2>
             </div>
-            <div class="col-lg-12"> 
+            <div class="col-lg-8 col-md-offset-2 detail-container" style="background-color: <%= bgcolor %>"> 
                 <br>
                 <br>
-                <div class="col-lg-3 col-md-offset-2 text-left">
+                <div class="col-lg-3 col-md-offset-1 text-left">
                     <img class="img-responsive" src="${pageContext.request.contextPath}/SelectPhotoById?id=<%=o.getOrganismId()%>">
                 </div> 
-                <div class="col-lg-2 col-md-offset-1 text-left">
+                <div class="col-lg-3 col-md-offset-1 text-left">
                     <br>
                     <fieldset>
                         <legend>Taxonomy</legend>
@@ -134,7 +135,7 @@
                 </div>
                     </fieldset>
                 </div>                    
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                     <br>
                     <fieldset>                        
                         <legend>Interesting Facts</legend>
@@ -212,7 +213,7 @@
                         <div id="slide-info">
                             <legend><span class="glyphicon glyphicon-collapse-down"></span> Learn more</legend>
                         </div>
-                        <div class="slide-panel detail-container" id="info-panel">
+                        <div class="slide-panel detail-container" style="background-color: <%= bgcolor %>" id="info-panel">
                             <div>
                                 <label class="detail-container">Description:</label>                                                
                                 <p class="detail-text minimize"><%= o.getDescription()%></p>
@@ -236,8 +237,8 @@
                         </div>
                     </fieldset>
                 </div>
-            </div>  
         <%}%>
+        </div>
     </body>
 </html>
 
