@@ -74,7 +74,6 @@
                     <img class="img-responsive" src="${pageContext.request.contextPath}/SelectPhotoById?id=<%=o.getOrganismId()%>">
                 </div> 
                 <div class="col-lg-3 col-md-offset-1 text-left">
-                    <br>
                     <fieldset>
                         <legend>Taxonomy</legend>
                         <div class="detail-container">
@@ -136,7 +135,6 @@
                     </fieldset>
                 </div>                    
                 <div class="col-lg-3">
-                    <br>
                     <fieldset>                        
                         <legend>Interesting Facts</legend>
                         <div class="detail-container">
@@ -205,7 +203,6 @@
                         </div>
                     </fieldset>
                 </div>  
-            </div>
                 <div class="col-lg-8 text-left col-md-offset-2">
                     <br>
                     <br>
@@ -238,6 +235,7 @@
                     </fieldset>
                 </div>
         <%}%>
+        </div>
         </div>
     </body>
 </html>
