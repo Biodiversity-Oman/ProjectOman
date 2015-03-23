@@ -137,7 +137,7 @@
                         </div>
                     </fieldset>
                 </div>                    
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-offset-1 text-left">
                     <fieldset>                        
                         <legend>Interesting Facts</legend>
                         <div class="detail-container">
