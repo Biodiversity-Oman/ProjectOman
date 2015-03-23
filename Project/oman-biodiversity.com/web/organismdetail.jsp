@@ -251,11 +251,11 @@
                     <p>Bert Cortois</p>
                     <p>Oualid Yousfi</p>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-offset-1">
                     <h2>Project Leader</h2>
                     <p>Filip Keunen</p>
                 </div>
-                <div class="col-lg-3 col-md-offset-2" >
+                <div class="col-lg-3 col-md-offset-1" >
                     <p><img src="img/logo-aopgrc.png" width="120" height="110"></p>
                 </div>
             </div>
