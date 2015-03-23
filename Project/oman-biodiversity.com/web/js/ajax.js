@@ -631,6 +631,7 @@ $(document).ready(function () {
                 $message.empty();
             }, 2800);
             $("#create-organism-form")[0].reset();
+            $(".chosen-select").val('').trigger("chosen:updated");
         }).always(function () {
             loadOrganisms();
             loadToValidateOrganisms();
@@ -893,6 +894,7 @@ $(document).ready(function () {
                 $("#update-published-organism-form")[0].reset();
                 $message.empty();
             }, 2800);
+            $(".chosen-select").val('').trigger("chosen:updated");
         }).always(function () {
             loadOrganisms();
             loadPublishedOrganisms();
@@ -931,6 +933,7 @@ $(document).ready(function () {
                 $("#update-pending-organism-form")[0].reset();
                 $message.empty();
             }, 2800);
+            $(".chosen-select").val('').trigger("chosen:updated");
         }).always(function () {
             loadOrganisms();
             loadPublishedOrganisms();
@@ -969,6 +972,7 @@ $(document).ready(function () {
                 $("#update-queue-organism-form")[0].reset();
                 $message.empty();
             }, 2800);
+            $(".chosen-select").val('').trigger("chosen:updated");
         }).always(function () {
             loadOrganisms();
             loadPublishedOrganisms();
