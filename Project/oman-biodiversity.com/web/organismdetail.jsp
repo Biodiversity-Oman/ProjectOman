@@ -70,8 +70,11 @@
             <div class="col-lg-8 col-md-offset-2 detail-container rsp" style="background-color: <%= bgcolor%>"> 
                 <br>
                 <br>
-                <div class="col-lg-3 col-md-offset-1 text-left">
-                    <img class="img-responsive" src="${pageContext.request.contextPath}/SelectPhotoById?id=<%=o.getOrganismId()%>">
+                <div class="col-lg-3 col-md-offset-1 text-left">                    
+                    <a href="index.jsp"><button class="button btn-material-orange">Discover more about our event</button></a>
+                    <br>
+                    <br>
+                    <img class="img-responsive" src="${pageContext.request.contextPath}/SelectPhotoById?id=<%=o.getOrganismId()%>">                    
                 </div> 
                 <div class="col-lg-3 col-md-offset-1 text-left">
                     <fieldset>
