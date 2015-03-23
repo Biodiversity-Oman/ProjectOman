@@ -13,6 +13,7 @@
         <link rel="StyleSheet" type="text/css" href="css/main.css">
         <link rel="StyleSheet" type="text/css" href="css/fonts/fonts.min.css">
         <link rel="StyleSheet" type="text/css" href="css/icons.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <link rel='stylesheet' href='css/fullcalendar.min.css' />
         <link rel="stylesheet" href="css/slicknav.min.css" />
@@ -24,7 +25,6 @@
         <script type="text/javascript" src="js/instafeed.min.js"></script>
         <script src='js/view.js'></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <title>Oman-Biodiversity</title>
     </head>
     <script>
