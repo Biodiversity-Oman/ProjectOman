@@ -101,7 +101,7 @@
             <section class="menu calendar-container" id="event-calendar">
                 <div class="col-lg-11 col-md-offset-1">
                     <div class="col-lg-8">
-                        <h1><u>Event Calendar</u></h1>
+                            <h1> </h1>
                         <p class="lead">Find out when and where the event is taking place!</p>
                     </div>
                     <div class="col-lg-7">
@@ -110,7 +110,6 @@
                     <aside class="social-container">
                         <div class="col-lg-4 col-md-offset-1">
                             <div class="row">
-                                <h1 class="text-center"><u>What is Happening?</u></h1>
                                 <p class="lead text-center">Find us on Instagram & Facebook!</p>
                             </div>
                             <div class="social-border">
@@ -128,7 +127,7 @@
             <section class="worlds-container" id="worlds">
                 <div class="col-lg-11 col-md-offset-1">
                     <div class="col-lg-7">
-                        <h1><u>Choose a World</u></h1>
+                        <h1> </h1>
                         <p class="lead">Every animal lives in his desired world. Click on a world to find out more!</p>
                         <form class="form" id="form-search-organism">
                             <div class="form-group">
@@ -228,7 +227,7 @@
             <section class="fun-stuff-container" id="fun-stuff">
                 <div class="col-lg-11 col-md-offset-1">
                     <div class="col-lg-10">
-                        <h1><u>Lets have some fun!</u></h1>
+                        <h1> </h1>
                         <p class="lead">Cool stories, facts & games!</p>
                     </div>
                     <div class="col-lg-5">
