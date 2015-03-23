@@ -24,7 +24,8 @@
                             return false;
                         }
                     },
-                    eventColor: '#26A69A'
+                    eventColor: '#26A69A',
+                    height: 'auto'
                 });
                 $("#slide-marine-world").click(function () {
                     $("#marine-world-panel").slideToggle("slow");
