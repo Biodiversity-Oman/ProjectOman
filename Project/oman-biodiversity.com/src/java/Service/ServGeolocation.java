@@ -29,7 +29,7 @@ public class ServGeolocation {
 	public static String insert(String name, String description, String coordinates) {
 
 		try {
-                                                if(coordinates.length() < 5){
+                                                if(coordinates.length() < 15){
                                                     return "map";
                                                 } else if (DaGeolocation.checkIfExists(name) == false) {
 				Geolocation geolocation = new Geolocation();
