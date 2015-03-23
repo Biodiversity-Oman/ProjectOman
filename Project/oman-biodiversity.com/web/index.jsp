@@ -84,7 +84,7 @@
                         <p class="text-left">There is also another way of organizing living things, one that all these five kingdoms have in common.</p><p> Scientists have discovered that every living organism has a special unique code. And that code describes every bit of every organism. It shows us how one thing is different from another. This code is called DNA</p><p> DNA describes all the ingredients and characteristics needed to make every living organism.</p>
                         <div class="col-md-4"><img class="event-image" src="img/oman-logo.png" ></div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <h3><u>Taxonomy</u></h3>
                         <p class="text-left">There are different ways of organizing all living things. One of the oldest ways is called taxonomy.</p><p> This is when scientists divide up living organisms into groups, based on the way they look and behave. For example, every warm-blooded animal that provides milk for their young belongs to the group we call 'mammals' and every creature that lays eggs and has feathers belongs to the group we call 'birds'.</p> Scientists have divided the living world into five different kingdoms.</p>
                     </div>
