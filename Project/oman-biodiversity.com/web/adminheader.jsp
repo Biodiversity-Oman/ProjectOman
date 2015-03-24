@@ -23,13 +23,13 @@
 <html>
         <head>
                 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-		<script src="js/jquery.min.js"></script>
-                <script src="js/loaders.js"></script>
-                <script src="js/ajax.js"></script>
-                <script src="js/maps.js"></script>
-                <script src="js/validator.js"></script>
-                <script src="js/chosen.jquery.min.js"></script>
-                <script src="js/bootbox.min.js"></script>
+		<script async src="js/jquery.min.js"></script>
+                <script async src="js/loaders.js"></script>
+                <script async src="js/ajax.js"></script>
+                <script async src="js/maps.js"></script>
+                <script async src="js/validator.js"></script>
+                <script async src="js/chosen.jquery.min.js"></script>
+                <script async src="js/bootbox.min.js"></script>
                 <link rel="StyleSheet" type="text/css" href="css/admin.min.css">
                 <link rel="StyleSheet" type="text/css" href="css/icons.min.css">
                 <link rel="StyleSheet" type="text/css" href="css/chosen.min.css">

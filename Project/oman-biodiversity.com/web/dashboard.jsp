@@ -11,9 +11,6 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         </head>
         <body>
-	    <script>
-                    $(document).ready(function(){$(".chosen-select").chosen({width:"100%"}),loadOrganisms(),loadWorlds(),loadSeasons(),loadFamilies(),loadSubFamilies(),loadHabitats(),loadGeolocations(),loadPendingOrganisms(),loadEaten()});
-            </script>
                 <div class="wrapper">
                         <div id="fade" class="black_overlay"></div>
                         <div class="tabs">
@@ -25,7 +22,7 @@
                                         <li><a href="#tab5"><span class="icon-file-text"></span>Seasons</a></li>
                                         <li><a href="#tab6"><span class="icon-file-text"></span>Habitats</a></li>
                                         <li><a href="#tab7"><span class="icon-file-text"></span>Geolocations</a></li>
-                                        <li><a href="#tab8"><span class="icon-file-text"></span>Pending for evaluation</a></li>
+                                        <li><a href="#tab8" onclick="loadPendingOrganisms();"><span class="icon-file-text"></span>Pending for evaluation</a></li>
                                 </ul>
                                 <div class="tab-content">
                                         <div id="tab1" class="tab active">
@@ -1125,6 +1122,9 @@
                                 </div>
                         </div>
                 </div>
+	    <script>
+                    $(document).ready(function(){$(".chosen-select").chosen({width:"100%"}),loadOrganisms(),loadWorlds(),loadSeasons(),loadFamilies(),loadSubFamilies(),loadHabitats(),loadGeolocations(),loadEaten()});
+            </script>
         </body>
 </html>
 
