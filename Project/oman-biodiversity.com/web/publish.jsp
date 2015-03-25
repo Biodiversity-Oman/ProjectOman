@@ -54,7 +54,7 @@
                                                                                 <div class="form-group">
                                                                                         <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
                                                                                         <div class="col-sm-4">
-                                                                                                <input class="form-control" id="local-name-published" type="text" name="organism-local-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
+                                                                                                <input class="form-control" id="local-name-published" type="text" name="organism-local-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"/> 
                                                                                         </div>
                                                                                         <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                                 </div>

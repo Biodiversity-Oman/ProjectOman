@@ -37,14 +37,14 @@
                                                         <h3 class="h3" style="margin-left: 12em; margin-bottom: 1em;">Create User</h3>
                                                         <form role="form" id="create-user-form" class="form-horizontal" data-toggle="validator">
                                                                 <div class="form-group">
-                                                                        <label class="col-sm-2 control-label" for="firstname">Firstname</label>
+                                                                        <label class="col-sm-2 control-label" for="firstname">First name</label>
                                                                         <div class="col-sm-4">
                                                                                 <input class="form-control" type="text" name="firstname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required>
                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                                         </div>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                        <label class="col-sm-2 control-label" for="lastname">Lastname</label>
+                                                                        <label class="col-sm-2 control-label" for="lastname">Last name</label>
                                                                         <div class="col-sm-4">
                                                                                 <input class="form-control" type="text" name="lastname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required>
                                                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
@@ -93,7 +93,7 @@
                                                                         </div>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                        <label class="col-sm-2 control-label" for="comfirm-password">Comfirm password</label>
+                                                                        <label class="col-sm-2 control-label" for="confirm-password">Confirm password</label>
                                                                         <div class="col-sm-4">
                                                                                 <input class="form-control" type="password" data-delay="1200" data-minlength="6" maxlength="15" data-match="#inputPassword" data-match-error="Passwords dont match" name="check" required>
                                                                                 <div class="help-block with-errors"></div>
@@ -102,8 +102,8 @@
                                                                 <div class="form-group">
                                                                         <label class="col-sm-2 control-label" for="admin?">Admin?*</label>
                                                                         <div class="col-sm-4">
-                                                                                <input style="width: 1em;"   type="radio" id="admintrue"  name="isadmin" value="true" required> <label>Yes</label><br>
-                                                                                <input style="width: 1em;"  type="radio" id="adminfalse" name="isadmin" value="false" required> <label>No</label>
+                                                                                <input style="width: 1em;"   type="radio" id="admintrue"  name="isadmin" value="true"> <label>Yes</label><br>
+                                                                                <input style="width: 1em;"  type="radio" id="adminfalse" name="isadmin" value="false"> <label>No</label>
                                                                         </div>
                                                                 </div>
                                                                 <div class="form-group">

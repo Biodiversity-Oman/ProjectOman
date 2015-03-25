@@ -22,14 +22,14 @@
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="firstname">Firstname</label>
+                                                <label class="col-sm-2 control-label" for="firstname">First name</label>
                                                 <div class="col-sm-6">
                                                         <input class="form-control" id="firstname" name="firstname" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" disabled required >
                                                         <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="lastname">Lastname</label>
+                                                <label class="col-sm-2 control-label" for="lastname">Last name</label>
                                                 <div class="col-sm-6">
                                                         <input class="form-control" id="lastname" name="lastname" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" disabled required >
                                                         <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
@@ -111,7 +111,7 @@
                                                                         </div>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                        <label class="col-sm-4 control-label" for="comfirmnewpassword">Comfirm new password</label>
+                                                                        <label class="col-sm-4 control-label" for="confirmnewpassword">Confirm new password</label>
                                                                         <div class="col-sm-6">
                                                                                 <input class="form-control" type="password" name="check" data-delay="1200" data-match="#inputPassword" data-minlength="6" maxlength="15" required>
                                                                                 <div class="help-block with-errors"></div>
