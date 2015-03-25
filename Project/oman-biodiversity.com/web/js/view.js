@@ -76,34 +76,35 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
-});
+
 
 // Add subscriber in index.jsp
-$('#create-subscriber-form').submit(function (e) {
-    if ($('#create-subscriber-form').find('.has-error').length)
-        return;
-    var $message = $('#create-subscriber-message');
-    $message.show();
-    $.ajax({
-        url: 'InsertSubscriber',
-        type: 'POST',
-        dataType: 'text',
-        data: $('#create-subscriber-form').serialize()
-    }).done(function (data) {
-        
-        if (data === 'succes') {
-            $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Subscribed succesfull/div>');
-        } else if (data === 'exists') {
-            $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Email already exists</div>');
-        } else if (data === 'sql') {
-            $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
-        }
-        setTimeout(function () {
-            $message.fadeOut('slow');
-            $message.empty();
-        }, 2800);
-        $("#create-subscriber-form")[0].reset();
-    });
-    e.preventDefault();
+    $('#create-subscriber-form').submit(function (e) {
+        if ($('#create-subscriber-form').find('.has-error').length)
+            return;
+        var $message = $('#create-subscriber-message');
+        $message.show();
+        $.ajax({
+            url: 'InsertSubscriber',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-subscriber-form').serialize()
+        }).done(function (data) {
 
+            if (data === 'succes') {
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Subscribed succesfull</div>');
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Email already exists</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            }
+            setTimeout(function () {
+                $message.fadeOut('slow');
+                $message.empty();
+            }, 2800);
+            $("#create-subscriber-form")[0].reset();
+        });
+        e.preventDefault();
+
+    });
 });
