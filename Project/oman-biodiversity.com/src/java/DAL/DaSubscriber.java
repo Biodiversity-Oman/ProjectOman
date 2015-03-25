@@ -43,7 +43,7 @@ public class DaSubscriber {
 			conn.setAutoCommit(false);
 			stmt = conn.prepareStatement("INSERT INTO subscriber (subscriber_first_name, subscriber_last_name, subscriber_email) VALUES (?,?,?)");
 			stmt.setString(1, s.getSubscriberFirstName());
-			stmt.setString(2, s.getSubscriberFirstName());
+			stmt.setString(2, s.getSubscriberLastName());
 			stmt.setString(3, s.getSubscriberEmail());
 			stmt.executeUpdate();
 			conn.commit();
@@ -72,5 +72,17 @@ public class DaSubscriber {
 			conn.setAutoCommit(true);
 			conn.close();
 		}
+	}
+        public static boolean checkIfExists(String subcriberEmail) throws SQLException {
+
+		boolean match;
+		conn = DataSource.getConnection();
+		stmt = conn.prepareStatement("SELECT COUNT(*) subscriber_email FROM subscriber WHERE subscriber_email = ?");
+		stmt.setString(1, subcriberEmail);
+		ResultSet rs = stmt.executeQuery();
+		rs.next();
+		match = rs.getInt(1) == 1;
+		conn.close();
+		return match;
 	}
 }

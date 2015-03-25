@@ -101,12 +101,51 @@
             <section class="menu calendar-container" id="event-calendar">
                 <div class="col-lg-11 col-md-offset-1">
                     <div class="col-lg-8">
-                            <h1> </h1>
+                        <h1> </h1>
                         <p class="lead">Find out when and where the event is taking place!</p>
                     </div>
                     <div class="col-lg-7">
+
                         <div id='calendar'></div>
-                    </div>
+
+                        <div class="col-sm-6 subscribe-border" id="create-subscriber">
+                            <form class="form form-horizontal" id="create-subscriber-form" data-toggle="validator">
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-10  control-label"></label>
+                                    <div class="col-sm-12">
+                                        <h3 class="h3 text-center">Subscribe to our newsletter</h3>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 control-label" for="subscriber-firstname">Name</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control subscribe-input" type="text" name="subscriber-firstname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 control-label" for="subscriber-lastname">Family name</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control subscribe-input" type="text" name="subscriber-lastname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <label class="col-sm-4 control-label" for="subscriber-email">E-mail</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control subscribe-input" type="text" name="subscriber-email" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9!]+$"  required/>
+                                    </div>
+                                </div>
+                                <div class="form-group centered" >
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"></label>
+                                    <div class="col-sm-4">
+                                        <div class="message" id="create-subscriber-message"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div> 
                     <aside class="social-container">
                         <div class="col-lg-4 col-md-offset-1">
                             <div class="row">
@@ -121,8 +160,8 @@
                                 <div class="row"><div class="fb-like-box" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-width="450"></div></div>
                             </div>
                         </div>
-                    </aside>
-                </div>
+                    </aside>                    
+                </div>               
             </section>
             <section class="worlds-container" id="worlds">
                 <div class="col-lg-11 col-md-offset-1">
@@ -132,7 +171,7 @@
                         <form class="form" id="form-search-organism">
                             <div class="form-group">
                                 <div class="col-lg-6">
-                                    <input class="form-control search-input" id="keyword" type="text" name="organismkey" placeholder="Search for an organism!(Minimal 3 characters)">
+                                    <input class="form-control search-input" id="keyword" type="text" name="organismkey" placeholder="Search for an organism!">
                                 </div>
                             </div>
                             <div class="col-lg-2">
