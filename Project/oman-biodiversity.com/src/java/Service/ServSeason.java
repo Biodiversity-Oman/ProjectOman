@@ -15,49 +15,64 @@ import java.util.List;
  * @author lennyasus
  */
 public class ServSeason {
-    
-	public static List selectAllSeasons() throws SQLException {
 
-		return DaSeason.selectAll();
-	}
+    public static List selectAllSeasons() throws SQLException {
 
-	public static String insertSeason(String name, String description) {
+        return DaSeason.selectAll();
+    }
 
-		try {
-			if(DaSeason.checkIfExists(name)== false){
-				Season season = new Season();
-				season.setSeasonName(name);
-				season.setSeasonDescription(description);
-				DaSeason.insert(season);
-				return "succes";
-			} else {
-				return "exists";
-			}
-		} catch (SQLException ex){
-			return "sql";
-		}
-	}
+    public static String insertSeason(String name, String description) {
 
-	public static void deleteSeason(int id) throws SQLException {
+        try {
+            if (name.length() < 1) {
+                return "required";
+            } else if (DaSeason.checkIfExists(name) == false) {
+                Season season = new Season();
+                season.setSeasonName(name);
+                season.setSeasonDescription(description);
+                DaSeason.insert(season);
+                return "succes";
+            } else {
+                return "exists";
+            }
+        } catch (SQLException ex) {
+            return "sql";
+        }
+    }
 
-		DaSeason.delete(id);
-	}
-        
-    public static String updateSeason(String seasonName, String seasonDescription, int seasonId) {
+    public static void deleteSeason(int id) throws SQLException {
 
-		try {
-			Season s = new Season();
-			s.setSeasonName(seasonName);
-			s.setSeasonDescription(seasonDescription);
-			s.setSeasonId(seasonId);
-			DaSeason.update(s);
-			return "succes";
-		} catch (SQLException ex) {
-			return "sql";
-		}
-	}
+        DaSeason.delete(id);
+    }
 
-	public static BLL.Season selectOneById(int id) throws SQLException {
-		return DaSeason.selectOneByID(id);
-	}
+    public static String updateSeason(String name, String description, int id) {
+
+        try {
+            if (name.length() < 1) {
+                return "required";
+            } else if (DaSeason.selectOneByID(id).getSeasonName().equalsIgnoreCase(name)) {
+                Season s = new Season();
+                s.setSeasonName(name);
+                s.setSeasonDescription(description);
+                s.setSeasonId(id);
+                DaSeason.update(s);
+                return "succes";
+            } else if (DaSeason.checkIfExists(name) == false){
+                Season s = new Season();
+                s.setSeasonName(name);
+                s.setSeasonDescription(description);
+                s.setSeasonId(id);
+                DaSeason.update(s);
+                return "succes";
+            } else {
+                return "exists";
+            }
+        } catch (SQLException ex) {
+            return "sql";
+        }
+    }
+
+    public static BLL.Season selectOneById(int id) throws SQLException {
+        return DaSeason.selectOneByID(id);
+    }
 }

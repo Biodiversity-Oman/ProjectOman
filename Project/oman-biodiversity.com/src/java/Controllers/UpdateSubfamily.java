@@ -32,13 +32,18 @@ public class UpdateSubfamily extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        int familyId = 0;
         
-			response.getWriter().write(ServSubFamily.updateSubFamily(request.getParameter("subfamily-name"),
-																	 request.getParameter("subfamily-description"), 
-																	 Integer.parseInt(request.getParameter("family-id")), 
-																	 Integer.parseInt(request.getParameter("subfamily-id"))));
-                        	  
-		
+        if (request.getParameter("family-id") != null){
+            familyId = Integer.parseInt(request.getParameter("family-id"));
+        }
+        
+        response.getWriter().write(ServSubFamily.updateSubFamily(request.getParameter("subfamily-name"),
+                request.getParameter("subfamily-description"),
+                familyId,
+                Integer.parseInt(request.getParameter("subfamily-id"))));
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

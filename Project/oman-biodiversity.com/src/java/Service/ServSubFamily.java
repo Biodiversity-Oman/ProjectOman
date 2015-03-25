@@ -15,57 +15,77 @@ import java.util.List;
  * @author Eric
  */
 public class ServSubFamily {
-    
-	public static List selectAllSubFamily() throws SQLException {
 
-		return DaSubfamily.selectAll();
-	}
-        
+    public static List selectAllSubFamily() throws SQLException {
+
+        return DaSubfamily.selectAll();
+    }
+
     public static BLL.Subfamily selectOneById(int id) throws SQLException {
 
         return DaSubfamily.selectOneByID(id);
     }
-        
-	public static String insertSubFamily(String name, String description, int familyId) {
 
-		try {
-			if(DaSubfamily.checkIfExists(name)==false) {
-				Subfamily subfam = new Subfamily();
-				subfam.setSubFamilyDescription(description);
-				subfam.setSubfamilyName(name);
-				subfam.setFamilyId(familyId);
-				DaSubfamily.insert(subfam);
-				return "succes";
-			} else {
-				return "exists";
-			}
-		} catch(SQLException ex) {
-			return "sql";
-		}
-	}
-        
-    public static String updateSubFamily(String name, String description, int familyId,int subFamilyId) {
+    public static String insertSubFamily(String name, String description, int familyId) {
 
-		try {
-			Subfamily subfam = new Subfamily();
-			subfam.setSubFamilyDescription(description);
-			subfam.setSubfamilyName(name);
-			subfam.setFamilyId(familyId);
-			subfam.setSubfamilyId(subFamilyId);
-			DaSubfamily.update(subfam);
-			return "succes";
-		} catch (SQLException ex) {
-			return "sql";
-		}
-	}
-	
-	public static void deleteSubFamily(int id) throws SQLException {
+        try {
+            if (name.length() < 1) {
+                return "required";
+            } else if (familyId == 0) {
+                return "required";
+            } else if (DaSubfamily.checkIfExists(name) == false) {
+                Subfamily subfam = new Subfamily();
+                subfam.setSubFamilyDescription(description);
+                subfam.setSubfamilyName(name);
+                subfam.setFamilyId(familyId);
+                DaSubfamily.insert(subfam);
+                return "succes";
+            } else {
+                return "exists";
+            }
+        } catch (SQLException ex) {
+            return "sql";
+        }
+    }
 
-		DaSubfamily.delete(id);
-	}
-        
-	public static List SearchSubFamily(String keyword) throws SQLException {
-                
+    public static String updateSubFamily(String name, String description, int familyId, int id) {
+
+        try {
+            if (name.length() < 1) {
+                return "required";
+            } else if (familyId == 0) {
+                return "required";
+            } else if (DaSubfamily.selectOneByID(id).getSubfamilyName().equalsIgnoreCase(name)) {
+                Subfamily subfam = new Subfamily();
+                subfam.setSubFamilyDescription(description);
+                subfam.setSubfamilyName(name);
+                subfam.setFamilyId(familyId);
+                subfam.setSubfamilyId(id);
+                DaSubfamily.update(subfam);
+                return "succes";
+            } else if (DaSubfamily.checkIfExists(name) == false) {
+                Subfamily subfam = new Subfamily();
+                subfam.setSubFamilyDescription(description);
+                subfam.setSubfamilyName(name);
+                subfam.setFamilyId(familyId);
+                subfam.setSubfamilyId(id);
+                DaSubfamily.update(subfam);
+                return "succes";
+            } else {
+                return "exists";
+            }
+        } catch (SQLException ex) {
+            return "sql";
+        }
+    }
+
+    public static void deleteSubFamily(int id) throws SQLException {
+
+        DaSubfamily.delete(id);
+    }
+
+    public static List SearchSubFamily(String keyword) throws SQLException {
+
         return DaSubfamily.searchSubfamily(keyword);
     }
 }

@@ -7,9 +7,7 @@ package Controllers;
 
 import Service.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,16 +30,20 @@ public class UpdateFamily extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-		
-        int idFam = parseInt(request.getParameter("family-id"));
-        int idWorld = parseInt(request.getParameter("update-world-id"));
-		response.getWriter().write(ServFamily.updateFamily(request.getParameter("family-name"),
-														   request.getParameter("family-description"), 
-														   idWorld, 
-														   idFam));			
+
+        int worldId = 0;
+        
+        if (request.getParameter("update-world-id") != null){
+            worldId = parseInt(request.getParameter("update-world-id"));
+        }
+
+        response.getWriter().write(ServFamily.updateFamily(request.getParameter("family-name"),
+                request.getParameter("family-description"),
+                worldId,
+                parseInt(request.getParameter("family-id"))));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

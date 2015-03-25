@@ -311,20 +311,24 @@ $(document).ready(function () {
             }
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password succesfully changed. This screen closes automatically</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Password successfully changed. This screen closes automatically.</div>');
+                loadUserInfo();
+                setTimeout( function(){
+                    $('.whitebox').hide();
+                    document.getElementById('fade').style.display = 'none';
+                }, 2800);
             } else if (data === 'incorrect') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your password is not valid</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Your password is not valid!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.whitebox').hide();
-                document.getElementById('fade').style.display = 'none';
                 $message.empty();
             }, 2800);
         }).always(function () {
-            loadUserInfo();
             disableInput();
             wijzigbtn.val('Wijzig').removeAttr('disabled');
         });
@@ -391,39 +395,40 @@ $(document).ready(function () {
 
     // create user form usermanagement.jsp
     $('#create-user-form').submit(function (e) {
-	
-	if ($('#create-user-form').find('.has-error').length) return;
-	var $message = $('#create-user-message');
-	$message.show();
-	$.ajax({
-	    url: 'InsertUserAccount',
-	    type: 'POST',
-	    dataType: 'text',
-	    data: $('#create-user-form').serialize()
-	}).done(function (data) {
-	    if (data === 'succes') {
-		$message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User succesfully created</div>');
-	    } else if (data === 'exists') {
-		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Username already exists</div>');
-	    } else if (data === 'sql') {
-		$message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
-	    }
-	    setTimeout(function () {
-		$message.fadeOut('slow');
-		$message.empty();
-	    }, 2800);
-	    $("#create-user-form")[0].reset();
-	}).always(function () {
-	    loadUsers();
-	});
-	e.preventDefault();
 
+        var $message = $('#create-user-message');
+        $message.show();
+        $.ajax({
+            url: 'InsertUserAccount',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-user-form').serialize()
+        }).done(function (data) {
+            if (data === 'succes') {
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>User successfully created.</div>');
+                loadUsers();
+                $("#create-user-form")[0].reset();
+                setTimeout(function (){
+                    $('#create-user-form').find('label[class=\'col-sm-2 control-label\']').parent().attr('class', 'form-group');
+                }, 2800);
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Username already exists!</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
+            }
+            setTimeout(function () {
+                $message.fadeOut('slow');
+                $message.empty();
+            }, 2800);
+        });
+        e.preventDefault();
     });
 
     // create season form usermanagement.jsp
     $('#create-season-form').submit(function (e) {
 
-	if ($('#create-season-form').find('.has-error').length) return;
         var $message = $('#create-season-message');
         $message.show();
         $.ajax({
@@ -433,19 +438,23 @@ $(document).ready(function () {
             data: $('#create-season-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season succesfully created.</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season successfully created.</div>');
+                loadSeasons();
+                $("#create-season-form")[0].reset();
+                setTimeout(function () {
+                    $('#create-season-form').find('label').parent().attr('class', 'form-group');
+                }, 2800);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season name already exists</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
                 $message.empty();
             }, 2800);
-            $("#create-season-form")[0].reset();
-        }).always(function () {
-            loadSeasons();
         });
         e.preventDefault();
     });
@@ -453,7 +462,6 @@ $(document).ready(function () {
     // create habitat form usermanagement.jsp
     $('#create-habitat-form').submit(function (e) {
 
-	if ($('#create-habitat-form').find('.has-error').length) return;
         var $message = $('#create-habitat-message');
         $message.show();
         $.ajax({
@@ -463,27 +471,30 @@ $(document).ready(function () {
             data: $('#create-habitat-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat succesfully created.</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat successfully created.</div>');
+                loadHabitats();
+                $("#create-habitat-form")[0].reset();
+                setTimeout(function () {
+                    $('#create-habitat-form').find('label').parent().attr('class', 'form-group');
+                }, 2800);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat name already exists</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
                 $message.empty();
             }, 2800);
-            $("#create-habitat-form")[0].reset();
-        }).always(function () {
-            loadHabitats();
         });
         e.preventDefault();
     });
 
     // functie inserten van world. dashboard.jsp
     $('#create-world-form').submit(function (e) {
-	
-	if ($('#create-world-form').find('.has-error').length) return;
+
         var $message = $('#create-world-message');
         $message.show();
         $.ajax({
@@ -494,19 +505,23 @@ $(document).ready(function () {
         }).done(function (data) {
             console.log(data);
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World succesfully created.</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World successfully created.</div>');
+                loadWorlds();
+                $("#create-world-form")[0].reset();
+                setTimeout(function () {
+                    $('#create-world-form').find('label').parent().attr('class', 'form-group');
+                }, 2800);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World name already exists</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
-            -setTimeout(function () {
+            setTimeout(function () {
                 $message.fadeOut('slow');
                 $message.empty();
             }, 2800);
-            $("#create-world-form")[0].reset();
-        }).always(function () {
-            loadWorlds();
         });
         e.preventDefault();
     });
@@ -514,7 +529,6 @@ $(document).ready(function () {
     // functie inserten van family. dashboard.jsp
     $('#create-family-form').submit(function (e) {
 
-	if ($('#create-family-form').find('.has-error').length) return;
         var $message = $('#create-family-message');
         $message.show();
         $.ajax({
@@ -523,21 +537,24 @@ $(document).ready(function () {
             dataType: 'text',
             data: $('#create-family-form').serialize()
         }).done(function (data) {
-            console.log(data);
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family succesfully created.</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family successfully created.</div>');
+                loadFamilies();
+                $("#create-family-form")[0].reset();
+                setTimeout(function () {
+                    $('#create-family-form').find('label').parent().attr('class', 'form-group');
+                }, 2800);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family name already exist!</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
                 $message.empty();
             }, 2800);
-            $("#create-family-form")[0].reset();
-        }).always(function () {
-            loadFamilies();
         });
         e.preventDefault();
     });
@@ -545,7 +562,6 @@ $(document).ready(function () {
     // functie inserten van subfamily. dashboard.jsp
     $('#create-subfamily-form').submit(function (e) {
 
-	if ($('#create-subfamily-form').find('.has-error').length) return;
         var $message = $('#create-subfamily-message');
         $message.show();
         $.ajax({
@@ -555,27 +571,30 @@ $(document).ready(function () {
             data: $('#create-subfamily-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed was succesfully created.</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed was successfully created.</div>');
+                loadSubFamilies();
+                $("#create-subfamily-form")[0].reset();
+                setTimeout(function () {
+                    $('#create-subfamily-form').find('label').parent().attr('class', 'form-group');
+                }, 2800);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed name already exist!</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
                 $message.empty();
             }, 2800);
-            $("#create-subfamily-form")[0].reset();
-        }).always(function () {
-            loadSubFamilies();
         });
         e.preventDefault();
     });
 
     // functie inserten van geolocation. dashboard.jsp
     $('#create-geolocation-form').submit(function (e) {
-        
-	if ($('#create-geolocation-form').find('.has-error').length) return;
+
         var $message = $('#create-geolocation-message');
         $message.show();
         $.ajax({
@@ -585,21 +604,26 @@ $(document).ready(function () {
             data: $('#create-geolocation-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was succesfully created.</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was successfully created.</div>');
+                loadGeolocations();
+                $("#create-geolocation-form")[0].reset();
+                resetArea();
+                setTimeout(function () {
+                    $('create-geolocation-form').find('label').parent().attr('class', 'form-group');
+                }, 4000);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area name already exist!</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
-            } else if (data === 'map'){
+            } else if (data === 'map') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Create an area on the map! Make a triangle by clicking 3 times and modify the shape to your requirements.</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
                 $message.empty();
             }, 4000);
-            $("#create-geolocation-form")[0].reset();
-        }).always(function () {
-            loadGeolocations();
         });
         e.preventDefault();
     });
@@ -607,7 +631,6 @@ $(document).ready(function () {
     // functie inserten van Organism. dashboard.jsp
     $('#create-organism-form').submit(function (e) {
 
-	if ($('#create-organism-form').find('.has-error').length) return;
         var $message = $('#create-organism-message');
         $message.show();
         var formData = new FormData($(this)[0]);
@@ -621,21 +644,25 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Organism was added successfully.</div>');
+                loadOrganisms();
+                loadToValidateOrganisms();
+                loadPendingOrganisms();
+                $("#create-organism-form")[0].reset();
+                $(".chosen-select").val('').trigger("chosen:updated");
+                setTimeout(function () {
+                    $('#create-organism-form').find('label[class=\'col-sm-2 control-label\']').parent().attr('class', 'form-group');
+                }, 2800);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
                 $message.empty();
             }, 2800);
-            $("#create-organism-form")[0].reset();
-            $(".chosen-select").val('').trigger("chosen:updated");
-        }).always(function () {
-            loadOrganisms();
-            loadToValidateOrganisms();
-            loadPendingOrganisms();
         });
         e.preventDefault();
     });
@@ -647,7 +674,6 @@ $(document).ready(function () {
     //Update user in userinfo.jsp
     $('#update-user-form').submit(function (e) {
 
-	if ($('#update-user-form').find('.has-error').length) return;
         var $message = $('#update-user-message');
         $message.show();
         var updatebtn = $('#update');
@@ -663,7 +689,7 @@ $(document).ready(function () {
             }
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated succesfully.</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Info updated successfully.</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             }
@@ -682,7 +708,6 @@ $(document).ready(function () {
     //function for update world
     $('#update-world-form').submit(function (e) {
 
-	if ($('#update-world-form').find('.has-error').length) return;
         var $message = $('#update-world-message');
         $message.show();
         $.ajax({
@@ -692,19 +717,25 @@ $(document).ready(function () {
             data: $('#update-world-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World was updated successfully. This screen closes automatically</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World was updated successfully. This screen closes automatically.</div>');
+                loadWorlds();
+                setTimeout(function () {
+                    $('#update-world-form').find('label').parent().attr('class', 'form-group');
+                    $('.pop-up').hide();
+                    document.getElementById('fade').style.display = 'none';
+                    $("#update-world-form")[0].reset();
+                }, 2800);
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>World name is already taken!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.pop-up').hide();
-                document.getElementById('fade').style.display = 'none';
-                $("#update-world-form")[0].reset();
                 $message.empty();
             }, 2800);
-        }).always(function () {
-            loadWorlds();
         });
         e.preventDefault();
     });
@@ -712,7 +743,6 @@ $(document).ready(function () {
     // function for update habitat
     $('#update-habitat-form').submit(function (e) {
 
-	if ($('#update-habitat-form').find('.has-error').length) return;
         var $message = $('#update-habitat-message');
         $message.show();
         $.ajax({
@@ -723,18 +753,24 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data === 'succes') {
                 $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat was updated successfully. This screen closes automatically</div>');
+                loadHabitats();
+                setTimeout(function () {
+                    $('#update-habitat-form').find('label').parent().attr('class', 'form-group');
+                    $('.pop-up').hide();
+                    document.getElementById('fade').style.display = 'none';
+                    $("#update-habitat-form")[0].reset();
+                }, 2800);
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Habitat name is already taken!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.pop-up').hide();
-                document.getElementById('fade').style.display = 'none';
-                $("#update-habitat-form")[0].reset();
                 $message.empty();
             }, 2800);
-        }).always(function () {
-            loadHabitats();
         });
         e.preventDefault();
     });
@@ -742,7 +778,6 @@ $(document).ready(function () {
     // functie update van family
     $('#update-family-form').submit(function (e) {
 
-	if ($('#update-family-form').find('.has-error').length) return;
         var $message = $('#update-family-message');
         $message.show();
         $.ajax({
@@ -752,19 +787,25 @@ $(document).ready(function () {
             data: $('#update-family-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family was successfully updated. This screen closes automatically</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family was successfully updated. This screen closes automatically.</div>');
+                loadFamilies();
+                setTimeout(function () {
+                    $('#update-family-form').find('label').parent().attr('class', 'form-group');
+                    $('.pop-up').hide();
+                    document.getElementById('fade').style.display = 'none';
+                    $("#update-family-form")[0].reset();
+                }, 2800);
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family name is already taken!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.pop-up').hide();
-                document.getElementById('fade').style.display = 'none';
-                $("#update-family-form")[0].reset();
                 $message.empty();
             }, 2800);
-        }).always(function () {
-            loadFamilies();
         });
         e.preventDefault();
     });
@@ -772,7 +813,6 @@ $(document).ready(function () {
     // functie update van subfamily
     $('#update-subfamily-form').submit(function (e) {
 
-	if ($('#update-subfamily-form').find('.has-error').length) return;
         var $message = $('#update-subfamily-message');
         $message.show();
         $.ajax({
@@ -782,19 +822,25 @@ $(document).ready(function () {
             data: $('#update-subfamily-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Subfamily was successfully updated. This screen closes automatically</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Subfamily was successfully updated. This screen closes automatically.</div>');
+                loadSubFamilies();
+                setTimeout(function () {
+                    $('#update-subfamily-form').find('label').parent().attr('class', 'form-group');
+                    $('.pop-up').hide();
+                    document.getElementById('fade').style.display = 'none';
+                    $("#update-subfamily-form")[0].reset();
+                }, 2800);
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!/div>');
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family name is already taken!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.pop-up').hide();
-                document.getElementById('fade').style.display = 'none';
-                $("#update-subfamily-form")[0].reset();
                 $message.empty();
             }, 2800);
-        }).always(function () {
-            loadSubFamilies();
         });
         e.preventDefault();
     });
@@ -802,7 +848,6 @@ $(document).ready(function () {
     //function for update season
     $('#update-season-form').submit(function (e) {
 
-	if ($('#update-season-form').find('.has-error').length) return;
         var $message = $('#update-season-message');
         $message.show();
         $.ajax({
@@ -810,31 +855,34 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'text',
             data: $('#update-season-form').serialize()
-        })
-                .done(function (data) {
-                    if (data === 'succes') {
-                        $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season was updated successfully. This screen closes automatically</div>');
-                    } else if (data === 'sql') {
-                        $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
-                    }
-                    setTimeout(function () {
-                        $message.fadeOut('slow');
-                        $('.pop-up').hide();
-                        document.getElementById('fade').style.display = 'none';
-                        $("#update-season-form")[0].reset();
-                        $message.empty();
-                    }, 2800);
-                })
-                .always(function () {
-                    loadSeasons();
-                });
+        }).done(function (data) {
+            if (data === 'succes') {
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season was updated successfully. This screen closes automatically.</div>');
+                loadSeasons();
+                setTimeout(function () {
+                    $('#update-season-form').find('label').parent().attr('class', 'form-group');
+                    $('.pop-up').hide();
+                    document.getElementById('fade').style.display = 'none';
+                    $("#update-season-form")[0].reset();
+                }, 2800);
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Season name is already taken!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
+            }
+            setTimeout(function () {
+                $message.fadeOut('slow');
+                $message.empty();
+            }, 2800);
+        });
         e.preventDefault();
     });
 
     // functie update van geolocation
     $('#update-geolocation-form').submit(function (e) {
 
-	if ($('#update-geolocation-form').find('.has-error').length) return;
         var $message = $('#update-geolocation-message');
         $message.show();
         $.ajax({
@@ -844,23 +892,27 @@ $(document).ready(function () {
             data: $('#update-geolocation-form').serialize()
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was successfully updated.</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area was successfully updated. This screen closes automatically.</div>');
+                loadGeolocations();
+                setTimeout(function () {
+                    $('#update-geolocation-form').find('label').parent().attr('class', 'form-group');
+                    $('.pop-up-scroll').hide();
+                    document.getElementById('fade').style.display = 'none';
+                    $("#update-geolocation-form")[0].reset();
+                }, 2800);
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
             } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area name is already taken!</div>');
-            } else if (data === 'map'){
+            } else if (data === 'map') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Create an area on the map! Make a triangle by clicking 3 times and modify the shape to your requirements.</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.pop-up').hide();
-                document.getElementById('fade').style.display = 'none';
-                $("#update-geolocation-form")[0].reset();
                 $message.empty();
             }, 4000);
-        }).always(function () {
-            loadGeolocations();
         });
         e.preventDefault();
     });
@@ -868,7 +920,6 @@ $(document).ready(function () {
     // function for update of Organism/published in publish.jsp
     $('#update-published-organism-form').submit(function (e) {
 
-	if ($('#update-published-organism-form').find('.has-error').length) return;
         var $message = $('#update-published-organism-message');
         $message.show();
         var formData = new FormData($(this)[0]);
@@ -881,25 +932,29 @@ $(document).ready(function () {
             data: formData
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism was validated and updated successfully. This screen closes automatically</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism was validated and updated successfully. This screen closes automatically.</div>');
+                loadOrganisms();
+                loadPublishedOrganisms();
+                loadToValidateOrganisms();
+                loadPendingOrganisms();
+                setTimeout(function () {
+                    $('#update-published-organism-form').find('label[class=\'col-sm-2 control-label\']').parent().attr('class', 'form-group');
+                    $('.pop-up-scroll').hide();
+                    document.getElementById('fade').style.display = 'none';
+                    $("#update-published-organism-form")[0].reset();
+                    $(".chosen-select").val('').trigger("chosen:updated");
+                }, 2800);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            }  else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.pop-up-scroll').hide();
-                document.getElementById('fade').style.display = 'none';
-                $("#update-published-organism-form")[0].reset();
                 $message.empty();
-            }, 2800);
-            $(".chosen-select").val('').trigger("chosen:updated");
-        }).always(function () {
-            loadOrganisms();
-            loadPublishedOrganisms();
-            loadToValidateOrganisms();
-            loadPendingOrganisms();
+            }, 2800); 
         });
         e.preventDefault();
     });
@@ -907,7 +962,6 @@ $(document).ready(function () {
     // function for update of Organism/pending. in dashboard.jsp
     $('#update-pending-organism-form').submit(function (e) {
 
-	if ($('#update-pending-organism-form').find('.has-error').length) return;
         var $message = $('#update-pending-organism-message');
         $message.show();
         var formData = new FormData($(this)[0]);
@@ -920,25 +974,29 @@ $(document).ready(function () {
             data: formData
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically.</div>');
+                loadOrganisms();
+                loadPublishedOrganisms();
+                loadToValidateOrganisms();
+                loadPendingOrganisms();
+                setTimeout(function () {
+                    $('#update-pending-organism-form').find('label[class=\'col-sm-2 control-label\']').parent().attr('class', 'form-group');
+                    $('.pop-up-scroll').hide();
+                    document.getElementById('fade').style.display = 'none';
+                    $("#update-pending-organism-form")[0].reset();
+                    $(".chosen-select").val('').trigger("chosen:updated");
+                }, 2800);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.pop-up-scroll').hide();
-                document.getElementById('fade').style.display = 'none';
-                $("#update-pending-organism-form")[0].reset();
                 $message.empty();
             }, 2800);
-            $(".chosen-select").val('').trigger("chosen:updated");
-        }).always(function () {
-            loadOrganisms();
-            loadPublishedOrganisms();
-            loadToValidateOrganisms();
-            loadPendingOrganisms();
         });
         e.preventDefault();
     });
@@ -946,7 +1004,6 @@ $(document).ready(function () {
     // function for update of Organism/queue. in publish.jsp
     $('#update-queue-organism-form').submit(function (e) {
 
-	if ($('#update-queue-organism-form').find('.has-error').length) return;
         var $message = $('#update-queue-organism-message');
         $message.show();
         var formData = new FormData($(this)[0]);
@@ -959,27 +1016,37 @@ $(document).ready(function () {
             data: formData
         }).done(function (data) {
             if (data === 'succes') {
-                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically</div>');
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>The organism updated successfully. This screen closes automatically.</div>');
+                loadOrganisms();
+                loadPublishedOrganisms();
+                loadToValidateOrganisms();
+                loadPendingOrganisms();
+                setTimeout(function () {
+                    $('#update-queue-organism-form').find('label[class=\'col-sm-2 control-label\']').parent().attr('class', 'form-group');
+                    $('.pop-up-scroll').hide();
+                    document.getElementById('fade').style.display = 'none';
+                    $("#update-queue-organism-form")[0].reset();
+                    $(".chosen-select").val('').trigger("chosen:updated");
+                }, 2800);
             } else if (data === 'exists') {
-                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name allready exists.</div>');
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Scientific name already exists!</div>');
             } else if (data === 'sql') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service not unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
             }
             setTimeout(function () {
                 $message.fadeOut('slow');
-                $('.pop-up-scroll').hide();
-                document.getElementById('fade').style.display = 'none';
-                $("#update-queue-organism-form")[0].reset();
                 $message.empty();
             }, 2800);
-            $(".chosen-select").val('').trigger("chosen:updated");
-        }).always(function () {
-            loadOrganisms();
-            loadPublishedOrganisms();
-            loadToValidateOrganisms();
-            loadPendingOrganisms();
         });
         e.preventDefault();
+    });
+    
+    //reset form wanneer je venster sluit
+    $('.close-button').click(function() {
+        $(this).parent().find('form')[0].reset();
+        $(this).parent().find('label[class=\'col-sm-2 control-label\']').parent().attr('class', 'form-group');
     });
 
 //---------------------------------------------------------------------------------------------------------------------

@@ -45,7 +45,9 @@ var settings = {area: [], areaPath: null, canvas: 'map-canvas', map: null,
 function resetArea() {
     settings.areaPath.setMap(null);
     settings.area = [];
-    settings.areaPath = null;
+    settings.areaPath = new google.maps.Polygon({strokeColor: '#FF0000',
+        strokeOpacity: 0.4, strokeWeight: 3, fillColor: '#FF0000',
+        fillOpacity: 0.35, editable: true});
     var coord = document.getElementById(settings.place);
     coord.value = "";
 }

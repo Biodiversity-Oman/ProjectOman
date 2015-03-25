@@ -7,7 +7,6 @@ package Controllers;
 
 import Service.ServFamily;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,9 +33,14 @@ public class InsertFamily extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-			String name = request.getParameter("family-name");
-            response.getWriter().write(ServFamily.insertFamily(name, request.getParameter("family-description"),
-															   Integer.parseInt(request.getParameter("world-id"))));
+        int id = 0;
+        
+        if(request.getParameter("world-id") != null){
+            id = Integer.parseInt(request.getParameter("world-id"));
+        }
+        
+        response.getWriter().write(ServFamily.insertFamily(request.getParameter("family-name"), 
+                request.getParameter("family-description"), id));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

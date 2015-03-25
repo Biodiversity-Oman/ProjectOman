@@ -71,6 +71,7 @@ public class UpdateOrganism extends HttpServlet {
         int[] eatenByOrganismIds = null;
         int[] eatingOrganismIds = null;
         int[] geolocationIds = null;
+        int subfamilyId = 0;
 
         if (request.getParameterValues("organism-habitat-id") != null) {
             habitatIds = new int[request.getParameterValues("organism-habitat-id").length];
@@ -78,30 +79,39 @@ public class UpdateOrganism extends HttpServlet {
                 habitatIds[i] = Integer.parseInt(request.getParameterValues("organism-habitat-id")[i]);
             }
         }
+        
         if (request.getParameterValues("organism-season-id") != null) {
             seasonIds = new int[request.getParameterValues("organism-season-id").length];
             for (int i = 0; i < request.getParameterValues("organism-season-id").length; i++) {
                 seasonIds[i] = Integer.parseInt(request.getParameterValues("organism-season-id")[i]);
             }
         }
+        
         if (request.getParameterValues("eaten-by-organism-id") != null) {
             eatenByOrganismIds = new int[request.getParameterValues("eaten-by-organism-id").length];
             for (int i = 0; i < request.getParameterValues("eaten-by-organism-id").length; i++) {
                 eatenByOrganismIds[i] = Integer.parseInt(request.getParameterValues("eaten-by-organism-id")[i]);
             }
         }
+        
         if (request.getParameterValues("eating-organism-id") != null) {
             eatingOrganismIds = new int[request.getParameterValues("eating-organism-id").length];
             for (int i = 0; i < request.getParameterValues("eating-organism-id").length; i++) {
                 eatingOrganismIds[i] = Integer.parseInt(request.getParameterValues("eating-organism-id")[i]);
             }
         }
+        
         if (request.getParameterValues("organism-geolocation-id") != null) {
             geolocationIds = new int[request.getParameterValues("organism-geolocation-id").length];
             for (int i = 0; i < request.getParameterValues("organism-geolocation-id").length; i++) {
                 geolocationIds[i] = Integer.parseInt(request.getParameterValues("organism-geolocation-id")[i]);
             }
         }
+        
+        if (request.getParameter("organism-subfamily-id") != null){
+            subfamilyId = Integer.parseInt(request.getParameter("organism-subfamily-id"));
+        }
+        
         byte[] bytes = null;
         int id = Integer.parseInt(request.getParameter("organism-id"));
         Part filePart = request.getPart("upfileOrganism");
@@ -110,12 +120,13 @@ public class UpdateOrganism extends HttpServlet {
         if (bytes.length == 0) {
             bytes = Service.ServOrganism.selectPhotoById(id);
         }
+        
         response.getWriter().write(Service.ServOrganism.update(id,
                 new String (request.getParameter("organism-scientific-name").getBytes ("iso-8859-1"), "UTF-8"),
                 new String(request.getParameter("organism-common-name").getBytes ("iso-8859-1"), "UTF-8"),
                 new String(request.getParameter("organism-local-name").getBytes ("iso-8859-1"), "UTF-8"),
                 new String(request.getParameter("organism-description").getBytes ("iso-8859-1"), "UTF-8"),
-                Integer.parseInt(request.getParameter("organism-subfamily-id")),
+                subfamilyId,
                 habitatIds,
                 new String(request.getParameter("organism-population").getBytes ("iso-8859-1"), "UTF-8"),
                 seasonIds,

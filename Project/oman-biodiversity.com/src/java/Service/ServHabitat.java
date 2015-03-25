@@ -23,20 +23,21 @@ public class ServHabitat {
 
     public static String insertHabitat(String name, String description) {
 
-		try {
-			if(DaHabitat.checkIfExists(name) == false){
-				Habitat habitat = new Habitat();
-				habitat.setHabitatName(name);
-				habitat.setHabitatDescription(description);
-				DaHabitat.insert(habitat);
-				return "succes";
-			} else {
-				return "exists";
-			}
-		} catch (SQLException ex) {
-			return "sql";
-		}
-        
+        try {
+            if (name.length() < 1) {
+                return "required";
+            } else if (DaHabitat.checkIfExists(name) == false) {
+                Habitat habitat = new Habitat();
+                habitat.setHabitatName(name);
+                habitat.setHabitatDescription(description);
+                DaHabitat.insert(habitat);
+                return "succes";
+            } else {
+                return "exists";
+            }
+        } catch (SQLException ex) {
+            return "sql";
+        }
     }
 
     public static void deleteHabitat(int id) throws SQLException {
@@ -44,20 +45,31 @@ public class ServHabitat {
         DaHabitat.delete(id);
     }
 
-    public static String updateHabitat(String habitatName, String habitatdescription, int habitatId) {
+    public static String updateHabitat(String name, String description, int id) {
 
-		try {
-			Habitat h = new Habitat();
-			h.setHabitatName(habitatName);
-			h.setHabitatDescription(habitatdescription);
-			h.setHabitatId(habitatId);
-			DaHabitat.update(h);
-			return "succes";
-		} catch (SQLException ex) {
-			return "sql";
-		}
-        
-
+        try {
+            if (name.length() < 1) {
+                return "required";
+            } else if (DaHabitat.selectOneByID(id).getHabitatName().equalsIgnoreCase(name)) {
+                Habitat h = new Habitat();
+                h.setHabitatName(name);
+                h.setHabitatDescription(description);
+                h.setHabitatId(id);
+                DaHabitat.update(h);
+                return "succes";
+            } else if (DaHabitat.checkIfExists(name) == false){
+                Habitat h = new Habitat();
+                h.setHabitatName(name);
+                h.setHabitatDescription(description);
+                h.setHabitatId(id);
+                DaHabitat.update(h);
+                return "succes";
+            } else {
+                return "exists";
+            }
+        } catch (SQLException ex) {
+            return "sql";
+        }
     }
 
     public static BLL.Habitat selectOneById(int id) throws SQLException {

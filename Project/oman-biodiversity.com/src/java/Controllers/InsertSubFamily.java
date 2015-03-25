@@ -33,9 +33,14 @@ public class InsertSubFamily extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String check = request.getParameter("subfamily-name");
-        response.getWriter().write(ServSubFamily.insertSubFamily(check, request.getParameter("subfamily-description"),
-								   Integer.parseInt(request.getParameter("family-id"))));
+        int id = 0;
+        
+        if(request.getParameter("family-id") != null){
+            id = Integer.parseInt(request.getParameter("family-id"));
+        }
+
+        response.getWriter().write(ServSubFamily.insertSubFamily(request.getParameter("subfamily-name"), 
+                request.getParameter("subfamily-description"), id));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

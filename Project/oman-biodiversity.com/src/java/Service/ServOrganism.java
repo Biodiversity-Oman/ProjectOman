@@ -43,7 +43,13 @@ public class ServOrganism {
             String fooddescription, int[] geolocationid) {
 
         try {
-            if (!DaOrganism.checkOrganismExist(scientificname)) {
+            if (scientificname.length() < 1){
+                return "required";
+            } else if (commonname.length() < 1){
+                return "required";
+            } else if (subfamilyid == 0){
+                return "required";
+            } else if (!DaOrganism.checkOrganismExist(scientificname)) {
                 List<BLL.Habitat> habitat = new ArrayList<>();
                 List<BLL.Season> season = new ArrayList<>();
                 List<BLL.Organism> eatenbyorganism = new ArrayList<>();
@@ -98,7 +104,13 @@ public class ServOrganism {
             String fooddescription, int[] geolocationid, Boolean validated) {
 
         try {
-            if (!DaOrganism.checkOrganismExist(scientificname, id)) {
+            if (scientificname.length() < 1){
+                return "required";
+            } else if (commonname.length() < 1){
+                return "required";
+            } else if (subfamilyid == 0){
+                return "required";
+            } else if (!DaOrganism.checkOrganismExist(scientificname, id)) {
                 List<BLL.Habitat> habitat = new ArrayList<>();
                 List<BLL.Season> season = new ArrayList<>();
                 List<BLL.Organism> eatenbyorganism = new ArrayList<>();
@@ -151,7 +163,13 @@ public class ServOrganism {
             String fooddescription, int[] geolocationid, Boolean validated) {
 
         try {
-            if (!DaOrganism.checkOrganismExist(scientificname, id)) {
+            if (scientificname.length() < 1){
+                return "required";
+            } else if (commonname.length() < 1){
+                return "required";
+            } else if (subfamilyid == 0){
+                return "required";
+            } else if (!DaOrganism.checkOrganismExist(scientificname, id)) {
                 List<BLL.Habitat> habitat = new ArrayList<>();
                 List<BLL.Season> season = new ArrayList<>();
                 List<BLL.Organism> eatenbyorganism = new ArrayList<>();

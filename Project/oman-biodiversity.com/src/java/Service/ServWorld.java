@@ -16,54 +16,69 @@ import java.util.*;
  */
 public class ServWorld {
 
-	public static boolean checkWorld(String worldName) throws SQLException {
+    public static boolean checkWorld(String worldName) throws SQLException {
 
-		return DaWorld.checkIfExists(worldName);
-	}
+        return DaWorld.checkIfExists(worldName);
+    }
 
-	public static String insertWorld(String worldName, String worldDescription) {
+    public static String insertWorld(String name, String description) {
 
-		try {
-			if (DaWorld.checkIfExists(worldName) == false) {
-				World world = new World();
-				world.setWorldName(worldName);
-				world.setDescription(worldDescription);
-				DaWorld.insert(world);
-				return "succes";
-			} else {
-				return "exists";
-			}
-		} catch (SQLException ex) {
-			return "sql";
-		}
-	}
+        try {
+            if (name.length() < 1) {
+                return "required";
+            } else if (DaWorld.checkIfExists(name) == false) {
+                World world = new World();
+                world.setWorldName(name);
+                world.setDescription(description);
+                DaWorld.insert(world);
+                return "succes";
+            } else {
+                return "exists";
+            }
+        } catch (SQLException ex) {
+            return "sql";
+        }
+    }
 
-	public static List selectAll() throws SQLException {
+    public static List selectAll() throws SQLException {
 
-		return DaWorld.selectAll();
-	}
+        return DaWorld.selectAll();
+    }
 
-	public static void deleteWorld(int id) throws SQLException {
+    public static void deleteWorld(int id) throws SQLException {
 
-		DaWorld.delete(id);
-	}
+        DaWorld.delete(id);
+    }
 
-	public static String updateWorld(String worldName, String description, int worldid) {
-		
-		try {
-			World w = new World();
-			w.setWorldId(worldid);
-			w.setWorldName(worldName);
-			w.setDescription(description);
-			DaWorld.update(w);
-			return "succes";
-		} catch(SQLException ex) {
-			return "sql";
-		}
-	}
+    public static String updateWorld(String name, String description, int id) {
 
-	public static BLL.World selectOneById(int id) throws SQLException {
+        try {
+            if (name.length() < 1) {
+                return "required";
+            } else if (DaWorld.selectOneByID(id).getWorldName().equalsIgnoreCase(name)) {
+                World w = new World();
+                w.setWorldId(id);
+                w.setWorldName(name);
+                w.setDescription(description);
+                DaWorld.update(w);
+                return "succes";
+            } else if (DaWorld.checkIfExists(name) == false) {
+                World w = new World();
+                w.setWorldId(id);
+                w.setWorldName(name);
+                w.setDescription(description);
+                DaWorld.update(w);
+                return "succes";
+            } else {
+                return "exists";
+            }
+        } catch (SQLException ex) {
+            return "sql";
+        }
+    }
 
-		return DaWorld.selectOneByID(id);
-	}
+    public static BLL.World selectOneById(int id) throws SQLException {
+
+        return DaWorld.selectOneByID(id);
+    }
 }
