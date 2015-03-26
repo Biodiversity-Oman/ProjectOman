@@ -592,7 +592,7 @@ $(document).ready(function () {
         e.preventDefault();
     });
     
-    // functie inserten van subfamily. dashboard.jsp
+    // functie inserten van subfamily modal in dashboard.jsp
     $('#create-subfamily-modal').submit(function (e) {
 
         var $message = $('#create-subfamily-message-modal');
