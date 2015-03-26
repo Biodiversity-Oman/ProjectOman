@@ -591,6 +591,39 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
+    
+    // functie inserten van subfamily. dashboard.jsp
+    $('#create-subfamily-modal').submit(function (e) {
+
+        var $message = $('#create-subfamily-message-modal');
+        $message.show();
+        $.ajax({
+            url: 'InsertSubFamily',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-subfamily-modal').serialize()
+        }).done(function (data) {
+            if (data === 'succes') {
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed was successfully created.</div>');
+                loadSubFamilies();
+                $("#create-subfamily-modal")[0].reset();
+                setTimeout(function () {
+                    $('#create-subfamily-modal').find('label').parent().attr('class', 'form-group');
+                }, 2800);
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Breed name already exists!</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
+            }
+            setTimeout(function () {
+                $message.fadeOut('slow');
+                $message.empty();
+            }, 2800);
+        });
+        e.preventDefault();
+    });
 
     // functie inserten van geolocation. dashboard.jsp
     $('#create-geolocation-form').submit(function (e) {
