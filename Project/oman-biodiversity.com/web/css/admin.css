@@ -543,10 +543,20 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
 }
 
 /*--------------------------------------------------------*/
-/* -------------- Chosen Overrides-------------- */
+/* -------------- Modal-------------- */
 /*--------------------------------------------------------*/
 
 .centered
 {
     text-align:center;
+}
+
+#modalbox {
+  width: 60%;
+}
+
+#close-modal{
+    float: right;
+    color: red;
+    margin: 1px;
 }

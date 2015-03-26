@@ -29,7 +29,7 @@
                         <p>Press the<span class="icon-search"></span> for details </p>
                         <p>Press the <span class="icon-plus"></span> to insert an organism</p>
                         <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-organism').style.display = 'block';
-                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></span></button></a></p>
+                                document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></span></button></a></p>
                         <div id="insert-organism" class="pop-up-scroll">
                             <label class="close-button">x</label>
                             <div class="content">
@@ -70,7 +70,7 @@
                                                 <select class="form-control" id="subfamily-ddl-insert-organism" name="organism-subfamily-id" required></select>
                                             </div>
                                             <!-- Button trigger modal --> 
-                                            <button type="button" class="button-grey" data-toggle="modal" data-target="#add-breed">Add a breed</button>
+                                            <button type="button" class="button-grey" data-toggle="modal" data-target="#add-breed">Add</button>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-population">Population</label>
@@ -333,7 +333,7 @@
                     </div>
                     <div id="tab2" class="tab">
                         <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-world').style.display = 'block';
-                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                         <div id="insert-world" class="pop-up">
                             <label class="close-button">x</label>
                             <div class="content">
@@ -425,7 +425,7 @@
                     </div>
                     <div id="tab3" class="tab">
                         <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-family').style.display = 'block';
-                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                         <div id="insert-family" class="pop-up">
                             <label class="close-button">x</label>
                             <div class="content">
@@ -529,7 +529,7 @@
                     </div>
                     <div id="tab4" class="tab">
                         <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-subfamily').style.display = 'block';
-                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                         <div id="insert-subfamily" class="pop-up">
                             <label class="close-button">x</label>
                             <div class="content">
@@ -634,7 +634,7 @@
                     </div>
                     <div id="tab5" class="tab">
                         <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-season').style.display = 'block';
-                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                         <div id="insert-season" class="pop-up">
                             <label class="close-button">x</label>
                             <div class="content">
@@ -726,7 +726,7 @@
                     </div>
                     <div id="tab6" class="tab">
                         <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-habitat').style.display = 'block';
-                                                        document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
+                                document.getElementById('fade').style.display = 'block'"><button class="no-button-user"><span class="icon-plus-insert"></button></a></p>
                         <div id="insert-habitat" class="pop-up"><label class="close-button">x</label>
                             <div class="content">
                                 <div id="create-habitat">
@@ -817,8 +817,8 @@
                     </div>
                     <div id="tab7" class="tab">
                         <p><a href = "javascript:void(0)" onclick = "document.getElementById('insert-geolocation').style.display = 'block';
-                                                        document.getElementById('fade').style.display = 'block';
-                                                        loadScript();"><button class="no-button-user"><span class="icon-plus-insert"></span></button></a></p>
+                                document.getElementById('fade').style.display = 'block';
+                                loadScript();"><button class="no-button-user"><span class="icon-plus-insert"></span></button></a></p>
                         <div id="insert-geolocation" class="pop-up-scroll">
                             <label id="geolocation-close1" class="close-button">x</label>
                             <div class="content">
@@ -1124,57 +1124,104 @@
                 </div>
             </div>
         </div>
-        <!-- Modal -->
+                                                                     <!-- Modal -->
+        
         <div class="modal fade" id="add-breed" tabindex="-1" role="dialog" aria-labelledby="add breed" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog" id="modalbox">
                 <div class="modal-content">
-                    <div class="modal-header centered">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Create Breed</h4>
-                    </div>
-                    <form class="form form-horizontal" id="create-subfamily-modal" data-toggle="validator">
-                        <div class="modal-body">                     
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="subfamily-name">Name</label>
-                                <div class="col-sm-8">
-                                    <input class="form-control" type="text" name="subfamily-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
-                                    <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
-                                </div>
+                    <label data-dismiss="modal" >X</label>
+                    <div class="modal-body"> 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form class="form form-horizontal" id="create-family-modal" data-toggle="validator">
+                                    <fieldset>
+                                        <legend class="centered">Add Family</legend>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="family-name">Name</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" type="text" name="family-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="family-description">Description</label>
+                                            <div class="col-sm-8">
+                                                <textarea rows="3" class="form-control" name="family-description" data-error="error" data-pattern="/^$|^([^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
+                                                <span class="help-block with-errors"></span>
+                                            </div>
+                                        </div>                                                           
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Choose World</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="world-ddl-insert-family" name="world-id" required></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label"></label>
+                                            <div class="col-sm-8">
+                                                <div id="create-family-message-modal"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group centered">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-8">
+                                                <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
+                                                <button class="button-grey" type="reset">Reset</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="submfamily-description">Description</label>
-                                <div class="col-sm-8">
-                                    <textarea rows="3" class="form-control" name="subfamily-description" data-error="error" data-pattern="/^$|^([^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
-                                    <span class="help-block with-errors"></span>
-                                </div>
-                            </div>                                                            
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="subfamily-family">Family</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control" id="family-ddl-insert-breed" name="family-id" required></select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
-                                <div class="col-sm-8">
-                                    <div id="create-subfamily-message-modal"></div>
-                                </div>
-                            </div>                       
-                        </div>
-                        <div class="modal-footer">
-                            <div class="form-group centered" >    
-                                <button class="btn btn-primary" type="submit">Insert</button>
-                                <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <div class="col-md-6">
+                                <form class="form form-horizontal" id="create-subfamily-modal" data-toggle="validator">
+                                    <fieldset>
+                                        <legend class="centered">Add Breed</legend>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="subfamily-name">Name</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control" type="text" name="subfamily-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
+                                                <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="submfamily-description">Description</label>
+                                            <div class="col-sm-8">
+                                                <textarea rows="3" class="form-control" name="subfamily-description" data-error="error" data-pattern="/^$|^([^<>\[\]{}\\\\////]+(\r\n)?)$/g" data-pattern-error="Use of special keys: [\/]{}<> is not allowed"></textarea>
+                                                <span class="help-block with-errors"></span>
+                                            </div>
+                                        </div>                                                            
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="subfamily-family">Family</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="family-ddl-insert-breed" name="family-id" required></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label"></label>
+                                            <div class="col-sm-8">
+                                                <div id="create-subfamily-message-modal"></div>
+                                            </div>
+                                        </div>                       
 
+                                       <div class="form-group centered">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-8">
+                                                <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
+                                                <button class="button-grey" type="reset">Reset</button>
+                                            </div>
+                                        </div>              
+                                    </fieldset>
+                                </form>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
         <script>
             $(document).ready(function () {
-                $(".chosen-select").chosen({width: "100%"}), loadOrganisms(), loadWorlds(), loadSeasons(), loadFamilies(), loadSubFamilies(), loadHabitats(), loadGeolocations(), loadEaten()});
+                $(".chosen-select").chosen({width: "100%"}), loadOrganisms(), loadWorlds(), loadSeasons(), loadFamilies(), loadSubFamilies(), loadHabitats(), loadGeolocations(), loadEaten()
+            });
         </script>
     </body>
 </html>
