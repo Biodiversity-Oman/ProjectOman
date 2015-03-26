@@ -24,7 +24,9 @@ public class ServFamily {
     public static String insertFamily(String name, String description, int worldId) {
 
         try {
-            if (name.length() < 1) {
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (worldId == 0) {
                 return "required";
@@ -51,7 +53,9 @@ public class ServFamily {
     public static String updateFamily(String name, String description, int worldId, int id) {
 
         try {
-            if (name.length() < 1) {
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (worldId == 0) {
                 return "required";

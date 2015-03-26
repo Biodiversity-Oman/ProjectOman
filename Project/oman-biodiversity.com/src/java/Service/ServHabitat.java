@@ -24,7 +24,9 @@ public class ServHabitat {
     public static String insertHabitat(String name, String description) {
 
         try {
-            if (name.length() < 1) {
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (DaHabitat.checkIfExists(name) == false) {
                 Habitat habitat = new Habitat();
@@ -48,7 +50,9 @@ public class ServHabitat {
     public static String updateHabitat(String name, String description, int id) {
 
         try {
-            if (name.length() < 1) {
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (DaHabitat.selectOneByID(id).getHabitatName().equalsIgnoreCase(name)) {
                 Habitat h = new Habitat();
@@ -57,7 +61,7 @@ public class ServHabitat {
                 h.setHabitatId(id);
                 DaHabitat.update(h);
                 return "succes";
-            } else if (DaHabitat.checkIfExists(name) == false){
+            } else if (DaHabitat.checkIfExists(name) == false) {
                 Habitat h = new Habitat();
                 h.setHabitatName(name);
                 h.setHabitatDescription(description);

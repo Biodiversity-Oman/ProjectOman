@@ -677,7 +677,7 @@ $(document).ready(function () {
                 $("#create-geolocation-form")[0].reset();
                 resetArea();
                 setTimeout(function () {
-                    $('create-geolocation-form').find('label').parent().attr('class', 'form-group');
+                    $('#create-geolocation-form').find('label').parent().attr('class', 'form-group');
                 }, 4000);
             } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area name already exists!</div>');

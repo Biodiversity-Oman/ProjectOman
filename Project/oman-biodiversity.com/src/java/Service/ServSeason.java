@@ -24,7 +24,9 @@ public class ServSeason {
     public static String insertSeason(String name, String description) {
 
         try {
-            if (name.length() < 1) {
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (DaSeason.checkIfExists(name) == false) {
                 Season season = new Season();
@@ -48,7 +50,9 @@ public class ServSeason {
     public static String updateSeason(String name, String description, int id) {
 
         try {
-            if (name.length() < 1) {
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (DaSeason.selectOneByID(id).getSeasonName().equalsIgnoreCase(name)) {
                 Season s = new Season();
