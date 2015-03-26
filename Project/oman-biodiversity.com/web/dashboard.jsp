@@ -1128,9 +1128,9 @@
         <div class="modal fade" id="add-breed" tabindex="-1" role="dialog" aria-labelledby="add breed" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header" style="text-align: center">
+                    <div class="modal-header centered">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title center-block">Create Breed</h4>
+                        <h4 class="modal-title">Create Breed</h4>
                     </div>
                     <form class="form form-horizontal" id="create-subfamily-modal" data-toggle="validator">
                         <div class="modal-body">                     
@@ -1162,7 +1162,7 @@
                             </div>                       
                         </div>
                         <div class="modal-footer">
-                            <div class="form-group" style="text-align: center">    
+                            <div class="form-group centered" >    
                                 <button class="btn btn-primary" type="submit">Insert</button>
                                 <button class="btn btn-default" data-dismiss="modal">Cancel</button>
 
