@@ -39,7 +39,7 @@ body, html {
     font-size: 1.4em;
 }
 .btn-material-yellow:hover {
-    background-color: #F57C00;
+    opacity: 0.7;
 }
 
 .btn-material-orange {
@@ -51,7 +51,7 @@ body, html {
 }
 
 .btn-material-orange:hover {
-    background-color: #ffc107;
+     opacity: 0.7;
 }
 
 .btn-material-white {
@@ -243,26 +243,25 @@ nav ul li a {
 .marine-world {
     background-color: #03a9f4;
 }
-.marine-world:hover {
+#slide-marine-world:hover {
     color: black;
 }
 .animal-world {
     background-color: #f44336;
 }
-.animal-world:hover {
+#slide-animal-world:hover {
     color: black;
 }
-
 .plant-world {
     background-color: #4caf50;
 }
-.plant-world:hover {
+#slide-plant-world:hover {
     color: black;
 }
 .microbial-world {
     background-color: #ffc107;
 }
-.microbial-world:hover {
+#slide-microbial-world:hover {
     color: black;
 }
 .microbial-world p {

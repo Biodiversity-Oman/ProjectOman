@@ -1132,8 +1132,10 @@
             <div class="modal-dialog" id="modalbox">
                 <div class="modal-content">                  
                     <div class="modal-body"> 
-                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <div class="row">
+                        <div class="row"> 
+                            <button type="button" class="close" data-dismiss="modal" id="close-margin" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="row">                             
                             <div class="col-md-6">
                                 <form class="form form-horizontal" id="create-family-modal" data-toggle="validator">
                                     <fieldset>

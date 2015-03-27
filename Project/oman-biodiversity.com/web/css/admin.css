@@ -564,8 +564,6 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
     width: 60%;
 }
 
-#close-modal{
-    float: right;
-    color: red;
-    margin: 1px;
+#close-margin{
+    margin-right: 1em;
 }
