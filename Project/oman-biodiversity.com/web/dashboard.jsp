@@ -70,7 +70,7 @@
                                                 <select class="form-control" id="subfamily-ddl-insert-organism" name="organism-subfamily-id" required></select>
                                             </div>
                                             <!-- Button trigger modal --> 
-                                            <button type="button" class="button-grey" data-toggle="modal" data-target="#add-breed">Add</button>
+                                            <button type="button" class="button-grey" data-toggle="modal" data-target="#add-family-breed">Add</button>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-population">Population</label>
@@ -209,7 +209,7 @@
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
                                                 <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
-                                                <button class="button-grey" type="reset">Reset</button>
+                                                <button class="button-grey" type="reset">Reset</button>                                                
                                             </div>
                                         </div>
                                     </form>
@@ -413,6 +413,7 @@
                                             <div class="col-sm-4">
                                                 <button class="button-grey" type="submit"><span class="icon-pencil2-button"></span>Update</button>
                                                 <button class="button-grey" type="reset">Reset</button>
+                                               
                                             </div>
                                         </div>
                                     </form>
@@ -1126,7 +1127,7 @@
         </div>
                                                                      <!-- Modal -->
         
-        <div class="modal fade" id="add-breed" tabindex="-1" role="dialog" aria-labelledby="add breed" aria-hidden="true">
+        <div class="modal fade" id="add-family-breed" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
             <div class="modal-dialog" id="modalbox">
                 <div class="modal-content">
                     <label data-dismiss="modal" >X</label>
