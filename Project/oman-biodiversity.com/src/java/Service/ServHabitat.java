@@ -24,7 +24,7 @@ public class ServHabitat {
     public static String insertHabitat(String name, String description) {
 
         try {
-            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+            if (!name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
             } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
@@ -50,7 +50,7 @@ public class ServHabitat {
     public static String updateHabitat(String name, String description, int id) {
 
         try {
-            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+            if (!name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
             } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";

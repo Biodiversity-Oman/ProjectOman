@@ -92,13 +92,13 @@ public class ServUserAccount {
                 return "required";
             } else if (password.length() < 6) {
                 return "required";
-            } else if (firstname.length() < 1 || !firstname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+            } else if (!firstname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
-            } else if (lastname.length() < 1 || !lastname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+            } else if (!lastname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
-            } else if (country.length() < 1 || !country.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+            } else if (!country.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
-            } else if (city.length() < 1 || !city.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+            } else if (!city.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
             } else if (!phone.matches("^[0-9./()-]*$")) {
                 return "required";

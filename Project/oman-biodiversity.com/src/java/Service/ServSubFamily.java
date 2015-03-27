@@ -29,7 +29,7 @@ public class ServSubFamily {
     public static String insertSubFamily(String name, String description, int familyId) {
 
         try {
-            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+            if (!name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
             } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
@@ -53,7 +53,7 @@ public class ServSubFamily {
     public static String updateSubFamily(String name, String description, int familyId, int id) {
 
         try {
-            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+            if (!name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
             } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";

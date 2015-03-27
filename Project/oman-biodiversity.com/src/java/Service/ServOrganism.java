@@ -43,9 +43,9 @@ public class ServOrganism {
             String fooddescription, int[] geolocationid) {
 
         try {
-            if (scientificname.length() < 1 || !scientificname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            if (!scientificname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
-            } else if (commonname.length() < 1 || !commonname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            } else if (!commonname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
             } else if (!localname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]*$")){
                 return "required";
@@ -124,15 +124,15 @@ public class ServOrganism {
             String fooddescription, int[] geolocationid, Boolean validated) {
 
         try {
-            if (scientificname.length() < 1 || !scientificname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            if (!scientificname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
-            } else if (commonname.length() < 1 || !commonname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            } else if (!commonname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
-            } else if (!localname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            } else if (!localname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]*$")){
                 return "required";
             } else if (subfamilyid == 0){
                 return "required";
-            } else if (!population.matches("[^()[\\\\]{}*^$<>#]+$")) {
+            } else if (!population.matches("[^()[\\\\]{}*&^$<>#]*$")) {
                 return "required";
             } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
                 return "required";
@@ -146,7 +146,7 @@ public class ServOrganism {
                 return "required";
             } else if (!links.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
                 return "required";
-            } else if (!foodname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            } else if (!foodname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]*$")){
                 return "required";
             } else if (!fooddescription.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
                 return "required";
@@ -203,15 +203,15 @@ public class ServOrganism {
             String fooddescription, int[] geolocationid, Boolean validated) {
 
         try {
-            if (scientificname.length() < 1 || !scientificname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            if (!scientificname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
-            } else if (commonname.length() < 1 || !commonname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            } else if (!commonname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
-            } else if (!localname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            } else if (!localname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]*$")){
                 return "required";
             } else if (subfamilyid == 0){
                 return "required";
-            } else if (!population.matches("[^()[\\\\]{}*^$<>#]+$")) {
+            } else if (!population.matches("[^()[\\\\]{}*&^$<>#]*$")) {
                 return "required";
             } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
                 return "required";
@@ -225,7 +225,7 @@ public class ServOrganism {
                 return "required";
             } else if (!links.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
                 return "required";
-            } else if (!foodname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+            } else if (!foodname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]*$")){
                 return "required";
             } else if (!fooddescription.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
                 return "required";
