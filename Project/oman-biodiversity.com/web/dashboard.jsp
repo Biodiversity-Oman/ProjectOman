@@ -1130,9 +1130,9 @@
         
         <div class="modal fade" id="add-family-breed" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
             <div class="modal-dialog" id="modalbox">
-                <div class="modal-content">
-                    <label data-dismiss="modal" >X</label>
+                <div class="modal-content">                  
                     <div class="modal-body"> 
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <div class="row">
                             <div class="col-md-6">
                                 <form class="form form-horizontal" id="create-family-modal" data-toggle="validator">
