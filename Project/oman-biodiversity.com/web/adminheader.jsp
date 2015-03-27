@@ -33,6 +33,8 @@
                 <link rel="StyleSheet" type="text/css" href="css/admin.min.css">
                 <link rel="StyleSheet" type="text/css" href="css/icons.min.css">
                 <link rel="StyleSheet" type="text/css" href="css/chosen.min.css">
+                <!-- verwijderen aub -->
+                <link href="css/admin.css" rel="stylesheet" type="text/css"/>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">

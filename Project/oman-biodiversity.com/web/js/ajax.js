@@ -558,6 +558,41 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
+    
+    // functie inserten van family. in modal dashboard.jsp
+    $('#create-family-modal').submit(function (e) {
+
+        var $message = $('#create-family-message-modal');
+        $message.show();
+        $.ajax({
+            url: 'InsertFamily',
+            type: 'POST',
+            dataType: 'text',
+            data: $('#create-family-modal').serialize()
+        }).done(function (data) {
+            if (data === 'succes') {
+                $message.append('<div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family successfully created.</div>');
+                loadFamilies();
+                $("#create-family-modal")[0].reset();
+                setTimeout(function () {
+                    $('#create-family-modal').find('label').parent().attr('class', 'form-group');
+                }, 2800);
+            } else if (data === 'exists') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Family name already exists!</div>');
+            } else if (data === 'sql') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Service unavailable!</div>');
+            } else if (data === 'required') {
+                $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Fill in the required fields!</div>');
+            }
+            setTimeout(function () {
+                $message.fadeOut('slow');
+                $message.empty();
+            }, 2800);
+        });
+        e.preventDefault();
+    });
+    
+    
 
     // functie inserten van subfamily. dashboard.jsp
     $('#create-subfamily-form').submit(function (e) {
@@ -642,7 +677,7 @@ $(document).ready(function () {
                 $("#create-geolocation-form")[0].reset();
                 resetArea();
                 setTimeout(function () {
-                    $('create-geolocation-form').find('label').parent().attr('class', 'form-group');
+                    $('#create-geolocation-form').find('label').parent().attr('class', 'form-group');
                 }, 4000);
             } else if (data === 'exists') {
                 $message.append('<div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert">&times;</a>Area name already exists!</div>');

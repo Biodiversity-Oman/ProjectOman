@@ -29,7 +29,9 @@ public class ServGeolocation {
     public static String insert(String name, String description, String coordinates) {
 
         try {
-            if (name.length() < 1) {
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (coordinates.length() < 15) {
                 return "map";
@@ -56,7 +58,9 @@ public class ServGeolocation {
     public static String update(String name, String description, String coordinates, int id) {
 
         try {
-            if (name.length() < 1){
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (coordinates.length() < 15) {
                 return "map";

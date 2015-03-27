@@ -43,11 +43,31 @@ public class ServOrganism {
             String fooddescription, int[] geolocationid) {
 
         try {
-            if (scientificname.length() < 1){
+            if (scientificname.length() < 1 || !scientificname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
-            } else if (commonname.length() < 1){
+            } else if (commonname.length() < 1 || !commonname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+                return "required";
+            } else if (!localname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
             } else if (subfamilyid == 0){
+                return "required";
+            } else if (!population.matches("[^()[\\\\]{}*^$<>#]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!benefits.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!dangerous.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!threats.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!opportunities.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!links.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!foodname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+                return "required";
+            } else if (!fooddescription.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
                 return "required";
             } else if (!DaOrganism.checkOrganismExist(scientificname)) {
                 List<BLL.Habitat> habitat = new ArrayList<>();
@@ -104,11 +124,31 @@ public class ServOrganism {
             String fooddescription, int[] geolocationid, Boolean validated) {
 
         try {
-            if (scientificname.length() < 1){
+            if (scientificname.length() < 1 || !scientificname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
-            } else if (commonname.length() < 1){
+            } else if (commonname.length() < 1 || !commonname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+                return "required";
+            } else if (!localname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
             } else if (subfamilyid == 0){
+                return "required";
+            } else if (!population.matches("[^()[\\\\]{}*^$<>#]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!benefits.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!dangerous.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!threats.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!opportunities.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!links.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!foodname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+                return "required";
+            } else if (!fooddescription.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
                 return "required";
             } else if (!DaOrganism.checkOrganismExist(scientificname, id)) {
                 List<BLL.Habitat> habitat = new ArrayList<>();
@@ -163,13 +203,33 @@ public class ServOrganism {
             String fooddescription, int[] geolocationid, Boolean validated) {
 
         try {
-            if (scientificname.length() < 1){
+            if (scientificname.length() < 1 || !scientificname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
-            } else if (commonname.length() < 1){
+            } else if (commonname.length() < 1 || !commonname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+                return "required";
+            } else if (!localname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
                 return "required";
             } else if (subfamilyid == 0){
                 return "required";
-            } else if (!DaOrganism.checkOrganismExist(scientificname, id)) {
+            } else if (!population.matches("[^()[\\\\]{}*^$<>#]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!benefits.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!dangerous.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!threats.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!opportunities.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!links.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            } else if (!foodname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")){
+                return "required";
+            } else if (!fooddescription.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")) {
+                return "required";
+            }  else if (!DaOrganism.checkOrganismExist(scientificname, id)) {
                 List<BLL.Habitat> habitat = new ArrayList<>();
                 List<BLL.Season> season = new ArrayList<>();
                 List<BLL.Organism> eatenbyorganism = new ArrayList<>();

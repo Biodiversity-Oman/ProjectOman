@@ -24,7 +24,9 @@ public class ServWorld {
     public static String insertWorld(String name, String description) {
 
         try {
-            if (name.length() < 1) {
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (DaWorld.checkIfExists(name) == false) {
                 World world = new World();
@@ -53,7 +55,9 @@ public class ServWorld {
     public static String updateWorld(String name, String description, int id) {
 
         try {
-            if (name.length() < 1) {
+            if (name.length() < 1 || !name.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
+                return "required";
+            } else if (!description.matches("^[^<>\\\\/{}\\[\\]]*(\\\r\\\n)?$")){
                 return "required";
             } else if (DaWorld.selectOneByID(id).getWorldName().equalsIgnoreCase(name)) {
                 World w = new World();

@@ -88,19 +88,21 @@ public class ServUserAccount {
     public static String insert(String username, String firstname, String lastname, String city, String country, String phone, String email, boolean isadmin, String password) {
 
         try {
-            if (username.length() < 5) {
+            if (username.length() < 5  || !username.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
             } else if (password.length() < 6) {
                 return "required";
-            } else if (firstname.length() < 1) {
+            } else if (firstname.length() < 1 || !firstname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
-            } else if (lastname.length() < 1) {
+            } else if (lastname.length() < 1 || !lastname.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
-            } else if (country.length() < 1) {
+            } else if (country.length() < 1 || !country.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
-            } else if (city.length() < 1) {
+            } else if (city.length() < 1 || !city.matches("[^()[\\\\]{}*&^%$<>#0-9@!]+$")) {
                 return "required";
-            } else if (email.length() < 3 || !email.contains("@")) {
+            } else if (!phone.matches("^[0-9./()-]*$")) {
+                return "required";
+            } else if (!email.matches("\\w+@\\w+")) {
                 return "required";
             } else if (DaUserAccount.checkUsername(username) == false) {
                 UserAccount user = new UserAccount();
