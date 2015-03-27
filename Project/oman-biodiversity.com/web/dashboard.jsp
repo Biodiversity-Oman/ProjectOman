@@ -209,10 +209,11 @@
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-4">
                                                 <button class="button-grey" type="submit"><span class="icon-plus-button"></span>Insert</button>
-                                                <button class="button-grey" type="reset">Reset</button>                                                
+                                                <button class="button-grey" type="reset">Reset</button>                                               
                                             </div>
                                         </div>
-                                    </form>
+                                    </form> 
+                                    <label class="close-button">x</label>
                                 </div>
                             </div>
                         </div>
