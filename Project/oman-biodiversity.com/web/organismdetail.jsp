@@ -40,7 +40,8 @@
                     <a href="index.jsp#worlds"><button class="button btn-material-orange">Discover more worlds</button></a>
                     <br>
                     <br>
-                    <img class="img-responsive" src="SelectPhotoById?id=<%=o.getOrganismId()%>">                    
+                    <img class="img-responsive" src="SelectPhotoById?id=<%=o.getOrganismId()%>"> 
+                    <br>
                 </div> 
                 <div class="col-lg-3 col-md-offset-1 text-left">
                     <fieldset>
@@ -102,9 +103,10 @@
                             </div> 
                         </div>
                     </fieldset>
+                            <br>
                 </div>                    
                 <div class="col-lg-3 col-md-offset-1 text-left">
-                    <fieldset>                        
+                    <fieldset>
                         <legend>Interesting Facts</legend>
                         <div class="detail-container">
                             <div>
@@ -208,6 +210,7 @@
             </div>
             <div class="col-lg-8 col-md-offset-2 footer-detail">
                 <div class="col-lg-8 col-md-offset-1">
+                    <br>
                     <h1><u>About us</u></h1>
                 </div>                
                 <div class="col-lg-3 col-md-offset-1">                    
