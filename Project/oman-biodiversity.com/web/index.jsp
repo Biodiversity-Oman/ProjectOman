@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class=" col-lg-8 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="centered">
+                                    <div>
                                         <div class="row"><h3 class="text-center"><span class="icon-facebook3"></span>Facebook</h3></div>
                                         <div class="row"><div class="fb-page" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"></div></div>
                                     </div>
