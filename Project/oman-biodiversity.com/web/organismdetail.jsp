@@ -37,7 +37,7 @@
                 <br>
                 <br>
                 <div class="col-lg-3 col-md-offset-1 text-left">                    
-                    <a href="index.jsp#worlds"><button class="button btn-material-orange">Discover more about our event</button></a>
+                    <a href="index.jsp#worlds"><button class="button btn-material-orange">Discover more worlds</button></a>
                     <br>
                     <br>
                     <img class="img-responsive" src="SelectPhotoById?id=<%=o.getOrganismId()%>">                    
