@@ -243,26 +243,15 @@ nav ul li a {
 .marine-world {
     background-color: #03a9f4;
 }
-#slide-marine-world:hover {
-    color: black;
-}
 .animal-world {
     background-color: #f44336;
 }
-#slide-animal-world:hover {
-    color: black;
-}
+
 .plant-world {
     background-color: #4caf50;
 }
-#slide-plant-world:hover {
-    color: black;
-}
 .microbial-world {
     background-color: #ffc107;
-}
-#slide-microbial-world:hover {
-    color: black;
 }
 .microbial-world p {
     color: black;
