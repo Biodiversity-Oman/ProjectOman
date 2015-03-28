@@ -95,20 +95,20 @@
                         <div class="col-lg-5">
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <p class="lead text-center">Find us on Instagram & Facebook!</p>
+                                    <p class="lead text-center">Find us on Instagram! & Facebook!</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-8 col-md-5 col-sm-6 col-xs-12">
-                                    <div class="grey-border">
+                                    <div>
                                         <div class="row"><h3 class="text-center"><span class="icon-instagram"></span>Instagram</h3></div>
                                         <div class="row"><div class="text-center" id="instafeed"></div></div><br>
                                     </div>
                                 </div>
                                 <div class=" col-lg-8 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="grey-border">
+                                    <div class="centered">
                                         <div class="row"><h3 class="text-center"><span class="icon-facebook3"></span>Facebook</h3></div>
-                                        <div class="row"><div class="fb-like-box" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-width="450"></div></div>
+                                        <div class="row"><div class="fb-page" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"></div></div>
                                     </div>
                                 </div>
                             </div>
@@ -331,15 +331,13 @@
             });
             feed.run();
 
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id))
-                    return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=878087015554008&version=v2.0";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+            (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
         </script>
     </body>
 </html>
