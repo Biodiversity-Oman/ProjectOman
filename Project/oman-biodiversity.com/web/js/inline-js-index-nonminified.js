@@ -1,6 +1,6 @@
 
 /// index.jsp inline js
-$(document).ready(function () {
+	    $(document).ready(function () {
                 $('#calendar').fullCalendar({
                     googleCalendarApiKey: 'AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ',
                     events: {
@@ -72,16 +72,16 @@ $(document).ready(function () {
                 sortBy: 'most-recent'
             });
             feed.run();
-
-            (function (d, s, id) {
+	    
+	    (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id))
                     return;
                 js = d.createElement(s);
                 js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+                js.async=true;js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3";
+			fjs.parentNode.insertBefore(js, fjs);
+		    }(document, 'script', 'facebook-jssdk'));
 /////////////////////////////////////////////////////////////////	    
 //organism detail inline js
             $(document).ready(function () {
