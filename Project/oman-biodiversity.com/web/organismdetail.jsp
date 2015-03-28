@@ -231,36 +231,10 @@
             </div>
         </div>
         <script src='js/jquery.min.js'></script>
-        <script src='js/view.js'></script>
+        <script src='js/view.min.js'></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script>
-            $(document).ready(function () {
-
-                $("#slide-info").click(function () {
-                    $("#info-panel").slideToggle("slow");
-                });
-            });
-            $(function () {
-                var minimized_elements = $('p.minimize');
-                minimized_elements.each(function () {
-                    var t = $(this).text();
-                    if (t.length < 200)
-                        return;
-                    $(this).html(
-                            t.slice(0, 200) + '<span>... </span><a href="#" class="more">more</a>' +
-                            '<span style="display:none;">' + t.slice(200, t.length) + ' <a href="#" class="less">less</a></span>'
-                            );
-                });
-                $('a.more', minimized_elements).click(function (event) {
-                    event.preventDefault();
-                    $(this).hide().prev().hide();
-                    $(this).next().show();
-                });
-                $('a.less', minimized_elements).click(function (event) {
-                    event.preventDefault();
-                    $(this).parent().hide().prev().show().prev().show();
-                });
-            });
+	    $(document).ready(function(){$("#slide-info").click(function(){$("#info-panel").slideToggle("slow")})}),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});
         </script>
     </body>
 </html>
