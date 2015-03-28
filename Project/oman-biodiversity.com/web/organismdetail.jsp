@@ -172,12 +172,13 @@
                         </div>
                     </fieldset>
                 </div>  
-                <div class="col-lg-8 text-left col-md-offset-2">
+                <div class="col-lg-11 text-left col-md-offset-1">
                     <br>
                     <br>
                     <fieldset>
                         <div id="slide-info">
-                            <legend><span class="glyphicon glyphicon-collapse-down"></span> Learn more</legend>
+                            <legend><span class="glyphicon glyphicon-collapse-down"></span>Learn more</legend>
+                            <br>
                         </div>
                         <div class="slide-panel detail-container" style="background-color: <%= bgcolor%>" id="info-panel">
                             <div>
