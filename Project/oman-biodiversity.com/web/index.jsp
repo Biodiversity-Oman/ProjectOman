@@ -134,22 +134,23 @@
                         <div class="search-result col-lg-12 col-md-12 col-sm-12 col-xs-12" id="search-result" ></div>
                     </div>
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
+                        
                         <div id="slide-marine-world" class="world marine-world">
                             <h2 class="text-center">The Marine World</h2>
-                            <h4 class="text-center">Think blue!</h4>
+                            <h4 class="text-center">Think blue!</h4>                            
                         </div>
-                        <div class="slide-panel marine-world" id="marine-world-panel">
+                            <div class="slide-panel marine-world" id="marine-world-panel">
                             <img class="img-responsive center-block" src="img/marine-dio.JPG" alt="marine diorama" />
                             <div class="row">
                                 <div class="organism-box center-block" id="marine-organisms"></div>
                             </div>
-                            <p class="minimize">
+                            <p class="minimize">                                
                                 Oman, with its long coastline, harbours a treasure of marine life with over 20 marine mammals, more than 1000 fish species, over 250 coral species and 5 turtle species. 
                                 How many things that live in the sea, can you name?
                                 A lot of work is currently going on to study the marine diversity in Oman. 
                                 It is important that we protect our marine ecosystems, biodiversity, genetic diversity, and make sure that we use them responsibly so they are still there for generations to come.
                             </p>
-                        </div>
+                            </div>
                     </div>
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
                         <div id="slide-animal-world" class="world animal-world">
