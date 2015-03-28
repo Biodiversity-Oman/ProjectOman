@@ -134,12 +134,12 @@
                         <div class="search-result col-lg-12 col-md-12 col-sm-12 col-xs-12" id="search-result" ></div>
                     </div>
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
-                        
+
                         <div id="slide-marine-world" class="world marine-world">
                             <h2 class="text-center">The Marine World</h2>
                             <h4 class="text-center">Think blue!</h4>                            
                         </div>
-                            <div class="slide-panel marine-world" id="marine-world-panel">
+                        <div class="slide-panel marine-world" id="marine-world-panel">
                             <img class="img-responsive center-block" src="img/marine-dio.JPG" alt="marine diorama" />
                             <div class="row">
                                 <div class="organism-box center-block" id="marine-organisms"></div>
@@ -150,7 +150,7 @@
                                 A lot of work is currently going on to study the marine diversity in Oman. 
                                 It is important that we protect our marine ecosystems, biodiversity, genetic diversity, and make sure that we use them responsibly so they are still there for generations to come.
                             </p>
-                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
                         <div id="slide-animal-world" class="world animal-world">
@@ -331,13 +331,15 @@
             });
             feed.run();
 
-            (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         </script>
     </body>
 </html>
