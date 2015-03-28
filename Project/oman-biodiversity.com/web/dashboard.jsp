@@ -1222,6 +1222,14 @@
                 </div>
             </div>
         </div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/loaders.min.js"></script>
+	<script type="text/javascript" src="js/chosen.jquery.min.js"></script>
+	<script type="text/javascript" async src="js/ajax.min.js"></script>
+	<script type="text/javascript" async src="js/maps.min.js"></script>
+	<script type="text/javascript" async src="js/validator.min.js"></script>
+	<script type="text/javascript" async src="js/bootbox.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
         <script>
             $(document).ready(function () {
                 $(".chosen-select").chosen({width: "100%"}), loadOrganisms(), loadWorlds(), loadSeasons(), loadFamilies(), loadSubFamilies(), loadHabitats(), loadGeolocations(), loadEaten()

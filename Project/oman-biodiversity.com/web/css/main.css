@@ -28,7 +28,7 @@ body, html {
     font-weight: bold;
     font-size: 1.2em;
     padding: 15px 40px;
-	margin-top: 1em;
+    margin-top: 1em;
 }
 .btn-material-yellow {
     background-color: #ffc107;
@@ -41,33 +41,29 @@ body, html {
 .btn-material-yellow:hover {
     opacity: 0.7;
 }
-
 .btn-material-orange {
     background-color: #F57C00;
     color: #ffffff;
     font-size: 1em;
     padding: 7px 20px;
-	margin-top: 0;
+    margin-top: 0;
 }
-
 .btn-material-orange:hover {
-     opacity: 0.7;
+    opacity: 0.7;
 }
-
 .btn-material-white {
-	background-color: #ffffff;
-	color: black;
-	margin-top: 0;
-	font-size: 1em;
-	padding: 7px 20px;
-	border-radius: 2px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #BDBDBD;
+    background-color: #ffffff;
+    color: black;
+    margin-top: 0;
+    font-size: 1em;
+    padding: 7px 20px;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #BDBDBD;
 }
-
 .btn-material-white:hover {
-	background-color: #DDDDDD;
+    background-color: #DDDDDD;
 }
 /*--------------------------------------------------------*/
 /* -------------- header & navigation --------------*/
@@ -170,30 +166,21 @@ nav ul li a {
 .calendar-container h2 {
     font-family: 'Montserrat', sans-serif;
 }
-.centered {
-    text-align:center;
-}
 .subscribe-container {
-	margin-top: 2em;
-	margin-left: 0;
-	margin-right: 0;
-}
-.subscribe-border {
-    border-color: #BDBDBD;
-    border-style: solid;
-    border-width: 1px;
-    padding: 10px 10px 10px;
-    border-radius: 2px;
+    margin-top: 2em;
+    margin-left: 0;
+    margin-right: 0;
 }
 .subscribe-input[type="text"] {
     border: 1px #BDBDBD solid;
-	border-radius: 2px;
+    border-radius: 2px;
 }
 /*--------------------------------------------------------*/
 /* -------------- Social-Container -------------- */
 /*--------------------------------------------------------*/
 .social-container {
     max-width: 100%;
+    margin-top: 1em;
 }
 .grey-border {
     border-color: #BDBDBD;
@@ -203,13 +190,9 @@ nav ul li a {
     margin-top: 0.5em;
     border-radius: 2px;
 }
-.social-content {
-	max-width: 30em;
-}
-/* To make the fb-like-box Responsive */
-.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe img[style] {
-    width: 100% !important;
-    margin-left: 0.7em;
+.fb-page {
+    text-align: center;
+    width: 100%;
 }
 /*--------------------------------------------------------*/
 /* -------------- Worlds-Container -------------- */
@@ -247,7 +230,6 @@ nav ul li a {
 .animal-world {
     background-color: #f44336;
 }
-
 .plant-world {
     background-color: #4caf50;
 }
@@ -333,7 +315,6 @@ input[type="text"] {
     padding-top: 3em;
     position: relative;
 }
-
 /*--------------------------------------------------------*/
 /* -------------- Organism Detail -------------- */
 /*--------------------------------------------------------*/
@@ -405,7 +386,7 @@ input[type="text"] {
     .event-image {
         width:  200px; 
         height: 143px;
-		display:block;
+	display:block;
     }
     .world {
         width: 100%;

@@ -50,6 +50,7 @@
                         <div id='calendar'></div>
                         <div class="col-lg-* col-md-* col-sm-* col-xs-*">
                             <div class="subscribe-container">
+				<div class="grey-border">
                                 <form class="form form-horizontal" id="create-subscriber-form" data-toggle="validator">
                                     <div class="form-group">
                                         <label class="col-sm-2 col-xs-2 control-label"></label>
@@ -88,6 +89,7 @@
                                         </div>
                                     </div>
                                 </form>
+			    </div>
                             </div>
                         </div> 
                     </div>
@@ -100,16 +102,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-8 col-md-5 col-sm-6 col-xs-12">
-                                    <div>
                                         <div class="row"><h3 class="text-center"><span class="icon-instagram"></span>Instagram</h3></div>
                                         <div class="row"><div class="text-center" id="instafeed"></div></div><br>
-                                    </div>
                                 </div>
                                 <div class=" col-lg-8 col-md-6 col-sm-6 col-xs-12">
-                                    <div>
                                         <div class="row"><h3 class="text-center"><span class="icon-facebook3"></span>Facebook</h3></div>
                                         <div class="row"><div class="fb-page" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"></div></div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -251,12 +249,12 @@
                 </div>
             </section>
         </div>
-        <script  src='js/moment.min.js'></script>
-        <script  src='js/fullcalendar.min.js'></script>
-        <script  src='js/gcal.min.js'></script>
-        <script  type="text/javascript" src="js/instafeed.min.js"></script>
-        <script src='js/view.js'></script>
-        <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src='js/moment.min.js'></script>
+        <script type="text/javascript" src='js/fullcalendar.min.js'></script>
+        <script type="text/javascript" src='js/gcal.min.js'></script>
+        <script type="text/javascript" src="js/instafeed.min.js"></script>
+        <script type="text/javascript" src='js/view.min.js'></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
         <script>
             $(document).ready(function () {
                 $('#calendar').fullCalendar({
