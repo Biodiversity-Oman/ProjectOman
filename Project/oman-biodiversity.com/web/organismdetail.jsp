@@ -230,10 +230,10 @@
                 </div>
             </div>
         </div>
-        <script src='js/jquery.min.js'></script>
-        <script src='js/view.min.js'></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        <script>
+        <script type="text/javascript" src='js/jquery.min.js'></script>
+        <script type="text/javascript" src='js/view.min.js'></script>
+        <script type="text/javascript" async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
 	    $(document).ready(function(){$("#slide-info").click(function(){$("#info-panel").slideToggle("slow")})}),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});
         </script>
     </body>

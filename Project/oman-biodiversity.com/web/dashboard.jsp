@@ -7,9 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
     <body>
         <div class="wrapper">
             <div id="fade" class="black_overlay"></div>
@@ -47,7 +44,6 @@
                                                 <input class="form-control" type="text" name="organism-scientific-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/> 
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>    
-
                                         </div> 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-common-name">Common name</label>
@@ -55,7 +51,6 @@
                                                 <input class="form-control" type="text" name="organism-common-name" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$" required/>
                                                 <span class="help-block with-errors">Up to 50 characters upper/lower case(no digits)</span>
                                             </div>
-
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-local-name">Local name</label>
@@ -69,7 +64,6 @@
                                             <div class="col-sm-4">
                                                 <select class="form-control" id="subfamily-ddl-insert-organism" name="organism-subfamily-id" required></select>
                                             </div>
-                                            <!-- Button trigger modal --> 
                                             <button type="button" class="button-grey" data-toggle="modal" data-target="#add-family-breed">Add</button>
                                         </div>
                                         <div class="form-group">
@@ -223,11 +217,9 @@
                                 <div class="col-sm-2">
                                     <div id="img-detail"></div>
                                 </div>
-
                                 <div class="col-sm-3" style="text-align: left;">
                                     <fieldset>
                                         <legend>Naming info</legend>
-
                                         <div>
                                             <label>Scientific name:</label>                                                
                                             <label class="detail" id="scientific-name-detail"></label>
@@ -249,7 +241,6 @@
                                 <div class="col-sm-3" style="text-align: left;">
                                     <fieldset>
                                         <legend>Geneology</legend>
-
                                         <div>
                                             <label>Population:</label>
                                             <label class="detail" id="population-detail"></label>
@@ -940,7 +931,6 @@
                                                 <h2 class="h2">Update this organism before validation</h2>
                                             </div>
                                         </div>
-                                        <!--<form class="form-group"> -->                                           
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
                                             <div class="col-sm-4">
@@ -1126,8 +1116,6 @@
                 </div>
             </div>
         </div>
-                                                                     <!-- Modal -->
-        
         <div class="modal fade" id="add-family-breed" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
             <div class="modal-dialog" id="modalbox">
                 <div class="modal-content">                  
@@ -1206,7 +1194,6 @@
                                                 <div id="create-subfamily-message-modal"></div>
                                             </div>
                                         </div>                       
-
                                        <div class="form-group centered">
                                             <label class="col-sm-2 control-label"></label>
                                             <div class="col-sm-8">
@@ -1230,11 +1217,23 @@
 	<script type="text/javascript" async src="js/validator.min.js"></script>
 	<script type="text/javascript" async src="js/bootbox.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
-        <script>
+        <script type="text/javascript">
             $(document).ready(function () {
                 $(".chosen-select").chosen({width: "100%"}), loadOrganisms(), loadWorlds(), loadSeasons(), loadFamilies(), loadSubFamilies(), loadHabitats(), loadGeolocations(), loadEaten()
             });
         </script>
+	<script type="text/javascript">
+	    function adminCheck() {<%if (us.getIsAdmin() == false) {%>$(".no-button").each(function () {$(this).hide();});<%}else{%><%}%>};
+	    var adminuser = document.getElementById('adminuser');
+	    var adminpublish = document.getElementById('adminpublish');
+	    <%if (us.getIsAdmin() == true) {%>
+	    adminuser.innerHTML += '<a href="usermanagement.jsp"><span class="icon-users"></span><strong>User Management</strong></a>';
+	    adminpublish.innerHTML += '<a href="publish.jsp"><span class="icon-book"></span><strong>Publish</strong></a>';
+	    <%} else {%>
+	    adminuser.innerHTML += '';
+	    adminpublish.innerHTML += '';
+	    <%}%>
+	</script>
     </body>
 </html>
 

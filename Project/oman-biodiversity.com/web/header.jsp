@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -20,7 +19,6 @@
 	<title>Oman-Biodiversity</title>
     </head>
     <nav>
-	<body>
 	    <ul id="menu">
 		<li><img src="img/logo-roadshow.png" height="58" width="103"></li>
 		<li><a href="#event">Event</a></li>
@@ -29,13 +27,5 @@
 		<li><a href="#fun-stuff">Fun stuff</a></li>
 		<li><a href="#about-us">About us</a></li>
 	    </ul>
-	    <script type="text/javascript" src = 'js/jquery.min.js' ></script>
-	    <script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-	    <script>
-		$(function () {
-		    $("#menu").slicknav({label: ""});
-		});
-	    </script>
-	</body>
     </nav>
 </html>

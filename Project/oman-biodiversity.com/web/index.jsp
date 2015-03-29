@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div id="fb-root"></div>
         <div class="wrapper">
             <section class="event-container" id="event">
                 <div class="col-lg-11 col-lg-offset-1">
@@ -51,45 +50,45 @@
                         <div class="col-lg-* col-md-* col-sm-* col-xs-*">
                             <div class="subscribe-container">
 				<div class="grey-border">
-                                <form class="form form-horizontal" id="create-subscriber-form" data-toggle="validator">
-                                    <div class="form-group">
-                                        <label class="col-sm-2 col-xs-2 control-label"></label>
-                                        <div class="col-sm-6 col-xs-9 col-xs-offset-1">
-                                            <h3 class="h3 text-center">Subscribe to our newsletter</h3>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 col-xs-2 control-label" for="subscriber-firstname">Name</label>
-                                        <div class="col-sm-6 col-xs-9 col-xs-offset-1">
-                                            <input class="form-control subscribe-input" type="text" name="subscriber-firstname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 col-xs-2 control-label" for="subscriber-lastname">Family name</label>
-                                        <div class="col-sm-6 col-xs-9 col-xs-offset-1">
-                                            <input class="form-control subscribe-input" type="text" name="subscriber-lastname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 col-xs-2  control-label" for="subscriber-email">E-mail</label>
-                                        <div class="col-sm-6 col-xs-9 col-xs-offset-1">
-                                            <input class="form-control subscribe-input" type="text" name="subscriber-email" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9!]+$"  required/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group" >
-                                        <label class="col-sm-2 col-xs-2 control-label"> </label>
-                                        <div class="col-sm-6 col-xs-9 col-xs-offset-1">
-                                            <button type="submit" class="button btn-material-white">Submit</button>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label"></label>
-                                        <div class="col-sm-4">
-                                            <div class="message" id="create-subscriber-message"></div>
-                                        </div>
-                                    </div>
-                                </form>
-			    </div>
+				    <form class="form form-horizontal" id="create-subscriber-form" data-toggle="validator">
+					<div class="form-group">
+					    <label class="col-sm-2 col-xs-2 control-label"></label>
+					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
+						<h3 class="h3 text-center">Subscribe to our newsletter</h3>
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 col-xs-2 control-label" for="subscriber-firstname">Name</label>
+					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
+						<input class="form-control subscribe-input" type="text" name="subscriber-firstname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 col-xs-2 control-label" for="subscriber-lastname">Family name</label>
+					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
+						<input class="form-control subscribe-input" type="text" name="subscriber-lastname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 col-xs-2  control-label" for="subscriber-email">E-mail</label>
+					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
+						<input class="form-control subscribe-input" type="text" name="subscriber-email" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9!]+$"  required/>
+					    </div>
+					</div>
+					<div class="form-group" >
+					    <label class="col-sm-2 col-xs-2 control-label"> </label>
+					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
+						<button type="submit" class="button btn-material-white">Submit</button>
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label class="col-sm-2 control-label"></label>
+					    <div class="col-sm-4">
+						<div class="message" id="create-subscriber-message"></div>
+					    </div>
+					</div>
+				    </form>
+				</div>
                             </div>
                         </div> 
                     </div>
@@ -102,12 +101,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-8 col-md-5 col-sm-6 col-xs-12">
-                                        <div class="row"><h3 class="text-center"><span class="icon-instagram"></span>Instagram</h3></div>
-                                        <div class="row"><div class="text-center" id="instafeed"></div></div><br>
+				    <div class="row"><h3 class="text-center"><span class="icon-instagram"></span>Instagram</h3></div>
+				    <div class="row"><div class="text-center" id="instafeed"></div></div><br>
                                 </div>
                                 <div class=" col-lg-8 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="row"><h3 class="text-center"><span class="icon-facebook3"></span>Facebook</h3></div>
-                                        <div class="row"><div class="fb-page" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"></div></div>
+				    <div class="row"><h3 class="text-center"><span class="icon-facebook3"></span>Facebook</h3></div>
+				    <div class="row"><div id="fb-root"><div class="fb-page" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"></div></div></div>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +131,6 @@
                         <div class="search-result col-lg-12 col-md-12 col-sm-12 col-xs-12" id="search-result" ></div>
                     </div>
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
-
                         <div id="slide-marine-world" class="world marine-world">
                             <h2 class="text-center">The Marine World</h2>
                             <h4 class="text-center">Think blue!</h4>                            
@@ -249,14 +247,16 @@
                 </div>
             </section>
         </div>
+	<script type="text/javascript" src = 'js/jquery.min.js' ></script>
+	<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
         <script type="text/javascript" src='js/moment.min.js'></script>
         <script type="text/javascript" src='js/fullcalendar.min.js'></script>
         <script type="text/javascript" src='js/gcal.min.js'></script>
         <script type="text/javascript" src="js/instafeed.min.js"></script>
         <script type="text/javascript" src='js/view.min.js'></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
-	<script>
-	    $(document).ready(function(){$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,n){$(n).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"'Montser', sans-serif",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms()}),$("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});var feed=new Instafeed({get:"tagged",tagName:"iranwildlife",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});feed.run(),function(e,n,l){var a,t=e.getElementsByTagName(n)[0];e.getElementById(l)||(a=e.createElement(n),a.id=l,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",t.parentNode.insertBefore(a,t))}(document,"script","facebook-jssdk");
+	<script type="text/javascript">
+	 $("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){$("#menu").slicknav({label:""})}),$(document).ready(function(){$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,n){$(n).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"'Montser', sans-serif",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms(),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});var e=new Instafeed({get:"tagged",tagName:"iranwildlife",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});e.run(),function(e,n,l){var a,i=e.getElementsByTagName(n)[0];e.getElementById(l)||(a=e.createElement(n),a.id=l,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",i.parentNode.insertBefore(a,i))}(document,"script","facebook-jssdk")});
 	</script>
     </body>
 </html>

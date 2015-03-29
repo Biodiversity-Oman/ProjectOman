@@ -193,6 +193,8 @@ nav ul li a {
 .fb-page {
     text-align: center;
     width: 100%;
+    overflow: hidden;
+    height: auto;
 }
 /*--------------------------------------------------------*/
 /* -------------- Worlds-Container -------------- */

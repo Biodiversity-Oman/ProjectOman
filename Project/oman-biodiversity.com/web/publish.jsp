@@ -4,6 +4,7 @@
     Author     : lennyasus
 --%>
 <%@include file="/adminheader.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 	if (us.getIsAdmin() == false) {
 		response.sendRedirect("notallowed.jsp");
@@ -213,7 +214,6 @@
 				    </form>
 				</div>
 			    </div>
-
 			</div>
 			<div class="table-responsive">
 			    <input class="search-bar-table form-control" id="search-organism-published" type="text" name="organismkey" placeholder="Search on name (minimal 3 characters)">
@@ -236,7 +236,6 @@
 						<h2 class="h2">Update this organism</h2>
 					    </div>
 					</div>
-					<!--<form class="form-group"> -->                                           
 					<div class="form-group">
 					    <label class="col-sm-2 control-label" for="organism-scientific-name">Scientific name</label>
 					    <div class="col-sm-4">
@@ -418,7 +417,6 @@
 			    <table class="table table-striped" id="tovalidate-table"></table>
 			</div>
 		    </div>
-
 		    <div id="tab3" class="tab">
 			<p>Press the <span class="icon-cross"></span> To delete </p>
 			<div class="table-responsive">
@@ -441,7 +439,7 @@
 	<script type="text/javascript" async src="js/validator.min.js"></script>
 	<script type="text/javascript" async src="js/bootbox.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
-	<script>
+	<script type="text/javascript">
 	$(document).ready(function () {
 	    loadPublishedOrganisms(), loadWorlds(), loadSeasons(), loadFamilies(), loadSubFamilies(), loadHabitats(), loadGeolocations(), loadEaten(), $(".chosen-select").chosen({width: "100%"})
 	});
