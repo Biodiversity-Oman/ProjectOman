@@ -1218,22 +1218,11 @@
 	<script type="text/javascript" async src="js/bootbox.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
         <script type="text/javascript">
+	    function adminCheck() {<%if (us.getIsAdmin() == false) {%>$(".no-button").each(function () {$(this).hide();});<%}else{%><%}%>};
             $(document).ready(function () {
                 $(".chosen-select").chosen({width: "100%"}), loadOrganisms(), loadWorlds(), loadSeasons(), loadFamilies(), loadSubFamilies(), loadHabitats(), loadGeolocations(), loadEaten()
             });
         </script>
-	<script type="text/javascript">
-	    function adminCheck() {<%if (us.getIsAdmin() == false) {%>$(".no-button").each(function () {$(this).hide();});<%}else{%><%}%>};
-	    var adminuser = document.getElementById('adminuser');
-	    var adminpublish = document.getElementById('adminpublish');
-	    <%if (us.getIsAdmin() == true) {%>
-	    adminuser.innerHTML += '<a href="usermanagement.jsp"><span class="icon-users"></span><strong>User Management</strong></a>';
-	    adminpublish.innerHTML += '<a href="publish.jsp"><span class="icon-book"></span><strong>Publish</strong></a>';
-	    <%} else {%>
-	    adminuser.innerHTML += '';
-	    adminpublish.innerHTML += '';
-	    <%}%>
-	</script>
     </body>
 </html>
 
