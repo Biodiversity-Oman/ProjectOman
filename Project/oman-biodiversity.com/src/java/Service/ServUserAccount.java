@@ -102,7 +102,7 @@ public class ServUserAccount {
                 return "required";
             } else if (!phone.matches("^[0-9./()-]*$")) {
                 return "required";
-            } else if (!email.matches("\\w+@\\w+")) {
+            } else if (!email.matches("\\w+@\\w+.\\w{2,3}")) {
                 return "required";
             } else if (DaUserAccount.checkUsername(username) == false) {
                 UserAccount user = new UserAccount();
