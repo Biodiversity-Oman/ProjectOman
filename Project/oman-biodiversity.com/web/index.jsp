@@ -27,6 +27,12 @@
 		<li><a href="#about-us">About us</a></li>
 	    </ul>
     </nav>
+    <style>
+        .fb-page{
+            width: 100%;
+            height: 500px;
+        }
+    </style>
     <body>
         <div class="wrapper">
             <section class="event-container" id="event">
@@ -278,5 +284,15 @@
 	<script type="text/javascript">
 	 $("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){$("#menu").slicknav({label:""})}),$(document).ready(function(){$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,n){$(n).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"'Montser', sans-serif",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms(),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});var e=new Instafeed({get:"tagged",tagName:"iranwildlife",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});e.run(),function(e,n,l){var a,i=e.getElementsByTagName(n)[0];e.getElementById(l)||(a=e.createElement(n),a.id=l,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",i.parentNode.insertBefore(a,i))}(document,"script","facebook-jssdk")});
 	</script>
+        <script>
+            var url = document.URL;
+            if(url.slice(-6) === 'worlds'){
+                $(window).load(function () {
+                    $('html, body').animate({
+                    scrollTop: $("#worlds").offset().top
+                });
+            });
+            }
+        </script>
     </body>
 </html>

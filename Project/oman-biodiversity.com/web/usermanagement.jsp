@@ -71,7 +71,7 @@
 				<div class="form-group">
 				    <label class="col-sm-2 control-label" for="email">E-mail</label>
 				    <div class="col-sm-4">
-					<input class="form-control" type="email" data-delay="1200" name="email" pattern="\b[A-Z0-9._+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,4}\b$)" data-error="E-mail address is invalid" required>
+					<input class="form-control" type="text" data-delay="1200" name="email" pattern="\w+@\w.[a-z]{2,3}" data-error="E-mail address is invalid" required>
 					<span class="help-block with-errors">Valid e-mail address required</span>
 				    </div>
 				</div>
