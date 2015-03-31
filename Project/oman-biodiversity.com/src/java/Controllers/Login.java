@@ -57,19 +57,19 @@ public class Login extends HttpServlet {
                 response.sendRedirect("dashboard.jsp");
             } else {
                 session.setAttribute("error", "Password not valid");
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("admin.jsp");
             }
         } catch (SQLException ex) {
             if (ex.getMessage().contains("Communications")) {
                 session.setAttribute("error", "Service unavailable");
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("admin.jsp");
             } else if (ex.getMessage().contains("Illegal")) {
                 session.setAttribute("error", "Username or password is not valid");
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("admin.jsp");
             }
         } catch (NullPointerException e) {
             session.setAttribute("error", "Fill in al fields");
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("admin.jsp");
         }
     }
 

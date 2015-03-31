@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+<rule>
+    <from>^/dashboard.jsp$</from>
+    <to type="redirect">%{context-path}/dashboard</to>
+</rule>
+<rule>
+    <from>^/publish.jsp$</from>
+    <to type="redirect">%{context-path}/publish</to>
+</rule>
+<rule>
+    <from>^/usermanagement.jsp$</from>
+    <to type="redirect">%{context-path}/usermanagement</to>
+</rule>
+<rule>
+    <from>^/userinfo.jsp$</from>
+    <to type="redirect">%{context-path}/userinfo</to>
+</rule>
+<rule>
+    <from>^/notallowed.jsp$</from>
+    <to type="redirect">%{context-path}/notallowed</to>
+</rule>
+<rule>
+    <from>^/admin.jsp$</from>
+    <to type="redirect">%{context-path}/admin</to>
+</rule>
+<rule>
+  <from>^/index$</from>
+  <to>/index.jsp</to>
+</rule>
+<rule>
+  <from>^/admin$</from>
+  <to>/admin.jsp</to>
+</rule>
+<rule>
+  <from>^/dashboard$</from>
+  <to>/dashboard.jsp</to>
+</rule>
+<rule>
+  <from>^/usermanagement$</from>
+  <to>/usermanagement.jsp</to>
+</rule>
+<rule>
+  <from>^/userinfo$</from>
+  <to>/userinfo.jsp</to>
+</rule>
+<rule>
+  <from>^/notallowed$</from>
+  <to>/notallowed.jsp</to>
+</rule>
+<rule>
+  <from>^/publish$</from>
+  <to>/publish.jsp</to>
+</rule>
+</urlrewrite>
+

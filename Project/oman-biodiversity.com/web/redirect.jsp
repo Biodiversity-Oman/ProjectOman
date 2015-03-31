@@ -4,7 +4,7 @@
     Author     : lenny
 --%>
 <%
-    response.setHeader("Refresh", "5; URL=login.jsp");
+    response.setHeader("Refresh", "5; URL=admin.jsp");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

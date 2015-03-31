@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Eric
  */
-@WebServlet(name = "ViewOrganism", urlPatterns = {"/ViewOrganism"})
+@WebServlet(name = "ViewOrganism", urlPatterns = {"/organism"})
 public class ViewOrganism extends HttpServlet {
 
     /**
