@@ -28,6 +28,10 @@
     <to type="redirect">%{context-path}/admin</to>
 </rule>
 <rule>
+    <from>^/index.jsp$</from>
+    <to type="redirect">%{context-path}/</to>
+</rule>
+<rule>
   <from>^/index$</from>
   <to>/index.jsp</to>
 </rule>
