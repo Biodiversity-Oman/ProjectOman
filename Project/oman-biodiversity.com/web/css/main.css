@@ -367,10 +367,10 @@ input[type="text"] {
 /*--------------------------------------------------------*/
 @media screen and (max-width: 910px) {
     nav ul li a {
-        padding: 24px 20px;
+        padding: 24px 17px;
     }
 }
-@media screen and (max-width: 705px) {
+@media screen and (max-width: 740px) {
     /* #menu is the original menu */
     #menu {
         display:none;

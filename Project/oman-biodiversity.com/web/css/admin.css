@@ -13,7 +13,6 @@ and open the template in the editor.
 body, html {
     margin: 0 auto;
     background-color: #F5F5FF;
-    font-size: 100%;
     opacity: 1;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;

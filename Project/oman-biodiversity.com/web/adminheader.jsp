@@ -23,10 +23,10 @@
 <html>
     <head>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name=viewport />
-	<link rel=StyleSheet type="text/css" href="css/admin.min.css">
-	<link rel=StyleSheet type="text/css" href="css/icons.min.css">
-	<link rel=StyleSheet type="text/css" href="css/chosen.min.css">
 	<link rel=stylesheet href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel=StyleSheet type="text/css" href="css/admin.min.css">
+	<link rel=StyleSheet type="text/css" href="css/icons.min.css" media="none" onload="if(media!='all')media='all'">
+	<link rel=StyleSheet type="text/css" href="css/chosen.min.css" media="none" onload="if(media!='all')media='all'">
 	<title>Welcome, admin </title>
     </head>
     <nav>

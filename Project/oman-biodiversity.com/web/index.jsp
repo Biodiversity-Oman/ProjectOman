@@ -8,13 +8,13 @@
 <html>
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/slicknav.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="StyleSheet" type="text/css" href="css/main.min.css">
-	<link rel="StyleSheet" type="text/css" href="css/fonts/fonts.min.css">
-	<link rel="StyleSheet" type="text/css" href="css/icons.min.css">
-	<link rel='stylesheet' href='css/fullcalendar.min.css'>
-	<link rel="stylesheet" href="css/slicknav.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' media="none" onload="if(media!='all')media='all'">
+	<link rel="StyleSheet" type="text/css" href="css/fonts/fonts.min.css" media="none" onload="if(media!='all')media='all'">
+	<link rel="StyleSheet" type="text/css" href="css/icons.min.css" media="none" onload="if(media!='all')media='all'">
+	<link rel='stylesheet' href='css/fullcalendar.min.css' media="none" onload="if(media!='all')media='all'">
 	<title>Oman-Biodiversity</title>
     </head>
     <nav>
