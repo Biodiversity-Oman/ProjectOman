@@ -8,13 +8,11 @@
 <html>
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" href="css/slicknav.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-main.min.css">
 	<link rel="StyleSheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" href="css/plugins.min.css" media="none" onload="if(media!='all')media='all'">
 	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' media="none" onload="if(media!='all')media='all'">
-	<link rel="StyleSheet" type="text/css" href="css/fonts/fonts.min.css" media="none" onload="if(media!='all')media='all'">
 	<link rel="StyleSheet" type="text/css" href="css/icons.min.css" media="none" onload="if(media!='all')media='all'">
-	<link rel='stylesheet' href='css/fullcalendar.min.css' media="none" onload="if(media!='all')media='all'">
 	<title>Oman-Biodiversity</title>
     </head>
     <nav>
@@ -27,12 +25,6 @@
 		<li><a href="#about-us">About us</a></li>
 	    </ul>
     </nav>
-    <style>
-        .fb-page{
-            width: 100%;
-            height: 500px;
-        }
-    </style>
     <body>
         <div class="wrapper">
             <section class="event-container" id="event">
@@ -49,7 +41,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <h3><u>DNA</u></h3>
                         <p class="text-left">There is also another way of organizing living things, one that all these five kingdoms have in common.</p><p> Scientists have discovered that every living organism has a special unique code. And that code describes every bit of every organism. It shows us how one thing is different from another. This code is called DNA</p><p> DNA describes all the ingredients and characteristics needed to make every living organism.</p>
-                        <img class="event-image" src="img/oman-logo.png" >
+                        <img class="event-image" src="img/oman-logo.png" width="400" height="288">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <h3><u>Taxonomy</u></h3>
@@ -162,7 +154,7 @@
                             <h4 class="text-center">Think blue!</h4>                            
                         </div>
                         <div class="slide-panel marine-world" id="marine-world-panel">
-                            <img class="img-responsive center-block" src="img/marine-dio.JPG" alt="marine diorama" />
+                            <img class="img-responsive center-block" src="img/marine-dio.JPG" alt="marine diorama" width="1253" height="801" />
                             <div class="row">
                                 <div class="organism-box center-block" id="marine-organisms"></div>
                             </div>
@@ -180,7 +172,7 @@
                             <h4 class="text-center">Extinction is forever</h4>
                         </div>
                         <div class="slide-panel animal-world" id="animal-world-panel">
-                            <img class="img-responsive center-block" src="img/animal-dio.jpg" alt="marine diorama" />
+                            <img class="img-responsive center-block" src="img/animal-dio.jpg" alt="marine diorama" width="1234" height="622" />
                             <div class="row">
                                 <div class="organism-box center-block" id="animal-organisms"></div>
                             </div>
@@ -203,7 +195,7 @@
                             <h4 class="text-center">Planting for tomorrow</h4>
                         </div>
                         <div class="slide-panel plant-world" id="plant-world-panel">
-                            <img class="img-responsive center-block" src="img/plant.JPG" alt="plant diorama" />
+                            <img class="img-responsive center-block" src="img/plant.JPG" alt="plant diorama" width="1069" height="709" />
                             <div class="row">
                                 <div class="organism-box center-block" id="plant-organisms"></div>
                             </div>
@@ -221,7 +213,7 @@
                             <h4 class="text-center">Look into my world!</h4>
                         </div>
                         <div class="slide-panel microbial-world" id="microbial-world-panel">
-                            <img class="img-responsive center-block" src="img/microbial.JPG" alt="Microbial diorama" />
+                            <img class="img-responsive center-block" src="img/microbial.JPG" alt="Microbial diorama" width="1089" height="716" />
                             <div class="row">
                                 <div class="organism-box center-block" id="microbial-organisms"></div>
                             </div>
@@ -273,26 +265,13 @@
                 </div>
             </section>
         </div>
-	<script type="text/javascript" src = 'js/jquery.min.js' ></script>
+	<script type="text/javascript" src = 'js/jquery.min.js'></script>
 	<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-        <script type="text/javascript" src='js/moment.min.js'></script>
-        <script type="text/javascript" src='js/fullcalendar.min.js'></script>
-        <script type="text/javascript" src='js/gcal.min.js'></script>
-        <script type="text/javascript" src="js/instafeed.min.js"></script>
+	<script type="text/javascript" src="js/plugins.min.js"></script>
         <script type="text/javascript" src='js/view.min.js'></script>
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
+        <script type="text/javascript" src="js/bootstrap-main.min.js" async></script>
 	<script type="text/javascript">
-	 $("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){$("#menu").slicknav({label:""})}),$(document).ready(function(){$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,n){$(n).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"'Montser', sans-serif",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms(),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});var e=new Instafeed({get:"tagged",tagName:"iranwildlife",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});e.run(),function(e,n,l){var a,i=e.getElementsByTagName(n)[0];e.getElementById(l)||(a=e.createElement(n),a.id=l,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",i.parentNode.insertBefore(a,i))}(document,"script","facebook-jssdk")});
+	    $("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){$("#menu").slicknav({label:""})}),$(document).ready(function(){$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,n){$(n).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"'Montser', sans-serif",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms(),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})})});var feed=new Instafeed({get:"tagged",tagName:"iranwildlife",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});feed.run(),function(e,n,l){var a,o=e.getElementsByTagName(n)[0];e.getElementById(l)||(a=e.createElement(n),a.id=l,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",o.parentNode.insertBefore(a,o))}(document,"script","facebook-jssdk");var url=document.URL;"worlds"===url.slice(-6)&&$(window).load(function(){$("html, body").animate({scrollTop:$("#worlds").offset().top})});
 	</script>
-        <script>
-            var url = document.URL;
-            if(url.slice(-6) === 'worlds'){
-                $(window).load(function () {
-                    $('html, body').animate({
-                    scrollTop: $("#worlds").offset().top
-                });
-            });
-            }
-        </script>
     </body>
 </html>

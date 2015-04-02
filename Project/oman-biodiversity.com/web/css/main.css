@@ -10,6 +10,7 @@ and open the template in the editor.
 /*--------------------------------------------------------*/
 /* -------------- General -------------- */
 /*--------------------------------------------------------*/
+@font-face{font-family:'museo300';src:url('fonts/Museo300-Regular-webfont.eot');src:url('fonts/Museo300-Regular-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/Museo300-Regular-webfont.woff2') format('woff2'),url('fonts/Museo300-Regular-webfont.woff') format('woff'),url('fonts/Museo300-Regular-webfont.ttf') format('truetype'),url('fonts/Museo300-Regular-webfont.svg#museo300') format('svg');font-weight:normal;font-style:normal}
 body, html {
     margin: 0 auto;
     background-color: #F5F5FF;
@@ -20,6 +21,7 @@ body, html {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+    font-family: Verdana, Geneva, sans-serif;
 }
 .button {
     border-style: none;
@@ -195,6 +197,7 @@ nav ul li a {
     width: 100%;
     overflow: hidden;
     height: auto;
+    height: 500px;
 }
 /*--------------------------------------------------------*/
 /* -------------- Worlds-Container -------------- */

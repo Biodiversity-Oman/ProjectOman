@@ -45,25 +45,26 @@ $(document).ready(function () {
     });
     loadOrganisms();
     $(function () {
-    var minimized_elements = $('p.minimize');
-    minimized_elements.each(function () {
-	var t = $(this).text();
-	if (t.length < 200)
-	    return;
-	$(this).html(
-		t.slice(0, 200) + '<span>... </span><a href="#" class="more">more</a>' +
-		'<span style="display:none;">' + t.slice(200, t.length) + ' <a href="#" class="less">less</a></span>'
-		);
-    });
+	var minimized_elements = $('p.minimize');
+	minimized_elements.each(function () {
+	    var t = $(this).text();
+	    if (t.length < 200)
+		return;
+	    $(this).html(
+		    t.slice(0, 200) + '<span>... </span><a href="#" class="more">more</a>' +
+		    '<span style="display:none;">' + t.slice(200, t.length) + ' <a href="#" class="less">less</a></span>'
+		    );
+	});
 
-    $('a.more', minimized_elements).click(function (event) {
-	event.preventDefault();
-	$(this).hide().prev().hide();
-	$(this).next().show();
-    });
-    $('a.less', minimized_elements).click(function (event) {
-	event.preventDefault();
-	$(this).parent().hide().prev().show().prev().show();
+	$('a.more', minimized_elements).click(function (event) {
+	    event.preventDefault();
+	    $(this).hide().prev().hide();
+	    $(this).next().show();
+	});
+	$('a.less', minimized_elements).click(function (event) {
+	    event.preventDefault();
+	    $(this).parent().hide().prev().show().prev().show();
+	});
     });
 });
 var feed = new Instafeed({
@@ -86,9 +87,15 @@ feed.run();
     js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-});
 
-
+var url = document.URL;
+if (url.slice(-6) === 'worlds') {
+    $(window).load(function () {
+	$('html, body').animate({
+	    scrollTop: $("#worlds").offset().top
+	});
+    });
+}
 /////////////////////////////////////////////////////////////////	    
 //organism detail inline js
 $(document).ready(function () {

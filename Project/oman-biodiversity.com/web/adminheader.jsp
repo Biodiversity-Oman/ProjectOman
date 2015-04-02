@@ -32,7 +32,7 @@
     <nav>
 	<ul>
 	    <li><a href=dashboard.jsp><span class=icon-home></span><strong>Dashboard</strong></a></li>
-	    <li><a href="mailto:developersteam.belgium@gmail.com?Subject=Incident Report" target=_top><strong class=error-message>Version 0.2 - For any problems click here to mail</strong></a></li>
+	    <li><a href="mailto:developersteam.belgium@gmail.com?Subject=Incident Report" target=_top><strong class=error-message>Version 0.2.1 - For any problems click here to mail</strong></a></li>
 	    <li class=right><a href=Logout><span class=icon-exit></span><strong>Log out</strong></a></li>
 	    <li class=right><a href=userinfo.jsp><span class=icon-user></span><strong><%=username%></strong></a></li>
 	    <li class=right id=adminuser></li>
