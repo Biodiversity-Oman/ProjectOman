@@ -440,9 +440,7 @@
 	<script type="text/javascript" async src="js/bootbox.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
 	<script type="text/javascript">
-	$(document).ready(function () {
 	    loadPublishedOrganisms(), loadWorlds(), loadSeasons(), loadFamilies(), loadSubFamilies(), loadHabitats(), loadGeolocations(), loadEaten(), $(".chosen-select").chosen({width: "100%"})
-	});
 	</script>
     </body>
 </html>

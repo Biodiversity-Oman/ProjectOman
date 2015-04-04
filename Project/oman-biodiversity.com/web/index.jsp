@@ -133,16 +133,16 @@
             </section>
             <section class="worlds-container" id="worlds">
                 <div class="col-lg-11 col-md-offset-1">
-                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-11">
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 ">
                         <h1> </h1>
                         <p class="lead">Every animal lives in his desired world. Click on a world to find out more!</p>
                         <form class="form" id="form-search-organism">
                             <div class="form-group">
-                                <div class="col-lg-6 col-md-10 col-sm-10 col-xs-9">
+                                <div class="col-lg-6 col-md-10 col-sm-10 col-xs-7 ">
                                     <input class="form-control search-input" id="keyword" type="text" name="organismkey" placeholder="Search for an organism!">
                                 </div>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
                                 <button type="submit" class="button btn-material-orange">Search</button>
                             </div>
                         </form>
@@ -258,7 +258,7 @@
                         <h2>Project Leader</h2>
                         <p>Filip Keunen</p>
                     </div>
-                    <div class="col-lg-3 col-md-offset-3" >
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 col-md-offset-3" >
                         <h2></h2><br>
                         <p><img src="img/logo-aopgrc.png" width="120" height="110"></p>
                     </div>
@@ -271,7 +271,7 @@
         <script type="text/javascript" src='js/view.min.js'></script>
         <script type="text/javascript" src="js/bootstrap-main.min.js" async></script>
 	<script type="text/javascript">
-	    $("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){$("#menu").slicknav({label:""})}),$(document).ready(function(){$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,n){$(n).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"'Montser', sans-serif",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms(),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})})});var feed=new Instafeed({get:"tagged",tagName:"iranwildlife",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});feed.run(),function(e,n,l){var a,o=e.getElementsByTagName(n)[0];e.getElementById(l)||(a=e.createElement(n),a.id=l,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",o.parentNode.insertBefore(a,o))}(document,"script","facebook-jssdk");var url=document.URL;"worlds"===url.slice(-6)&&$(window).load(function(){$("html, body").animate({scrollTop:$("#worlds").offset().top})});
+	    $("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){$("#menu").slicknav({label:""})}),$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,l){$(l).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"'Montser', sans-serif",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms(),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});var feed=new Instafeed({get:"tagged",tagName:"iranwildlife",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});feed.run(),function(e,l,n){var a,o=e.getElementsByTagName(l)[0];e.getElementById(n)||(a=e.createElement(l),a.id=n,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",o.parentNode.insertBefore(a,o))}(document,"script","facebook-jssdk");var url=document.URL;"worlds"===url.slice(-6)&&$(window).load(function(){$("html, body").animate({scrollTop:$("#worlds").offset().top})});
 	</script>
     </body>
 </html>

@@ -4,7 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/WEB-INF/web.xml</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/usermanagement.jsp</file>
             <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/index.jsp</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/organismdetail.jsp</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/adminheader.jsp</file>
         </group>
     </open-files>
 </project-private>

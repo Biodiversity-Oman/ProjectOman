@@ -1219,9 +1219,7 @@
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
         <script type="text/javascript">
 	    function adminCheck() {<%if (us.getIsAdmin() == false) {%>$(".no-button").each(function () {$(this).hide();});<%}else{%><%}%>};
-            $(document).ready(function () {
-                $(".chosen-select").chosen({width: "100%"}), loadOrganisms(), loadWorlds(), loadSeasons(), loadFamilies(), loadSubFamilies(), loadHabitats(), loadGeolocations(), loadEaten()
-            });
+            $(".chosen-select").chosen({width: "100%"}), loadOrganisms(), loadWorlds(), loadSeasons(), loadFamilies(), loadSubFamilies(), loadHabitats(), loadGeolocations(), loadEaten()
         </script>
     </body>
 </html>
