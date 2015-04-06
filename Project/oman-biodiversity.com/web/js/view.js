@@ -63,7 +63,7 @@ $(document).ready(function () {
                 }
                 ;
                 data.forEach(function (o) {
-                    $('#search-result').append('<p><a href="ViewOrganism?id=' + o.organismId + '" >' + o.commonName + '</a></p>');
+                    $('#search-result').append('<p><a href="organism?id=' + o.organismId + '" >' + o.commonName + '</a></p>');
                 });
                 setTimeout(function () {
                     $('#search-result').html('');
