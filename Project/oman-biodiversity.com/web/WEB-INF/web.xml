@@ -45,4 +45,8 @@
 	<url-pattern>/usermanagement.jsp</url-pattern>
 	<url-pattern>/header.jsp</url-pattern>
     </filter-mapping>
+    <error-page>
+    <error-code>404</error-code>
+    <location>/error.jsp</location>
+    </error-page> 
 </web-app>
