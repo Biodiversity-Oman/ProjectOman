@@ -20,7 +20,7 @@ $(document).ready(function () {
 	    googleCalendarId: 'developersteam.belgium@gmail.com'
 	},
 	eventAfterRender: function (event, element, view) {
-	    $(element).css({"background-color": "#4DB6AC", "font-size": "1.2em", "font-family": "'Montser', sans-serif", "padding": "1em"});
+	    $(element).css({"background-color": "#4DB6AC", "font-size": "1.2em", "font-family": "Helvetica-Light", "padding": "1em"});
 	},
 	eventClick: function (event) {
 	    if (event.url) {

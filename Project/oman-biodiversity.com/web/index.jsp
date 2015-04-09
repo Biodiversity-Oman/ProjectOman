@@ -33,7 +33,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="col-lg-1 col-md-2 col-sm-2 col-xs-12"><img class="img-header img-responsive" src="img/oman-mother-children.png" width="80" height="128"></div>
                             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                <h1><strong>All the treasures of Oman</strong></h1>
+                                <h1>All the treasures of Oman</h1>
                                 <p class="lead">The Oman Animal and Plant Genetic Resources Center(OAPGRC), along with its partners, has organized a fun filled event for you to learn about the beautiful plants, animals, marine, and microbial species of Oman</p>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <h3><u>Taxonomy</u></h3>
-                        <p class="text-left">There are different ways of organizing all living things. One of the oldest ways is called taxonomy.</p><p> This is when scientists divide up living organisms into groups, based on the way they look and behave. For example, every warm-blooded animal that provides milk for their young belongs to the group we call 'mammals' and every creature that lays eggs and has feathers belongs to the group we call 'birds'.</p> Scientists have divided the living world into five different kingdoms.</p>
+                        <p class="text-left">There are different ways of organizing all living things. One of the oldest ways is called taxonomy.</p><p> This is when scientists divide up living organisms into groups, based on the way they look and behave. For example, every warm-blooded animal that provides milk for their young belongs to the group we call 'mammals' and every creature that lays eggs and has feathers belongs to the group we call 'birds'.</p> <p>Scientists have divided the living world into five different kingdoms.</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
@@ -61,7 +61,7 @@
                 <div class="col-lg-11 col-md-offset-1">
                     <div class="col-lg-8">
                         <h1> </h1>
-                        <p class="lead">Find out when and where the event is taking place!</p>
+                        <h4>Find out when and where the event is taking place!</h4>
                     </div>
                     <div class="col-lg-7">
                         <div id='calendar'></div>
@@ -71,30 +71,30 @@
 				    <form class="form form-horizontal" id="create-subscriber-form" data-toggle="validator">
 					<div class="form-group">
 					    <label class="col-sm-2 col-xs-2 control-label"></label>
-					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
-						<h3 class="h3 text-center">Subscribe to our newsletter</h3>
+					    <div class="col-sm-7 col-xs-9 col-xs-offset-1">
+						<h4 class="text-center">Subscribe to our newsletter</h4>
 					    </div>
 					</div>
 					<div class="form-group">
-					    <label class="col-sm-2 col-xs-2 control-label" for="subscriber-firstname">Name</label>
-					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
+					    <label class="col-sm-3 col-xs-2 control-label" for="subscriber-firstname">Name</label>
+					    <div class="col-sm-5 col-xs-9 col-xs-offset-1">
 						<input class="form-control subscribe-input" type="text" name="subscriber-firstname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
 					    </div>
 					</div>
 					<div class="form-group">
-					    <label class="col-sm-2 col-xs-2 control-label" for="subscriber-lastname">Family name</label>
-					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
+					    <label class="col-sm-3 col-xs-2 control-label" for="subscriber-lastname">Family name</label>
+					    <div class="col-sm-5 col-xs-9 col-xs-offset-1">
 						<input class="form-control subscribe-input" type="text" name="subscriber-lastname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
 					    </div>
 					</div>
 					<div class="form-group">
-					    <label class="col-sm-2 col-xs-2  control-label" for="subscriber-email">E-mail</label>
-					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
+					    <label class="col-sm-3 col-xs-2  control-label" for="subscriber-email">E-mail</label>
+					    <div class="col-sm-5 col-xs-9 col-xs-offset-1">
 						<input class="form-control subscribe-input" type="text" name="subscriber-email" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9!]+$"  required/>
 					    </div>
 					</div>
 					<div class="form-group" >
-					    <label class="col-sm-2 col-xs-2 control-label"> </label>
+					    <label class="col-sm-3 col-xs-2 control-label"> </label>
 					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
 						<button type="submit" class="button btn-material-white">Submit</button>
 					    </div>
@@ -113,8 +113,8 @@
                     <aside class="social-container">
                         <div class="col-lg-5">
                             <div class="row">
-                                <div class="col-lg-8">
-                                    <p class="lead text-center">Find us on Instagram! & Facebook!</p>
+                                <div class="col-lg-9">
+                                    <h4 class="text-center">Find us on Instagram! & Facebook!</h4>
                                 </div>
                             </div>
                             <div class="row">
@@ -133,9 +133,9 @@
             </section>
             <section class="worlds-container" id="worlds">
                 <div class="col-lg-11 col-md-offset-1">
-                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 ">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
                         <h1> </h1>
-                        <p class="lead">Every animal lives in his desired world. Click on a world to find out more!</p>
+                        <h4>Every animal lives in his desired world. Click on a world to find out more!</h4>
                         <form class="form" id="form-search-organism">
                             <div class="form-group">
                                 <div class="col-lg-6 col-md-10 col-sm-10 col-xs-7 ">
@@ -271,7 +271,7 @@
         <script type="text/javascript" src='js/view.min.js'></script>
         <script type="text/javascript" src="js/bootstrap-main.min.js" async></script>
 	<script type="text/javascript">
-	    $("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){$("#menu").slicknav({label:""})}),$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,l){$(l).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"'Montser', sans-serif",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms(),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});var feed=new Instafeed({get:"tagged",tagName:"iranwildlife",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});feed.run(),function(e,l,n){var a,o=e.getElementsByTagName(l)[0];e.getElementById(n)||(a=e.createElement(l),a.id=n,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",o.parentNode.insertBefore(a,o))}(document,"script","facebook-jssdk");var url=document.URL;"worlds"===url.slice(-6)&&$(window).load(function(){$("html, body").animate({scrollTop:$("#worlds").offset().top})});
+	    $("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){$("#menu").slicknav({label:""})}),$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,l){$(l).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"Helvetica-Light",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms(),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});var feed=new Instafeed({get:"tagged",tagName:"iranwildlife",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});feed.run(),function(e,l,n){var a,o=e.getElementsByTagName(l)[0];e.getElementById(n)||(a=e.createElement(l),a.id=n,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",o.parentNode.insertBefore(a,o))}(document,"script","facebook-jssdk");var url=document.URL;"worlds"===url.slice(-6)&&$(window).load(function(){$("html, body").animate({scrollTop:$("#worlds").offset().top})});
 	</script>
     </body>
 </html>

@@ -11,6 +11,26 @@ and open the template in the editor.
 /* -------------- General -------------- */
 /*--------------------------------------------------------*/
 @font-face{font-family:'museo300';src:url('fonts/Museo300-Regular-webfont.eot');src:url('fonts/Museo300-Regular-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/Museo300-Regular-webfont.woff2') format('woff2'),url('fonts/Museo300-Regular-webfont.woff') format('woff'),url('fonts/Museo300-Regular-webfont.ttf') format('truetype'),url('fonts/Museo300-Regular-webfont.svg#museo300') format('svg');font-weight:normal;font-style:normal}
+@font-face {
+    font-family: Helvetica-medium;
+    src: url('fonts/HelveticaNeue-Medium.woff');
+}
+@font-face {
+    font-family: Museo-Sans-Italic;
+    src: url('fonts/MuseoSans_500_Italic.otf');
+}
+@font-face {
+    font-family: Museo-Sans-Medium;
+    src: url('fonts/MuseoSans_500.otf');
+}
+@font-face {
+    font-family: Helvetica-Light;
+    src: url('fonts/HelveticaNeue-Light.woff');
+}
+@font-face {
+    font-family: Museo-Sans-Light;
+    src: url('fonts/MuseoSans-100.otf');
+}
 body, html {
     margin: 0 auto;
     background-color: #F5F5FF;
@@ -21,13 +41,12 @@ body, html {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
-    font-family: Verdana, Geneva, sans-serif;
 }
 .button {
     border-style: none;
     border-radius: 2px;
-    font-family: 'Montser', sans-serif;
-    font-weight: bold;
+    font-family: Helvetica-medium;
+    font-weight: 500;
     font-size: 1.2em;
     padding: 15px 40px;
     margin-top: 1em;
@@ -66,6 +85,23 @@ body, html {
 }
 .btn-material-white:hover {
     background-color: #DDDDDD;
+}
+h1 {
+    font-family: Museo-Sans-Italic;
+    font-size: 47px;
+}
+h3 {
+    font-family: Museo-Sans-Medium;
+    font-size: 28px;
+}
+h4 {
+    font-family: Museo-Sans-Light;
+    font-size: 25px;
+    margin-bottom: 2em;
+}
+p {
+    line-height: 1.5;
+    font-size: 17px;
 }
 /*--------------------------------------------------------*/
 /* -------------- header & navigation --------------*/
@@ -155,7 +191,7 @@ nav ul li a {
     width: 100%;
     min-height: 100vh;
     float: left;
-    font-family: museo300;
+    
     color: #212121;
     background-color: #ffffff;
     padding-bottom: 5em;
@@ -166,16 +202,24 @@ nav ul li a {
     color: #B6B6B6;
 }
 .calendar-container h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: Helvetica-Light;
+    font-size: 29px;
 }
 .subscribe-container {
     margin-top: 2em;
     margin-left: 0;
     margin-right: 0;
 }
+.subscribe-container h4 {
+    margin-bottom: 0.7em;
+}
 .subscribe-input[type="text"] {
     border: 1px #BDBDBD solid;
     border-radius: 2px;
+}
+.subscribe-container label {
+    font-family: Helvetica-Light;
+    font-weight: 200;
 }
 /*--------------------------------------------------------*/
 /* -------------- Social-Container -------------- */
@@ -183,6 +227,13 @@ nav ul li a {
 .social-container {
     max-width: 100%;
     margin-top: 1em;
+}
+.social-container h4 {
+    font-size: 22px;
+}
+.social-container h3 {
+    font-family: Helvetica-Light;
+    font-size: 23px;
 }
 .grey-border {
     border-color: #BDBDBD;
@@ -405,5 +456,5 @@ input[type="text"] {
     .world h4 {
         padding-bottom: 0.5em;
     }
-    
+
 }
