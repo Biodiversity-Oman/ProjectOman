@@ -236,23 +236,23 @@
             <section class="fun-stuff-container" id="fun-stuff">
                 <div class="col-lg-11 col-md-offset-1">
                     <div class="col-lg-10">
-                        <p class="lead">Cool stories, facts & games!</p>
+                        <p class="lead">Download Funnstuff</p>
                     </div>
                     <div class="col-lg-3">
-                        <h2>Download color drawings</h2>
+                        <h2>Color drawings</h2>
                         <a href="img/crops.png" download="download/crops.pdf" ><img class="img-responsive" src="img/crops.png" /></a><br>
                         <a href="img/grasland.png" download="download/crops.pdf" ><img class="img-responsive" src="img/grasland.png"/></a><br>
                         <a href="img/logo.png" download="download/crops.pdf" ><img class="img-responsive" src="img/logo.png"/></a></p>
                         <a href="img/mountain.png" download="download/mountain.pdf" ><img class="img-responsive" src="img/montain.png" /></a><br>
                     </div>
                     <div class="col-lg-3">
-                        <h2>Download books</h2>
+                        <h2>Books</h2>
                         <a href="img/book-childern-web.jpg" download="download/childrenbook_eng.pdf"><img class="img-responsive" src="img/book-childern-web.jpg" /></a><br>
                         <a href="img/book-English-web.jpg" download="download/teachersbook_eng.pdf" ><img class="img-responsive" src="img/book-English-web.jpg"/></a><br>
                         <a href="img/book-arbic-web.jpg" download="download/teachersbook_ar.pdf" ><img class="img-responsive" src="img/book-arbic-web.jpg"/></a><br>
                     </div>
                       <div class="col-lg-3">
-                        <h2>Download games</h2>
+                        <h2>Games</h2>
                         <a href="img/7-differences.jpg" download="download/Find the 7 differences.pdf"><img class="img-responsive" src="img/7-differences.jpg" /></a><br>
                     </div>                    
                 </div>
