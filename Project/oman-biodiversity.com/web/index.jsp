@@ -7,23 +7,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" href="css/bootstrap-main.min.css">
-	<link rel="StyleSheet" type="text/css" href="css/main.min.css">
-	<link rel="stylesheet" href="css/plugins.min.css" media="none" onload="if(media!='all')media='all'">
-	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' media="none" onload="if(media!='all')media='all'">
-	<link rel="StyleSheet" type="text/css" href="css/icons.min.css" media="none" onload="if(media!='all')media='all'">
-	<title>Oman-Biodiversity</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="css/bootstrap-main.min.css">
+        <link rel="StyleSheet" type="text/css" href="css/main.min.css">
+        <link rel="stylesheet" href="css/plugins.min.css" media="none" onload="if (media != 'all')
+                    media = 'all'">
+        <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' media="none" onload="if (media != 'all')
+                    media = 'all'">
+        <link rel="StyleSheet" type="text/css" href="css/icons.min.css" media="none" onload="if (media != 'all')
+                    media = 'all'">
+        <title>Oman-Biodiversity</title>
     </head>
     <nav>
-	    <ul id="menu">
-		<li><img src="img/logo-roadshow.png" height="58" width="103"></li>
-		<li><a href="#event">Event</a></li>
-		<li ><a href="#event-calendar">Calendar</a></li>
-		<li><a href="#worlds">Worlds</a></li>
-		<li><a href="#fun-stuff">Fun stuff</a></li>
-		<li><a href="#about-us">About us</a></li>
-	    </ul>
+        <ul id="menu">
+            <li><img src="img/logo-roadshow.png" height="58" width="103"></li>
+            <li><a href="#event">Event</a></li>
+            <li ><a href="#event-calendar">Calendar</a></li>
+            <li><a href="#worlds">Worlds</a></li>
+            <li><a href="#fun-stuff">Fun stuff</a></li>
+            <li><a href="#about-us">About us</a></li>
+        </ul>
     </nav>
     <body>
         <div class="wrapper">
@@ -67,46 +70,46 @@
                         <div id='calendar'></div>
                         <div class="col-lg-* col-md-* col-sm-* col-xs-*">
                             <div class="subscribe-container">
-				<div class="grey-border">
-				    <form class="form form-horizontal" id="create-subscriber-form" data-toggle="validator">
-					<div class="form-group">
-					    <label class="col-sm-2 col-xs-2 control-label"></label>
-					    <div class="col-sm-7 col-xs-9 col-xs-offset-1">
-						<h4 class="text-center">Subscribe to our newsletter</h4>
-					    </div>
-					</div>
-					<div class="form-group">
-					    <label class="col-sm-3 col-xs-2 control-label" for="subscriber-firstname">Name</label>
-					    <div class="col-sm-5 col-xs-9 col-xs-offset-1">
-						<input class="form-control subscribe-input" type="text" name="subscriber-firstname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
-					    </div>
-					</div>
-					<div class="form-group">
-					    <label class="col-sm-3 col-xs-2 control-label" for="subscriber-lastname">Family name</label>
-					    <div class="col-sm-5 col-xs-9 col-xs-offset-1">
-						<input class="form-control subscribe-input" type="text" name="subscriber-lastname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
-					    </div>
-					</div>
-					<div class="form-group">
-					    <label class="col-sm-3 col-xs-2  control-label" for="subscriber-email">E-mail</label>
-					    <div class="col-sm-5 col-xs-9 col-xs-offset-1">
-						<input class="form-control subscribe-input" type="text" name="subscriber-email" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9!]+$"  required/>
-					    </div>
-					</div>
-					<div class="form-group" >
-					    <label class="col-sm-3 col-xs-2 control-label"> </label>
-					    <div class="col-sm-6 col-xs-9 col-xs-offset-1">
-						<button type="submit" class="button btn-material-white">Submit</button>
-					    </div>
-					</div>
-					<div class="form-group">
-					    <label class="col-sm-2 control-label"></label>
-					    <div class="col-sm-4">
-						<div class="message" id="create-subscriber-message"></div>
-					    </div>
-					</div>
-				    </form>
-				</div>
+                                <div class="grey-border">
+                                    <form class="form form-horizontal" id="create-subscriber-form" data-toggle="validator">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 col-xs-2 control-label"></label>
+                                            <div class="col-sm-7 col-xs-9 col-xs-offset-1">
+                                                <h4 class="text-center">Subscribe to our newsletter</h4>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 col-xs-2 control-label" for="subscriber-firstname">Name</label>
+                                            <div class="col-sm-5 col-xs-9 col-xs-offset-1">
+                                                <input class="form-control subscribe-input" type="text" name="subscriber-firstname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 col-xs-2 control-label" for="subscriber-lastname">Family name</label>
+                                            <div class="col-sm-5 col-xs-9 col-xs-offset-1">
+                                                <input class="form-control subscribe-input" type="text" name="subscriber-lastname" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9@!]+$"  required/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 col-xs-2  control-label" for="subscriber-email">E-mail</label>
+                                            <div class="col-sm-5 col-xs-9 col-xs-offset-1">
+                                                <input class="form-control subscribe-input" type="text" name="subscriber-email" maxlength="50" data-delay="1200" pattern="[^()[\]{}*&^%$<>#0-9!]+$"  required/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" >
+                                            <label class="col-sm-3 col-xs-2 control-label"> </label>
+                                            <div class="col-sm-6 col-xs-9 col-xs-offset-1">
+                                                <button type="submit" class="button btn-material-white">Submit</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-4">
+                                                <div class="message" id="create-subscriber-message"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div> 
                     </div>
@@ -119,12 +122,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-8 col-md-5 col-sm-6 col-xs-12">
-				    <div class="row"><h3 class="text-center"><span class="icon-instagram"></span>Instagram</h3></div>
-				    <div class="row"><div class="text-center" id="instafeed"></div></div><br>
+                                    <div class="row"><h3 class="text-center"><span class="icon-instagram"></span>Instagram</h3></div>
+                                    <div class="row"><div class="text-center" id="instafeed"></div></div><br>
                                 </div>
                                 <div class=" col-lg-8 col-md-6 col-sm-6 col-xs-12">
-				    <div class="row"><h3 class="text-center"><span class="icon-facebook3"></span>Facebook</h3></div>
-				    <div class="row"><div id="fb-root"><div class="fb-page" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"></div></div></div>
+                                    <div class="row"><h3 class="text-center"><span class="icon-facebook3"></span>Facebook</h3></div>
+                                    <div class="row"><div id="fb-root"><div class="fb-page" data-href="https://www.facebook.com/pages/Oman-biodiversity/1375638472760746" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"></div></div></div>
                                 </div>
                             </div>
                         </div>
@@ -233,12 +236,25 @@
             <section class="fun-stuff-container" id="fun-stuff">
                 <div class="col-lg-11 col-md-offset-1">
                     <div class="col-lg-10">
-                        <h1> </h1>
                         <p class="lead">Cool stories, facts & games!</p>
                     </div>
-                    <div class="col-lg-5">
-                        <h2>Coming Soon!</h2>
+                    <div class="col-lg-3">
+                        <h2>Download color drawings</h2>
+                        <a href="img/crops.png" download="download/crops.pdf" ><img class="img-responsive" src="img/crops.png" /></a><br>
+                        <a href="img/grasland.png" download="download/crops.pdf" ><img class="img-responsive" src="img/grasland.png"/></a><br>
+                        <a href="img/logo.png" download="download/crops.pdf" ><img class="img-responsive" src="img/logo.png"/></a></p>
+                        <a href="img/mountain.png" download="download/mountain.pdf" ><img class="img-responsive" src="img/montain.png" /></a><br>
                     </div>
+                    <div class="col-lg-3">
+                        <h2>Download books</h2>
+                        <a href="img/book-childern-web.jpg" download="download/childrenbook_eng.pdf"><img class="img-responsive" src="img/book-childern-web.jpg" /></a><br>
+                        <a href="img/book-English-web.jpg" download="download/teachersbook_eng.pdf" ><img class="img-responsive" src="img/book-English-web.jpg"/></a><br>
+                        <a href="img/book-arbic-web.jpg" download="download/teachersbook_ar.pdf" ><img class="img-responsive" src="img/book-arbic-web.jpg"/></a><br>
+                    </div>
+                      <div class="col-lg-3">
+                        <h2>Download games</h2>
+                        <a href="img/7-differences.jpg" download="download/Find the 7 differences.pdf"><img class="img-responsive" src="img/7-differences.jpg" /></a><br>
+                    </div>                    
                 </div>
             </section>
             <section class="footer-container" id="about-us">
@@ -257,6 +273,8 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 col-sm-offset-1 text-left ">
                         <h2>Project Leader</h2>
                         <p>Filip Keunen</p>
+                        <h2>Techinical manager</h2>
+                        <p>Stan Claes</p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 col-md-offset-3" >
                         <h2></h2><br>
@@ -265,13 +283,48 @@
                 </div>
             </section>
         </div>
-	<script type="text/javascript" src = 'js/jquery.min.js'></script>
-	<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-	<script type="text/javascript" src="js/plugins.min.js"></script>
+        <script type="text/javascript" src = 'js/jquery.min.js'></script>
+        <script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
+        <script type="text/javascript" src="js/plugins.min.js"></script>
         <script type="text/javascript" src='js/view.min.js'></script>
         <script type="text/javascript" src="js/bootstrap-main.min.js" async></script>
-	<script type="text/javascript">
-	    $("a").click(function(){return $("html, body").animate({scrollTop:$($(this).attr("href")).offset().top},500),!1}),$(function(){$("#menu").slicknav({label:""})}),$("#calendar").fullCalendar({googleCalendarApiKey:"AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ",events:{googleCalendarId:"developersteam.belgium@gmail.com"},eventAfterRender:function(e,l){$(l).css({"background-color":"#4DB6AC","font-size":"1.2em","font-family":"Helvetica-Light",padding:"1em"})},eventClick:function(e){return e.url?(window.open(e.url),!1):void 0},eventColor:"#26A69A",height:"auto"}),$("#slide-marine-world").click(function(){$("#marine-world-panel").slideToggle("slow")}),$("#slide-animal-world").click(function(){$("#animal-world-panel").slideToggle("slow")}),$("#slide-plant-world").click(function(){$("#plant-world-panel").slideToggle("slow")}),$("#slide-microbial-world").click(function(){$("#microbial-world-panel").slideToggle("slow")}),loadOrganisms(),$(function(){var e=$("p.minimize");e.each(function(){var e=$(this).text();e.length<200||$(this).html(e.slice(0,200)+'<span>... </span><a href="#" class="more">more</a><span style="display:none;">'+e.slice(200,e.length)+' <a href="#" class="less">less</a></span>')}),$("a.more",e).click(function(e){e.preventDefault(),$(this).hide().prev().hide(),$(this).next().show()}),$("a.less",e).click(function(e){e.preventDefault(),$(this).parent().hide().prev().show().prev().show()})});var feed=new Instafeed({get:"tagged",tagName:"treasuresofoman",clientId:"795b3c3858144130b2a7ce7f41f3b20a",limit:4,template:'<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>',sortBy:"most-recent"});feed.run(),function(e,l,n){var a,o=e.getElementsByTagName(l)[0];e.getElementById(n)||(a=e.createElement(l),a.id=n,a.async=!0,a.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3",o.parentNode.insertBefore(a,o))}(document,"script","facebook-jssdk");var url=document.URL;"worlds"===url.slice(-6)&&$(window).load(function(){$("html, body").animate({scrollTop:$("#worlds").offset().top})});
-	</script>
+        <script type="text/javascript">
+            $("a").click(function () {
+                return $("html, body").animate({scrollTop: $($(this).attr("href")).offset().top}, 500), !1
+            }), $(function () {
+                $("#menu").slicknav({label: ""})
+            }), $("#calendar").fullCalendar({googleCalendarApiKey: "AIzaSyBNJFnwaBuRvwA8ZBswpgV-CyKV8lTz8YQ", events: {googleCalendarId: "developersteam.belgium@gmail.com"}, eventAfterRender: function (e, l) {
+                    $(l).css({"background-color": "#4DB6AC", "font-size": "1.2em", "font-family": "Helvetica-Light", padding: "1em"})
+                }, eventClick: function (e) {
+                    return e.url ? (window.open(e.url), !1) : void 0
+                }, eventColor: "#26A69A", height: "auto"}), $("#slide-marine-world").click(function () {
+                $("#marine-world-panel").slideToggle("slow")
+            }), $("#slide-animal-world").click(function () {
+                $("#animal-world-panel").slideToggle("slow")
+            }), $("#slide-plant-world").click(function () {
+                $("#plant-world-panel").slideToggle("slow")
+            }), $("#slide-microbial-world").click(function () {
+                $("#microbial-world-panel").slideToggle("slow")
+            }), loadOrganisms(), $(function () {
+                var e = $("p.minimize");
+                e.each(function () {
+                    var e = $(this).text();
+                    e.length < 200 || $(this).html(e.slice(0, 200) + '<span>... </span><a href="#" class="more">more</a><span style="display:none;">' + e.slice(200, e.length) + ' <a href="#" class="less">less</a></span>')
+                }), $("a.more", e).click(function (e) {
+                    e.preventDefault(), $(this).hide().prev().hide(), $(this).next().show()
+                }), $("a.less", e).click(function (e) {
+                    e.preventDefault(), $(this).parent().hide().prev().show().prev().show()
+                })
+            });
+            var feed = new Instafeed({get: "tagged", tagName: "treasuresofoman", clientId: "795b3c3858144130b2a7ce7f41f3b20a", limit: 4, template: '<a href="{{link}}" target="_blank"><img src="{{image}}" style="margin: 0.2em" /></a>', sortBy: "most-recent"});
+            feed.run(), function (e, l, n) {
+                var a, o = e.getElementsByTagName(l)[0];
+                e.getElementById(n) || (a = e.createElement(l), a.id = n, a.async = !0, a.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830099023749020&version=v2.3", o.parentNode.insertBefore(a, o))
+            }(document, "script", "facebook-jssdk");
+            var url = document.URL;
+            "worlds" === url.slice(-6) && $(window).load(function () {
+                $("html, body").animate({scrollTop: $("#worlds").offset().top})
+            });
+        </script>
     </body>
 </html>
