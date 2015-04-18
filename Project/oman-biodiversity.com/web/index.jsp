@@ -240,20 +240,20 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <h2>Color drawings</h2>
-                        <a href="img/crops.jpg" download="download/crops.pdf" ><img border="5" class="img-responsive img-thumbnail" src="img/crops.jpg" border="5" /></a><br><br>
-                        <a href="img/grasland.JPG" download="download/crops.pdf" ><img class="img-responsive img-thumbnail" src="img/grasland.JPG"/></a><br><br>
-                        <a href="img/logo.JPG" download="download/crops.pdf" ><img class="img-responsive img-thumbnail" src="img/logo.JPG"/></a><br><br>
-                        <a href="img/mountain.JPG" download="download/mountain.pdf" ><img class="img-responsive img-thumbnail" src="img/mountain.JPG" /></a>
+                        <a href="download/crops.pdf" ><img border="5" class="img-responsive img-thumbnail" src="img/crops.jpg" border="5" /></a><br><br>
+                        <a href="download/crops.pdf" ><img class="img-responsive img-thumbnail" src="img/grasland.JPG"/></a><br><br>
+                        <a href="download/crops.pdf" ><img class="img-responsive img-thumbnail" src="img/logo.JPG"/></a><br><br>
+                        <a href="download/mountain.pdf" ><img class="img-responsive img-thumbnail" src="img/mountain.JPG" /></a>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <h2>Books</h2>
-                        <a href="img/book-childern-web.jpg" download="download/childrenbook_eng.pdf"><img class="img-responsive img-thumbnail" src="img/book-childern-web.jpg" /></a><br><br>
-                        <a href="img/book-English-web.jpg" download="download/teachersbook_eng.pdf" ><img class="img-responsive img-thumbnail" src="img/book-English-web.jpg"/></a><br><br>
-                        <a href="img/book-arbic-web.jpg" download="download/teachersbook_ar.pdf" ><img class="img-responsive img-thumbnail" src="img/book-arbic-web.jpg"/></a><br><br>
+                        <a href="download/childrenbook_eng.pdf"><img class="img-responsive img-thumbnail" src="img/book-childern-web.jpg" /></a><br><br>
+                        <a href="download/teachersbook_eng.pdf" ><img class="img-responsive img-thumbnail" src="img/book-English-web.jpg"/></a><br><br>
+                        <a href="download/teachersbook_ar.pdf" ><img class="img-responsive img-thumbnail" src="img/book-arbic-web.jpg"/></a><br><br>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <h2>Games</h2>
-                        <a href="img/7-differences.jpg" download="download/Find the 7 differences.pdf"><img class="img-responsive img-thumbnail" src="img/7-differences.jpg" /></a>
+                        <a href="download/Find the 7 differences.pdf"><img class="img-responsive img-thumbnail" src="img/7-differences.jpg" /></a>
                     </div>                    
                 </div>
             </section>
