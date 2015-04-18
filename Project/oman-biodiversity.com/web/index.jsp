@@ -236,14 +236,14 @@
             <section class="fun-stuff-container" id="fun-stuff">
                 <div class="col-lg-11 col-md-offset-1">
                     <div class="col-lg-10">
-                        <p class="lead">Download Funnstuff</p>
+                        <p class="lead">Download Funstuff, click on the image</p>
                     </div>
                     <div class="col-lg-3">
                         <h2>Color drawings</h2>
                         <a href="img/crops.png" download="download/crops.pdf" ><img class="img-responsive" src="img/crops.png" /></a><br>
                         <a href="img/grasland.png" download="download/crops.pdf" ><img class="img-responsive" src="img/grasland.png"/></a><br>
-                        <a href="img/logo.png" download="download/crops.pdf" ><img class="img-responsive" src="img/logo.png"/></a></p>
-                        <a href="img/mountain.png" download="download/mountain.pdf" ><img class="img-responsive" src="img/montain.png" /></a><br>
+                        <a href="img/logo.png" download="download/crops.pdf" ><img class="img-responsive" src="img/logo.png"/></a><br>
+                        <a href="img/montain.png" download="download/mountain.pdf" ><img class="img-responsive" src="img/montain.png" /></a><br>
                     </div>
                     <div class="col-lg-3">
                         <h2>Books</h2>
@@ -251,7 +251,7 @@
                         <a href="img/book-English-web.jpg" download="download/teachersbook_eng.pdf" ><img class="img-responsive" src="img/book-English-web.jpg"/></a><br>
                         <a href="img/book-arbic-web.jpg" download="download/teachersbook_ar.pdf" ><img class="img-responsive" src="img/book-arbic-web.jpg"/></a><br>
                     </div>
-                      <div class="col-lg-3">
+                    <div class="col-lg-3">
                         <h2>Games</h2>
                         <a href="img/7-differences.jpg" download="download/Find the 7 differences.pdf"><img class="img-responsive" src="img/7-differences.jpg" /></a><br>
                     </div>                    
@@ -261,6 +261,8 @@
                 <div class="col-lg-11 col-md-offset-1">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <h1><u>About us</u></h1>
+                        <p class="text-left">Treasures of Oman is an awareness campaign roadshow for the Oman Animal and Plant Genetic Resource Center developed and produced by Polyphaemus Concept Agency, info@polyphaemus.net.
+                            The roadshow visits all main cities of the Sultanate of Oman during the months of march and april 2015. See calendar for exact locations and timing</p>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-left">
                         <h2>Developers</h2>
