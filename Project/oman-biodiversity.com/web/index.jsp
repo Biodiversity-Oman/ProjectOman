@@ -275,8 +275,8 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 col-sm-offset-1 text-left ">
                         <h2>Project Leader</h2>
                         <p>Filip Keunen</p>
-                        <h2>Techinical manager</h2>
-                        <p>Stan Claes</p>
+                        <h2>Technical manager</h2>
+                        <p>Stan Claeys</p>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 col-md-offset-3" >
                         <h2></h2><br>
