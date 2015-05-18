@@ -1,0 +1,460 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 12, 2015, 1:59:52 PM
+    Author     : lenny
+*/
+/*--------------------------------------------------------*/
+/* -------------- General -------------- */
+/*--------------------------------------------------------*/
+@font-face{font-family:'museo300';src:url('fonts/Museo300-Regular-webfont.eot');src:url('fonts/Museo300-Regular-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/Museo300-Regular-webfont.woff2') format('woff2'),url('fonts/Museo300-Regular-webfont.woff') format('woff'),url('fonts/Museo300-Regular-webfont.ttf') format('truetype'),url('fonts/Museo300-Regular-webfont.svg#museo300') format('svg');font-weight:normal;font-style:normal}
+@font-face {
+    font-family: Helvetica-medium;
+    src: url('fonts/HelveticaNeue-Medium.woff');
+}
+@font-face {
+    font-family: Museo-Sans-Italic;
+    src: url('fonts/MuseoSans_500_Italic.otf');
+}
+@font-face {
+    font-family: Museo-Sans-Medium;
+    src: url('fonts/MuseoSans_500.otf');
+}
+@font-face {
+    font-family: Helvetica-Light;
+    src: url('fonts/HelveticaNeue-Light.woff');
+}
+@font-face {
+    font-family: Museo-Sans-Light;
+    src: url('fonts/MuseoSans-100.otf');
+}
+body, html {
+    margin: 0 auto;
+    background-color: #F5F5FF;
+    font-size: 100%;
+    opacity: 1;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+.button {
+    border-style: none;
+    border-radius: 2px;
+    font-family: Helvetica-medium;
+    font-weight: 500;
+    font-size: 1.2em;
+    padding: 15px 40px;
+    margin-top: 1em;
+}
+.btn-material-yellow {
+    background-color: #ffc107;
+    color: #ffffff;
+    margin-top: 0em;
+    margin-bottom: 1em;
+    width: 100%;
+    font-size: 1.4em;
+}
+.btn-material-yellow:hover {
+    opacity: 0.7;
+}
+.btn-material-orange {
+    background-color: #F57C00;
+    color: #ffffff;
+    font-size: 1em;
+    padding: 7px 20px;
+    margin-top: 0;
+}
+.btn-material-orange:hover {
+    opacity: 0.7;
+}
+.btn-material-white {
+    background-color: #ffffff;
+    color: black;
+    margin-top: 0;
+    font-size: 1em;
+    padding: 7px 20px;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #BDBDBD;
+}
+.btn-material-white:hover {
+    background-color: #DDDDDD;
+}
+h1 {
+    font-family: Museo-Sans-Italic;
+    font-size: 47px;
+}
+h3 {
+    font-family: Museo-Sans-Medium;
+    font-size: 28px;
+}
+h4 {
+    font-family: Museo-Sans-Light;
+    font-size: 25px;
+    margin-bottom: 2em;
+}
+p {
+    line-height: 1.5;
+    font-size: 17px;
+}
+/*--------------------------------------------------------*/
+/* -------------- header & navigation --------------*/
+/*--------------------------------------------------------*/
+nav ul img {
+    padding-top: 0.1em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+nav ul {
+    background: #ffffff;
+    box-shadow: 1px  1px 1px #ffffff ;
+    padding: 0em;
+    opacity: 0.9;
+    margin: 0 auto;
+    list-style: none;
+    position: fixed;
+    display: block;
+    top: 0;
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    z-index:1000;
+    font-size: 1.1em;
+    height: 4em;
+    font-family: 'Montserrat', sans-serif;
+}
+nav ul li {
+    float: left;
+    margin: auto;
+    color: black;
+    height: auto;
+}
+nav ul li a:focus {
+    outline: none;
+    color: #212121;
+    text-decoration-line: none;
+}
+nav ul li:hover a {
+    color: #282828;
+    text-decoration: none;
+    outline: none;
+}
+nav ul li a {
+    display: block; 
+    padding: 24px 40px;
+    color: #212121; 
+    font-size: 1.1em;
+    text-decoration-color: red;
+    outline: none;
+}
+.slicknav_menu {
+    display:none;
+}
+/*--------------------------------------------------------*/
+/* -------------- Wrapper -------------- */
+/*--------------------------------------------------------*/
+.wrapper {
+    background-color: #ffffff; /*#ffffff*/
+    width: 100%;
+    height: auto;
+    float: left;
+}
+/*--------------------------------------------------------*/
+/* -------------- Event-Container -------------- */
+/*--------------------------------------------------------*/
+.event-container {
+    width: 100%;
+    height: auto;
+    margin-top: 4.5em;
+    float: left;
+    position: relative;
+    font-family: museo300;
+    color: #ffffff;
+    background-color: #00bcd4;
+    padding-top: 3em;
+}
+.event-image {
+    width:  400px; 
+    height: 287px;
+    position: relative;
+}
+/*--------------------------------------------------------*/
+/* -------------- Calendar-Container -------------- */
+/*--------------------------------------------------------*/
+.calendar-container {
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+    
+    color: #212121;
+    background-color: #ffffff;
+    padding-bottom: 5em;
+    padding-top: 3em;
+    position: relative;
+}
+.calendar-container p {
+    color: #B6B6B6;
+}
+.calendar-container h2 {
+    font-family: Helvetica-Light;
+    font-size: 29px;
+}
+.subscribe-container {
+    margin-top: 2em;
+    margin-left: 0;
+    margin-right: 0;
+}
+.subscribe-container h4 {
+    margin-bottom: 0.7em;
+}
+.subscribe-input[type="text"] {
+    border: 1px #BDBDBD solid;
+    border-radius: 2px;
+}
+.subscribe-container label {
+    font-family: Helvetica-Light;
+    font-weight: 200;
+}
+/*--------------------------------------------------------*/
+/* -------------- Social-Container -------------- */
+/*--------------------------------------------------------*/
+.social-container {
+    max-width: 100%;
+    margin-top: 1em;
+}
+.social-container h4 {
+    font-size: 22px;
+}
+.social-container h3 {
+    font-family: Helvetica-Light;
+    font-size: 23px;
+}
+.grey-border {
+    border-color: #BDBDBD;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px 10px 10px;
+    margin-top: 0.5em;
+    border-radius: 2px;
+}
+.fb-page {
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    height: 500px;
+}
+/*--------------------------------------------------------*/
+/* -------------- Worlds-Container -------------- */
+/*--------------------------------------------------------*/
+.worlds-container {
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+    font-family: museo300;
+    color: #212121;
+    background-color: #FFEE58;
+    padding-bottom: 5em;
+    padding-top: 3em;
+    position: relative;
+}
+.slide-panel {
+    display:none;
+    height: auto;
+    margin-top: 0.3em;
+    padding: 1em 1em 1em 1em;
+    color: #ffffff;
+}
+.world {
+    height: 9em;
+    margin-top: 0.5em;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+.world h2 {
+    padding-top: 1em;
+}
+.marine-world {
+    background-color: #03a9f4;
+}
+.animal-world {
+    background-color: #f44336;
+}
+.plant-world {
+    background-color: #4caf50;
+}
+.microbial-world {
+    background-color: #ffc107;
+}
+.microbial-world p {
+    color: black;
+}
+.organism-box {
+    color: #000066;
+    margin-top: 1em;
+    width: 90%;
+}
+.organism-list {
+    line-height: 1.5em;
+    list-style-type: square;
+    padding-top: 0;
+    margin-top: 0;
+    margin-left: 0em;
+    padding-bottom: 1em;
+}
+.organism-list a {
+    color: #000066;
+    text-decoration: underline;
+}
+.search-result {
+    display: none;
+    height: auto;
+    margin-top: 0.5em;
+}
+input[type="text"] {
+    border-style: none;
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+.world-text{
+    padding: 0.3em;
+    position: relative;
+}
+.organisms-list {
+    padding: 0.4em;
+    border-radius: 2px;
+    list-style: none;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+}
+.organisms-animal-world {
+    background-color: #EF5350;
+    border-color: #E53935;
+}
+.organisms-plant-world {
+    background-color: #9CCC65;
+    border-color: #388E3C;
+}
+.organisms-microbial-world {
+    background-color: #FFF176;
+    border-color: #F9A825;
+    color: black;
+}
+.organisms-marine-world {
+    background-color: #29B6F6;
+    border-color: #1976D2;
+}
+.organisms-list:hover {
+    text-decoration: none;
+    opacity: 0.7;
+}
+/*--------------------------------------------------------*/
+/* -------------- funn-stuff-container-Container -------------- */
+/*--------------------------------------------------------*/
+.fun-stuff-container {
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+    font-family: museo300;
+    color: #212121;
+    background-color: #ffffff;
+    padding-bottom: 5em;
+    padding-top: 3em;
+    position: relative;
+}
+/*--------------------------------------------------------*/
+/* -------------- Organism Detail -------------- */
+/*--------------------------------------------------------*/
+.detail-text{
+    font-weight: 500;
+    color:black;
+}
+.detail-header{
+    min-height:5em;
+    height: auto;
+    margin-bottom: 1em;
+    color:white;
+}
+.detail-container{
+    font-family: museo300;
+    color: black;
+}
+.detail-back{
+    background-color: #FFEE58; 
+    min-height: 100vh;
+    height: 100%;
+}
+.rsp {
+    min-height: 59vh;
+}
+.footer-detail {
+    height: auto;
+    font-family: museo300;
+    color: #212121;
+    background-color: #9E9E9E;
+}
+/*--------------------------------------------------------*/
+/* -------------- Footer-Container -------------- */
+/*--------------------------------------------------------*/
+.footer-container {
+    width: 100%;
+    height: auto;
+    float: left;
+    font-family: museo300;
+    color: #212121;
+    background-color: #9E9E9E;
+    padding-bottom: 5em;
+    padding-top: 3em;
+    position: relative;
+}
+/*--------------------------------------------------------*/
+/* -------------- Media Queries -------------- */
+/*--------------------------------------------------------*/
+@media screen and (max-width: 910px) {
+    nav ul li a {
+        padding: 24px 17px;
+    }
+}
+@media screen and (max-width: 740px) {
+    /* #menu is the original menu */
+    #menu {
+        display:none;
+    }
+    .slicknav_menu {
+        display:block;
+    }
+    .event-container {
+        margin-top: 0;
+    }
+    .btn-material-yellow {
+        background-color: #ffc107;
+        color: #ffffff;
+        margin-bottom: 1em;
+    }
+    .event-image {
+        width:  200px; 
+        height: 143px;
+	display:block;
+    }
+    .world {
+        width: 100%;
+        min-height: 5em;
+    }
+    .world h2 {
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
+    .world h4 {
+        padding-bottom: 0.5em;
+    }
+
+}
