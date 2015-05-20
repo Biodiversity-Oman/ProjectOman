@@ -2,6 +2,32 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/usermanagement.jsp</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/css/main.css</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/test/DAL/DaFamilyTest.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/adminheader.jsp</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/BLL/Subfamily.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/BLL/World.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/js/loaders.js</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/admin.jsp</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/BLL/Organism.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/BLL/Season.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/DAL/DaOrganism.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/BLL/Habitat.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/Controllers/Login.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/DAL/DataSource.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/js/inline-js-index-nonminified.js</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/DAL/DaWorld.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/BLL/Download.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/js/ajax.js</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/BLL/UserAccount.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/BLL/Post.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/index.jsp</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/dashboard.jsp</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/DAL/DaUserAccount.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/src/java/BLL/Subscriber.java</file>
+            <file>file:/Users/lenny/github/ProjectOman/Project/oman-biodiversity.com/web/userinfo.jsp</file>
+        </group>
     </open-files>
 </project-private>
